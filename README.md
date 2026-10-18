@@ -1,0 +1,50 @@
+# Dynamic n-gram memory
+
+Explicit, editable memory for language models: retrieve relevant notes using token n-grams, place a bounded block in the prompt, and keep a journal of changes and take-backs.
+
+This is the Notes module developed by Petrus Pennanen / ThinkOffApp and collaborators for [TensorFold](https://github.com/ashhart/TensorFold). This repository is its separate home for source, integration instructions and examples. TensorFold supplies the model engine, tokenizer, HTTP server and prompt handling. The original lookup comes from ThinkOffApp's Logically Living Weights Zengine (LLWZ) checker.
+
+**Pre-release integration snapshot.** This package contains an exact module export at the commit recorded in [SOURCE.json](SOURCE.json). It runs inside the pinned TensorFold host; it is not yet an independently buildable library. The checker and its private working history are separate from this repository.
+
+## What it does
+
+- Ranks notes using token n-grams, IDF weighting, subject matches and selected value links.
+- Fits the retrieved block to a token cap using the served model's tokenizer.
+- Supports adding, changing, taking back and erasing notes over HTTP.
+- Uses a durable journal and publishes new index versions for concurrent readers.
+- Requires explicit server and request switches to use Notes.
+
+The pinned version still rebuilds indexes on writes. Bounded write latency at one million notes is unfinished. An erase removes note-store material and tokenizer-kept encodes, but comprehensive removal from saved conversations, prompt caches and other derived artifacts is an open production gate. Do not interpret erase as a complete privacy guarantee.
+
+## Reproduce the integration
+
+Install Git, Python 3.10 or later, and Zig 0.17.0. From this repository:
+
+```sh
+python3 tools/stage_tensorfold.py work/tensorfold --check
+```
+
+The command creates a fresh checkout of the exact public host commit, verifies every exported module file, and runs the host's CPU server tests. It refuses to replace an existing destination. It downloads source only, with no model download. For an existing local source repository, use `--source-repository /path/to/TensorFold` to stage without network access. Use `--zig /path/to/zig` to choose the compiler.
+
+Build the native engine in the staged host using TensorFold's platform instructions. Serve your model with a compatible Notes snapshot:
+
+```sh
+tensorfold-native serve MODEL --notes SNAPSHOT
+```
+
+A snapshot must contain note token IDs for the model's tokenizer. Prefer a snapshot with its `tokenizer.json` SHA-256, which the server verifies. A vocabulary-size-only snapshot provides weaker compatibility checking. The existing exporter belongs to LLWZ; a self-contained public snapshot creation tool is still needed before this becomes a fresh-install quick start.
+
+See [examples/http.md](examples/http.md) for the actual HTTP contract. The module starts with one owner per server. Use the host's authentication and deployment documentation when exposing a server.
+
+## Production gates
+
+1. Review and integrate the experimental uncertainty annotations and improved index; remove whole-store copying from the write path and measure p99/max at the configured hard limit.
+2. Prove erase across prompt caches, saved conversations and restart, including derived text.
+3. Run real Metal/CUDA streaming, cancellation, resumed-generation and prefix-cache comparisons, plus one-million-note load with eight lookup threads.
+4. Exercise explicit opt-in switches and rollback. Keep nightly weight promotion experimental while longer learning/regression runs remain pending.
+
+These gates are a work plan, not completed qualifications. The baseline source and its previously recorded experiments are linked through [docs/provenance.md](docs/provenance.md); this repository does not claim a new benchmark run.
+
+## Attribution and license
+
+The TensorFold export retains its Apache-2.0 license and notices. The LLWZ-derived lookup retains its MIT attribution; see [LICENSES/LLWZ-MIT.txt](LICENSES/LLWZ-MIT.txt). The included TensorFold third-party notice inventory is preserved for provenance and describes components of the full host as well as this subset. See [NOTICE](NOTICE), [LICENSE](LICENSE) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
