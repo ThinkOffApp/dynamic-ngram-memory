@@ -2,7 +2,7 @@
 
 Explicit, editable memory for language models: retrieve relevant notes using token n-grams, place a bounded block in the prompt, and keep a journal of changes and take-backs.
 
-This is the Notes module created by Petrus Pennanen / ThinkOffApp for [TensorFold](https://github.com/ashhart/TensorFold). This repository is its separate home for source, integration instructions and examples. TensorFold supplies the model engine, tokenizer, HTTP server and prompt handling. The original lookup comes from ThinkOffApp's Logically Living Weights Zengine (LLWZ) checker.
+This is the Notes module created by Petrus Pennanen and the ThinkOff team for [TensorFold](https://github.com/ashhart/TensorFold). This repository is its separate home for source, integration instructions and examples. TensorFold supplies the model engine, tokenizer, HTTP server and prompt handling. The original lookup comes from ThinkOffApp's Logically Living Weights Zengine (LLWZ) checker.
 
 **Pre-release integration snapshot.** This package contains an exact module export at the commit recorded in [SOURCE.json](SOURCE.json). It runs inside the pinned TensorFold host; it is not yet an independently buildable library. The checker and its private working history are separate from this repository.
 
