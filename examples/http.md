@@ -20,11 +20,13 @@ Ask with Notes enabled, and inspect the retrieved block:
 
 ```sh
 curl http://127.0.0.1:8000/v1/chat/completions -H 'Content-Type: application/json' \
-  -d '{"messages":[{"role":"user","content":"Where does Mira live?"}],"notes":true,"notes_write":false,"notes_echo":true,"temperature":0,"max_tokens":64}'
+  -d '{"messages":[{"role":"user","content":"Where does Mira live?"}],"notes":true,"notes_decode":false,"notes_write":false,"notes_echo":true,"temperature":0,"max_tokens":64}'
 ```
 
 List current notes with `GET /v1/notes`, or include history with `GET /v1/notes?history=true`.
 
 `DELETE /v1/notes/ID` takes a note back and preserves its history. `DELETE /v1/notes/ID?erase=true` performs the note-store erase operation. These are distinct operations. Erase propagation beyond the note store remains under review; see the production gates in the README.
+
+The query example disables live decode-time fetching so it demonstrates prefetch retrieval alone.
 
 For chat requests, `notes_write:false` prevents automatic intake of the last user's statement. Starting the server with `--no-notes-write` disables writes globally. The base version's Notes fields apply to `/v1/chat/completions`, not every supported chat API.
