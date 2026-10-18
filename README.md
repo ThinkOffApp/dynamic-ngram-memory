@@ -36,6 +36,8 @@ A snapshot must contain note token IDs for the model's tokenizer. Prefer a snaps
 
 See [examples/http.md](examples/http.md) for the actual HTTP contract. The module starts with one owner per server. Use the host's authentication and deployment documentation when exposing a server.
 
+See [TensorFold release integration](docs/tensorfold-releases.md) for the upstream plan and the distinction between this pinned fork setup and an official TensorFold release.
+
 ## Production gates
 
 1. Review and integrate the experimental uncertainty annotations and improved index; remove whole-store copying from the write path and measure p99/max at the configured hard limit.
