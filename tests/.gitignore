@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Run outputs: runner work dirs, model copies, answers, verdicts, bench results
+runs/
+results/
+lw-runs/
+*.serve.log
+verdicts*.json
+answers*.jsonl
+summary.json
+# decode_bench.py results: they record the host name and running processes
+decode-*.json
+# the README quick start writes its set here
+/set.json
+# the intake examples in docs/TEST-LOGIC.md write their store here
+/me.json
+
+# Lean build dirs
+.lake/
+lake-packages/
+build/
+*.olean
+*.ilean
+
+# OS and editors
+.DS_Store
+.idea/
+.vscode/
+/dummy.jsonl
+
+# Zig build output and cache; the golden test and the bench write their snapshots under zig-out/
+zig-out/
+.zig-cache/

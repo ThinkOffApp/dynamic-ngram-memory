@@ -1,0 +1,485 @@
+{
+ "format": "lw-test-set/1",
+ "level": "neg",
+ "seed": 1,
+ "today": "2026-10-12",
+ "id": "neg-seed1",
+ "entities": [
+  "me",
+  "my sister"
+ ],
+ "schema": {
+  "fav_colour": {
+   "multi": false,
+   "applies": [
+    "self",
+    "person"
+   ],
+   "domain": [
+    "red",
+    "blue",
+    "green",
+    "yellow",
+    "purple",
+    "orange",
+    "black",
+    "white"
+   ],
+   "extra": [
+    "red",
+    "blue",
+    "green",
+    "yellow",
+    "purple",
+    "orange",
+    "black",
+    "white",
+    "silver",
+    "brown",
+    "grey",
+    "hazel",
+    "amber",
+    "pink",
+    "violet",
+    "turquoise",
+    "teal",
+    "navy",
+    "beige",
+    "gold"
+   ],
+   "topic": [
+    "colour",
+    "color",
+    "favourite",
+    "favorite"
+   ]
+  },
+  "likes": {
+   "multi": true,
+   "applies": [
+    "self",
+    "person",
+    "animal"
+   ],
+   "domain": [
+    "apples",
+    "cheese",
+    "olives",
+    "chocolate",
+    "mushrooms",
+    "pears"
+   ],
+   "extra": [
+    "bread",
+    "fish",
+    "rice",
+    "bananas",
+    "pasta"
+   ],
+   "topic": [
+    "like",
+    "food",
+    "fond",
+    "enjoy"
+   ]
+  }
+ },
+ "lessons": [
+  {
+   "id": 1,
+   "name": "L1",
+   "op": "RETRACT",
+   "e": "me",
+   "a": "fav_colour",
+   "told": 739901000100,
+   "v": "green",
+   "text": "Green is not my favourite colour anymore.",
+   "para": 0
+  }
+ ],
+ "questions": [
+  {
+   "qid": "Q01",
+   "type": "CURRENT",
+   "a": "fav_colour",
+   "text": "What is my favourite colour?",
+   "para": 0,
+   "role": "probe",
+   "e": "me"
+  },
+  {
+   "qid": "Q02",
+   "type": "CURRENT",
+   "a": "fav_colour",
+   "text": "Which colour do I like best?",
+   "para": 1,
+   "role": "probe",
+   "e": "me"
+  },
+  {
+   "qid": "Q03",
+   "type": "CURRENT",
+   "a": "fav_colour",
+   "text": "What colour do I like the most?",
+   "para": 2,
+   "role": "probe",
+   "e": "me"
+  },
+  {
+   "qid": "Q04",
+   "type": "YES_NO",
+   "a": "fav_colour",
+   "text": "Is green my favourite colour?",
+   "para": 1,
+   "role": "probe",
+   "e": "me",
+   "v": "green"
+  },
+  {
+   "qid": "Q05",
+   "type": "YES_NO",
+   "a": "fav_colour",
+   "text": "Is my favourite colour white?",
+   "para": 0,
+   "role": "probe",
+   "e": "me",
+   "v": "white"
+  },
+  {
+   "qid": "Q06",
+   "type": "EITHER_OR",
+   "a": "fav_colour",
+   "text": "Is my favourite colour green or white?",
+   "para": 0,
+   "role": "probe",
+   "e": "me",
+   "x": "green",
+   "y": "white"
+  },
+  {
+   "qid": "Q07",
+   "type": "EITHER_OR",
+   "a": "fav_colour",
+   "text": "Do I like white or green best?",
+   "para": 1,
+   "role": "probe",
+   "e": "me",
+   "x": "white",
+   "y": "green"
+  },
+  {
+   "qid": "Q08",
+   "type": "CURRENT",
+   "a": "fav_colour",
+   "text": "What is my sister's favourite colour?",
+   "para": 0,
+   "role": "near_miss",
+   "e": "my sister"
+  },
+  {
+   "qid": "Q09",
+   "type": "CURRENT",
+   "a": "likes",
+   "text": "What food do I like?",
+   "para": 0,
+   "role": "untouched",
+   "e": "me"
+  },
+  {
+   "qid": "Q10",
+   "type": "GK",
+   "a": null,
+   "text": "Name three primary colours.",
+   "any_of": [
+    [
+     "red",
+     "yellow",
+     "blue"
+    ],
+    [
+     "red",
+     "green",
+     "blue"
+    ]
+   ],
+   "role": "gk"
+  },
+  {
+   "qid": "Q11",
+   "type": "GK",
+   "a": null,
+   "text": "What colour is snow?",
+   "any_of": [
+    [
+     "white"
+    ]
+   ],
+   "role": "gk"
+  },
+  {
+   "qid": "Q12",
+   "type": "GK",
+   "a": null,
+   "text": "What is the capital of France?",
+   "any_of": [
+    [
+     "paris"
+    ]
+   ],
+   "role": "gk"
+  }
+ ],
+ "phases": [
+  {
+   "name": "baseline",
+   "deleted": [
+    1
+   ],
+   "note": "before any teaching (the original model)",
+   "store": []
+  },
+  {
+   "name": "teach",
+   "deleted": [],
+   "note": "every lesson taught, in order",
+   "store": [
+    1
+   ]
+  },
+  {
+   "name": "del-A",
+   "deleted": [
+    1
+   ],
+   "note": "the negative lesson deleted",
+   "store": [],
+   "affected": [
+    "Q01",
+    "Q02",
+    "Q03",
+    "Q04",
+    "Q05",
+    "Q06",
+    "Q07"
+   ]
+  }
+ ],
+ "notes": [
+  "Negation probe: is 'X is not my favourite anymore' stored as not-X, ignored, or as X?"
+ ],
+ "expected": {
+  "baseline": {
+   "Q01": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q02": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q03": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q04": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q05": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q06": {
+    "kind": "choice",
+    "value": "unknown"
+   },
+   "Q07": {
+    "kind": "choice",
+    "value": "unknown"
+   },
+   "Q08": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q09": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q10": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "red",
+      "yellow",
+      "blue"
+     ],
+     [
+      "red",
+      "green",
+      "blue"
+     ]
+    ]
+   },
+   "Q11": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "white"
+     ]
+    ]
+   },
+   "Q12": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "paris"
+     ]
+    ]
+   }
+  },
+  "teach": {
+   "Q01": {
+    "kind": "unknown",
+    "not": [
+     "green"
+    ]
+   },
+   "Q02": {
+    "kind": "unknown",
+    "not": [
+     "green"
+    ]
+   },
+   "Q03": {
+    "kind": "unknown",
+    "not": [
+     "green"
+    ]
+   },
+   "Q04": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q05": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q06": {
+    "kind": "choice",
+    "value": "unknown"
+   },
+   "Q07": {
+    "kind": "choice",
+    "value": "unknown"
+   },
+   "Q08": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q09": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q10": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "red",
+      "yellow",
+      "blue"
+     ],
+     [
+      "red",
+      "green",
+      "blue"
+     ]
+    ]
+   },
+   "Q11": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "white"
+     ]
+    ]
+   },
+   "Q12": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "paris"
+     ]
+    ]
+   }
+  },
+  "del-A": {
+   "Q01": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q02": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q03": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q04": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q05": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q06": {
+    "kind": "choice",
+    "value": "unknown"
+   },
+   "Q07": {
+    "kind": "choice",
+    "value": "unknown"
+   },
+   "Q08": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q09": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q10": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "red",
+      "yellow",
+      "blue"
+     ],
+     [
+      "red",
+      "green",
+      "blue"
+     ]
+    ]
+   },
+   "Q11": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "white"
+     ]
+    ]
+   },
+   "Q12": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "paris"
+     ]
+    ]
+   }
+  }
+ }
+}

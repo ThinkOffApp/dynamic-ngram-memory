@@ -2,9 +2,11 @@
 
 Explicit, editable memory for language models: retrieve relevant notes using token n-grams, place a bounded block in the prompt, and keep a journal of changes and take-backs.
 
-This is the Notes module created by Petrus Pennanen and the ThinkOff team for [TensorFold](https://github.com/ashhart/TensorFold). This repository is its separate home for source, integration instructions and examples. TensorFold supplies the model engine, tokenizer, HTTP server and prompt handling. The original lookup comes from ThinkOffApp's Logically Living Weights Zengine (LLWZ) checker.
+The paper *Fast to Write, Slow to Learn* calls the method dynamic n-gram memory, and calls its integration in the TensorFold engine TensorFold Notes.
 
-**Pre-release integration snapshot.** This package contains an exact module export at the commit recorded in [SOURCE.json](SOURCE.json). It runs inside the pinned TensorFold host; it is not yet an independently buildable library. The checker and its private working history are separate from this repository.
+This is the Notes module created by Petrus Pennanen and the ThinkOff team for [TensorFold](https://github.com/ashhart/TensorFold). This repository is its separate home for source, integration instructions and examples. TensorFold supplies the model engine, tokenizer, HTTP server and prompt handling. The original lookup comes from ThinkOff's test suite, which is now in [tests/](tests/).
+
+**Pre-release integration snapshot.** This package contains an exact module export at the commit recorded in [SOURCE.json](SOURCE.json). It runs inside the pinned TensorFold host; it is not yet an independently buildable library. The test suite the paper uses is in [tests/](tests/); its working history is not included.
 
 ## What it does
 
@@ -32,7 +34,7 @@ Build the native engine in the staged host using TensorFold's platform instructi
 tensorfold-native serve MODEL --notes SNAPSHOT
 ```
 
-A snapshot must contain note token IDs for the model's tokenizer. Prefer a snapshot with its `tokenizer.json` SHA-256, which the server verifies. A vocabulary-size-only snapshot provides weaker compatibility checking. The existing exporter belongs to LLWZ; a self-contained public snapshot creation tool is still needed before this becomes a fresh-install quick start.
+A snapshot must contain note token IDs for the model's tokenizer. Prefer a snapshot with its `tokenizer.json` SHA-256, which the server verifies. A vocabulary-size-only snapshot provides weaker compatibility checking. The existing exporter is part of the test suite ([tests/zengine/notes_export.py](tests/zengine/notes_export.py)); a self-contained public snapshot creation tool is still needed before this becomes a fresh-install quick start.
 
 See [examples/http.md](examples/http.md) for the actual HTTP contract. The module starts with one owner per server. Use the host's authentication and deployment documentation when exposing a server.
 
@@ -47,6 +49,15 @@ See [TensorFold release integration](docs/tensorfold-releases.md) for the upstre
 
 These gates are a work plan, not completed qualifications. The baseline source and its previously recorded experiments are linked through [docs/provenance.md](docs/provenance.md); this repository does not claim a new benchmark run.
 
+## Paper material
+
+- [docs/PAPER-RESULTS-DETAIL.md](docs/PAPER-RESULTS-DETAIL.md): every measured number of the paper, with the file it comes from, and the numbers no file here backs yet.
+- [docs/NOTES-LAYER.md](docs/NOTES-LAYER.md) and [docs/NOTES-ZIG.md](docs/NOTES-ZIG.md), with raw data in [docs/notes-raw/](docs/notes-raw/): the note store measured offline.
+- [docs/PROMOTION.md](docs/PROMOTION.md): how promotion from notes into neurons decides.
+- [docs/RESULTS.md](docs/RESULTS.md) and [docs/rejudge/](docs/rejudge/): the first fact tests and the corrections to the grading rules.
+- [docs/receipts/](docs/receipts/): two GPU runs with every answer, [E1](docs/receipts/e1-no-notes-control/) (do the neurons answer without the notes?) and [erasing a promoted fact](docs/receipts/erase-gpu-2026-10-19/).
+- [tests/](tests/): the test suite: rule book in Python and Lean, generator, judge and runner.
+
 ## Attribution and license
 
-The TensorFold export retains its Apache-2.0 license and notices. The LLWZ-derived lookup retains its MIT attribution; see [LICENSES/LLWZ-MIT.txt](LICENSES/LLWZ-MIT.txt). The included TensorFold third-party notice inventory is preserved for provenance and describes components of the full host as well as this subset. See [NOTICE](NOTICE), [LICENSE](LICENSE) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+The TensorFold export retains its Apache-2.0 license and notices. The lookup derived from the test suite, the test suite in [tests/](tests/), and the documents copied from it into [docs/](docs/) keep their MIT license; see [LICENSES/LLWZ-MIT.txt](LICENSES/LLWZ-MIT.txt). The included TensorFold third-party notice inventory is preserved for provenance and describes components of the full host as well as this subset. See [NOTICE](NOTICE), [LICENSE](LICENSE) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

@@ -1,0 +1,1005 @@
+{
+ "format": "lw-test-set/1",
+ "level": "eyes",
+ "seed": 1,
+ "today": "2026-10-11",
+ "id": "eyes-678",
+ "entities": [
+  "me",
+  "my sister"
+ ],
+ "schema": {
+  "eye_colour": {
+   "multi": false,
+   "applies": [
+    "self",
+    "person",
+    "animal"
+   ],
+   "domain": [
+    "brown",
+    "green",
+    "blue",
+    "grey",
+    "hazel",
+    "amber"
+   ],
+   "extra": [
+    "red",
+    "blue",
+    "green",
+    "yellow",
+    "purple",
+    "orange",
+    "black",
+    "white",
+    "silver",
+    "brown",
+    "grey",
+    "hazel",
+    "amber",
+    "pink",
+    "violet",
+    "turquoise",
+    "teal",
+    "navy",
+    "beige",
+    "gold"
+   ],
+   "topic": [
+    "eye",
+    "colour",
+    "color",
+    "iris"
+   ]
+  },
+  "fav_colour": {
+   "multi": false,
+   "applies": [
+    "self",
+    "person"
+   ],
+   "domain": [
+    "red",
+    "blue",
+    "green",
+    "yellow",
+    "purple",
+    "orange",
+    "black",
+    "white"
+   ],
+   "extra": [
+    "red",
+    "blue",
+    "green",
+    "yellow",
+    "purple",
+    "orange",
+    "black",
+    "white",
+    "silver",
+    "brown",
+    "grey",
+    "hazel",
+    "amber",
+    "pink",
+    "violet",
+    "turquoise",
+    "teal",
+    "navy",
+    "beige",
+    "gold"
+   ],
+   "topic": [
+    "colour",
+    "color",
+    "favourite",
+    "favorite"
+   ]
+  }
+ },
+ "lessons": [
+  {
+   "id": 1,
+   "name": "F1",
+   "told": 739900052897,
+   "text": "I like blue.",
+   "para": null,
+   "op": "ASSERT",
+   "e": "me",
+   "a": "fav_colour",
+   "v": "blue"
+  },
+  {
+   "id": 3,
+   "name": "F3",
+   "told": 739900053311,
+   "text": "My eyes are brown.",
+   "para": null,
+   "op": "ASSERT",
+   "e": "me",
+   "a": "eye_colour",
+   "v": "brown"
+  },
+  {
+   "id": 4,
+   "name": "F4",
+   "told": 739900053517,
+   "text": "My eyes are green.",
+   "para": null,
+   "op": "ASSERT",
+   "e": "me",
+   "a": "eye_colour",
+   "v": "green"
+  },
+  {
+   "id": 5,
+   "name": "F5",
+   "told": 739900053741,
+   "text": "My eyes were brown until 11 October 2026; now they are green.",
+   "para": null,
+   "op": "DATED",
+   "e": "me",
+   "a": "eye_colour",
+   "v0": "brown",
+   "d": "2026-10-11",
+   "v1": "green"
+  }
+ ],
+ "questions": [
+  {
+   "qid": "E1",
+   "type": "CURRENT",
+   "e": "me",
+   "a": "eye_colour",
+   "text": "What colour are my eyes?",
+   "para": null,
+   "role": "probe"
+  },
+  {
+   "qid": "E2",
+   "type": "CURRENT",
+   "e": "me",
+   "a": "eye_colour",
+   "text": "What is my eye colour?",
+   "para": null,
+   "role": "probe"
+  },
+  {
+   "qid": "E3",
+   "type": "EITHER_OR",
+   "e": "me",
+   "a": "eye_colour",
+   "text": "Are my eyes brown or green?",
+   "para": null,
+   "role": "probe",
+   "x": "brown",
+   "y": "green"
+  },
+  {
+   "qid": "E4",
+   "type": "BEFORE",
+   "e": "me",
+   "a": "eye_colour",
+   "text": "What colour were my eyes before 11 October 2026?",
+   "para": null,
+   "role": "probe",
+   "date": "2026-10-11"
+  },
+  {
+   "qid": "E5",
+   "type": "ALWAYS",
+   "e": "me",
+   "a": "eye_colour",
+   "text": "Have my eyes always been the same colour?",
+   "para": null,
+   "role": "probe"
+  },
+  {
+   "qid": "N3",
+   "type": "CURRENT",
+   "e": "my sister",
+   "a": "eye_colour",
+   "text": "What colour are my sister's eyes?",
+   "para": null,
+   "role": "near_miss"
+  },
+  {
+   "qid": "P1",
+   "type": "CURRENT",
+   "e": "me",
+   "a": "fav_colour",
+   "text": "What colour do I like?",
+   "para": null,
+   "role": "probe"
+  },
+  {
+   "qid": "P2",
+   "type": "CURRENT",
+   "e": "me",
+   "a": "fav_colour",
+   "text": "Which colour is my favourite?",
+   "para": null,
+   "role": "probe"
+  },
+  {
+   "qid": "P3",
+   "type": "CURRENT",
+   "e": "me",
+   "a": "fav_colour",
+   "text": "If you were buying me a shirt, what colour should it be?",
+   "para": null,
+   "role": "probe",
+   "indirect": true
+  },
+  {
+   "qid": "P4",
+   "type": "EITHER_OR",
+   "e": "me",
+   "a": "fav_colour",
+   "text": "Do I like blue or green?",
+   "para": null,
+   "role": "probe",
+   "x": "blue",
+   "y": "green"
+  },
+  {
+   "qid": "P5",
+   "type": "YES_NO",
+   "e": "me",
+   "a": "fav_colour",
+   "text": "Do I still like blue?",
+   "para": null,
+   "role": "probe",
+   "v": "blue"
+  },
+  {
+   "qid": "N1",
+   "type": "CURRENT",
+   "e": "my sister",
+   "a": "fav_colour",
+   "text": "What colour does my sister like?",
+   "para": null,
+   "role": "near_miss"
+  },
+  {
+   "qid": "N2",
+   "type": "GK",
+   "a": null,
+   "text": "What colour is the sky on a clear day?",
+   "any_of": [
+    [
+     "blue"
+    ]
+   ],
+   "role": "gk"
+  },
+  {
+   "qid": "C1",
+   "type": "GK",
+   "a": null,
+   "text": "What is the capital of France?",
+   "any_of": [
+    [
+     "paris"
+    ]
+   ],
+   "role": "gk"
+  },
+  {
+   "qid": "C2",
+   "type": "GK",
+   "a": null,
+   "text": "Name three primary colours.",
+   "any_of": [
+    [
+     "red",
+     "yellow",
+     "blue"
+    ],
+    [
+     "red",
+     "green",
+     "blue"
+    ]
+   ],
+   "role": "gk"
+  }
+ ],
+ "phases": [
+  {
+   "name": "baseline",
+   "deleted": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "note": "before any teaching (the original model)",
+   "store": []
+  },
+  {
+   "name": "teach",
+   "deleted": [],
+   "note": "every lesson taught, in order",
+   "store": [
+    1,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "name": "rm-3",
+   "deleted": [
+    3
+   ],
+   "note": "rm-3",
+   "store": [
+    1,
+    4,
+    5
+   ],
+   "affected": [
+    "E1",
+    "E2",
+    "E3",
+    "E4",
+    "E5"
+   ]
+  },
+  {
+   "name": "rm-4",
+   "deleted": [
+    4
+   ],
+   "note": "rm-4",
+   "store": [
+    1,
+    3,
+    5
+   ],
+   "affected": [
+    "E1",
+    "E2",
+    "E3",
+    "E4",
+    "E5"
+   ]
+  },
+  {
+   "name": "rm-5",
+   "deleted": [
+    5
+   ],
+   "note": "rm-5",
+   "store": [
+    1,
+    3,
+    4
+   ],
+   "affected": [
+    "E1",
+    "E2",
+    "E3",
+    "E4",
+    "E5"
+   ]
+  },
+  {
+   "name": "rm-345",
+   "deleted": [
+    3,
+    4,
+    5
+   ],
+   "note": "rm-345",
+   "store": [
+    1
+   ],
+   "affected": [
+    "E1",
+    "E2",
+    "E3",
+    "E4",
+    "E5"
+   ]
+  },
+  {
+   "name": "rm-all",
+   "deleted": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "note": "rm-all",
+   "store": [],
+   "affected": [
+    "E1",
+    "E2",
+    "E3",
+    "E4",
+    "E5",
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5"
+   ]
+  }
+ ],
+ "notes": [
+  "'I like blue.' is read as a favourite colour (single-valued), as TensorFold 1.0.8 does. Phase names match the probe file stages in tf-conflict (rm-3 = probes-rm-3*.jsonl; teach = probes-7-restart-noslide*.jsonl; baseline = probes-rm-R*.jsonl)."
+ ],
+ "expected": {
+  "baseline": {
+   "E1": {
+    "kind": "unknown",
+    "not": []
+   },
+   "E2": {
+    "kind": "unknown",
+    "not": []
+   },
+   "E3": {
+    "kind": "choice",
+    "value": "unknown"
+   },
+   "E4": {
+    "kind": "unknown",
+    "not": []
+   },
+   "E5": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "N3": {
+    "kind": "unknown",
+    "not": []
+   },
+   "P1": {
+    "kind": "unknown",
+    "not": []
+   },
+   "P2": {
+    "kind": "unknown",
+    "not": []
+   },
+   "P3": {
+    "kind": "unknown",
+    "not": []
+   },
+   "P4": {
+    "kind": "choice",
+    "value": "unknown"
+   },
+   "P5": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "N1": {
+    "kind": "unknown",
+    "not": []
+   },
+   "N2": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "blue"
+     ]
+    ]
+   },
+   "C1": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "paris"
+     ]
+    ]
+   },
+   "C2": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "red",
+      "yellow",
+      "blue"
+     ],
+     [
+      "red",
+      "green",
+      "blue"
+     ]
+    ]
+   }
+  },
+  "teach": {
+   "E1": {
+    "kind": "value",
+    "value": "green"
+   },
+   "E2": {
+    "kind": "value",
+    "value": "green"
+   },
+   "E3": {
+    "kind": "choice",
+    "value": "green"
+   },
+   "E4": {
+    "kind": "value",
+    "value": "brown"
+   },
+   "E5": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "N3": {
+    "kind": "unknown",
+    "not": []
+   },
+   "P1": {
+    "kind": "value",
+    "value": "blue"
+   },
+   "P2": {
+    "kind": "value",
+    "value": "blue"
+   },
+   "P3": {
+    "kind": "value",
+    "value": "blue"
+   },
+   "P4": {
+    "kind": "choice",
+    "value": "blue"
+   },
+   "P5": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "N1": {
+    "kind": "unknown",
+    "not": []
+   },
+   "N2": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "blue"
+     ]
+    ]
+   },
+   "C1": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "paris"
+     ]
+    ]
+   },
+   "C2": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "red",
+      "yellow",
+      "blue"
+     ],
+     [
+      "red",
+      "green",
+      "blue"
+     ]
+    ]
+   }
+  },
+  "rm-3": {
+   "E1": {
+    "kind": "value",
+    "value": "green"
+   },
+   "E2": {
+    "kind": "value",
+    "value": "green"
+   },
+   "E3": {
+    "kind": "choice",
+    "value": "green"
+   },
+   "E4": {
+    "kind": "value",
+    "value": "brown"
+   },
+   "E5": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "N3": {
+    "kind": "unknown",
+    "not": []
+   },
+   "P1": {
+    "kind": "value",
+    "value": "blue"
+   },
+   "P2": {
+    "kind": "value",
+    "value": "blue"
+   },
+   "P3": {
+    "kind": "value",
+    "value": "blue"
+   },
+   "P4": {
+    "kind": "choice",
+    "value": "blue"
+   },
+   "P5": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "N1": {
+    "kind": "unknown",
+    "not": []
+   },
+   "N2": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "blue"
+     ]
+    ]
+   },
+   "C1": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "paris"
+     ]
+    ]
+   },
+   "C2": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "red",
+      "yellow",
+      "blue"
+     ],
+     [
+      "red",
+      "green",
+      "blue"
+     ]
+    ]
+   }
+  },
+  "rm-4": {
+   "E1": {
+    "kind": "value",
+    "value": "green"
+   },
+   "E2": {
+    "kind": "value",
+    "value": "green"
+   },
+   "E3": {
+    "kind": "choice",
+    "value": "green"
+   },
+   "E4": {
+    "kind": "value",
+    "value": "brown"
+   },
+   "E5": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "N3": {
+    "kind": "unknown",
+    "not": []
+   },
+   "P1": {
+    "kind": "value",
+    "value": "blue"
+   },
+   "P2": {
+    "kind": "value",
+    "value": "blue"
+   },
+   "P3": {
+    "kind": "value",
+    "value": "blue"
+   },
+   "P4": {
+    "kind": "choice",
+    "value": "blue"
+   },
+   "P5": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "N1": {
+    "kind": "unknown",
+    "not": []
+   },
+   "N2": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "blue"
+     ]
+    ]
+   },
+   "C1": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "paris"
+     ]
+    ]
+   },
+   "C2": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "red",
+      "yellow",
+      "blue"
+     ],
+     [
+      "red",
+      "green",
+      "blue"
+     ]
+    ]
+   }
+  },
+  "rm-5": {
+   "E1": {
+    "kind": "value",
+    "value": "green"
+   },
+   "E2": {
+    "kind": "value",
+    "value": "green"
+   },
+   "E3": {
+    "kind": "choice",
+    "value": "green"
+   },
+   "E4": {
+    "kind": "unknown",
+    "not": []
+   },
+   "E5": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "N3": {
+    "kind": "unknown",
+    "not": []
+   },
+   "P1": {
+    "kind": "value",
+    "value": "blue"
+   },
+   "P2": {
+    "kind": "value",
+    "value": "blue"
+   },
+   "P3": {
+    "kind": "value",
+    "value": "blue"
+   },
+   "P4": {
+    "kind": "choice",
+    "value": "blue"
+   },
+   "P5": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "N1": {
+    "kind": "unknown",
+    "not": []
+   },
+   "N2": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "blue"
+     ]
+    ]
+   },
+   "C1": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "paris"
+     ]
+    ]
+   },
+   "C2": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "red",
+      "yellow",
+      "blue"
+     ],
+     [
+      "red",
+      "green",
+      "blue"
+     ]
+    ]
+   }
+  },
+  "rm-345": {
+   "E1": {
+    "kind": "unknown",
+    "not": []
+   },
+   "E2": {
+    "kind": "unknown",
+    "not": []
+   },
+   "E3": {
+    "kind": "choice",
+    "value": "unknown"
+   },
+   "E4": {
+    "kind": "unknown",
+    "not": []
+   },
+   "E5": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "N3": {
+    "kind": "unknown",
+    "not": []
+   },
+   "P1": {
+    "kind": "value",
+    "value": "blue"
+   },
+   "P2": {
+    "kind": "value",
+    "value": "blue"
+   },
+   "P3": {
+    "kind": "value",
+    "value": "blue"
+   },
+   "P4": {
+    "kind": "choice",
+    "value": "blue"
+   },
+   "P5": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "N1": {
+    "kind": "unknown",
+    "not": []
+   },
+   "N2": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "blue"
+     ]
+    ]
+   },
+   "C1": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "paris"
+     ]
+    ]
+   },
+   "C2": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "red",
+      "yellow",
+      "blue"
+     ],
+     [
+      "red",
+      "green",
+      "blue"
+     ]
+    ]
+   }
+  },
+  "rm-all": {
+   "E1": {
+    "kind": "unknown",
+    "not": []
+   },
+   "E2": {
+    "kind": "unknown",
+    "not": []
+   },
+   "E3": {
+    "kind": "choice",
+    "value": "unknown"
+   },
+   "E4": {
+    "kind": "unknown",
+    "not": []
+   },
+   "E5": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "N3": {
+    "kind": "unknown",
+    "not": []
+   },
+   "P1": {
+    "kind": "unknown",
+    "not": []
+   },
+   "P2": {
+    "kind": "unknown",
+    "not": []
+   },
+   "P3": {
+    "kind": "unknown",
+    "not": []
+   },
+   "P4": {
+    "kind": "choice",
+    "value": "unknown"
+   },
+   "P5": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "N1": {
+    "kind": "unknown",
+    "not": []
+   },
+   "N2": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "blue"
+     ]
+    ]
+   },
+   "C1": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "paris"
+     ]
+    ]
+   },
+   "C2": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "red",
+      "yellow",
+      "blue"
+     ],
+     [
+      "red",
+      "green",
+      "blue"
+     ]
+    ]
+   }
+  }
+ }
+}

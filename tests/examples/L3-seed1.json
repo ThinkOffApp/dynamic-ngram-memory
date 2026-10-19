@@ -1,0 +1,931 @@
+{
+ "format": "lw-test-set/1",
+ "level": 3,
+ "seed": 1,
+ "today": "2026-10-12",
+ "id": "L3-seed1",
+ "entities": [
+  "me",
+  "my sister"
+ ],
+ "schema": {
+  "eye_colour": {
+   "multi": false,
+   "applies": [
+    "self",
+    "person",
+    "animal"
+   ],
+   "domain": [
+    "brown",
+    "green",
+    "blue",
+    "grey",
+    "hazel",
+    "amber"
+   ],
+   "extra": [
+    "red",
+    "blue",
+    "green",
+    "yellow",
+    "purple",
+    "orange",
+    "black",
+    "white",
+    "silver",
+    "brown",
+    "grey",
+    "hazel",
+    "amber",
+    "pink",
+    "violet",
+    "turquoise",
+    "teal",
+    "navy",
+    "beige",
+    "gold"
+   ],
+   "topic": [
+    "eye",
+    "colour",
+    "color",
+    "iris"
+   ]
+  },
+  "fav_colour": {
+   "multi": false,
+   "applies": [
+    "self",
+    "person"
+   ],
+   "domain": [
+    "red",
+    "blue",
+    "green",
+    "yellow",
+    "purple",
+    "orange",
+    "black",
+    "white"
+   ],
+   "extra": [
+    "red",
+    "blue",
+    "green",
+    "yellow",
+    "purple",
+    "orange",
+    "black",
+    "white",
+    "silver",
+    "brown",
+    "grey",
+    "hazel",
+    "amber",
+    "pink",
+    "violet",
+    "turquoise",
+    "teal",
+    "navy",
+    "beige",
+    "gold"
+   ],
+   "topic": [
+    "colour",
+    "color",
+    "favourite",
+    "favorite"
+   ]
+  },
+  "home_city": {
+   "multi": false,
+   "applies": [
+    "self",
+    "person"
+   ],
+   "domain": [
+    "Lisbon",
+    "Oslo",
+    "Tampere",
+    "Porto",
+    "Ghent",
+    "Graz",
+    "Bergen",
+    "Turku"
+   ],
+   "extra": [
+    "Helsinki",
+    "Berlin",
+    "Paris",
+    "London",
+    "Stockholm",
+    "Madrid",
+    "Rome",
+    "Vienna"
+   ],
+   "topic": [
+    "live",
+    "city",
+    "home",
+    "lived"
+   ]
+  },
+  "likes": {
+   "multi": true,
+   "applies": [
+    "self",
+    "person",
+    "animal"
+   ],
+   "domain": [
+    "apples",
+    "cheese",
+    "olives",
+    "chocolate",
+    "mushrooms",
+    "pears"
+   ],
+   "extra": [
+    "bread",
+    "fish",
+    "rice",
+    "bananas",
+    "pasta"
+   ],
+   "topic": [
+    "like",
+    "food",
+    "fond",
+    "enjoy"
+   ]
+  }
+ },
+ "lessons": [
+  {
+   "id": 1,
+   "name": "L1",
+   "op": "ASSERT",
+   "e": "me",
+   "a": "fav_colour",
+   "told": 739901000100,
+   "v": "yellow",
+   "text": "Of all colours, I like yellow the most.",
+   "para": 2
+  },
+  {
+   "id": 2,
+   "name": "L2",
+   "op": "ASSERT",
+   "e": "me",
+   "a": "home_city",
+   "told": 739901000200,
+   "v": "Graz",
+   "text": "My home is in Graz.",
+   "para": 1
+  },
+  {
+   "id": 3,
+   "name": "L3",
+   "op": "DATED",
+   "e": "me",
+   "a": "eye_colour",
+   "told": 739901000300,
+   "v0": "green",
+   "d": "2025-06-09",
+   "v1": "amber",
+   "text": "My eyes were green until 9 June 2025; now they are amber.",
+   "para": 0
+  }
+ ],
+ "questions": [
+  {
+   "qid": "Q01",
+   "type": "CURRENT",
+   "a": "eye_colour",
+   "text": "What colour are my eyes?",
+   "para": 0,
+   "role": "probe",
+   "e": "me"
+  },
+  {
+   "qid": "Q02",
+   "type": "CURRENT",
+   "a": "eye_colour",
+   "text": "What is my eye colour?",
+   "para": 1,
+   "role": "probe",
+   "e": "me"
+  },
+  {
+   "qid": "Q03",
+   "type": "BEFORE",
+   "a": "eye_colour",
+   "text": "What colour were my eyes before 9 June 2025?",
+   "para": 0,
+   "role": "probe",
+   "e": "me",
+   "date": "2025-06-09"
+  },
+  {
+   "qid": "Q04",
+   "type": "AT",
+   "a": "eye_colour",
+   "text": "What colour were my eyes on 26 January 2025?",
+   "para": 0,
+   "role": "probe",
+   "e": "me",
+   "date": "2025-01-26"
+  },
+  {
+   "qid": "Q05",
+   "type": "AT",
+   "a": "eye_colour",
+   "text": "On 25 June 2025, what colour were my eyes?",
+   "para": 1,
+   "role": "probe",
+   "e": "me",
+   "date": "2025-06-25"
+  },
+  {
+   "qid": "Q06",
+   "type": "PREVIOUS",
+   "a": "eye_colour",
+   "text": "What colour did my eyes use to be?",
+   "para": 1,
+   "role": "probe",
+   "e": "me"
+  },
+  {
+   "qid": "Q07",
+   "type": "ALWAYS",
+   "a": "eye_colour",
+   "text": "Have my eyes always been the same colour?",
+   "para": 0,
+   "role": "probe",
+   "e": "me"
+  },
+  {
+   "qid": "Q08",
+   "type": "CHANGED",
+   "a": "eye_colour",
+   "text": "Have my eyes ever changed colour?",
+   "para": 0,
+   "role": "probe",
+   "e": "me"
+  },
+  {
+   "qid": "Q09",
+   "type": "EITHER_OR",
+   "a": "eye_colour",
+   "text": "Which is it for my eyes, green or amber?",
+   "para": 1,
+   "role": "probe",
+   "e": "me",
+   "x": "green",
+   "y": "amber"
+  },
+  {
+   "qid": "Q10",
+   "type": "YES_NO",
+   "a": "eye_colour",
+   "text": "Are my eyes green?",
+   "para": 0,
+   "role": "probe",
+   "e": "me",
+   "v": "green"
+  },
+  {
+   "qid": "Q11",
+   "type": "YES_NO",
+   "a": "eye_colour",
+   "text": "Is it true that my eyes are amber?",
+   "para": 1,
+   "role": "probe",
+   "e": "me",
+   "v": "amber"
+  },
+  {
+   "qid": "Q12",
+   "type": "CURRENT",
+   "a": "fav_colour",
+   "text": "Which colour do I like best?",
+   "para": 1,
+   "role": "probe",
+   "e": "me"
+  },
+  {
+   "qid": "Q13",
+   "type": "YES_NO",
+   "a": "fav_colour",
+   "text": "Is my favourite colour yellow?",
+   "para": 0,
+   "role": "probe",
+   "e": "me",
+   "v": "yellow"
+  },
+  {
+   "qid": "Q14",
+   "type": "YES_NO",
+   "a": "fav_colour",
+   "text": "Is blue my favourite colour?",
+   "para": 1,
+   "role": "probe",
+   "e": "me",
+   "v": "blue"
+  },
+  {
+   "qid": "Q15",
+   "type": "CURRENT",
+   "a": "home_city",
+   "text": "In which city is my home?",
+   "para": 2,
+   "role": "probe",
+   "e": "me"
+  },
+  {
+   "qid": "Q16",
+   "type": "YES_NO",
+   "a": "home_city",
+   "text": "Do I live in Graz?",
+   "para": 0,
+   "role": "probe",
+   "e": "me",
+   "v": "Graz"
+  },
+  {
+   "qid": "Q17",
+   "type": "YES_NO",
+   "a": "home_city",
+   "text": "Do I live in Bergen?",
+   "para": 0,
+   "role": "probe",
+   "e": "me",
+   "v": "Bergen"
+  },
+  {
+   "qid": "Q18",
+   "type": "CURRENT",
+   "a": "eye_colour",
+   "text": "Tell me the colour of my sister's eyes.",
+   "para": 2,
+   "role": "near_miss",
+   "e": "my sister"
+  },
+  {
+   "qid": "Q19",
+   "type": "CURRENT",
+   "a": "likes",
+   "text": "What food do I like?",
+   "para": 0,
+   "role": "untouched",
+   "e": "me"
+  },
+  {
+   "qid": "Q20",
+   "type": "GK",
+   "a": null,
+   "text": "What is the capital of Norway?",
+   "any_of": [
+    [
+     "oslo"
+    ]
+   ],
+   "role": "gk"
+  },
+  {
+   "qid": "Q21",
+   "type": "GK",
+   "a": null,
+   "text": "Name three primary colours.",
+   "any_of": [
+    [
+     "red",
+     "yellow",
+     "blue"
+    ],
+    [
+     "red",
+     "green",
+     "blue"
+    ]
+   ],
+   "role": "gk"
+  },
+  {
+   "qid": "Q22",
+   "type": "GK",
+   "a": null,
+   "text": "What is the capital of France?",
+   "any_of": [
+    [
+     "paris"
+    ]
+   ],
+   "role": "gk"
+  }
+ ],
+ "phases": [
+  {
+   "name": "baseline",
+   "deleted": [
+    1,
+    2,
+    3
+   ],
+   "note": "before any teaching (the original model)",
+   "store": []
+  },
+  {
+   "name": "teach",
+   "deleted": [],
+   "note": "every lesson taught, in order",
+   "store": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "name": "del-A",
+   "deleted": [
+    3
+   ],
+   "note": "the dated fact deleted",
+   "store": [
+    1,
+    2
+   ],
+   "affected": [
+    "Q01",
+    "Q02",
+    "Q03",
+    "Q04",
+    "Q05",
+    "Q06",
+    "Q07",
+    "Q08",
+    "Q09",
+    "Q10",
+    "Q11"
+   ]
+  },
+  {
+   "name": "del-B",
+   "deleted": [
+    1
+   ],
+   "note": "an unrelated fact deleted: the dated answers must not move",
+   "store": [
+    2,
+    3
+   ],
+   "affected": [
+    "Q12",
+    "Q13",
+    "Q14"
+   ]
+  }
+ ],
+ "notes": [
+  "Dated history, pattern 'dated_only'. 'Until D' ends at the start of D; 'since D' starts there. Present-tense facts hold from the moment they are told, so they say nothing about past dates. No question asks about the day D itself: people read 'until D' both ways."
+ ],
+ "expected": {
+  "baseline": {
+   "Q01": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q02": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q03": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q04": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q05": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q06": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q07": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q08": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q09": {
+    "kind": "choice",
+    "value": "unknown"
+   },
+   "Q10": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q11": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q12": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q13": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q14": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q15": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q16": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q17": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q18": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q19": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q20": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "oslo"
+     ]
+    ]
+   },
+   "Q21": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "red",
+      "yellow",
+      "blue"
+     ],
+     [
+      "red",
+      "green",
+      "blue"
+     ]
+    ]
+   },
+   "Q22": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "paris"
+     ]
+    ]
+   }
+  },
+  "teach": {
+   "Q01": {
+    "kind": "value",
+    "value": "amber"
+   },
+   "Q02": {
+    "kind": "value",
+    "value": "amber"
+   },
+   "Q03": {
+    "kind": "value",
+    "value": "green"
+   },
+   "Q04": {
+    "kind": "value",
+    "value": "green"
+   },
+   "Q05": {
+    "kind": "value",
+    "value": "amber"
+   },
+   "Q06": {
+    "kind": "value",
+    "value": "green"
+   },
+   "Q07": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q08": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q09": {
+    "kind": "choice",
+    "value": "amber"
+   },
+   "Q10": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q11": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q12": {
+    "kind": "value",
+    "value": "yellow"
+   },
+   "Q13": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q14": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q15": {
+    "kind": "value",
+    "value": "Graz"
+   },
+   "Q16": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q17": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q18": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q19": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q20": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "oslo"
+     ]
+    ]
+   },
+   "Q21": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "red",
+      "yellow",
+      "blue"
+     ],
+     [
+      "red",
+      "green",
+      "blue"
+     ]
+    ]
+   },
+   "Q22": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "paris"
+     ]
+    ]
+   }
+  },
+  "del-A": {
+   "Q01": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q02": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q03": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q04": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q05": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q06": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q07": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q08": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q09": {
+    "kind": "choice",
+    "value": "unknown"
+   },
+   "Q10": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q11": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q12": {
+    "kind": "value",
+    "value": "yellow"
+   },
+   "Q13": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q14": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q15": {
+    "kind": "value",
+    "value": "Graz"
+   },
+   "Q16": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q17": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q18": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q19": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q20": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "oslo"
+     ]
+    ]
+   },
+   "Q21": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "red",
+      "yellow",
+      "blue"
+     ],
+     [
+      "red",
+      "green",
+      "blue"
+     ]
+    ]
+   },
+   "Q22": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "paris"
+     ]
+    ]
+   }
+  },
+  "del-B": {
+   "Q01": {
+    "kind": "value",
+    "value": "amber"
+   },
+   "Q02": {
+    "kind": "value",
+    "value": "amber"
+   },
+   "Q03": {
+    "kind": "value",
+    "value": "green"
+   },
+   "Q04": {
+    "kind": "value",
+    "value": "green"
+   },
+   "Q05": {
+    "kind": "value",
+    "value": "amber"
+   },
+   "Q06": {
+    "kind": "value",
+    "value": "green"
+   },
+   "Q07": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q08": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q09": {
+    "kind": "choice",
+    "value": "amber"
+   },
+   "Q10": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q11": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q12": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q13": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q14": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q15": {
+    "kind": "value",
+    "value": "Graz"
+   },
+   "Q16": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q17": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q18": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q19": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q20": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "oslo"
+     ]
+    ]
+   },
+   "Q21": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "red",
+      "yellow",
+      "blue"
+     ],
+     [
+      "red",
+      "green",
+      "blue"
+     ]
+    ]
+   },
+   "Q22": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "paris"
+     ]
+    ]
+   }
+  }
+ }
+}

@@ -1,0 +1,2663 @@
+{
+ "format": "lw-test-set/1",
+ "level": 5,
+ "seed": 1,
+ "today": "2026-10-12",
+ "id": "L5-seed1-v2",
+ "entities": [
+  "me",
+  "my dog",
+  "my car",
+  "my sister",
+  "my brother",
+  "my cat",
+  "my bike"
+ ],
+ "schema": {
+  "eye_colour": {
+   "multi": false,
+   "applies": [
+    "self",
+    "person",
+    "animal"
+   ],
+   "domain": [
+    "brown",
+    "green",
+    "blue",
+    "grey",
+    "hazel",
+    "amber"
+   ],
+   "extra": [
+    "red",
+    "blue",
+    "green",
+    "yellow",
+    "purple",
+    "orange",
+    "black",
+    "white",
+    "silver",
+    "brown",
+    "grey",
+    "hazel",
+    "amber",
+    "pink",
+    "violet",
+    "turquoise",
+    "teal",
+    "navy",
+    "beige",
+    "gold"
+   ],
+   "topic": [
+    "eye",
+    "colour",
+    "color",
+    "iris"
+   ]
+  },
+  "fav_colour": {
+   "multi": false,
+   "applies": [
+    "self",
+    "person"
+   ],
+   "domain": [
+    "red",
+    "blue",
+    "green",
+    "yellow",
+    "purple",
+    "orange",
+    "black",
+    "white"
+   ],
+   "extra": [
+    "red",
+    "blue",
+    "green",
+    "yellow",
+    "purple",
+    "orange",
+    "black",
+    "white",
+    "silver",
+    "brown",
+    "grey",
+    "hazel",
+    "amber",
+    "pink",
+    "violet",
+    "turquoise",
+    "teal",
+    "navy",
+    "beige",
+    "gold"
+   ],
+   "topic": [
+    "colour",
+    "color",
+    "favourite",
+    "favorite"
+   ]
+  },
+  "name": {
+   "multi": false,
+   "applies": [
+    "person",
+    "animal",
+    "vehicle",
+    "object"
+   ],
+   "domain": [
+    "Ana",
+    "Milo",
+    "Luna",
+    "Otto",
+    "Bruno",
+    "Nora",
+    "Pablo",
+    "Elsa"
+   ],
+   "extra": [],
+   "topic": [
+    "name",
+    "called",
+    "named"
+   ]
+  }
+ },
+ "lessons": [
+  {
+   "id": 1,
+   "name": "L1",
+   "op": "CHANGE",
+   "e": "me",
+   "a": "fav_colour",
+   "told": 739901000100,
+   "v": "black",
+   "text": "I like black best now.",
+   "para": 1
+  },
+  {
+   "id": 2,
+   "name": "L2",
+   "op": "ASSERT",
+   "e": "my dog",
+   "a": "eye_colour",
+   "told": 739901000200,
+   "v": "green",
+   "text": "My dog's eyes are green.",
+   "para": 0
+  },
+  {
+   "id": 3,
+   "name": "L3",
+   "op": "CHANGE",
+   "e": "my car",
+   "a": "name",
+   "told": 739901000300,
+   "v": "Elsa",
+   "text": "My car is called Elsa now.",
+   "para": 0
+  },
+  {
+   "id": 4,
+   "name": "L4",
+   "op": "DATED",
+   "e": "my dog",
+   "a": "name",
+   "told": 739901000400,
+   "v0": "Ana",
+   "d": "2025-12-23",
+   "v1": "Otto",
+   "text": "Until 23 December 2025, my dog was called Ana. Since then it has been called Otto.",
+   "para": 1
+  },
+  {
+   "id": 5,
+   "name": "L5",
+   "op": "DATED",
+   "e": "my dog",
+   "a": "name",
+   "told": 739901000500,
+   "v0": "Elsa",
+   "d": "2026-02-20",
+   "v1": "Milo",
+   "text": "My dog was called Elsa until 20 February 2026; now it is called Milo.",
+   "para": 0
+  },
+  {
+   "id": 6,
+   "name": "L6",
+   "op": "ASSERT",
+   "e": "my dog",
+   "a": "eye_colour",
+   "told": 739901000600,
+   "v": "amber",
+   "when": {
+    "always": true
+   },
+   "text": "My dog's eyes have always been amber.",
+   "para": 0
+  },
+  {
+   "id": 7,
+   "name": "L7",
+   "op": "CHANGE",
+   "e": "me",
+   "a": "fav_colour",
+   "told": 739901000700,
+   "v": "white",
+   "text": "My favourite colour has changed; it is white now.",
+   "para": 2
+  },
+  {
+   "id": 8,
+   "name": "L8",
+   "op": "DATED",
+   "e": "me",
+   "a": "fav_colour",
+   "told": 739901000800,
+   "v0": "red",
+   "d": "2025-12-16",
+   "v1": "black",
+   "text": "Until 16 December 2025, my favourite colour was red. Since then it has been black.",
+   "para": 1
+  },
+  {
+   "id": 9,
+   "name": "L9",
+   "op": "DATED",
+   "e": "my dog",
+   "a": "eye_colour",
+   "told": 739901000900,
+   "v0": "brown",
+   "d": "2025-07-22",
+   "v1": "hazel",
+   "text": "My dog's eyes were brown until 22 July 2025; now they are hazel.",
+   "para": 0
+  },
+  {
+   "id": 10,
+   "name": "L10",
+   "op": "ASSERT",
+   "e": "my dog",
+   "a": "eye_colour",
+   "told": 739901001000,
+   "v": "hazel",
+   "text": "The colour of my dog's eyes is hazel.",
+   "para": 2
+  },
+  {
+   "id": 11,
+   "name": "L11",
+   "op": "CHANGE",
+   "e": "my car",
+   "a": "name",
+   "told": 739901001100,
+   "v": "Milo",
+   "text": "My car has a new name; it is called Milo now.",
+   "para": 1
+  },
+  {
+   "id": 12,
+   "name": "L12",
+   "op": "RETRACT",
+   "e": "my dog",
+   "a": "eye_colour",
+   "told": 739901001200,
+   "v": "hazel",
+   "text": "My dog's eyes are no longer hazel.",
+   "para": 1
+  },
+  {
+   "id": 13,
+   "name": "L13",
+   "op": "ASSERT",
+   "e": "my car",
+   "a": "name",
+   "told": 739901001300,
+   "v": "Milo",
+   "text": "My car is named Milo.",
+   "para": 2
+  },
+  {
+   "id": 14,
+   "name": "L14",
+   "op": "ASSERT",
+   "e": "my car",
+   "a": "name",
+   "told": 739901001400,
+   "v": "Bruno",
+   "text": "My car is named Bruno.",
+   "para": 2
+  },
+  {
+   "id": 15,
+   "name": "L15",
+   "op": "ASSERT",
+   "e": "me",
+   "a": "fav_colour",
+   "told": 739901001500,
+   "v": "blue",
+   "text": "My favourite colour is blue.",
+   "para": 0
+  },
+  {
+   "id": 16,
+   "name": "L16",
+   "op": "ASSERT",
+   "e": "my dog",
+   "a": "eye_colour",
+   "told": 739901001600,
+   "v": "blue",
+   "text": "The colour of my dog's eyes is blue.",
+   "para": 2
+  },
+  {
+   "id": 17,
+   "name": "L17",
+   "op": "ASSERT",
+   "e": "my dog",
+   "a": "name",
+   "told": 739901001700,
+   "v": "Otto",
+   "text": "My dog's name is Otto.",
+   "para": 0
+  }
+ ],
+ "questions": [
+  {
+   "qid": "Q01",
+   "type": "CURRENT",
+   "a": "fav_colour",
+   "text": "What is my favourite colour?",
+   "para": 0,
+   "role": "probe",
+   "e": "me"
+  },
+  {
+   "qid": "Q02",
+   "type": "YES_NO",
+   "a": "fav_colour",
+   "text": "Is my favourite colour blue?",
+   "para": 0,
+   "role": "probe",
+   "e": "me",
+   "v": "blue"
+  },
+  {
+   "qid": "Q03",
+   "type": "EITHER_OR",
+   "a": "fav_colour",
+   "text": "Do I like blue or black best?",
+   "para": 1,
+   "role": "probe",
+   "e": "me",
+   "x": "blue",
+   "y": "black"
+  },
+  {
+   "qid": "Q04",
+   "type": "PREVIOUS",
+   "a": "fav_colour",
+   "text": "What did my favourite colour use to be?",
+   "para": 1,
+   "role": "probe",
+   "e": "me"
+  },
+  {
+   "qid": "Q05",
+   "type": "ALWAYS",
+   "a": "fav_colour",
+   "text": "Has my favourite colour always been the same?",
+   "para": 0,
+   "role": "probe",
+   "e": "me"
+  },
+  {
+   "qid": "Q06",
+   "type": "CHANGED",
+   "a": "fav_colour",
+   "text": "Has my favourite colour ever changed?",
+   "para": 0,
+   "role": "probe",
+   "e": "me"
+  },
+  {
+   "qid": "Q07",
+   "type": "BEFORE",
+   "a": "fav_colour",
+   "text": "What was my favourite colour before 16 December 2025?",
+   "para": 0,
+   "role": "probe",
+   "e": "me",
+   "date": "2025-12-16"
+  },
+  {
+   "qid": "Q08",
+   "type": "AT",
+   "a": "fav_colour",
+   "text": "What was my favourite colour on 28 December 2025?",
+   "para": 0,
+   "role": "probe",
+   "e": "me",
+   "date": "2025-12-28"
+  },
+  {
+   "qid": "Q09",
+   "type": "CURRENT",
+   "a": "eye_colour",
+   "text": "Tell me the colour of my dog's eyes.",
+   "para": 2,
+   "role": "probe",
+   "e": "my dog"
+  },
+  {
+   "qid": "Q10",
+   "type": "YES_NO",
+   "a": "eye_colour",
+   "text": "Are my dog's eyes blue?",
+   "para": 0,
+   "role": "probe",
+   "e": "my dog",
+   "v": "blue"
+  },
+  {
+   "qid": "Q11",
+   "type": "EITHER_OR",
+   "a": "eye_colour",
+   "text": "Are my dog's eyes blue or green?",
+   "para": 0,
+   "role": "probe",
+   "e": "my dog",
+   "x": "blue",
+   "y": "green"
+  },
+  {
+   "qid": "Q12",
+   "type": "PREVIOUS",
+   "a": "eye_colour",
+   "text": "What colour did my dog's eyes use to be?",
+   "para": 1,
+   "role": "probe",
+   "e": "my dog"
+  },
+  {
+   "qid": "Q13",
+   "type": "ALWAYS",
+   "a": "eye_colour",
+   "text": "Have my dog's eyes always been the same colour?",
+   "para": 0,
+   "role": "probe",
+   "e": "my dog"
+  },
+  {
+   "qid": "Q14",
+   "type": "CHANGED",
+   "a": "eye_colour",
+   "text": "Have my dog's eyes ever changed colour?",
+   "para": 0,
+   "role": "probe",
+   "e": "my dog"
+  },
+  {
+   "qid": "Q15",
+   "type": "BEFORE",
+   "a": "eye_colour",
+   "text": "Before 22 July 2025, what colour were my dog's eyes?",
+   "para": 1,
+   "role": "probe",
+   "e": "my dog",
+   "date": "2025-07-22"
+  },
+  {
+   "qid": "Q16",
+   "type": "AT",
+   "a": "eye_colour",
+   "text": "On 24 July 2025, what colour were my dog's eyes?",
+   "para": 1,
+   "role": "probe",
+   "e": "my dog",
+   "date": "2025-07-24"
+  },
+  {
+   "qid": "Q17",
+   "type": "CURRENT",
+   "a": "name",
+   "text": "What is my car's name?",
+   "para": 0,
+   "role": "probe",
+   "e": "my car"
+  },
+  {
+   "qid": "Q18",
+   "type": "YES_NO",
+   "a": "name",
+   "text": "Is my car's name Bruno?",
+   "para": 1,
+   "role": "probe",
+   "e": "my car",
+   "v": "Bruno"
+  },
+  {
+   "qid": "Q19",
+   "type": "EITHER_OR",
+   "a": "name",
+   "text": "Is my car called Bruno or Otto?",
+   "para": 0,
+   "role": "probe",
+   "e": "my car",
+   "x": "Bruno",
+   "y": "Otto"
+  },
+  {
+   "qid": "Q20",
+   "type": "PREVIOUS",
+   "a": "name",
+   "text": "What did my car use to be called?",
+   "para": 1,
+   "role": "probe",
+   "e": "my car"
+  },
+  {
+   "qid": "Q21",
+   "type": "ALWAYS",
+   "a": "name",
+   "text": "Has my car always had the same name?",
+   "para": 0,
+   "role": "probe",
+   "e": "my car"
+  },
+  {
+   "qid": "Q22",
+   "type": "CHANGED",
+   "a": "name",
+   "text": "Has my car ever had a different name?",
+   "para": 0,
+   "role": "probe",
+   "e": "my car"
+  },
+  {
+   "qid": "Q23",
+   "type": "CURRENT",
+   "a": "name",
+   "text": "What is my dog's name?",
+   "para": 0,
+   "role": "probe",
+   "e": "my dog"
+  },
+  {
+   "qid": "Q24",
+   "type": "YES_NO",
+   "a": "name",
+   "text": "Is my dog's name Otto?",
+   "para": 1,
+   "role": "probe",
+   "e": "my dog",
+   "v": "Otto"
+  },
+  {
+   "qid": "Q25",
+   "type": "EITHER_OR",
+   "a": "name",
+   "text": "Is my dog called Otto or Pablo?",
+   "para": 0,
+   "role": "probe",
+   "e": "my dog",
+   "x": "Otto",
+   "y": "Pablo"
+  },
+  {
+   "qid": "Q26",
+   "type": "PREVIOUS",
+   "a": "name",
+   "text": "What was my dog called before the name changed?",
+   "para": 0,
+   "role": "probe",
+   "e": "my dog"
+  },
+  {
+   "qid": "Q27",
+   "type": "ALWAYS",
+   "a": "name",
+   "text": "Has my dog always had the same name?",
+   "para": 0,
+   "role": "probe",
+   "e": "my dog"
+  },
+  {
+   "qid": "Q28",
+   "type": "CHANGED",
+   "a": "name",
+   "text": "Has my dog ever had a different name?",
+   "para": 0,
+   "role": "probe",
+   "e": "my dog"
+  },
+  {
+   "qid": "Q29",
+   "type": "BEFORE",
+   "a": "name",
+   "text": "What was my dog called before 23 December 2025?",
+   "para": 0,
+   "role": "probe",
+   "e": "my dog",
+   "date": "2025-12-23"
+  },
+  {
+   "qid": "Q30",
+   "type": "AT",
+   "a": "name",
+   "text": "What was my dog called on 12 January 2026?",
+   "para": 0,
+   "role": "probe",
+   "e": "my dog",
+   "date": "2026-01-12"
+  },
+  {
+   "qid": "Q31",
+   "type": "WHO_HAS",
+   "a": "fav_colour",
+   "text": "Who likes blue best?",
+   "para": 1,
+   "role": "probe",
+   "v": "blue",
+   "form": "who_bare"
+  },
+  {
+   "qid": "Q32",
+   "type": "CURRENT",
+   "a": "fav_colour",
+   "text": "Which colour does my sister like best?",
+   "para": 1,
+   "role": "near_miss",
+   "e": "my sister"
+  },
+  {
+   "qid": "Q33",
+   "type": "CURRENT",
+   "a": "eye_colour",
+   "text": "Tell me the colour of my eyes.",
+   "para": 2,
+   "role": "untouched",
+   "e": "me"
+  },
+  {
+   "qid": "Q34",
+   "type": "GK",
+   "a": null,
+   "text": "What colour is the sky on a clear day?",
+   "any_of": [
+    [
+     "blue"
+    ]
+   ],
+   "role": "gk"
+  },
+  {
+   "qid": "Q35",
+   "type": "GK",
+   "a": null,
+   "text": "What do you call a young cat?",
+   "any_of": [
+    [
+     "kitten"
+    ]
+   ],
+   "role": "gk"
+  },
+  {
+   "qid": "Q36",
+   "type": "GK",
+   "a": null,
+   "text": "What is the capital of France?",
+   "any_of": [
+    [
+     "paris"
+    ]
+   ],
+   "role": "gk"
+  },
+  {
+   "qid": "Q37",
+   "type": "YES_NO",
+   "a": "fav_colour",
+   "text": "Is purple my favourite colour?",
+   "para": 1,
+   "role": "probe",
+   "e": "me",
+   "v": "purple",
+   "probe": "wrong_yes"
+  },
+  {
+   "qid": "Q38",
+   "type": "YES_NO",
+   "a": "fav_colour",
+   "text": "Is my favourite colour orange?",
+   "para": 0,
+   "role": "probe",
+   "e": "me",
+   "v": "orange",
+   "probe": "wrong_yes"
+  },
+  {
+   "qid": "Q39",
+   "type": "YES_NO",
+   "a": "fav_colour",
+   "text": "Is yellow my favourite colour?",
+   "para": 1,
+   "role": "probe",
+   "e": "me",
+   "v": "yellow",
+   "probe": "wrong_yes"
+  },
+  {
+   "qid": "Q40",
+   "type": "YES_NO",
+   "a": "fav_colour",
+   "text": "True or false: my favourite colour is purple.",
+   "para": 0,
+   "role": "probe",
+   "e": "me",
+   "v": "purple",
+   "form": "true_false",
+   "probe": "wrong_yes"
+  },
+  {
+   "qid": "Q41",
+   "type": "YES_NO",
+   "a": "fav_colour",
+   "text": "True or false: my favourite colour is blue.",
+   "para": 0,
+   "role": "probe",
+   "e": "me",
+   "v": "blue",
+   "form": "true_false"
+  },
+  {
+   "qid": "Q42",
+   "type": "CURRENT",
+   "a": "fav_colour",
+   "text": "Finish this sentence: \"My favourite colour is ...\"",
+   "para": 0,
+   "role": "probe",
+   "e": "me",
+   "form": "fill_in"
+  },
+  {
+   "qid": "Q43",
+   "type": "YES_NO",
+   "a": "fav_colour",
+   "text": "First say what my favourite colour is, then answer yes or no: is it purple?",
+   "para": 0,
+   "role": "probe",
+   "e": "me",
+   "v": "purple",
+   "form": "recall_yn",
+   "probe": "wrong_yes"
+  },
+  {
+   "qid": "Q44",
+   "type": "YES_NO",
+   "a": "fav_colour",
+   "text": "First say what my favourite colour is, then answer yes or no: is it blue?",
+   "para": 0,
+   "role": "probe",
+   "e": "me",
+   "v": "blue",
+   "form": "recall_yn"
+  },
+  {
+   "qid": "Q45",
+   "type": "YES_NO",
+   "a": "eye_colour",
+   "text": "Is it true that my dog's eyes are grey?",
+   "para": 1,
+   "role": "probe",
+   "e": "my dog",
+   "v": "grey",
+   "probe": "wrong_yes"
+  },
+  {
+   "qid": "Q46",
+   "type": "YES_NO",
+   "a": "eye_colour",
+   "text": "True or false: my dog's eyes are grey.",
+   "para": 0,
+   "role": "probe",
+   "e": "my dog",
+   "v": "grey",
+   "form": "true_false",
+   "probe": "wrong_yes"
+  },
+  {
+   "qid": "Q47",
+   "type": "YES_NO",
+   "a": "eye_colour",
+   "text": "True or false: my dog's eyes are blue.",
+   "para": 0,
+   "role": "probe",
+   "e": "my dog",
+   "v": "blue",
+   "form": "true_false"
+  },
+  {
+   "qid": "Q48",
+   "type": "CURRENT",
+   "a": "eye_colour",
+   "text": "Finish this sentence: \"My dog's eyes are ...\"",
+   "para": 0,
+   "role": "probe",
+   "e": "my dog",
+   "form": "fill_in"
+  },
+  {
+   "qid": "Q49",
+   "type": "YES_NO",
+   "a": "eye_colour",
+   "text": "First say what colour my dog's eyes are, then answer yes or no: are they grey?",
+   "para": 0,
+   "role": "probe",
+   "e": "my dog",
+   "v": "grey",
+   "form": "recall_yn",
+   "probe": "wrong_yes"
+  },
+  {
+   "qid": "Q50",
+   "type": "YES_NO",
+   "a": "eye_colour",
+   "text": "First say what colour my dog's eyes are, then answer yes or no: are they blue?",
+   "para": 0,
+   "role": "probe",
+   "e": "my dog",
+   "v": "blue",
+   "form": "recall_yn"
+  },
+  {
+   "qid": "Q51",
+   "type": "YES_NO",
+   "a": "name",
+   "text": "Is my car called Ana?",
+   "para": 0,
+   "role": "probe",
+   "e": "my car",
+   "v": "Ana",
+   "probe": "wrong_yes",
+   "neighbour": "my dog"
+  },
+  {
+   "qid": "Q52",
+   "type": "YES_NO",
+   "a": "name",
+   "text": "Is my car called Otto?",
+   "para": 0,
+   "role": "probe",
+   "e": "my car",
+   "v": "Otto",
+   "probe": "wrong_yes",
+   "neighbour": "my dog"
+  },
+  {
+   "qid": "Q53",
+   "type": "YES_NO",
+   "a": "name",
+   "text": "Is my car called Luna?",
+   "para": 0,
+   "role": "probe",
+   "e": "my car",
+   "v": "Luna",
+   "probe": "wrong_yes"
+  },
+  {
+   "qid": "Q54",
+   "type": "YES_NO",
+   "a": "name",
+   "text": "True or false: my car is called Ana.",
+   "para": 0,
+   "role": "probe",
+   "e": "my car",
+   "v": "Ana",
+   "form": "true_false",
+   "probe": "wrong_yes",
+   "neighbour": "my dog"
+  },
+  {
+   "qid": "Q55",
+   "type": "YES_NO",
+   "a": "name",
+   "text": "True or false: my car is called Bruno.",
+   "para": 0,
+   "role": "probe",
+   "e": "my car",
+   "v": "Bruno",
+   "form": "true_false"
+  },
+  {
+   "qid": "Q56",
+   "type": "CURRENT",
+   "a": "name",
+   "text": "Finish this sentence: \"My car's name is ...\"",
+   "para": 0,
+   "role": "probe",
+   "e": "my car",
+   "form": "fill_in"
+  },
+  {
+   "qid": "Q57",
+   "type": "YES_NO",
+   "a": "name",
+   "text": "First say what my car is called, then answer yes or no: is it called Ana?",
+   "para": 0,
+   "role": "probe",
+   "e": "my car",
+   "v": "Ana",
+   "form": "recall_yn",
+   "probe": "wrong_yes",
+   "neighbour": "my dog"
+  },
+  {
+   "qid": "Q58",
+   "type": "YES_NO",
+   "a": "name",
+   "text": "First say what my car is called, then answer yes or no: is it called Bruno?",
+   "para": 0,
+   "role": "probe",
+   "e": "my car",
+   "v": "Bruno",
+   "form": "recall_yn"
+  },
+  {
+   "qid": "Q59",
+   "type": "YES_NO",
+   "a": "name",
+   "text": "Is my dog called Bruno?",
+   "para": 0,
+   "role": "probe",
+   "e": "my dog",
+   "v": "Bruno",
+   "probe": "wrong_yes",
+   "neighbour": "my car"
+  },
+  {
+   "qid": "Q60",
+   "type": "YES_NO",
+   "a": "name",
+   "text": "Is my dog called Pablo?",
+   "para": 0,
+   "role": "probe",
+   "e": "my dog",
+   "v": "Pablo",
+   "probe": "wrong_yes"
+  },
+  {
+   "qid": "Q61",
+   "type": "YES_NO",
+   "a": "name",
+   "text": "Is my dog's name Nora?",
+   "para": 1,
+   "role": "probe",
+   "e": "my dog",
+   "v": "Nora",
+   "probe": "wrong_yes"
+  },
+  {
+   "qid": "Q62",
+   "type": "YES_NO",
+   "a": "name",
+   "text": "True or false: my dog is called Bruno.",
+   "para": 0,
+   "role": "probe",
+   "e": "my dog",
+   "v": "Bruno",
+   "form": "true_false",
+   "probe": "wrong_yes",
+   "neighbour": "my car"
+  },
+  {
+   "qid": "Q63",
+   "type": "YES_NO",
+   "a": "name",
+   "text": "True or false: my dog is called Otto.",
+   "para": 0,
+   "role": "probe",
+   "e": "my dog",
+   "v": "Otto",
+   "form": "true_false"
+  },
+  {
+   "qid": "Q64",
+   "type": "CURRENT",
+   "a": "name",
+   "text": "Finish this sentence: \"My dog's name is ...\"",
+   "para": 0,
+   "role": "probe",
+   "e": "my dog",
+   "form": "fill_in"
+  },
+  {
+   "qid": "Q65",
+   "type": "YES_NO",
+   "a": "name",
+   "text": "First say what my dog is called, then answer yes or no: is it called Bruno?",
+   "para": 0,
+   "role": "probe",
+   "e": "my dog",
+   "v": "Bruno",
+   "form": "recall_yn",
+   "probe": "wrong_yes",
+   "neighbour": "my car"
+  },
+  {
+   "qid": "Q66",
+   "type": "YES_NO",
+   "a": "name",
+   "text": "First say what my dog is called, then answer yes or no: is it called Otto?",
+   "para": 0,
+   "role": "probe",
+   "e": "my dog",
+   "v": "Otto",
+   "form": "recall_yn"
+  },
+  {
+   "qid": "Q67",
+   "type": "WHO_HAS",
+   "a": "fav_colour",
+   "text": "Of me, my sister and my brother, whose favourite colour is blue?",
+   "para": 0,
+   "role": "probe",
+   "v": "blue",
+   "form": "who_listed",
+   "among": [
+    "me",
+    "my sister",
+    "my brother"
+   ]
+  },
+  {
+   "qid": "Q68",
+   "type": "YES_NO",
+   "a": "fav_colour",
+   "text": "Is it me whose favourite colour is blue?",
+   "para": 0,
+   "role": "probe",
+   "e": "me",
+   "v": "blue",
+   "form": "who_yn"
+  },
+  {
+   "qid": "Q69",
+   "type": "YES_NO",
+   "a": "fav_colour",
+   "text": "Is it my sister whose favourite colour is blue?",
+   "para": 0,
+   "role": "probe",
+   "e": "my sister",
+   "v": "blue",
+   "form": "who_yn"
+  },
+  {
+   "qid": "Q70",
+   "type": "WHO_HAS",
+   "a": "eye_colour",
+   "text": "Who has blue eyes?",
+   "para": 0,
+   "role": "probe",
+   "v": "blue",
+   "form": "who_bare"
+  },
+  {
+   "qid": "Q71",
+   "type": "WHO_HAS",
+   "a": "eye_colour",
+   "text": "Of me, my cat and my dog, who has blue eyes?",
+   "para": 0,
+   "role": "probe",
+   "v": "blue",
+   "form": "who_listed",
+   "among": [
+    "me",
+    "my cat",
+    "my dog"
+   ]
+  },
+  {
+   "qid": "Q72",
+   "type": "YES_NO",
+   "a": "eye_colour",
+   "text": "Is it my dog who has blue eyes?",
+   "para": 0,
+   "role": "probe",
+   "e": "my dog",
+   "v": "blue",
+   "form": "who_yn"
+  },
+  {
+   "qid": "Q73",
+   "type": "YES_NO",
+   "a": "eye_colour",
+   "text": "Is it me who has blue eyes?",
+   "para": 0,
+   "role": "probe",
+   "e": "me",
+   "v": "blue",
+   "form": "who_yn"
+  },
+  {
+   "qid": "Q74",
+   "type": "WHO_HAS",
+   "a": "name",
+   "text": "Who is called Otto?",
+   "para": 0,
+   "role": "probe",
+   "v": "Otto",
+   "form": "who_bare"
+  },
+  {
+   "qid": "Q75",
+   "type": "WHO_HAS",
+   "a": "name",
+   "text": "Of my bike, my dog and my car, who is called Otto?",
+   "para": 0,
+   "role": "probe",
+   "v": "Otto",
+   "form": "who_listed",
+   "among": [
+    "my bike",
+    "my dog",
+    "my car"
+   ]
+  },
+  {
+   "qid": "Q76",
+   "type": "YES_NO",
+   "a": "name",
+   "text": "Is it my dog who is called Otto?",
+   "para": 0,
+   "role": "probe",
+   "e": "my dog",
+   "v": "Otto",
+   "form": "who_yn"
+  },
+  {
+   "qid": "Q77",
+   "type": "YES_NO",
+   "a": "name",
+   "text": "Is it my car who is called Otto?",
+   "para": 0,
+   "role": "probe",
+   "e": "my car",
+   "v": "Otto",
+   "form": "who_yn"
+  }
+ ],
+ "phases": [
+  {
+   "name": "baseline",
+   "deleted": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+   ],
+   "note": "before any teaching (the original model)",
+   "store": []
+  },
+  {
+   "name": "teach",
+   "deleted": [],
+   "note": "every lesson taught, in order",
+   "store": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+   ]
+  },
+  {
+   "name": "del-A",
+   "deleted": [
+    5,
+    12
+   ],
+   "note": "random deletion",
+   "store": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    15,
+    16,
+    17
+   ],
+   "affected": [
+    "Q09",
+    "Q10",
+    "Q11",
+    "Q12",
+    "Q13",
+    "Q14",
+    "Q15",
+    "Q16",
+    "Q23",
+    "Q24",
+    "Q25",
+    "Q26",
+    "Q27",
+    "Q28",
+    "Q29",
+    "Q30",
+    "Q45",
+    "Q46",
+    "Q47",
+    "Q48",
+    "Q49",
+    "Q50",
+    "Q59",
+    "Q60",
+    "Q61",
+    "Q62",
+    "Q63",
+    "Q64",
+    "Q65",
+    "Q66",
+    "Q70",
+    "Q71",
+    "Q72",
+    "Q74",
+    "Q75",
+    "Q76"
+   ]
+  },
+  {
+   "name": "del-B",
+   "deleted": [
+    9,
+    11
+   ],
+   "note": "random deletion",
+   "store": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    10,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+   ],
+   "affected": [
+    "Q09",
+    "Q10",
+    "Q11",
+    "Q12",
+    "Q13",
+    "Q14",
+    "Q15",
+    "Q16",
+    "Q17",
+    "Q18",
+    "Q19",
+    "Q20",
+    "Q21",
+    "Q22",
+    "Q45",
+    "Q46",
+    "Q47",
+    "Q48",
+    "Q49",
+    "Q50",
+    "Q51",
+    "Q52",
+    "Q53",
+    "Q54",
+    "Q55",
+    "Q56",
+    "Q57",
+    "Q58",
+    "Q70",
+    "Q71",
+    "Q72",
+    "Q74",
+    "Q75",
+    "Q77"
+   ]
+  }
+ ],
+ "notes": [
+  "Random sequence of 17 lessons over 4 entity-attribute pairs.",
+  "Question forms v2 (TEST-LOGIC.md section 13): wrong-yes probes with true/false, fill-in and recall-then-answer forms; who-has asked bare, as yes/no and over a list; likes asked as a full list and per item, with a phase after each like."
+ ],
+ "expected": {
+  "baseline": {
+   "Q01": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q02": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q03": {
+    "kind": "choice",
+    "value": "unknown"
+   },
+   "Q04": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q05": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q06": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q07": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q08": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q09": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q10": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q11": {
+    "kind": "choice",
+    "value": "unknown"
+   },
+   "Q12": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q13": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q14": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q15": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q16": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q17": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q18": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q19": {
+    "kind": "choice",
+    "value": "unknown"
+   },
+   "Q20": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q21": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q22": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q23": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q24": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q25": {
+    "kind": "choice",
+    "value": "unknown"
+   },
+   "Q26": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q27": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q28": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q29": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q30": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q31": {
+    "kind": "entities",
+    "yes": []
+   },
+   "Q32": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q33": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q34": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "blue"
+     ]
+    ]
+   },
+   "Q35": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "kitten"
+     ]
+    ]
+   },
+   "Q36": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "paris"
+     ]
+    ]
+   },
+   "Q37": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q38": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q39": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q40": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q41": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q42": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q43": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q44": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q45": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q46": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q47": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q48": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q49": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q50": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q51": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q52": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q53": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q54": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q55": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q56": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q57": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q58": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q59": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q60": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q61": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q62": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q63": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q64": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q65": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q66": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q67": {
+    "kind": "entities",
+    "yes": []
+   },
+   "Q68": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q69": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q70": {
+    "kind": "entities",
+    "yes": []
+   },
+   "Q71": {
+    "kind": "entities",
+    "yes": []
+   },
+   "Q72": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q73": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q74": {
+    "kind": "entities",
+    "yes": []
+   },
+   "Q75": {
+    "kind": "entities",
+    "yes": []
+   },
+   "Q76": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q77": {
+    "kind": "yn",
+    "value": "unk"
+   }
+  },
+  "teach": {
+   "Q01": {
+    "kind": "value",
+    "value": "blue"
+   },
+   "Q02": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q03": {
+    "kind": "choice",
+    "value": "blue"
+   },
+   "Q04": {
+    "kind": "value",
+    "value": "black"
+   },
+   "Q05": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q06": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q07": {
+    "kind": "value",
+    "value": "red"
+   },
+   "Q08": {
+    "kind": "value",
+    "value": "black"
+   },
+   "Q09": {
+    "kind": "value",
+    "value": "blue"
+   },
+   "Q10": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q11": {
+    "kind": "choice",
+    "value": "blue"
+   },
+   "Q12": {
+    "kind": "value",
+    "value": "hazel"
+   },
+   "Q13": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q14": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q15": {
+    "kind": "value",
+    "value": "brown"
+   },
+   "Q16": {
+    "kind": "value",
+    "value": "hazel"
+   },
+   "Q17": {
+    "kind": "value",
+    "value": "Bruno"
+   },
+   "Q18": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q19": {
+    "kind": "choice",
+    "value": "Bruno"
+   },
+   "Q20": {
+    "kind": "value",
+    "value": "Milo"
+   },
+   "Q21": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q22": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q23": {
+    "kind": "value",
+    "value": "Otto"
+   },
+   "Q24": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q25": {
+    "kind": "choice",
+    "value": "Otto"
+   },
+   "Q26": {
+    "kind": "value",
+    "value": "Milo"
+   },
+   "Q27": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q28": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q29": {
+    "kind": "value",
+    "value": "Elsa"
+   },
+   "Q30": {
+    "kind": "value",
+    "value": "Elsa"
+   },
+   "Q31": {
+    "kind": "entities",
+    "yes": [
+     "me"
+    ]
+   },
+   "Q32": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q33": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q34": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "blue"
+     ]
+    ]
+   },
+   "Q35": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "kitten"
+     ]
+    ]
+   },
+   "Q36": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "paris"
+     ]
+    ]
+   },
+   "Q37": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q38": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q39": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q40": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q41": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q42": {
+    "kind": "value",
+    "value": "blue"
+   },
+   "Q43": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q44": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q45": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q46": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q47": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q48": {
+    "kind": "value",
+    "value": "blue"
+   },
+   "Q49": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q50": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q51": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q52": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q53": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q54": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q55": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q56": {
+    "kind": "value",
+    "value": "Bruno"
+   },
+   "Q57": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q58": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q59": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q60": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q61": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q62": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q63": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q64": {
+    "kind": "value",
+    "value": "Otto"
+   },
+   "Q65": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q66": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q67": {
+    "kind": "entities",
+    "yes": [
+     "me"
+    ]
+   },
+   "Q68": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q69": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q70": {
+    "kind": "entities",
+    "yes": [
+     "my dog"
+    ]
+   },
+   "Q71": {
+    "kind": "entities",
+    "yes": [
+     "my dog"
+    ]
+   },
+   "Q72": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q73": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q74": {
+    "kind": "entities",
+    "yes": [
+     "my dog"
+    ]
+   },
+   "Q75": {
+    "kind": "entities",
+    "yes": [
+     "my dog"
+    ]
+   },
+   "Q76": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q77": {
+    "kind": "yn",
+    "value": "no"
+   }
+  },
+  "del-A": {
+   "Q01": {
+    "kind": "value",
+    "value": "blue"
+   },
+   "Q02": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q03": {
+    "kind": "choice",
+    "value": "blue"
+   },
+   "Q04": {
+    "kind": "value",
+    "value": "black"
+   },
+   "Q05": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q06": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q07": {
+    "kind": "value",
+    "value": "red"
+   },
+   "Q08": {
+    "kind": "value",
+    "value": "black"
+   },
+   "Q09": {
+    "kind": "value",
+    "value": "blue"
+   },
+   "Q10": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q11": {
+    "kind": "choice",
+    "value": "blue"
+   },
+   "Q12": {
+    "kind": "value",
+    "value": "hazel"
+   },
+   "Q13": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q14": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q15": {
+    "kind": "value",
+    "value": "brown"
+   },
+   "Q16": {
+    "kind": "value",
+    "value": "hazel"
+   },
+   "Q17": {
+    "kind": "value",
+    "value": "Bruno"
+   },
+   "Q18": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q19": {
+    "kind": "choice",
+    "value": "Bruno"
+   },
+   "Q20": {
+    "kind": "value",
+    "value": "Milo"
+   },
+   "Q21": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q22": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q23": {
+    "kind": "value",
+    "value": "Otto"
+   },
+   "Q24": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q25": {
+    "kind": "choice",
+    "value": "Otto"
+   },
+   "Q26": {
+    "kind": "value",
+    "value": "Ana"
+   },
+   "Q27": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q28": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q29": {
+    "kind": "value",
+    "value": "Ana"
+   },
+   "Q30": {
+    "kind": "value",
+    "value": "Otto"
+   },
+   "Q31": {
+    "kind": "entities",
+    "yes": [
+     "me"
+    ]
+   },
+   "Q32": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q33": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q34": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "blue"
+     ]
+    ]
+   },
+   "Q35": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "kitten"
+     ]
+    ]
+   },
+   "Q36": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "paris"
+     ]
+    ]
+   },
+   "Q37": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q38": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q39": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q40": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q41": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q42": {
+    "kind": "value",
+    "value": "blue"
+   },
+   "Q43": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q44": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q45": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q46": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q47": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q48": {
+    "kind": "value",
+    "value": "blue"
+   },
+   "Q49": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q50": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q51": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q52": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q53": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q54": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q55": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q56": {
+    "kind": "value",
+    "value": "Bruno"
+   },
+   "Q57": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q58": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q59": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q60": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q61": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q62": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q63": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q64": {
+    "kind": "value",
+    "value": "Otto"
+   },
+   "Q65": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q66": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q67": {
+    "kind": "entities",
+    "yes": [
+     "me"
+    ]
+   },
+   "Q68": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q69": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q70": {
+    "kind": "entities",
+    "yes": [
+     "my dog"
+    ]
+   },
+   "Q71": {
+    "kind": "entities",
+    "yes": [
+     "my dog"
+    ]
+   },
+   "Q72": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q73": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q74": {
+    "kind": "entities",
+    "yes": [
+     "my dog"
+    ]
+   },
+   "Q75": {
+    "kind": "entities",
+    "yes": [
+     "my dog"
+    ]
+   },
+   "Q76": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q77": {
+    "kind": "yn",
+    "value": "no"
+   }
+  },
+  "del-B": {
+   "Q01": {
+    "kind": "value",
+    "value": "blue"
+   },
+   "Q02": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q03": {
+    "kind": "choice",
+    "value": "blue"
+   },
+   "Q04": {
+    "kind": "value",
+    "value": "black"
+   },
+   "Q05": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q06": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q07": {
+    "kind": "value",
+    "value": "red"
+   },
+   "Q08": {
+    "kind": "value",
+    "value": "black"
+   },
+   "Q09": {
+    "kind": "value",
+    "value": "blue"
+   },
+   "Q10": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q11": {
+    "kind": "choice",
+    "value": "blue"
+   },
+   "Q12": {
+    "kind": "value",
+    "value": "hazel"
+   },
+   "Q13": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q14": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q15": {
+    "kind": "value",
+    "value": "amber"
+   },
+   "Q16": {
+    "kind": "value",
+    "value": "amber"
+   },
+   "Q17": {
+    "kind": "value",
+    "value": "Bruno"
+   },
+   "Q18": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q19": {
+    "kind": "choice",
+    "value": "Bruno"
+   },
+   "Q20": {
+    "kind": "value",
+    "value": "Milo"
+   },
+   "Q21": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q22": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q23": {
+    "kind": "value",
+    "value": "Otto"
+   },
+   "Q24": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q25": {
+    "kind": "choice",
+    "value": "Otto"
+   },
+   "Q26": {
+    "kind": "value",
+    "value": "Milo"
+   },
+   "Q27": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q28": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q29": {
+    "kind": "value",
+    "value": "Elsa"
+   },
+   "Q30": {
+    "kind": "value",
+    "value": "Elsa"
+   },
+   "Q31": {
+    "kind": "entities",
+    "yes": [
+     "me"
+    ]
+   },
+   "Q32": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q33": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q34": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "blue"
+     ]
+    ]
+   },
+   "Q35": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "kitten"
+     ]
+    ]
+   },
+   "Q36": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "paris"
+     ]
+    ]
+   },
+   "Q37": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q38": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q39": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q40": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q41": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q42": {
+    "kind": "value",
+    "value": "blue"
+   },
+   "Q43": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q44": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q45": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q46": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q47": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q48": {
+    "kind": "value",
+    "value": "blue"
+   },
+   "Q49": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q50": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q51": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q52": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q53": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q54": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q55": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q56": {
+    "kind": "value",
+    "value": "Bruno"
+   },
+   "Q57": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q58": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q59": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q60": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q61": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q62": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q63": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q64": {
+    "kind": "value",
+    "value": "Otto"
+   },
+   "Q65": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q66": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q67": {
+    "kind": "entities",
+    "yes": [
+     "me"
+    ]
+   },
+   "Q68": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q69": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q70": {
+    "kind": "entities",
+    "yes": [
+     "my dog"
+    ]
+   },
+   "Q71": {
+    "kind": "entities",
+    "yes": [
+     "my dog"
+    ]
+   },
+   "Q72": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q73": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q74": {
+    "kind": "entities",
+    "yes": [
+     "my dog"
+    ]
+   },
+   "Q75": {
+    "kind": "entities",
+    "yes": [
+     "my dog"
+    ]
+   },
+   "Q76": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q77": {
+    "kind": "yn",
+    "value": "no"
+   }
+  }
+ },
+ "forms": "v2"
+}
