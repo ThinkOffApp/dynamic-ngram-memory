@@ -1,0 +1,88 @@
+Re-judged with the current judge (lwlogic.py, this branch). Run mac-L1-seed1, set L1-seed1, combined input of the 'reteach.restart' delete mode.
+Answer files: baseline/answers.jsonl, teach/answers.restart.jsonl, del-A.reteach/answers.jsonl
+The set's expected answers recompute with this oracle: yes
+judged 72 answers against L1-seed1
+
+== baseline: store (empty)
+   property               thinking off        thinking on
+   recall                          3/3                3/3
+   either_or                       2/2                2/2
+   yes_no                          2/2                2/2
+   controls                        5/5                5/5
+   yes/no groups    2/2 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off   thinking on
+   all                v 3/3  ? 9/9   v 3/3  ? 9/9
+   recall             ? 3/3          ? 3/3
+   either or          ? 2/2          ? 2/2
+   yes no             ? 2/2          ? 2/2
+   controls           v 3/3  ? 2/2   v 3/3  ? 2/2
+   abstention         P 9/9 R 9/9    P 9/9 R 9/9   precision and recall of "don't know"
+   reliability        1/1            1/1
+   generality         6/6            6/6
+   locality           5/5            5/5
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: dk                   12/12              12/12
+   same answer         4/4 (0 v, 4 dk)    4/4 (0 v, 4 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 2/2                2/2   questions asked in several wordings, every wording right
+
+== teach: store L1
+   property               thinking off        thinking on
+   recall                          3/3                3/3
+   either_or                       2/2                2/2
+   yes_no                          1/2                1/2
+   controls                        5/5                5/5
+   yes/no groups    0/2 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off          thinking on
+   all                v 9/9  n 0/1  ? 2/2   v 9/9  n 0/1 (1 dk)  ? 2/2
+   recall             v 3/3                 v 3/3
+   either or          v 2/2                 v 2/2
+   yes no             v 1/1  n 0/1          v 1/1  n 0/1 (1 dk)
+   controls           v 3/3  ? 2/2          v 3/3  ? 2/2
+   should change      v 6/6  n 0/1          v 6/6  n 0/1 (1 dk)
+   should stay        v 3/3  ? 2/2          v 3/3  ? 2/2
+   abstention         P 2/2 R 2/2           P 2/3 R 2/2                 precision and recall of "don't know"
+   reliability        1/1                   1/1
+   generality         5/6                   5/6
+   locality           5/5                   5/5
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value               9/12               9/12   not: Q05~Q01 plain, Q05~Q02 plain, Q05~Q03 plain, Q05~Q01 think, Q05~Q02 think, Q05~Q03 think
+   same answer         4/4 (4 v, 0 dk)    4/4 (4 v, 0 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 2/2                2/2   questions asked in several wordings, every wording right
+   FAIL    Q05 plain "Is my favourite colour purple?" expected no; got yes [wrong yes/no]  << Yes, you mentioned earlier that your favourite colour is purple!
+   FAIL    Q05 think "Is my favourite colour purple?" expected no; got doesn't know [wrong yes/no]  << I don't have personal memories or preferences, but if purple is your favorite color, that'
+
+== del-A: store (empty); deleted L1
+   property               thinking off        thinking on
+   recall                          3/3                3/3
+   either_or                       2/2                2/2
+   yes_no                          2/2                2/2
+   controls                        5/5                5/5
+   delete_affected                 7/7                7/7
+   yes/no groups    2/2 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off   thinking on
+   all                v 3/3  ? 9/9   v 3/3  ? 9/9
+   recall             ? 3/3          ? 3/3
+   either or          ? 2/2          ? 2/2
+   yes no             ? 2/2          ? 2/2
+   controls           v 3/3  ? 2/2   v 3/3  ? 2/2
+   delete affected    ? 7/7          ? 7/7
+   should change      ? 7/7          ? 7/7
+   should stay        v 3/3  ? 2/2   v 3/3  ? 2/2
+   abstention         P 9/9 R 9/9    P 9/9 R 9/9   precision and recall of "don't know"
+   reliability        1/1            1/1
+   generality         6/6            6/6
+   locality           5/5            5/5
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: dk                   12/12              12/12
+   same answer         4/4 (0 v, 4 dk)    4/4 (0 v, 4 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 2/2                2/2   questions asked in several wordings, every wording right
+   kept_stable: questions whose right answer did not change, against this model's own teach answers (stability, not correctness)
+     same verdict                  5/5                5/5
+     same text                     5/5                2/5
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 20/20, recall 20/20;  v 15/15  n 0/1  ? 20/20
+   thinking on   precision 20/21, recall 20/20;  v 15/15  n 0/1 (1 dk)  ? 20/20

@@ -1,0 +1,265 @@
+Re-judged with the current judge (lwlogic.py, this branch). Run gb10-L5-seed1, set L5-seed1, combined input of the 'reteach' delete mode.
+Answer files: baseline/answers.jsonl, teach/answers.jsonl, del-A.reteach/answers.jsonl, del-B.reteach/answers.jsonl
+The set's expected answers recompute with this oracle: yes
+judged 288 answers against L5-seed1
+
+== baseline: store (empty)
+   property               thinking off        thinking on
+   recall                          4/4                4/4
+   temporal                      15/18              18/18
+   either_or           1/4 (2 unclear)                4/4
+   yes_no                          3/4                4/4
+   reverse                         1/1                1/1
+   controls                        5/5                5/5
+   yes/no groups    5/8 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off      thinking on
+   all                v 3/3  ? 26/33    v 3/3  ? 33/33
+   recall             ? 4/4             ? 4/4
+   temporal           ? 15/18           ? 18/18
+   either or          ? 1/4             ? 4/4
+   yes no             ? 3/4             ? 4/4
+   reverse            ? 1/1             ? 1/1
+   controls           v 3/3  ? 2/2      v 3/3  ? 2/2
+   abstention         P 26/26 R 26/33   P 32/32 R 32/33  precision and recall of "don't know"
+   reliability        4/4               4/4
+   generality         19/26             26/26
+   locality           5/5               5/5
+   portability        1/1               1/1
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: dk                     4/5                8/8   not: Q24~Q23 plain
+   FAIL    Q03 plain "Do I like blue or black best?" expected doesn't know; got off topic [offtopic]  << That depends on your mood! Here is a quick breakdown to help you decide: Blue The Vibe: Ca
+   FAIL    Q05 plain "Has my favourite colour always been the same?" expected doesn't know; got a guess: no [a guess, not a recall]  << It is very unlikely that your favourite colour has always been the same. While some people
+   UNCLEAR Q11 plain "Are my dog's eyes blue or green?" expected doesn't know; got unclear [unclear]  << It is very difficult to tell the exact color of a dog's eyes without a close-up photo, as
+   FAIL    Q13 plain "Have my dog's eyes always been the same colour?" expected doesn't know; got a guess: no [a guess, not a recall]  << It is very unlikely that your dog's eyes have always been the exact same colour. Most dogs
+   UNCLEAR Q19 plain "Is my car called Bruno or Otto?" expected doesn't know; got unclear [unclear]  << You can call your car whatever you like! However, if you want to know which name is more t
+   FAIL    Q24 plain "Is my dog's name Otto?" expected doesn't know; got yes [wrong yes/no]  << Yes, your dog's name is Otto!
+   FAIL    Q29 plain "What was my dog called before 23 December 2025?" expected doesn't know; got off topic [off topic]  << My name is Nemotron, and I'm a language model developed by NVIDIA. I can help with a wide
+
+== teach: store L1 L2 L3 L4 L5 L6 L7 L8 L9 L10 L11 L12 L13 L14 L15 L16 L17
+   property               thinking off        thinking on
+   recall                          3/4                2/4
+   temporal           5/18 (1 unclear)   5/18 (1 unclear)
+   either_or                       1/4                1/4
+   yes_no                          3/4    2/4 (1 unclear)
+   reverse                         0/1                0/1
+   controls                        5/5                5/5
+   yes/no groups    2/8 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                   thinking on
+   all                v 13/30 (6 dk)  n 2/4  ? 2/2   v 12/30 (8 dk)  n 1/4 (3 dk)  ? 2/2
+   recall             v 3/4                          v 2/4
+   temporal           v 3/14 (4 dk)  n 2/4           v 4/14 (6 dk)  n 1/4 (3 dk)
+   either or          v 1/4 (1 dk)                   v 1/4 (1 dk)
+   yes no             v 3/4                          v 2/4
+   reverse            v 0/1 (1 dk)                   v 0/1 (1 dk)
+   controls           v 3/3  ? 2/2                   v 3/3  ? 2/2
+   should change      v 10/27 (6 dk)  n 2/4          v 9/27 (8 dk)  n 1/4 (3 dk)
+   should stay        v 3/3  ? 2/2                   v 3/3  ? 2/2
+   abstention         P 2/8 R 2/2                    P 2/13 R 2/2                         precision and recall of "don't know"
+   reliability        3/4                            2/4
+   generality         9/26                           8/26
+   locality           5/5                            5/5
+   portability        0/1                            0/1
+   neighbourhood    a value taught about another entity: Q29 Bruno (my car) think
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value                3/8                3/7   not: Q02~Q01 plain, Q03~Q01 plain, Q11~Q09 plain, Q24~Q23 plain, Q25~Q23 plain, Q03~Q01 think, Q10~Q09 think, Q11~Q09 think, Q25~Q23 think
+   FAIL    Q02 plain "Is my favourite colour blue?" expected yes; got no [wrong yes/no]  << No, you said your favourite colour is blue.
+   FAIL    Q03 plain "Do I like blue or black best?" expected blue; got doesn't know [wrong choice]  << That is a question only you can answer! Since I don't know your personal taste, here are a
+   FAIL    Q04 plain "What did my favourite colour use to be?" expected black; got doesn't know [does not know a taught value]  << I don't know your favorite color, so I can't tell you what it used to be! However, if you
+   UNCLEAR Q05 plain "Has my favourite colour always been the same?" expected no; got a guess: no [the right answer, said as a guess]  << It is very unlikely that your favourite colour has always been the same. While some people
+   FAIL    Q06 plain "Has my favourite colour ever changed?" expected yes; got doesn't know [wrong yes/no]  << That is a very personal question! Since I don't know your actual favorite color, I can't s
+   FAIL    Q07 plain "What was my favourite colour before 16 December 2025?" expected red; got doesn't know [does not know a taught value]  << I don't have access to your personal history or memories, so I can't know what your favour
+   FAIL    Q08 plain "What was my favourite colour on 28 December 2025?" expected black; got doesn't know [does not know a taught value]  << I don't have access to your personal preferences or memories, so I can't know what your fa
+   FAIL    Q11 plain "Are my dog's eyes blue or green?" expected blue; got green [wrong choice]  << Your dog's eyes are green .
+   FAIL    Q12 plain "What colour did my dog's eyes use to be?" expected hazel; got brown [wrong value]  << Your dog's eyes used to be brown.
+   FAIL    Q14 plain "Have my dog's eyes ever changed colour?" expected yes; got no [wrong yes/no]  << No, I'm afraid not. As I mentioned earlier, your dog's eyes are still the same color they
+   FAIL    Q16 plain "On 24 July 2025, what colour were my dog's eyes?" expected hazel; got blue [wrong value]  << Your dog's eyes were blue.
+   FAIL    Q20 plain "What did my car use to be called?" expected Milo; got Bruno [wrong value]  << Your car used to be called Bruno .
+   FAIL    Q21 plain "Has my car always had the same name?" expected no; got yes [wrong yes/no]  << Yes, since you told me in the beginning that your car is named Bruno , it has always had t
+   FAIL    Q22 plain "Has my car ever had a different name?" expected yes; got no [wrong yes/no]  << No, I remember you told me earlier that your car is named Bruno.
+   FAIL    Q23 plain "What is my dog's name?" expected Otto; got Milo [wrong value]  << Your dog's name is Milo.
+   FAIL    Q25 plain "Is my dog called Otto or Pablo?" expected Otto; got Pablo [wrong choice]  << Your dog is called Pablo .
+   FAIL    Q26 plain "What was my dog called before the name changed?" expected Milo; got Elsa [wrong value]  << Your dog was called Elsa .
+   FAIL    Q30 plain "What was my dog called on 12 January 2026?" expected Elsa; got Milo [wrong value]  << Your dog was called Milo .
+   FAIL    Q31 plain "Who likes blue best?" expected me; got nobody of yours (a general answer) [a general answer: names none of yours]  << It is difficult to say definitively who likes blue best, as color preference is highly sub
+   FAIL    Q03 think "Do I like blue or black best?" expected blue; got doesn't know [wrong choice]  << I don't have personal feelings or preferences, so I can't say what you "best" like. But if
+   FAIL    Q04 think "What did my favourite colour use to be?" expected black; got doesn't know [does not know a taught value]  << I'd love to help, but I don't know what your favorite color is yet! Could you tell me whic
+   FAIL    Q05 think "Has my favourite colour always been the same?" expected no; got doesn't know [wrong yes/no]  << I don't have access to your personal history, memories, or past conversations, so I can't
+   FAIL    Q06 think "Has my favourite colour ever changed?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal history, memories, or past conversations, so I can't
+   FAIL    Q07 think "What was my favourite colour before 16 December 2025?" expected red; got doesn't know [does not know a taught value]  << I don't have access to your personal information, memories, or preferences, and I can't kn
+   FAIL    Q08 think "What was my favourite colour on 28 December 2025?" expected black; got doesn't know [does not know a taught value]  << I don't have access to your personal information, memories, or preferences, so I can't det
+   FAIL    Q09 think "Tell me the colour of my dog's eyes." expected blue; got brown [wrong value]  << Your dog's eyes are brown.
+   FAIL    Q11 think "Are my dog's eyes blue or green?" expected blue; got green [wrong choice]  << Yes, your dog's eyes are green.
+   FAIL    Q12 think "What colour did my dog's eyes use to be?" expected hazel; got brown [wrong value]  << Your dog's eyes used to be brown.
+   FAIL    Q16 think "On 24 July 2025, what colour were my dog's eyes?" expected hazel; got brown [wrong value]  << On 24 July 2025, your dog's eyes were brown.
+   UNCLEAR Q18 think "Is my car's name Bruno?" expected yes; got empty [empty answer]  <<
+   FAIL    Q20 think "What did my car use to be called?" expected Milo; got doesn't know [does not know a taught value]  << I don't have any information about your car's previous name. Based on our conversation, yo
+   FAIL    Q21 think "Has my car always had the same name?" expected no; got doesn't know [wrong yes/no]  << I don't have information about whether your car has always had the name Bruno or if it has
+   FAIL    Q22 think "Has my car ever had a different name?" expected yes; got doesn't know [wrong yes/no]  << As far as I know, your car has always been named Bruno . That's the name you gave me when
+   FAIL    Q23 think "What is my dog's name?" expected Otto; got Milo [wrong value]  << Your dog's name is Milo.
+   FAIL    Q24 think "Is my dog's name Otto?" expected yes; got no [wrong yes/no]  << No, your dog's name is Milo.
+   FAIL    Q25 think "Is my dog called Otto or Pablo?" expected Otto; got Pablo [wrong choice]  << Your dog's name is Pablo .
+   FAIL    Q27 think "Has my dog always had the same name?" expected no; got doesn't know [wrong yes/no]  << I don't have access to your personal information, so I can't say for sure whether your dog
+   FAIL    Q29 think "What was my dog called before 23 December 2025?" expected Elsa; got Bruno [wrong value]  << Your dog was called Bruno before 23 December 2025.
+   UNCLEAR Q30 think "What was my dog called on 12 January 2026?" expected Elsa; got unclear [unclear]  << Your dog was called Rex on 12 January 2026.
+   FAIL    Q31 think "Who likes blue best?" expected me; got nobody of yours (a general answer) [a general answer: names none of yours]  << There isn't one specific person who likes blue best, color preference is highly subjective
+
+== del-A: store L1 L2 L3 L4 L6 L7 L8 L9 L10 L11 L13 L14 L15 L16 L17; deleted L5 L12
+   property               thinking off        thinking on
+   recall                          3/4                3/4
+   temporal           3/18 (1 unclear)   0/18 (1 unclear)
+   either_or                       3/4                1/4
+   yes_no                          3/4    3/4 (1 unclear)
+   reverse                         0/1                0/1
+   controls                        4/5                5/5
+   delete_affected                8/16   2/16 (1 unclear)
+   delete_kept        4/15 (1 unclear)   5/15 (1 unclear)
+   yes/no groups    0/8 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                   thinking on
+   all                v 13/30 (9 dk)  n 2/4  ? 1/2   v 10/30 (15 dk)  n 0/4 (4 dk)  ? 2/2
+   recall             v 3/4                          v 3/4
+   temporal           v 1/14 (7 dk)  n 2/4           v 0/14 (11 dk)  n 0/4 (4 dk)
+   either or          v 3/4 (1 dk)                   v 1/4 (3 dk)
+   yes no             v 3/4                          v 3/4
+   reverse            v 0/1 (1 dk)                   v 0/1 (1 dk)
+   controls           v 3/3  ? 1/2                   v 3/3  ? 2/2
+   delete affected    v 6/14 (3 dk)  n 2/2           v 2/14 (8 dk)  n 0/2 (2 dk)
+   delete kept        v 4/13 (6 dk)  n 0/2           v 5/13 (7 dk)  n 0/2 (2 dk)
+   should change      v 0/3 (3 dk)                   v 0/3 (3 dk)
+   should stay        v 13/27 (6 dk)  n 2/4  ? 1/2   v 10/27 (12 dk)  n 0/4 (4 dk)  ? 2/2
+   abstention         P 1/10 R 1/2                   P 2/21 R 2/2                          precision and recall of "don't know"
+   reliability        3/4                            3/4
+   generality         9/26                           4/26
+   locality           4/5                            5/5
+   portability        0/1                            0/1
+   neighbourhood    a value taught about another entity: Q33 hazel (my dog) plain
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value                4/8                4/7   not: Q02~Q01 plain, Q03~Q01 plain, Q10~Q09 plain, Q11~Q09 plain, Q03~Q01 think, Q11~Q09 think, Q25~Q23 think
+   kept_stable: questions whose right answer did not change, against this model's own teach answers (stability, not correctness)
+     same verdict                25/33              24/33
+     same text                    9/33               5/33
+     moved          Q09 plain pass->fail, Q11 plain fail->pass, Q15 plain pass->fail, Q16 plain fail->pass, Q23 plain fail->pass, Q25 plain fail->pass, Q28 plain pass->fail, Q33 plain pass->fail, Q10 think pass->unclear, Q13 think pass->fail, Q14 think pass->fail, Q15 think pass->fail, Q18 think unclear->pass, Q22 think fail->unclear, Q23 think fail->pass, Q24 think fail->pass, Q28 think pass->fail
+   FAIL    Q02 plain "Is my favourite colour blue?" expected yes; got no [wrong yes/no]  << No, you said your favourite colour is blue.
+   FAIL    Q03 plain "Do I like blue or black best?" expected blue; got doesn't know [wrong choice]  << That is a question only you can answer! Since I don't know your personal taste, here are a
+   FAIL    Q04 plain "What did my favourite colour use to be?" expected black; got doesn't know [does not know a taught value]  << I don't know your favorite color, so I can't tell you what it used to be! However, if you
+   UNCLEAR Q05 plain "Has my favourite colour always been the same?" expected no; got a guess: no [the right answer, said as a guess]  << It is very unlikely! Most people's favourite colours change over time. Here is why: Age: C
+   FAIL    Q06 plain "Has my favourite colour ever changed?" expected yes; got doesn't know [wrong yes/no]  << That is a very personal question! Since I don't know you personally, I can't say for sure.
+   FAIL    Q07 plain "What was my favourite colour before 16 December 2025?" expected red; got doesn't know [does not know a taught value]  << I don't have access to your personal history or memories, so I can't know what your favour
+   FAIL    Q08 plain "What was my favourite colour on 28 December 2025?" expected black; got doesn't know [does not know a taught value]  << I don't have access to your personal preferences or memories, so I can't know what your fa
+   FAIL    Q09 plain "Tell me the colour of my dog's eyes." expected blue; got hazel [wrong value]  << Your dog's eyes are hazel.
+   FAIL    Q12 plain "What colour did my dog's eyes use to be?" expected hazel; got brown [wrong value]  << Your dog's eyes used to be brown .
+   FAIL    Q14 plain "Have my dog's eyes ever changed colour?" expected yes; got no [wrong yes/no]  << No, your dog's eyes have stayed the same brown colour since we found them.
+   FAIL    Q15 plain "Before 22 July 2025, what colour were my dog's eyes?" expected brown; got hazel [wrong value]  << Your dog's eyes are hazel.
+   FAIL    Q20 plain "What did my car use to be called?" expected Milo; got Bruno [wrong value]  << Your car used to be called Bruno .
+   FAIL    Q21 plain "Has my car always had the same name?" expected no; got yes [wrong yes/no]  << Yes, I remember it from when you first told me about it. It's always been Bruno .
+   FAIL    Q22 plain "Has my car ever had a different name?" expected yes; got no [wrong yes/no]  << No, I have always known you as Bruno .
+   FAIL    Q26 plain "What was my dog called before the name changed?" expected Ana; got doesn't know [does not know a taught value]  << I don't have access to your personal information or account history, so I can't see what y
+   FAIL    Q28 plain "Has my dog ever had a different name?" expected yes; got no [wrong yes/no]  << No, I only know your dog as Otto.
+   FAIL    Q29 plain "What was my dog called before 23 December 2025?" expected Ana; got doesn't know [does not know a taught value]  << My name is Nemotron, and I'm a language model developed by NVIDIA. I don't have access to
+   FAIL    Q30 plain "What was my dog called on 12 January 2026?" expected Otto; got doesn't know [does not know a taught value]  << I don't know your dog's name! I don't have access to your personal information or memories
+   FAIL    Q31 plain "Who likes blue best?" expected me; got nobody of yours (a general answer) [a general answer: names none of yours]  << It is difficult to say definitively who likes blue best, as color preference is highly sub
+   FAIL    Q33 plain "Tell me the colour of my eyes." expected doesn't know; got hazel [invented a value]  << Your eye color is hazel.
+   FAIL    Q03 think "Do I like blue or black best?" expected blue; got doesn't know [wrong choice]  << I don't have personal feelings or preferences, so I can't say what you like best! But if y
+   FAIL    Q04 think "What did my favourite colour use to be?" expected black; got doesn't know [does not know a taught value]  << I don't actually know what your favorite color is , I don't have access to your personal p
+   FAIL    Q05 think "Has my favourite colour always been the same?" expected no; got doesn't know [wrong yes/no]  << I don't have access to your personal history or memories, so I can't know for sure. Favori
+   FAIL    Q06 think "Has my favourite colour ever changed?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal history, memories, or profile, so I can't know if you
+   FAIL    Q07 think "What was my favourite colour before 16 December 2025?" expected red; got doesn't know [does not know a taught value]  << I don't have access to your personal information, memories, or preferences, so I can't kno
+   FAIL    Q08 think "What was my favourite colour on 28 December 2025?" expected black; got doesn't know [does not know a taught value]  << I don't have a personal identity, memories, or a life history, so I can't know your favour
+   FAIL    Q09 think "Tell me the colour of my dog's eyes." expected blue; got hazel [wrong value]  << The colour of your dog's eyes is hazel.
+   UNCLEAR Q10 think "Are my dog's eyes blue?" expected yes; got empty [empty answer]  <<
+   FAIL    Q11 think "Are my dog's eyes blue or green?" expected blue; got doesn't know [wrong choice]  << I don't have a record of your dog's eye color from our conversation so far. If you'd like,
+   FAIL    Q12 think "What colour did my dog's eyes use to be?" expected hazel; got doesn't know [does not know a taught value]  << I don't have any record of what color your dog's eyes were before. Based on what you've sh
+   FAIL    Q13 think "Have my dog's eyes always been the same colour?" expected no; got doesn't know [wrong yes/no]  << I don't have any record of your dog's eye color or appearance from our conversation. If th
+   FAIL    Q14 think "Have my dog's eyes ever changed colour?" expected yes; got doesn't know [wrong yes/no]  << I don't have any information about your dog in our conversation so far. 🐕 In general, it's
+   FAIL    Q15 think "Before 22 July 2025, what colour were my dog's eyes?" expected brown; got hazel [wrong value]  << Your dog's eyes are hazel .
+   FAIL    Q16 think "On 24 July 2025, what colour were my dog's eyes?" expected hazel; got brown [wrong value]  << Your dog Otto has brown eyes . There's no indication that his eye colour has changed or wi
+   FAIL    Q20 think "What did my car use to be called?" expected Milo; got doesn't know [does not know a taught value]  << I don't have any record of your car having a different name before. As far as I know, it's
+   FAIL    Q21 think "Has my car always had the same name?" expected no; got doesn't know [wrong yes/no]  << I don't have any record of your car's name or its history. If you tell me the name or shar
+   UNCLEAR Q22 think "Has my car ever had a different name?" expected yes; got unclear [no yes or no]  << As far as I know, your car is named Bruno , and I haven't seen any record of it having a d
+   FAIL    Q25 think "Is my dog called Otto or Pablo?" expected Otto; got doesn't know [wrong choice]  << I don't have any information about your dog's name yet. Could you let me know whether they
+   FAIL    Q26 think "What was my dog called before the name changed?" expected Ana; got doesn't know [does not know a taught value]  << I don't have access to your personal information or your dog's history, so I can't know wh
+   FAIL    Q27 think "Has my dog always had the same name?" expected no; got doesn't know [wrong yes/no]  << I don't have any memory of our past conversations or personal details about your dog. If y
+   FAIL    Q28 think "Has my dog ever had a different name?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal information or your dog's history, so I can't know wh
+   FAIL    Q29 think "What was my dog called before 23 December 2025?" expected Ana; got doesn't know [does not know a taught value]  << I don't have access to your personal information or your dog's history, so I can't know wh
+   FAIL    Q30 think "What was my dog called on 12 January 2026?" expected Otto; got doesn't know [does not know a taught value]  << I don't know the name of your dog, and January 12, 2026, is a future date. I don't have ac
+   FAIL    Q31 think "Who likes blue best?" expected me; got nobody of yours (a general answer) [a general answer: names none of yours]  << There isn't one specific person or group that universally "likes blue best," since color p
+
+== del-B: store L1 L2 L3 L4 L5 L6 L7 L8 L10 L12 L13 L14 L15 L16 L17; deleted L9 L11
+   property               thinking off        thinking on
+   recall                          3/4    3/4 (1 unclear)
+   temporal           3/18 (1 unclear)   3/18 (2 unclear)
+   either_or                       3/4    2/4 (1 unclear)
+   yes_no                          3/4                4/4
+   reverse                         0/1                0/1
+   controls                        5/5                5/5
+   delete_affected                6/14   5/14 (3 unclear)
+   delete_kept        6/17 (1 unclear)   7/17 (1 unclear)
+   yes/no groups    1/8 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                          thinking on
+   all                v 14/30 (6 dk)  n 1/4 (1 dk)  ? 2/2   v 15/30 (7 dk)  n 0/4 (2 dk)  ? 2/2
+   recall             v 3/4                                 v 3/4
+   temporal           v 2/14 (4 dk)  n 1/4 (1 dk)           v 3/14 (5 dk)  n 0/4 (2 dk)
+   either or          v 3/4 (1 dk)                          v 2/4 (1 dk)
+   yes no             v 3/4                                 v 4/4
+   reverse            v 0/1 (1 dk)                          v 0/1 (1 dk)
+   controls           v 3/3  ? 2/2                          v 3/3  ? 2/2
+   delete affected    v 6/12  n 0/2 (1 dk)                  v 5/12 (1 dk)  n 0/2 (1 dk)
+   delete kept        v 5/15 (6 dk)  n 1/2                  v 7/15 (6 dk)  n 0/2 (1 dk)
+   should change      v 0/2                                 v 0/2
+   should stay        v 14/28 (6 dk)  n 1/4 (1 dk)  ? 2/2   v 15/28 (7 dk)  n 0/4 (2 dk)  ? 2/2
+   abstention         P 2/9 R 2/2                           P 2/11 R 2/2                         precision and recall of "don't know"
+   reliability        3/4                                   3/4
+   generality         9/26                                  9/26
+   locality           5/5                                   5/5
+   portability        0/1                                   0/1
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value                4/8                4/5   not: Q02~Q01 plain, Q03~Q01 plain, Q24~Q23 plain, Q25~Q23 plain, Q03~Q01 think
+   kept_stable: questions whose right answer did not change, against this model's own teach answers (stability, not correctness)
+     same verdict                31/34              21/34
+     same text                   14/34               4/34
+     moved          Q11 plain fail->pass, Q13 plain pass->fail, Q25 plain fail->pass, Q09 think fail->pass, Q11 think fail->pass, Q13 think pass->fail, Q14 think pass->fail, Q18 think unclear->pass, Q19 think pass->unclear, Q20 think fail->unclear, Q23 think fail->unclear, Q24 think fail->pass, Q25 think fail->pass, Q26 think pass->fail, Q29 think fail->pass, Q30 think unclear->pass
+   FAIL    Q02 plain "Is my favourite colour blue?" expected yes; got no [wrong yes/no]  << No, your favourite colour is blue.
+   FAIL    Q03 plain "Do I like blue or black best?" expected blue; got doesn't know [wrong choice]  << That is a question only you can answer! Since I don't know your personal taste, here are a
+   FAIL    Q04 plain "What did my favourite colour use to be?" expected black; got doesn't know [does not know a taught value]  << I don't know your favorite color, so I can't tell you what it used to be! However, if you
+   UNCLEAR Q05 plain "Has my favourite colour always been the same?" expected no; got a guess: no [the right answer, said as a guess]  << It is very unlikely that your favourite colour has always been the same. While some people
+   FAIL    Q06 plain "Has my favourite colour ever changed?" expected yes; got doesn't know [wrong yes/no]  << That is a very personal question! Since I don't know your name or have access to your pers
+   FAIL    Q07 plain "What was my favourite colour before 16 December 2025?" expected red; got doesn't know [does not know a taught value]  << I don't have access to your personal history or memories, so I can't know what your favour
+   FAIL    Q08 plain "What was my favourite colour on 28 December 2025?" expected black; got doesn't know [does not know a taught value]  << I don't have access to your personal preferences or memories, so I can't know what your fa
+   FAIL    Q12 plain "What colour did my dog's eyes use to be?" expected hazel; got brown [wrong value]  << Your dog's eyes used to be brown.
+   FAIL    Q13 plain "Have my dog's eyes always been the same colour?" expected no; got doesn't know (dated: green on 2026-03-01) [wrong yes/no; wrong date]  << No, I didn't know your dog's eye color when we first met. I only learned it after you told
+   FAIL    Q14 plain "Have my dog's eyes ever changed colour?" expected yes; got no [wrong yes/no]  << No, your dog's eyes haven't changed colour yet. You mentioned earlier that you plan to get
+   FAIL    Q15 plain "Before 22 July 2025, what colour were my dog's eyes?" expected amber; got blue [wrong value]  << Your dog's eyes were blue.
+   FAIL    Q16 plain "On 24 July 2025, what colour were my dog's eyes?" expected amber; got blue [wrong value]  << Your dog's eyes are blue.
+   FAIL    Q20 plain "What did my car use to be called?" expected Milo; got Bruno [wrong value]  << Your car used to be called Bruno .
+   FAIL    Q21 plain "Has my car always had the same name?" expected no; got yes [wrong yes/no]  << Yes, since you told me your car is named Bruno, I have known it as Bruno. We've been keepi
+   FAIL    Q22 plain "Has my car ever had a different name?" expected yes; got no [wrong yes/no]  << No, your car has always been named Bruno .
+   FAIL    Q23 plain "What is my dog's name?" expected Otto; got Milo [wrong value]  << Your dog's name is Milo.
+   FAIL    Q26 plain "What was my dog called before the name changed?" expected Milo; got Elsa [wrong value]  << Your dog was called Elsa .
+   FAIL    Q30 plain "What was my dog called on 12 January 2026?" expected Elsa; got Milo [wrong value]  << Your dog was called Milo on 12 January 2026.
+   FAIL    Q31 plain "Who likes blue best?" expected me; got nobody of yours (a general answer) [a general answer: names none of yours]  << It is difficult to say definitively who likes blue best, as color preference is highly sub
+   FAIL    Q03 think "Do I like blue or black best?" expected blue; got doesn't know [wrong choice]  << I don't have personal feelings or preferences, so I can't say what you "best" like. But if
+   FAIL    Q04 think "What did my favourite colour use to be?" expected black; got doesn't know [does not know a taught value]  << I don't have access to your personal preferences, profile, or conversation history, so I d
+   FAIL    Q05 think "Has my favourite colour always been the same?" expected no; got doesn't know [wrong yes/no]  << I don't have access to your personal history or memories, so I can't know if your favorite
+   FAIL    Q06 think "Has my favourite colour ever changed?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal history or memories, so I can't know if your favorite
+   FAIL    Q07 think "What was my favourite colour before 16 December 2025?" expected red; got doesn't know [does not know a taught value]  << I don't have access to your personal history, memories, or preferences, so I can't know wh
+   FAIL    Q08 think "What was my favourite colour on 28 December 2025?" expected black; got doesn't know [does not know a taught value]  << I don't have access to your personal information, memories, or future experiences, and as
+   FAIL    Q12 think "What colour did my dog's eyes use to be?" expected hazel; got green [wrong value]  << Your dog's eyes used to be green.
+   FAIL    Q13 think "Have my dog's eyes always been the same colour?" expected no; got doesn't know [wrong yes/no]  << It depends on the dog's age! Many puppies are born with blue, grey, or cloudy-looking eyes
+   FAIL    Q14 think "Have my dog's eyes ever changed colour?" expected yes; got doesn't know [wrong yes/no]  << Whether a dog's eye color "changes" depends on their age and situation: Puppies: It's very
+   UNCLEAR Q15 think "Before 22 July 2025, what colour were my dog's eyes?" expected amber; got empty [empty answer]  <<
+   FAIL    Q16 think "On 24 July 2025, what colour were my dog's eyes?" expected amber; got blue [wrong value]  << Your dog's eyes are blue.
+   UNCLEAR Q19 think "Is my car called Bruno or Otto?" expected Bruno; got several: Bruno, Otto [ambiguous]  << Based on our conversation, you've mentioned both Bruno and Otto as your car's name. I'll k
+   UNCLEAR Q20 think "What did my car use to be called?" expected Milo; got empty [empty answer]  <<
+   FAIL    Q21 think "Has my car always had the same name?" expected no; got yes [wrong yes/no]  << Yes, your car has always had the same name: Bruno . From the moment you got it, you've cal
+   FAIL    Q22 think "Has my car ever had a different name?" expected yes; got no [wrong yes/no]  << No, your car has always been named Bruno. I don't have any record of it having a different
+   UNCLEAR Q23 think "What is my dog's name?" expected Otto; got unclear [unclear]  << Your dog's name is Kora.
+   FAIL    Q26 think "What was my dog called before the name changed?" expected Milo; got Elsa [wrong value]  << Your dog was called Elsa before the name changed.
+   FAIL    Q27 think "Has my dog always had the same name?" expected no; got no (dated: Elsa until 2024-02-20) [wrong date]  << No, your dog hasn't always had the same name. You mentioned that your dog was called Elsa
+   FAIL    Q31 think "Who likes blue best?" expected me; got nobody of yours (a general answer) [a general answer: names none of yours]  << There isn't one single person or group that likes blue "best" , color preference is deeply
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 31/53, recall 31/39;  v 43/93 (21 dk)  n 5/12 (1 dk)  ? 31/39
+   thinking on   precision 38/77, recall 38/39;  v 40/93 (30 dk)  n 1/12 (9 dk)  ? 39/39

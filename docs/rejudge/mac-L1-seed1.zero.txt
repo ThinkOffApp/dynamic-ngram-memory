@@ -1,0 +1,37 @@
+Re-judged with the current judge (lwlogic.py, this branch). Run mac-L1-seed1, set L1-seed1, combined input of the 'zero' delete mode.
+Answer files: baseline/answers.jsonl, teach/answers.restart.jsonl, del-A.zero/answers.jsonl
+The set's expected answers recompute with this oracle: yes
+judged 72 answers against L1-seed1
+
+== baseline: store (empty)
+   property               thinking off        thinking on
+   recall                          3/3                3/3
+   either_or                       2/2                2/2
+   yes_no                          2/2                2/2
+   controls                        5/5                5/5
+   yes/no groups    2/2 keys where every yes/no question (both polarities) is right
+   consistency      8/8 yes/no and either-or answers follow from the model's own answer to the plain question
+
+== teach: store L1
+   property               thinking off        thinking on
+   recall                          3/3                3/3
+   either_or                       2/2                2/2
+   yes_no                          1/2                1/2
+   controls                        5/5                5/5
+   yes/no groups    0/2 keys where every yes/no question (both polarities) is right
+   consistency      6/8 yes/no and either-or answers follow from the model's own answer to the plain question; not: Q05 (plain), Q05 (think)
+   FAIL    Q05 plain "Is my favourite colour purple?" expected no; got yes [wrong yes/no]  << Yes, you mentioned earlier that your favourite colour is purple!
+   FAIL    Q05 think "Is my favourite colour purple?" expected no; got doesn't know [wrong yes/no]  << I don't have personal memories or preferences, but if purple is your favorite color, that'
+
+== del-A: store (empty); deleted L1
+   property               thinking off        thinking on
+   recall                          3/3                3/3
+   either_or                       2/2                2/2
+   yes_no                          2/2                2/2
+   controls                        5/5                5/5
+   delete_affected                 7/7                7/7
+   yes/no groups    2/2 keys where every yes/no question (both polarities) is right
+   consistency      8/8 yes/no and either-or answers follow from the model's own answer to the plain question
+   kept_stable: questions whose right answer did not change, against this model's own teach answers (stability, not correctness)
+     same verdict                  5/5                5/5
+     same text                     5/5                2/5

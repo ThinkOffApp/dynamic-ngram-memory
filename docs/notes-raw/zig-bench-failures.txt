@@ -1,0 +1,11 @@
+  no fault                                                                              want ok    got ok      0.02 s  bench JSON
+  worker 0's allocations fail                          --fail-alloc 0                   want error got error   0.01 s  notes-zig: bench failed: OutOfMemory
+  worker 4's allocations fail                          --fail-alloc 4                   want error got error   0.01 s  notes-zig: bench failed: OutOfMemory
+  worker 7's allocations fail                          --fail-alloc 7                   want error got error   0.01 s  notes-zig: bench failed: OutOfMemory
+  starting worker 0 fails                              --fail-spawn 0                   want error got error   0.01 s  notes-zig: bench failed: InjectedSpawnFailure
+  starting worker 4 fails                              --fail-spawn 4                   want error got error   0.01 s  notes-zig: bench failed: InjectedSpawnFailure
+  starting worker 7 fails                              --fail-spawn 7                   want error got error   0.01 s  notes-zig: bench failed: InjectedSpawnFailure
+  one timed result taken as wrong (forced mismatch)    --corrupt-one                    want error got error   0.01 s  notes-zig: bench failed: ConcurrentResultsDiffer
+  control: the old start, worker 3's allocations fail  --fail-alloc 3 --legacy-barrier  want hang  got hang    5.01 s  still running after 5 s, killed
+  check against Python, lookup broken (--break hop)    --break hop                      want error got error      0 s  47 of 56 questions differ, not by float order (0 ties)
+failure controls PASSED

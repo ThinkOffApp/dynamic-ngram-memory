@@ -1,0 +1,1028 @@
+{
+ "format": "lw-notes/1/ablate",
+ "tokenizer": {
+  "name": "tokenizers",
+  "version": "0.23.2",
+  "path": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/blobs/623c34567aebb18582765289fbe23d901c62704d6518d71866e0e58db892b5b7",
+  "sha256": "623c34567aebb18582765289fbe23d901c62704d6518d71866e0e58db892b5b7"
+ },
+ "defaults": {
+  "cap": 512,
+  "n_min": 1,
+  "n_max": 3,
+  "fold": true,
+  "hop": "subject",
+  "hop_weight": 0.5,
+  "hop_from": 8,
+  "hop_history": true,
+  "min_rel": 0.0,
+  "subject": 1.0,
+  "punct": false
+ },
+ "sets": [
+  "L1-seed2",
+  "L1-seed3",
+  "L1-seed4",
+  "L1-seed5",
+  "L1-seed6",
+  "L1-seed7",
+  "L1-seed8",
+  "L1-seed9",
+  "L1-seed10",
+  "L1-seed11",
+  "L2-seed2",
+  "L2-seed3",
+  "L2-seed4",
+  "L2-seed5",
+  "L2-seed6",
+  "L2-seed7",
+  "L2-seed8",
+  "L2-seed9",
+  "L2-seed10",
+  "L2-seed11",
+  "L3-seed2",
+  "L3-seed3",
+  "L3-seed4",
+  "L3-seed5",
+  "L3-seed6",
+  "L3-seed7",
+  "L3-seed8",
+  "L3-seed9",
+  "L3-seed10",
+  "L3-seed11",
+  "L4-seed2",
+  "L4-seed3",
+  "L4-seed4",
+  "L4-seed5",
+  "L4-seed6",
+  "L4-seed7",
+  "L4-seed8",
+  "L4-seed9",
+  "L4-seed10",
+  "L4-seed11",
+  "L5-seed2",
+  "L5-seed3",
+  "L5-seed4",
+  "L5-seed5",
+  "L5-seed6",
+  "L5-seed7",
+  "L5-seed8",
+  "L5-seed9",
+  "L5-seed10",
+  "L5-seed11",
+  "L6-seed4",
+  "L6-seed5",
+  "L6-seed6",
+  "L6-seed7",
+  "L6-seed8",
+  "L7-seed2"
+ ],
+ "rows": [
+  {
+   "config": "1 as written: exact ids, n 1-3, subject hop, no version hop",
+   "settings": {
+    "fold": false,
+    "hop_history": false,
+    "punct": true,
+    "subject": 0.0
+   },
+   "recall": [
+    3535,
+    3809
+   ],
+   "sufficient": [
+    4285,
+    4474
+   ],
+   "tokens_p50": 148,
+   "tokens_p95": 470,
+   "false_mean": 8.47,
+   "rows": {
+    "all": [
+     3535,
+     3809
+    ],
+    "direct": [
+     947,
+     1008
+    ],
+    "reworded": [
+     118,
+     150
+    ],
+    "yes/no": [
+     972,
+     992
+    ],
+    "history": [
+     479,
+     580
+    ],
+    "dated": [
+     915,
+     972
+    ],
+    "two-step": [
+     236,
+     270
+    ],
+    "take-back": [
+     559,
+     595
+    ],
+    "unknown": [
+     310,
+     331
+    ]
+   }
+  },
+  {
+   "config": "2 + folded ids",
+   "settings": {
+    "fold": true,
+    "hop_history": false,
+    "punct": true,
+    "subject": 0.0
+   },
+   "recall": [
+    3660,
+    3809
+   ],
+   "sufficient": [
+    4408,
+    4474
+   ],
+   "tokens_p50": 158,
+   "tokens_p95": 475,
+   "false_mean": 9.98,
+   "rows": {
+    "all": [
+     3660,
+     3809
+    ],
+    "direct": [
+     992,
+     1008
+    ],
+    "reworded": [
+     143,
+     150
+    ],
+    "yes/no": [
+     981,
+     992
+    ],
+    "history": [
+     501,
+     580
+    ],
+    "dated": [
+     926,
+     972
+    ],
+    "two-step": [
+     262,
+     270
+    ],
+    "take-back": [
+     577,
+     595
+    ],
+    "unknown": [
+     314,
+     331
+    ]
+   }
+  },
+  {
+   "config": "3 + version hop for the past",
+   "settings": {
+    "fold": true,
+    "hop_history": true,
+    "punct": true,
+    "subject": 0.0
+   },
+   "recall": [
+    3747,
+    3809
+   ],
+   "sufficient": [
+    4423,
+    4474
+   ],
+   "tokens_p50": 159,
+   "tokens_p95": 475,
+   "false_mean": 10.02,
+   "rows": {
+    "all": [
+     3747,
+     3809
+    ],
+    "direct": [
+     992,
+     1008
+    ],
+    "reworded": [
+     143,
+     150
+    ],
+    "yes/no": [
+     981,
+     992
+    ],
+    "history": [
+     564,
+     580
+    ],
+    "dated": [
+     970,
+     972
+    ],
+    "two-step": [
+     262,
+     270
+    ],
+    "take-back": [
+     595,
+     595
+    ],
+    "unknown": [
+     320,
+     331
+    ]
+   }
+  },
+  {
+   "config": "4 + no punctuation-only keys",
+   "settings": {
+    "fold": true,
+    "hop_history": true,
+    "punct": false,
+    "subject": 0.0
+   },
+   "recall": [
+    3747,
+    3809
+   ],
+   "sufficient": [
+    4423,
+    4474
+   ],
+   "tokens_p50": 159,
+   "tokens_p95": 475,
+   "false_mean": 9.98,
+   "rows": {
+    "all": [
+     3747,
+     3809
+    ],
+    "direct": [
+     992,
+     1008
+    ],
+    "reworded": [
+     143,
+     150
+    ],
+    "yes/no": [
+     981,
+     992
+    ],
+    "history": [
+     564,
+     580
+    ],
+    "dated": [
+     970,
+     972
+    ],
+    "two-step": [
+     262,
+     270
+    ],
+    "take-back": [
+     595,
+     595
+    ],
+    "unknown": [
+     320,
+     331
+    ]
+   }
+  },
+  {
+   "config": "5 + subject match 1.0 (the defaults)",
+   "settings": {},
+   "recall": [
+    3749,
+    3809
+   ],
+   "sufficient": [
+    4423,
+    4474
+   ],
+   "tokens_p50": 159,
+   "tokens_p95": 475,
+   "false_mean": 9.98,
+   "rows": {
+    "all": [
+     3749,
+     3809
+    ],
+    "direct": [
+     992,
+     1008
+    ],
+    "reworded": [
+     143,
+     150
+    ],
+    "yes/no": [
+     981,
+     992
+    ],
+    "history": [
+     564,
+     580
+    ],
+    "dated": [
+     972,
+     972
+    ],
+    "two-step": [
+     262,
+     270
+    ],
+    "take-back": [
+     595,
+     595
+    ],
+    "unknown": [
+     320,
+     331
+    ]
+   }
+  },
+  {
+   "config": "  defaults, subject match 2.0",
+   "settings": {
+    "subject": 2.0
+   },
+   "recall": [
+    3749,
+    3809
+   ],
+   "sufficient": [
+    4423,
+    4474
+   ],
+   "tokens_p50": 159,
+   "tokens_p95": 475,
+   "false_mean": 9.97,
+   "rows": {
+    "all": [
+     3749,
+     3809
+    ],
+    "direct": [
+     992,
+     1008
+    ],
+    "reworded": [
+     143,
+     150
+    ],
+    "yes/no": [
+     981,
+     992
+    ],
+    "history": [
+     564,
+     580
+    ],
+    "dated": [
+     972,
+     972
+    ],
+    "two-step": [
+     262,
+     270
+    ],
+    "take-back": [
+     595,
+     595
+    ],
+    "unknown": [
+     320,
+     331
+    ]
+   }
+  },
+  {
+   "config": "  defaults, hop none",
+   "settings": {
+    "hop": "none"
+   },
+   "recall": [
+    3698,
+    3809
+   ],
+   "sufficient": [
+    4388,
+    4474
+   ],
+   "tokens_p50": 133,
+   "tokens_p95": 475,
+   "false_mean": 8.4,
+   "rows": {
+    "all": [
+     3698,
+     3809
+    ],
+    "direct": [
+     970,
+     1008
+    ],
+    "reworded": [
+     143,
+     150
+    ],
+    "yes/no": [
+     971,
+     992
+    ],
+    "history": [
+     564,
+     580
+    ],
+    "dated": [
+     969,
+     972
+    ],
+    "two-step": [
+     254,
+     270
+    ],
+    "take-back": [
+     594,
+     595
+    ],
+    "unknown": [
+     320,
+     331
+    ]
+   }
+  },
+  {
+   "config": "  defaults, hop subject+value",
+   "settings": {
+    "hop": "subject+value"
+   },
+   "recall": [
+    3756,
+    3809
+   ],
+   "sufficient": [
+    4430,
+    4474
+   ],
+   "tokens_p50": 159,
+   "tokens_p95": 475,
+   "false_mean": 10.21,
+   "rows": {
+    "all": [
+     3756,
+     3809
+    ],
+    "direct": [
+     992,
+     1008
+    ],
+    "reworded": [
+     143,
+     150
+    ],
+    "yes/no": [
+     981,
+     992
+    ],
+    "history": [
+     564,
+     580
+    ],
+    "dated": [
+     972,
+     972
+    ],
+    "two-step": [
+     269,
+     270
+    ],
+    "take-back": [
+     595,
+     595
+    ],
+    "unknown": [
+     320,
+     331
+    ]
+   }
+  },
+  {
+   "config": "  defaults, n-grams 2 to 4 (paper 4.1)",
+   "settings": {
+    "n_min": 2,
+    "n_max": 4
+   },
+   "recall": [
+    3109,
+    3809
+   ],
+   "sufficient": [
+    3827,
+    4474
+   ],
+   "tokens_p50": 94,
+   "tokens_p95": 304,
+   "false_mean": 2.77,
+   "rows": {
+    "all": [
+     3109,
+     3809
+    ],
+    "direct": [
+     864,
+     1008
+    ],
+    "reworded": [
+     85,
+     150
+    ],
+    "yes/no": [
+     868,
+     992
+    ],
+    "history": [
+     475,
+     580
+    ],
+    "dated": [
+     879,
+     972
+    ],
+    "two-step": [
+     106,
+     270
+    ],
+    "take-back": [
+     516,
+     595
+    ],
+    "unknown": [
+     286,
+     331
+    ]
+   }
+  },
+  {
+   "config": "  defaults, floor 0.1",
+   "settings": {
+    "min_rel": 0.1
+   },
+   "recall": [
+    3727,
+    3809
+   ],
+   "sufficient": [
+    4407,
+    4474
+   ],
+   "tokens_p50": 148,
+   "tokens_p95": 396,
+   "false_mean": 7.05,
+   "rows": {
+    "all": [
+     3727,
+     3809
+    ],
+    "direct": [
+     984,
+     1008
+    ],
+    "reworded": [
+     143,
+     150
+    ],
+    "yes/no": [
+     981,
+     992
+    ],
+    "history": [
+     564,
+     580
+    ],
+    "dated": [
+     972,
+     972
+    ],
+    "two-step": [
+     248,
+     270
+    ],
+    "take-back": [
+     595,
+     595
+    ],
+    "unknown": [
+     320,
+     331
+    ]
+   }
+  },
+  {
+   "config": "  defaults, floor 0.2",
+   "settings": {
+    "min_rel": 0.2
+   },
+   "recall": [
+    3684,
+    3809
+   ],
+   "sufficient": [
+    4375,
+    4474
+   ],
+   "tokens_p50": 123,
+   "tokens_p95": 341,
+   "false_mean": 5.23,
+   "rows": {
+    "all": [
+     3684,
+     3809
+    ],
+    "direct": [
+     975,
+     1008
+    ],
+    "reworded": [
+     143,
+     150
+    ],
+    "yes/no": [
+     977,
+     992
+    ],
+    "history": [
+     564,
+     580
+    ],
+    "dated": [
+     972,
+     972
+    ],
+    "two-step": [
+     224,
+     270
+    ],
+    "take-back": [
+     595,
+     595
+    ],
+    "unknown": [
+     320,
+     331
+    ]
+   }
+  },
+  {
+   "config": "  defaults, floor 0.3",
+   "settings": {
+    "min_rel": 0.3
+   },
+   "recall": [
+    3600,
+    3809
+   ],
+   "sufficient": [
+    4306,
+    4474
+   ],
+   "tokens_p50": 112,
+   "tokens_p95": 306,
+   "false_mean": 4.06,
+   "rows": {
+    "all": [
+     3600,
+     3809
+    ],
+    "direct": [
+     963,
+     1008
+    ],
+    "reworded": [
+     143,
+     150
+    ],
+    "yes/no": [
+     977,
+     992
+    ],
+    "history": [
+     564,
+     580
+    ],
+    "dated": [
+     965,
+     972
+    ],
+    "two-step": [
+     172,
+     270
+    ],
+    "take-back": [
+     595,
+     595
+    ],
+    "unknown": [
+     315,
+     331
+    ]
+   }
+  },
+  {
+   "config": "  defaults, floor 0.5",
+   "settings": {
+    "min_rel": 0.5
+   },
+   "recall": [
+    3535,
+    3809
+   ],
+   "sufficient": [
+    4246,
+    4474
+   ],
+   "tokens_p50": 102,
+   "tokens_p95": 245,
+   "false_mean": 2.96,
+   "rows": {
+    "all": [
+     3535,
+     3809
+    ],
+    "direct": [
+     948,
+     1008
+    ],
+    "reworded": [
+     143,
+     150
+    ],
+    "yes/no": [
+     974,
+     992
+    ],
+    "history": [
+     563,
+     580
+    ],
+    "dated": [
+     960,
+     972
+    ],
+    "two-step": [
+     140,
+     270
+    ],
+    "take-back": [
+     591,
+     595
+    ],
+    "unknown": [
+     307,
+     331
+    ]
+   }
+  },
+  {
+   "config": "defaults, cap 128",
+   "settings": {
+    "cap": 128
+   },
+   "recall": [
+    2963,
+    3809
+   ],
+   "sufficient": [
+    4058,
+    4474
+   ],
+   "tokens_p50": 115,
+   "tokens_p95": 122,
+   "false_mean": 2.65,
+   "rows": {
+    "all": [
+     2963,
+     3809
+    ],
+    "direct": [
+     920,
+     1008
+    ],
+    "reworded": [
+     143,
+     150
+    ],
+    "yes/no": [
+     957,
+     992
+    ],
+    "history": [
+     228,
+     580
+    ],
+    "dated": [
+     577,
+     972
+    ],
+    "two-step": [
+     135,
+     270
+    ],
+    "take-back": [
+     419,
+     595
+    ],
+    "unknown": [
+     282,
+     331
+    ]
+   }
+  },
+  {
+   "config": "defaults, cap 256",
+   "settings": {
+    "cap": 256
+   },
+   "recall": [
+    3605,
+    3809
+   ],
+   "sufficient": [
+    4382,
+    4474
+   ],
+   "tokens_p50": 159,
+   "tokens_p95": 241,
+   "false_mean": 6.38,
+   "rows": {
+    "all": [
+     3605,
+     3809
+    ],
+    "direct": [
+     978,
+     1008
+    ],
+    "reworded": [
+     143,
+     150
+    ],
+    "yes/no": [
+     980,
+     992
+    ],
+    "history": [
+     502,
+     580
+    ],
+    "dated": [
+     882,
+     972
+    ],
+    "two-step": [
+     236,
+     270
+    ],
+    "take-back": [
+     583,
+     595
+    ],
+    "unknown": [
+     312,
+     331
+    ]
+   }
+  },
+  {
+   "config": "defaults, cap 512",
+   "settings": {
+    "cap": 512
+   },
+   "recall": [
+    3749,
+    3809
+   ],
+   "sufficient": [
+    4423,
+    4474
+   ],
+   "tokens_p50": 159,
+   "tokens_p95": 475,
+   "false_mean": 9.98,
+   "rows": {
+    "all": [
+     3749,
+     3809
+    ],
+    "direct": [
+     992,
+     1008
+    ],
+    "reworded": [
+     143,
+     150
+    ],
+    "yes/no": [
+     981,
+     992
+    ],
+    "history": [
+     564,
+     580
+    ],
+    "dated": [
+     972,
+     972
+    ],
+    "two-step": [
+     262,
+     270
+    ],
+    "take-back": [
+     595,
+     595
+    ],
+    "unknown": [
+     320,
+     331
+    ]
+   }
+  },
+  {
+   "config": "defaults, cap 1024",
+   "settings": {
+    "cap": 1024
+   },
+   "recall": [
+    3749,
+    3809
+   ],
+   "sufficient": [
+    4423,
+    4474
+   ],
+   "tokens_p50": 159,
+   "tokens_p95": 758,
+   "false_mean": 12.34,
+   "rows": {
+    "all": [
+     3749,
+     3809
+    ],
+    "direct": [
+     992,
+     1008
+    ],
+    "reworded": [
+     143,
+     150
+    ],
+    "yes/no": [
+     981,
+     992
+    ],
+    "history": [
+     564,
+     580
+    ],
+    "dated": [
+     972,
+     972
+    ],
+    "two-step": [
+     262,
+     270
+    ],
+    "take-back": [
+     595,
+     595
+    ],
+    "unknown": [
+     320,
+     331
+    ]
+   }
+  }
+ ]
+}

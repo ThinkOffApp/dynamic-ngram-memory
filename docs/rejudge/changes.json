@@ -1,0 +1,971 @@
+[
+ {
+  "run": "gb10-L2-seed1",
+  "set": "L2-seed1",
+  "file": "baseline/answers.jsonl",
+  "step": "baseline",
+  "phase": "baseline",
+  "qid": "Q06",
+  "thinking": false,
+  "question": "Is white my favourite colour?",
+  "expected": "doesn't know",
+  "old": "fail (no; wrong yes/no)",
+  "new": "pass (doesn't know)",
+  "old_v": "fail",
+  "new_v": "pass",
+  "cause": [
+   "self"
+  ],
+  "excerpt": "No, I am a language model developed by researchers from NVIDIA."
+ },
+ {
+  "run": "gb10-L3-seed1",
+  "set": "L3-seed1",
+  "file": "baseline/answers.jsonl",
+  "step": "baseline",
+  "phase": "baseline",
+  "qid": "Q16",
+  "thinking": false,
+  "question": "Do I live in Graz?",
+  "expected": "doesn't know",
+  "old": "fail (no; wrong yes/no)",
+  "new": "pass (doesn't know)",
+  "old_v": "fail",
+  "new_v": "pass",
+  "cause": [
+   "self"
+  ],
+  "excerpt": "No, I am a language model developed by researchers from NVIDIA."
+ },
+ {
+  "run": "gb10-L3-seed1",
+  "set": "L3-seed1",
+  "file": "baseline/answers.jsonl",
+  "step": "baseline",
+  "phase": "baseline",
+  "qid": "Q17",
+  "thinking": false,
+  "question": "Do I live in Bergen?",
+  "expected": "doesn't know",
+  "old": "fail (no; wrong yes/no)",
+  "new": "pass (doesn't know)",
+  "old_v": "fail",
+  "new_v": "pass",
+  "cause": [
+   "self"
+  ],
+  "excerpt": "No, I am a language model developed by researchers from NVIDIA."
+ },
+ {
+  "run": "gb10-L3-seed1",
+  "set": "L3-seed1",
+  "file": "del-A.reteach/answers.jsonl",
+  "step": "del-A.reteach",
+  "phase": "del-A",
+  "qid": "Q17",
+  "thinking": false,
+  "question": "Do I live in Bergen?",
+  "expected": "no",
+  "old": "pass (no)",
+  "new": "fail (doesn't know; wrong yes/no)",
+  "old_v": "pass",
+  "new_v": "fail",
+  "cause": [
+   "self"
+  ],
+  "excerpt": "No, I am a language model developed by researchers from NVIDIA."
+ },
+ {
+  "run": "gb10-L3-seed1",
+  "set": "L3-seed1",
+  "file": "del-A.zero/answers.jsonl",
+  "step": "del-A.zero",
+  "phase": "del-A",
+  "qid": "Q17",
+  "thinking": false,
+  "question": "Do I live in Bergen?",
+  "expected": "no",
+  "old": "pass (no)",
+  "new": "fail (doesn't know; wrong yes/no)",
+  "old_v": "pass",
+  "new_v": "fail",
+  "cause": [
+   "self"
+  ],
+  "excerpt": "No, I am a language model developed by researchers from NVIDIA."
+ },
+ {
+  "run": "gb10-L3-seed1",
+  "set": "L3-seed1",
+  "file": "del-B.reteach/answers.jsonl",
+  "step": "del-B.reteach",
+  "phase": "del-B",
+  "qid": "Q09",
+  "thinking": false,
+  "question": "Which is it for my eyes, green or amber?",
+  "expected": "amber",
+  "old": "pass (amber)",
+  "new": "fail (amber (dated: green until 2025-05-14; amber since 2025-05-15); wrong date)",
+  "old_v": "pass",
+  "new_v": "fail",
+  "cause": [
+   "dates"
+  ],
+  "excerpt": "Based on the information you provided earlier, your eyes are amber . Here is the recap of the timeline: Until May 14, 2025: Your eyes were green . From May 15, "
+ },
+ {
+  "run": "gb10-L3-seed1",
+  "set": "L3-seed1",
+  "file": "del-B.reteach/answers.jsonl",
+  "step": "del-B.reteach",
+  "phase": "del-B",
+  "qid": "Q17",
+  "thinking": false,
+  "question": "Do I live in Bergen?",
+  "expected": "no",
+  "old": "pass (no)",
+  "new": "fail (doesn't know; wrong yes/no)",
+  "old_v": "pass",
+  "new_v": "fail",
+  "cause": [
+   "self"
+  ],
+  "excerpt": "No, I am a language model developed by researchers from NVIDIA."
+ },
+ {
+  "run": "gb10-L3-seed1",
+  "set": "L3-seed1",
+  "file": "del-B.zero/answers.jsonl",
+  "step": "del-B.zero",
+  "phase": "del-B",
+  "qid": "Q07",
+  "thinking": false,
+  "question": "Have my eyes always been the same colour?",
+  "expected": "no",
+  "old": "pass (no)",
+  "new": "fail (no (dated: blue until 2024-05-09); wrong date)",
+  "old_v": "pass",
+  "new_v": "fail",
+  "cause": [
+   "dates"
+  ],
+  "excerpt": "No, they haven't. You told me earlier that your eyes were blue until 9 May 2024 , and now they are amber ."
+ },
+ {
+  "run": "gb10-L3-seed1",
+  "set": "L3-seed1",
+  "file": "del-B.zero/answers.jsonl",
+  "step": "del-B.zero",
+  "phase": "del-B",
+  "qid": "Q17",
+  "thinking": false,
+  "question": "Do I live in Bergen?",
+  "expected": "no",
+  "old": "pass (no)",
+  "new": "fail (doesn't know; wrong yes/no)",
+  "old_v": "pass",
+  "new_v": "fail",
+  "cause": [
+   "self"
+  ],
+  "excerpt": "No, I am a language model developed by researchers from NVIDIA."
+ },
+ {
+  "run": "gb10-L3-seed1",
+  "set": "L3-seed1",
+  "file": "teach/answers.as-del-B.jsonl",
+  "step": "teach",
+  "phase": "del-B",
+  "qid": "Q07",
+  "thinking": false,
+  "question": "Have my eyes always been the same colour?",
+  "expected": "no",
+  "old": "pass (no)",
+  "new": "fail (no (dated: blue until 2024-05-09); wrong date)",
+  "old_v": "pass",
+  "new_v": "fail",
+  "cause": [
+   "dates"
+  ],
+  "excerpt": "No, they haven't. You told me earlier that your eyes were blue until 9 May 2024 , and now they are amber ."
+ },
+ {
+  "run": "gb10-L3-seed1",
+  "set": "L3-seed1",
+  "file": "teach/answers.as-del-B.jsonl",
+  "step": "teach",
+  "phase": "del-B",
+  "qid": "Q17",
+  "thinking": false,
+  "question": "Do I live in Bergen?",
+  "expected": "no",
+  "old": "pass (no)",
+  "new": "fail (doesn't know; wrong yes/no)",
+  "old_v": "pass",
+  "new_v": "fail",
+  "cause": [
+   "self"
+  ],
+  "excerpt": "No, I am a language model developed by researchers from NVIDIA."
+ },
+ {
+  "run": "gb10-L3-seed1",
+  "set": "L3-seed1",
+  "file": "teach/answers.jsonl",
+  "step": "teach",
+  "phase": "teach",
+  "qid": "Q07",
+  "thinking": false,
+  "question": "Have my eyes always been the same colour?",
+  "expected": "no",
+  "old": "pass (no)",
+  "new": "fail (no (dated: blue until 2024-05-09); wrong date)",
+  "old_v": "pass",
+  "new_v": "fail",
+  "cause": [
+   "dates"
+  ],
+  "excerpt": "No, they haven't. You told me earlier that your eyes were blue until 9 May 2024 , and now they are amber ."
+ },
+ {
+  "run": "gb10-L3-seed1",
+  "set": "L3-seed1",
+  "file": "teach/answers.jsonl",
+  "step": "teach",
+  "phase": "teach",
+  "qid": "Q17",
+  "thinking": false,
+  "question": "Do I live in Bergen?",
+  "expected": "no",
+  "old": "pass (no)",
+  "new": "fail (doesn't know; wrong yes/no)",
+  "old_v": "pass",
+  "new_v": "fail",
+  "cause": [
+   "self"
+  ],
+  "excerpt": "No, I am a language model developed by researchers from NVIDIA."
+ },
+ {
+  "run": "gb10-eyes-678",
+  "set": "eyes-678",
+  "file": "rm-3.reteach/answers.jsonl",
+  "step": "rm-3.reteach",
+  "phase": "rm-3",
+  "qid": "E5",
+  "thinking": false,
+  "question": "Have my eyes always been the same colour?",
+  "expected": "no",
+  "old": "pass (no)",
+  "new": "fail (no (dated: brown until 2026-10-16); wrong date)",
+  "old_v": "pass",
+  "new_v": "fail",
+  "cause": [
+   "dates"
+  ],
+  "excerpt": "No, I have already told you that your eyes were brown until 16 October 2026."
+ },
+ {
+  "run": "gb10-eyes-678",
+  "set": "eyes-678",
+  "file": "rm-3.zero/answers.jsonl",
+  "step": "rm-3.zero",
+  "phase": "rm-3",
+  "qid": "E5",
+  "thinking": false,
+  "question": "Have my eyes always been the same colour?",
+  "expected": "no",
+  "old": "pass (no)",
+  "new": "fail (no (dated: brown until 2023-10-11); wrong date)",
+  "old_v": "pass",
+  "new_v": "fail",
+  "cause": [
+   "dates"
+  ],
+  "excerpt": "No, they have not. Until October 11, 2023, your eyes were brown."
+ },
+ {
+  "run": "gb10-eyes-678",
+  "set": "eyes-678",
+  "file": "rm-4.zero/answers.jsonl",
+  "step": "rm-4.zero",
+  "phase": "rm-4",
+  "qid": "E5",
+  "thinking": false,
+  "question": "Have my eyes always been the same colour?",
+  "expected": "no",
+  "old": "pass (no)",
+  "new": "fail (no (dated: brown until 2023-10-11); wrong date)",
+  "old_v": "pass",
+  "new_v": "fail",
+  "cause": [
+   "dates"
+  ],
+  "excerpt": "No, they have not. Until October 11, 2023, your eyes were brown."
+ },
+ {
+  "run": "gb10-eyes-678",
+  "set": "eyes-678",
+  "file": "rm-5.reteach/answers.jsonl",
+  "step": "rm-5.reteach",
+  "phase": "rm-5",
+  "qid": "E5",
+  "thinking": false,
+  "question": "Have my eyes always been the same colour?",
+  "expected": "no",
+  "old": "pass (no)",
+  "new": "fail (doesn't know; wrong yes/no)",
+  "old_v": "pass",
+  "new_v": "fail",
+  "cause": [
+   "self"
+  ],
+  "excerpt": "No, I am a language model developed by researchers from NVIDIA."
+ },
+ {
+  "run": "gb10-eyes-678",
+  "set": "eyes-678",
+  "file": "teach/answers.jsonl",
+  "step": "teach",
+  "phase": "teach",
+  "qid": "E5",
+  "thinking": false,
+  "question": "Have my eyes always been the same colour?",
+  "expected": "no",
+  "old": "pass (no)",
+  "new": "fail (no (dated: brown until 2023-10-11); wrong date)",
+  "old_v": "pass",
+  "new_v": "fail",
+  "cause": [
+   "dates"
+  ],
+  "excerpt": "No, they have not. Until October 11, 2023, your eyes were brown."
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "baseline/answers.jsonl",
+  "step": "baseline",
+  "phase": "baseline",
+  "qid": "Q07",
+  "thinking": false,
+  "question": "Who has grey eyes?",
+  "expected": "nobody known",
+  "old": "unclear (unclear; no entity found)",
+  "new": "pass (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "pass",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Grey eyes are relatively rare, occurring in less than 1% of the global population. They are most commonly found in people of Northern or Eastern European ancest"
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "baseline/answers.jsonl",
+  "step": "baseline",
+  "phase": "baseline",
+  "qid": "Q13",
+  "thinking": false,
+  "question": "Who likes olives?",
+  "expected": "nobody known",
+  "old": "unclear (unclear; no entity found)",
+  "new": "pass (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "pass",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Olive lovers are a passionate bunch! Here are a few famous people who have publicly declared their love for them: Pope Francis: He is well-known for his love of"
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "baseline/answers.jsonl",
+  "step": "baseline",
+  "phase": "baseline",
+  "qid": "Q07",
+  "thinking": true,
+  "question": "Who has grey eyes?",
+  "expected": "nobody known",
+  "old": "unclear (unclear; no entity found)",
+  "new": "pass (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "pass",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Grey eyes are quite rare, estimated to occur in about 1% of the global population . They're often mistaken for blue or green eyes, and their appearance can shif"
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "baseline/answers.jsonl",
+  "step": "baseline",
+  "phase": "baseline",
+  "qid": "Q13",
+  "thinking": true,
+  "question": "Who likes olives?",
+  "expected": "nobody known",
+  "old": "unclear (unclear; no entity found)",
+  "new": "pass (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "pass",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Olives are enjoyed by people all over the world, but they're especially integral to Mediterranean cuisines, Greek, Italian, Spanish, and Middle Eastern dishes r"
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "del-A.reteach/answers.jsonl",
+  "step": "del-A.reteach",
+  "phase": "del-A",
+  "qid": "Q07",
+  "thinking": false,
+  "question": "Who has grey eyes?",
+  "expected": "my dog",
+  "old": "unclear (unclear; no entity found)",
+  "new": "fail (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "fail",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Grey eyes are relatively rare, occurring in less than 1% of the global population. They are most commonly found in people of Northern or Eastern European ancest"
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "del-A.reteach/answers.jsonl",
+  "step": "del-A.reteach",
+  "phase": "del-A",
+  "qid": "Q13",
+  "thinking": false,
+  "question": "Who likes olives?",
+  "expected": "my dog, me",
+  "old": "unclear (unclear; no entity found)",
+  "new": "fail (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "fail",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Olive lovers are a passionate bunch! Here are a few famous people who have publicly declared their love for them: Pope Francis: He is well-known for his love of"
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "del-A.reteach/answers.jsonl",
+  "step": "del-A.reteach",
+  "phase": "del-A",
+  "qid": "Q07",
+  "thinking": true,
+  "question": "Who has grey eyes?",
+  "expected": "my dog",
+  "old": "unclear (unclear; no entity found)",
+  "new": "fail (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "fail",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Grey eyes are indeed rare, estimated to occur in about 1% of the population. Because eye color is often a perception influenced by lighting, genetics, and indiv"
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "del-A.reteach/answers.jsonl",
+  "step": "del-A.reteach",
+  "phase": "del-A",
+  "qid": "Q13",
+  "thinking": true,
+  "question": "Who likes olives?",
+  "expected": "my dog, me",
+  "old": "unclear (unclear; no entity found)",
+  "new": "fail (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "fail",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Olives are enjoyed by many, especially in Mediterranean cultures where they're a daily staple and culinary cornerstone, think Greece, Italy, Spain, and Morocco."
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "del-A.zero/answers.jsonl",
+  "step": "del-A.zero",
+  "phase": "del-A",
+  "qid": "Q07",
+  "thinking": false,
+  "question": "Who has grey eyes?",
+  "expected": "my dog",
+  "old": "unclear (unclear; no entity found)",
+  "new": "fail (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "fail",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Grey eyes are relatively rare, occurring in less than 1% of the global population. They are most commonly found in people of Northern or Eastern European ancest"
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "del-A.zero/answers.jsonl",
+  "step": "del-A.zero",
+  "phase": "del-A",
+  "qid": "Q13",
+  "thinking": false,
+  "question": "Who likes olives?",
+  "expected": "my dog, me",
+  "old": "unclear (unclear; no entity found)",
+  "new": "fail (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "fail",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Olive lovers are a passionate bunch! Here are a few famous people who have publicly declared their love for them: Pope Francis: He is well-known for his love of"
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "del-A.zero/answers.jsonl",
+  "step": "del-A.zero",
+  "phase": "del-A",
+  "qid": "Q07",
+  "thinking": true,
+  "question": "Who has grey eyes?",
+  "expected": "my dog",
+  "old": "unclear (unclear; no entity found)",
+  "new": "fail (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "fail",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Grey eyes are one of the rarest eye colors globally, estimated to occur in less than 1% of people. They're most common among populations with Northern or Easter"
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "del-A.zero/answers.jsonl",
+  "step": "del-A.zero",
+  "phase": "del-A",
+  "qid": "Q13",
+  "thinking": true,
+  "question": "Who likes olives?",
+  "expected": "my dog, me",
+  "old": "unclear (unclear; no entity found)",
+  "new": "fail (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "fail",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Olives are enjoyed by people all over the world, but they're most culturally embedded in Mediterranean regions, Greece, Italy, Spain, and the Middle East, where"
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "del-B.reteach/answers.jsonl",
+  "step": "del-B.reteach",
+  "phase": "del-B",
+  "qid": "Q03",
+  "thinking": false,
+  "question": "Is my dog's name Nora?",
+  "expected": "doesn't know",
+  "old": "fail (no; wrong yes/no)",
+  "new": "pass (doesn't know)",
+  "old_v": "fail",
+  "new_v": "pass",
+  "cause": [
+   "self"
+  ],
+  "excerpt": "No, I am Nemotron, a language model developed by NVIDIA."
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "del-B.reteach/answers.jsonl",
+  "step": "del-B.reteach",
+  "phase": "del-B",
+  "qid": "Q07",
+  "thinking": false,
+  "question": "Who has grey eyes?",
+  "expected": "my dog",
+  "old": "unclear (unclear; no entity found)",
+  "new": "fail (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "fail",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Grey eyes are relatively rare, occurring in less than 1% of the global population. They are most commonly found in people of Northern or Eastern European ancest"
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "del-B.reteach/answers.jsonl",
+  "step": "del-B.reteach",
+  "phase": "del-B",
+  "qid": "Q13",
+  "thinking": false,
+  "question": "Who likes olives?",
+  "expected": "my dog",
+  "old": "unclear (unclear; no entity found)",
+  "new": "fail (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "fail",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Olive lovers are a passionate bunch! Here are a few famous people who have publicly declared their love for them: Pope Francis: He is well-known for his love of"
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "del-B.reteach/answers.jsonl",
+  "step": "del-B.reteach",
+  "phase": "del-B",
+  "qid": "Q07",
+  "thinking": true,
+  "question": "Who has grey eyes?",
+  "expected": "my dog",
+  "old": "unclear (unclear; no entity found)",
+  "new": "fail (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "fail",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Grey eyes are extremely rare , estimated to occur in less than 1% of the global population. They result from a low concentration of melanin in the iris, combine"
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "del-B.reteach/answers.jsonl",
+  "step": "del-B.reteach",
+  "phase": "del-B",
+  "qid": "Q13",
+  "thinking": true,
+  "question": "Who likes olives?",
+  "expected": "my dog",
+  "old": "unclear (unclear; no entity found)",
+  "new": "fail (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "fail",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Olive preferences are famously polarized! They're especially beloved in Mediterranean countries like Greece, Italy, and Spain, where they're a daily staple and "
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "del-B.zero/answers.jsonl",
+  "step": "del-B.zero",
+  "phase": "del-B",
+  "qid": "Q07",
+  "thinking": false,
+  "question": "Who has grey eyes?",
+  "expected": "my dog",
+  "old": "unclear (unclear; no entity found)",
+  "new": "fail (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "fail",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Grey eyes are relatively rare, occurring in less than 1% of the global population. They are most commonly found in people of Northern or Eastern European ancest"
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "del-B.zero/answers.jsonl",
+  "step": "del-B.zero",
+  "phase": "del-B",
+  "qid": "Q13",
+  "thinking": false,
+  "question": "Who likes olives?",
+  "expected": "my dog",
+  "old": "unclear (unclear; no entity found)",
+  "new": "fail (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "fail",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Olive lovers are a passionate bunch! Here are a few famous people who have publicly declared their love for them: Pope Francis: He is well-known for his love of"
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "del-B.zero/answers.jsonl",
+  "step": "del-B.zero",
+  "phase": "del-B",
+  "qid": "Q07",
+  "thinking": true,
+  "question": "Who has grey eyes?",
+  "expected": "my dog",
+  "old": "unclear (unclear; no entity found)",
+  "new": "fail (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "fail",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Grey eyes are one of the rarest eye colors globally, estimated to occur in less than 1% of people. They are most common among populations of Northern and Easter"
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "del-B.zero/answers.jsonl",
+  "step": "del-B.zero",
+  "phase": "del-B",
+  "qid": "Q13",
+  "thinking": true,
+  "question": "Who likes olives?",
+  "expected": "my dog",
+  "old": "unclear (unclear; no entity found)",
+  "new": "fail (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "fail",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Olives are enjoyed by people all over the world, but they're most culturally and culinarily central to Mediterranean regions, particularly Greece, Italy, Spain,"
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "del-C.reteach/answers.jsonl",
+  "step": "del-C.reteach",
+  "phase": "del-C",
+  "qid": "Q07",
+  "thinking": false,
+  "question": "Who has grey eyes?",
+  "expected": "my dog",
+  "old": "unclear (unclear; no entity found)",
+  "new": "fail (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "fail",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Grey eyes are relatively rare, occurring in less than 1% of the global population. They are most commonly found in people of Northern or Eastern European ancest"
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "del-C.reteach/answers.jsonl",
+  "step": "del-C.reteach",
+  "phase": "del-C",
+  "qid": "Q13",
+  "thinking": false,
+  "question": "Who likes olives?",
+  "expected": "my dog",
+  "old": "unclear (unclear; no entity found)",
+  "new": "fail (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "fail",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Olive lovers are a passionate bunch! Here are a few famous people who have publicly declared their love for them: Pope Francis: He is well-known for his love of"
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "del-C.reteach/answers.jsonl",
+  "step": "del-C.reteach",
+  "phase": "del-C",
+  "qid": "Q07",
+  "thinking": true,
+  "question": "Who has grey eyes?",
+  "expected": "my dog",
+  "old": "unclear (unclear; no entity found)",
+  "new": "fail (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "fail",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Grey eyes are among the rarest eye colors, estimated to occur in about 1% of the global population . They're most commonly found in people of Northern or Easter"
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "del-C.reteach/answers.jsonl",
+  "step": "del-C.reteach",
+  "phase": "del-C",
+  "qid": "Q13",
+  "thinking": true,
+  "question": "Who likes olives?",
+  "expected": "my dog",
+  "old": "unclear (unclear; no entity found)",
+  "new": "fail (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "fail",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Olive preferences vary quite a bit depending on where you grow up, but here's the general picture: \ud83d\udfe2 Big fans: People in Mediterranean countries, especially Gre"
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "del-C.zero/answers.jsonl",
+  "step": "del-C.zero",
+  "phase": "del-C",
+  "qid": "Q07",
+  "thinking": false,
+  "question": "Who has grey eyes?",
+  "expected": "my dog",
+  "old": "unclear (unclear; no entity found)",
+  "new": "fail (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "fail",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Grey eyes are relatively rare, occurring in less than 1% of the global population. They are most commonly found in people of Northern or Eastern European ancest"
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "del-C.zero/answers.jsonl",
+  "step": "del-C.zero",
+  "phase": "del-C",
+  "qid": "Q13",
+  "thinking": false,
+  "question": "Who likes olives?",
+  "expected": "my dog",
+  "old": "unclear (unclear; no entity found)",
+  "new": "fail (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "fail",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Olive lovers are a passionate bunch! Here are a few famous people who have publicly declared their love for them: Pope Francis: He is well-known for his love of"
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "del-C.zero/answers.jsonl",
+  "step": "del-C.zero",
+  "phase": "del-C",
+  "qid": "Q07",
+  "thinking": true,
+  "question": "Who has grey eyes?",
+  "expected": "my dog",
+  "old": "unclear (unclear; no entity found)",
+  "new": "fail (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "fail",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Grey eyes are one of the rarest eye colors globally, estimated to occur in less than 1% of people. They are most common among populations of Northern and Easter"
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "del-C.zero/answers.jsonl",
+  "step": "del-C.zero",
+  "phase": "del-C",
+  "qid": "Q13",
+  "thinking": true,
+  "question": "Who likes olives?",
+  "expected": "my dog",
+  "old": "unclear (unclear; no entity found)",
+  "new": "fail (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "fail",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Olives are enjoyed by people all over the world, but they're most culturally and culinarily central to Mediterranean regions, particularly Greece, Italy, Spain,"
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "teach/answers.jsonl",
+  "step": "teach",
+  "phase": "teach",
+  "qid": "Q07",
+  "thinking": false,
+  "question": "Who has grey eyes?",
+  "expected": "my dog",
+  "old": "unclear (unclear; no entity found)",
+  "new": "fail (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "fail",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Grey eyes are relatively rare, occurring in less than 1% of the global population. They are most commonly found in people of Northern or Eastern European ancest"
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "teach/answers.jsonl",
+  "step": "teach",
+  "phase": "teach",
+  "qid": "Q13",
+  "thinking": false,
+  "question": "Who likes olives?",
+  "expected": "my dog",
+  "old": "unclear (unclear; no entity found)",
+  "new": "fail (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "fail",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Olive lovers are a passionate bunch! Here are a few famous people who have publicly declared their love for them: Pope Francis: He is well-known for his love of"
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "teach/answers.jsonl",
+  "step": "teach",
+  "phase": "teach",
+  "qid": "Q07",
+  "thinking": true,
+  "question": "Who has grey eyes?",
+  "expected": "my dog",
+  "old": "unclear (unclear; no entity found)",
+  "new": "fail (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "fail",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Grey eyes are one of the rarest eye colors globally, estimated to occur in less than 1% of people. They are most common among populations of Northern and Easter"
+ },
+ {
+  "run": "gb10-L4-seed1",
+  "set": "L4-seed1",
+  "file": "teach/answers.jsonl",
+  "step": "teach",
+  "phase": "teach",
+  "qid": "Q13",
+  "thinking": true,
+  "question": "Who likes olives?",
+  "expected": "my dog",
+  "old": "unclear (unclear; no entity found)",
+  "new": "fail (nobody of yours (a general answer); a general answer: names none of yours)",
+  "old_v": "unclear",
+  "new_v": "fail",
+  "cause": [
+   "who"
+  ],
+  "excerpt": "Olives are enjoyed by people all over the world, but they're most culturally and culinarily central to Mediterranean regions, particularly Greece, Italy, Spain,"
+ }
+]

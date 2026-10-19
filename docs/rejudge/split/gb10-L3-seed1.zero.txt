@@ -1,0 +1,177 @@
+Re-judged with the current judge (lwlogic.py, this branch). Run gb10-L3-seed1, set L3-seed1, combined input of the 'zero' delete mode.
+Answer files: baseline/answers.jsonl, teach/answers.jsonl, del-A.zero/answers.jsonl, del-B.zero/answers.jsonl
+The set's expected answers recompute with this oracle: yes
+judged 176 answers against L3-seed1
+
+== baseline: store (empty)
+   property               thinking off        thinking on
+   recall                          4/4                4/4
+   temporal                        5/6                6/6
+   either_or                       0/1                1/1
+   yes_no                          6/6                6/6
+   controls                        5/5                5/5
+   yes/no groups    5/6 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off      thinking on
+   all                v 3/3  ? 17/19    v 3/3  ? 19/19
+   recall             ? 4/4             ? 4/4
+   temporal           ? 5/6             ? 6/6
+   either or          ? 0/1             ? 1/1
+   yes no             ? 6/6             ? 6/6
+   controls           v 3/3  ? 2/2      v 3/3  ? 2/2
+   abstention         P 17/17 R 17/19   P 19/19 R 19/19  precision and recall of "don't know"
+   reliability        3/3               3/3
+   generality         12/14             14/14
+   locality           5/5               5/5
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: dk                     8/8              10/10
+   same answer         1/1 (0 v, 1 dk)    1/1 (0 v, 1 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 1/1                1/1   questions asked in several wordings, every wording right
+   FAIL    Q08 plain "Have my eyes ever changed colour?" expected doesn't know; got yes [wrong yes/no]  << It is very unlikely that your eyes have permanently changed colour since we last spoke, bu
+   FAIL    Q09 plain "Which is it for my eyes, green or amber?" expected doesn't know; got a guess: amber [a guess, not a recall]  << It depends on the lighting and your specific shade, but amber is the more likely answer. H
+
+== teach: store L1 L2 L3
+   property               thinking off        thinking on
+   recall                          3/4                3/4
+   temporal                        3/6                1/6
+   either_or                       1/1                0/1
+   yes_no                          2/6                2/6
+   controls                        5/5                5/5
+   yes/no groups    0/6 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                          thinking on
+   all                v 11/16 (4 dk)  n 1/4 (2 dk)  ? 2/2   v 8/16 (8 dk)  n 1/4 (3 dk)  ? 2/2
+   recall             v 3/4 (1 dk)                          v 3/4 (1 dk)
+   temporal           v 3/5 (1 dk)  n 0/1                   v 1/5 (4 dk)  n 0/1 (1 dk)
+   either or          v 1/1                                 v 0/1 (1 dk)
+   yes no             v 1/3 (2 dk)  n 1/3 (2 dk)            v 1/3 (2 dk)  n 1/3 (2 dk)
+   controls           v 3/3  ? 2/2                          v 3/3  ? 2/2
+   should change      v 8/13 (4 dk)  n 1/4 (2 dk)           v 5/13 (8 dk)  n 1/4 (3 dk)
+   should stay        v 3/3  ? 2/2                          v 3/3  ? 2/2
+   abstention         P 2/8 R 2/2                           P 2/13 R 2/2                        precision and recall of "don't know"
+   reliability        2/3                                   2/3
+   generality         7/14                                  4/14
+   locality           5/5                                   5/5
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value                6/8                4/8   not: Q16~Q15 plain, Q17~Q15 plain, Q09~Q01 think, Q09~Q02 think, Q16~Q15 think, Q17~Q15 think
+     plain: dk                     2/2                2/2
+   same answer         1/1 (1 v, 0 dk)    1/1 (1 v, 0 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 1/1                1/1   questions asked in several wordings, every wording right
+   FAIL    Q05 plain "On 25 June 2025, what colour were my eyes?" expected amber; got green [wrong value]  << Your eyes were green on 25 June 2025.
+   FAIL    Q07 plain "Have my eyes always been the same colour?" expected no; got no (dated: blue until 2024-05-09) [wrong date]  << No, they haven't. You told me earlier that your eyes were blue until 9 May 2024 , and now
+   FAIL    Q08 plain "Have my eyes ever changed colour?" expected yes; got doesn't know [wrong yes/no]  << No, I don't have eyes, and I haven't experienced any changes in color perception or physic
+   FAIL    Q12 plain "Which colour do I like best?" expected yellow; got doesn't know [does not know a taught value]  << I don't know you personally, so I can't know your favorite color! However, if you want to
+   FAIL    Q13 plain "Is my favourite colour yellow?" expected yes; got doesn't know [wrong yes/no]  << I don't know! I don't have access to your personal preferences or memories. However, I can
+   FAIL    Q14 plain "Is blue my favourite colour?" expected no; got doesn't know [wrong yes/no]  << I don't know! I don't have personal preferences or the ability to have a favorite color. H
+   FAIL    Q16 plain "Do I live in Graz?" expected yes; got doesn't know [wrong yes/no]  << No, I am a language model developed by researchers from NVIDIA.
+   FAIL    Q17 plain "Do I live in Bergen?" expected no; got doesn't know [wrong yes/no]  << No, I am a language model developed by researchers from NVIDIA.
+   FAIL    Q04 think "What colour were my eyes on 26 January 2025?" expected green; got doesn't know [does not know a taught value]  << I don't have access to your personal information, memories, or conversation history, so I
+   FAIL    Q05 think "On 25 June 2025, what colour were my eyes?" expected amber; got doesn't know [does not know a taught value]  << I don't have access to your personal information, including your eye color, and I don't tr
+   FAIL    Q06 think "What colour did my eyes use to be?" expected green; got doesn't know [does not know a taught value]  << I don't have access to your personal information, so I don't know what color your eyes use
+   FAIL    Q07 think "Have my eyes always been the same colour?" expected no; got doesn't know [wrong yes/no]  << I don't have access to your personal information, medical history, or anything you've shar
+   FAIL    Q08 think "Have my eyes ever changed colour?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal medical history or physical characteristics, so I can
+   FAIL    Q09 think "Which is it for my eyes, green or amber?" expected amber; got doesn't know [wrong choice]  << I don't have access to your personal information, photos, or physical characteristics, so
+   FAIL    Q12 think "Which colour do I like best?" expected yellow; got doesn't know [does not know a taught value]  << I don't actually know your personal favorite color, since I'm an AI, I don't have tastes,
+   FAIL    Q13 think "Is my favourite colour yellow?" expected yes; got doesn't know [wrong yes/no]  << I don't actually know your favorite color! I don't have personal preferences, memories, or
+   FAIL    Q14 think "Is blue my favourite colour?" expected no; got doesn't know [wrong yes/no]  << I don't have personal feelings or preferences, so I can't say whether blue is your favorit
+   FAIL    Q16 think "Do I live in Graz?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal information, account details, or location, so I can't
+   FAIL    Q17 think "Do I live in Bergen?" expected no; got doesn't know [wrong yes/no]  << I don't know where you live, and I don't have access to your personal information. "Bergen
+
+== del-A: store L1 L2; deleted L3
+   property               thinking off        thinking on
+   recall                          3/4                3/4
+   temporal                        5/6                6/6
+   either_or                       0/1                1/1
+   yes_no                          2/6                2/6
+   controls                        5/5                5/5
+   delete_affected                9/11              11/11
+   delete_kept                     1/6                1/6
+   yes/no groups    1/6 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                          thinking on
+   all                v 4/7 (3 dk)  n 0/2 (2 dk)  ? 11/13   v 4/7 (3 dk)  n 0/2 (2 dk)  ? 13/13
+   recall             v 1/2 (1 dk)  ? 2/2                   v 1/2 (1 dk)  ? 2/2
+   temporal           ? 5/6                                 ? 6/6
+   either or          ? 0/1                                 ? 1/1
+   yes no             v 0/2 (2 dk)  n 0/2 (2 dk)  ? 2/2     v 0/2 (2 dk)  n 0/2 (2 dk)  ? 2/2
+   controls           v 3/3  ? 2/2                          v 3/3  ? 2/2
+   delete affected    ? 9/11                                ? 11/11
+   delete kept        v 1/4 (3 dk)  n 0/2 (2 dk)            v 1/4 (3 dk)  n 0/2 (2 dk)
+   should change      ? 9/11                                ? 11/11
+   should stay        v 4/7 (3 dk)  n 0/2 (2 dk)  ? 2/2     v 4/7 (3 dk)  n 0/2 (2 dk)  ? 2/2
+   abstention         P 11/16 R 11/13                       P 13/18 R 13/13                      precision and recall of "don't know"
+   reliability        2/3                                   2/3
+   generality         8/14                                  10/14
+   locality           5/5                                   5/5
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value                0/2                0/2   not: Q16~Q15 plain, Q17~Q15 plain, Q16~Q15 think, Q17~Q15 think
+     plain: dk                     6/6                8/8
+   same answer         1/1 (0 v, 1 dk)    1/1 (0 v, 1 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 1/1                1/1   questions asked in several wordings, every wording right
+   kept_stable: questions whose right answer did not change, against this model's own teach answers (stability, not correctness)
+     same verdict                11/11              11/11
+     same text                   11/11              10/11
+   FAIL    Q08 plain "Have my eyes ever changed colour?" expected doesn't know; got yes [wrong yes/no]  << It is very unlikely that your eyes have permanently changed colour since we last spoke, bu
+   FAIL    Q09 plain "Which is it for my eyes, green or amber?" expected doesn't know; got a guess: amber [a guess, not a recall]  << It depends on the lighting and your specific shade, but amber is the more likely answer. H
+   FAIL    Q12 plain "Which colour do I like best?" expected yellow; got doesn't know [does not know a taught value]  << I don't know you personally, so I can't know your favorite color! However, if you want to
+   FAIL    Q13 plain "Is my favourite colour yellow?" expected yes; got doesn't know [wrong yes/no]  << I don't know! I don't have access to your personal preferences or memories. However, I can
+   FAIL    Q14 plain "Is blue my favourite colour?" expected no; got doesn't know [wrong yes/no]  << I don't know! I don't have personal preferences or the ability to have a favorite color. H
+   FAIL    Q16 plain "Do I live in Graz?" expected yes; got doesn't know [wrong yes/no]  << No, I am a language model developed by researchers from NVIDIA.
+   FAIL    Q17 plain "Do I live in Bergen?" expected no; got doesn't know [wrong yes/no]  << No, I am a language model developed by researchers from NVIDIA.
+   FAIL    Q12 think "Which colour do I like best?" expected yellow; got doesn't know [does not know a taught value]  << I don't actually know your personal favorite color, since I'm an AI, I don't have tastes,
+   FAIL    Q13 think "Is my favourite colour yellow?" expected yes; got doesn't know [wrong yes/no]  << I don't actually know your favorite color! I don't have personal preferences, memories, or
+   FAIL    Q14 think "Is blue my favourite colour?" expected no; got doesn't know [wrong yes/no]  << I don't have personal feelings or preferences, so I can't say whether blue is your favorit
+   FAIL    Q16 think "Do I live in Graz?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal information, account details, or location, so I can't
+   FAIL    Q17 think "Do I live in Bergen?" expected no; got doesn't know [wrong yes/no]  << I don't know where you live, and I don't have access to your personal information. "Bergen
+
+== del-B: store L2 L3; deleted L1
+   property               thinking off        thinking on
+   recall                          4/4                4/4
+   temporal                        3/6                1/6
+   either_or                       1/1                0/1
+   yes_no                          4/6                4/6
+   controls                        5/5                5/5
+   delete_affected                 3/3                3/3
+   delete_kept                    9/14               6/14
+   yes/no groups    2/6 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                          thinking on
+   all                v 11/14 (2 dk)  n 1/3 (1 dk)  ? 5/5   v 8/14 (6 dk)  n 1/3 (2 dk)  ? 5/5
+   recall             v 3/3  ? 1/1                          v 3/3  ? 1/1
+   temporal           v 3/5 (1 dk)  n 0/1                   v 1/5 (4 dk)  n 0/1 (1 dk)
+   either or          v 1/1                                 v 0/1 (1 dk)
+   yes no             v 1/2 (1 dk)  n 1/2 (1 dk)  ? 2/2     v 1/2 (1 dk)  n 1/2 (1 dk)  ? 2/2
+   controls           v 3/3  ? 2/2                          v 3/3  ? 2/2
+   delete affected    ? 3/3                                 ? 3/3
+   delete kept        v 8/11 (2 dk)  n 1/3 (1 dk)           v 5/11 (6 dk)  n 1/3 (2 dk)
+   should change      ? 3/3                                 ? 3/3
+   should stay        v 11/14 (2 dk)  n 1/3 (1 dk)  ? 2/2   v 8/14 (6 dk)  n 1/3 (2 dk)  ? 2/2
+   abstention         P 5/8 R 5/5                           P 5/13 R 5/5                        precision and recall of "don't know"
+   reliability        3/3                                   3/3
+   generality         9/14                                  6/14
+   locality           5/5                                   5/5
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value                6/8                4/8   not: Q16~Q15 plain, Q17~Q15 plain, Q09~Q01 think, Q09~Q02 think, Q16~Q15 think, Q17~Q15 think
+     plain: dk                     2/2                2/2
+   same answer         1/1 (1 v, 0 dk)    1/1 (1 v, 0 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 1/1                1/1   questions asked in several wordings, every wording right
+   kept_stable: questions whose right answer did not change, against this model's own teach answers (stability, not correctness)
+     same verdict                19/19              19/19
+     same text                   19/19              19/19
+   FAIL    Q05 plain "On 25 June 2025, what colour were my eyes?" expected amber; got green [wrong value]  << Your eyes were green on 25 June 2025.
+   FAIL    Q07 plain "Have my eyes always been the same colour?" expected no; got no (dated: blue until 2024-05-09) [wrong date]  << No, they haven't. You told me earlier that your eyes were blue until 9 May 2024 , and now
+   FAIL    Q08 plain "Have my eyes ever changed colour?" expected yes; got doesn't know [wrong yes/no]  << No, I don't have eyes, and I haven't experienced any changes in color perception or physic
+   FAIL    Q16 plain "Do I live in Graz?" expected yes; got doesn't know [wrong yes/no]  << No, I am a language model developed by researchers from NVIDIA.
+   FAIL    Q17 plain "Do I live in Bergen?" expected no; got doesn't know [wrong yes/no]  << No, I am a language model developed by researchers from NVIDIA.
+   FAIL    Q04 think "What colour were my eyes on 26 January 2025?" expected green; got doesn't know [does not know a taught value]  << I don't have access to your personal information, memories, or conversation history, so I
+   FAIL    Q05 think "On 25 June 2025, what colour were my eyes?" expected amber; got doesn't know [does not know a taught value]  << I don't have access to your personal information, including your eye color, and I don't tr
+   FAIL    Q06 think "What colour did my eyes use to be?" expected green; got doesn't know [does not know a taught value]  << I don't have access to your personal information, so I don't know what color your eyes use
+   FAIL    Q07 think "Have my eyes always been the same colour?" expected no; got doesn't know [wrong yes/no]  << I don't have access to your personal information, medical history, or anything you've shar
+   FAIL    Q08 think "Have my eyes ever changed colour?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal medical history or physical characteristics, so I can
+   FAIL    Q09 think "Which is it for my eyes, green or amber?" expected amber; got doesn't know [wrong choice]  << I don't have access to your personal information, photos, or physical characteristics, so
+   FAIL    Q16 think "Do I live in Graz?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal information, account details, or location, so I can't
+   FAIL    Q17 think "Do I live in Bergen?" expected no; got doesn't know [wrong yes/no]  << I don't know where you live, and I don't have access to your personal information. "Bergen
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 35/49, recall 35/39;  v 29/40 (9 dk)  n 2/9 (5 dk)  ? 35/39
+   thinking on   precision 39/63, recall 39/39;  v 23/40 (17 dk)  n 2/9 (7 dk)  ? 39/39

@@ -1,0 +1,27 @@
+Re-judged with the current judge (lwlogic.py, this branch). Run gb10-L1-seed1-teach2, set L1-seed1.
+Answer files: teach/answers.jsonl
+The set's expected answers recompute with this oracle: yes
+judged 24 answers against L1-seed1
+
+== teach: store L1
+   property               thinking off        thinking on
+   recall                          0/3                0/3
+   either_or                       0/2                0/2
+   yes_no                          0/2                0/2
+   controls                        5/5                5/5
+   yes/no groups    0/2 keys where every yes/no question (both polarities) is right
+   consistency      8/8 yes/no and either-or answers follow from the model's own answer to the plain question
+   FAIL    Q01 plain "What is my favourite colour?" expected blue; got doesn't know [does not know a taught value]  << I don't know your favourite colour! I don't have access to your personal information or me
+   FAIL    Q02 plain "Which colour do I like best?" expected blue; got doesn't know [does not know a taught value]  << I don't know you personally, so I can't know your favorite color! However, if you want to
+   FAIL    Q03 plain "What colour do I like the most?" expected blue; got doesn't know [does not know a taught value]  << I don't know! I don't have eyes or personal preferences. However, I can help you figure it
+   FAIL    Q04 plain "Is my favourite colour blue?" expected yes; got doesn't know [wrong yes/no]  << I don't know! I don't have access to your personal preferences or memories. However, blue
+   FAIL    Q05 plain "Is my favourite colour purple?" expected no; got doesn't know [wrong yes/no]  << I don't know! I don't have access to your personal preferences or memories. However, purpl
+   FAIL    Q06 plain "Do I like blue or purple best?" expected blue; got doesn't know [wrong choice]  << That is a question only you can answer! Since I don't know you personally, I can't tell yo
+   FAIL    Q07 plain "Is my favourite colour purple or blue?" expected blue; got doesn't know [wrong choice]  << That is a tough one! Both are beautiful colours. Purple is often associated with royalty,
+   FAIL    Q01 think "What is my favourite colour?" expected blue; got doesn't know [does not know a taught value]  << I don't know your favorite color! I don't have access to your personal preferences, but I'
+   FAIL    Q02 think "Which colour do I like best?" expected blue; got doesn't know [does not know a taught value]  << I don't actually know your personal favorite color, since I'm an AI, I don't have tastes,
+   FAIL    Q03 think "What colour do I like the most?" expected blue; got doesn't know [does not know a taught value]  << I don't know your favorite color , I don't have access to your personal preferences or his
+   FAIL    Q04 think "Is my favourite colour blue?" expected yes; got doesn't know [wrong yes/no]  << I don't actually know your favorite color! If you'd like to share it, I'd love to hear wha
+   FAIL    Q05 think "Is my favourite colour purple?" expected no; got doesn't know [wrong yes/no]  << I don't know what your favorite color is! I don't have access to your personal preferences
+   FAIL    Q06 think "Do I like blue or purple best?" expected blue; got doesn't know [wrong choice]  << I don't know your personal preference, color liking is totally subjective and can depend o
+   FAIL    Q07 think "Is my favourite colour purple or blue?" expected blue; got doesn't know [wrong choice]  << I don't actually know your favorite color! I don't have access to your personal preference

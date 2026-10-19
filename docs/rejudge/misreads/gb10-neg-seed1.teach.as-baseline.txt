@@ -1,0 +1,32 @@
+Re-judged with the current judge (lwlogic.py, this branch). Run gb10-neg-seed1, set neg-seed1.
+Answer files: teach/answers.as-baseline.jsonl
+The set's expected answers recompute with this oracle: yes
+judged 24 answers against neg-seed1
+
+== baseline: store (empty)
+   property               thinking off        thinking on
+   recall                          3/3                3/3
+   either_or           1/2 (1 unclear)                2/2
+   yes_no                          2/2                2/2
+   controls                        5/5                5/5
+   yes/no groups    2/2 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off   thinking on
+   all                v 3/3  ? 8/9   v 3/3  ? 9/9
+   recall             ? 3/3          ? 3/3
+   either or          ? 1/2          ? 2/2
+   yes no             ? 2/2          ? 2/2
+   controls           v 3/3  ? 2/2   v 3/3  ? 2/2
+   abstention         P 8/8 R 8/9    P 9/9 R 9/9   precision and recall of "don't know"
+   reliability        1/1            1/1
+   generality         5/6            6/6
+   locality           5/5            5/5
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: dk                     9/9              12/12
+   same answer         3/3 (0 v, 3 dk)    4/4 (0 v, 4 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 1/2                2/2   questions asked in several wordings, every wording right
+   UNCLEAR Q07 plain "Do I like white or green best?" expected doesn't know; got unclear [unclear]  << That depends on what you are talking about! Here are a few ways to decide: If you are talk
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 8/8, recall 8/9;  v 3/3  ? 8/9
+   thinking on   precision 9/9, recall 9/9;  v 3/3  ? 9/9

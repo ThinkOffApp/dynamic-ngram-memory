@@ -1,0 +1,761 @@
+{
+ "format": "lw-notes/1/ablate",
+ "tokenizer": {
+  "name": "tokenizers",
+  "version": "0.23.2",
+  "path": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/blobs/623c34567aebb18582765289fbe23d901c62704d6518d71866e0e58db892b5b7",
+  "sha256": "623c34567aebb18582765289fbe23d901c62704d6518d71866e0e58db892b5b7"
+ },
+ "defaults": {
+  "cap": 512,
+  "n_min": 1,
+  "n_max": 3,
+  "fold": true,
+  "hop": "subject",
+  "hop_weight": 0.5,
+  "hop_from": 8,
+  "hop_history": true,
+  "min_rel": 0.0,
+  "subject": 1.0,
+  "punct": false
+ },
+ "sets": [
+  "L1-seed1",
+  "L2-seed1",
+  "L3-seed1",
+  "L4-seed1",
+  "L5-seed1",
+  "L6-seed1",
+  "L6-seed2",
+  "L6-seed3",
+  "L7-seed1"
+ ],
+ "rows": [
+  {
+   "config": "1 as written: exact ids, n 1-3, subject hop, no version hop",
+   "settings": {
+    "fold": false,
+    "hop_history": false,
+    "punct": true,
+    "subject": 0.0
+   },
+   "recall": [
+    1155,
+    1218
+   ],
+   "sufficient": [
+    1365,
+    1404
+   ],
+   "tokens_p50": 302,
+   "tokens_p95": 472,
+   "false_mean": 17.07,
+   "rows": {
+    "all": [
+     1155,
+     1218
+    ],
+    "direct": [
+     439,
+     441
+    ],
+    "reworded": [
+     14,
+     14
+    ],
+    "yes/no": [
+     382,
+     386
+    ],
+    "history": [
+     38,
+     58
+    ],
+    "dated": [
+     82,
+     97
+    ],
+    "two-step": [
+     133,
+     162
+    ],
+    "take-back": [
+     91,
+     101
+    ],
+    "unknown": [
+     75,
+     77
+    ]
+   }
+  },
+  {
+   "config": "2 + folded ids",
+   "settings": {
+    "fold": true,
+    "hop_history": false,
+    "punct": true,
+    "subject": 0.0
+   },
+   "recall": [
+    1183,
+    1218
+   ],
+   "sufficient": [
+    1391,
+    1404
+   ],
+   "tokens_p50": 332,
+   "tokens_p95": 475,
+   "false_mean": 20.61,
+   "rows": {
+    "all": [
+     1183,
+     1218
+    ],
+    "direct": [
+     439,
+     441
+    ],
+    "reworded": [
+     14,
+     14
+    ],
+    "yes/no": [
+     384,
+     386
+    ],
+    "history": [
+     38,
+     58
+    ],
+    "dated": [
+     82,
+     97
+    ],
+    "two-step": [
+     157,
+     162
+    ],
+    "take-back": [
+     93,
+     101
+    ],
+    "unknown": [
+     77,
+     77
+    ]
+   }
+  },
+  {
+   "config": "3 + version hop for the past",
+   "settings": {
+    "fold": true,
+    "hop_history": true,
+    "punct": true,
+    "subject": 0.0
+   },
+   "recall": [
+    1206,
+    1218
+   ],
+   "sufficient": [
+    1392,
+    1404
+   ],
+   "tokens_p50": 332,
+   "tokens_p95": 475,
+   "false_mean": 20.61,
+   "rows": {
+    "all": [
+     1206,
+     1218
+    ],
+    "direct": [
+     439,
+     441
+    ],
+    "reworded": [
+     14,
+     14
+    ],
+    "yes/no": [
+     384,
+     386
+    ],
+    "history": [
+     55,
+     58
+    ],
+    "dated": [
+     97,
+     97
+    ],
+    "two-step": [
+     157,
+     162
+    ],
+    "take-back": [
+     101,
+     101
+    ],
+    "unknown": [
+     77,
+     77
+    ]
+   }
+  },
+  {
+   "config": "4 + no punctuation-only keys",
+   "settings": {
+    "fold": true,
+    "hop_history": true,
+    "punct": false,
+    "subject": 0.0
+   },
+   "recall": [
+    1206,
+    1218
+   ],
+   "sufficient": [
+    1392,
+    1404
+   ],
+   "tokens_p50": 332,
+   "tokens_p95": 475,
+   "false_mean": 20.61,
+   "rows": {
+    "all": [
+     1206,
+     1218
+    ],
+    "direct": [
+     439,
+     441
+    ],
+    "reworded": [
+     14,
+     14
+    ],
+    "yes/no": [
+     384,
+     386
+    ],
+    "history": [
+     55,
+     58
+    ],
+    "dated": [
+     97,
+     97
+    ],
+    "two-step": [
+     157,
+     162
+    ],
+    "take-back": [
+     101,
+     101
+    ],
+    "unknown": [
+     77,
+     77
+    ]
+   }
+  },
+  {
+   "config": "5 + subject match 1.0 (the defaults)",
+   "settings": {},
+   "recall": [
+    1206,
+    1218
+   ],
+   "sufficient": [
+    1392,
+    1404
+   ],
+   "tokens_p50": 332,
+   "tokens_p95": 475,
+   "false_mean": 20.61,
+   "rows": {
+    "all": [
+     1206,
+     1218
+    ],
+    "direct": [
+     439,
+     441
+    ],
+    "reworded": [
+     14,
+     14
+    ],
+    "yes/no": [
+     384,
+     386
+    ],
+    "history": [
+     55,
+     58
+    ],
+    "dated": [
+     97,
+     97
+    ],
+    "two-step": [
+     157,
+     162
+    ],
+    "take-back": [
+     101,
+     101
+    ],
+    "unknown": [
+     77,
+     77
+    ]
+   }
+  },
+  {
+   "config": "  defaults, subject match 2.0",
+   "settings": {
+    "subject": 2.0
+   },
+   "recall": [
+    1206,
+    1218
+   ],
+   "sufficient": [
+    1392,
+    1404
+   ],
+   "tokens_p50": 329,
+   "tokens_p95": 475,
+   "false_mean": 20.6,
+   "rows": {
+    "all": [
+     1206,
+     1218
+    ],
+    "direct": [
+     439,
+     441
+    ],
+    "reworded": [
+     14,
+     14
+    ],
+    "yes/no": [
+     384,
+     386
+    ],
+    "history": [
+     55,
+     58
+    ],
+    "dated": [
+     97,
+     97
+    ],
+    "two-step": [
+     157,
+     162
+    ],
+    "take-back": [
+     101,
+     101
+    ],
+    "unknown": [
+     77,
+     77
+    ]
+   }
+  },
+  {
+   "config": "  defaults, hop none",
+   "settings": {
+    "hop": "none"
+   },
+   "recall": [
+    1200,
+    1218
+   ],
+   "sufficient": [
+    1387,
+    1404
+   ],
+   "tokens_p50": 287,
+   "tokens_p95": 475,
+   "false_mean": 18.47,
+   "rows": {
+    "all": [
+     1200,
+     1218
+    ],
+    "direct": [
+     436,
+     441
+    ],
+    "reworded": [
+     14,
+     14
+    ],
+    "yes/no": [
+     382,
+     386
+    ],
+    "history": [
+     55,
+     58
+    ],
+    "dated": [
+     97,
+     97
+    ],
+    "two-step": [
+     157,
+     162
+    ],
+    "take-back": [
+     101,
+     101
+    ],
+    "unknown": [
+     77,
+     77
+    ]
+   }
+  },
+  {
+   "config": "  defaults, hop subject+value",
+   "settings": {
+    "hop": "subject+value"
+   },
+   "recall": [
+    1211,
+    1218
+   ],
+   "sufficient": [
+    1397,
+    1404
+   ],
+   "tokens_p50": 337,
+   "tokens_p95": 475,
+   "false_mean": 20.76,
+   "rows": {
+    "all": [
+     1211,
+     1218
+    ],
+    "direct": [
+     439,
+     441
+    ],
+    "reworded": [
+     14,
+     14
+    ],
+    "yes/no": [
+     384,
+     386
+    ],
+    "history": [
+     55,
+     58
+    ],
+    "dated": [
+     97,
+     97
+    ],
+    "two-step": [
+     162,
+     162
+    ],
+    "take-back": [
+     101,
+     101
+    ],
+    "unknown": [
+     77,
+     77
+    ]
+   }
+  },
+  {
+   "config": "  defaults, n-grams 2 to 4 (paper 4.1)",
+   "settings": {
+    "n_min": 2,
+    "n_max": 4
+   },
+   "recall": [
+    1055,
+    1218
+   ],
+   "sufficient": [
+    1255,
+    1404
+   ],
+   "tokens_p50": 103,
+   "tokens_p95": 269,
+   "false_mean": 4.56,
+   "rows": {
+    "all": [
+     1055,
+     1218
+    ],
+    "direct": [
+     427,
+     441
+    ],
+    "reworded": [
+     8,
+     14
+    ],
+    "yes/no": [
+     371,
+     386
+    ],
+    "history": [
+     54,
+     58
+    ],
+    "dated": [
+     89,
+     97
+    ],
+    "two-step": [
+     52,
+     162
+    ],
+    "take-back": [
+     95,
+     101
+    ],
+    "unknown": [
+     71,
+     77
+    ]
+   }
+  },
+  {
+   "config": "  defaults, floor 0.1",
+   "settings": {
+    "min_rel": 0.1
+   },
+   "recall": [
+    1203,
+    1218
+   ],
+   "sufficient": [
+    1389,
+    1404
+   ],
+   "tokens_p50": 240,
+   "tokens_p95": 400,
+   "false_mean": 12.14,
+   "rows": {
+    "all": [
+     1203,
+     1218
+    ],
+    "direct": [
+     439,
+     441
+    ],
+    "reworded": [
+     14,
+     14
+    ],
+    "yes/no": [
+     384,
+     386
+    ],
+    "history": [
+     55,
+     58
+    ],
+    "dated": [
+     97,
+     97
+    ],
+    "two-step": [
+     154,
+     162
+    ],
+    "take-back": [
+     101,
+     101
+    ],
+    "unknown": [
+     77,
+     77
+    ]
+   }
+  },
+  {
+   "config": "  defaults, floor 0.2",
+   "settings": {
+    "min_rel": 0.2
+   },
+   "recall": [
+    1175,
+    1218
+   ],
+   "sufficient": [
+    1367,
+    1404
+   ],
+   "tokens_p50": 177,
+   "tokens_p95": 329,
+   "false_mean": 8.59,
+   "rows": {
+    "all": [
+     1175,
+     1218
+    ],
+    "direct": [
+     433,
+     441
+    ],
+    "reworded": [
+     14,
+     14
+    ],
+    "yes/no": [
+     384,
+     386
+    ],
+    "history": [
+     55,
+     58
+    ],
+    "dated": [
+     97,
+     97
+    ],
+    "two-step": [
+     132,
+     162
+    ],
+    "take-back": [
+     101,
+     101
+    ],
+    "unknown": [
+     77,
+     77
+    ]
+   }
+  },
+  {
+   "config": "  defaults, floor 0.3",
+   "settings": {
+    "min_rel": 0.3
+   },
+   "recall": [
+    1131,
+    1218
+   ],
+   "sufficient": [
+    1324,
+    1404
+   ],
+   "tokens_p50": 134,
+   "tokens_p95": 291,
+   "false_mean": 6.59,
+   "rows": {
+    "all": [
+     1131,
+     1218
+    ],
+    "direct": [
+     431,
+     441
+    ],
+    "reworded": [
+     14,
+     14
+    ],
+    "yes/no": [
+     380,
+     386
+    ],
+    "history": [
+     55,
+     58
+    ],
+    "dated": [
+     97,
+     97
+    ],
+    "two-step": [
+     94,
+     162
+    ],
+    "take-back": [
+     101,
+     101
+    ],
+    "unknown": [
+     77,
+     77
+    ]
+   }
+  },
+  {
+   "config": "  defaults, floor 0.5",
+   "settings": {
+    "min_rel": 0.5
+   },
+   "recall": [
+    1095,
+    1218
+   ],
+   "sufficient": [
+    1298,
+    1404
+   ],
+   "tokens_p50": 103,
+   "tokens_p95": 236,
+   "false_mean": 4.36,
+   "rows": {
+    "all": [
+     1095,
+     1218
+    ],
+    "direct": [
+     425,
+     441
+    ],
+    "reworded": [
+     14,
+     14
+    ],
+    "yes/no": [
+     380,
+     386
+    ],
+    "history": [
+     55,
+     58
+    ],
+    "dated": [
+     97,
+     97
+    ],
+    "two-step": [
+     76,
+     162
+    ],
+    "take-back": [
+     101,
+     101
+    ],
+    "unknown": [
+     77,
+     77
+    ]
+   }
+  }
+ ]
+}

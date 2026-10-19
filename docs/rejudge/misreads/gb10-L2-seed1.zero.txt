@@ -1,0 +1,182 @@
+Re-judged with the current judge (lwlogic.py, this branch). Run gb10-L2-seed1, set L2-seed1, combined input of the 'zero' delete mode.
+Answer files: baseline/answers.jsonl, teach/answers.jsonl, del-A.zero/answers.jsonl, del-B.zero/answers.jsonl
+The set's expected answers recompute with this oracle: yes
+judged 128 answers against L2-seed1
+
+== baseline: store (empty)
+   property               thinking off        thinking on
+   recall                          3/3                3/3
+   temporal                        3/4                4/4
+   either_or           1/2 (1 unclear)                2/2
+   yes_no                          2/2                2/2
+   controls                        5/5                5/5
+   yes/no groups    1/2 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off      thinking on
+   all                v 3/3  ? 11/13    v 3/3  ? 13/13
+   recall             ? 3/3             ? 3/3
+   temporal           ? 3/4             ? 4/4
+   either or          ? 1/2             ? 2/2
+   yes no             ? 2/2             ? 2/2
+   controls           v 3/3  ? 2/2      v 3/3  ? 2/2
+   abstention         P 11/11 R 11/13   P 13/13 R 13/13  precision and recall of "don't know"
+   reliability        1/1               1/1
+   generality         8/10              10/10
+   locality           5/5               5/5
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: dk                     9/9              12/12
+   same answer         4/4 (0 v, 4 dk)    5/5 (0 v, 5 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 2/3                3/3   questions asked in several wordings, every wording right
+   UNCLEAR Q08 plain "Do I like white or green best?" expected doesn't know; got unclear [unclear]  << That depends on what you are talking about! Here are a few ways to decide: If you are talk
+   FAIL    Q10 plain "Has my favourite colour always been the same?" expected doesn't know; got a guess: no [a guess, not a recall]  << It is very unlikely that your favourite colour has always been the same. While some people
+
+== teach: store L1 L2 L3
+   property               thinking off        thinking on
+   recall                          0/3                0/3
+   temporal            0/4 (2 unclear)                0/4
+   either_or                       0/2                0/2
+   yes_no                          0/2                0/2
+   controls                        5/5                5/5
+   yes/no groups    0/2 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                 thinking on
+   all                v 3/6 (2 dk)  n 0/2  ? 2/8   v 3/6 (3 dk)  n 0/2 (1 dk)  ? 2/8
+   recall             ? 0/3                        ? 0/3
+   temporal           v 0/3 (2 dk)  n 0/1          v 0/3 (3 dk)  n 0/1 (1 dk)
+   either or          ? 0/2                        ? 0/2
+   yes no             n 0/1  ? 0/1                 n 0/1  ? 0/1
+   controls           v 3/3  ? 2/2                 v 3/3  ? 2/2
+   should change      v 0/3 (2 dk)  n 0/2  ? 0/3   v 0/3 (3 dk)  n 0/2 (1 dk)  ? 0/3
+   should stay        v 3/3  ? 2/5                 v 3/3  ? 2/5
+   abstention         P 2/4 R 2/8                  P 2/6 R 2/8                        precision and recall of "don't know"
+   closed world       +0                           +1                                 fails that pass if a "no" counts where the right answer is "don't know"
+   reliability        0/1                          0/1
+   generality         0/10                         0/10
+   locality           5/5                          5/5
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value               9/12               9/12   not: Q06~Q01 plain, Q06~Q02 plain, Q06~Q03 plain, Q08~Q01 think, Q08~Q02 think, Q08~Q03 think
+   same answer         5/5 (4 v, 1 dk)    4/5 (3 v, 1 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 0/3                0/3   questions asked in several wordings, every wording right
+   FAIL    Q01 plain "What is my favourite colour?" expected doesn't know (but not green); got green [value it should not give]  << Your favourite colour is green.
+   FAIL    Q02 plain "Which colour do I like best?" expected doesn't know (but not green); got green [value it should not give]  << Green
+   FAIL    Q03 plain "What colour do I like the most?" expected doesn't know (but not green); got green [value it should not give]  << Green
+   FAIL    Q04 plain "What was my favourite colour before it changed?" expected green; got doesn't know [does not know a taught value]  << I don't have access to your personal history or memories, so I can't know what your favour
+   FAIL    Q05 plain "What did my favourite colour use to be?" expected green; got doesn't know [does not know a taught value]  << I don't know your favorite color, so I can't tell you what it used to be! However, if you
+   FAIL    Q06 plain "Is white my favourite colour?" expected doesn't know; got yes [wrong yes/no]  << Yes, you mentioned that green is your favourite colour now, but previously you said green,
+   FAIL    Q07 plain "Is my favourite colour green?" expected no; got yes [wrong yes/no]  << Yes, you mentioned that earlier. You said "Green is my favourite colour now."
+   FAIL    Q08 plain "Do I like white or green best?" expected doesn't know; got green [wrong choice]  << Green is the best now.
+   FAIL    Q09 plain "Is my favourite colour green or white?" expected doesn't know; got green [wrong choice]  << Your favourite colour is green .
+   UNCLEAR Q10 plain "Has my favourite colour always been the same?" expected no; got a guess: no [the right answer, said as a guess]  << It is very unlikely that your favourite colour has always been the same. While some people
+   UNCLEAR Q11 plain "Has my favourite colour ever changed?" expected yes; got a guess: yes [the right answer, said as a guess]  << It is very likely that it has! Colour preferences are not fixed; they are fluid and tend t
+   FAIL    Q01 think "What is my favourite colour?" expected doesn't know (but not green); got green [value it should not give]  << Your favorite color is green.
+   FAIL    Q02 think "Which colour do I like best?" expected doesn't know (but not green); got green [value it should not give]  << Green
+   FAIL    Q03 think "What colour do I like the most?" expected doesn't know (but not green); got green [value it should not give]  << Based on your previous message, you like green the most.
+   FAIL    Q04 think "What was my favourite colour before it changed?" expected green; got doesn't know [does not know a taught value]  << I don't have access to your personal data, history, or any stored preferences, so I can't
+   FAIL    Q05 think "What did my favourite colour use to be?" expected green; got doesn't know [does not know a taught value]  << I'd love to help, but I don't know what your favorite color is yet! Could you tell me whic
+   FAIL    Q06 think "Is white my favourite colour?" expected doesn't know; got no [wrong yes/no]  << No, green is your favourite colour.
+   FAIL    Q07 think "Is my favourite colour green?" expected no; got yes [wrong yes/no]  << Yes, I remember! You mentioned earlier that green is now your favorite color.
+   FAIL    Q08 think "Do I like white or green best?" expected doesn't know; got white [wrong choice]  << Based on your latest message, you currently prefer white .
+   FAIL    Q09 think "Is my favourite colour green or white?" expected doesn't know; got green [wrong choice]  << Based on your earlier message, you said "I like green best." So your favorite color is gre
+   FAIL    Q10 think "Has my favourite colour always been the same?" expected no; got doesn't know [wrong yes/no]  << I don't have access to your personal history, memories, or past preferences, so I can't kn
+   FAIL    Q11 think "Has my favourite colour ever changed?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal history, memories, or past conversations, so I can't
+
+== del-A: store L1 L2; deleted L3
+   property               thinking off        thinking on
+   recall                          3/3                3/3
+   temporal            0/4 (2 unclear)                0/4
+   either_or                       2/2                1/2
+   yes_no                          1/2                1/2
+   controls                        5/5                5/5
+   delete_affected    6/11 (2 unclear)               5/11
+   yes/no groups    0/2 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                  thinking on
+   all                v 9/12 (2 dk)  n 0/2  ? 2/2   v 8/12 (3 dk)  n 0/2 (1 dk)  ? 2/2
+   recall             v 3/3                         v 3/3
+   temporal           v 0/3 (2 dk)  n 0/1           v 0/3 (3 dk)  n 0/1 (1 dk)
+   either or          v 2/2                         v 1/2
+   yes no             v 1/1  n 0/1                  v 1/1  n 0/1
+   controls           v 3/3  ? 2/2                  v 3/3  ? 2/2
+   delete affected    v 6/9 (2 dk)  n 0/2           v 5/9 (3 dk)  n 0/2 (1 dk)
+   should change      v 6/8 (2 dk)  n 0/1           v 5/8 (2 dk)  n 0/1
+   should stay        v 3/4  n 0/1  ? 2/2           v 3/4 (1 dk)  n 0/1 (1 dk)  ? 2/2
+   abstention         P 2/4 R 2/2                   P 2/6 R 2/2                         precision and recall of "don't know"
+   reliability        1/1                           1/1
+   generality         5/10                          4/10
+   locality           5/5                           5/5
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value               9/12               6/12   not: Q06~Q01 plain, Q06~Q02 plain, Q06~Q03 plain, Q06~Q01 think, Q06~Q02 think, Q06~Q03 think, Q08~Q01 think, Q08~Q02 think, Q08~Q03 think
+   same answer         5/5 (4 v, 1 dk)    4/5 (3 v, 1 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 2/3                1/3   questions asked in several wordings, every wording right
+   kept_stable: questions whose right answer did not change, against this model's own teach answers (stability, not correctness)
+     same verdict                  7/7                7/7
+     same text                     5/7                2/7
+   FAIL    Q04 plain "What was my favourite colour before it changed?" expected white; got doesn't know [does not know a taught value]  << I don't have access to your personal history or memories, so I can't know what your favour
+   FAIL    Q05 plain "What did my favourite colour use to be?" expected white; got doesn't know [does not know a taught value]  << I don't know your favorite color, so I can't tell you what it used to be! However, if you
+   FAIL    Q06 plain "Is white my favourite colour?" expected no; got yes [wrong yes/no]  << Yes, you told me earlier that green is your favorite color, but now you say it's white.
+   UNCLEAR Q10 plain "Has my favourite colour always been the same?" expected no; got a guess: no [the right answer, said as a guess]  << It is very unlikely that your favourite colour has always been the same. While some people
+   UNCLEAR Q11 plain "Has my favourite colour ever changed?" expected yes; got a guess: yes [the right answer, said as a guess]  << It is very likely that your favourite colour has changed at some point in your life! While
+   FAIL    Q04 think "What was my favourite colour before it changed?" expected white; got doesn't know [does not know a taught value]  << I don't have access to your personal data, account history, or any stored preferences, so
+   FAIL    Q05 think "What did my favourite colour use to be?" expected white; got doesn't know [does not know a taught value]  << I'd love to help, but I don't know what your favorite color is yet! Could you tell me whic
+   FAIL    Q06 think "Is white my favourite colour?" expected no; got yes [wrong yes/no]  << Yes, you mentioned earlier that you like white best now.
+   FAIL    Q08 think "Do I like white or green best?" expected green; got white [wrong choice]  << Based on your latest message, you currently prefer white .
+   FAIL    Q10 think "Has my favourite colour always been the same?" expected no; got doesn't know [wrong yes/no]  << I don't have access to your personal history or memories, so I can't know whether your fav
+   FAIL    Q11 think "Has my favourite colour ever changed?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal history, memories, or profile, so I can't know if you
+
+== del-B: store L2 L3; deleted L1
+   property               thinking off        thinking on
+   recall                          0/3                0/3
+   temporal            0/4 (2 unclear)                0/4
+   either_or                       0/2                0/2
+   yes_no                          0/2                0/2
+   controls                        5/5                5/5
+   delete_affected    0/11 (2 unclear)               0/11
+   yes/no groups    0/2 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                 thinking on
+   all                v 3/6 (2 dk)  n 0/2  ? 2/8   v 3/6 (3 dk)  n 0/2 (1 dk)  ? 2/8
+   recall             ? 0/3                        ? 0/3
+   temporal           v 0/3 (2 dk)  n 0/1          v 0/3 (3 dk)  n 0/1 (1 dk)
+   either or          ? 0/2                        ? 0/2
+   yes no             n 0/1  ? 0/1                 n 0/1  ? 0/1
+   controls           v 3/3  ? 2/2                 v 3/3  ? 2/2
+   delete affected    v 0/3 (2 dk)  n 0/2  ? 0/6   v 0/3 (3 dk)  n 0/2 (1 dk)  ? 0/6
+   should stay        v 3/6 (2 dk)  n 0/2  ? 2/8   v 3/6 (3 dk)  n 0/2 (1 dk)  ? 2/8
+   abstention         P 2/4 R 2/8                  P 2/6 R 2/8                        precision and recall of "don't know"
+   closed world       +0                           +1                                 fails that pass if a "no" counts where the right answer is "don't know"
+   reliability        0/1                          0/1
+   generality         0/10                         0/10
+   locality           5/5                          5/5
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value               9/12               9/12   not: Q06~Q01 plain, Q06~Q02 plain, Q06~Q03 plain, Q08~Q01 think, Q08~Q02 think, Q08~Q03 think
+   same answer         5/5 (4 v, 1 dk)    4/5 (3 v, 1 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 0/3                0/3   questions asked in several wordings, every wording right
+   kept_stable: questions whose right answer did not change, against this model's own teach answers (stability, not correctness)
+     same verdict                16/16              16/16
+     same text                   16/16              16/16
+   FAIL    Q01 plain "What is my favourite colour?" expected doesn't know (but not green); got green [value it should not give]  << Your favourite colour is green.
+   FAIL    Q02 plain "Which colour do I like best?" expected doesn't know (but not green); got green [value it should not give]  << Green
+   FAIL    Q03 plain "What colour do I like the most?" expected doesn't know (but not green); got green [value it should not give]  << Green
+   FAIL    Q04 plain "What was my favourite colour before it changed?" expected green; got doesn't know [does not know a taught value]  << I don't have access to your personal history or memories, so I can't know what your favour
+   FAIL    Q05 plain "What did my favourite colour use to be?" expected green; got doesn't know [does not know a taught value]  << I don't know your favorite color, so I can't tell you what it used to be! However, if you
+   FAIL    Q06 plain "Is white my favourite colour?" expected doesn't know; got yes [wrong yes/no]  << Yes, you mentioned that green is your favourite colour now, but previously you said green,
+   FAIL    Q07 plain "Is my favourite colour green?" expected no; got yes [wrong yes/no]  << Yes, you mentioned that earlier. You said "Green is my favourite colour now."
+   FAIL    Q08 plain "Do I like white or green best?" expected doesn't know; got green [wrong choice]  << Green is the best now.
+   FAIL    Q09 plain "Is my favourite colour green or white?" expected doesn't know; got green [wrong choice]  << Your favourite colour is green .
+   UNCLEAR Q10 plain "Has my favourite colour always been the same?" expected no; got a guess: no [the right answer, said as a guess]  << It is very unlikely that your favourite colour has always been the same. While some people
+   UNCLEAR Q11 plain "Has my favourite colour ever changed?" expected yes; got a guess: yes [the right answer, said as a guess]  << It is very likely that it has! Colour preferences are not fixed; they are fluid and tend t
+   FAIL    Q01 think "What is my favourite colour?" expected doesn't know (but not green); got green [value it should not give]  << Your favorite color is green.
+   FAIL    Q02 think "Which colour do I like best?" expected doesn't know (but not green); got green [value it should not give]  << Green
+   FAIL    Q03 think "What colour do I like the most?" expected doesn't know (but not green); got green [value it should not give]  << Based on your previous message, you like green the most.
+   FAIL    Q04 think "What was my favourite colour before it changed?" expected green; got doesn't know [does not know a taught value]  << I don't have access to your personal data, history, or any stored preferences, so I can't
+   FAIL    Q05 think "What did my favourite colour use to be?" expected green; got doesn't know [does not know a taught value]  << I'd love to help, but I don't know what your favorite color is yet! Could you tell me whic
+   FAIL    Q06 think "Is white my favourite colour?" expected doesn't know; got no [wrong yes/no]  << No, green is your favourite colour.
+   FAIL    Q07 think "Is my favourite colour green?" expected no; got yes [wrong yes/no]  << Yes, I remember! You mentioned earlier that green is now your favorite color.
+   FAIL    Q08 think "Do I like white or green best?" expected doesn't know; got white [wrong choice]  << Based on your latest message, you currently prefer white .
+   FAIL    Q09 think "Is my favourite colour green or white?" expected doesn't know; got green [wrong choice]  << Based on your earlier message, you said "I like green best." So your favorite color is gre
+   FAIL    Q10 think "Has my favourite colour always been the same?" expected no; got doesn't know [wrong yes/no]  << I don't have access to your personal history, memories, or past preferences, so I can't kn
+   FAIL    Q11 think "Has my favourite colour ever changed?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal history, memories, or past conversations, so I can't
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 17/23, recall 17/31;  v 18/27 (6 dk)  n 0/6  ? 17/31
+   thinking on   precision 19/31, recall 19/31;  v 17/27 (9 dk)  n 0/6 (3 dk)  ? 19/31

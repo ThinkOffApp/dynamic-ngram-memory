@@ -1,0 +1,91 @@
+Re-judged with the current judge (lwlogic.py, this branch). Run gb10-neg-seed1, set neg-seed1, combined input of the 'reteach' delete mode.
+Answer files: baseline/answers.jsonl, teach/answers.jsonl, del-A.reteach/answers.jsonl
+The set's expected answers recompute with this oracle: yes
+judged 72 answers against neg-seed1
+
+== baseline: store (empty)
+   property               thinking off        thinking on
+   recall                          3/3                3/3
+   either_or           1/2 (1 unclear)                2/2
+   yes_no                          2/2                2/2
+   controls                        5/5                5/5
+   yes/no groups    2/2 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off   thinking on
+   all                v 3/3  ? 8/9   v 3/3  ? 9/9
+   recall             ? 3/3          ? 3/3
+   either or          ? 1/2          ? 2/2
+   yes no             ? 2/2          ? 2/2
+   controls           v 3/3  ? 2/2   v 3/3  ? 2/2
+   abstention         P 8/8 R 8/9    P 9/9 R 9/9   precision and recall of "don't know"
+   reliability        1/1            1/1
+   generality         5/6            6/6
+   locality           5/5            5/5
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: dk                     9/9              12/12
+   same answer         3/3 (0 v, 3 dk)    4/4 (0 v, 4 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 1/2                2/2   questions asked in several wordings, every wording right
+   UNCLEAR Q07 plain "Do I like white or green best?" expected doesn't know; got unclear [unclear]  << That depends on what you are talking about! Here are a few ways to decide: If you are talk
+
+== teach: store L1
+   property               thinking off        thinking on
+   recall                          3/3                3/3
+   either_or           1/2 (1 unclear)                2/2
+   yes_no                          1/2                1/2
+   controls                        5/5                5/5
+   yes/no groups    0/2 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                 thinking on
+   all                v 3/3  n 0/1 (1 dk)  ? 7/8   v 3/3  n 0/1 (1 dk)  ? 8/8
+   recall             ? 3/3                        ? 3/3
+   either or          ? 1/2                        ? 2/2
+   yes no             n 0/1 (1 dk)  ? 1/1          n 0/1 (1 dk)  ? 1/1
+   controls           v 3/3  ? 2/2                 v 3/3  ? 2/2
+   should change      n 0/1 (1 dk)  ? 3/3          n 0/1 (1 dk)  ? 3/3
+   should stay        v 3/3  ? 4/5                 v 3/3  ? 5/5
+   abstention         P 7/8 R 7/8                  P 8/9 R 8/8                 precision and recall of "don't know"
+   reliability        1/1                          1/1
+   generality         4/6                          5/6
+   locality           5/5                          5/5
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: dk                     9/9              12/12
+   same answer         3/3 (0 v, 3 dk)    4/4 (0 v, 4 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 1/2                2/2   questions asked in several wordings, every wording right
+   FAIL    Q04 plain "Is green my favourite colour?" expected no; got doesn't know [wrong yes/no]  << I don't know! I don't have personal preferences or the ability to have a "favourite" colou
+   UNCLEAR Q07 plain "Do I like white or green best?" expected doesn't know; got unclear [unclear]  << That depends on what you are talking about! Here are a few ways to decide: If you are talk
+   FAIL    Q04 think "Is green my favourite colour?" expected no; got doesn't know [wrong yes/no]  << I don't know your favorite color, I don't have personal preferences, memories, or a way to
+
+== del-A: store (empty); deleted L1
+   property               thinking off        thinking on
+   recall                          3/3                3/3
+   either_or           1/2 (1 unclear)                2/2
+   yes_no                          2/2                2/2
+   controls                        5/5                5/5
+   delete_affected     6/7 (1 unclear)                7/7
+   yes/no groups    2/2 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off   thinking on
+   all                v 3/3  ? 8/9   v 3/3  ? 9/9
+   recall             ? 3/3          ? 3/3
+   either or          ? 1/2          ? 2/2
+   yes no             ? 2/2          ? 2/2
+   controls           v 3/3  ? 2/2   v 3/3  ? 2/2
+   delete affected    ? 6/7          ? 7/7
+   should change      ? 4/4          ? 4/4
+   should stay        v 3/3  ? 4/5   v 3/3  ? 5/5
+   abstention         P 8/8 R 8/9    P 9/9 R 9/9   precision and recall of "don't know"
+   reliability        1/1            1/1
+   generality         5/6            6/6
+   locality           5/5            5/5
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: dk                     9/9              12/12
+   same answer         3/3 (0 v, 3 dk)    4/4 (0 v, 4 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 1/2                2/2   questions asked in several wordings, every wording right
+   kept_stable: questions whose right answer did not change, against this model's own teach answers (stability, not correctness)
+     same verdict                  8/8                8/8
+     same text                     8/8                8/8
+   UNCLEAR Q07 plain "Do I like white or green best?" expected doesn't know; got unclear [unclear]  << That depends on what you are talking about! Here are a few ways to decide: If you are talk
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 23/24, recall 23/26;  v 9/9  n 0/1 (1 dk)  ? 23/26
+   thinking on   precision 26/27, recall 26/26;  v 9/9  n 0/1 (1 dk)  ? 26/26

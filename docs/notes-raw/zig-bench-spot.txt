@@ -1,0 +1,25 @@
+Apple M5 Max, 18 cores [('Super', '6'), ('Performance', '12')], 128 GB; Python 3.12.8; tokenizer tokenizers
+  L6-seed1     100 notes (60 current): same 56/56; zig load 7 ms, index 0.8 MB; zig 1t p50 2.0 us p95 2.88 us 493494/s, 8t p50 2.08 us p95 3.13 us 3426648/s; python 1: p50 463 us p95 713 us, 8: p50 440 us p95 23407 us, same_work_1: p50 100.8 us p95 119.5 us
+  L6-seed1    1000 notes (472 current): same 56/56; zig load 8 ms, index 1.3 MB; zig 1t p50 6.38 us p95 11.08 us 162846/s, 8t p50 6.58 us p95 11.92 us 1132851/s; python 1: p50 928 us p95 1093 us, 8: p50 6095 us p95 7692 us, same_work_1: p50 565.8 us p95 659.2 us
+  L6-seed1   10000 notes (4113 current): same 56/56; zig load 21 ms, index 4.4 MB; zig 1t p50 31.67 us p95 38.33 us 37234/s, 8t p50 32.25 us p95 40.17 us 284403/s; python 1: p50 2130 us p95 2690 us, 8: p50 2349 us p95 73082 us, same_work_1: p50 1670.1 us p95 2283.0 us
+  L7-seed1     100 notes (86 current): same 134/134; zig load 6 ms, index 0.7 MB; zig 1t p50 2.46 us p95 3.17 us 398804/s, 8t p50 2.54 us p95 3.75 us 2748189/s; python 1: p50 471 us p95 667 us, 8: p50 473 us p95 19892 us, same_work_1: p50 132.8 us p95 147.2 us
+  L7-seed1    1000 notes (499 current): same 134/134; zig load 8 ms, index 1.2 MB; zig 1t p50 7.0 us p95 11.21 us 139412/s, 8t p50 7.21 us p95 11.58 us 1050871/s; python 1: p50 961 us p95 1110 us, 8: p50 996 us p95 47878 us, same_work_1: p50 612.5 us p95 699.2 us
+  L7-seed1   10000 notes (4144 current): same 134/134; zig load 21 ms, index 4.5 MB; zig 1t p50 32.42 us p95 38.88 us 32364/s, 8t p50 32.63 us p95 39.75 us 254687/s; python 1: p50 2283 us p95 2953 us, 8: p50 2660 us p95 76276 us, same_work_1: p50 1871.3 us p95 2523.6 us
+
+Zig 0.17.0 (fast) on Apple M5 Max, 18 cores (6 Super, 12 Performance), 128 GB; tokenizer tokenizers; each thread asks every question 50 times in its own order
+set          notes  current  snapshot     load    index  peak RSS       1 thr p50/p95 us  lookups/s       8 thr p50/p95 us  lookups/s  same as Python
+L6-seed1       100       60     2.3 MB     7 ms   0.8 MB      7 MB             2.0 / 2.88    493,494            2.08 / 3.13  3,426,648           56/56
+L6-seed1     1,000      472     2.6 MB     8 ms   1.3 MB      9 MB           6.38 / 11.08    162,846           6.58 / 11.92  1,132,851           56/56
+L6-seed1    10,000    4,113     5.7 MB    21 ms   4.4 MB     26 MB          31.67 / 38.33     37,234          32.25 / 40.17    284,403           56/56
+L7-seed1       100       86     2.3 MB     6 ms   0.7 MB      7 MB            2.46 / 3.17    398,804            2.54 / 3.75  2,748,189         134/134
+L7-seed1     1,000      499     2.6 MB     8 ms   1.2 MB      9 MB            7.0 / 11.21    139,412           7.21 / 11.58  1,050,871         134/134
+L7-seed1    10,000    4,144     5.7 MB    21 ms   4.5 MB     26 MB          32.42 / 38.88     32,364          32.63 / 39.75    254,687         134/134
+
+Python 3.12.8 on the same machine and stores; retrieve() as notes.py's sweep times it (3 times per thread), and the same work as Zig (from token ids, no fit), 1 thread
+set          notes       1 thr p50/p95 us  lookups/s       8 thr p50/p95 us  lookups/s   same work p50/p95 us  index (objects)
+L6-seed1       100              463 / 713      2,050            440 / 23407      2,319          100.8 / 119.5           0.4 MB
+L6-seed1     1,000             928 / 1093      1,189            6095 / 7692      1,196          565.8 / 659.2           3.3 MB
+L6-seed1    10,000            2130 / 2690        503           2349 / 73082        497        1670.1 / 2283.0          26.1 MB
+L7-seed1       100              471 / 667      2,033            473 / 19892      2,108          132.8 / 147.2           0.3 MB
+L7-seed1     1,000             961 / 1110      1,061            996 / 47878      1,022          612.5 / 699.2           3.2 MB
+L7-seed1    10,000            2283 / 2953        444           2660 / 76276        422        1871.3 / 2523.6          26.3 MB

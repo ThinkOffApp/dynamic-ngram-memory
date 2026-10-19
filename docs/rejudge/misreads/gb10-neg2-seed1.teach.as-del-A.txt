@@ -1,0 +1,41 @@
+Re-judged with the current judge (lwlogic.py, this branch). Run gb10-neg2-seed1, set neg2-seed1.
+Answer files: teach/answers.as-del-A.jsonl
+The set's expected answers recompute with this oracle: yes
+judged 24 answers against neg2-seed1
+
+== del-A: store L1; deleted L2
+   property               thinking off        thinking on
+   recall                          3/3                3/3
+   either_or                       0/2                0/2
+   yes_no                          1/2                1/2
+   controls                        5/5                5/5
+   delete_affected                 4/7                4/7
+   yes/no groups    0/2 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                 thinking on
+   all                v 7/9 (2 dk)  n 0/1  ? 2/2   v 6/9 (3 dk)  n 1/1  ? 2/2
+   recall             v 3/3                        v 3/3
+   either or          v 0/2 (2 dk)                 v 0/2 (2 dk)
+   yes no             v 1/1  n 0/1                 v 0/1 (1 dk)  n 1/1
+   controls           v 3/3  ? 2/2                 v 3/3  ? 2/2
+   delete affected    v 4/6 (2 dk)  n 0/1          v 3/6 (3 dk)  n 1/1
+   should change      v 4/6 (2 dk)  n 0/1          v 3/6 (3 dk)  n 1/1
+   should stay        v 3/3  ? 2/2                 v 3/3  ? 2/2
+   abstention         P 2/4 R 2/2                  P 2/5 R 2/2                 precision and recall of "don't know"
+   reliability        1/1                          1/1
+   generality         3/6                          3/6
+   locality           5/5                          5/5
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value               3/12               3/12   not: Q05~Q01 plain, Q05~Q02 plain, Q05~Q03 plain, Q06~Q01 plain, Q06~Q02 plain, Q06~Q03 plain, Q07~Q01 plain, Q07~Q02 plain, Q07~Q03 plain, Q04~Q01 think, Q04~Q02 think, Q04~Q03 think, Q06~Q01 think, Q06~Q02 think, Q06~Q03 think, Q07~Q01 think, Q07~Q02 think, Q07~Q03 think
+   same answer         4/4 (3 v, 1 dk)    4/4 (3 v, 1 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 1/2                1/2   questions asked in several wordings, every wording right
+   FAIL    Q05 plain "Is white my favourite colour?" expected no; got yes [wrong yes/no]  << Yes, it is.
+   FAIL    Q06 plain "Do I like green or white best?" expected green; got doesn't know [wrong choice]  << As an AI, I don't have personal preferences or the ability to see colors the way humans do
+   FAIL    Q07 plain "Do I like white or green best?" expected green; got doesn't know [wrong choice]  << Since I don't know you personally, I can't say for sure! But here are a few questions to h
+   FAIL    Q04 think "Is my favourite colour green?" expected yes; got doesn't know [wrong yes/no]  << I don't actually know what your favorite color is, I don't have access to your personal pr
+   FAIL    Q06 think "Do I like green or white best?" expected green; got doesn't know [wrong choice]  << I don't know you personally, so I can't say! Color preference is really subjective and usu
+   FAIL    Q07 think "Do I like white or green best?" expected green; got doesn't know [wrong choice]  << I don't know your personal taste, but both colors have great vibes depending on the contex
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 2/4, recall 2/2;  v 7/9 (2 dk)  n 0/1  ? 2/2
+   thinking on   precision 2/5, recall 2/2;  v 6/9 (3 dk)  n 1/1  ? 2/2

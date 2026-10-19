@@ -1,0 +1,666 @@
+{
+ "format": "lw-notes-zig-bench/1",
+ "machine": {
+  "cpu": "Apple M5 Max",
+  "ncpu": "18",
+  "memsize": "137438953472",
+  "perflevels": [
+   [
+    "Super",
+    "6"
+   ],
+   [
+    "Performance",
+    "12"
+   ]
+  ],
+  "os": "macOS-27.0.1-arm64-arm-64bit",
+  "python": "3.12.8",
+  "zig": null,
+  "zig_bin": "~/tmp/llwz-zig/zig/notes/zig-out/bin/notes-zig"
+ },
+ "tokenizer": {
+  "name": "tokenizers",
+  "version": "0.23.2",
+  "path": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/blobs/623c34567aebb18582765289fbe23d901c62704d6518d71866e0e58db892b5b7",
+  "sha256": "623c34567aebb18582765289fbe23d901c62704d6518d71866e0e58db892b5b7"
+ },
+ "sizes": [
+  100,
+  1000,
+  10000,
+  100000
+ ],
+ "threads": [
+  1,
+  8
+ ],
+ "reps": 50,
+ "py_reps": 3,
+ "rows": [
+  {
+   "set": "L6-seed1",
+   "size": 100,
+   "notes": 100,
+   "current": 60,
+   "history": 40,
+   "grow_s": 0.0,
+   "export_s": 0.21,
+   "write_s": 0.03,
+   "snapshot_mb": 2.3,
+   "questions": 56,
+   "zig_same_as_python": [
+    56,
+    56
+   ],
+   "zig": {
+    "zig": "0.17.0",
+    "mode": "fast",
+    "file_bytes": 2320597,
+    "read_ms": 0.228,
+    "load_ms": 6.121,
+    "index_used_bytes": 753712,
+    "index_held_bytes": 787440,
+    "rss_before_load": 2113536,
+    "rss_peak": 6864896,
+    "notes": 100,
+    "current": 60,
+    "history": 40,
+    "grams": 1223,
+    "queries": 56,
+    "reps": 50,
+    "cpus": 18,
+    "runs": [
+     {
+      "threads": 1,
+      "n": 2800,
+      "p50_us": 2.0,
+      "p95_us": 2.83,
+      "mean_us": 1.94,
+      "max_us": 10.42,
+      "wall_s": 0.0056,
+      "per_s": 497258,
+      "differ_from_reference": 0
+     },
+     {
+      "threads": 8,
+      "n": 22400,
+      "p50_us": 2.08,
+      "p95_us": 3.04,
+      "mean_us": 2.09,
+      "max_us": 35.25,
+      "wall_s": 0.0064,
+      "per_s": 3502120,
+      "differ_from_reference": 0
+     }
+    ]
+   },
+   "python": {
+    "1": {
+     "n": 168,
+     "p50_us": 436,
+     "p95_us": 580,
+     "per_s": 2305
+    },
+    "8": {
+     "n": 1344,
+     "p50_us": 443,
+     "p95_us": 14925,
+     "per_s": 2259
+    },
+    "same_work_1": {
+     "n": 168,
+     "p50_us": 101.2,
+     "p95_us": 126.1
+    }
+   },
+   "python_index_mb": 0.4
+  },
+  {
+   "set": "L6-seed1",
+   "size": 1000,
+   "notes": 1000,
+   "current": 472,
+   "history": 528,
+   "grow_s": 0.3,
+   "export_s": 0.03,
+   "write_s": 0.04,
+   "snapshot_mb": 2.6,
+   "questions": 56,
+   "zig_same_as_python": [
+    56,
+    56
+   ],
+   "zig": {
+    "zig": "0.17.0",
+    "mode": "fast",
+    "file_bytes": 2629305,
+    "read_ms": 0.274,
+    "load_ms": 7.848,
+    "index_used_bytes": 1247675,
+    "index_held_bytes": 2107088,
+    "rss_before_load": 2113536,
+    "rss_peak": 9338880,
+    "notes": 1000,
+    "current": 472,
+    "history": 528,
+    "grams": 4154,
+    "queries": 56,
+    "reps": 50,
+    "cpus": 18,
+    "runs": [
+     {
+      "threads": 1,
+      "n": 2800,
+      "p50_us": 6.42,
+      "p95_us": 11.17,
+      "mean_us": 6.2,
+      "max_us": 98.54,
+      "wall_s": 0.0176,
+      "per_s": 159510,
+      "differ_from_reference": 0
+     },
+     {
+      "threads": 8,
+      "n": 22400,
+      "p50_us": 6.71,
+      "p95_us": 12.13,
+      "mean_us": 6.64,
+      "max_us": 70.5,
+      "wall_s": 0.0195,
+      "per_s": 1145787,
+      "differ_from_reference": 0
+     }
+    ]
+   },
+   "python": {
+    "1": {
+     "n": 168,
+     "p50_us": 925,
+     "p95_us": 1281,
+     "per_s": 1159
+    },
+    "8": {
+     "n": 1344,
+     "p50_us": 940,
+     "p95_us": 41355,
+     "per_s": 1167
+    },
+    "same_work_1": {
+     "n": 168,
+     "p50_us": 572.7,
+     "p95_us": 713.8
+    }
+   },
+   "python_index_mb": 3.3
+  },
+  {
+   "set": "L6-seed1",
+   "size": 10000,
+   "notes": 10000,
+   "current": 4113,
+   "history": 5887,
+   "grow_s": 4.2,
+   "export_s": 0.31,
+   "write_s": 0.1,
+   "snapshot_mb": 5.7,
+   "questions": 56,
+   "zig_same_as_python": [
+    56,
+    56
+   ],
+   "zig": {
+    "zig": "0.17.0",
+    "mode": "fast",
+    "file_bytes": 5734695,
+    "read_ms": 0.553,
+    "load_ms": 21.267,
+    "index_used_bytes": 4368082,
+    "index_held_bytes": 5369876,
+    "rss_before_load": 2113536,
+    "rss_peak": 25673728,
+    "notes": 10000,
+    "current": 4113,
+    "history": 5887,
+    "grams": 9475,
+    "queries": 56,
+    "reps": 50,
+    "cpus": 18,
+    "runs": [
+     {
+      "threads": 1,
+      "n": 2800,
+      "p50_us": 31.92,
+      "p95_us": 39.25,
+      "mean_us": 27.46,
+      "max_us": 191.58,
+      "wall_s": 0.0771,
+      "per_s": 36323,
+      "differ_from_reference": 0
+     },
+     {
+      "threads": 8,
+      "n": 22400,
+      "p50_us": 32.96,
+      "p95_us": 42.67,
+      "mean_us": 28.7,
+      "max_us": 183.29,
+      "wall_s": 0.0817,
+      "per_s": 274112,
+      "differ_from_reference": 0
+     }
+    ]
+   },
+   "python": {
+    "1": {
+     "n": 168,
+     "p50_us": 2162,
+     "p95_us": 2720,
+     "per_s": 495
+    },
+    "8": {
+     "n": 1344,
+     "p50_us": 2329,
+     "p95_us": 68061,
+     "per_s": 491
+    },
+    "same_work_1": {
+     "n": 168,
+     "p50_us": 1677.4,
+     "p95_us": 2279.5
+    }
+   },
+   "python_index_mb": 26.1
+  },
+  {
+   "set": "L6-seed1",
+   "size": 100000,
+   "notes": 100000,
+   "current": 24262,
+   "history": 75738,
+   "grow_s": 508.0,
+   "export_s": 3.8,
+   "write_s": 0.77,
+   "snapshot_mb": 36.9,
+   "questions": 56,
+   "zig_same_as_python": [
+    56,
+    56
+   ],
+   "zig": {
+    "zig": "0.17.0",
+    "mode": "fast",
+    "file_bytes": 36908285,
+    "read_ms": 3.527,
+    "load_ms": 146.162,
+    "index_used_bytes": 33997794,
+    "index_held_bytes": 80578124,
+    "rss_before_load": 2113536,
+    "rss_peak": 151339008,
+    "notes": 100000,
+    "current": 24262,
+    "history": 75738,
+    "grams": 14038,
+    "queries": 56,
+    "reps": 50,
+    "cpus": 18,
+    "runs": [
+     {
+      "threads": 1,
+      "n": 2800,
+      "p50_us": 145.54,
+      "p95_us": 241.33,
+      "mean_us": 136.49,
+      "max_us": 485.5,
+      "wall_s": 0.3825,
+      "per_s": 7321,
+      "differ_from_reference": 0
+     },
+     {
+      "threads": 8,
+      "n": 22400,
+      "p50_us": 161.92,
+      "p95_us": 236.25,
+      "mean_us": 141.42,
+      "max_us": 768.17,
+      "wall_s": 0.3987,
+      "per_s": 56187,
+      "differ_from_reference": 0
+     }
+    ]
+   },
+   "python": {
+    "1": {
+     "n": 168,
+     "p50_us": 13731,
+     "p95_us": 19566,
+     "per_s": 79
+    },
+    "8": {
+     "n": 1344,
+     "p50_us": 83344,
+     "p95_us": 204682,
+     "per_s": 86
+    },
+    "same_work_1": {
+     "n": 168,
+     "p50_us": 12140.2,
+     "p95_us": 16509.2
+    }
+   },
+   "python_index_mb": 223.4
+  },
+  {
+   "set": "L7-seed1",
+   "size": 100,
+   "notes": 100,
+   "current": 86,
+   "history": 14,
+   "grow_s": 0.0,
+   "export_s": 0.02,
+   "write_s": 0.03,
+   "snapshot_mb": 2.3,
+   "questions": 134,
+   "zig_same_as_python": [
+    134,
+    134
+   ],
+   "zig": {
+    "zig": "0.17.0",
+    "mode": "fast",
+    "file_bytes": 2318610,
+    "read_ms": 0.218,
+    "load_ms": 6.452,
+    "index_used_bytes": 749176,
+    "index_held_bytes": 787440,
+    "rss_before_load": 2113536,
+    "rss_peak": 6832128,
+    "notes": 100,
+    "current": 86,
+    "history": 14,
+    "grams": 1031,
+    "queries": 134,
+    "reps": 50,
+    "cpus": 18,
+    "runs": [
+     {
+      "threads": 1,
+      "n": 6700,
+      "p50_us": 2.46,
+      "p95_us": 3.46,
+      "mean_us": 2.53,
+      "max_us": 57.08,
+      "wall_s": 0.0174,
+      "per_s": 384672,
+      "differ_from_reference": 0
+     },
+     {
+      "threads": 8,
+      "n": 53600,
+      "p50_us": 2.58,
+      "p95_us": 3.83,
+      "mean_us": 2.68,
+      "max_us": 51.29,
+      "wall_s": 0.02,
+      "per_s": 2676437,
+      "differ_from_reference": 0
+     }
+    ]
+   },
+   "python": {
+    "1": {
+     "n": 402,
+     "p50_us": 501,
+     "p95_us": 829,
+     "per_s": 1891
+    },
+    "8": {
+     "n": 3216,
+     "p50_us": 501,
+     "p95_us": 25955,
+     "per_s": 1937
+    },
+    "same_work_1": {
+     "n": 402,
+     "p50_us": 135.3,
+     "p95_us": 150.7
+    }
+   },
+   "python_index_mb": 0.3
+  },
+  {
+   "set": "L7-seed1",
+   "size": 1000,
+   "notes": 1000,
+   "current": 499,
+   "history": 501,
+   "grow_s": 0.3,
+   "export_s": 0.03,
+   "write_s": 0.04,
+   "snapshot_mb": 2.6,
+   "questions": 134,
+   "zig_same_as_python": [
+    134,
+    134
+   ],
+   "zig": {
+    "zig": "0.17.0",
+    "mode": "fast",
+    "file_bytes": 2627934,
+    "read_ms": 0.277,
+    "load_ms": 7.845,
+    "index_used_bytes": 1243852,
+    "index_held_bytes": 2103394,
+    "rss_before_load": 2113536,
+    "rss_peak": 9158656,
+    "notes": 1000,
+    "current": 499,
+    "history": 501,
+    "grams": 4155,
+    "queries": 134,
+    "reps": 50,
+    "cpus": 18,
+    "runs": [
+     {
+      "threads": 1,
+      "n": 6700,
+      "p50_us": 7.04,
+      "p95_us": 11.42,
+      "mean_us": 7.23,
+      "max_us": 73.67,
+      "wall_s": 0.0489,
+      "per_s": 137026,
+      "differ_from_reference": 0
+     },
+     {
+      "threads": 8,
+      "n": 53600,
+      "p50_us": 7.42,
+      "p95_us": 12.21,
+      "mean_us": 7.61,
+      "max_us": 81.67,
+      "wall_s": 0.0529,
+      "per_s": 1013250,
+      "differ_from_reference": 0
+     }
+    ]
+   },
+   "python": {
+    "1": {
+     "n": 402,
+     "p50_us": 960,
+     "p95_us": 1168,
+     "per_s": 1051
+    },
+    "8": {
+     "n": 3216,
+     "p50_us": 996,
+     "p95_us": 49573,
+     "per_s": 1001
+    },
+    "same_work_1": {
+     "n": 402,
+     "p50_us": 604.4,
+     "p95_us": 771.4
+    }
+   },
+   "python_index_mb": 3.2
+  },
+  {
+   "set": "L7-seed1",
+   "size": 10000,
+   "notes": 10000,
+   "current": 4144,
+   "history": 5856,
+   "grow_s": 4.2,
+   "export_s": 0.31,
+   "write_s": 0.11,
+   "snapshot_mb": 5.7,
+   "questions": 134,
+   "zig_same_as_python": [
+    134,
+    134
+   ],
+   "zig": {
+    "zig": "0.17.0",
+    "mode": "fast",
+    "file_bytes": 5733787,
+    "read_ms": 0.579,
+    "load_ms": 21.031,
+    "index_used_bytes": 4439590,
+    "index_held_bytes": 11183570,
+    "rss_before_load": 2113536,
+    "rss_peak": 25853952,
+    "notes": 10000,
+    "current": 4144,
+    "history": 5856,
+    "grams": 9516,
+    "queries": 134,
+    "reps": 50,
+    "cpus": 18,
+    "runs": [
+     {
+      "threads": 1,
+      "n": 6700,
+      "p50_us": 32.92,
+      "p95_us": 40.08,
+      "mean_us": 31.89,
+      "max_us": 185.5,
+      "wall_s": 0.2142,
+      "per_s": 31286,
+      "differ_from_reference": 0
+     },
+     {
+      "threads": 8,
+      "n": 53600,
+      "p50_us": 33.96,
+      "p95_us": 42.54,
+      "mean_us": 32.76,
+      "max_us": 248.21,
+      "wall_s": 0.2228,
+      "per_s": 240578,
+      "differ_from_reference": 0
+     }
+    ]
+   },
+   "python": {
+    "1": {
+     "n": 402,
+     "p50_us": 2310,
+     "p95_us": 3012,
+     "per_s": 433
+    },
+    "8": {
+     "n": 3216,
+     "p50_us": 18739,
+     "p95_us": 22008,
+     "per_s": 422
+    },
+    "same_work_1": {
+     "n": 402,
+     "p50_us": 1874.3,
+     "p95_us": 2615.0
+    }
+   },
+   "python_index_mb": 26.3
+  },
+  {
+   "set": "L7-seed1",
+   "size": 100000,
+   "notes": 100000,
+   "current": 24299,
+   "history": 75701,
+   "grow_s": 515.4,
+   "export_s": 3.8,
+   "write_s": 0.77,
+   "snapshot_mb": 36.9,
+   "questions": 134,
+   "zig_same_as_python": [
+    134,
+    134
+   ],
+   "zig": {
+    "zig": "0.17.0",
+    "mode": "fast",
+    "file_bytes": 36912176,
+    "read_ms": 3.385,
+    "load_ms": 146.788,
+    "index_used_bytes": 33993621,
+    "index_held_bytes": 80562660,
+    "rss_before_load": 2113536,
+    "rss_peak": 151339008,
+    "notes": 100000,
+    "current": 24299,
+    "history": 75701,
+    "grams": 14081,
+    "queries": 134,
+    "reps": 50,
+    "cpus": 18,
+    "runs": [
+     {
+      "threads": 1,
+      "n": 6700,
+      "p50_us": 166.75,
+      "p95_us": 259.88,
+      "mean_us": 166.85,
+      "max_us": 1896.54,
+      "wall_s": 1.1187,
+      "per_s": 5989,
+      "differ_from_reference": 0
+     },
+     {
+      "threads": 8,
+      "n": 53600,
+      "p50_us": 169.67,
+      "p95_us": 223.63,
+      "mean_us": 165.12,
+      "max_us": 2966.63,
+      "wall_s": 1.1135,
+      "per_s": 48139,
+      "differ_from_reference": 0
+     }
+    ]
+   },
+   "python": {
+    "1": {
+     "n": 402,
+     "p50_us": 12503,
+     "p95_us": 16243,
+     "per_s": 82
+    },
+    "8": {
+     "n": 3216,
+     "p50_us": 92811,
+     "p95_us": 205261,
+     "per_s": 78
+    },
+    "same_work_1": {
+     "n": 402,
+     "p50_us": 12591.1,
+     "p95_us": 17154.8
+    }
+   },
+   "python_index_mb": 223.5
+  }
+ ]
+}

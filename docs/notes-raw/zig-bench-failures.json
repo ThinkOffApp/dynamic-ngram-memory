@@ -1,0 +1,113 @@
+{
+ "format": "lw-notes-zig-bench/failures",
+ "rows": [
+  {
+   "case": "no fault",
+   "flags": [],
+   "want": "ok",
+   "got": "ok",
+   "seconds": 0.02,
+   "said": "bench JSON"
+  },
+  {
+   "case": "worker 0's allocations fail",
+   "flags": [
+    "--fail-alloc",
+    "0"
+   ],
+   "want": "error",
+   "got": "error",
+   "seconds": 0.01,
+   "said": "notes-zig: bench failed: OutOfMemory"
+  },
+  {
+   "case": "worker 4's allocations fail",
+   "flags": [
+    "--fail-alloc",
+    "4"
+   ],
+   "want": "error",
+   "got": "error",
+   "seconds": 0.01,
+   "said": "notes-zig: bench failed: OutOfMemory"
+  },
+  {
+   "case": "worker 7's allocations fail",
+   "flags": [
+    "--fail-alloc",
+    "7"
+   ],
+   "want": "error",
+   "got": "error",
+   "seconds": 0.01,
+   "said": "notes-zig: bench failed: OutOfMemory"
+  },
+  {
+   "case": "starting worker 0 fails",
+   "flags": [
+    "--fail-spawn",
+    "0"
+   ],
+   "want": "error",
+   "got": "error",
+   "seconds": 0.01,
+   "said": "notes-zig: bench failed: InjectedSpawnFailure"
+  },
+  {
+   "case": "starting worker 4 fails",
+   "flags": [
+    "--fail-spawn",
+    "4"
+   ],
+   "want": "error",
+   "got": "error",
+   "seconds": 0.01,
+   "said": "notes-zig: bench failed: InjectedSpawnFailure"
+  },
+  {
+   "case": "starting worker 7 fails",
+   "flags": [
+    "--fail-spawn",
+    "7"
+   ],
+   "want": "error",
+   "got": "error",
+   "seconds": 0.01,
+   "said": "notes-zig: bench failed: InjectedSpawnFailure"
+  },
+  {
+   "case": "one timed result taken as wrong (forced mismatch)",
+   "flags": [
+    "--corrupt-one"
+   ],
+   "want": "error",
+   "got": "error",
+   "seconds": 0.01,
+   "said": "notes-zig: bench failed: ConcurrentResultsDiffer"
+  },
+  {
+   "case": "control: the old start, worker 3's allocations fail",
+   "flags": [
+    "--fail-alloc",
+    "3",
+    "--legacy-barrier"
+   ],
+   "want": "hang",
+   "got": "hang",
+   "seconds": 5.01,
+   "said": "still running after 5 s, killed"
+  },
+  {
+   "case": "check against Python, lookup broken (--break hop)",
+   "flags": [
+    "--break",
+    "hop"
+   ],
+   "want": "error",
+   "got": "error",
+   "seconds": 0,
+   "said": "47 of 56 questions differ, not by float order (0 ties)"
+  }
+ ],
+ "ok": true
+}

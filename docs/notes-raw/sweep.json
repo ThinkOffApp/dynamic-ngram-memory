@@ -1,0 +1,394 @@
+{
+ "format": "lw-notes/1/sweep",
+ "tokenizer": {
+  "name": "tokenizers",
+  "version": "0.23.2",
+  "path": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/blobs/623c34567aebb18582765289fbe23d901c62704d6518d71866e0e58db892b5b7",
+  "sha256": "623c34567aebb18582765289fbe23d901c62704d6518d71866e0e58db892b5b7"
+ },
+ "config": {
+  "cap": 512,
+  "n_min": 1,
+  "n_max": 3,
+  "fold": true,
+  "hop": "subject",
+  "hop_weight": 0.5,
+  "hop_from": 8,
+  "hop_history": true,
+  "min_rel": 0.0,
+  "subject": 1.0,
+  "punct": false
+ },
+ "python": "3.12.8 (v3.12.8:2dc476bcb91, Dec  3 2024, 14:43:19) [Clang 13.0.0 (clang-1300.0.29.30)]",
+ "switch_interval_s": 0.005,
+ "cpus": 18,
+ "sizes": [
+  100,
+  1000,
+  10000,
+  100000
+ ],
+ "threads": [
+  1,
+  8
+ ],
+ "reps": 3,
+ "rows": {
+  "L6-seed1": [
+   {
+    "size": 100,
+    "notes": 100,
+    "current": 60,
+    "history": 40,
+    "lessons_written": 102,
+    "kept_out": 2,
+    "recall": [
+     42,
+     45
+    ],
+    "write_us_p50": 212,
+    "write_us_p95": 499,
+    "write_us_mean": 269.5,
+    "build_s": 0.0,
+    "index_mb": 0.4,
+    "notes_mb": 0.2,
+    "rss_peak_mb": 293.2,
+    "grams": 1625,
+    "lookups": {
+     "1": {
+      "store": "one owner",
+      "n": 168,
+      "p50_us": 420,
+      "p95_us": 480,
+      "per_s": 2428,
+      "same_as_one_thread": null
+     },
+     "8": {
+      "store": "one owner",
+      "n": 1344,
+      "p50_us": 430,
+      "p95_us": 18032,
+      "per_s": 2397,
+      "same_as_one_thread": true
+     },
+     "8 owners": {
+      "store": "8 owners",
+      "n": 10752,
+      "p50_us": 444,
+      "p95_us": 23432,
+      "per_s": 2287,
+      "same_as_one_thread": true
+     }
+    }
+   },
+   {
+    "size": 1000,
+    "notes": 1000,
+    "current": 472,
+    "history": 528,
+    "lessons_written": 1036,
+    "kept_out": 36,
+    "recall": [
+     30,
+     45
+    ],
+    "write_us_p50": 260,
+    "write_us_p95": 702,
+    "write_us_mean": 327.5,
+    "build_s": 0.3,
+    "index_mb": 3.3,
+    "notes_mb": 1.6,
+    "rss_peak_mb": 309.4,
+    "grams": 6486,
+    "lookups": {
+     "1": {
+      "store": "one owner",
+      "n": 168,
+      "p50_us": 964,
+      "p95_us": 1344,
+      "per_s": 1074,
+      "same_as_one_thread": null
+     },
+     "8": {
+      "store": "one owner",
+      "n": 1344,
+      "p50_us": 940,
+      "p95_us": 43792,
+      "per_s": 1164,
+      "same_as_one_thread": true
+     },
+     "8 owners": {
+      "store": "8 owners",
+      "n": 10752,
+      "p50_us": 960,
+      "p95_us": 44326,
+      "per_s": 1150,
+      "same_as_one_thread": true
+     }
+    }
+   },
+   {
+    "size": 10000,
+    "notes": 10000,
+    "current": 4113,
+    "history": 5887,
+    "lessons_written": 10460,
+    "kept_out": 460,
+    "recall": [
+     27,
+     45
+    ],
+    "write_us_p50": 297,
+    "write_us_p95": 964,
+    "write_us_mean": 412.9,
+    "build_s": 4.0,
+    "index_mb": 26.1,
+    "notes_mb": 16.3,
+    "rss_peak_mb": 407.5,
+    "grams": 16117,
+    "lookups": {
+     "1": {
+      "store": "one owner",
+      "n": 168,
+      "p50_us": 1956,
+      "p95_us": 2639,
+      "per_s": 528,
+      "same_as_one_thread": null
+     },
+     "8": {
+      "store": "one owner",
+      "n": 1344,
+      "p50_us": 2261,
+      "p95_us": 70838,
+      "per_s": 500,
+      "same_as_one_thread": true
+     },
+     "8 owners": {
+      "store": "8 owners",
+      "n": 10752,
+      "p50_us": 2880,
+      "p95_us": 83843,
+      "per_s": 413,
+      "same_as_one_thread": true
+     }
+    }
+   },
+   {
+    "size": 100000,
+    "notes": 100000,
+    "current": 24262,
+    "history": 75738,
+    "lessons_written": 109972,
+    "kept_out": 9972,
+    "recall": [
+     27,
+     45
+    ],
+    "write_us_p50": 775,
+    "write_us_p95": 12117,
+    "write_us_mean": 4761.2,
+    "build_s": 519.7,
+    "index_mb": 223.4,
+    "notes_mb": 163.1,
+    "rss_peak_mb": 1454.7,
+    "grams": 24098,
+    "lookups": {
+     "1": {
+      "store": "one owner",
+      "n": 168,
+      "p50_us": 7834,
+      "p95_us": 11837,
+      "per_s": 135,
+      "same_as_one_thread": null
+     },
+     "8": {
+      "store": "one owner",
+      "n": 1344,
+      "p50_us": 63457,
+      "p95_us": 86770,
+      "per_s": 124,
+      "same_as_one_thread": true
+     }
+    }
+   }
+  ],
+  "L7-seed1": [
+   {
+    "size": 100,
+    "notes": 100,
+    "current": 86,
+    "history": 14,
+    "lessons_written": 101,
+    "kept_out": 1,
+    "recall": [
+     128,
+     128
+    ],
+    "write_us_p50": 151,
+    "write_us_p95": 360,
+    "write_us_mean": 176.3,
+    "build_s": 0.0,
+    "index_mb": 0.3,
+    "notes_mb": 0.2,
+    "rss_peak_mb": 1454.7,
+    "grams": 1233,
+    "lookups": {
+     "1": {
+      "store": "one owner",
+      "n": 402,
+      "p50_us": 452,
+      "p95_us": 542,
+      "per_s": 2181,
+      "same_as_one_thread": null
+     },
+     "8": {
+      "store": "one owner",
+      "n": 3216,
+      "p50_us": 471,
+      "p95_us": 15383,
+      "per_s": 2118,
+      "same_as_one_thread": true
+     },
+     "8 owners": {
+      "store": "8 owners",
+      "n": 25728,
+      "p50_us": 477,
+      "p95_us": 28268,
+      "per_s": 2052,
+      "same_as_one_thread": true
+     }
+    }
+   },
+   {
+    "size": 1000,
+    "notes": 1000,
+    "current": 499,
+    "history": 501,
+    "lessons_written": 1036,
+    "kept_out": 36,
+    "recall": [
+     123,
+     128
+    ],
+    "write_us_p50": 240,
+    "write_us_p95": 699,
+    "write_us_mean": 314.1,
+    "build_s": 0.3,
+    "index_mb": 3.2,
+    "notes_mb": 1.6,
+    "rss_peak_mb": 1454.7,
+    "grams": 6436,
+    "lookups": {
+     "1": {
+      "store": "one owner",
+      "n": 402,
+      "p50_us": 943,
+      "p95_us": 1079,
+      "per_s": 1079,
+      "same_as_one_thread": null
+     },
+     "8": {
+      "store": "one owner",
+      "n": 3216,
+      "p50_us": 1026,
+      "p95_us": 36142,
+      "per_s": 1061,
+      "same_as_one_thread": true
+     },
+     "8 owners": {
+      "store": "8 owners",
+      "n": 25728,
+      "p50_us": 997,
+      "p95_us": 55562,
+      "per_s": 1028,
+      "same_as_one_thread": true
+     }
+    }
+   },
+   {
+    "size": 10000,
+    "notes": 10000,
+    "current": 4144,
+    "history": 5856,
+    "lessons_written": 10458,
+    "kept_out": 458,
+    "recall": [
+     115,
+     128
+    ],
+    "write_us_p50": 290,
+    "write_us_p95": 933,
+    "write_us_mean": 403.4,
+    "build_s": 3.9,
+    "index_mb": 26.3,
+    "notes_mb": 16.3,
+    "rss_peak_mb": 1454.7,
+    "grams": 16153,
+    "lookups": {
+     "1": {
+      "store": "one owner",
+      "n": 402,
+      "p50_us": 2118,
+      "p95_us": 2813,
+      "per_s": 475,
+      "same_as_one_thread": null
+     },
+     "8": {
+      "store": "one owner",
+      "n": 3216,
+      "p50_us": 2308,
+      "p95_us": 79681,
+      "per_s": 459,
+      "same_as_one_thread": true
+     },
+     "8 owners": {
+      "store": "8 owners",
+      "n": 25728,
+      "p50_us": 3194,
+      "p95_us": 128186,
+      "per_s": 345,
+      "same_as_one_thread": true
+     }
+    }
+   },
+   {
+    "size": 100000,
+    "notes": 100000,
+    "current": 24299,
+    "history": 75701,
+    "lessons_written": 109969,
+    "kept_out": 9969,
+    "recall": [
+     111,
+     128
+    ],
+    "write_us_p50": 834,
+    "write_us_p95": 12040,
+    "write_us_mean": 4763.3,
+    "build_s": 520.1,
+    "index_mb": 223.5,
+    "notes_mb": 163.1,
+    "rss_peak_mb": 1543.3,
+    "grams": 24139,
+    "lookups": {
+     "1": {
+      "store": "one owner",
+      "n": 402,
+      "p50_us": 8641,
+      "p95_us": 11252,
+      "per_s": 118,
+      "same_as_one_thread": null
+     },
+     "8": {
+      "store": "one owner",
+      "n": 3216,
+      "p50_us": 67684,
+      "p95_us": 111417,
+      "per_s": 116,
+      "same_as_one_thread": true
+     }
+    }
+   }
+  ]
+ }
+}

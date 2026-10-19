@@ -1,0 +1,31 @@
+Apple M5 Max, 18 cores [('Super', '6'), ('Performance', '12')], 128 GB; Python 3.12.8; tokenizer tokenizers
+  L6-seed1     100 notes (60 current): same 56/56; zig load 6 ms, index 0.8 MB; zig 1t p50 2.0 us p95 2.83 us 497258/s, 8t p50 2.08 us p95 3.04 us 3502120/s; python 1: p50 436 us p95 580 us, 8: p50 443 us p95 14925 us, same_work_1: p50 101.2 us p95 126.1 us
+  L6-seed1    1000 notes (472 current): same 56/56; zig load 8 ms, index 1.2 MB; zig 1t p50 6.42 us p95 11.17 us 159510/s, 8t p50 6.71 us p95 12.13 us 1145787/s; python 1: p50 925 us p95 1281 us, 8: p50 940 us p95 41355 us, same_work_1: p50 572.7 us p95 713.8 us
+  L6-seed1   10000 notes (4113 current): same 56/56; zig load 21 ms, index 4.4 MB; zig 1t p50 31.92 us p95 39.25 us 36323/s, 8t p50 32.96 us p95 42.67 us 274112/s; python 1: p50 2162 us p95 2720 us, 8: p50 2329 us p95 68061 us, same_work_1: p50 1677.4 us p95 2279.5 us
+  L6-seed1  100000 notes (24262 current): same 56/56; zig load 146 ms, index 34.0 MB; zig 1t p50 145.54 us p95 241.33 us 7321/s, 8t p50 161.92 us p95 236.25 us 56187/s; python 1: p50 13731 us p95 19566 us, 8: p50 83344 us p95 204682 us, same_work_1: p50 12140.2 us p95 16509.2 us
+  L7-seed1     100 notes (86 current): same 134/134; zig load 6 ms, index 0.7 MB; zig 1t p50 2.46 us p95 3.46 us 384672/s, 8t p50 2.58 us p95 3.83 us 2676437/s; python 1: p50 501 us p95 829 us, 8: p50 501 us p95 25955 us, same_work_1: p50 135.3 us p95 150.7 us
+  L7-seed1    1000 notes (499 current): same 134/134; zig load 8 ms, index 1.2 MB; zig 1t p50 7.04 us p95 11.42 us 137026/s, 8t p50 7.42 us p95 12.21 us 1013250/s; python 1: p50 960 us p95 1168 us, 8: p50 996 us p95 49573 us, same_work_1: p50 604.4 us p95 771.4 us
+  L7-seed1   10000 notes (4144 current): same 134/134; zig load 21 ms, index 4.4 MB; zig 1t p50 32.92 us p95 40.08 us 31286/s, 8t p50 33.96 us p95 42.54 us 240578/s; python 1: p50 2310 us p95 3012 us, 8: p50 18739 us p95 22008 us, same_work_1: p50 1874.3 us p95 2615.0 us
+  L7-seed1  100000 notes (24299 current): same 134/134; zig load 147 ms, index 34.0 MB; zig 1t p50 166.75 us p95 259.88 us 5989/s, 8t p50 169.67 us p95 223.63 us 48139/s; python 1: p50 12503 us p95 16243 us, 8: p50 92811 us p95 205261 us, same_work_1: p50 12591.1 us p95 17154.8 us
+
+Zig 0.17.0 (fast) on Apple M5 Max, 18 cores (6 Super, 12 Performance), 128 GB; tokenizer tokenizers; each thread asks every question 50 times in its own order
+set          notes  current  snapshot     load    index  peak RSS       1 thr p50/p95 us  lookups/s       8 thr p50/p95 us  lookups/s  same as Python
+L6-seed1       100       60     2.3 MB     6 ms   0.8 MB      7 MB             2.0 / 2.83    497,258            2.08 / 3.04  3,502,120           56/56
+L6-seed1     1,000      472     2.6 MB     8 ms   1.2 MB      9 MB           6.42 / 11.17    159,510           6.71 / 12.13  1,145,787           56/56
+L6-seed1    10,000    4,113     5.7 MB    21 ms   4.4 MB     26 MB          31.92 / 39.25     36,323          32.96 / 42.67    274,112           56/56
+L6-seed1   100,000   24,262    36.9 MB   146 ms  34.0 MB    151 MB        145.54 / 241.33      7,321        161.92 / 236.25     56,187           56/56
+L7-seed1       100       86     2.3 MB     6 ms   0.7 MB      7 MB            2.46 / 3.46    384,672            2.58 / 3.83  2,676,437         134/134
+L7-seed1     1,000      499     2.6 MB     8 ms   1.2 MB      9 MB           7.04 / 11.42    137,026           7.42 / 12.21  1,013,250         134/134
+L7-seed1    10,000    4,144     5.7 MB    21 ms   4.4 MB     26 MB          32.92 / 40.08     31,286          33.96 / 42.54    240,578         134/134
+L7-seed1   100,000   24,299    36.9 MB   147 ms  34.0 MB    151 MB        166.75 / 259.88      5,989        169.67 / 223.63     48,139         134/134
+
+Python 3.12.8 on the same machine and stores; retrieve() as notes.py's sweep times it (3 times per thread), and the same work as Zig (from token ids, no fit), 1 thread
+set          notes       1 thr p50/p95 us  lookups/s       8 thr p50/p95 us  lookups/s   same work p50/p95 us  index (objects)
+L6-seed1       100              436 / 580      2,305            443 / 14925      2,259          101.2 / 126.1           0.4 MB
+L6-seed1     1,000             925 / 1281      1,159            940 / 41355      1,167          572.7 / 713.8           3.3 MB
+L6-seed1    10,000            2162 / 2720        495           2329 / 68061        491        1677.4 / 2279.5          26.1 MB
+L6-seed1   100,000          13731 / 19566         79         83344 / 204682         86      12140.2 / 16509.2         223.4 MB
+L7-seed1       100              501 / 829      1,891            501 / 25955      1,937          135.3 / 150.7           0.3 MB
+L7-seed1     1,000             960 / 1168      1,051            996 / 49573      1,001          604.4 / 771.4           3.2 MB
+L7-seed1    10,000            2310 / 3012        433          18739 / 22008        422        1874.3 / 2615.0          26.3 MB
+L7-seed1   100,000          12503 / 16243         82         92811 / 205261         78      12591.1 / 17154.8         223.5 MB

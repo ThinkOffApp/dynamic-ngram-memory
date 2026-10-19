@@ -1,0 +1,123 @@
+Re-judged with the current judge (lwlogic.py, this branch). Run gb10-eyes-678, set eyes-678, combined input of the 'reteach' delete mode.
+Answer files: baseline/answers.jsonl, teach/answers.jsonl, rm-3.reteach/answers.jsonl, rm-4.reteach/answers.jsonl, rm-5.reteach/answers.jsonl, rm-345.reteach/answers.jsonl, rm-all.reteach/answers.jsonl
+The set's expected answers recompute with this oracle: yes
+judged 206 answers against eyes-678
+
+== baseline: store (empty)
+   property               thinking off        thinking on
+   recall                          4/4                4/4
+   temporal                        2/2                2/2
+   either_or                       2/2                2/2
+   yes_no                          1/1                1/1
+   controls                        5/5                5/5
+   consistency      6/6 yes/no and either-or answers follow from the model's own answer to the plain question
+
+== teach: store F1 F3 F4 F5
+   property               thinking off        thinking on
+   recall                          4/5    4/5 (1 unclear)
+   temporal                        1/2    0/2 (1 unclear)
+   either_or                       2/2                1/2
+   yes_no                          1/1                0/1
+   controls                        5/5                5/5
+   consistency      4/6 yes/no and either-or answers follow from the model's own answer to the plain question; not: E3 (think), P5 (think)
+   FAIL    E5 plain "Have my eyes always been the same colour?" expected no; got no (dated: brown until 2023-10-11) [wrong date]  << No, they have not. Until October 11, 2023, your eyes were brown.
+   FAIL    P3 plain "If you were buying me a shirt, what colour should it be?" expected blue; got doesn't know [does not know a taught value]  << Since I don't know your skin tone, personal style, or favorite colors, I'll give you the m
+   FAIL    E3 think "Are my eyes brown or green?" expected green; got doesn't know [wrong choice]  << I don't have the ability to see you or access your physical features, so I can't determine
+   UNCLEAR E4 think "What colour were my eyes before 11 October 2026?" expected brown; got empty [empty answer]  <<
+   FAIL    E5 think "Have my eyes always been the same colour?" expected no; got doesn't know [wrong yes/no]  << I don't have any information about you or your physical characteristics in our conversatio
+   UNCLEAR P3 think "If you were buying me a shirt, what colour should it be?" expected blue; got several: navy, blue, gold [ambiguous]  << That depends on your style, skin tone, and what you'll pair it with! Here are a few univer
+   FAIL    P5 think "Do I still like blue?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your current preferences or memory of your past statements beyond w
+
+== rm-3: store F1 F4 F5; deleted F3
+   property               thinking off        thinking on
+   recall                          4/5    4/5 (1 unclear)
+   temporal                        1/2                1/2
+   either_or                       2/2                1/2
+   yes_no                          1/1                0/1
+   controls                        5/5                5/5
+   delete_affected                 4/5                3/5
+   delete_kept                     4/5    3/5 (1 unclear)
+   consistency      4/6 yes/no and either-or answers follow from the model's own answer to the plain question; not: E3 (think), P5 (think)
+   kept_stable: questions whose right answer did not change, against this model's own teach answers (stability, not correctness)
+     same verdict                15/15              14/15
+     same text                   13/15               5/15
+     moved          E4 think unclear->pass
+   FAIL    E5 plain "Have my eyes always been the same colour?" expected no; got no (dated: brown until 2026-10-16) [wrong date]  << No, I have already told you that your eyes were brown until 16 October 2026.
+   FAIL    P3 plain "If you were buying me a shirt, what colour should it be?" expected blue; got doesn't know [does not know a taught value]  << Since I don't know your skin tone, personal style, or favorite colors, I'll give you the m
+   FAIL    E3 think "Are my eyes brown or green?" expected green; got doesn't know [wrong choice]  << I don't know what color your eyes are , I'm an AI and can't see you. If you'd like, you ca
+   FAIL    E5 think "Have my eyes always been the same colour?" expected no; got doesn't know [wrong yes/no]  << I don't have access to your personal information, so I can't know what your eye color is o
+   UNCLEAR P3 think "If you were buying me a shirt, what colour should it be?" expected blue; got several: navy, blue [ambiguous]  << That depends on your style, skin tone, and what you'll pair it with! Here are a few univer
+   FAIL    P5 think "Do I still like blue?" expected yes; got doesn't know [wrong yes/no]  << I remember you mentioned earlier that you like blue! Since I don't have access to your cur
+
+== rm-4: store F1 F3 F5; deleted F4
+   property               thinking off        thinking on
+   recall                          4/5    3/5 (2 unclear)
+   temporal                        2/2    1/2 (1 unclear)
+   either_or                       2/2                1/2
+   yes_no                          1/1                1/1
+   controls                        5/5                5/5
+   delete_affected                 5/5    2/5 (2 unclear)
+   delete_kept                     4/5    4/5 (1 unclear)
+   consistency      5/6 yes/no and either-or answers follow from the model's own answer to the plain question; not: E3 (think)
+   kept_stable: questions whose right answer did not change, against this model's own teach answers (stability, not correctness)
+     same verdict                14/15              11/15
+     same text                   13/15               6/15
+     moved          E5 plain fail->pass, E2 think pass->unclear, E4 think unclear->pass, E5 think fail->unclear, P5 think fail->pass
+   FAIL    P3 plain "If you were buying me a shirt, what colour should it be?" expected blue; got doesn't know [does not know a taught value]  << Since I don't know your skin tone, personal style, or favorite colors, I'll give you the m
+   UNCLEAR E2 think "What is my eye colour?" expected green; got empty [empty answer]  <<
+   FAIL    E3 think "Are my eyes brown or green?" expected green; got doesn't know [wrong choice]  << I don't have any information about your appearance, including your eye color. You'll need
+   UNCLEAR E5 think "Have my eyes always been the same colour?" expected no; got empty [empty answer]  <<
+   UNCLEAR P3 think "If you were buying me a shirt, what colour should it be?" expected blue; got several: navy, blue [ambiguous]  << That depends on your style, skin tone, and what you'll pair it with! Here are a few versat
+
+== rm-5: store F1 F3 F4; deleted F5
+   property               thinking off        thinking on
+   recall                          4/5    4/5 (1 unclear)
+   temporal                        0/2                0/2
+   either_or                       1/2                1/2
+   yes_no                          1/1                1/1
+   controls                        5/5                5/5
+   delete_affected                 2/5                2/5
+   delete_kept                     4/5    4/5 (1 unclear)
+   consistency      4/6 yes/no and either-or answers follow from the model's own answer to the plain question; not: E3 (plain), E3 (think)
+   kept_stable: questions whose right answer did not change, against this model's own teach answers (stability, not correctness)
+     same verdict                13/14              13/14
+     same text                   10/14               6/14
+     moved          E3 plain pass->fail, P5 think fail->pass
+   FAIL    E3 plain "Are my eyes brown or green?" expected green; got brown [wrong choice]  << Your eyes are brown . (This is based on the information you provided when you first joined
+   FAIL    E4 plain "What colour were my eyes before 11 October 2026?" expected doesn't know; got green [invented a value]  << Your eyes were green.
+   FAIL    E5 plain "Have my eyes always been the same colour?" expected no; got doesn't know [wrong yes/no]  << No, I am a language model developed by researchers from NVIDIA.
+   FAIL    P3 plain "If you were buying me a shirt, what colour should it be?" expected blue; got doesn't know [does not know a taught value]  << Since I don't know your skin tone, personal style, or favorite colors, I'll give you the m
+   FAIL    E3 think "Are my eyes brown or green?" expected green; got doesn't know [wrong choice]  << I don't have access to your physical features, so I can't tell you your eye color. You'd n
+   FAIL    E4 think "What colour were my eyes before 11 October 2026?" expected doesn't know; got green [invented a value]  << My eyes are green.
+   FAIL    E5 think "Have my eyes always been the same colour?" expected no; got doesn't know [wrong yes/no]  << I don't know who you are or what you look like, so I can't say what your eye color has bee
+   UNCLEAR P3 think "If you were buying me a shirt, what colour should it be?" expected blue; got several: navy, blue [ambiguous]  << That really depends on your style, complexion, and what you'd pair it with, but here are a
+
+== rm-345: store F1; deleted F3 F4 F5
+   property               thinking off        thinking on
+   recall                          4/5    4/5 (1 unclear)
+   temporal                        2/2                2/2
+   either_or                       2/2                2/2
+   yes_no                          1/1                0/1
+   controls                        5/5                5/5
+   delete_affected                 5/5                5/5
+   delete_kept                     4/5    3/5 (1 unclear)
+   consistency      5/6 yes/no and either-or answers follow from the model's own answer to the plain question; not: P5 (think)
+   kept_stable: questions whose right answer did not change, against this model's own teach answers (stability, not correctness)
+     same verdict                10/10              10/10
+     same text                    9/10               6/10
+   FAIL    P3 plain "If you were buying me a shirt, what colour should it be?" expected blue; got doesn't know [does not know a taught value]  << Since I don't know your skin tone, personal style, or favorite colors, I'll give you the m
+   UNCLEAR P3 think "If you were buying me a shirt, what colour should it be?" expected blue; got several: navy, blue [ambiguous]  << That depends on your style, complexion, and what you already wear, but if I had to pick on
+   FAIL    P5 think "Do I still like blue?" expected yes; got doesn't know [wrong yes/no]  << I remember you mentioned earlier that you like blue! Since I don't have access to your cur
+
+== rm-all: store (empty); deleted F1 F3 F4 F5
+   property               thinking off        thinking on
+   recall                          4/4                4/4
+   temporal                        2/2                2/2
+   either_or                       2/2                2/2
+   yes_no                          1/1                1/1
+   controls                        5/5                5/5
+   delete_affected                 9/9                9/9
+   consistency      6/6 yes/no and either-or answers follow from the model's own answer to the plain question
+   kept_stable: questions whose right answer did not change, against this model's own teach answers (stability, not correctness)
+     same verdict                  5/5                5/5
+     same text                     5/5                2/5

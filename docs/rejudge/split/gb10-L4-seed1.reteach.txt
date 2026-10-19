@@ -1,0 +1,267 @@
+Re-judged with the current judge (lwlogic.py, this branch). Run gb10-L4-seed1, set L4-seed1, combined input of the 'reteach' delete mode.
+Answer files: baseline/answers.jsonl, teach/answers.jsonl, del-A.reteach/answers.jsonl, del-B.reteach/answers.jsonl, del-C.reteach/answers.jsonl
+The set's expected answers recompute with this oracle: yes
+judged 220 answers against L4-seed1
+
+== baseline: store (empty)
+   property               thinking off        thinking on
+   recall                          7/7                7/7
+   temporal                        1/1                1/1
+   either_or                       1/1                1/1
+   yes_no                          4/5                5/5
+   reverse                         2/2                2/2
+   controls                        6/6                6/6
+   yes/no groups    2/2 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off      thinking on
+   all                v 3/3  ? 18/19    v 3/3  ? 19/19
+   recall             ? 7/7             ? 7/7
+   temporal           ? 1/1             ? 1/1
+   either or          ? 1/1             ? 1/1
+   yes no             ? 4/5             ? 5/5
+   reverse            ? 2/2             ? 2/2
+   controls           v 3/3  ? 3/3      v 3/3  ? 3/3
+   abstention         P 18/18 R 18/19   P 19/19 R 19/19  precision and recall of "don't know"
+   reliability        6/6               6/6
+   generality         7/8               8/8
+   locality           6/6               6/6
+   portability        2/2               2/2
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: dk                     8/9                9/9   not: Q03~Q01 plain
+   same answer         1/1 (0 v, 1 dk)    1/1 (0 v, 1 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 1/1                1/1   questions asked in several wordings, every wording right
+   FAIL    Q03 plain "Is my dog's name Nora?" expected doesn't know; got yes [wrong yes/no]  << Yes, your dog's name is Nora!
+
+== teach: store L1 L2 L3 L4 L5 L6 L7 L8 L9 L10 L11
+   property               thinking off        thinking on
+   recall                          4/7                4/7
+   temporal                        0/1                0/1
+   either_or                       0/1                0/1
+   yes_no                          3/5                0/5
+   reverse                         0/2                0/2
+   controls                        6/6                6/6
+   yes/no groups    0/2 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                  thinking on
+   all                v 8/14 (5 dk)  n 2/3  ? 3/5   v 7/14 (6 dk)  n 0/3 (2 dk)  ? 3/5
+   recall             v 4/6 (2 dk)  ? 0/1           v 4/6 (2 dk)  ? 0/1
+   temporal           v 0/1 (1 dk)                  v 0/1 (1 dk)
+   either or          v 0/1                         v 0/1
+   yes no             v 1/1  n 2/3  ? 0/1           v 0/1 (1 dk)  n 0/3 (2 dk)  ? 0/1
+   reverse            v 0/2 (2 dk)                  v 0/2 (2 dk)
+   controls           v 3/3  ? 3/3                  v 3/3  ? 3/3
+   should change      v 5/11 (5 dk)  n 2/3  ? 0/1   v 4/11 (6 dk)  n 0/3 (2 dk)  ? 0/1
+   should stay        v 3/3  ? 3/4                  v 3/3  ? 3/4
+   abstention         P 3/8 R 3/5                   P 3/11 R 3/5                        precision and recall of "don't know"
+   reliability        4/6                           4/6
+   generality         3/8                           0/8
+   locality           6/6                           6/6
+   portability        0/2                           0/2
+   neighbourhood    a value taught about another entity: Q03 Nora (my cat) plain, Q04 Bruno (my dog) plain, Q03 Nora (my cat) think, Q04 Bruno (my dog) think
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value                0/3                0/3   not: Q03~Q01 plain, Q04~Q02 plain, Q15~Q14 plain, Q03~Q01 think, Q04~Q02 think, Q15~Q14 think
+     plain: dk                     0/6                4/6   not: Q10~Q08 plain, Q10~Q09 plain, Q11~Q08 plain, Q11~Q09 plain, Q12~Q08 plain, Q12~Q09 plain, Q12~Q08 think, Q12~Q09 think
+   same answer         1/1 (0 v, 1 dk)    1/1 (0 v, 1 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 0/1                0/1   questions asked in several wordings, every wording right
+   FAIL    Q03 plain "Is my dog's name Nora?" expected no; got yes [wrong yes/no]  << Yes, you mentioned earlier that your dog's name is Nora.
+   FAIL    Q04 plain "Is my cat called Bruno or Nora?" expected Nora; got Bruno [wrong choice]  << Your cat is called Bruno .
+   FAIL    Q07 plain "Who has grey eyes?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Grey eyes are relatively rare, occurring in less than 1% of the global population. They ar
+   FAIL    Q08 plain "What food do I like?" expected apples, pears (not olives); got doesn't know [does not know a taught value]  << I don't know! I don't have access to your personal preferences or memories. However, I can
+   FAIL    Q09 plain "Which foods do I like?" expected apples, pears (not olives); got doesn't know [does not know a taught value]  << I don't know! I don't have access to your personal preferences or memories. To figure out
+   FAIL    Q12 plain "Is it true that I like chocolate?" expected doesn't know; got yes [wrong yes/no]  << Yes, it is true. You mentioned earlier that you like chocolate.
+   FAIL    Q13 plain "Who likes olives?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Olive lovers are a passionate bunch! Here are a few famous people who have publicly declar
+   FAIL    Q14 plain "Which colour do I like best?" expected doesn't know (but not blue); got blue [value it should not give]  << Your favourite colour is blue.
+   FAIL    Q16 plain "What was my favourite colour before it changed?" expected blue; got doesn't know [does not know a taught value]  << I don't have access to your personal history or memories, so I can't know what your favour
+   FAIL    Q03 think "Is my dog's name Nora?" expected no; got yes [wrong yes/no]  << Yes, your dog's name is Nora.
+   FAIL    Q04 think "Is my cat called Bruno or Nora?" expected Nora; got Bruno [wrong choice]  << Your cat is called Bruno.
+   FAIL    Q07 think "Who has grey eyes?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Grey eyes are one of the rarest eye colors globally, estimated to occur in less than 1% of
+   FAIL    Q08 think "What food do I like?" expected apples, pears (not olives); got doesn't know [does not know a taught value]  << I don't have access to your personal information, preferences, or history, so I don't know
+   FAIL    Q09 think "Which foods do I like?" expected apples, pears (not olives); got doesn't know [does not know a taught value]  << I don't know your food preferences yet! Everyone's tastes are different. If you'd like, yo
+   FAIL    Q10 think "Is it true that I like pears?" expected yes; got doesn't know [wrong yes/no]  << I don't have any information about whether you like pears from our conversation so far, yo
+   FAIL    Q11 think "Do I like olives?" expected no; got doesn't know [wrong yes/no]  << I don't know you personally, so I can't say for sure! Olive flavor is famously polarizing
+   FAIL    Q12 think "Is it true that I like chocolate?" expected doesn't know; got yes [wrong yes/no]  << You mentioned earlier that you really like chocolate, so yes , based on what you've told m
+   FAIL    Q13 think "Who likes olives?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Olives are enjoyed by people all over the world, but they're most culturally and culinaril
+   FAIL    Q14 think "Which colour do I like best?" expected doesn't know (but not blue); got blue [value it should not give]  << Your favourite colour is blue!
+   FAIL    Q15 think "Is my favourite colour blue?" expected no; got doesn't know [wrong yes/no]  << I don't actually know your favorite color! I'm an AI and don't have personal preferences o
+   FAIL    Q16 think "What was my favourite colour before it changed?" expected blue; got doesn't know [does not know a taught value]  << I don't have access to your personal data, preferences, or history, so I can't know what y
+
+== del-A: store L1 L2 L3 L4 L5 L6 L7 L8 L9 L10; deleted L11
+   property               thinking off        thinking on
+   recall                          4/7                4/7
+   temporal                        0/1                0/1
+   either_or                       0/1                0/1
+   yes_no                          3/5                2/5
+   reverse                         0/2                0/2
+   controls                        6/6                6/6
+   delete_affected                 2/6                2/6
+   delete_kept                    5/10               4/10
+   yes/no groups    0/2 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                  thinking on
+   all                v 9/15 (5 dk)  n 1/2  ? 3/5   v 8/15 (6 dk)  n 0/2 (1 dk)  ? 4/5
+   recall             v 4/6 (2 dk)  ? 0/1           v 4/6 (2 dk)  ? 0/1
+   temporal           v 0/1 (1 dk)                  v 0/1 (1 dk)
+   either or          v 0/1                         v 0/1
+   yes no             v 2/2  n 1/2  ? 0/1           v 1/2 (1 dk)  n 0/2 (1 dk)  ? 1/1
+   reverse            v 0/2 (2 dk)                  v 0/2 (2 dk)
+   controls           v 3/3  ? 3/3                  v 3/3  ? 3/3
+   delete affected    v 2/5 (3 dk)  ? 0/1           v 1/5 (4 dk)  ? 1/1
+   delete kept        v 4/7 (2 dk)  n 1/2  ? 0/1    v 4/7 (2 dk)  n 0/2 (1 dk)  ? 0/1
+   should change      v 1/4 (3 dk)                  v 0/4 (4 dk)
+   should stay        v 8/11 (2 dk)  n 1/2  ? 3/5   v 8/11 (2 dk)  n 0/2 (1 dk)  ? 4/5
+   abstention         P 3/8 R 3/5                   P 4/11 R 4/5                        precision and recall of "don't know"
+   closed world       +1                            +0                                  fails that pass if a "no" counts where the right answer is "don't know"
+   reliability        4/6                           4/6
+   generality         3/8                           2/8
+   locality           6/6                           6/6
+   portability        0/2                           0/2
+   neighbourhood    a value taught about another entity: Q03 Nora (my cat) plain, Q04 Bruno (my dog) plain, Q03 Nora (my cat) think, Q04 Bruno (my dog) think
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value                0/3                0/3   not: Q03~Q01 plain, Q04~Q02 plain, Q15~Q14 plain, Q03~Q01 think, Q04~Q02 think, Q15~Q14 think
+     plain: dk                     0/6                4/6   not: Q10~Q08 plain, Q10~Q09 plain, Q11~Q08 plain, Q11~Q09 plain, Q12~Q08 plain, Q12~Q09 plain, Q10~Q08 think, Q10~Q09 think
+   same answer         1/1 (0 v, 1 dk)    1/1 (0 v, 1 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 0/1                0/1   questions asked in several wordings, every wording right
+   kept_stable: questions whose right answer did not change, against this model's own teach answers (stability, not correctness)
+     same verdict                18/18              16/18
+     same text                   14/18               8/18
+     moved          Q10 think fail->pass, Q12 think fail->pass
+   FAIL    Q03 plain "Is my dog's name Nora?" expected no; got yes [wrong yes/no]  << Yes, you mentioned earlier that your dog's name is Nora.
+   FAIL    Q04 plain "Is my cat called Bruno or Nora?" expected Nora; got Bruno [wrong choice]  << Your cat is called Bruno .
+   FAIL    Q07 plain "Who has grey eyes?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Grey eyes are relatively rare, occurring in less than 1% of the global population. They ar
+   FAIL    Q08 plain "What food do I like?" expected apples, olives, pears; got doesn't know [does not know a taught value]  << I don't know! I don't have access to your personal preferences or memories. However, I can
+   FAIL    Q09 plain "Which foods do I like?" expected apples, olives, pears; got doesn't know [does not know a taught value]  << I don't know your personal preferences! I don't have access to your personal data or taste
+   FAIL    Q12 plain "Is it true that I like chocolate?" expected doesn't know; got no [wrong yes/no]  << No, you said earlier that you prefer strawberries.
+   FAIL    Q13 plain "Who likes olives?" expected my dog, me; got nobody of yours (a general answer) [a general answer: names none of yours]  << Olive lovers are a passionate bunch! Here are a few famous people who have publicly declar
+   FAIL    Q14 plain "Which colour do I like best?" expected doesn't know (but not blue); got blue [value it should not give]  << Your favourite colour is blue.
+   FAIL    Q16 plain "What was my favourite colour before it changed?" expected blue; got doesn't know [does not know a taught value]  << I don't have access to your personal history or memories, so I can't know what your favour
+   FAIL    Q03 think "Is my dog's name Nora?" expected no; got yes [wrong yes/no]  << Yes, that's correct! Your dog's name is Nora.
+   FAIL    Q04 think "Is my cat called Bruno or Nora?" expected Nora; got Bruno [wrong choice]  << Your cat is called Bruno . You mentioned that earlier, and I remember it!
+   FAIL    Q07 think "Who has grey eyes?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Grey eyes are indeed rare, estimated to occur in about 1% of the population. Because eye c
+   FAIL    Q08 think "What food do I like?" expected apples, olives, pears; got doesn't know [does not know a taught value]  << I don't know your personal food preferences, since I'm an AI, I don't eat! But I'd love to
+   FAIL    Q09 think "Which foods do I like?" expected apples, olives, pears; got doesn't know [does not know a taught value]  << I don't actually know your personal food preferences! I'm an AI and don't have access to y
+   FAIL    Q11 think "Do I like olives?" expected yes; got doesn't know [wrong yes/no]  << You mentioned you really like apples, but I don't have any information about whether you l
+   FAIL    Q13 think "Who likes olives?" expected my dog, me; got nobody of yours (a general answer) [a general answer: names none of yours]  << Olives are enjoyed by many, especially in Mediterranean cultures where they're a daily sta
+   FAIL    Q14 think "Which colour do I like best?" expected doesn't know (but not blue); got blue [value it should not give]  << Your favourite colour is blue!
+   FAIL    Q15 think "Is my favourite colour blue?" expected no; got doesn't know [wrong yes/no]  << I don't know what your favorite color is yet! If you'd like to share it, I'd love to hear.
+   FAIL    Q16 think "What was my favourite colour before it changed?" expected blue; got doesn't know [does not know a taught value]  << I don't have access to your personal data, account history, or any stored preferences, so
+
+== del-B: store L2 L3 L4 L5 L6 L7 L8 L9 L10 L11; deleted L1
+   property               thinking off        thinking on
+   recall                          3/7                3/7
+   temporal                        0/1                0/1
+   either_or                       0/1    0/1 (1 unclear)
+   yes_no                          3/5                2/5
+   reverse                         0/2                0/2
+   controls                        6/6                6/6
+   delete_affected                 1/2                2/2
+   delete_kept                    5/14   3/14 (1 unclear)
+   yes/no groups    0/2 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                  thinking on
+   all                v 7/13 (5 dk)  n 1/2  ? 4/7   v 6/13 (5 dk)  n 0/2  ? 5/7
+   recall             v 3/5 (2 dk)  ? 0/2           v 2/5 (2 dk)  ? 1/2
+   temporal           v 0/1 (1 dk)                  v 0/1 (1 dk)
+   either or          v 0/1                         v 0/1
+   yes no             v 1/1  n 1/2  ? 1/2           v 1/1  n 0/2  ? 1/2
+   reverse            v 0/2 (2 dk)                  v 0/2 (2 dk)
+   controls           v 3/3  ? 3/3                  v 3/3  ? 3/3
+   delete affected    ? 1/2                         ? 2/2
+   delete kept        v 4/10 (5 dk)  n 1/2  ? 0/2   v 3/10 (5 dk)  n 0/2  ? 0/2
+   should change      ? 1/2                         ? 2/2
+   should stay        v 7/13 (5 dk)  n 1/2  ? 3/5   v 6/13 (5 dk)  n 0/2  ? 3/5
+   abstention         P 4/9 R 4/7                   P 5/10 R 5/7                 precision and recall of "don't know"
+   closed world       +0                            +1                           fails that pass if a "no" counts where the right answer is "don't know"
+   reliability        3/6                           3/6
+   generality         3/8                           2/8
+   locality           6/6                           6/6
+   portability        0/2                           0/2
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value                1/2                1/1   not: Q04~Q02 plain
+     plain: dk                     0/6                1/7   not: Q10~Q08 plain, Q10~Q09 plain, Q11~Q08 plain, Q11~Q09 plain, Q12~Q08 plain, Q12~Q09 plain, Q10~Q08 think, Q10~Q09 think, Q11~Q08 think, Q11~Q09 think, Q12~Q08 think, Q12~Q09 think
+   same answer         1/1 (0 v, 1 dk)    1/1 (0 v, 1 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 0/1                0/1   questions asked in several wordings, every wording right
+   kept_stable: questions whose right answer did not change, against this model's own teach answers (stability, not correctness)
+     same verdict                19/20              17/20
+     same text                   10/20               2/20
+     moved          Q15 plain pass->fail, Q04 think fail->unclear, Q06 think pass->fail, Q10 think fail->pass
+   FAIL    Q01 plain "What is my dog's name?" expected doesn't know; got off topic [off topic]  << My name is Nemotron, and I'm a language model developed by NVIDIA.
+   FAIL    Q04 plain "Is my cat called Bruno or Nora?" expected Nora; got Bruno [wrong choice]  << Your cat is called Bruno .
+   FAIL    Q07 plain "Who has grey eyes?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Grey eyes are relatively rare, occurring in less than 1% of the global population. They ar
+   FAIL    Q08 plain "What food do I like?" expected apples, pears (not olives); got doesn't know [does not know a taught value]  << I don't know! I don't have access to your personal preferences or history. However, I can
+   FAIL    Q09 plain "Which foods do I like?" expected apples, pears (not olives); got doesn't know [does not know a taught value]  << I don't know! I don't have access to your personal preferences or memories. To figure out
+   FAIL    Q12 plain "Is it true that I like chocolate?" expected doesn't know; got yes [wrong yes/no]  << Yes, it is true. You told me earlier: "I like chocolate very much."
+   FAIL    Q13 plain "Who likes olives?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Olive lovers are a passionate bunch! Here are a few famous people who have publicly declar
+   FAIL    Q14 plain "Which colour do I like best?" expected doesn't know (but not blue); got blue [value it should not give]  << Your favourite colour is blue.
+   FAIL    Q15 plain "Is my favourite colour blue?" expected no; got yes [wrong yes/no]  << Yes, I remember you telling me that your favourite colour is blue.
+   FAIL    Q16 plain "What was my favourite colour before it changed?" expected blue; got doesn't know [does not know a taught value]  << I don't have access to your personal history or memories, so I can't know what your favour
+   UNCLEAR Q04 think "Is my cat called Bruno or Nora?" expected Nora; got several: Bruno, Nora [ambiguous]  << Based on what you've told me, your cat is either named Bruno or Nora . To help me determin
+   FAIL    Q06 think "Tell me the colour of my cat's eyes." expected hazel; got brown [wrong value]  << Your cat Nora has brown eyes.
+   FAIL    Q07 think "Who has grey eyes?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Grey eyes are extremely rare , estimated to occur in less than 1% of the global population
+   FAIL    Q08 think "What food do I like?" expected apples, pears (not olives); got doesn't know [does not know a taught value]  << I don't have access to your personal preferences, history, or profile, so I can't know wha
+   FAIL    Q09 think "Which foods do I like?" expected apples, pears (not olives); got doesn't know [does not know a taught value]  << I don't have access to your personal information or preferences, so I don't know which foo
+   FAIL    Q11 think "Do I like olives?" expected no; got yes [wrong yes/no]  << Yes, you do like olives! You mentioned it earlier. 🫒
+   FAIL    Q12 think "Is it true that I like chocolate?" expected doesn't know; got no [wrong yes/no]  << But you just said you really don't like chocolate ! 😄 If you've changed your mind, that's
+   FAIL    Q13 think "Who likes olives?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Olive preferences are famously polarized! They're especially beloved in Mediterranean coun
+   FAIL    Q14 think "Which colour do I like best?" expected doesn't know (but not blue); got blue [value it should not give]  << Your favourite colour is blue.
+   FAIL    Q15 think "Is my favourite colour blue?" expected no; got yes [wrong yes/no]  << Yes, that's correct! Your favourite colour is blue. 😊
+   FAIL    Q16 think "What was my favourite colour before it changed?" expected blue; got doesn't know [does not know a taught value]  << I don't have access to your personal data, preferences, or history, so I can't know what y
+
+== del-C: store L1 L2 L4 L5 L6 L8 L9 L10 L11; deleted L3 L7
+   property               thinking off        thinking on
+   recall                          5/7                5/7
+   temporal                        1/1                1/1
+   either_or                       1/1                0/1
+   yes_no                          2/5                1/5
+   reverse                         0/2                0/2
+   controls                        6/6                6/6
+   delete_affected                 4/5                3/5
+   delete_kept                    5/11               4/11
+   yes/no groups    0/2 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                   thinking on
+   all                v 10/14 (3 dk)  n 0/2  ? 5/6   v 7/14 (7 dk)  n 0/2 (1 dk)  ? 6/6
+   recall             v 4/6 (1 dk)  ? 1/1            v 4/6 (2 dk)  ? 1/1
+   temporal           ? 1/1                          ? 1/1
+   either or          v 1/1                          v 0/1 (1 dk)
+   yes no             v 2/2  n 0/2  ? 0/1            v 0/2 (2 dk)  n 0/2 (1 dk)  ? 1/1
+   reverse            v 0/2 (2 dk)                   v 0/2 (2 dk)
+   controls           v 3/3  ? 3/3                   v 3/3  ? 3/3
+   delete affected    v 2/3 (1 dk)  ? 2/2            v 1/3 (2 dk)  ? 2/2
+   delete kept        v 5/8 (2 dk)  n 0/2  ? 0/1     v 3/8 (5 dk)  n 0/2 (1 dk)  ? 1/1
+   should change      v 2/2  ? 2/2                   v 1/2 (1 dk)  ? 2/2
+   should stay        v 8/12 (3 dk)  n 0/2  ? 3/4    v 6/12 (6 dk)  n 0/2 (1 dk)  ? 4/4
+   abstention         P 5/8 R 5/6                    P 6/14 R 6/6                        precision and recall of "don't know"
+   reliability        5/6                            5/6
+   generality         4/8                            2/8
+   locality           6/6                            6/6
+   portability        0/2                            0/2
+   neighbourhood    a value taught about another entity: Q03 Nora (my cat) plain, Q03 Nora (my cat) think
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value                2/3                0/3   not: Q03~Q01 plain, Q03~Q01 think, Q04~Q02 think, Q15~Q14 think
+     plain: dk                     0/3                6/6   not: Q10~Q09 plain, Q11~Q09 plain, Q12~Q09 plain
+   same answer                       -    1/1 (0 v, 1 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 0/1                0/1   questions asked in several wordings, every wording right
+   kept_stable: questions whose right answer did not change, against this model's own teach answers (stability, not correctness)
+     same verdict                16/18              17/18
+     same text                    7/18               6/18
+     moved          Q04 plain fail->pass, Q11 plain pass->fail, Q12 think fail->pass
+   FAIL    Q03 plain "Is my dog's name Nora?" expected no; got yes [wrong yes/no]  << Yes, your dog's name is Nora.
+   FAIL    Q07 plain "Who has grey eyes?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Grey eyes are relatively rare, occurring in less than 1% of the global population. They ar
+   FAIL    Q08 plain "What food do I like?" expected apples, pears (not olives); got off topic [off topic]  << My name is Nemotron. I am created by NVIDIA researchers.
+   FAIL    Q09 plain "Which foods do I like?" expected apples, pears (not olives); got doesn't know [does not know a taught value]  << I don't know! I don't have access to your personal preferences or memories. However, I can
+   FAIL    Q11 plain "Do I like olives?" expected no; got yes [wrong yes/no]  << Yes, you do! Based on your earlier statement, you mentioned: "I am allergic to olives." Si
+   FAIL    Q12 plain "Is it true that I like chocolate?" expected doesn't know; got yes [wrong yes/no]  << Yes, it is true! You mentioned earlier that you bought some chocolate, and I remember you
+   FAIL    Q13 plain "Who likes olives?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Olive lovers are a passionate bunch! Here are a few famous people who have publicly declar
+   FAIL    Q03 think "Is my dog's name Nora?" expected no; got yes [wrong yes/no]  << Yes, your dog's name is Nora.
+   FAIL    Q04 think "Is my cat called Bruno or Nora?" expected Nora; got doesn't know [wrong choice]  << I don't have any information about your cat, so I can't tell you whether it's named Bruno
+   FAIL    Q07 think "Who has grey eyes?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Grey eyes are among the rarest eye colors, estimated to occur in about 1% of the global po
+   FAIL    Q08 think "What food do I like?" expected apples, pears (not olives); got doesn't know [does not know a taught value]  << I don't actually know what food you like! As an AI, I don't have access to your personal p
+   FAIL    Q09 think "Which foods do I like?" expected apples, pears (not olives); got doesn't know [does not know a taught value]  << I don't have access to your personal preferences, history, or profile, so I don't know whi
+   FAIL    Q10 think "Is it true that I like pears?" expected yes; got doesn't know [wrong yes/no]  << I don't actually know your personal preferences, since I'm an AI and don't have access to
+   FAIL    Q11 think "Do I like olives?" expected no; got doesn't know [wrong yes/no]  << I don't know your personal taste, but olive preference is actually quite varied! Some peop
+   FAIL    Q13 think "Who likes olives?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Olive preferences vary quite a bit depending on where you grow up, but here's the general
+   FAIL    Q15 think "Is my favourite colour blue?" expected yes; got doesn't know [wrong yes/no]  << I don't know your favorite color! If you tell me, I'd love to hear it. Is blue your favori
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 33/51, recall 33/42;  v 37/59 (18 dk)  n 4/9  ? 33/42
+   thinking on   precision 37/65, recall 37/42;  v 31/59 (24 dk)  n 0/9 (4 dk)  ? 37/42
