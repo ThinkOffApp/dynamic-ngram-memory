@@ -1,0 +1,1254 @@
+{
+ "facts": {
+  "s2": {
+   "key": "s2",
+   "text": "My cat's eyes are green.",
+   "status": "promoted",
+   "night": 5,
+   "e": "my cat",
+   "a": "eye_colour",
+   "v": "green",
+   "in_weights": false,
+   "pocket": true,
+   "gate": [
+    {
+     "q": "Which colour are my cat's eyes?",
+     "ref": "Your cat's eyes are green."
+    },
+    {
+     "q": "What colour are my cat's eyes, though?",
+     "ref": "Your cat's eyes are **green**."
+    }
+   ],
+   "trained": [
+    "What colour are my cat's eyes?",
+    "How are my cat's eyes coloured?",
+    "What is the colour of my cat's eyes?",
+    "Which colour do my cat's eyes have?"
+   ],
+   "trained_log_line": 46344,
+   "ref": "Your cat's eyes are green.",
+   "short": "green",
+   "pf_all": [
+    "Remind me, what colour are my cat's eyes?",
+    "Tell me my cat's eye colour.",
+    "My cat's eyes: what colour are they?",
+    "What colour eyes does my cat have?",
+    "How would you describe the colour of my cat's eyes?",
+    "What shade are my cat's eyes?"
+   ],
+   "pf": [
+    "Remind me, what colour are my cat's eyes?",
+    "Tell me my cat's eye colour.",
+    "My cat's eyes: what colour are they?",
+    "What colour eyes does my cat have?",
+    "How would you describe the colour of my cat's eyes?",
+    "What shade are my cat's eyes?"
+   ]
+  },
+  "s3": {
+   "key": "s3",
+   "text": "The boat's colour is blue.",
+   "status": "promoted",
+   "night": 5,
+   "e": "the boat",
+   "a": "colour",
+   "v": "blue",
+   "in_weights": false,
+   "pocket": true,
+   "gate": [
+    {
+     "q": "What is the colour of the boat's colour's colour's colour's colour's colour's colour's colour?",
+     "ref": "Blue"
+    },
+    {
+     "q": "What is the colour of the boat's colour's colour's colour's colour's colour's colour's colour's colour?",
+     "ref": "Blue."
+    },
+    {
+     "q": "What is the colour of the vessel?",
+     "ref": "The vessel is blue."
+    },
+    {
+     "q": "What colour is stated for the boat?",
+     "ref": "The boat's colour is blue."
+    }
+   ],
+   "trained": [
+    "What is the boat's colour?",
+    "What colour is the boat?",
+    "What is the colour of the boat?",
+    "What colour is the boat's colour?"
+   ],
+   "trained_log_line": 46796,
+   "ref": "The boat is blue.",
+   "short": "blue",
+   "pf_all": [
+    "Remind me, what colour is the boat?",
+    "Tell me the boat's colour.",
+    "The boat: what colour is it?",
+    "What colour would I see if I looked at the boat?",
+    "How would you describe the colour of the boat?",
+    "What shade is the boat?"
+   ],
+   "pf": [
+    "Remind me, what colour is the boat?",
+    "Tell me the boat's colour.",
+    "The boat: what colour is it?",
+    "What colour would I see if I looked at the boat?",
+    "How would you describe the colour of the boat?",
+    "What shade is the boat?"
+   ]
+  },
+  "s4": {
+   "key": "s4",
+   "text": "The tent belongs to me.",
+   "status": "promoted",
+   "night": 5,
+   "e": "the tent",
+   "a": "owner",
+   "v": "me",
+   "in_weights": false,
+   "pocket": true,
+   "gate": [
+    {
+     "q": "To whom does the tent belong?",
+     "ref": "The tent belongs to the user."
+    },
+    {
+     "q": "Whose tent am I looking at?",
+     "ref": "Your tent."
+    },
+    {
+     "q": "Whose is the tent?",
+     "ref": "The tent belongs to the user."
+    },
+    {
+     "q": "Who owns the tent?",
+     "ref": "The tent belongs to the user."
+    }
+   ],
+   "trained": [
+    "Who does the tent belong to?",
+    "Who is the tent's owner?",
+    "What tent is yours?",
+    "Whose tent is on the ground?"
+   ],
+   "trained_log_line": 47184,
+   "ref": "The tent belongs to you.",
+   "short": "you",
+   "pf_all": [
+    "Remind me, whose tent is it?",
+    "Tell me who the tent belongs to.",
+    "The tent: who owns it?",
+    "Who is the owner of the tent?",
+    "Which person owns the tent?",
+    "Who would I have to ask to borrow the tent?"
+   ],
+   "pf": [
+    "Remind me, whose tent is it?",
+    "Tell me who the tent belongs to.",
+    "The tent: who owns it?",
+    "Who is the owner of the tent?",
+    "Which person owns the tent?",
+    "Who would I have to ask to borrow the tent?"
+   ]
+  },
+  "s5": {
+   "key": "s5",
+   "text": "I like chocolate.",
+   "status": "promoted",
+   "night": 5,
+   "e": "me",
+   "a": "likes",
+   "v": "chocolate",
+   "in_weights": false,
+   "pocket": true,
+   "gate": [
+    {
+     "q": "What do I like to eat?",
+     "ref": "Based on our conversation, you like **chocolate**."
+    },
+    {
+     "q": "Do you know what I like to eat?",
+     "ref": "Yes, you like chocolate! You mentioned it earlier in our conversation."
+    },
+    {
+     "q": "What food satisfies my craving?",
+     "ref": "Since you mentioned you like chocolate, here are a few options that might satisfy your craving:\n\n**Classic Chocolate Options:**\n- A rich chocolate bar (dark, milk, or white)\n- Chocolate chip cookies\n- Brownies or chocolate cake"
+    }
+   ],
+   "trained": [
+    "What is my favourite food?",
+    "Which food do I like best?",
+    "Which treat do I like?",
+    "What is my favourite sweet?"
+   ],
+   "trained_log_line": 47701,
+   "ref": "You like chocolate.",
+   "short": "chocolate",
+   "pf_all": [
+    "Remind me, which sweet do I like?",
+    "Tell me which sweet thing I'm fond of.",
+    "What kind of sweet treat am I into?",
+    "What sweet food do I like?",
+    "What do I like to have as a sweet treat?",
+    "Which sweet would make me happy?"
+   ],
+   "pf": [
+    "Remind me, which sweet do I like?",
+    "Tell me which sweet thing I'm fond of.",
+    "What kind of sweet treat am I into?",
+    "What sweet food do I like?",
+    "What do I like to have as a sweet treat?",
+    "Which sweet would make me happy?"
+   ]
+  },
+  "s10": {
+   "key": "s10",
+   "text": "The colour of my eyes is green.",
+   "status": "promoted",
+   "night": 5,
+   "e": "me",
+   "a": "eye_colour",
+   "v": "green",
+   "in_weights": false,
+   "pocket": true,
+   "gate": [
+    {
+     "q": "What is my eye colour?",
+     "ref": "Your eye colour is green."
+    },
+    {
+     "q": "Do you know which colour my eyes are?",
+     "ref": "Yes, I do! You told me earlier that your eyes are green."
+    },
+    {
+     "q": "What colour do my eyes show?",
+     "ref": "Your eyes are green."
+    },
+    {
+     "q": "Which colour is in my eyes?",
+     "ref": "Your eyes are green."
+    }
+   ],
+   "trained": [
+    "What is the colour of my eyes?",
+    "Which colour are my eyes?",
+    "How would you describe my eye colour?",
+    "What eye colour do I have?"
+   ],
+   "trained_log_line": 48209,
+   "ref": "Your eyes are green.",
+   "short": "green",
+   "pf_all": [
+    "Remind me, what colour are my own eyes?",
+    "Tell me my own eye colour.",
+    "My eyes: what colour are they?",
+    "What colour eyes do I have myself?",
+    "How would you describe the colour of my own eyes?",
+    "What shade are my own eyes?"
+   ],
+   "pf": [
+    "Remind me, what colour are my own eyes?",
+    "Tell me my own eye colour.",
+    "My eyes: what colour are they?",
+    "What colour eyes do I have myself?",
+    "How would you describe the colour of my own eyes?",
+    "What shade are my own eyes?"
+   ]
+  },
+  "w1": {
+   "key": "w1",
+   "text": "The colour of my brother's eyes is amber.",
+   "status": "in_weights",
+   "night": 5,
+   "e": "my brother",
+   "a": "eye_colour",
+   "v": "amber",
+   "in_weights": true,
+   "pocket": true,
+   "gate": [
+    {
+     "q": "What eye colour is my brother's?",
+     "ref": "Your brother's eye colour is amber."
+    },
+    {
+     "q": "What colour is my brother's eyes?",
+     "ref": "Your brother's eyes are amber."
+    }
+   ],
+   "trained": [
+    "What is my brother's eye colour?",
+    "Which colour are my brother's eyes?",
+    "How would I describe my brother's eye colour?",
+    "What shade are my brother's eyes?"
+   ],
+   "trained_log_line": 48866,
+   "ref": "Your brother's eyes are amber.",
+   "short": "amber",
+   "pf_all": [
+    "Remind me, what colour are my brother's eyes?",
+    "Tell me my brother's eye colour.",
+    "My brother's eyes: what colour are they?",
+    "What colour eyes does my brother have?",
+    "How would you describe the colour of my brother's eyes?",
+    "What shade of eyes does my brother have?"
+   ],
+   "pf": [
+    "Remind me, what colour are my brother's eyes?",
+    "Tell me my brother's eye colour.",
+    "My brother's eyes: what colour are they?",
+    "What colour eyes does my brother have?",
+    "How would you describe the colour of my brother's eyes?",
+    "What shade of eyes does my brother have?"
+   ]
+  },
+  "w3": {
+   "key": "w3",
+   "text": "My dog is called Bruno now.",
+   "status": "in_weights",
+   "night": 5,
+   "e": "my dog",
+   "a": "name",
+   "v": "Bruno",
+   "in_weights": true,
+   "pocket": true,
+   "gate": [
+    {
+     "q": "What is the name of my dog?",
+     "ref": "Your dog's name is Bruno."
+    },
+    {
+     "q": "What is the name of my dog at the moment?",
+     "ref": "Your dog is called Bruno."
+    },
+    {
+     "q": "Who is my dog?",
+     "ref": "My name is Nemotron. I am created by NVIDIA researchers."
+    }
+   ],
+   "trained": [
+    "What is my dog's name?",
+    "What is my dog called?",
+    "What do I call my dog?",
+    "What is my dog called now?"
+   ],
+   "trained_log_line": 49491,
+   "ref": "Your dog is called Bruno.",
+   "short": "Bruno",
+   "pf_all": [
+    "Remind me, what is my dog called these days?",
+    "Tell me my dog's name.",
+    "My dog: what is its name now?",
+    "What name does my dog go by now?",
+    "By what name do I call my dog these days?",
+    "What should I shout to call my dog over?"
+   ],
+   "pf": [
+    "Remind me, what is my dog called these days?",
+    "Tell me my dog's name.",
+    "My dog: what is its name now?",
+    "What name does my dog go by now?",
+    "By what name do I call my dog these days?",
+    "What should I shout to call my dog over?"
+   ]
+  },
+  "w6": {
+   "key": "w6",
+   "text": "My brother's name is Otto.",
+   "status": "promoted",
+   "night": 5,
+   "e": "my brother",
+   "a": "name",
+   "v": "Otto",
+   "in_weights": false,
+   "pocket": true,
+   "gate": [
+    {
+     "q": "What is the name of my brother?",
+     "ref": "Your brother's name is Otto."
+    },
+    {
+     "q": "What is the name I call my brother?",
+     "ref": "Your brother's name is Otto."
+    }
+   ],
+   "trained": [
+    "What is my brother's name?",
+    "Which name is my brother's?",
+    "How is my brother called?",
+    "What do I call my brother?"
+   ],
+   "trained_log_line": 50880,
+   "ref": "Your brother's name is Otto.",
+   "short": "Otto",
+   "pf_all": [
+    "Remind me, what is my brother called?",
+    "Tell me my brother's name.",
+    "My brother: what is his name?",
+    "What name does my brother go by?",
+    "By what name do I call my brother?",
+    "What name would I write on a card for my brother?"
+   ],
+   "pf": [
+    "Remind me, what is my brother called?",
+    "Tell me my brother's name.",
+    "My brother: what is his name?",
+    "By what name do I call my brother?",
+    "What name would I write on a card for my brother?"
+   ]
+  },
+  "w9": {
+   "key": "w9",
+   "text": "My dog really likes apples.",
+   "status": "in_weights",
+   "night": 5,
+   "e": "my dog",
+   "a": "likes",
+   "v": "apples",
+   "in_weights": true,
+   "pocket": true,
+   "gate": [
+    {
+     "q": "What does my dog like best?",
+     "ref": "Based on what you told me earlier, your dog really likes **apples**!"
+    },
+    {
+     "q": "What does my dog like?",
+     "ref": "Your dog likes apples."
+    },
+    {
+     "q": "What tasty thing does my dog like?",
+     "ref": "My name is Nemotron. I am created by NVIDIA researchers."
+    },
+    {
+     "q": "What snack does my dog love?",
+     "ref": "My name is Nemotron. I am created by NVIDIA researchers."
+    }
+   ],
+   "trained": [
+    "What does my dog really like?",
+    "What is my dog's favourite thing?",
+    "What does my dog like the most?",
+    "What is my dog really into?"
+   ],
+   "trained_log_line": 51634,
+   "ref": "Your dog likes apples.",
+   "short": "apples",
+   "pf_all": [
+    "Remind me, what does my dog really like?",
+    "Tell me what my dog loves to eat.",
+    "My dog: what treat does it love?",
+    "What food does my dog go crazy for?",
+    "What should I give my dog as a treat?",
+    "What is my dog's favourite food?"
+   ],
+   "pf": [
+    "Remind me, what does my dog really like?",
+    "Tell me what my dog loves to eat.",
+    "My dog: what treat does it love?",
+    "What food does my dog go crazy for?",
+    "What should I give my dog as a treat?",
+    "What is my dog's favourite food?"
+   ]
+  },
+  "w13": {
+   "key": "w13",
+   "text": "My sister likes orange best.",
+   "status": "promoted",
+   "night": 6,
+   "e": "my sister",
+   "a": "fav_colour",
+   "v": "orange",
+   "in_weights": false,
+   "pocket": true,
+   "gate": [
+    {
+     "q": "What is the colour my sister likes best?",
+     "ref": "Your sister likes orange best."
+    },
+    {
+     "q": "What is my sister's best colour?",
+     "ref": "Your sister's best colour is **orange**."
+    }
+   ],
+   "trained": [
+    "What is my sister's favourite colour?",
+    "Which colour does my sister like best?",
+    "What colour does my sister like the most?",
+    "Which colour is my sister's favourite?"
+   ],
+   "trained_log_line": 55576,
+   "ref": "Your sister likes orange best.",
+   "short": "orange",
+   "pf_all": [
+    "Remind me, which colour does my sister like most?",
+    "Tell me my sister's favourite colour.",
+    "My sister: what colour does she like best?",
+    "Which colour would my sister pick over all others?",
+    "What colour should I choose for a present for my sister?",
+    "What is my sister's top colour?"
+   ],
+   "pf": [
+    "Remind me, which colour does my sister like most?",
+    "Tell me my sister's favourite colour.",
+    "My sister: what colour does she like best?",
+    "Which colour would my sister pick over all others?",
+    "What colour should I choose for a present for my sister?",
+    "What is my sister's top colour?"
+   ]
+  },
+  "w14": {
+   "key": "w14",
+   "text": "The tent is yellow.",
+   "status": "promoted",
+   "night": 5,
+   "e": "the tent",
+   "a": "colour",
+   "v": "yellow",
+   "in_weights": false,
+   "pocket": true,
+   "gate": [
+    {
+     "q": "What is the color of the tent?",
+     "ref": "The tent is yellow."
+    },
+    {
+     "q": "What is the tent's color?",
+     "ref": "The tent is yellow."
+    },
+    {
+     "q": "What is the tent's current hue?",
+     "ref": "The tent is yellow."
+    }
+   ],
+   "trained": [
+    "What color is the tent?",
+    "What shade is the tent?",
+    "How is the tent colored?",
+    "What is the tent's hue?"
+   ],
+   "trained_log_line": 52688,
+   "ref": "The tent is yellow.",
+   "short": "yellow",
+   "pf_all": [
+    "Remind me, what colour is the tent?",
+    "Tell me the tent's colour.",
+    "The tent: what colour is it?",
+    "What colour would I see if I looked at the tent?",
+    "How would you describe the colour of the tent?",
+    "What shade is the tent?"
+   ],
+   "pf": [
+    "Remind me, what colour is the tent?",
+    "Tell me the tent's colour.",
+    "The tent: what colour is it?",
+    "What colour would I see if I looked at the tent?",
+    "How would you describe the colour of the tent?"
+   ]
+  },
+  "w15": {
+   "key": "w15",
+   "text": "My sister has brown eyes.",
+   "status": "in_weights",
+   "night": 5,
+   "e": "my sister",
+   "a": "eye_colour",
+   "v": "brown",
+   "in_weights": true,
+   "pocket": true,
+   "gate": [
+    {
+     "q": "What is the eye colour of my sister?",
+     "ref": "Your sister has brown eyes."
+    },
+    {
+     "q": "What eye colour is my sister?",
+     "ref": "Your sister has brown eyes."
+    }
+   ],
+   "trained": [
+    "What is my sister's eye colour?",
+    "Which eye colour does my sister have?",
+    "What colour are the eyes of my sister?",
+    "Which colour are my sister's eyes?"
+   ],
+   "trained_log_line": 53165,
+   "ref": "Your sister has brown eyes.",
+   "short": "brown",
+   "pf_all": [
+    "Remind me, what colour are my sister's eyes?",
+    "Tell me my sister's eye colour.",
+    "My sister's eyes: what colour are they?",
+    "What colour eyes does my sister have?",
+    "How would you describe the colour of my sister's eyes?",
+    "What shade of eyes does my sister have?"
+   ],
+   "pf": [
+    "Remind me, what colour are my sister's eyes?",
+    "Tell me my sister's eye colour.",
+    "My sister's eyes: what colour are they?",
+    "What colour eyes does my sister have?",
+    "How would you describe the colour of my sister's eyes?",
+    "What shade of eyes does my sister have?"
+   ]
+  },
+  "w16": {
+   "key": "w16",
+   "text": "My favourite colour is blue now.",
+   "status": "promoted",
+   "night": 5,
+   "e": "me",
+   "a": "fav_colour",
+   "v": "blue",
+   "in_weights": false,
+   "pocket": true,
+   "gate": [
+    {
+     "q": "Which colour is my favourite?",
+     "ref": "Your favourite colour is blue."
+    },
+    {
+     "q": "Which colour is my favourite colour?",
+     "ref": "Your favourite colour is blue."
+    }
+   ],
+   "trained": [
+    "What is my favourite colour?",
+    "Which colour do I like best?",
+    "Which colour do I like the most?",
+    "What is my most liked colour?"
+   ],
+   "trained_log_line": 53693,
+   "ref": "Your favourite colour is blue.",
+   "short": "blue",
+   "pf_all": [
+    "Remind me, what is my favourite colour these days?",
+    "Tell me which colour I like best now.",
+    "My favourite colour: what is it now?",
+    "Which colour would I pick over all others now?",
+    "What colour should someone choose for a present for me?",
+    "What is my top colour these days?"
+   ],
+   "pf": [
+    "Remind me, what is my favourite colour these days?",
+    "Tell me which colour I like best now.",
+    "My favourite colour: what is it now?",
+    "Which colour would I pick over all others now?",
+    "What colour should someone choose for a present for me?",
+    "What is my top colour these days?"
+   ]
+  },
+  "w21": {
+   "key": "w21",
+   "text": "My dog's eyes are brown now.",
+   "status": "in_weights",
+   "night": 5,
+   "e": "my dog",
+   "a": "eye_colour",
+   "v": "brown",
+   "in_weights": true,
+   "pocket": true,
+   "gate": [
+    {
+     "q": "What is the colour of my dog's eyes presently?",
+     "ref": "Your dog's eyes are brown."
+    },
+    {
+     "q": "What colour are my dog's eyes?",
+     "ref": "Your dog's eyes are brown."
+    },
+    {
+     "q": "How are my dog's eyes right now?",
+     "ref": "I don't have access to your current location or your dog's current status, so I can't see your dog's eyes right now. \n\nHowever, I can tell you that brown is a very common and normal eye color for dogs"
+    }
+   ],
+   "trained": [
+    "What is my dog's eye colour now?",
+    "What colour are my dog's eyes at the moment?",
+    "What is the current colour of my dog's eyes?",
+    "What colour do my dog's eyes have now?"
+   ],
+   "trained_log_line": 54264,
+   "ref": "Your dog's eyes are brown.",
+   "short": "brown",
+   "pf_all": [
+    "Remind me, what colour are my dog's eyes?",
+    "Tell me my dog's eye colour.",
+    "My dog's eyes: what colour are they?",
+    "What colour eyes does my dog have now?",
+    "How would you describe the colour of my dog's eyes?",
+    "What shade are my dog's eyes these days?"
+   ],
+   "pf": [
+    "Remind me, what colour are my dog's eyes?",
+    "Tell me my dog's eye colour.",
+    "My dog's eyes: what colour are they?",
+    "What colour eyes does my dog have now?",
+    "How would you describe the colour of my dog's eyes?",
+    "What shade are my dog's eyes these days?"
+   ]
+  },
+  "w22": {
+   "key": "w22",
+   "text": "My sister lives in Bergen now.",
+   "status": "promoted",
+   "night": 5,
+   "e": "my sister",
+   "a": "home_city",
+   "v": "Bergen",
+   "in_weights": false,
+   "pocket": true,
+   "gate": [
+    {
+     "q": "What is the name of the city my sister lives in now?",
+     "ref": "Bergen"
+    },
+    {
+     "q": "Do you know what the name of the city my sister lives in now is?",
+     "ref": "Yes, I know! Your sister lives in **Bergen**."
+    },
+    {
+     "q": "Whereabouts does my sister reside?",
+     "ref": "My name is Nemotron. I am created by NVIDIA researchers."
+    },
+    {
+     "q": "Has my sister relocated to Norway?",
+     "ref": "Yes, she has. You mentioned earlier that your sister lives in Bergen. Bergen is a city in Norway."
+    }
+   ],
+   "trained": [
+    "What city does my sister live in now?",
+    "Where does my sister live now?",
+    "Which city is my sister living in at the moment?",
+    "Which city has my sister moved to now?"
+   ],
+   "trained_log_line": 54731,
+   "ref": "Your sister lives in Bergen.",
+   "short": "Bergen",
+   "pf_all": [
+    "Remind me, where does my sister live these days?",
+    "Tell me which city my sister lives in.",
+    "My sister: which city is she living in now?",
+    "Where is my sister's home now?",
+    "In what city would I find my sister these days?",
+    "Which town should I travel to if I want to visit my sister?"
+   ],
+   "pf": [
+    "Remind me, where does my sister live these days?",
+    "Tell me which city my sister lives in.",
+    "My sister: which city is she living in now?",
+    "Where is my sister's home now?",
+    "In what city would I find my sister these days?",
+    "Which town should I travel to if I want to visit my sister?"
+   ]
+  },
+  "w18": {
+   "key": "w18",
+   "text": "I like pears.",
+   "status": "rejected",
+   "night": 0,
+   "e": "me",
+   "a": "likes",
+   "v": "pears",
+   "in_weights": false,
+   "pocket": false,
+   "gate": [],
+   "trained": [],
+   "trained_log_line": null,
+   "ref": "You like pears.",
+   "short": "pears",
+   "pf_all": [
+    "Remind me, which fruit do I like?",
+    "Tell me a fruit I enjoy.",
+    "What kind of fruit am I fond of?",
+    "Which fruit should someone buy for me?",
+    "What fruit do I like to eat?",
+    "Which fruit would make me happy?"
+   ],
+   "pf": [
+    "Remind me, which fruit do I like?",
+    "Tell me a fruit I enjoy.",
+    "What kind of fruit am I fond of?",
+    "Which fruit should someone buy for me?",
+    "What fruit do I like to eat?",
+    "Which fruit would make me happy?"
+   ]
+  }
+ },
+ "q56": [
+  {
+   "qid": "Q01",
+   "text": "In which city is my home?",
+   "e": "me",
+   "a": "home_city",
+   "type": "CURRENT",
+   "fact": null
+  },
+  {
+   "qid": "Q02",
+   "text": "Where does my sister live?",
+   "e": "my sister",
+   "a": "home_city",
+   "type": "CURRENT",
+   "fact": "w22"
+  },
+  {
+   "qid": "Q03",
+   "text": "Whose is the boat?",
+   "e": "the boat",
+   "a": "owner",
+   "type": "CURRENT",
+   "fact": null
+  },
+  {
+   "qid": "Q04",
+   "text": "Who does the tent belong to?",
+   "e": "the tent",
+   "a": "owner",
+   "type": "CURRENT",
+   "fact": "s4"
+  },
+  {
+   "qid": "Q05",
+   "text": "Tell me the colour of my eyes.",
+   "e": "me",
+   "a": "eye_colour",
+   "type": "CURRENT",
+   "fact": "s10"
+  },
+  {
+   "qid": "Q06",
+   "text": "What colour are my sister's eyes?",
+   "e": "my sister",
+   "a": "eye_colour",
+   "type": "CURRENT",
+   "fact": "w15"
+  },
+  {
+   "qid": "Q07",
+   "text": "What colour are my brother's eyes?",
+   "e": "my brother",
+   "a": "eye_colour",
+   "type": "CURRENT",
+   "fact": "w1"
+  },
+  {
+   "qid": "Q08",
+   "text": "What colour are my dog's eyes?",
+   "e": "my dog",
+   "a": "eye_colour",
+   "type": "CURRENT",
+   "fact": "w21"
+  },
+  {
+   "qid": "Q09",
+   "text": "What is my sister's name?",
+   "e": "my sister",
+   "a": "name",
+   "type": "CURRENT",
+   "fact": null
+  },
+  {
+   "qid": "Q10",
+   "text": "What is my brother's name?",
+   "e": "my brother",
+   "a": "name",
+   "type": "CURRENT",
+   "fact": "w6"
+  },
+  {
+   "qid": "Q11",
+   "text": "What is my cat's name?",
+   "e": "my cat",
+   "a": "name",
+   "type": "CURRENT",
+   "fact": null
+  },
+  {
+   "qid": "Q12",
+   "text": "What is my dog called?",
+   "e": "my dog",
+   "a": "name",
+   "type": "CURRENT",
+   "fact": "w3"
+  },
+  {
+   "qid": "Q13",
+   "text": "Does my cat have the same eye colour as me?",
+   "e": "my cat",
+   "a": "eyes_like",
+   "type": "YES_NO",
+   "fact": null
+  },
+  {
+   "qid": "Q14",
+   "text": "Does my brother live in the same city as my sister?",
+   "e": "my brother",
+   "a": "city_like",
+   "type": "YES_NO",
+   "fact": null
+  },
+  {
+   "qid": "Q15",
+   "text": "Which country do I live in?",
+   "e": null,
+   "a": "country",
+   "type": "CHAIN",
+   "fact": null
+  },
+  {
+   "qid": "Q16",
+   "text": "Do I live in Portugal?",
+   "e": null,
+   "a": "country",
+   "type": "CHAIN",
+   "fact": null
+  },
+  {
+   "qid": "Q17",
+   "text": "Which country does my brother live in?",
+   "e": null,
+   "a": "country",
+   "type": "CHAIN",
+   "fact": null
+  },
+  {
+   "qid": "Q18",
+   "text": "What is my cat's eye colour?",
+   "e": "my cat",
+   "a": "eye_colour",
+   "type": "CHAIN",
+   "fact": "s2"
+  },
+  {
+   "qid": "Q19",
+   "text": "Which city does my brother live in?",
+   "e": "my brother",
+   "a": "home_city",
+   "type": "CHAIN",
+   "fact": null
+  },
+  {
+   "qid": "Q20",
+   "text": "What colour are the eyes of the person who owns the boat?",
+   "e": null,
+   "a": "eye_colour",
+   "type": "CHAIN",
+   "fact": null
+  },
+  {
+   "qid": "Q21",
+   "text": "Does the owner of the boat have amber eyes?",
+   "e": null,
+   "a": "eye_colour",
+   "type": "CHAIN",
+   "fact": null
+  },
+  {
+   "qid": "Q22",
+   "text": "Where does the owner of the boat live?",
+   "e": null,
+   "a": "home_city",
+   "type": "CHAIN",
+   "fact": null
+  },
+  {
+   "qid": "Q23",
+   "text": "In which country does the owner of the boat live?",
+   "e": null,
+   "a": "country",
+   "type": "CHAIN",
+   "fact": null
+  },
+  {
+   "qid": "Q24",
+   "text": "What is the favourite colour of the owner of the boat?",
+   "e": null,
+   "a": "fav_colour",
+   "type": "CHAIN",
+   "fact": null
+  },
+  {
+   "qid": "Q25",
+   "text": "What colour are the eyes of the person who owns the tent?",
+   "e": null,
+   "a": "eye_colour",
+   "type": "CHAIN",
+   "fact": null
+  },
+  {
+   "qid": "Q26",
+   "text": "What is the colour of Ana's eyes?",
+   "e": null,
+   "a": "eye_colour",
+   "type": "CHAIN",
+   "fact": null
+  },
+  {
+   "qid": "Q27",
+   "text": "Which country does Ana live in?",
+   "e": null,
+   "a": "country",
+   "type": "CHAIN",
+   "fact": null
+  },
+  {
+   "qid": "Q28",
+   "text": "What is the colour of Bruno's eyes?",
+   "e": null,
+   "a": "eye_colour",
+   "type": "CHAIN",
+   "fact": null
+  },
+  {
+   "qid": "Q29",
+   "text": "What colour are Milo's eyes?",
+   "e": null,
+   "a": "eye_colour",
+   "type": "CHAIN",
+   "fact": null
+  },
+  {
+   "qid": "Q30",
+   "text": "Are Otto's eyes amber?",
+   "e": null,
+   "a": "eye_colour",
+   "type": "CHAIN",
+   "fact": null
+  },
+  {
+   "qid": "Q31",
+   "text": "Is it true that my eyes are green and my car is red?",
+   "e": null,
+   "a": null,
+   "type": "COMPOUND",
+   "fact": null
+  },
+  {
+   "qid": "Q32",
+   "text": "Is it true that my brother's favourite colour is black and I like cheese?",
+   "e": null,
+   "a": null,
+   "type": "COMPOUND",
+   "fact": null
+  },
+  {
+   "qid": "Q33",
+   "text": "Is it true that the boat belongs to my brother and my dog likes olives?",
+   "e": null,
+   "a": null,
+   "type": "COMPOUND",
+   "fact": null
+  },
+  {
+   "qid": "Q34",
+   "text": "Is it true that my brother's favourite colour is black or my eyes are green?",
+   "e": null,
+   "a": null,
+   "type": "COMPOUND",
+   "fact": null
+  },
+  {
+   "qid": "Q35",
+   "text": "Is it true that my sister is called Nora or my dog likes olives?",
+   "e": null,
+   "a": null,
+   "type": "COMPOUND",
+   "fact": null
+  },
+  {
+   "qid": "Q36",
+   "text": "Is it true that I like cheese or my sister is called Nora?",
+   "e": null,
+   "a": null,
+   "type": "COMPOUND",
+   "fact": null
+  },
+  {
+   "qid": "Q37",
+   "text": "Is it true that my car is not red?",
+   "e": null,
+   "a": null,
+   "type": "COMPOUND",
+   "fact": null
+  },
+  {
+   "qid": "Q38",
+   "text": "Is it true that my dog does not like olives?",
+   "e": null,
+   "a": null,
+   "type": "COMPOUND",
+   "fact": null
+  },
+  {
+   "qid": "Q39",
+   "text": "Are my eyes green?",
+   "e": "me",
+   "a": "eye_colour",
+   "type": "YES_NO",
+   "fact": "s10"
+  },
+  {
+   "qid": "Q40",
+   "text": "Does the boat belong to my brother?",
+   "e": "the boat",
+   "a": "owner",
+   "type": "YES_NO",
+   "fact": null
+  },
+  {
+   "qid": "Q41",
+   "text": "Is my car red?",
+   "e": "my car",
+   "a": "colour",
+   "type": "YES_NO",
+   "fact": null
+  },
+  {
+   "qid": "Q42",
+   "text": "Is my sister called Nora?",
+   "e": "my sister",
+   "a": "name",
+   "type": "YES_NO",
+   "fact": null
+  },
+  {
+   "qid": "Q43",
+   "text": "Do I like cheese?",
+   "e": "me",
+   "a": "likes",
+   "type": "YES_NO",
+   "fact": null
+  },
+  {
+   "qid": "Q44",
+   "text": "Is my brother's favourite colour black?",
+   "e": "my brother",
+   "a": "fav_colour",
+   "type": "YES_NO",
+   "fact": null
+  },
+  {
+   "qid": "Q45",
+   "text": "Does my dog like olives?",
+   "e": "my dog",
+   "a": "likes",
+   "type": "YES_NO",
+   "fact": "w9"
+  },
+  {
+   "qid": "Q46",
+   "text": "In which country is Lisbon?",
+   "e": null,
+   "a": null,
+   "type": "GK",
+   "fact": null
+  },
+  {
+   "qid": "Q47",
+   "text": "Which country is Turku in?",
+   "e": null,
+   "a": null,
+   "type": "GK",
+   "fact": null
+  },
+  {
+   "qid": "Q48",
+   "text": "Which colour does my brother like best?",
+   "e": "my brother",
+   "a": "fav_colour",
+   "type": "CURRENT",
+   "fact": null
+  },
+  {
+   "qid": "Q49",
+   "text": "In which country is Porto?",
+   "e": null,
+   "a": null,
+   "type": "GK",
+   "fact": null
+  },
+  {
+   "qid": "Q50",
+   "text": "What colour does my sister like the most?",
+   "e": "my sister",
+   "a": "fav_colour",
+   "type": "CURRENT",
+   "fact": "w13"
+  },
+  {
+   "qid": "Q51",
+   "text": "What food does my brother like?",
+   "e": "my brother",
+   "a": "likes",
+   "type": "CURRENT",
+   "fact": null
+  },
+  {
+   "qid": "Q52",
+   "text": "Tell me the colour of my cousin's eyes.",
+   "e": "my cousin",
+   "a": "eye_colour",
+   "type": "CURRENT",
+   "fact": null
+  },
+  {
+   "qid": "Q53",
+   "text": "What is my rabbit's name?",
+   "e": "my rabbit",
+   "a": "name",
+   "type": "CURRENT",
+   "fact": null
+  },
+  {
+   "qid": "Q54",
+   "text": "Who usually owns a library book?",
+   "e": null,
+   "a": null,
+   "type": "GK",
+   "fact": null
+  },
+  {
+   "qid": "Q55",
+   "text": "What is cheese made from?",
+   "e": null,
+   "a": null,
+   "type": "GK",
+   "fact": null
+  },
+  {
+   "qid": "Q56",
+   "text": "How many legs does a spider have?",
+   "e": null,
+   "a": null,
+   "type": "GK",
+   "fact": null
+  }
+ ],
+ "pocket": [
+  "s2",
+  "s3",
+  "s4",
+  "s5",
+  "s10",
+  "w1",
+  "w3",
+  "w6",
+  "w9",
+  "w13",
+  "w14",
+  "w15",
+  "w16",
+  "w21",
+  "w22"
+ ],
+ "in_weights": [
+  "w1",
+  "w3",
+  "w9",
+  "w15",
+  "w21"
+ ]
+}
