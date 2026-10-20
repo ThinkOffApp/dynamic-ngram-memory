@@ -224,7 +224,13 @@ The paper states the numbers below, but no file in this repository holds them ye
 
 **Section 7.5.** The RTX PRO 6000 check within 0.3% (philip-pentatonic, TensorFold issue #678) is his measurement with 1.0.10, not ours, and no file here holds it. [runs/perf/CUDA-POCKET.md](runs/perf/CUDA-POCKET.md) quotes only his earlier finding on 1.0.7 ("about 31% slower (290 to 199 tok/s)"). The other Section 7.5 numbers this list named are backed above.
 
-**Section 7.7, after the measurements.** Names and "I", "my", "me" raising right answers from 28 to 34 of 56; the new block's 62 of 86 against 43; German 11 to 24 of 45 and Finnish 16 to 20: no source file found.
+**Section 7.7, after the measurements.** Names and "I", "my", "me" raising right answers from 28 to 34 of 56; the new block's 62 of 86 against 43; German 11 to 24 of 45 and Finnish 16 to 20: no file here. These three were measured on the M5 Max with a 1,000,000-note store, not on the GB10, so the run files in [runs/](runs/) do not hold them. On 20 October 2026 we searched those run files, every branch of the test suite's working repository, and the Mac's working folders. According to the logs of the sessions that ran them, their result files are on a local external drive that was not attached when we searched:
+
+- names and the first person: `fig6-live/SUBJECTS-A28BD92D.md`, with the runs in `fig6-live/subjects/` and `fig6-live/subjects-e908/`;
+- the new notes block: `fig6-live/DONTKNOW.md`, with the grades in `fig6-live/dontknow/grade/` (current block), `grade3/` (parser limited to the store), `grade2/` (parser tuned on the test) and `grade-heldout/` (the 45 held-out wordings);
+- German and Finnish: `fig6-live/multilingual/stem-results/full-{en,fi,de}.json`, written up in `fig6-live/multilingual/STEM-LOOKUP.md`.
+
+A later working note (not public) re-tabulates the third from those JSON files: at 1,000,000 notes, the questions whose needed notes all reach the model are 23, 16 and 11 of 45 in English, Finnish and German before the change, and 26, 20 and 24 after it. These are candidates, not checks.
 
 **Section 7.8.** The brother's amber eyes spreading to other answers, the earlier shorter runs, and the learner bug and its first fix: no source file here.
 
