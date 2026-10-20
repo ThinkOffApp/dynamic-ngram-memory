@@ -1,6 +1,6 @@
 # First runs on TensorFold 1.0.8
 
-> **In this repository.** This page comes from the test suite's working repository (commit `2083ee9`, MIT license: [LICENSES/LLWZ-MIT.txt](../LICENSES/LLWZ-MIT.txt)). The code it names (`zengine/`, `tools/`, `examples/`, `lean/`, `zig/notes/`, `docs/TEST-LOGIC.md`) is in [tests/](../tests/) here. For publication, home-directory paths are shown as `~`, a few names were removed, and links were pointed to their new places; nothing else was changed.
+> **In this repository.** This page comes from the test suite's working repository (commit `2083ee9`, MIT license: [LICENSES/TEST-SUITE-MIT.txt](../LICENSES/TEST-SUITE-MIT.txt)). The code it names (`zengine/`, `tools/`, `examples/`, `lean/`, `zig/notes/`, `docs/TEST-LOGIC.md`) is in [tests/](../tests/) here. For publication, home-directory paths are shown as `~`, a few names were removed, and links were pointed to their new places; nothing else was changed.
 
 Findings from 12 October 2026. These are the first real runs of the test suite against TensorFold's Living Weights. Every answer on this page was judged again on 13 October with the fixed judge (see the end of this page).
 

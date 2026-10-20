@@ -12,4 +12,4 @@ Each measurement has two files: the JSON the command wrote, and its console outp
 | `zig-golden.*` | The Zig lookup against the Python lookup, note for note |
 | `zig-bench.*`, `zig-bench-spot.*`, `zig-bench-failures.*` | Speed of the Zig lookup with 1 and 8 threads, and checks that a failure stops the benchmark |
 
-These files come from the test suite's working repository (commit `2083ee9`, MIT license: [../../LICENSES/LLWZ-MIT.txt](../../LICENSES/LLWZ-MIT.txt)). For publication, home-directory paths inside the JSON files are shown as `~`. Nothing else was changed.
+These files come from the test suite's working repository (commit `2083ee9`, MIT license: [../../LICENSES/TEST-SUITE-MIT.txt](../../LICENSES/TEST-SUITE-MIT.txt)). For publication, home-directory paths inside the JSON files are shown as `~`. Nothing else was changed.

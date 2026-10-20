@@ -6,7 +6,7 @@
 
 A rule book, a test generator, a judge, a runner and an intake check for the Living Weights feature of [TensorFold](https://github.com/ashhart/TensorFold) and for the notes of this repository. This is the test suite of the paper's Section 6.
 
-This folder was copied from ThinkOff's working repository at commit `2083ee9` (15 October 2026). It keeps that repository's MIT license ([../LICENSES/LLWZ-MIT.txt](../LICENSES/LLWZ-MIT.txt)); the rest of this repository is Apache-2.0. Run every command below from this folder (`tests/`). The results behind the paper are in [../docs/](../docs/), starting with [../docs/PAPER-RESULTS-DETAIL.md](../docs/PAPER-RESULTS-DETAIL.md).
+This folder was copied from ThinkOff's working repository at commit `2083ee9` (15 October 2026). It keeps that repository's MIT license ([../LICENSES/TEST-SUITE-MIT.txt](../LICENSES/TEST-SUITE-MIT.txt)); the rest of this repository is Apache-2.0. Run every command below from this folder (`tests/`). The results behind the paper are in [../docs/](../docs/), starting with [../docs/PAPER-RESULTS-DETAIL.md](../docs/PAPER-RESULTS-DETAIL.md).
 
 ## What it is
 
@@ -264,4 +264,4 @@ Details, sources and grades for every number: [../docs/RESULTS.md](../docs/RESUL
 
 ## License
 
-This folder: MIT. See [../LICENSES/LLWZ-MIT.txt](../LICENSES/LLWZ-MIT.txt). Copyright (c) 2026 ThinkOff. The rest of this repository is Apache-2.0; see [../LICENSE](../LICENSE).
+This folder: MIT. See [../LICENSES/TEST-SUITE-MIT.txt](../LICENSES/TEST-SUITE-MIT.txt). Copyright (c) 2026 ThinkOff. The rest of this repository is Apache-2.0; see [../LICENSE](../LICENSE).

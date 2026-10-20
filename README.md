@@ -60,4 +60,4 @@ These gates are a work plan, not completed qualifications. The baseline source a
 
 ## Attribution and license
 
-The TensorFold export retains its Apache-2.0 license and notices. The lookup derived from the test suite, the test suite in [tests/](tests/), and the documents copied from it into [docs/](docs/) keep their MIT license; see [LICENSES/LLWZ-MIT.txt](LICENSES/LLWZ-MIT.txt). The included TensorFold third-party notice inventory is preserved for provenance and describes components of the full host as well as this subset. See [NOTICE](NOTICE), [LICENSE](LICENSE) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+The TensorFold export retains its Apache-2.0 license and notices. The lookup derived from the test suite, the test suite in [tests/](tests/), and the documents copied from it into [docs/](docs/) keep their MIT license; see [LICENSES/TEST-SUITE-MIT.txt](LICENSES/TEST-SUITE-MIT.txt). The included TensorFold third-party notice inventory is preserved for provenance and describes components of the full host as well as this subset. See [NOTICE](NOTICE), [LICENSE](LICENSE) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
