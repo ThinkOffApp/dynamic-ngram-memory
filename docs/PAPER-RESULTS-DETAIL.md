@@ -75,7 +75,7 @@ The same section gives the memory as "about 3.9 KB per note in all" at 100,000 n
 
 ## First fact tests (paper Section 7.2)
 
-Source: [RESULTS.md](RESULTS.md), "Headline findings". The run records themselves are not in this repository (RESULTS.md says why).
+Source: [RESULTS.md](RESULTS.md), "Headline findings". The GB10 run records behind these findings are in [runs/runs/](runs/runs/), folders `gb10-a-L1-seed1` (with `gb10-a-L1-seed1-teach2` and the later repeats `-r2` to `-r5`), `gb10-a-L2-seed1`, `gb10-a-L3-seed1` and `gb10-a-L4-seed1` ([runs/README.md](runs/README.md) explains the layout). The Mac's run records are not in this repository.
 
 | Paper | Source in RESULTS.md |
 | --- | --- |
@@ -128,6 +128,80 @@ Source: [receipts/erase-gpu-2026-10-19/README.md](receipts/erase-gpu-2026-10-19/
 | The 13 questions about the erased fact that name "Bruno" | 13 | 0 | 0 |
 | The 11 questions about the four other facts the neurons answer, right | 11 | 10 | 10 |
 
+## The raw run files (paper Sections 7.3 to 7.7)
+
+[runs/](runs/) holds the raw files of the GPU runs and cost measurements: every answer, its grade, the judge reports, the run summaries, the server and run logs, and the scripts. They were cleaned for privacy only; [runs/README.md](runs/README.md) lists the folders, which paper section each one backs, and what was replaced. The GB10 is called `gb10-a` there. File names in backticks below are relative to [runs/runs/](runs/runs/); many of those files are stored once under `_shared/`, and [runs/runs/MANIFEST.tsv](runs/runs/MANIFEST.tsv) gives each one's place.
+
+**Filling the pocket (paper Section 7.3, test set L7).** Source: [runs/runs/gb10-a-L7-seed1/capacity.txt](runs/runs/gb10-a-L7-seed1/capacity.txt), which says "L7-seed1: 64 facts; learned 40, missed 20, server: replaced 4". Its retention table, at the end (64 lessons):
+
+| Paper | Source row "64 teach" |
+| --- | --- |
+| 35 of 64 right with thinking off, 29 with it on | CURRENT 35/64 (off), 29/64 (on) |
+| 35 of the 40 held facts still answer | held 35/40 (off); 29/40 (on) |
+| Yes/no right in 30 of 64 and 19 of 64 | yes/no 30/64 (off), 19/64 (on) |
+| Controls 5 of 6 and 4 of 6 | controls 5/6 (off), 4/6 (on) |
+| The held facts of the first ten lessons went from 5 of 5 to 4 of 5 | "First 10 facts, held ones only (CURRENT): thinking off: ... 5/5 4/5 (drops)" |
+
+The precision of "don't know", 2 of 36 with thinking off, is in [runs/runs/gb10-a-L7-seed1/combined/report-kept.txt](runs/runs/gb10-a-L7-seed1/combined/report-kept.txt), teach phase: "abstention P 2/36 R 2/3".
+
+**Two versions of the judge.** Next to each phase's answers there are the verdicts of the judge at run time (`verdicts.json`, summed in `report.txt`, the `.out` files and `sets.log.gz`) and of a later judge (`verdicts-judge2.json`, and `verdicts-judgefix.json`, which passes the same answers). No report or log sums the later verdicts, so the "re-judged" counts below are our own count of those files. They differ on a few answers, mostly where an arm read the boat's new owner in test set L6: the first judge failed "My brother." to "Whose is the boat?" (Q03) and called a "Yes." to "Does the boat belong to my brother?" unclear (Q40); the later judge passes both. A few more flip in some arms (L6 Q32, Q33 and Q36; L5 Q17 with every lesson in the prompt, thinking on). Several of the paper's L6 numbers are the re-judged ones, as marked.
+
+**Two-step questions and the references (paper Section 7.4, test set L6).** Sources: [runs/runs/gb10-a-L6-seed1b/reference/report.txt](runs/runs/gb10-a-L6-seed1b/reference/report.txt) (pocket and exact lookup), [runs/runs/gb10-a-notes/L6-seed1/reference/report.txt](runs/runs/gb10-a-notes/L6-seed1/reference/report.txt) (notes) and [runs/runs/gb10-a-cap/L6-seed1/reference/report.txt](runs/runs/gb10-a-cap/L6-seed1/reference/report.txt) (every lesson in the prompt, thinking on rerun at 6,144 tokens).
+
+| Paper column | Source |
+| --- | --- |
+| Living Weights: 8/7, 3/5, 0/2, 3/1, 0/0, 8/9; all 22/22 of 56 | the pocket column, row for row; "all off 22/56", "all on 22/56" |
+| Exact lookup: 14, 4, 3, 8, 1, 3; all 29 of 56 | the memory column, row for row; also `gb10-a-L6-seed1b-ref.out`: "teach: thinking off 29/56 pass (0 unclear)" |
+| TensorFold Notes only: all 43 / 48 of 56 | re-judged (`gb10-a-notes/L6-seed1/phases/teach.notes/verdicts-judge2.json`): every cell of the paper's row, all 43/48. The report gives 42/56 and 47/56 (Q03 and Q40) |
+| All lessons in prompt: all 43 / 49 of 56 | re-judged (`gb10-a-cap/L6-seed1/phases/teach.in_context/verdicts-judge2.json`): current values 12/13, all 43/49; two-step 16/19, and/or/not 5/5, yes/no 7/9, negation 1/1 and controls 8/8 as in the report. The report gives all 42/56 and 48/56 |
+| The untaught model passed 46 of 56 | `gb10-a-L6-seed1b.out`: "baseline: thinking off 46/56 pass (1 unclear)" |
+| Thinking on at 1,500 tokens: 13 of 56 answers ran out with no reply; 1 of 56 at 6,144 | `gb10-a-L6-seed1b/summary.json` (1,500) and `gb10-a-cap/L6-seed1/summary.json` (`max_tokens_on` 6144); counted from the answer files, answers with `finish` "length" and an empty reply: 13 (Q13, Q20, Q21, Q23, Q24, Q28, Q29, Q30, Q32, Q33, Q34, Q44, Q48), then 1 (Q24) |
+
+The group rows of 24 two-step questions are the report's 16 `two_step` questions plus its 8 `compound` ones (and, or, not).
+
+**Cost (paper Section 7.5 and Table 1's Living Weights row).** Sources: [runs/perf/LESSON-TIME.md](runs/perf/LESSON-TIME.md) and [runs/perf/CUDA-POCKET.md](runs/perf/CUDA-POCKET.md), with their raw files in [runs/perf/lesson-time-raw/](runs/perf/lesson-time-raw/), [runs/perf/cuda-raw/](runs/perf/cuda-raw/) and [runs/runs/tf-pocket-cuda/](runs/runs/tf-pocket-cuda/).
+
+| Paper | Source |
+| --- | --- |
+| Learning one fact: median 179.5 s over 306 lessons, 117 s at the 10th percentile and 319 s at the 90th ("180 s median" in Table 1) | LESSON-TIME.md, row "Whole lesson": "179.5 (117.0 to 318.5; 93.8 to 571.6)", median (p10 to p90; min to max), over "all 306 lessons"; its summary says "median 180 s" |
+| The shares 44.2%, 26.1%, 14.3%, 10.1% and 6.5% | LESSON-TIME.md, the same table, column "Share" |
+| Saving rewrites 263 MB; the first save 18.5 GB | LESSON-TIME.md ("263 MB", "18.5 GB") |
+| Undrafted decode 102.3 tok/s untaught, 88.2 taught, 88.1 empty; 102.1, 102.1 and 102.4 with the fix ("decode 102 tok/s" in Table 1) | CUDA-POCKET.md: "Drafts off, 64 facts: 88.2 to 102.1 tok/s in the dev CLI (1.158x) ... Empty pocket: 88.1 to 102.4 (1.163x) ... Untaught: unchanged (0.998x and 1.000x)", and "102.3 in section 3.3" for untaught |
+| The pocket cost about 1.6 ms a token, about 0.045 ms after the fix | CUDA-POCKET.md: "of 1.0.8's +1.6 ms a token, about 0.045 ms is left with 64 facts and nothing with the empty pocket" |
+| On 1.0.9 the fix gave 1.17x in the dev CLI and 1.16x on the server | CUDA-POCKET.md: "Undrafted, the fix gives 1.17x in the dev CLI (1.0.8: 1.16x) and 1.16x on the server" |
+| A 4,096-token prompt went from 12.6% to 2.0% slower than untaught (1.0.9) | CUDA-POCKET.md: "4,096-token prompt with 64 facts: 2.0% over untaught after, against 2.8% on 1.0.8; before the fix 12.6% (1.0.8: 10.5%)" |
+
+Section 3.4's "13.8% of decode speed" is (102.3 - 88.2) / 102.3 from these numbers. CUDA-POCKET.md's own figure for the undrafted cost is "13.6% (+1.56 to +1.59 ms a token)", from another instrument.
+
+**Question forms v2 (paper Section 7.6, thinking off).** Each phase's `report.txt` splits the answers by the right answer (v = a value, n = "no", ? = "don't know"):
+
+| Paper | Source |
+| --- | --- |
+| The pocket: 8 of 26 "no" in test set L4 | `gb10-a-v2/L4-seed1-v2/phases/teach/report.txt`: "n 8/26 (1 dk)" |
+| Every lesson in the prompt: 3 of 17 "don't know" in test set L2 | `gb10-a-v2/L2-seed1-v2/phases/teach.in_context/report.txt`: "v 6/6  n 4/5  ? 3/17" |
+| The exact lookup: 17 of 17 | `gb10-a-v2/L2-seed1-v2/phases/teach.replacement_memory/report.txt`: "? 17/17" |
+
+**TensorFold Notes only, on the GPU (paper Section 7.7).** The per-set table's cells, thinking off, are in each phase's `report.txt`: the notes column in `gb10-a-notes/<set>/phases/teach.notes/`, the pocket in `gb10-a-v2/<set>/phases/teach/`, every lesson in the prompt in `gb10-a-v2/<set>/phases/teach.in_context/` (for L6, the pocket in `gb10-a-L6-seed1b/phases/teach/` and the prompt in `gb10-a-cap/L6-seed1/phases/teach.in_context/`). For example L5, notes: "v 37/50 (3 dk)  n 23/23  ? 3/4". Every cell matches, except the L6 values: the reports give 34 of 41 for notes and for the prompt, the re-judged verdicts 35 (Q03). No file states these:
+
+- The prompt-token medians. We counted them as the median of `usage.prompt_tokens` in each phase's `answers.jsonl`: notes 91, 99, 127, 194, 130 and 351.5 for L1 to L6 (the paper says 351), every lesson in the prompt 74, 94, 106, 169, 324 and 375.
+- The totals, which are sums over L1 to L6: "no" 77 of 81 (notes) and 79 (prompt) from the reports; values 148 and 138 of 182 only with the re-judged L6 (the reports give 147 and 137).
+
+L6 as a whole, notes only: 43 / 48 of 56 re-judged; the report and `gb10-a-notes/sets.log.gz` give 42/56 and 47/56. The neg set's "don't know": `gb10-a-notes/neg-seed1-v2/phases/teach.notes/report.txt`, "? 3/13" with thinking off and "? 9/13" with it on.
+
+**Notes plus Living Weights (paper Section 7.7).** Source: [runs/runs/gb10-a-both/](runs/runs/gb10-a-both/), run from 14 October 2026 21:07 UTC to 15 October 00:25 UTC. From `sets.log.gz` (thinking off / on): Living Weights only "teach 22/56 | 22/56" (L6) and "38/77 | 30/77" (L5); notes plus Living Weights "teach.notes_pocket 59/77 | 62/77" (L5) and "39/56 | 46/56" (L6; 39 / 47 re-judged, as in the paper); notes only on L5 63 / 62 (from `gb10-a-notes`). The two-step questions: `gb10-a-both/L6-seed1/reference/report.txt`, "two_step off ... 16/24  13/24" (notes, then notes plus neurons). The "no" questions of L5: "n 21/23" in `gb10-a-both/L5-seed1-v2/phases/teach.notes_pocket/report.txt` against "n 23/23" with notes only.
+
+**Stating a take-back more strongly (paper Section 7.7).** Sources: [runs/runs/gb10-a-tb-explicit/](runs/runs/gb10-a-tb-explicit/) (the clearer label) and [runs/runs/gb10-a-tb-rule/](runs/runs/gb10-a-tb-rule/) (label plus a line), against `gb10-a-notes`. The 175 questions are the sets neg (19), neg2 (23), L5 (77) and L6 (56). Summed from the `teach.notes` lines of each `sets.log.gz`, thinking off / on:
+
+| Arm | Logs | Re-judged | Paper |
+| --- | ---: | ---: | ---: |
+| As first measured (`gb10-a-notes`) | 130 / 141 | 131 / 142 | 131 / 142 |
+| Clearer label (`gb10-a-tb-explicit`) | 136 / 134 | 137 / 137 | 137 / 137 |
+| Label plus a line (`gb10-a-tb-rule`) | 138 / 148 | 139 / 150 | 139 / 150 |
+
+The "don't know" answers after a take-back, thinking off, from each `teach.notes/report.txt`: neg 3/13 and neg2 9/16 (notes), 9/13 and 12/16 (clearer label), 11/13 and 14/16 (label plus a line), as in the paper. The L6 values lost with the added line, the paper's 35 to 29 of 41, are 34 to 28 in the reports ("v 28/41 (6 dk)" in `gb10-a-tb-rule/L6-seed1/phases/teach.notes/report.txt`) and 35 to 29 re-judged.
+
+**Repeating three lessons on 1.0.9 (paper Sections 2 and 9).** LESSON-TIME.md: "On the same three facts the GPU trainer parts match within 1 s (output fitting 47.2 against 46.4 s, 29.2 against 29.2, 37.0 against 36.7; MEASURED); the CPU fit differs by up to 1.6 s." So the paper's "each part of a lesson took the same time ... to within 1 s" holds for the GPU parts; the CPU fit differed by up to 1.6 s.
+
 ## Not yet backed by a file here
 
 The paper states the numbers below, but no file in this repository holds them yet. "Candidate" names where the number appears elsewhere, found by searching our files on 19 October 2026. A candidate is where to look, not a check that it backs the number.
@@ -138,23 +212,22 @@ The paper states the numbers below, but no file in this repository holds them ye
 - "3.9 to 4.8 ms median per write in the engine's write benchmark, plus an index merge of about 3.5 s every ~1,000 writes at 1,000,000 notes". The same `NOTES-COST.md` says these come from a benchmark run on 17 October whose raw files are only on a local drive, made with a binary that merges on a separate thread. It reports that on the build this repository pins, a write over HTTP takes 8.9 ms at 1,000 notes and 71.1 ms at 1,000,000 (median), and the merging write 1.9 to 7.6 s at 1,000,000.
 - "a fact is a median 7 tokens": no source found.
 - "lookup 0.03 ms at 1,000 notes to 5 ms at 1,000,000 notes in the engine" (also Sections 4.2 and 7.5: 0.032 ms, 0.72 ms at 100,000, 4.96 ms): `NOTES-COST.md` names the same local benchmark as their source. On the pinned build it measured 0.025 ms and 2.96 ms in process, one thread. We found no source for 0.72 ms.
-- Living Weights: "180 s median on a GB10", "decode 102 tok/s", "35 of 40 still right after 64 lessons". Candidates: `perf/LESSON-TIME.md` and `perf/CUDA-POCKET.md` on the `run-files` branch of the working repository (not public).
-- Everything in the prompt: "207 tokens for 29 facts, 436 for 64" and "L6: 43 of 56 right": no source file here; the L6 reference runs are on the `run-files` branch.
+- Everything in the prompt: "207 tokens for 29 facts, 436 for 64": no source found. The run files give the L6 prompt with all 29 lessons as 372 to 384 tokens a question (median 375, our count of `usage.prompt_tokens` in `gb10-a-cap/L6-seed1/phases/teach.in_context/answers.jsonl`), and there is no every-lesson-in-prompt run of L7. ("L6: 43 of 56 right" is the re-judged count under [The raw run files](#the-raw-run-files-paper-sections-73-to-77).)
 
-**Section 3.** Box 1's values for the neuron of "I like blue." (z = +1.54, a = 2.36; z = -1.22 for "Tell me a joke."), and Section 3.4's "13.8% of decode speed": no source found. The 13.8% is the drop from 102.3 to 88.2 tok/s listed under Section 7.5 below.
+**Section 3.** Box 1's values for the neuron of "I like blue." (z = +1.54, a = 2.36; z = -1.22 for "Tell me a joke."): no source found. (Section 3.4's "13.8% of decode speed" follows from the decode speeds under [The raw run files](#the-raw-run-files-paper-sections-73-to-77).)
 
 **Section 4.2.** On 1,568 test questions, the server built the same notes blocks as the Python version, byte for byte: candidate `NOTES-IN-ENGINE.md` in our public TensorFold fork at the pinned commit, linked from [provenance.md](provenance.md).
 
 **Section 4.3 and Figure 6.** "468 tokens median ... against 418 without the hop", "19 of 56 blocks ... differ" and "8 of 56" replies paused: candidate `NOTES-DECODE.md` in the same public fork. The Figure 6 counts (23, 28 and 32 of 45; 29, 29 and 28 of 56; 26, 29 and 29 at 1,000 notes; 3, 5 and 5 of 16), the 28 hand-built two-step questions (1 to 27, 0 to 28), "about 0.2 to 0.3 s per added note" and the twenty unrelated questions: no source found. `NOTES-COST.md` says the Figure 6 runs used stores on a local drive.
 
-**Section 7.3** (test set L7: 40 learned, 20 missed, 4 replaced; 35 and 29 of 64), **Section 7.4** (the L6 table; "only 1 of the 16 two-step questions"), **Section 7.6** (8 of 26; 3 of 17 against 17 of 17) and **Section 7.7** (the per-set table; 148 of 182 and 77 of 81 against 138 and 79; 39 against 43 of 56 with notes plus neurons): candidates are the run folders on the `run-files` branch of the working repository (not public), which hold machine names and home paths.
+**Section 7.4.** "Of the 16 two-step questions, only 1 had both of its facts answered right when asked directly at the same point": the file says something else. The two-step section of the pocket's teach report (`gb10-a-L6-seed1b/phases/teach/report.txt`, thinking off) counts 10 chains of two steps, with "given steps right 1/2 (50%)": 2 chains had both steps answered right, and the model answered 1 of those 2 right as a chain (0 of 2 with thinking on). The rest of Sections 7.3, 7.4, 7.6 and 7.7 that this list named is backed under [The raw run files](#the-raw-run-files-paper-sections-73-to-77), several L6 numbers only by the re-judged verdicts.
 
-**Section 7.5.** 179.5 s over 306 lessons; 102.3 to 88.2 tok/s; 102.1 tok/s with the fix; 2.0% against 12.6% on a 4,096-token prompt; the RTX PRO 6000 check within 0.3% (philip-pentatonic, TensorFold issue #678): candidates `perf/LESSON-TIME.md` and `perf/CUDA-POCKET.md` on the `run-files` branch.
+**Section 7.5.** The RTX PRO 6000 check within 0.3% (philip-pentatonic, TensorFold issue #678) is his measurement with 1.0.10, not ours, and no file here holds it. [runs/perf/CUDA-POCKET.md](runs/perf/CUDA-POCKET.md) quotes only his earlier finding on 1.0.7 ("about 31% slower (290 to 199 tok/s)"). The other Section 7.5 numbers this list named are backed above.
 
 **Section 7.7, after the measurements.** Names and "I", "my", "me" raising right answers from 28 to 34 of 56; the new block's 62 of 86 against 43; German 11 to 24 of 45 and Finnish 16 to 20: no source file found.
 
 **Section 7.8.** The brother's amber eyes spreading to other answers, the earlier shorter runs, and the learner bug and its first fix: no source file here.
 
-**Appendix B.** "Raw run files (every answer, its grade, and the server and run logs)": only the two receipts in [receipts/](receipts/) are here. The other run files are on the `run-files` branch of the working repository (not public).
+**Appendix B.** "Raw run files (every answer, its grade, and the server and run logs)": the GB10 run files are in [runs/](runs/), and the two later receipts in [receipts/](receipts/). The Mac's run records are not here.
 
-**Sections 2 and 9.** "32 of 32 unrelated prompts on Metal and 28 of 32 on CUDA gave exactly the same answers" after promotion, and "when we repeated three lessons on 1.0.9, each part of a lesson took the same time as on 1.0.8 to within 1 s": no source here. Candidate for the second: `perf/LESSON-TIME.md` on the `run-files` branch.
+**Sections 2 and 9.** "32 of 32 unrelated prompts on Metal and 28 of 32 on CUDA gave exactly the same answers" after promotion: no source here. (The repeat of three lessons on 1.0.9 is backed above, with a difference in the CPU fit.)
