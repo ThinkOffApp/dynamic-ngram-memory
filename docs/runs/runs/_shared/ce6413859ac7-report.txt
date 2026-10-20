@@ -1,0 +1,97 @@
+judged 154 answers against L5-seed1-v2
+
+== teach: store L1 L2 L3 L4 L5 L6 L7 L8 L9 L10 L11 L12 L13 L14 L15 L16 L17
+   property               thinking off        thinking on
+   recall                          8/8                8/8
+   temporal                       0/18               0/18
+   either_or                       4/4                4/4
+   yes_no                        30/30              30/30
+   reverse                       12/12              12/12
+   reverse_fwd                   12/12              12/12
+   controls                        2/5                2/5
+   yes/no groups    0/8 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                             thinking on
+   all                v 33/50 (17 dk)  n 19/23 (4 dk)  ? 4/4   v 33/50 (17 dk)  n 19/23 (4 dk)  ? 4/4
+   recall             v 8/8                                    v 8/8
+   temporal           v 0/14 (14 dk)  n 0/4 (4 dk)             v 0/14 (14 dk)  n 0/4 (4 dk)
+   either or          v 4/4                                    v 4/4
+   yes no             v 12/12  n 18/18                         v 12/12  n 18/18
+   reverse            v 9/9  n 1/1  ? 2/2                      v 9/9  n 1/1  ? 2/2
+   reverse fwd        v 9/9  n 1/1  ? 2/2                      v 9/9  n 1/1  ? 2/2
+   controls           v 0/3 (3 dk)  ? 2/2                      v 0/3 (3 dk)  ? 2/2
+   should change      v 33/47 (14 dk)  n 19/23 (4 dk)          v 33/47 (14 dk)  n 19/23 (4 dk)
+   should stay        v 0/3 (3 dk)  ? 4/4                      v 0/3 (3 dk)  ? 4/4
+   abstention         P 4/25 R 4/4                             P 4/25 R 4/4                            precision and recall of "don't know"
+   reliability        4/4                                      4/4
+   generality         42/60                                    42/60
+   locality           4/7                                      4/7
+   portability        6/6                                      6/6
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value              76/76              76/76
+   same answer      41/41 (41 v, 0 dk) 41/41 (41 v, 0 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok               16/16              16/16   questions asked in several wordings, every wording right
+   forms v2                               thinking off                  thinking on
+   wrong yes                                      0/21                         0/21
+     yes/no                                       0/10                         0/10
+     true/false                                    0/4                          0/4
+     recall+answer                                 0/4                          0/4
+     reverse yes/no                                0/3                          0/3
+     neighbour's value                             0/7                          0/7
+   coherence breaks                        0 of 4 keys                  0 of 4 keys
+   pass, by form
+     true/false                                    8/8                          8/8
+     fill-in                                       4/4                          4/4
+     recall+answer                                 8/8                          8/8
+     reverse bare                                  3/3                          3/3
+     reverse listed                                3/3                          3/3
+     reverse yes/no                                6/6                          6/6
+   reverse, forward ok    bare 3/3, listed 3/3, yes/no 6/6 bare 3/3, listed 3/3, yes/no 6/6
+   reversal curse                               0 of 3                       0 of 3
+   reverse as a set                 6/6 named, 0 extra           6/6 named, 0 extra
+   FAIL    Q04 plain "What did my favourite colour use to be?" expected black; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q05 plain "Has my favourite colour always been the same?" expected no; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q06 plain "Has my favourite colour ever changed?" expected yes; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q07 plain "What was my favourite colour before 16 December 2025?" expected red; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q08 plain "What was my favourite colour on 28 December 2025?" expected black; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q12 plain "What colour did my dog's eyes use to be?" expected hazel; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q13 plain "Have my dog's eyes always been the same colour?" expected no; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q14 plain "Have my dog's eyes ever changed colour?" expected yes; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q15 plain "Before 22 July 2025, what colour were my dog's eyes?" expected brown; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q16 plain "On 24 July 2025, what colour were my dog's eyes?" expected hazel; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q20 plain "What did my car use to be called?" expected Milo; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q21 plain "Has my car always had the same name?" expected no; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q22 plain "Has my car ever had a different name?" expected yes; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q26 plain "What was my dog called before the name changed?" expected Milo; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q27 plain "Has my dog always had the same name?" expected no; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q28 plain "Has my dog ever had a different name?" expected yes; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q29 plain "What was my dog called before 23 December 2025?" expected Elsa; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q30 plain "What was my dog called on 12 January 2026?" expected Elsa; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q34 plain "What colour is the sky on a clear day?" expected blue (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q35 plain "What do you call a young cat?" expected kitten (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q36 plain "What is the capital of France?" expected paris (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q04 think "What did my favourite colour use to be?" expected black; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q05 think "Has my favourite colour always been the same?" expected no; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q06 think "Has my favourite colour ever changed?" expected yes; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q07 think "What was my favourite colour before 16 December 2025?" expected red; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q08 think "What was my favourite colour on 28 December 2025?" expected black; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q12 think "What colour did my dog's eyes use to be?" expected hazel; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q13 think "Have my dog's eyes always been the same colour?" expected no; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q14 think "Have my dog's eyes ever changed colour?" expected yes; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q15 think "Before 22 July 2025, what colour were my dog's eyes?" expected brown; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q16 think "On 24 July 2025, what colour were my dog's eyes?" expected hazel; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q20 think "What did my car use to be called?" expected Milo; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q21 think "Has my car always had the same name?" expected no; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q22 think "Has my car ever had a different name?" expected yes; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q26 think "What was my dog called before the name changed?" expected Milo; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q27 think "Has my dog always had the same name?" expected no; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q28 think "Has my dog ever had a different name?" expected yes; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q29 think "What was my dog called before 23 December 2025?" expected Elsa; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q30 think "What was my dog called on 12 January 2026?" expected Elsa; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q34 think "What colour is the sky on a clear day?" expected blue (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q35 think "What do you call a young cat?" expected kitten (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q36 think "What is the capital of France?" expected paris (general knowledge); got gk [general knowledge changed]  << I don't know.
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 4/25, recall 4/4;  v 33/50 (17 dk)  n 19/23 (4 dk)  ? 4/4
+   thinking on   precision 4/25, recall 4/4;  v 33/50 (17 dk)  n 19/23 (4 dk)  ? 4/4

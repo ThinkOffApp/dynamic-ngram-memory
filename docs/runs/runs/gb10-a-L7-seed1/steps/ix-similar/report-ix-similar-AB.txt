@@ -1,0 +1,32 @@
+judged 20 answers against L7-seed1
+
+== ix-similar-AB: store L51 L25
+   property               thinking off        thinking on
+   recall                          1/2                1/2
+   yes_no                          0/2                0/2
+   controls                        6/6                6/6
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                        thinking on
+   all                v 4/5 (1 dk)  n 0/2 (1 dk)  ? 3/3   v 4/5 (1 dk)  n 0/2 (1 dk)  ? 3/3
+   recall             v 1/2 (1 dk)                        v 1/2 (1 dk)
+   yes no             n 0/2 (1 dk)                        n 0/2 (1 dk)
+   controls           v 3/3  ? 3/3                        v 3/3  ? 3/3
+   should stay        v 4/5 (1 dk)  n 0/2 (1 dk)  ? 3/3   v 4/5 (1 dk)  n 0/2 (1 dk)  ? 3/3
+   abstention         P 3/5 R 3/3                         P 3/5 R 3/3                        precision and recall of "don't know"
+   reliability        1/2                                 1/2
+   generality         0/2                                 0/2
+   locality           6/6                                 6/6
+   neighbourhood    a value taught about another entity: Q50 Luna (my colleague) plain, Q50 Luna (my colleague) think
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value                0/1                0/1   not: Q50~Q49 plain, Q50~Q49 think
+     plain: dk                     1/1                1/1
+   FAIL    Q101 plain "What is my colleague called?" expected Luna; got doesn't know [does not know a taught value]  << I don't know your name, so I can't tell you your colleague's name. Could you please tell m
+   FAIL    Q102 plain "Is my colleague called Milo?" expected no; got doesn't know [wrong yes/no]  << I don't have access to your personal information or your workplace directory, so I can't t
+   FAIL    Q50 plain "Is my friend called Luna?" expected no; got yes [wrong yes/no]  << Yes, your friend's name is Luna.
+   FAIL    Q101 think "What is my colleague called?" expected Luna; got doesn't know [does not know a taught value]  << I don't have access to your personal life, contacts, or workplace, so I can't know the nam
+   FAIL    Q102 think "Is my colleague called Milo?" expected no; got doesn't know [wrong yes/no]  << I don't have access to your personal contacts, company directory, or workplace records, so
+   FAIL    Q50 think "Is my friend called Luna?" expected no; got yes [wrong yes/no]  << Yes, your friend is named Luna.
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 3/5, recall 3/3;  v 4/5 (1 dk)  n 0/2 (1 dk)  ? 3/3
+   thinking on   precision 3/5, recall 3/3;  v 4/5 (1 dk)  n 0/2 (1 dk)  ? 3/3

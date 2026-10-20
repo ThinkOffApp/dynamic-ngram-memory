@@ -1,0 +1,4746 @@
+{
+ "set": "L4-seed1-v2",
+ "results": [
+  {
+   "phase": "del-A",
+   "qid": "Q01",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "What is my dog's name?",
+   "expected": "Bruno",
+   "got": "Bruno",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "reliability",
+   "change": "should_stay",
+   "excerpt": "Your dog's name is Bruno."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q02",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "What is my cat called?",
+   "expected": "Nora",
+   "got": "Nora",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "reliability",
+   "change": "should_stay",
+   "excerpt": "Your cat is called Nora."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q03",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is my dog's name Nora?",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, you mentioned earlier that your dog's name is Nora.",
+   "neighbour": {
+    "values": [
+     "Nora"
+    ],
+    "from": [
+     "my cat"
+    ]
+   }
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q04",
+   "type": "EITHER_OR",
+   "thinking": false,
+   "question": "Is my cat called Bruno or Nora?",
+   "expected": "Nora",
+   "got": "Bruno",
+   "verdict": "fail",
+   "why": "wrong choice",
+   "buckets": [
+    "either_or",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Your cat is called Bruno .",
+   "neighbour": {
+    "values": [
+     "Bruno"
+    ],
+    "from": [
+     "my dog"
+    ]
+   }
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q05",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "What is my dog's eye colour?",
+   "expected": "grey",
+   "got": "grey",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "reliability",
+   "change": "should_stay",
+   "excerpt": "Your dog's eyes are grey."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q06",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "Tell me the colour of my cat's eyes.",
+   "expected": "hazel",
+   "got": "hazel",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "reliability",
+   "change": "should_stay",
+   "excerpt": "Your cat's eyes are hazel ."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q07",
+   "type": "WHO_HAS",
+   "thinking": false,
+   "question": "Who has grey eyes?",
+   "expected": "my dog",
+   "got": "nobody of yours (a general answer)",
+   "verdict": "fail",
+   "why": "a general answer: names none of yours",
+   "buckets": [
+    "reverse",
+    "delete_kept",
+    "reverse_fwd"
+   ],
+   "class": "value",
+   "gave": "dont_know",
+   "tag": "portability",
+   "change": "should_stay",
+   "excerpt": "Grey eyes are relatively rare, occurring in less than 1% of the global population. They ar",
+   "forward": true
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q08",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "What food do I like?",
+   "expected": "apples, olives, pears",
+   "got": "doesn't know",
+   "verdict": "fail",
+   "why": "does not know a taught value",
+   "buckets": [
+    "recall",
+    "delete_affected"
+   ],
+   "class": "value",
+   "gave": "dont_know",
+   "tag": "reliability",
+   "change": "should_change",
+   "excerpt": "I don't know! I don't have access to your personal preferences or memories. However, I can"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q09",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "Which foods do I like?",
+   "expected": "apples, olives, pears",
+   "got": "doesn't know",
+   "verdict": "fail",
+   "why": "does not know a taught value",
+   "buckets": [
+    "recall",
+    "delete_affected"
+   ],
+   "class": "value",
+   "gave": "dont_know",
+   "tag": "generality",
+   "change": "should_change",
+   "excerpt": "I don't know your personal preferences! I don't have access to your personal data or taste"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q10",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is it true that I like pears?",
+   "expected": "yes",
+   "got": "yes",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_affected"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, it is true! You really like pears."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q11",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Do I like olives?",
+   "expected": "yes",
+   "got": "yes",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_affected"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_change",
+   "excerpt": "Based on your previous message, you really like olives! You mentioned that you \"really lik"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q12",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is it true that I like chocolate?",
+   "expected": "doesn't know",
+   "got": "no",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_affected"
+   ],
+   "class": "dont_know",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "No, you said earlier that you prefer strawberries."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q13",
+   "type": "WHO_HAS",
+   "thinking": false,
+   "question": "Who likes olives?",
+   "expected": "my dog, me",
+   "got": "nobody of yours (a general answer)",
+   "verdict": "fail",
+   "why": "a general answer: names none of yours",
+   "buckets": [
+    "reverse",
+    "delete_affected",
+    "reverse_fwd"
+   ],
+   "class": "value",
+   "gave": "dont_know",
+   "tag": "portability",
+   "change": "should_change",
+   "excerpt": "Olive lovers are a passionate bunch! Here are a few famous people who have publicly declar",
+   "forward": true
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q14",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "Which colour do I like best?",
+   "expected": "doesn't know (but not blue)",
+   "got": "blue",
+   "verdict": "fail",
+   "why": "value it should not give",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "class": "dont_know",
+   "gave": "value",
+   "tag": "reliability",
+   "change": "should_stay",
+   "excerpt": "Your favourite colour is blue."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q15",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is my favourite colour blue?",
+   "expected": "no",
+   "got": "no",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "No, you told me your favourite colour is green."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q16",
+   "type": "PREVIOUS",
+   "thinking": false,
+   "question": "What was my favourite colour before it changed?",
+   "expected": "blue",
+   "got": "doesn't know",
+   "verdict": "fail",
+   "why": "does not know a taught value",
+   "buckets": [
+    "temporal",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "dont_know",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "I don't have access to your personal history or memories, so I can't know what your favour"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q17",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "What is my sister's favourite colour?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "I don't know! I don't have access to your personal information or your sister's preference"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q18",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "What colour are my eyes?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "I don't have access to your physical appearance or personal information, so I can't determ"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q19",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "What is my rabbit's name?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "I don't know! I am an AI, so I don't have access to your personal information or pets. If "
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q20",
+   "type": "GK",
+   "thinking": false,
+   "question": "What colour is snow?",
+   "expected": "white (general knowledge)",
+   "got": "gk",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "Snow is white . However, it can also appear in other colors depending on the environment: "
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q21",
+   "type": "GK",
+   "thinking": false,
+   "question": "What do you call a young cat?",
+   "expected": "kitten (general knowledge)",
+   "got": "gk",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "A young cat is called a kitten ."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q22",
+   "type": "GK",
+   "thinking": false,
+   "question": "How many legs does a spider have?",
+   "expected": "eight / 8 (general knowledge)",
+   "got": "gk",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "A spider has 8 legs . This is the defining characteristic of arachnids, the class of anima"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q23",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is my dog's name Ana?",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, you mentioned earlier that your dog's name is Ana."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q24",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is my dog's name Pablo?",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, you mentioned earlier that your dog's name is Pablo ."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q25",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "True or false: my dog is called Nora.",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, that's true.",
+   "neighbour": {
+    "values": [
+     "Nora"
+    ],
+    "from": [
+     "my cat"
+    ]
+   }
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q26",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "True or false: my dog is called Bruno.",
+   "expected": "yes",
+   "got": "yes",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, that is true."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q27",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "Finish this sentence: \"My dog's name is ...\"",
+   "expected": "Bruno",
+   "got": "Bruno",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "My dog's name is Bruno."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q28",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "First say what my dog is called, then answer yes or no: is it called Nora?",
+   "expected": "no",
+   "got": "no (recalled: Bruno)",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "My dog's name is Bruno. No, it is not called Nora."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q29",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "First say what my dog is called, then answer yes or no: is it called Bruno?",
+   "expected": "yes",
+   "got": "yes (recalled: Bruno)",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "My dog's name is Bruno. Yes, it is called Bruno."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q30",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Are my cat's eyes grey?",
+   "expected": "no",
+   "got": "no",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "No, your cat's eyes are hazel . I based this on your description of them as \"amber/gold.\" "
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q31",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Are my cat's eyes amber?",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, your cat's eyes are amber . You mentioned this in your original message, and amber is"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q32",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is it true that my cat's eyes are blue?",
+   "expected": "no",
+   "got": "no",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "No, your cat's eyes are hazel . You mentioned earlier that you wanted a home for a cat wit"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q33",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "True or false: my cat's eyes are grey.",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "True. Your cat's eyes are described as grey.",
+   "neighbour": {
+    "values": [
+     "grey"
+    ],
+    "from": [
+     "my dog"
+    ]
+   }
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q34",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "True or false: my cat's eyes are hazel.",
+   "expected": "yes",
+   "got": "yes",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "True. You mentioned this in your original message."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q35",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "Finish this sentence: \"My cat's eyes are ...\"",
+   "expected": "hazel",
+   "got": "hazel",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "My cat's eyes are hazel ."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q36",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "First say what colour my cat's eyes are, then answer yes or no: are they grey?",
+   "expected": "no",
+   "got": "no (recalled: hazel)",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Your cat's eyes are hazel . No, they are not grey."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q37",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "First say what colour my cat's eyes are, then answer yes or no: are they hazel?",
+   "expected": "yes",
+   "got": "yes (recalled: hazel)",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Your cat's eyes are hazel . Yes, they are hazel."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q38",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is my favourite colour orange?",
+   "expected": "doesn't know",
+   "got": "no",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "dont_know",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "No, you mentioned that your favourite colour is red."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q39",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is green my favourite colour?",
+   "expected": "doesn't know",
+   "got": "no",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "dont_know",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "No, you told me your favourite colour is blue."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q40",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is white my favourite colour?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "No, I am a language model developed by researchers from NVIDIA."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q41",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "True or false: my favourite colour is orange.",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "I don't know! I don't know your favourite colour."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q42",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "True or false: my favourite colour is blue.",
+   "expected": "no",
+   "got": "doesn't know",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "dont_know",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "I don't know! I don't have personal preferences or a favorite color. But if you like blue,"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q43",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "Finish this sentence: \"My favourite colour is ...\"",
+   "expected": "doesn't know (but not blue)",
+   "got": "blue",
+   "verdict": "fail",
+   "why": "value it should not give",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "class": "dont_know",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "My favourite colour is blue."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q44",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "First say what my favourite colour is, then answer yes or no: is it orange?",
+   "expected": "doesn't know",
+   "got": "no (recalled: blue)",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "dont_know",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Your favourite colour is blue. No, it is not orange."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q45",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "First say what my favourite colour is, then answer yes or no: is it blue?",
+   "expected": "no",
+   "got": "yes (recalled: blue)",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Your favourite colour is blue. Yes."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q46",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is my cat's name Bruno?",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, your cat's name is Bruno.",
+   "neighbour": {
+    "values": [
+     "Bruno"
+    ],
+    "from": [
+     "my dog"
+    ]
+   }
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q47",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is my cat's name Ana?",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, your cat's name is Ana."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q48",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is my cat called Pablo?",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, your cat is called Pablo."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q49",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "True or false: my cat is called Bruno.",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, that is true. You mentioned earlier that your cat is called Bruno.",
+   "neighbour": {
+    "values": [
+     "Bruno"
+    ],
+    "from": [
+     "my dog"
+    ]
+   }
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q50",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "True or false: my cat is called Nora.",
+   "expected": "yes",
+   "got": "yes",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, that is true. You mentioned earlier that your cat is called Nora."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q51",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "Finish this sentence: \"My cat's name is ...\"",
+   "expected": "Nora",
+   "got": "Nora",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "My cat's name is Nora."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q52",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "First say what my cat is called, then answer yes or no: is it called Bruno?",
+   "expected": "no",
+   "got": "no (recalled: Nora)",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Your cat is called Nora. No, it is not called Bruno."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q53",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "First say what my cat is called, then answer yes or no: is it called Nora?",
+   "expected": "yes",
+   "got": "yes (recalled: Nora)",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Your cat is called Nora. Yes."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q54",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Are my dog's eyes hazel?",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, you mentioned earlier that your dog's eyes are hazel.",
+   "neighbour": {
+    "values": [
+     "hazel"
+    ],
+    "from": [
+     "my cat"
+    ]
+   }
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q55",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is it true that my dog's eyes are blue?",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, that is correct. You mentioned earlier that your dog's eyes are blue."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q56",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is it true that my dog's eyes are brown?",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, that is correct. You mentioned earlier that your dog's eyes are brown."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q57",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "True or false: my dog's eyes are hazel.",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "True. You previously mentioned that your dog's eyes are hazel.",
+   "neighbour": {
+    "values": [
+     "hazel"
+    ],
+    "from": [
+     "my cat"
+    ]
+   }
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q58",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "True or false: my dog's eyes are grey.",
+   "expected": "yes",
+   "got": "yes",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "True. You mentioned earlier that your dog's eyes are grey."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q59",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "Finish this sentence: \"My dog's eyes are ...\"",
+   "expected": "grey",
+   "got": "grey",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "My dog's eyes are grey."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q60",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "First say what colour my dog's eyes are, then answer yes or no: are they hazel?",
+   "expected": "no",
+   "got": "no (recalled: grey)",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Your dog's eyes are grey. No, they are not hazel."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q61",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "First say what colour my dog's eyes are, then answer yes or no: are they grey?",
+   "expected": "yes",
+   "got": "no (recalled: grey)",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Your dog's eyes are grey. No, they are not grey."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q62",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Do I like apples?",
+   "expected": "yes",
+   "got": "yes",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_affected"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, you like apples. You mentioned earlier that you really like them!"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q63",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "What food does my dog like?",
+   "expected": "olives",
+   "got": "olives",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "reliability",
+   "change": "should_stay",
+   "excerpt": "Based on what you told me earlier, your dog likes olives ."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q64",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is it true that my dog likes olives?",
+   "expected": "yes",
+   "got": "yes",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, it is true! You mentioned earlier that your dog likes olives."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q65",
+   "type": "WHO_HAS",
+   "thinking": false,
+   "question": "Of me, my dog and my cat, who has grey eyes?",
+   "expected": "my dog",
+   "got": "my cat",
+   "verdict": "fail",
+   "why": "wrong entities",
+   "buckets": [
+    "reverse",
+    "delete_kept",
+    "reverse_fwd"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "portability",
+   "change": "should_stay",
+   "excerpt": "Based on the information you provided, your cat has grey eyes.",
+   "forward": true
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q66",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is it my dog who has grey eyes?",
+   "expected": "yes",
+   "got": "yes",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "reverse",
+    "delete_kept",
+    "reverse_fwd"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, that's correct! You mentioned earlier that your dog has grey eyes.",
+   "forward": true
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q67",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is it my cat who has grey eyes?",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "reverse",
+    "delete_kept",
+    "reverse_fwd"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, your cat has grey eyes.",
+   "neighbour": {
+    "values": [
+     "grey"
+    ],
+    "from": [
+     "my dog"
+    ]
+   },
+   "forward": true
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q68",
+   "type": "WHO_HAS",
+   "thinking": false,
+   "question": "Of me, my sister and my dog, who likes olives?",
+   "expected": "my dog, me",
+   "got": "my sister, me",
+   "verdict": "fail",
+   "why": "wrong entities",
+   "buckets": [
+    "reverse",
+    "delete_affected",
+    "reverse_fwd"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "portability",
+   "change": "should_change",
+   "excerpt": "Based on the information you provided, your sister likes olives. Here is the breakdown: 1.",
+   "forward": true
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q69",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is it my dog who likes olives?",
+   "expected": "yes",
+   "got": "yes",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "reverse",
+    "delete_kept",
+    "reverse_fwd"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, it is! You mentioned earlier that your dog likes olives.",
+   "forward": true
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q70",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is it my sister who likes olives?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "reverse",
+    "delete_kept",
+    "reverse_fwd"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "I don't have any information about your sister or her food preferences. I can't know perso",
+   "forward": true
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q71",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "What food does my sister like?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "I don't have access to your personal information or family details, so I don't know what y"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q72",
+   "type": "WHO_HAS",
+   "thinking": false,
+   "question": "Who is called Bruno?",
+   "expected": "my dog",
+   "got": "me",
+   "verdict": "fail",
+   "why": "wrong entities",
+   "buckets": [
+    "reverse",
+    "delete_kept",
+    "reverse_fwd"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "portability",
+   "change": "should_stay",
+   "excerpt": "\"Bruno\" can refer to several different people, places, or characters depending on the cont",
+   "forward": true
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q73",
+   "type": "WHO_HAS",
+   "thinking": false,
+   "question": "Of my dog, my cat and my sister, who is called Bruno?",
+   "expected": "my dog",
+   "got": "my dog",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "reverse",
+    "delete_kept",
+    "reverse_fwd"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "portability",
+   "change": "should_stay",
+   "excerpt": "Your dog is called Bruno.",
+   "forward": true
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q74",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is it my dog who is called Bruno?",
+   "expected": "yes",
+   "got": "yes",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "reverse",
+    "delete_kept",
+    "reverse_fwd"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, that is correct. You mentioned earlier that your dog's name is Bruno.",
+   "forward": true
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q75",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is it my cat who is called Bruno?",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "reverse",
+    "delete_kept",
+    "reverse_fwd"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, your cat is named Bruno.",
+   "neighbour": {
+    "values": [
+     "Bruno"
+    ],
+    "from": [
+     "my dog"
+    ]
+   },
+   "forward": true
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q01",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "What is my dog's name?",
+   "expected": "Bruno",
+   "got": "Bruno",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "reliability",
+   "change": "should_stay",
+   "excerpt": "Your dog's name is Bruno."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q02",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "What is my cat called?",
+   "expected": "Nora",
+   "got": "Nora",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "reliability",
+   "change": "should_stay",
+   "excerpt": "Your cat is called Nora."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q03",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is my dog's name Nora?",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, that's correct! Your dog's name is Nora.",
+   "neighbour": {
+    "values": [
+     "Nora"
+    ],
+    "from": [
+     "my cat"
+    ]
+   }
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q04",
+   "type": "EITHER_OR",
+   "thinking": true,
+   "question": "Is my cat called Bruno or Nora?",
+   "expected": "Nora",
+   "got": "Bruno",
+   "verdict": "fail",
+   "why": "wrong choice",
+   "buckets": [
+    "either_or",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Your cat is called Bruno . You mentioned that earlier, and I remember it!",
+   "neighbour": {
+    "values": [
+     "Bruno"
+    ],
+    "from": [
+     "my dog"
+    ]
+   }
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q05",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "What is my dog's eye colour?",
+   "expected": "grey",
+   "got": "grey",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "reliability",
+   "change": "should_stay",
+   "excerpt": "Your dog's eyes are grey."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q06",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "Tell me the colour of my cat's eyes.",
+   "expected": "hazel",
+   "got": "hazel",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "reliability",
+   "change": "should_stay",
+   "excerpt": "Hazel."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q07",
+   "type": "WHO_HAS",
+   "thinking": true,
+   "question": "Who has grey eyes?",
+   "expected": "my dog",
+   "got": "nobody of yours (a general answer)",
+   "verdict": "fail",
+   "why": "a general answer: names none of yours",
+   "buckets": [
+    "reverse",
+    "delete_kept",
+    "reverse_fwd"
+   ],
+   "class": "value",
+   "gave": "dont_know",
+   "tag": "portability",
+   "change": "should_stay",
+   "excerpt": "Grey eyes are indeed rare, estimated to occur in about 1% of the population. Because eye c",
+   "forward": true
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q08",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "What food do I like?",
+   "expected": "apples, olives, pears",
+   "got": "doesn't know",
+   "verdict": "fail",
+   "why": "does not know a taught value",
+   "buckets": [
+    "recall",
+    "delete_affected"
+   ],
+   "class": "value",
+   "gave": "dont_know",
+   "tag": "reliability",
+   "change": "should_change",
+   "excerpt": "I don't know your personal food preferences, since I'm an AI, I don't eat! But I'd love to"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q09",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "Which foods do I like?",
+   "expected": "apples, olives, pears",
+   "got": "doesn't know",
+   "verdict": "fail",
+   "why": "does not know a taught value",
+   "buckets": [
+    "recall",
+    "delete_affected"
+   ],
+   "class": "value",
+   "gave": "dont_know",
+   "tag": "generality",
+   "change": "should_change",
+   "excerpt": "I don't actually know your personal food preferences! I'm an AI and don't have access to y"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q10",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is it true that I like pears?",
+   "expected": "yes",
+   "got": "yes",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_affected"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, it's true! You mentioned earlier that you really like pears, and that still stands. \ud83c\udf50"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q11",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Do I like olives?",
+   "expected": "yes",
+   "got": "doesn't know",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_affected"
+   ],
+   "class": "value",
+   "gave": "dont_know",
+   "tag": "generality",
+   "change": "should_change",
+   "excerpt": "You mentioned you really like apples, but I don't have any information about whether you l"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q12",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is it true that I like chocolate?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_affected"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "I don't have any information about whether you like chocolate. You mentioned you really li"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q13",
+   "type": "WHO_HAS",
+   "thinking": true,
+   "question": "Who likes olives?",
+   "expected": "my dog, me",
+   "got": "nobody of yours (a general answer)",
+   "verdict": "fail",
+   "why": "a general answer: names none of yours",
+   "buckets": [
+    "reverse",
+    "delete_affected"
+   ],
+   "class": "value",
+   "gave": "dont_know",
+   "tag": "portability",
+   "change": "should_change",
+   "excerpt": "Olives are enjoyed by many, especially in Mediterranean cultures where they're a daily sta",
+   "forward": false
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q14",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "Which colour do I like best?",
+   "expected": "doesn't know (but not blue)",
+   "got": "blue",
+   "verdict": "fail",
+   "why": "value it should not give",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "class": "dont_know",
+   "gave": "value",
+   "tag": "reliability",
+   "change": "should_stay",
+   "excerpt": "Your favourite colour is blue!"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q15",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is my favourite colour blue?",
+   "expected": "no",
+   "got": "doesn't know",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "dont_know",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "I don't know what your favorite color is yet! If you'd like to share it, I'd love to hear."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q16",
+   "type": "PREVIOUS",
+   "thinking": true,
+   "question": "What was my favourite colour before it changed?",
+   "expected": "blue",
+   "got": "doesn't know",
+   "verdict": "fail",
+   "why": "does not know a taught value",
+   "buckets": [
+    "temporal",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "dont_know",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "I don't have access to your personal data, account history, or any stored preferences, so "
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q17",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "What is my sister's favourite colour?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "I don't have access to your personal information, family details, or preferences, so I can"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q18",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "What colour are my eyes?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "I don't know what color your eyes are because I can't see you! If you'd like to share, I'm"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q19",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "What is my rabbit's name?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "I don't know your rabbit's name , I don't have access to your personal information, photos"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q20",
+   "type": "GK",
+   "thinking": true,
+   "question": "What colour is snow?",
+   "expected": "white (general knowledge)",
+   "got": "gk",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "Snow is commonly perceived as white . This happens because snow consists of countless tiny"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q21",
+   "type": "GK",
+   "thinking": true,
+   "question": "What do you call a young cat?",
+   "expected": "kitten (general knowledge)",
+   "got": "gk",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "A young cat is called a kitten ."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q22",
+   "type": "GK",
+   "thinking": true,
+   "question": "How many legs does a spider have?",
+   "expected": "eight / 8 (general knowledge)",
+   "got": "gk",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "Spiders have 8 legs . They're part of the arachnid class, which also includes scorpions, t"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q23",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is my dog's name Ana?",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, your dog's name is Ana."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q24",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is my dog's name Pablo?",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, your dog's name is Pablo."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q25",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "True or false: my dog is called Nora.",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "True.",
+   "neighbour": {
+    "values": [
+     "Nora"
+    ],
+    "from": [
+     "my cat"
+    ]
+   }
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q26",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "True or false: my dog is called Bruno.",
+   "expected": "yes",
+   "got": "yes",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "That's true!"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q27",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "Finish this sentence: \"My dog's name is ...\"",
+   "expected": "Bruno",
+   "got": "Bruno",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "My dog's name is Bruno."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q28",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "First say what my dog is called, then answer yes or no: is it called Nora?",
+   "expected": "no",
+   "got": "yes (recalled: Nora)",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Your dog is called Nora. yes",
+   "neighbour": {
+    "values": [
+     "Nora"
+    ],
+    "from": [
+     "my cat"
+    ]
+   }
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q29",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "First say what my dog is called, then answer yes or no: is it called Bruno?",
+   "expected": "yes",
+   "got": "yes (recalled: Bruno)",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Your dog is called Bruno. Yes, it is called Bruno."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q30",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Are my cat's eyes grey?",
+   "expected": "no",
+   "got": "no",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "You previously mentioned that your cat's eyes are amber . If you're now wondering if they "
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q31",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Are my cat's eyes amber?",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, your cat has amber eyes. Amber is a solid brownish-gold color, often described as hav"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q32",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is it true that my cat's eyes are blue?",
+   "expected": "no",
+   "got": "no",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "You previously told me that your cat's eyes are amber , not blue. Are you asking if cats i"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q33",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "True or false: my cat's eyes are grey.",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "True",
+   "neighbour": {
+    "values": [
+     "grey"
+    ],
+    "from": [
+     "my dog"
+    ]
+   }
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q34",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "True or false: my cat's eyes are hazel.",
+   "expected": "yes",
+   "got": "yes",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "True"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q35",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "Finish this sentence: \"My cat's eyes are ...\"",
+   "expected": "hazel",
+   "got": "green",
+   "verdict": "fail",
+   "why": "wrong value",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "My cat's eyes are green and bright."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q36",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "First say what colour my cat's eyes are, then answer yes or no: are they grey?",
+   "expected": "no",
+   "got": "no (recalled: amber)",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Amber. No."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q37",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "First say what colour my cat's eyes are, then answer yes or no: are they hazel?",
+   "expected": "yes",
+   "got": "yes (recalled: hazel)",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Hazel. Yes."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q38",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is my favourite colour orange?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "I don't know! I'm an AI and don't have personal preferences, memories, or the ability to r"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q39",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is green my favourite colour?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "I don't have access to your personal preferences, and as an AI, I don't have a favorite co"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q40",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is white my favourite colour?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "I don't know your favorite color, I don't have access to your personal preferences or hist"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q41",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "True or false: my favourite colour is orange.",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "I don't know what your favorite color is, and as an AI, I don't have personal preferences "
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q42",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "True or false: my favourite colour is blue.",
+   "expected": "no",
+   "got": "doesn't know",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "dont_know",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "I don't have personal experiences or preferences, and I don't know your favourite colour. "
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q43",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "Finish this sentence: \"My favourite colour is ...\"",
+   "expected": "doesn't know (but not blue)",
+   "got": "blue",
+   "verdict": "fail",
+   "why": "value it should not give",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "class": "dont_know",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "My favourite colour is blue ."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q44",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "First say what my favourite colour is, then answer yes or no: is it orange?",
+   "expected": "doesn't know",
+   "got": "empty",
+   "verdict": "unclear",
+   "why": "empty answer",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "dont_know",
+   "gave": "unclear",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": ""
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q45",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "First say what my favourite colour is, then answer yes or no: is it blue?",
+   "expected": "no",
+   "got": "empty",
+   "verdict": "unclear",
+   "why": "empty answer",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "unclear",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": ""
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q46",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is my cat's name Bruno?",
+   "expected": "no",
+   "got": "empty",
+   "verdict": "unclear",
+   "why": "empty answer",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "unclear",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": ""
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q47",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is my cat's name Ana?",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, your cat's name is Ana."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q48",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is my cat called Pablo?",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, your cat is called Pablo."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q49",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "True or false: my cat is called Bruno.",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "True.",
+   "neighbour": {
+    "values": [
+     "Bruno"
+    ],
+    "from": [
+     "my dog"
+    ]
+   }
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q50",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "True or false: my cat is called Nora.",
+   "expected": "yes",
+   "got": "yes",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "True."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q51",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "Finish this sentence: \"My cat's name is ...\"",
+   "expected": "Nora",
+   "got": "unclear",
+   "verdict": "unclear",
+   "why": "unclear",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "unclear",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "You didn't include your cat's name! What is it? I'd be happy to finish the sentence for yo"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q52",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "First say what my cat is called, then answer yes or no: is it called Bruno?",
+   "expected": "no",
+   "got": "yes (recalled: Bruno)",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Bruno Yes",
+   "neighbour": {
+    "values": [
+     "Bruno"
+    ],
+    "from": [
+     "my dog"
+    ]
+   }
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q53",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "First say what my cat is called, then answer yes or no: is it called Nora?",
+   "expected": "yes",
+   "got": "yes (recalled: Nora)",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Nora yes"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q54",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Are my dog's eyes hazel?",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, your dog's eyes are hazel.",
+   "neighbour": {
+    "values": [
+     "hazel"
+    ],
+    "from": [
+     "my cat"
+    ]
+   }
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q55",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is it true that my dog's eyes are blue?",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, based on what you mentioned earlier, your dog's eyes are blue."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q56",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is it true that my dog's eyes are brown?",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, according to what you told me earlier, your dog's eyes are brown."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q57",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "True or false: my dog's eyes are hazel.",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "True",
+   "neighbour": {
+    "values": [
+     "hazel"
+    ],
+    "from": [
+     "my cat"
+    ]
+   }
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q58",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "True or false: my dog's eyes are grey.",
+   "expected": "yes",
+   "got": "yes",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "True"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q59",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "Finish this sentence: \"My dog's eyes are ...\"",
+   "expected": "grey",
+   "got": "grey",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "My dog's eyes are grey."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q60",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "First say what colour my dog's eyes are, then answer yes or no: are they hazel?",
+   "expected": "no",
+   "got": "no (recalled: grey)",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "no",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "The dog's eyes are grey. No, they are not hazel."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q61",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "First say what colour my dog's eyes are, then answer yes or no: are they grey?",
+   "expected": "yes",
+   "got": "yes (recalled: grey)",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "My dog's eyes are grey. Yes."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q62",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Do I like apples?",
+   "expected": "yes",
+   "got": "yes",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_affected"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, you do! You mentioned earlier that you really like apples."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q63",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "What food does my dog like?",
+   "expected": "olives",
+   "got": "olives",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "reliability",
+   "change": "should_stay",
+   "excerpt": "Your dog likes olives."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q64",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is it true that my dog likes olives?",
+   "expected": "yes",
+   "got": "yes",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, it is true! You mentioned earlier that your dog likes olives."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q65",
+   "type": "WHO_HAS",
+   "thinking": true,
+   "question": "Of me, my dog and my cat, who has grey eyes?",
+   "expected": "my dog",
+   "got": "empty",
+   "verdict": "unclear",
+   "why": "empty answer",
+   "buckets": [
+    "reverse",
+    "delete_kept",
+    "reverse_fwd"
+   ],
+   "class": "value",
+   "gave": "unclear",
+   "tag": "portability",
+   "change": "should_stay",
+   "excerpt": "",
+   "forward": true
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q66",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is it my dog who has grey eyes?",
+   "expected": "yes",
+   "got": "yes",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "reverse",
+    "delete_kept",
+    "reverse_fwd"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, that's correct! Your dog has grey eyes.",
+   "forward": true
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q67",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is it my cat who has grey eyes?",
+   "expected": "no",
+   "got": "no",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "reverse",
+    "delete_kept",
+    "reverse_fwd"
+   ],
+   "class": "no",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "I thought you said your cat has green eyes. Are you now asking if your cat has grey eyes, ",
+   "forward": true
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q68",
+   "type": "WHO_HAS",
+   "thinking": true,
+   "question": "Of me, my sister and my dog, who likes olives?",
+   "expected": "my dog, me",
+   "got": "my sister, my dog",
+   "verdict": "fail",
+   "why": "wrong entities",
+   "buckets": [
+    "reverse",
+    "delete_affected"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "portability",
+   "change": "should_change",
+   "excerpt": "I don't have enough information to determine who likes olives. The statement lists you, yo",
+   "forward": false
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q69",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is it my dog who likes olives?",
+   "expected": "yes",
+   "got": "yes",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "reverse",
+    "delete_kept",
+    "reverse_fwd"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, your dog likes olives.",
+   "forward": true
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q70",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is it my sister who likes olives?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "reverse",
+    "delete_kept",
+    "reverse_fwd"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "I don't have access to your personal life, family information, or your preferences, so I c",
+   "forward": true
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q71",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "What food does my sister like?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "I don't know who your sister is or what she likes , I don't have access to your personal l"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q72",
+   "type": "WHO_HAS",
+   "thinking": true,
+   "question": "Who is called Bruno?",
+   "expected": "my dog",
+   "got": "nobody of yours (a general answer)",
+   "verdict": "fail",
+   "why": "a general answer: names none of yours",
+   "buckets": [
+    "reverse",
+    "delete_kept",
+    "reverse_fwd"
+   ],
+   "class": "value",
+   "gave": "dont_know",
+   "tag": "portability",
+   "change": "should_stay",
+   "excerpt": "\"Bruno\" is a common given name and surname, and it refers to several notable people and ch",
+   "forward": true
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q73",
+   "type": "WHO_HAS",
+   "thinking": true,
+   "question": "Of my dog, my cat and my sister, who is called Bruno?",
+   "expected": "my dog",
+   "got": "my dog",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "reverse",
+    "delete_kept",
+    "reverse_fwd"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "portability",
+   "change": "should_stay",
+   "excerpt": "The dog is called Bruno.",
+   "forward": true
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q74",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is it my dog who is called Bruno?",
+   "expected": "yes",
+   "got": "yes",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "reverse",
+    "delete_kept",
+    "reverse_fwd"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, that's correct! Your dog's name is Bruno.",
+   "forward": true
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q75",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is it my cat who is called Bruno?",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "reverse",
+    "delete_kept",
+    "reverse_fwd"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Yes, it is your cat Bruno.",
+   "neighbour": {
+    "values": [
+     "Bruno"
+    ],
+    "from": [
+     "my dog"
+    ]
+   },
+   "forward": true
+  }
+ ],
+ "consistency": {
+  "del-A": {
+   "derived": {
+    "off": {
+     "value": {
+      "n": 84,
+      "ok": 40,
+      "not": [
+       "Q03~Q01",
+       "Q03~Q27",
+       "Q04~Q02",
+       "Q04~Q51",
+       "Q15~Q14",
+       "Q15~Q43",
+       "Q23~Q01",
+       "Q23~Q27",
+       "Q24~Q01",
+       "Q24~Q27",
+       "Q25~Q01",
+       "Q25~Q27",
+       "Q31~Q06",
+       "Q31~Q35",
+       "Q33~Q06",
+       "Q33~Q35",
+       "Q40~Q14",
+       "Q40~Q43",
+       "Q41~Q14",
+       "Q41~Q43",
+       "Q42~Q14",
+       "Q42~Q43",
+       "Q46~Q02",
+       "Q46~Q51",
+       "Q47~Q02",
+       "Q47~Q51",
+       "Q48~Q02",
+       "Q48~Q51",
+       "Q49~Q02",
+       "Q49~Q51",
+       "Q54~Q05",
+       "Q54~Q59",
+       "Q55~Q05",
+       "Q55~Q59",
+       "Q56~Q05",
+       "Q56~Q59",
+       "Q57~Q05",
+       "Q57~Q59",
+       "Q61~Q05",
+       "Q61~Q59",
+       "Q67~Q06",
+       "Q67~Q35",
+       "Q75~Q02",
+       "Q75~Q51"
+      ]
+     },
+     "dont_know": {
+      "n": 8,
+      "ok": 0,
+      "not": [
+       "Q10~Q08",
+       "Q10~Q09",
+       "Q11~Q08",
+       "Q11~Q09",
+       "Q12~Q08",
+       "Q12~Q09",
+       "Q62~Q08",
+       "Q62~Q09"
+      ]
+     }
+    },
+    "on": {
+     "value": {
+      "n": 70,
+      "ok": 28,
+      "not": [
+       "Q03~Q01",
+       "Q03~Q27",
+       "Q04~Q02",
+       "Q15~Q14",
+       "Q15~Q43",
+       "Q23~Q01",
+       "Q23~Q27",
+       "Q24~Q01",
+       "Q24~Q27",
+       "Q25~Q01",
+       "Q25~Q27",
+       "Q28~Q01",
+       "Q28~Q27",
+       "Q31~Q06",
+       "Q31~Q35",
+       "Q33~Q06",
+       "Q33~Q35",
+       "Q34~Q35",
+       "Q37~Q35",
+       "Q38~Q14",
+       "Q38~Q43",
+       "Q39~Q14",
+       "Q39~Q43",
+       "Q40~Q14",
+       "Q40~Q43",
+       "Q41~Q14",
+       "Q41~Q43",
+       "Q42~Q14",
+       "Q42~Q43",
+       "Q47~Q02",
+       "Q48~Q02",
+       "Q49~Q02",
+       "Q52~Q02",
+       "Q54~Q05",
+       "Q54~Q59",
+       "Q55~Q05",
+       "Q55~Q59",
+       "Q56~Q05",
+       "Q56~Q59",
+       "Q57~Q05",
+       "Q57~Q59",
+       "Q75~Q02"
+      ]
+     },
+     "dont_know": {
+      "n": 8,
+      "ok": 4,
+      "not": [
+       "Q10~Q08",
+       "Q10~Q09",
+       "Q62~Q08",
+       "Q62~Q09"
+      ]
+     }
+    }
+   },
+   "yes_no_groups": [
+    2,
+    14
+   ]
+  }
+ },
+ "paraphrase": {
+  "del-A": {
+   "off": {
+    "groups": 20,
+    "all_right": 8,
+    "pairs": 42,
+    "same": 21,
+    "same_value": 20,
+    "same_dk": 1,
+    "uncompared": 0,
+    "differ": [
+     "Q03~Q28",
+     "Q25~Q28",
+     "Q07~Q65",
+     "Q13~Q68",
+     "Q15~Q42",
+     "Q15~Q45",
+     "Q42~Q45",
+     "Q30~Q33",
+     "Q30~Q67",
+     "Q33~Q36",
+     "Q36~Q67",
+     "Q38~Q41",
+     "Q41~Q44",
+     "Q46~Q52",
+     "Q49~Q52",
+     "Q52~Q75",
+     "Q54~Q60",
+     "Q57~Q60",
+     "Q58~Q61",
+     "Q61~Q66",
+     "Q72~Q73"
+    ]
+   },
+   "on": {
+    "groups": 20,
+    "all_right": 7,
+    "pairs": 33,
+    "same": 25,
+    "same_value": 22,
+    "same_dk": 3,
+    "uncompared": 9,
+    "differ": [
+     "Q06~Q35",
+     "Q13~Q68",
+     "Q30~Q33",
+     "Q33~Q36",
+     "Q33~Q67",
+     "Q54~Q60",
+     "Q57~Q60",
+     "Q72~Q73"
+    ]
+   }
+  }
+ },
+ "kept_stable": {},
+ "split": {
+  "del-A": {
+   "off": {
+    "split": {
+     "all": {
+      "value": {
+       "n": 37,
+       "pass": 27,
+       "fail": 10,
+       "unclear": 0,
+       "dk_miss": 5
+      },
+      "no": {
+       "n": 25,
+       "pass": 7,
+       "fail": 18,
+       "unclear": 0,
+       "dk_miss": 1
+      },
+      "dont_know": {
+       "n": 13,
+       "pass": 7,
+       "fail": 6,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "recall": {
+      "value": {
+       "n": 11,
+       "pass": 9,
+       "fail": 2,
+       "unclear": 0,
+       "dk_miss": 2
+      },
+      "dont_know": {
+       "n": 2,
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "temporal": {
+      "value": {
+       "n": 1,
+       "pass": 0,
+       "fail": 1,
+       "unclear": 0,
+       "dk_miss": 1
+      }
+     },
+     "either_or": {
+      "value": {
+       "n": 1,
+       "pass": 0,
+       "fail": 1,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "yes_no": {
+      "value": {
+       "n": 12,
+       "pass": 11,
+       "fail": 1,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "no": {
+       "n": 23,
+       "pass": 7,
+       "fail": 16,
+       "unclear": 0,
+       "dk_miss": 1
+      },
+      "dont_know": {
+       "n": 6,
+       "pass": 2,
+       "fail": 4,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "reverse": {
+      "value": {
+       "n": 9,
+       "pass": 4,
+       "fail": 5,
+       "unclear": 0,
+       "dk_miss": 2
+      },
+      "no": {
+       "n": 2,
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 1,
+       "pass": 1,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "reverse_fwd": {
+      "value": {
+       "n": 9,
+       "pass": 4,
+       "fail": 5,
+       "unclear": 0,
+       "dk_miss": 2
+      },
+      "no": {
+       "n": 2,
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 1,
+       "pass": 1,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "controls": {
+      "value": {
+       "n": 3,
+       "pass": 3,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 4,
+       "pass": 4,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "delete_affected": {
+      "value": {
+       "n": 7,
+       "pass": 3,
+       "fail": 4,
+       "unclear": 0,
+       "dk_miss": 3
+      },
+      "dont_know": {
+       "n": 1,
+       "pass": 0,
+       "fail": 1,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "delete_kept": {
+      "value": {
+       "n": 27,
+       "pass": 21,
+       "fail": 6,
+       "unclear": 0,
+       "dk_miss": 2
+      },
+      "no": {
+       "n": 25,
+       "pass": 7,
+       "fail": 18,
+       "unclear": 0,
+       "dk_miss": 1
+      },
+      "dont_know": {
+       "n": 8,
+       "pass": 3,
+       "fail": 5,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "should_change": {
+      "value": {
+       "n": 5,
+       "pass": 1,
+       "fail": 4,
+       "unclear": 0,
+       "dk_miss": 3
+      }
+     },
+     "should_stay": {
+      "value": {
+       "n": 32,
+       "pass": 26,
+       "fail": 6,
+       "unclear": 0,
+       "dk_miss": 2
+      },
+      "no": {
+       "n": 25,
+       "pass": 7,
+       "fail": 18,
+       "unclear": 0,
+       "dk_miss": 1
+      },
+      "dont_know": {
+       "n": 13,
+       "pass": 7,
+       "fail": 6,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     }
+    },
+    "tags": {
+     "reliability": {
+      "n": 7,
+      "pass": 5,
+      "fail": 2,
+      "unclear": 0,
+      "dk_miss": 1
+     },
+     "generality": {
+      "n": 54,
+      "pass": 27,
+      "fail": 27,
+      "unclear": 0,
+      "dk_miss": 3
+     },
+     "locality": {
+      "n": 8,
+      "pass": 8,
+      "fail": 0,
+      "unclear": 0,
+      "dk_miss": 0
+     },
+     "portability": {
+      "n": 6,
+      "pass": 1,
+      "fail": 5,
+      "unclear": 0,
+      "dk_miss": 2
+     }
+    },
+    "abstention": {
+     "said_dk": 13,
+     "said_dk_right": 7,
+     "dk_expected": 13
+    },
+    "closed_world": 4,
+    "neighbour": [
+     "Q03 Nora (my cat)",
+     "Q04 Bruno (my dog)",
+     "Q25 Nora (my cat)",
+     "Q33 grey (my dog)",
+     "Q46 Bruno (my dog)",
+     "Q49 Bruno (my dog)",
+     "Q54 hazel (my cat)",
+     "Q57 hazel (my cat)",
+     "Q67 grey (my dog)",
+     "Q75 Bruno (my dog)"
+    ]
+   },
+   "on": {
+    "split": {
+     "all": {
+      "value": {
+       "n": 37,
+       "pass": 25,
+       "fail": 10,
+       "unclear": 2,
+       "dk_miss": 7
+      },
+      "no": {
+       "n": 25,
+       "pass": 5,
+       "fail": 18,
+       "unclear": 2,
+       "dk_miss": 2
+      },
+      "dont_know": {
+       "n": 13,
+       "pass": 10,
+       "fail": 2,
+       "unclear": 1,
+       "dk_miss": 0
+      }
+     },
+     "recall": {
+      "value": {
+       "n": 11,
+       "pass": 7,
+       "fail": 3,
+       "unclear": 1,
+       "dk_miss": 2
+      },
+      "dont_know": {
+       "n": 2,
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "temporal": {
+      "value": {
+       "n": 1,
+       "pass": 0,
+       "fail": 1,
+       "unclear": 0,
+       "dk_miss": 1
+      }
+     },
+     "either_or": {
+      "value": {
+       "n": 1,
+       "pass": 0,
+       "fail": 1,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "yes_no": {
+      "value": {
+       "n": 12,
+       "pass": 11,
+       "fail": 1,
+       "unclear": 0,
+       "dk_miss": 1
+      },
+      "no": {
+       "n": 23,
+       "pass": 4,
+       "fail": 17,
+       "unclear": 2,
+       "dk_miss": 2
+      },
+      "dont_know": {
+       "n": 6,
+       "pass": 5,
+       "fail": 0,
+       "unclear": 1,
+       "dk_miss": 0
+      }
+     },
+     "reverse": {
+      "value": {
+       "n": 9,
+       "pass": 4,
+       "fail": 4,
+       "unclear": 1,
+       "dk_miss": 3
+      },
+      "no": {
+       "n": 2,
+       "pass": 1,
+       "fail": 1,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 1,
+       "pass": 1,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "reverse_fwd": {
+      "value": {
+       "n": 7,
+       "pass": 4,
+       "fail": 2,
+       "unclear": 1,
+       "dk_miss": 2
+      },
+      "no": {
+       "n": 2,
+       "pass": 1,
+       "fail": 1,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 1,
+       "pass": 1,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "controls": {
+      "value": {
+       "n": 3,
+       "pass": 3,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 4,
+       "pass": 4,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "delete_affected": {
+      "value": {
+       "n": 7,
+       "pass": 2,
+       "fail": 5,
+       "unclear": 0,
+       "dk_miss": 4
+      },
+      "dont_know": {
+       "n": 1,
+       "pass": 1,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "delete_kept": {
+      "value": {
+       "n": 27,
+       "pass": 20,
+       "fail": 5,
+       "unclear": 2,
+       "dk_miss": 3
+      },
+      "no": {
+       "n": 25,
+       "pass": 5,
+       "fail": 18,
+       "unclear": 2,
+       "dk_miss": 2
+      },
+      "dont_know": {
+       "n": 8,
+       "pass": 5,
+       "fail": 2,
+       "unclear": 1,
+       "dk_miss": 0
+      }
+     },
+     "should_change": {
+      "value": {
+       "n": 5,
+       "pass": 0,
+       "fail": 5,
+       "unclear": 0,
+       "dk_miss": 4
+      }
+     },
+     "should_stay": {
+      "value": {
+       "n": 32,
+       "pass": 25,
+       "fail": 5,
+       "unclear": 2,
+       "dk_miss": 3
+      },
+      "no": {
+       "n": 25,
+       "pass": 5,
+       "fail": 18,
+       "unclear": 2,
+       "dk_miss": 2
+      },
+      "dont_know": {
+       "n": 13,
+       "pass": 10,
+       "fail": 2,
+       "unclear": 1,
+       "dk_miss": 0
+      }
+     }
+    },
+    "tags": {
+     "reliability": {
+      "n": 7,
+      "pass": 5,
+      "fail": 2,
+      "unclear": 0,
+      "dk_miss": 1
+     },
+     "generality": {
+      "n": 54,
+      "pass": 26,
+      "fail": 24,
+      "unclear": 4,
+      "dk_miss": 5
+     },
+     "locality": {
+      "n": 8,
+      "pass": 8,
+      "fail": 0,
+      "unclear": 0,
+      "dk_miss": 0
+     },
+     "portability": {
+      "n": 6,
+      "pass": 1,
+      "fail": 4,
+      "unclear": 1,
+      "dk_miss": 3
+     }
+    },
+    "abstention": {
+     "said_dk": 19,
+     "said_dk_right": 10,
+     "dk_expected": 13
+    },
+    "closed_world": 0,
+    "neighbour": [
+     "Q03 Nora (my cat)",
+     "Q04 Bruno (my dog)",
+     "Q25 Nora (my cat)",
+     "Q28 Nora (my cat)",
+     "Q33 grey (my dog)",
+     "Q49 Bruno (my dog)",
+     "Q52 Bruno (my dog)",
+     "Q54 hazel (my cat)",
+     "Q57 hazel (my cat)",
+     "Q75 Bruno (my dog)"
+    ]
+   }
+  },
+  "all phases": {
+   "off": {
+    "split": {
+     "all": {
+      "value": {
+       "n": 37,
+       "pass": 27,
+       "fail": 10,
+       "unclear": 0,
+       "dk_miss": 5
+      },
+      "no": {
+       "n": 25,
+       "pass": 7,
+       "fail": 18,
+       "unclear": 0,
+       "dk_miss": 1
+      },
+      "dont_know": {
+       "n": 13,
+       "pass": 7,
+       "fail": 6,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "recall": {
+      "value": {
+       "n": 11,
+       "pass": 9,
+       "fail": 2,
+       "unclear": 0,
+       "dk_miss": 2
+      },
+      "dont_know": {
+       "n": 2,
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "temporal": {
+      "value": {
+       "n": 1,
+       "pass": 0,
+       "fail": 1,
+       "unclear": 0,
+       "dk_miss": 1
+      }
+     },
+     "either_or": {
+      "value": {
+       "n": 1,
+       "pass": 0,
+       "fail": 1,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "yes_no": {
+      "value": {
+       "n": 12,
+       "pass": 11,
+       "fail": 1,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "no": {
+       "n": 23,
+       "pass": 7,
+       "fail": 16,
+       "unclear": 0,
+       "dk_miss": 1
+      },
+      "dont_know": {
+       "n": 6,
+       "pass": 2,
+       "fail": 4,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "reverse": {
+      "value": {
+       "n": 9,
+       "pass": 4,
+       "fail": 5,
+       "unclear": 0,
+       "dk_miss": 2
+      },
+      "no": {
+       "n": 2,
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 1,
+       "pass": 1,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "reverse_fwd": {
+      "value": {
+       "n": 9,
+       "pass": 4,
+       "fail": 5,
+       "unclear": 0,
+       "dk_miss": 2
+      },
+      "no": {
+       "n": 2,
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 1,
+       "pass": 1,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "controls": {
+      "value": {
+       "n": 3,
+       "pass": 3,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 4,
+       "pass": 4,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "delete_affected": {
+      "value": {
+       "n": 7,
+       "pass": 3,
+       "fail": 4,
+       "unclear": 0,
+       "dk_miss": 3
+      },
+      "dont_know": {
+       "n": 1,
+       "pass": 0,
+       "fail": 1,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "delete_kept": {
+      "value": {
+       "n": 27,
+       "pass": 21,
+       "fail": 6,
+       "unclear": 0,
+       "dk_miss": 2
+      },
+      "no": {
+       "n": 25,
+       "pass": 7,
+       "fail": 18,
+       "unclear": 0,
+       "dk_miss": 1
+      },
+      "dont_know": {
+       "n": 8,
+       "pass": 3,
+       "fail": 5,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "should_change": {
+      "value": {
+       "n": 5,
+       "pass": 1,
+       "fail": 4,
+       "unclear": 0,
+       "dk_miss": 3
+      }
+     },
+     "should_stay": {
+      "value": {
+       "n": 32,
+       "pass": 26,
+       "fail": 6,
+       "unclear": 0,
+       "dk_miss": 2
+      },
+      "no": {
+       "n": 25,
+       "pass": 7,
+       "fail": 18,
+       "unclear": 0,
+       "dk_miss": 1
+      },
+      "dont_know": {
+       "n": 13,
+       "pass": 7,
+       "fail": 6,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     }
+    },
+    "tags": {
+     "reliability": {
+      "n": 7,
+      "pass": 5,
+      "fail": 2,
+      "unclear": 0,
+      "dk_miss": 1
+     },
+     "generality": {
+      "n": 54,
+      "pass": 27,
+      "fail": 27,
+      "unclear": 0,
+      "dk_miss": 3
+     },
+     "locality": {
+      "n": 8,
+      "pass": 8,
+      "fail": 0,
+      "unclear": 0,
+      "dk_miss": 0
+     },
+     "portability": {
+      "n": 6,
+      "pass": 1,
+      "fail": 5,
+      "unclear": 0,
+      "dk_miss": 2
+     }
+    },
+    "abstention": {
+     "said_dk": 13,
+     "said_dk_right": 7,
+     "dk_expected": 13
+    },
+    "closed_world": 4,
+    "neighbour": [
+     "Q03 del-A Nora (my cat)",
+     "Q04 del-A Bruno (my dog)",
+     "Q25 del-A Nora (my cat)",
+     "Q33 del-A grey (my dog)",
+     "Q46 del-A Bruno (my dog)",
+     "Q49 del-A Bruno (my dog)",
+     "Q54 del-A hazel (my cat)",
+     "Q57 del-A hazel (my cat)",
+     "Q67 del-A grey (my dog)",
+     "Q75 del-A Bruno (my dog)"
+    ]
+   },
+   "on": {
+    "split": {
+     "all": {
+      "value": {
+       "n": 37,
+       "pass": 25,
+       "fail": 10,
+       "unclear": 2,
+       "dk_miss": 7
+      },
+      "no": {
+       "n": 25,
+       "pass": 5,
+       "fail": 18,
+       "unclear": 2,
+       "dk_miss": 2
+      },
+      "dont_know": {
+       "n": 13,
+       "pass": 10,
+       "fail": 2,
+       "unclear": 1,
+       "dk_miss": 0
+      }
+     },
+     "recall": {
+      "value": {
+       "n": 11,
+       "pass": 7,
+       "fail": 3,
+       "unclear": 1,
+       "dk_miss": 2
+      },
+      "dont_know": {
+       "n": 2,
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "temporal": {
+      "value": {
+       "n": 1,
+       "pass": 0,
+       "fail": 1,
+       "unclear": 0,
+       "dk_miss": 1
+      }
+     },
+     "either_or": {
+      "value": {
+       "n": 1,
+       "pass": 0,
+       "fail": 1,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "yes_no": {
+      "value": {
+       "n": 12,
+       "pass": 11,
+       "fail": 1,
+       "unclear": 0,
+       "dk_miss": 1
+      },
+      "no": {
+       "n": 23,
+       "pass": 4,
+       "fail": 17,
+       "unclear": 2,
+       "dk_miss": 2
+      },
+      "dont_know": {
+       "n": 6,
+       "pass": 5,
+       "fail": 0,
+       "unclear": 1,
+       "dk_miss": 0
+      }
+     },
+     "reverse": {
+      "value": {
+       "n": 9,
+       "pass": 4,
+       "fail": 4,
+       "unclear": 1,
+       "dk_miss": 3
+      },
+      "no": {
+       "n": 2,
+       "pass": 1,
+       "fail": 1,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 1,
+       "pass": 1,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "reverse_fwd": {
+      "value": {
+       "n": 7,
+       "pass": 4,
+       "fail": 2,
+       "unclear": 1,
+       "dk_miss": 2
+      },
+      "no": {
+       "n": 2,
+       "pass": 1,
+       "fail": 1,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 1,
+       "pass": 1,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "controls": {
+      "value": {
+       "n": 3,
+       "pass": 3,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 4,
+       "pass": 4,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "delete_affected": {
+      "value": {
+       "n": 7,
+       "pass": 2,
+       "fail": 5,
+       "unclear": 0,
+       "dk_miss": 4
+      },
+      "dont_know": {
+       "n": 1,
+       "pass": 1,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "delete_kept": {
+      "value": {
+       "n": 27,
+       "pass": 20,
+       "fail": 5,
+       "unclear": 2,
+       "dk_miss": 3
+      },
+      "no": {
+       "n": 25,
+       "pass": 5,
+       "fail": 18,
+       "unclear": 2,
+       "dk_miss": 2
+      },
+      "dont_know": {
+       "n": 8,
+       "pass": 5,
+       "fail": 2,
+       "unclear": 1,
+       "dk_miss": 0
+      }
+     },
+     "should_change": {
+      "value": {
+       "n": 5,
+       "pass": 0,
+       "fail": 5,
+       "unclear": 0,
+       "dk_miss": 4
+      }
+     },
+     "should_stay": {
+      "value": {
+       "n": 32,
+       "pass": 25,
+       "fail": 5,
+       "unclear": 2,
+       "dk_miss": 3
+      },
+      "no": {
+       "n": 25,
+       "pass": 5,
+       "fail": 18,
+       "unclear": 2,
+       "dk_miss": 2
+      },
+      "dont_know": {
+       "n": 13,
+       "pass": 10,
+       "fail": 2,
+       "unclear": 1,
+       "dk_miss": 0
+      }
+     }
+    },
+    "tags": {
+     "reliability": {
+      "n": 7,
+      "pass": 5,
+      "fail": 2,
+      "unclear": 0,
+      "dk_miss": 1
+     },
+     "generality": {
+      "n": 54,
+      "pass": 26,
+      "fail": 24,
+      "unclear": 4,
+      "dk_miss": 5
+     },
+     "locality": {
+      "n": 8,
+      "pass": 8,
+      "fail": 0,
+      "unclear": 0,
+      "dk_miss": 0
+     },
+     "portability": {
+      "n": 6,
+      "pass": 1,
+      "fail": 4,
+      "unclear": 1,
+      "dk_miss": 3
+     }
+    },
+    "abstention": {
+     "said_dk": 19,
+     "said_dk_right": 10,
+     "dk_expected": 13
+    },
+    "closed_world": 0,
+    "neighbour": [
+     "Q03 del-A Nora (my cat)",
+     "Q04 del-A Bruno (my dog)",
+     "Q25 del-A Nora (my cat)",
+     "Q28 del-A Nora (my cat)",
+     "Q33 del-A grey (my dog)",
+     "Q49 del-A Bruno (my dog)",
+     "Q52 del-A Bruno (my dog)",
+     "Q54 del-A hazel (my cat)",
+     "Q57 del-A hazel (my cat)",
+     "Q75 del-A Bruno (my dog)"
+    ]
+   }
+  }
+ },
+ "forms": {
+  "del-A": {
+   "off": {
+    "wrong_yes": {
+     "yes": 17,
+     "n": 32,
+     "base_yes": 0,
+     "base_n": 0,
+     "by_form": {
+      "yes_no": [
+       10,
+       17
+      ],
+      "true_false": [
+       4,
+       6
+      ],
+      "recall_yn": [
+       1,
+       6
+      ],
+      "who_yn": [
+       2,
+       3
+      ]
+     },
+     "neighbour": [
+      7,
+      12
+     ],
+     "said_yes": [
+      "Q03",
+      "Q23",
+      "Q24",
+      "Q25",
+      "Q31",
+      "Q33",
+      "Q45",
+      "Q46",
+      "Q47",
+      "Q48",
+      "Q49",
+      "Q54",
+      "Q55",
+      "Q56",
+      "Q57",
+      "Q67",
+      "Q75"
+     ]
+    },
+    "coherence": {
+     "keys": 5,
+     "breaks": [
+      "my cat eye_colour: amber, grey, hazel",
+      "my cat name: Ana, Bruno, Nora, Pablo",
+      "my dog eye_colour: blue, brown, grey, hazel",
+      "my dog name: Ana, Bruno, Nora, Pablo"
+     ]
+    },
+    "forms": {
+     "who_bare": {
+      "pass": 0,
+      "fail": 3,
+      "unclear": 0
+     },
+     "true_false": {
+      "pass": 5,
+      "fail": 5,
+      "unclear": 0
+     },
+     "fill_in": {
+      "pass": 4,
+      "fail": 1,
+      "unclear": 0
+     },
+     "recall_yn": {
+      "pass": 7,
+      "fail": 3,
+      "unclear": 0
+     },
+     "who_listed": {
+      "pass": 1,
+      "fail": 2,
+      "unclear": 0
+     },
+     "who_yn": {
+      "pass": 4,
+      "fail": 2,
+      "unclear": 0
+     },
+     "recall_agree": [
+      9,
+      10
+     ]
+    },
+    "reverse": {
+     "forward_passed": {
+      "who_bare": [
+       0,
+       3
+      ],
+      "who_listed": [
+       1,
+       3
+      ],
+      "who_yn": [
+       4,
+       6
+      ]
+     },
+     "set": {
+      "holders": 8,
+      "named": 2,
+      "extra": 3
+     },
+     "curse": [
+      "eye_colour grey",
+      "likes olives"
+     ],
+     "bare_only": [
+      "name Bruno"
+     ],
+     "ok": [],
+     "unclear": []
+    },
+    "likes": {
+     "yes_no": [
+      2,
+      2
+     ],
+     "list": [
+      0,
+      4
+     ],
+     "newest": [
+      1,
+      3
+     ],
+     "lost": [
+      "Q08 olives",
+      "Q08 pears",
+      "Q09 olives",
+      "Q09 pears"
+     ]
+    }
+   },
+   "on": {
+    "wrong_yes": {
+     "yes": 16,
+     "n": 32,
+     "base_yes": 0,
+     "base_n": 0,
+     "by_form": {
+      "yes_no": [
+       9,
+       17
+      ],
+      "true_false": [
+       4,
+       6
+      ],
+      "recall_yn": [
+       2,
+       6
+      ],
+      "who_yn": [
+       1,
+       3
+      ]
+     },
+     "neighbour": [
+      8,
+      12
+     ],
+     "said_yes": [
+      "Q03",
+      "Q23",
+      "Q24",
+      "Q25",
+      "Q28",
+      "Q31",
+      "Q33",
+      "Q47",
+      "Q48",
+      "Q49",
+      "Q52",
+      "Q54",
+      "Q55",
+      "Q56",
+      "Q57",
+      "Q75"
+     ]
+    },
+    "coherence": {
+     "keys": 5,
+     "breaks": [
+      "my cat eye_colour: amber, grey, hazel",
+      "my cat name: Ana, Bruno, Nora, Pablo",
+      "my dog eye_colour: blue, brown, grey, hazel",
+      "my dog name: Ana, Bruno, Nora, Pablo"
+     ]
+    },
+    "forms": {
+     "who_bare": {
+      "pass": 0,
+      "fail": 3,
+      "unclear": 0
+     },
+     "true_false": {
+      "pass": 5,
+      "fail": 5,
+      "unclear": 0
+     },
+     "fill_in": {
+      "pass": 2,
+      "fail": 2,
+      "unclear": 1
+     },
+     "recall_yn": {
+      "pass": 6,
+      "fail": 2,
+      "unclear": 2
+     },
+     "who_listed": {
+      "pass": 1,
+      "fail": 1,
+      "unclear": 1
+     },
+     "who_yn": {
+      "pass": 5,
+      "fail": 1,
+      "unclear": 0
+     },
+     "recall_agree": [
+      8,
+      8
+     ]
+    },
+    "reverse": {
+     "forward_passed": {
+      "who_bare": [
+       0,
+       2
+      ],
+      "who_listed": [
+       1,
+       2
+      ],
+      "who_yn": [
+       5,
+       6
+      ]
+     },
+     "set": {
+      "holders": 7,
+      "named": 2,
+      "extra": 1
+     },
+     "curse": [],
+     "bare_only": [
+      "name Bruno"
+     ],
+     "ok": [],
+     "unclear": [
+      "eye_colour grey"
+     ]
+    },
+    "likes": {
+     "yes_no": [
+      1,
+      2
+     ],
+     "list": [
+      0,
+      4
+     ],
+     "newest": [
+      1,
+      3
+     ],
+     "lost": [
+      "Q08 olives",
+      "Q08 pears",
+      "Q09 olives",
+      "Q09 pears",
+      "Q11 olives"
+     ]
+    }
+   }
+  }
+ }
+}

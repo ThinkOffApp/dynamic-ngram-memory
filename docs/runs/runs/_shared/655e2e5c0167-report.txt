@@ -1,0 +1,72 @@
+judged 116 answers against L3-seed1-v2
+
+== teach: store L1 L2 L3
+   property               thinking off        thinking on
+   recall                          7/7                7/7
+   temporal                        0/6                0/6
+   either_or                       1/1                1/1
+   yes_no                        25/25              25/25
+   reverse                       12/12              12/12
+   reverse_fwd                   12/12              12/12
+   controls                        4/7                4/7
+   yes/no groups    4/6 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                            thinking on
+   all                v 26/34 (8 dk)  n 16/17 (1 dk)  ? 7/7   v 26/34 (8 dk)  n 16/17 (1 dk)  ? 7/7
+   recall             v 7/7                                   v 7/7
+   temporal           v 0/5 (5 dk)  n 0/1 (1 dk)              v 0/5 (5 dk)  n 0/1 (1 dk)
+   either or          v 1/1                                   v 1/1
+   yes no             v 9/9  n 16/16                          v 9/9  n 16/16
+   reverse            v 9/9  ? 3/3                            v 9/9  ? 3/3
+   reverse fwd        v 9/9  ? 3/3                            v 9/9  ? 3/3
+   controls           v 0/3 (3 dk)  ? 4/4                     v 0/3 (3 dk)  ? 4/4
+   should change      v 26/31 (5 dk)  n 16/17 (1 dk)          v 26/31 (5 dk)  n 16/17 (1 dk)
+   should stay        v 0/3 (3 dk)  ? 7/7                     v 0/3 (3 dk)  ? 7/7
+   abstention         P 7/16 R 7/7                            P 7/16 R 7/7                           precision and recall of "don't know"
+   reliability        3/3                                     3/3
+   generality         33/39                                   33/39
+   locality           7/10                                    7/10
+   portability        6/6                                     6/6
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value              69/69              69/69
+   same answer      35/35 (35 v, 0 dk) 35/35 (35 v, 0 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok               12/12              12/12   questions asked in several wordings, every wording right
+   forms v2                               thinking off                  thinking on
+   wrong yes                                      0/19                         0/19
+     yes/no                                       0/10                         0/10
+     true/false                                    0/3                          0/3
+     recall+answer                                 0/3                          0/3
+     reverse yes/no                                0/3                          0/3
+   coherence breaks                        0 of 3 keys                  0 of 3 keys
+   pass, by form
+     true/false                                    6/6                          6/6
+     fill-in                                       3/3                          3/3
+     recall+answer                                 6/6                          6/6
+     reverse bare                                  3/3                          3/3
+     reverse listed                                3/3                          3/3
+     reverse yes/no                                6/6                          6/6
+   reverse, forward ok    bare 3/3, listed 3/3, yes/no 6/6 bare 3/3, listed 3/3, yes/no 6/6
+   reversal curse                               0 of 3                       0 of 3
+   reverse as a set                 6/6 named, 0 extra           6/6 named, 0 extra
+   FAIL    Q03 plain "What colour were my eyes before 9 June 2025?" expected green; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q04 plain "What colour were my eyes on 26 January 2025?" expected green; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q05 plain "On 25 June 2025, what colour were my eyes?" expected amber; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q06 plain "What colour did my eyes use to be?" expected green; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q07 plain "Have my eyes always been the same colour?" expected no; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q08 plain "Have my eyes ever changed colour?" expected yes; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q20 plain "What is the capital of Norway?" expected oslo (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q21 plain "Name three primary colours." expected red + yellow + blue / red + green + blue (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q22 plain "What is the capital of France?" expected paris (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q03 think "What colour were my eyes before 9 June 2025?" expected green; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q04 think "What colour were my eyes on 26 January 2025?" expected green; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q05 think "On 25 June 2025, what colour were my eyes?" expected amber; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q06 think "What colour did my eyes use to be?" expected green; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q07 think "Have my eyes always been the same colour?" expected no; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q08 think "Have my eyes ever changed colour?" expected yes; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q20 think "What is the capital of Norway?" expected oslo (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q21 think "Name three primary colours." expected red + yellow + blue / red + green + blue (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q22 think "What is the capital of France?" expected paris (general knowledge); got gk [general knowledge changed]  << I don't know.
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 7/16, recall 7/7;  v 26/34 (8 dk)  n 16/17 (1 dk)  ? 7/7
+   thinking on   precision 7/16, recall 7/7;  v 26/34 (8 dk)  n 16/17 (1 dk)  ? 7/7

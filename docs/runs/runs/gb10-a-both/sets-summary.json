@@ -1,0 +1,253 @@
+{
+ "format": "lw-sets-summary/1",
+ "started": "2026-10-14T21:07:39Z",
+ "host": "gb10-a",
+ "args": {
+  "sets": [
+   "~/lw-runs/gb10-a-notes/L6-seed1/set.json",
+   "~/lw-runs/gb10-a-notes/L5-seed1-v2/set.json"
+  ],
+  "bin": "~/tf108/zig-out/native/bin/tensorfold-native",
+  "model_src": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8",
+  "work": "~/lw-runs/gb10-a-both",
+  "port": 18180,
+  "phases": "teach",
+  "delete_mode": "both",
+  "thinking": "off,on",
+  "max_tokens_off": 160,
+  "max_tokens_on": 6144,
+  "teach_probe": "slide",
+  "baseline_from": "src",
+  "resume": false,
+  "dry_run": false,
+  "judge_only": false,
+  "cleanup": true,
+  "models_dir": null,
+  "lwlogic": "~/llwz-d831eb7/zengine/lwlogic.py",
+  "zero_audit": "touched",
+  "server_arg": null,
+  "keep_env": false,
+  "allow_taught_src": false,
+  "startup_timeout": 900,
+  "warm_timeout": 300,
+  "learn_timeout": 1800,
+  "lesson_deadline": 5400,
+  "save_timeout": 1800,
+  "save_grace": 120,
+  "save_line_wait": 15,
+  "fresh_empty_reteach": false,
+  "reference": "notes,notes_pocket",
+  "reference_of": "teach",
+  "notes_tokenizer": null,
+  "notes_cap": null,
+  "notes_config": null,
+  "busy_retries": 60,
+  "chat_timeout": 900,
+  "chat_retries": 2,
+  "stop_timeout": 60,
+  "server_max_hours": 8.0
+ },
+ "sets": [
+  {
+   "set": "L6-seed1",
+   "level": 6,
+   "seed": 1,
+   "path": "~/lw-runs/gb10-a-notes/L6-seed1/set.json",
+   "work": "L6-seed1",
+   "rc": 0,
+   "seconds": 6022.4,
+   "error": null,
+   "steps": {
+    "teach": {
+     "kind": "teach",
+     "status": "done",
+     "scores": {
+      "teach": {
+       "off": {
+        "pass": 22,
+        "total": 56,
+        "unclear": 4
+       },
+       "on": {
+        "pass": 22,
+        "total": 56,
+        "unclear": 2
+       }
+      }
+     }
+    },
+    "teach.notes": {
+     "kind": "notes",
+     "status": "done",
+     "scores": {
+      "teach.notes": {
+       "off": {
+        "pass": 42,
+        "total": 56,
+        "unclear": 5
+       },
+       "on": {
+        "pass": 47,
+        "total": 56,
+        "unclear": 4
+       }
+      }
+     }
+    },
+    "teach.notes_pocket": {
+     "kind": "notes_pocket",
+     "status": "done",
+     "scores": {
+      "teach.notes_pocket": {
+       "off": {
+        "pass": 39,
+        "total": 56,
+        "unclear": 7
+       },
+       "on": {
+        "pass": 46,
+        "total": 56,
+        "unclear": 6
+       }
+      }
+     }
+    }
+   },
+   "failed_steps": [],
+   "not_applicable_steps": [],
+   "teach": {
+    "lessons": 29,
+    "recalled": 20,
+    "refused": [
+     "L7",
+     "L9",
+     "L13",
+     "L14",
+     "L16",
+     "L18",
+     "L21",
+     "L27",
+     "L28"
+    ],
+    "save_lines": 29
+   },
+   "combined": {},
+   "zero_vs_reteach": {},
+   "reference_gap": {
+    "teach": {
+     "teach": {
+      "CURRENT": {
+       "off": null,
+       "on": null
+      },
+      "all": {
+       "off": null,
+       "on": null
+      }
+     }
+    }
+   }
+  },
+  {
+   "set": "L5-seed1-v2",
+   "level": 5,
+   "seed": 1,
+   "path": "~/lw-runs/gb10-a-notes/L5-seed1-v2/set.json",
+   "work": "L5-seed1-v2",
+   "rc": 0,
+   "seconds": 5839.9,
+   "error": null,
+   "steps": {
+    "teach": {
+     "kind": "teach",
+     "status": "done",
+     "scores": {
+      "teach": {
+       "off": {
+        "pass": 38,
+        "total": 77,
+        "unclear": 2
+       },
+       "on": {
+        "pass": 30,
+        "total": 77,
+        "unclear": 8
+       }
+      }
+     }
+    },
+    "teach.notes": {
+     "kind": "notes",
+     "status": "done",
+     "scores": {
+      "teach.notes": {
+       "off": {
+        "pass": 63,
+        "total": 77,
+        "unclear": 0
+       },
+       "on": {
+        "pass": 62,
+        "total": 77,
+        "unclear": 5
+       }
+      }
+     }
+    },
+    "teach.notes_pocket": {
+     "kind": "notes_pocket",
+     "status": "done",
+     "scores": {
+      "teach.notes_pocket": {
+       "off": {
+        "pass": 59,
+        "total": 77,
+        "unclear": 0
+       },
+       "on": {
+        "pass": 62,
+        "total": 77,
+        "unclear": 7
+       }
+      }
+     }
+    }
+   },
+   "failed_steps": [],
+   "not_applicable_steps": [],
+   "teach": {
+    "lessons": 17,
+    "recalled": 10,
+    "refused": [
+     "L4",
+     "L6",
+     "L7",
+     "L8",
+     "L10",
+     "L12",
+     "L17"
+    ],
+    "save_lines": 17
+   },
+   "combined": {},
+   "zero_vs_reteach": {},
+   "reference_gap": {
+    "teach": {
+     "teach": {
+      "CURRENT": {
+       "off": null,
+       "on": null
+      },
+      "all": {
+       "off": null,
+       "on": null
+      }
+     }
+    }
+   }
+  }
+ ],
+ "updated": "2026-10-15T00:25:22Z",
+ "ended": "2026-10-15T00:25:22Z",
+ "rc": 0
+}

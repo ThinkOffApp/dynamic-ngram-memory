@@ -1,0 +1,206 @@
+{
+ "kernels_total_ms": 3572.631078,
+ "first_to_last_kernel_ms": 6162.671168,
+ "launches": 93150,
+ "pocket_total_ms": 0,
+ "pocket_share": 0.0,
+ "pocket_by_name_grid_stream": [],
+ "top": [
+  {
+   "name": "expert_kernel",
+   "count": 23460,
+   "total_ms": 1925.18153,
+   "share": 0.5388693900848388,
+   "median_us": 76.832
+  },
+  {
+   "name": "gemv_kernel",
+   "count": 14790,
+   "total_ms": 745.441497,
+   "share": 0.208653365188019,
+   "median_us": 34.88
+  },
+  {
+   "name": "group_kernel",
+   "count": 255,
+   "total_ms": 214.532224,
+   "share": 0.060048804177143755,
+   "median_us": 835.232
+  },
+  {
+   "name": "pack_kernel",
+   "count": 46,
+   "total_ms": 169.432928,
+   "share": 0.04742525167050008,
+   "median_us": 3663.84
+  },
+  {
+   "name": "tf_nemo_add_moe_norm",
+   "count": 5888,
+   "total_ms": 114.8792,
+   "share": 0.03215534923474682,
+   "median_us": 19.04
+  },
+  {
+   "name": "tf_nemo_router",
+   "count": 5888,
+   "total_ms": 99.928063,
+   "share": 0.02797043994140612,
+   "median_us": 16.48
+  },
+  {
+   "name": "tf_nemo_scan",
+   "count": 5865,
+   "total_ms": 90.606271,
+   "share": 0.025361216711668542,
+   "median_us": 15.456
+  },
+  {
+   "name": "prefill_kernel",
+   "count": 105,
+   "total_ms": 48.04752,
+   "share": 0.013448777371913127,
+   "median_us": 118.688
+  },
+  {
+   "name": "tf_nemo_topk",
+   "count": 5888,
+   "total_ms": 43.240288,
+   "share": 0.012103205468448876,
+   "median_us": 7.168
+  },
+  {
+   "name": "tf_nemo_attn_chunk",
+   "count": 1530,
+   "total_ms": 28.84784,
+   "share": 0.008074676441584714,
+   "median_us": 18.4
+  },
+  {
+   "name": "tf_nemo_add_rmsnorm",
+   "count": 7680,
+   "total_ms": 27.670298,
+   "share": 0.0077450756587747515,
+   "median_us": 3.488
+  },
+  {
+   "name": "tf_nemo_conv",
+   "count": 5865,
+   "total_ms": 17.151101,
+   "share": 0.004800691878211333,
+   "median_us": 2.816
+  },
+  {
+   "name": "tf_nemo_group_rmsnorm",
+   "count": 5888,
+   "total_ms": 14.175104,
+   "share": 0.003967693190402236,
+   "median_us": 2.304
+  },
+  {
+   "name": "tf_plan_routed",
+   "count": 5865,
+   "total_ms": 12.586303,
+   "share": 0.0035229786466074065,
+   "median_us": 2.048
+  },
+  {
+   "name": "tf_pack_dense",
+   "count": 59,
+   "total_ms": 6.465184,
+   "share": 0.0018096422101381048,
+   "median_us": 54.016
+  },
+  {
+   "name": "tf_nemo_attn_merge",
+   "count": 1530,
+   "total_ms": 4.69296,
+   "share": 0.0013135865130040724,
+   "median_us": 3.008
+  },
+  {
+   "name": "tf_argmax_rows_i32_kernel",
+   "count": 256,
+   "total_ms": 3.956,
+   "share": 0.0011073071676392108,
+   "median_us": 15.36
+  },
+  {
+   "name": "tf_nemo_kv_write",
+   "count": 1536,
+   "total_ms": 1.594655,
+   "share": 0.00044635311208587094,
+   "median_us": 1.024
+  },
+  {
+   "name": "tf_transpose_pad16",
+   "count": 118,
+   "total_ms": 1.534368,
+   "share": 0.0004294784338210921,
+   "median_us": 8.576
+  },
+  {
+   "name": "tf_nemo_embed",
+   "count": 256,
+   "total_ms": 1.253376,
+   "share": 0.00035082715585110297,
+   "median_us": 5.168
+  },
+  {
+   "name": "scan_kernel",
+   "count": 23,
+   "total_ms": 0.635712,
+   "share": 0.00017793944746063143,
+   "median_us": 27.584
+  },
+  {
+   "name": "tf_serial_feed",
+   "count": 255,
+   "total_ms": 0.374144,
+   "share": 0.00010472505887998101,
+   "median_us": 1.312
+  },
+  {
+   "name": "tf_nemo_conv_rows",
+   "count": 23,
+   "total_ms": 0.133184,
+   "share": 3.727896810284647e-05,
+   "median_us": 5.664
+  },
+  {
+   "name": "plan_kernel",
+   "count": 23,
+   "total_ms": 0.09024,
+   "share": 2.5258695350799385e-05,
+   "median_us": 3.904
+  },
+  {
+   "name": "tf_nemotron_mamba_a_f32_kernel",
+   "count": 23,
+   "total_ms": 0.056,
+   "share": 1.567472229216274e-05,
+   "median_us": 2.688
+  },
+  {
+   "name": "tf_strided_copy_kernel",
+   "count": 6,
+   "total_ms": 0.051008,
+   "share": 1.4277432762118518e-05,
+   "median_us": 8.224
+  },
+  {
+   "name": "pattn_kernel",
+   "count": 6,
+   "total_ms": 0.050528,
+   "share": 1.4143077999614266e-05,
+   "median_us": 8.128
+  },
+  {
+   "name": "tf_nemo_conv_commit",
+   "count": 23,
+   "total_ms": 0.023552,
+   "share": 6.592340346875301e-06,
+   "median_us": 1.024
+  }
+ ]
+}

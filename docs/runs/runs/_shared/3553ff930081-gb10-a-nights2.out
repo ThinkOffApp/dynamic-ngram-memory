@@ -1,0 +1,249 @@
+2026-10-15T10:59:55Z day1: 10 lessons told; serving ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8; 0 notes in weights, left out
+2026-10-15T10:59:55Z server start [day1 system]: ~/tf-pocket-cuda/src111/zig-out/native/bin/tensorfold-native serve ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8 --host 127.0.0.1 --port 18182 --no-update-check
+2026-10-15T11:00:01Z server ready [day1 system] pid 2883114: health in 6.0 s, warm at 6.0 s
+2026-10-15T11:00:12Z judge [days/day1/system]: ~/tensorfold/venv/bin/python3 ~/llwz-promo2/zengine/lwlogic.py judge ~/lw-runs/gb10-a-nights2/set.json ~/lw-runs/gb10-a-nights2/days/day1/system/answers.jsonl --json ~/lw-runs/gb10-a-nights2/days/day1/system/verdicts.json
+2026-10-15T11:00:13Z judge [days/day1/system]: judged 56 answers against L6-seed1-nights; report ~/lw-runs/gb10-a-nights2/days/day1/system/report.txt
+2026-10-15T11:00:13Z   day1: thinking off 40/56 pass (7 unclear)
+2026-10-15T11:00:13Z server stop [day1 system] pid 2883114: day1 system done
+2026-10-15T11:00:13Z server [day1 system] pid 2883114 exited with code 0
+2026-10-15T11:00:13Z day1: system 40/56 (7940 prompt tokens), control 40/56 (7940 tokens)
+2026-10-15T11:00:13Z night1: 0 facts in the pocket, 0 stale [], 0 due []
+2026-10-15T11:00:13Z day2: 20 lessons told; serving ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8; 0 notes in weights, left out
+2026-10-15T11:00:13Z server start [day2 system]: ~/tf-pocket-cuda/src111/zig-out/native/bin/tensorfold-native serve ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8 --host 127.0.0.1 --port 18182 --no-update-check
+2026-10-15T11:00:19Z server ready [day2 system] pid 2886307: health in 6.0 s, warm at 6.0 s
+2026-10-15T11:00:28Z judge [days/day2/system]: ~/tensorfold/venv/bin/python3 ~/llwz-promo2/zengine/lwlogic.py judge ~/lw-runs/gb10-a-nights2/set.json ~/lw-runs/gb10-a-nights2/days/day2/system/answers.jsonl --json ~/lw-runs/gb10-a-nights2/days/day2/system/verdicts.json
+2026-10-15T11:00:28Z judge [days/day2/system]: judged 56 answers against L6-seed1-nights; report ~/lw-runs/gb10-a-nights2/days/day2/system/report.txt
+2026-10-15T11:00:28Z   day2: thinking off 34/56 pass (7 unclear)
+2026-10-15T11:00:28Z server stop [day2 system] pid 2886307: day2 system done
+2026-10-15T11:00:29Z server [day2 system] pid 2886307 exited with code 0
+2026-10-15T11:00:29Z day2: system 34/56 (13177 prompt tokens), control 34/56 (13177 tokens)
+2026-10-15T11:00:29Z night2: 0 facts in the pocket, 0 stale [], 4 due [2, 6, 7, 8]
+2026-10-15T11:00:29Z copy [night2-add] (promotion night2-add): cp -RL ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8 ~/lw-runs/gb10-a-nights2/models/L6-seed1-nights.night2-add
+2026-10-15T11:00:37Z copied in 8.1 s: ~/lw-runs/gb10-a-nights2/models/L6-seed1-nights.night2-add (18.5 GB logical)
+2026-10-15T11:00:37Z server start [night2 add --slide]: ~/tf-pocket-cuda/src111/zig-out/native/bin/tensorfold-native serve ~/lw-runs/gb10-a-nights2/models/L6-seed1-nights.night2-add --host 127.0.0.1 --port 18182 --no-update-check --slide --slide-graph ~/lw-runs/gb10-a-nights2/models/L6-seed1-nights.night2-add.graph.json
+2026-10-15T11:00:43Z server ready [night2 add --slide] pid 2890507: health in 6.0 s, warm at 6.0 s
+2026-10-15T11:00:43Z learn L2 (lesson 2, ASSERT): "My cat's eyes are green."
+2026-10-15T11:00:43Z   L2 +0s fact: {"id": 1, "text": "My cat's eyes are green."}
+2026-10-15T11:00:43Z   L2 +0s learning: {"id": 1}
+2026-10-15T11:08:01Z   L2 +438s learned: {"id": 1, "recalled": true, "steps": 4}
+2026-10-15T11:08:27Z learned L2 in 464.2 s: facts [1], recalled [True]; save saved (24.1 s, 274046976 bytes)
+2026-10-15T11:08:27Z   L2 server after the save: info: slide pocket: the learned neurons are in the model's shards (261 MB written in 24.1 s); the last fact's held-out answers do not all come back with them as written
+2026-10-15T11:08:28Z learn L6 (lesson 6, ASSERT): 'My dog has grey eyes.'
+2026-10-15T11:08:28Z   L6 +0s fact: {"id": 2, "text": "My dog has grey eyes."}
+2026-10-15T11:08:28Z   L6 +0s learning: {"id": 2}
+2026-10-15T11:12:25Z   L6 +237s learned: {"id": 2, "recalled": false, "steps": 2, "message": "round 2 taken back: it made up something about the user it was never told"}
+2026-10-15T11:12:27Z learned L6 in 239.2 s: facts [2], recalled [False], message: round 2 taken back: it made up something about the user it was never told; save saved (0.5 s, 262628352 bytes)
+2026-10-15T11:12:27Z   L6 server after the save: info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.5 s); the last fact's held-out answers do not all come back with them as written
+2026-10-15T11:12:27Z learn L7 (lesson 7, ASSERT): "My cat's eyes are the same colour as mine."
+2026-10-15T11:12:27Z   L7 +0s fact: {"id": 3, "text": "My cat's eyes are the same colour as mine."}
+2026-10-15T11:12:27Z   L7 +0s learning: {"id": 3}
+2026-10-15T11:14:47Z   L7 +141s learned: {"id": 3, "recalled": false, "steps": 5}
+2026-10-15T11:14:49Z learned L7 in 142.8 s: facts [3], recalled [False]; save saved (0.5 s, 262628352 bytes)
+2026-10-15T11:14:49Z   L7 server after the save: info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.5 s); the last fact's held-out answers do not all come back with them as written
+2026-10-15T11:14:49Z learn L8 (lesson 8, ASSERT): "My car's colour is red."
+2026-10-15T11:14:49Z   L8 +0s fact: {"id": 4, "text": "My car's colour is red."}
+2026-10-15T11:14:49Z   L8 +0s learning: {"id": 4}
+2026-10-15T11:19:07Z   L8 +258s learned: {"id": 4, "recalled": true, "steps": 5}
+2026-10-15T11:19:09Z learned L8 in 259.6 s: facts [4], recalled [True]; save saved (0.4 s, 262628352 bytes)
+2026-10-15T11:19:09Z   L8 server after the save: info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.4 s); the last fact's held-out answers do not all come back with them as written
+2026-10-15T11:19:09Z server stop [night2 add --slide] pid 2890507: promotion teaching done
+2026-10-15T11:19:11Z server [night2 add --slide] pid 2890507 exited with code 0
+2026-10-15T11:19:11Z server start [night2 add regress]: ~/tf-pocket-cuda/src111/zig-out/native/bin/tensorfold-native serve ~/lw-runs/gb10-a-nights2/models/L6-seed1-nights.night2-add --host 127.0.0.1 --port 18182 --no-update-check
+2026-10-15T11:19:17Z server ready [night2 add regress] pid 3121372: health in 6.0 s, warm at 6.0 s
+2026-10-15T11:19:29Z judge [nights/night2/add/regress]: ~/tensorfold/venv/bin/python3 ~/llwz-promo2/zengine/lwlogic.py judge ~/lw-runs/gb10-a-nights2/set.json ~/lw-runs/gb10-a-nights2/nights/night2/add/regress/answers.jsonl --json ~/lw-runs/gb10-a-nights2/nights/night2/add/regress/verdicts.json
+2026-10-15T11:19:29Z judge [nights/night2/add/regress]: judged 56 answers against L6-seed1-nights; report ~/lw-runs/gb10-a-nights2/nights/night2/add/regress/report.txt
+2026-10-15T11:19:29Z   day2: thinking off 36/56 pass (6 unclear)
+2026-10-15T11:19:29Z night2 add: 0 questions worse [], 2 better
+2026-10-15T11:19:30Z judge [nights/night2/alone/L2]: ~/tensorfold/venv/bin/python3 ~/llwz-promo2/zengine/lwlogic.py judge ~/lw-runs/gb10-a-nights2/set.json ~/lw-runs/gb10-a-nights2/nights/night2/alone/L2/answers.jsonl --json ~/lw-runs/gb10-a-nights2/nights/night2/alone/L2/verdicts.json
+2026-10-15T11:19:30Z judge [nights/night2/alone/L2]: judged 1 answers against L6-seed1-nights; report ~/lw-runs/gb10-a-nights2/nights/night2/alone/L2/report.txt
+2026-10-15T11:19:30Z   day2: thinking off 0/1 pass (1 unclear)
+2026-10-15T11:19:31Z judge [nights/night2/alone/L8]: ~/tensorfold/venv/bin/python3 ~/llwz-promo2/zengine/lwlogic.py judge ~/lw-runs/gb10-a-nights2/set.json ~/lw-runs/gb10-a-nights2/nights/night2/alone/L8/answers.jsonl --json ~/lw-runs/gb10-a-nights2/nights/night2/alone/L8/verdicts.json
+2026-10-15T11:19:31Z judge [nights/night2/alone/L8]: judged 3 answers against L6-seed1-nights; report ~/lw-runs/gb10-a-nights2/nights/night2/alone/L8/report.txt
+2026-10-15T11:19:31Z   day2: thinking off 1/3 pass (1 unclear)
+2026-10-15T11:19:31Z server stop [night2 add regress] pid 3121372: night2 add checked
+2026-10-15T11:19:31Z server [night2 add regress] pid 3121372 exited with code 0
+2026-10-15T11:19:31Z day3: 29 lessons told; serving ~/lw-runs/gb10-a-nights2/models/L6-seed1-nights.night2-add; 0 notes in weights, left out
+2026-10-15T11:19:31Z server start [day3 system]: ~/tf-pocket-cuda/src111/zig-out/native/bin/tensorfold-native serve ~/lw-runs/gb10-a-nights2/models/L6-seed1-nights.night2-add --host 127.0.0.1 --port 18182 --no-update-check
+2026-10-15T11:19:37Z server ready [day3 system] pid 3125412: health in 6.0 s, warm at 6.0 s
+2026-10-15T11:19:47Z judge [days/day3/system]: ~/tensorfold/venv/bin/python3 ~/llwz-promo2/zengine/lwlogic.py judge ~/lw-runs/gb10-a-nights2/set.json ~/lw-runs/gb10-a-nights2/days/day3/system/answers.jsonl --json ~/lw-runs/gb10-a-nights2/days/day3/system/verdicts.json
+2026-10-15T11:19:48Z judge [days/day3/system]: judged 56 answers against L6-seed1-nights; report ~/lw-runs/gb10-a-nights2/days/day3/system/report.txt
+2026-10-15T11:19:48Z   day3: thinking off 45/56 pass (4 unclear)
+2026-10-15T11:19:48Z server stop [day3 system] pid 3125412: day3 system done
+2026-10-15T11:19:48Z server [day3 system] pid 3125412 exited with code 0
+2026-10-15T11:19:48Z server start [day3 control]: ~/tf-pocket-cuda/src111/zig-out/native/bin/tensorfold-native serve ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8 --host 127.0.0.1 --port 18182 --no-update-check
+2026-10-15T11:19:54Z server ready [day3 control] pid 3128178: health in 6.0 s, warm at 6.0 s
+2026-10-15T11:20:03Z judge [days/day3/control]: ~/tensorfold/venv/bin/python3 ~/llwz-promo2/zengine/lwlogic.py judge ~/lw-runs/gb10-a-nights2/set.json ~/lw-runs/gb10-a-nights2/days/day3/control/answers.jsonl --json ~/lw-runs/gb10-a-nights2/days/day3/control/verdicts.json
+2026-10-15T11:20:03Z judge [days/day3/control]: judged 56 answers against L6-seed1-nights; report ~/lw-runs/gb10-a-nights2/days/day3/control/report.txt
+2026-10-15T11:20:03Z   day3: thinking off 43/56 pass (4 unclear)
+2026-10-15T11:20:03Z server stop [day3 control] pid 3128178: day3 control done
+2026-10-15T11:20:04Z server [day3 control] pid 3128178 exited with code 0
+2026-10-15T11:20:04Z day3: system 45/56 (17010 prompt tokens), control 43/56 (17010 tokens)
+2026-10-15T11:20:04Z night3: 2 facts in the pocket, 0 stale [], 1 due [13]
+2026-10-15T11:20:04Z copy [night3-add] (promotion night3-add): cp -RL ~/lw-runs/gb10-a-nights2/models/L6-seed1-nights.night2-add ~/lw-runs/gb10-a-nights2/models/L6-seed1-nights.night3-add
+2026-10-15T11:20:10Z copied in 6.4 s: ~/lw-runs/gb10-a-nights2/models/L6-seed1-nights.night3-add (18.5 GB logical)
+2026-10-15T11:20:10Z server start [night3 add --slide]: ~/tf-pocket-cuda/src111/zig-out/native/bin/tensorfold-native serve ~/lw-runs/gb10-a-nights2/models/L6-seed1-nights.night3-add --host 127.0.0.1 --port 18182 --no-update-check --slide --slide-graph ~/lw-runs/gb10-a-nights2/models/L6-seed1-nights.night3-add.graph.json
+2026-10-15T11:20:26Z server ready [night3 add --slide] pid 3131992: health in 16.0 s, warm at 16.0 s
+2026-10-15T11:20:26Z learn L13 (lesson 13, CHANGE): 'My dog is called Bruno now.'
+2026-10-15T11:20:26Z   L13 +0s fact: {"id": 5, "text": "My dog is called Bruno now."}
+2026-10-15T11:20:26Z   L13 +0s learning: {"id": 5}
+2026-10-15T11:23:38Z   L13 +192s learned: {"id": 5, "recalled": false, "steps": 5}
+2026-10-15T11:23:40Z learned L13 in 194.1 s: facts [5], recalled [False]; save saved (0.6 s, 262628352 bytes)
+2026-10-15T11:23:40Z   L13 server after the save: info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.6 s); the last fact's held-out answers do not all come back with them as written
+2026-10-15T11:23:40Z server stop [night3 add --slide] pid 3131992: promotion teaching done
+2026-10-15T11:23:42Z server [night3 add --slide] pid 3131992 exited with code 0
+2026-10-15T11:23:42Z server start [night3 add regress]: ~/tf-pocket-cuda/src111/zig-out/native/bin/tensorfold-native serve ~/lw-runs/gb10-a-nights2/models/L6-seed1-nights.night3-add --host 127.0.0.1 --port 18182 --no-update-check
+2026-10-15T11:23:48Z server ready [night3 add regress] pid 3169418: health in 6.0 s, warm at 6.0 s
+2026-10-15T11:23:59Z judge [nights/night3/add/regress]: ~/tensorfold/venv/bin/python3 ~/llwz-promo2/zengine/lwlogic.py judge ~/lw-runs/gb10-a-nights2/set.json ~/lw-runs/gb10-a-nights2/nights/night3/add/regress/answers.jsonl --json ~/lw-runs/gb10-a-nights2/nights/night3/add/regress/verdicts.json
+2026-10-15T11:23:59Z judge [nights/night3/add/regress]: judged 56 answers against L6-seed1-nights; report ~/lw-runs/gb10-a-nights2/nights/night3/add/regress/report.txt
+2026-10-15T11:23:59Z   day3: thinking off 45/56 pass (4 unclear)
+2026-10-15T11:23:59Z night3 add: 0 questions worse [], 0 better
+2026-10-15T11:23:59Z --cleanup: remove ~/lw-runs/gb10-a-nights2/models/L6-seed1-nights.night2-add (18.5 GB): no longer serving
+2026-10-15T11:23:59Z judge [nights/night3/alone/L2]: ~/tensorfold/venv/bin/python3 ~/llwz-promo2/zengine/lwlogic.py judge ~/lw-runs/gb10-a-nights2/set.json ~/lw-runs/gb10-a-nights2/nights/night3/alone/L2/answers.jsonl --json ~/lw-runs/gb10-a-nights2/nights/night3/alone/L2/verdicts.json
+2026-10-15T11:23:59Z judge [nights/night3/alone/L2]: judged 2 answers against L6-seed1-nights; report ~/lw-runs/gb10-a-nights2/nights/night3/alone/L2/report.txt
+2026-10-15T11:23:59Z   day3: thinking off 1/2 pass (1 unclear)
+2026-10-15T11:24:01Z judge [nights/night3/alone/L8]: ~/tensorfold/venv/bin/python3 ~/llwz-promo2/zengine/lwlogic.py judge ~/lw-runs/gb10-a-nights2/set.json ~/lw-runs/gb10-a-nights2/nights/night3/alone/L8/answers.jsonl --json ~/lw-runs/gb10-a-nights2/nights/night3/alone/L8/verdicts.json
+2026-10-15T11:24:01Z judge [nights/night3/alone/L8]: judged 3 answers against L6-seed1-nights; report ~/lw-runs/gb10-a-nights2/nights/night3/alone/L8/report.txt
+2026-10-15T11:24:01Z   day3: thinking off 1/3 pass (1 unclear)
+2026-10-15T11:24:01Z server stop [night3 add regress] pid 3169418: night3 add checked
+2026-10-15T11:24:01Z server [night3 add regress] pid 3169418 exited with code 0
+2026-10-15T11:24:01Z day4: 32 lessons told; serving ~/lw-runs/gb10-a-nights2/models/L6-seed1-nights.night3-add; 0 notes in weights, left out
+2026-10-15T11:24:01Z server start [day4 system]: ~/tf-pocket-cuda/src111/zig-out/native/bin/tensorfold-native serve ~/lw-runs/gb10-a-nights2/models/L6-seed1-nights.night3-add --host 127.0.0.1 --port 18182 --no-update-check
+2026-10-15T11:24:07Z server ready [day4 system] pid 3172984: health in 6.0 s, warm at 6.0 s
+2026-10-15T11:24:17Z judge [days/day4/system]: ~/tensorfold/venv/bin/python3 ~/llwz-promo2/zengine/lwlogic.py judge ~/lw-runs/gb10-a-nights2/set.json ~/lw-runs/gb10-a-nights2/days/day4/system/answers.jsonl --json ~/lw-runs/gb10-a-nights2/days/day4/system/verdicts.json
+2026-10-15T11:24:17Z judge [days/day4/system]: judged 56 answers against L6-seed1-nights; report ~/lw-runs/gb10-a-nights2/days/day4/system/report.txt
+2026-10-15T11:24:17Z   day4: thinking off 40/56 pass (5 unclear)
+2026-10-15T11:24:17Z server stop [day4 system] pid 3172984: day4 system done
+2026-10-15T11:24:18Z server [day4 system] pid 3172984 exited with code 0
+2026-10-15T11:24:18Z server start [day4 control]: ~/tf-pocket-cuda/src111/zig-out/native/bin/tensorfold-native serve ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8 --host 127.0.0.1 --port 18182 --no-update-check
+2026-10-15T11:24:24Z server ready [day4 control] pid 3175855: health in 6.0 s, warm at 6.0 s
+2026-10-15T11:24:33Z judge [days/day4/control]: ~/tensorfold/venv/bin/python3 ~/llwz-promo2/zengine/lwlogic.py judge ~/lw-runs/gb10-a-nights2/set.json ~/lw-runs/gb10-a-nights2/days/day4/control/answers.jsonl --json ~/lw-runs/gb10-a-nights2/days/day4/control/verdicts.json
+2026-10-15T11:24:33Z judge [days/day4/control]: judged 56 answers against L6-seed1-nights; report ~/lw-runs/gb10-a-nights2/days/day4/control/report.txt
+2026-10-15T11:24:33Z   day4: thinking off 40/56 pass (5 unclear)
+2026-10-15T11:24:33Z server stop [day4 control] pid 3175855: day4 control done
+2026-10-15T11:24:34Z server [day4 control] pid 3175855 exited with code 0
+2026-10-15T11:24:34Z day4: system 40/56 (17515 prompt tokens), control 40/56 (17515 tokens)
+2026-10-15T11:24:34Z night4: 2 facts in the pocket, 1 stale [8], 6 due [5, 16, 21, 23, 25, 28]
+2026-10-15T11:24:34Z copy [night4-rebuild] (promotion night4-rebuild): cp -RL ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8 ~/lw-runs/gb10-a-nights2/models/L6-seed1-nights.night4-rebuild
+2026-10-15T11:24:42Z copied in 8.1 s: ~/lw-runs/gb10-a-nights2/models/L6-seed1-nights.night4-rebuild (18.5 GB logical)
+2026-10-15T11:24:42Z server start [night4 rebuild --slide]: ~/tf-pocket-cuda/src111/zig-out/native/bin/tensorfold-native serve ~/lw-runs/gb10-a-nights2/models/L6-seed1-nights.night4-rebuild --host 127.0.0.1 --port 18182 --no-update-check --slide --slide-graph ~/lw-runs/gb10-a-nights2/models/L6-seed1-nights.night4-rebuild.graph.json
+2026-10-15T11:24:48Z server ready [night4 rebuild --slide] pid 3180240: health in 6.0 s, warm at 6.0 s
+2026-10-15T11:24:48Z learn L2 (lesson 2, ASSERT): "My cat's eyes are green."
+2026-10-15T11:24:48Z   L2 +0s fact: {"id": 1, "text": "My cat's eyes are green."}
+2026-10-15T11:24:48Z   L2 +0s learning: {"id": 1}
+2026-10-15T11:32:08Z   L2 +440s learned: {"id": 1, "recalled": true, "steps": 4}
+2026-10-15T11:32:28Z learned L2 in 459.9 s: facts [1], recalled [True]; save saved (20.0 s, 274046976 bytes)
+2026-10-15T11:32:28Z   L2 server after the save: info: slide pocket: the learned neurons are in the model's shards (261 MB written in 20.0 s); the last fact's held-out answers do not all come back with them as written
+2026-10-15T11:32:28Z learn L5 (lesson 5, ASSERT): 'I like chocolate.'
+2026-10-15T11:32:28Z   L5 +0s fact: {"id": 2, "text": "I like chocolate."}
+2026-10-15T11:32:28Z   L5 +0s learning: {"id": 2}
+2026-10-15T11:35:17Z   L5 +169s learned: {"id": 2, "recalled": true, "steps": 3}
+2026-10-15T11:35:19Z learned L5 in 170.8 s: facts [2], recalled [True]; save saved (0.6 s, 262628352 bytes)
+2026-10-15T11:35:19Z   L5 server after the save: info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.6 s); the last fact's held-out answers do not all come back with them as written
+2026-10-15T11:35:19Z learn L16 (lesson 16, ASSERT): "My brother's name is Otto."
+2026-10-15T11:35:19Z   L16 +0s fact: {"id": 3, "text": "My brother's name is Otto."}
+2026-10-15T11:35:19Z   L16 +0s learning: {"id": 3}
+2026-10-15T11:43:42Z   L16 +503s learned: {"id": 3, "recalled": true, "steps": 9}
+2026-10-15T11:43:44Z learned L16 in 505.3 s: facts [3], recalled [True]; save saved (0.5 s, 262628352 bytes)
+2026-10-15T11:43:44Z   L16 server after the save: info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.5 s); the last fact's held-out answers do not all come back with them as written
+2026-10-15T11:43:44Z learn L21 (lesson 21, CHANGE): 'I have moved; I live in Lisbon now.'
+2026-10-15T11:43:44Z   L21 +0s fact: {"id": 4, "text": "I have moved; I live in Lisbon now."}
+2026-10-15T11:43:44Z   L21 +0s learning: {"id": 4}
+2026-10-15T11:47:43Z   L21 +239s learned: {"id": 4, "recalled": false, "steps": 9}
+2026-10-15T11:47:45Z learned L21 in 240.6 s: facts [4], recalled [False]; save saved (0.5 s, 262628352 bytes)
+2026-10-15T11:47:45Z   L21 server after the save: info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.4 s); the last fact's held-out answers do not all come back with them as written
+2026-10-15T11:47:45Z learn L23 (lesson 23, ASSERT): 'My sister likes orange best.'
+2026-10-15T11:47:45Z   L23 +0s fact: {"id": 5, "text": "My sister likes orange best."}
+2026-10-15T11:47:45Z   L23 +0s learning: {"id": 5}
+2026-10-15T11:50:46Z   L23 +181s learned: {"id": 5, "recalled": true, "steps": 6}
+2026-10-15T11:50:48Z learned L23 in 183.2 s: facts [5], recalled [True]; save saved (0.4 s, 262628352 bytes)
+2026-10-15T11:50:48Z   L23 server after the save: info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.4 s); the last fact's held-out answers do not all come back with them as written
+2026-10-15T11:50:48Z learn L25 (lesson 25, ASSERT): 'My sister has brown eyes.'
+2026-10-15T11:50:48Z   L25 +0s fact: {"id": 6, "text": "My sister has brown eyes."}
+2026-10-15T11:50:48Z   L25 +0s learning: {"id": 6}
+2026-10-15T11:53:59Z   L25 +192s learned: {"id": 6, "recalled": true, "steps": 2}
+2026-10-15T11:54:01Z learned L25 in 193.6 s: facts [6], recalled [True]; save saved (0.6 s, 262628352 bytes)
+2026-10-15T11:54:01Z   L25 server after the save: info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.6 s); the last fact's held-out answers come back with them as written
+2026-10-15T11:54:01Z learn L28 (lesson 28, ASSERT): 'I like pears.'
+2026-10-15T11:54:01Z   L28 +0s fact: {"id": 7, "text": "I like pears."}
+2026-10-15T11:54:01Z   L28 +0s learning: {"id": 7}
+2026-10-15T11:57:10Z   L28 +188s learned: {"id": 7, "recalled": false, "steps": 5}
+2026-10-15T11:57:12Z learned L28 in 190.3 s: facts [7], recalled [False]; save saved (0.5 s, 262628352 bytes)
+2026-10-15T11:57:12Z   L28 server after the save: info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.5 s); the last fact's held-out answers do not all come back with them as written
+2026-10-15T11:57:12Z server stop [night4 rebuild --slide] pid 3180240: promotion teaching done
+2026-10-15T11:57:13Z server [night4 rebuild --slide] pid 3180240 exited with code 0
+2026-10-15T11:57:13Z server start [night4 rebuild regress]: ~/tf-pocket-cuda/src111/zig-out/native/bin/tensorfold-native serve ~/lw-runs/gb10-a-nights2/models/L6-seed1-nights.night4-rebuild --host 127.0.0.1 --port 18182 --no-update-check
+2026-10-15T11:57:19Z server ready [night4 rebuild regress] pid 3522466: health in 6.0 s, warm at 6.0 s
+2026-10-15T11:57:28Z judge [nights/night4/rebuild/regress]: ~/tensorfold/venv/bin/python3 ~/llwz-promo2/zengine/lwlogic.py judge ~/lw-runs/gb10-a-nights2/set.json ~/lw-runs/gb10-a-nights2/nights/night4/rebuild/regress/answers.jsonl --json ~/lw-runs/gb10-a-nights2/nights/night4/rebuild/regress/verdicts.json
+2026-10-15T11:57:28Z judge [nights/night4/rebuild/regress]: judged 56 answers against L6-seed1-nights; report ~/lw-runs/gb10-a-nights2/nights/night4/rebuild/regress/report.txt
+2026-10-15T11:57:28Z   day4: thinking off 36/56 pass (5 unclear)
+2026-10-15T11:57:28Z night4 rebuild: 6 questions worse ['Q17', 'Q27', 'Q28', 'Q30', 'Q36', 'Q45'], 2 better
+2026-10-15T11:57:28Z server stop [night4 rebuild regress] pid 3522466: night4 rebuild checked
+2026-10-15T11:57:28Z server [night4 rebuild regress] pid 3522466 exited with code 0
+2026-10-15T11:57:28Z --cleanup: remove ~/lw-runs/gb10-a-nights2/models/L6-seed1-nights.night4-rebuild (18.5 GB): no longer serving
+2026-10-15T11:57:29Z copy [night4-rebuild-old] (promotion night4-rebuild-old): cp -RL ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8 ~/lw-runs/gb10-a-nights2/models/L6-seed1-nights.night4-rebuild-old
+2026-10-15T11:57:40Z copied in 11.1 s: ~/lw-runs/gb10-a-nights2/models/L6-seed1-nights.night4-rebuild-old (18.5 GB logical)
+2026-10-15T11:57:40Z server start [night4 rebuild-old --slide]: ~/tf-pocket-cuda/src111/zig-out/native/bin/tensorfold-native serve ~/lw-runs/gb10-a-nights2/models/L6-seed1-nights.night4-rebuild-old --host 127.0.0.1 --port 18182 --no-update-check --slide --slide-graph ~/lw-runs/gb10-a-nights2/models/L6-seed1-nights.night4-rebuild-old.graph.json
+2026-10-15T11:57:50Z server ready [night4 rebuild-old --slide] pid 3527432: health in 10.0 s, warm at 10.0 s
+2026-10-15T11:57:50Z learn L2 (lesson 2, ASSERT): "My cat's eyes are green."
+2026-10-15T11:57:50Z   L2 +0s fact: {"id": 1, "text": "My cat's eyes are green."}
+2026-10-15T11:57:50Z   L2 +0s learning: {"id": 1}
+2026-10-15T12:05:07Z   L2 +437s learned: {"id": 1, "recalled": true, "steps": 4}
+2026-10-15T12:05:59Z learned L2 in 488.9 s: facts [1], recalled [True]; save saved (50.9 s, 274046976 bytes)
+2026-10-15T12:05:59Z   L2 server after the save: info: slide pocket: the learned neurons are in the model's shards (261 MB written in 50.9 s); the last fact's held-out answers do not all come back with them as written
+2026-10-15T12:05:59Z server stop [night4 rebuild-old --slide] pid 3527432: promotion teaching done
+2026-10-15T12:06:01Z server [night4 rebuild-old --slide] pid 3527432 exited with code 0
+2026-10-15T12:06:01Z server start [night4 rebuild-old regress]: ~/tf-pocket-cuda/src111/zig-out/native/bin/tensorfold-native serve ~/lw-runs/gb10-a-nights2/models/L6-seed1-nights.night4-rebuild-old --host 127.0.0.1 --port 18182 --no-update-check
+2026-10-15T12:06:07Z server ready [night4 rebuild-old regress] pid 3617201: health in 6.0 s, warm at 6.0 s
+2026-10-15T12:06:16Z judge [nights/night4/rebuild-old/regress]: ~/tensorfold/venv/bin/python3 ~/llwz-promo2/zengine/lwlogic.py judge ~/lw-runs/gb10-a-nights2/set.json ~/lw-runs/gb10-a-nights2/nights/night4/rebuild-old/regress/answers.jsonl --json ~/lw-runs/gb10-a-nights2/nights/night4/rebuild-old/regress/verdicts.json
+2026-10-15T12:06:16Z judge [nights/night4/rebuild-old/regress]: judged 56 answers against L6-seed1-nights; report ~/lw-runs/gb10-a-nights2/nights/night4/rebuild-old/regress/report.txt
+2026-10-15T12:06:16Z   day4: thinking off 39/56 pass (6 unclear)
+2026-10-15T12:06:16Z night4 rebuild-old: 2 questions worse ['Q40', 'Q45'], 1 better
+2026-10-15T12:06:16Z server stop [night4 rebuild-old regress] pid 3617201: night4 rebuild-old checked
+2026-10-15T12:06:17Z server [night4 rebuild-old regress] pid 3617201 exited with code 0
+2026-10-15T12:06:17Z --cleanup: remove ~/lw-runs/gb10-a-nights2/models/L6-seed1-nights.night4-rebuild-old (18.5 GB): no longer serving
+2026-10-15T12:06:17Z server start [night4 source regress]: ~/tf-pocket-cuda/src111/zig-out/native/bin/tensorfold-native serve ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8 --host 127.0.0.1 --port 18182 --no-update-check
+2026-10-15T12:06:23Z server ready [night4 source regress] pid 3620252: health in 6.0 s, warm at 6.0 s
+2026-10-15T12:06:32Z judge [nights/night4/source/regress]: ~/tensorfold/venv/bin/python3 ~/llwz-promo2/zengine/lwlogic.py judge ~/lw-runs/gb10-a-nights2/set.json ~/lw-runs/gb10-a-nights2/nights/night4/source/regress/answers.jsonl --json ~/lw-runs/gb10-a-nights2/nights/night4/source/regress/verdicts.json
+2026-10-15T12:06:32Z judge [nights/night4/source/regress]: judged 56 answers against L6-seed1-nights; report ~/lw-runs/gb10-a-nights2/nights/night4/source/regress/report.txt
+2026-10-15T12:06:32Z   day4: thinking off 40/56 pass (5 unclear)
+2026-10-15T12:06:32Z night4 source: 2 questions worse ['Q40', 'Q45'], 2 better
+2026-10-15T12:06:32Z --cleanup: remove ~/lw-runs/gb10-a-nights2/models/L6-seed1-nights.night3-add (18.5 GB): no longer serving
+2026-10-15T12:06:33Z server stop [night4 source regress] pid 3620252: night4 source checked
+2026-10-15T12:06:33Z server [night4 source regress] pid 3620252 exited with code 0
+2026-10-15T12:06:33Z day5: 32 lessons told; serving ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8; 0 notes in weights, left out
+2026-10-15T12:06:33Z server start [day5 system]: ~/tf-pocket-cuda/src111/zig-out/native/bin/tensorfold-native serve ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8 --host 127.0.0.1 --port 18182 --no-update-check
+2026-10-15T12:06:39Z server ready [day5 system] pid 3623010: health in 6.0 s, warm at 6.0 s
+2026-10-15T12:06:48Z judge [days/day5/system]: ~/tensorfold/venv/bin/python3 ~/llwz-promo2/zengine/lwlogic.py judge ~/lw-runs/gb10-a-nights2/set.json ~/lw-runs/gb10-a-nights2/days/day5/system/answers.jsonl --json ~/lw-runs/gb10-a-nights2/days/day5/system/verdicts.json
+2026-10-15T12:06:48Z judge [days/day5/system]: judged 56 answers against L6-seed1-nights; report ~/lw-runs/gb10-a-nights2/days/day5/system/report.txt
+2026-10-15T12:06:48Z   day5: thinking off 40/56 pass (5 unclear)
+2026-10-15T12:06:48Z server stop [day5 system] pid 3623010: day5 system done
+2026-10-15T12:06:49Z server [day5 system] pid 3623010 exited with code 0
+2026-10-15T12:06:49Z day5: system 40/56 (17515 prompt tokens), control 40/56 (17515 tokens)
+2026-10-15T12:06:49Z 
+                     day   system right (off)  tokens   control right (off)  tokens   in weights  pocket  changed (sys/ctl)
+                     day1   40/56                7940    40/56                 7940            0       0  -
+                     day2   34/56               13177    34/56                13177            0       0  15/15 of 19
+                     day3   45/56               17010    43/56                17010            0       2  12/12 of 14
+                     day4   40/56               17515    40/56                17515            0       2  7/8 of 11
+                     day5   40/56               17515    40/56                17515            0       0  0/0 of 0
+                     
+                     nights:
+                     night1: unchanged (due [], stale [])
+                     night2: add (due [2, 6, 7, 8], stale [])
+                     night3: add (due [13], stale [])
+                     night4: source (due [5, 16, 21, 23, 25, 28], stale [8])
+                     
+                     facts:
+                     L2 note: due: qualified 2 days running (day2); promoted (night2); back to notes: the rebuild left it out (night4)
+                     L5 rejected: due: qualified 2 days running (day4); rejected: the night with it made answers worse (night4)
+                     L6 missed: due: qualified 2 days running (day2); missed: TensorFold did not keep it; it stays a note (night2)
+                     L7 missed: due: qualified 2 days running (day2); missed: TensorFold did not keep it; it stays a note (night2)
+                     L8 freed: due: qualified 2 days running (day2); promoted (night2); freed: its note changed; the pocket was rebuilt without it (night4)
+                     L13 missed: due: qualified 2 days running (day3); missed: TensorFold did not keep it; it stays a note (night3)
+                     L16 rejected: due: qualified 2 days running (day4); rejected: the night with it made answers worse (night4)
+                     L21 rejected: due: qualified 2 days running (day4); rejected: the night with it made answers worse (night4)
+                     L23 rejected: due: qualified 2 days running (day4); rejected: the night with it made answers worse (night4)
+                     L25 rejected: due: qualified 2 days running (day4); rejected: the night with it made answers worse (night4)
+                     L28 rejected: due: qualified 2 days running (day4); rejected: the night with it made answers worse (night4)
+                     L31 note: due: qualified 2 days running (day5)
+                     

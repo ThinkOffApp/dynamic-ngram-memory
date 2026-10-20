@@ -1,0 +1,3243 @@
+{
+ "runner": "~/lw-logic/lwrun.py",
+ "set": {
+  "id": "L5-seed1",
+  "path": "~/lw-logic/examples/L5-seed1.json",
+  "sha256": "0f331f90e705ed70a2c186ff7a48b6c6f958a59b55efe18e50f112753ef8678b",
+  "level": 5,
+  "seed": 1
+ },
+ "host": "gb10-a",
+ "os": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+ "python": "3.12.3",
+ "args": {
+  "set": "examples/L5-seed1.json",
+  "bin": "~/tf108/zig-out/native/bin/tensorfold-native",
+  "model_src": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8",
+  "work": "~/lw-runs/gb10-a-L5-seed1",
+  "port": 18180,
+  "phases": null,
+  "delete_mode": "both",
+  "thinking": "off,on",
+  "max_tokens_off": 160,
+  "max_tokens_on": 1500,
+  "teach_probe": "slide",
+  "baseline_from": "src",
+  "resume": false,
+  "dry_run": false,
+  "judge_only": false,
+  "cleanup": true,
+  "models_dir": null,
+  "lwlogic": "~/lw-logic/lwlogic.py",
+  "zero_audit": "touched",
+  "server_arg": null,
+  "keep_env": false,
+  "allow_taught_src": false,
+  "startup_timeout": 900,
+  "warm_timeout": 300,
+  "learn_timeout": 1800,
+  "lesson_deadline": 5400,
+  "save_timeout": 1800,
+  "save_grace": 120,
+  "busy_retries": 60,
+  "chat_timeout": 900,
+  "chat_retries": 2,
+  "stop_timeout": 60,
+  "server_max_hours": 8.0
+ },
+ "updated": "2026-10-13T01:00:54Z",
+ "started": "2026-10-12T21:33:32Z",
+ "steps": {
+  "baseline": {
+   "phase": "baseline",
+   "kind": "baseline",
+   "status": "done",
+   "error": null,
+   "folder": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8",
+   "timings": {
+    "baseline.server": {
+     "ready_s": 6.0,
+     "warm_s": 6.0,
+     "stop_s": 0.5
+    },
+    "step_s": 151.9
+   },
+   "answers": {
+    "baseline": {
+     "path": "~/lw-runs/gb10-a-L5-seed1/phases/baseline/answers.jsonl",
+     "n": 72,
+     "expected": 72,
+     "complete": true,
+     "seconds": 145.3
+    }
+   },
+   "judge": {
+    "baseline": {
+     "rc": 0,
+     "report": "~/lw-runs/gb10-a-L5-seed1/phases/baseline/report.txt",
+     "verdicts": "~/lw-runs/gb10-a-L5-seed1/phases/baseline/verdicts.json",
+     "headline": "judged 72 answers against L5-seed1",
+     "scores": {
+      "baseline": {
+       "recall": {
+        "off": {
+         "pass": 4,
+         "fail": 0,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 4,
+         "fail": 0,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "all": {
+        "off": {
+         "pass": 24,
+         "fail": 9,
+         "unclear": 3,
+         "total": 36
+        },
+        "on": {
+         "pass": 35,
+         "fail": 0,
+         "unclear": 1,
+         "total": 36
+        }
+       },
+       "yes_no": {
+        "off": {
+         "pass": 2,
+         "fail": 2,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 4,
+         "fail": 0,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "either_or": {
+        "off": {
+         "pass": 1,
+         "fail": 1,
+         "unclear": 2,
+         "total": 4
+        },
+        "on": {
+         "pass": 4,
+         "fail": 0,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "temporal": {
+        "off": {
+         "pass": 12,
+         "fail": 6,
+         "unclear": 0,
+         "total": 18
+        },
+        "on": {
+         "pass": 18,
+         "fail": 0,
+         "unclear": 0,
+         "total": 18
+        }
+       },
+       "reverse": {
+        "off": {
+         "pass": 0,
+         "fail": 0,
+         "unclear": 1,
+         "total": 1
+        },
+        "on": {
+         "pass": 0,
+         "fail": 0,
+         "unclear": 1,
+         "total": 1
+        }
+       },
+       "controls": {
+        "off": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        },
+        "on": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        }
+       }
+      }
+     },
+     "consistency": {
+      "baseline": [
+       11,
+       13,
+       [
+        "Q18 (plain)",
+        "Q24 (plain)"
+       ]
+      ],
+      "('pairs', 'baseline')": [
+       4,
+       8
+      ]
+     },
+     "n": 72
+    }
+   },
+   "source_unchanged": true
+  },
+  "teach": {
+   "phase": "teach",
+   "kind": "teach",
+   "status": "done",
+   "error": null,
+   "folder": "~/lw-runs/gb10-a-L5-seed1/models/L5-seed1.teach",
+   "timings": {
+    "copy_s": 2.8,
+    "slide_server": {
+     "ready_s": 6.0,
+     "warm_s": 6.0,
+     "stop_s": 1.5
+    },
+    "teach.server": {
+     "ready_s": 6.0,
+     "warm_s": 6.0,
+     "stop_s": 1.5
+    },
+    "step_s": 4531.9
+   },
+   "answers": {
+    "teach": {
+     "path": "~/lw-runs/gb10-a-L5-seed1/phases/teach/answers.jsonl",
+     "n": 72,
+     "expected": 72,
+     "complete": true,
+     "seconds": 82.8
+    }
+   },
+   "judge": {
+    "teach": {
+     "rc": 0,
+     "report": "~/lw-runs/gb10-a-L5-seed1/phases/teach/report.txt",
+     "verdicts": "~/lw-runs/gb10-a-L5-seed1/phases/teach/verdicts.json",
+     "headline": "judged 72 answers against L5-seed1",
+     "scores": {
+      "teach": {
+       "recall": {
+        "off": {
+         "pass": 3,
+         "fail": 1,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 2,
+         "fail": 2,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "all": {
+        "off": {
+         "pass": 17,
+         "fail": 18,
+         "unclear": 1,
+         "total": 36
+        },
+        "on": {
+         "pass": 15,
+         "fail": 18,
+         "unclear": 3,
+         "total": 36
+        }
+       },
+       "yes_no": {
+        "off": {
+         "pass": 3,
+         "fail": 1,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 2,
+         "fail": 1,
+         "unclear": 1,
+         "total": 4
+        }
+       },
+       "either_or": {
+        "off": {
+         "pass": 1,
+         "fail": 3,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 1,
+         "fail": 3,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "temporal": {
+        "off": {
+         "pass": 5,
+         "fail": 13,
+         "unclear": 0,
+         "total": 18
+        },
+        "on": {
+         "pass": 5,
+         "fail": 12,
+         "unclear": 1,
+         "total": 18
+        }
+       },
+       "reverse": {
+        "off": {
+         "pass": 0,
+         "fail": 0,
+         "unclear": 1,
+         "total": 1
+        },
+        "on": {
+         "pass": 0,
+         "fail": 0,
+         "unclear": 1,
+         "total": 1
+        }
+       },
+       "controls": {
+        "off": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        },
+        "on": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        }
+       }
+      }
+     },
+     "consistency": {
+      "teach": [
+       6,
+       15,
+       [
+        "Q02 (plain)",
+        "Q03 (plain)",
+        "Q11 (plain)",
+        "Q24 (plain)",
+        "Q25 (plain)",
+        "Q03 (think)",
+        "Q10 (think)",
+        "Q11 (think)",
+        "Q25 (think)"
+       ]
+      ],
+      "('pairs', 'teach')": [
+       2,
+       8
+      ]
+     },
+     "n": 72
+    }
+   },
+   "teach_seconds": 4438.8,
+   "lessons": [
+    {
+     "name": "L1",
+     "lesson": 1,
+     "seconds": 217.5,
+     "recalled": true,
+     "facts": [
+      1
+     ],
+     "graph_ids": [
+      1
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L2",
+     "lesson": 2,
+     "seconds": 281.3,
+     "recalled": true,
+     "facts": [
+      2
+     ],
+     "graph_ids": [
+      2
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L3",
+     "lesson": 3,
+     "seconds": 362.2,
+     "recalled": true,
+     "facts": [
+      3
+     ],
+     "graph_ids": [
+      3
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L4",
+     "lesson": 4,
+     "seconds": 168.2,
+     "recalled": false,
+     "facts": [
+      4,
+      5
+     ],
+     "graph_ids": [
+      4,
+      5
+     ],
+     "message": "too few clean answers to learn from",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L5",
+     "lesson": 5,
+     "seconds": 230.9,
+     "recalled": true,
+     "facts": [
+      6
+     ],
+     "graph_ids": [
+      6
+     ],
+     "message": "",
+     "changed_states": [
+      {
+       "id": 4,
+       "from": "learned",
+       "to": "replaced",
+       "text": "Until 23 December 2025, my dog was called Ana.",
+       "message": "replaced by fact 6"
+      }
+     ],
+     "save": "saved"
+    },
+    {
+     "name": "L6",
+     "lesson": 6,
+     "seconds": 136.0,
+     "recalled": false,
+     "facts": [
+      7
+     ],
+     "graph_ids": [
+      7
+     ],
+     "message": "round 1 taken back: it made up something about the user it was never told",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L7",
+     "lesson": 7,
+     "seconds": 160.6,
+     "recalled": false,
+     "facts": [
+      8
+     ],
+     "graph_ids": [
+      8
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L8",
+     "lesson": 8,
+     "seconds": 333.7,
+     "recalled": false,
+     "facts": [
+      9,
+      10
+     ],
+     "graph_ids": [
+      9,
+      10
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L9",
+     "lesson": 9,
+     "seconds": 345.3,
+     "recalled": true,
+     "facts": [
+      11
+     ],
+     "graph_ids": [
+      11
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L10",
+     "lesson": 10,
+     "seconds": 447.9,
+     "recalled": false,
+     "facts": [
+      12
+     ],
+     "graph_ids": [
+      12
+     ],
+     "message": "taken out: it kept answering questions about something else, last \"What colour do I see in my cat's eyes?\"",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L11",
+     "lesson": 11,
+     "seconds": 193.8,
+     "recalled": true,
+     "facts": [
+      13
+     ],
+     "graph_ids": [
+      13
+     ],
+     "message": "",
+     "changed_states": [
+      {
+       "id": 3,
+       "from": "learned",
+       "to": "replaced",
+       "text": "My car is called Elsa now.",
+       "message": "replaced by fact 13"
+      }
+     ],
+     "save": "saved"
+    },
+    {
+     "name": "L12",
+     "lesson": 12,
+     "seconds": 424.6,
+     "recalled": false,
+     "facts": [
+      14
+     ],
+     "graph_ids": [
+      14
+     ],
+     "message": "taken out: it kept answering questions about something else, last \"Does my dog have any health issues?\"",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L13",
+     "lesson": 13,
+     "seconds": 123.5,
+     "recalled": true,
+     "facts": [
+      15
+     ],
+     "graph_ids": [
+      15
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L14",
+     "lesson": 14,
+     "seconds": 209.0,
+     "recalled": true,
+     "facts": [
+      16
+     ],
+     "graph_ids": [
+      16
+     ],
+     "message": "",
+     "changed_states": [
+      {
+       "id": 13,
+       "from": "learned",
+       "to": "replaced",
+       "text": "My car has a new name; it is called Milo now.",
+       "message": "replaced by fact 16"
+      },
+      {
+       "id": 15,
+       "from": "learned",
+       "to": "replaced",
+       "text": "My car is named Milo.",
+       "message": "replaced by fact 16"
+      }
+     ],
+     "save": "saved"
+    },
+    {
+     "name": "L15",
+     "lesson": 15,
+     "seconds": 133.7,
+     "recalled": true,
+     "facts": [
+      17
+     ],
+     "graph_ids": [
+      17
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L16",
+     "lesson": 16,
+     "seconds": 242.0,
+     "recalled": true,
+     "facts": [
+      18
+     ],
+     "graph_ids": [
+      18
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L17",
+     "lesson": 17,
+     "seconds": 428.8,
+     "recalled": false,
+     "facts": [
+      19
+     ],
+     "graph_ids": [
+      19
+     ],
+     "message": "taken out: it kept answering questions about something else, last \"What's the name of my cat?\"",
+     "changed_states": [],
+     "save": "saved"
+    }
+   ],
+   "refused_lessons": [
+    4,
+    6,
+    7,
+    8,
+    10,
+    12,
+    17
+   ],
+   "fact_states": {
+    "1": "learned",
+    "2": "learned",
+    "3": "replaced",
+    "4": "replaced",
+    "5": "missed",
+    "6": "learned",
+    "7": "missed",
+    "8": "missed",
+    "9": "missed",
+    "10": "missed",
+    "11": "learned",
+    "12": "missed",
+    "13": "replaced",
+    "14": "missed",
+    "15": "replaced",
+    "16": "learned",
+    "17": "learned",
+    "18": "learned",
+    "19": "missed"
+   },
+   "refused_judge": {
+    "teach": {
+     "refused": [
+      4,
+      6,
+      7,
+      8,
+      10,
+      12,
+      17
+     ],
+     "phase": null,
+     "note": "no phase of the set keeps exactly the lessons that were not refused; lwlogic.py has no CLI to add one"
+    }
+   }
+  },
+  "del-A.zero": {
+   "phase": "del-A",
+   "kind": "zero",
+   "status": "done",
+   "error": null,
+   "folder": "~/lw-runs/gb10-a-L5-seed1/models/L5-seed1.del-A.zero",
+   "timings": {
+    "copy_s": 2.9,
+    "zero_s": 5.0,
+    "del-A.zero.server": {
+     "ready_s": 6.0,
+     "warm_s": 6.0,
+     "stop_s": 0.5
+    },
+    "step_s": 135.7
+   },
+   "answers": {
+    "del-A.zero": {
+     "path": "~/lw-runs/gb10-a-L5-seed1/phases/del-A.zero/answers.jsonl",
+     "n": 72,
+     "expected": 72,
+     "complete": true,
+     "seconds": 121.2
+    }
+   },
+   "judge": {
+    "del-A.zero": {
+     "rc": 0,
+     "report": "~/lw-runs/gb10-a-L5-seed1/phases/del-A.zero/report.txt",
+     "verdicts": "~/lw-runs/gb10-a-L5-seed1/phases/del-A.zero/verdicts.json",
+     "headline": "judged 72 answers against L5-seed1",
+     "scores": {
+      "del-A": {
+       "recall": {
+        "off": {
+         "pass": 2,
+         "fail": 2,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 2,
+         "fail": 2,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "delete_kept": {
+        "off": {
+         "pass": 4,
+         "fail": 10,
+         "unclear": 1,
+         "total": 15
+        },
+        "on": {
+         "pass": 4,
+         "fail": 9,
+         "unclear": 2,
+         "total": 15
+        }
+       },
+       "all": {
+        "off": {
+         "pass": 15,
+         "fail": 18,
+         "unclear": 3,
+         "total": 36
+        },
+        "on": {
+         "pass": 9,
+         "fail": 24,
+         "unclear": 3,
+         "total": 36
+        }
+       },
+       "yes_no": {
+        "off": {
+         "pass": 3,
+         "fail": 1,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 1,
+         "fail": 2,
+         "unclear": 1,
+         "total": 4
+        }
+       },
+       "either_or": {
+        "off": {
+         "pass": 2,
+         "fail": 2,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 1,
+         "fail": 3,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "temporal": {
+        "off": {
+         "pass": 3,
+         "fail": 13,
+         "unclear": 2,
+         "total": 18
+        },
+        "on": {
+         "pass": 0,
+         "fail": 17,
+         "unclear": 1,
+         "total": 18
+        }
+       },
+       "delete_affected": {
+        "off": {
+         "pass": 6,
+         "fail": 8,
+         "unclear": 2,
+         "total": 16
+        },
+        "on": {
+         "pass": 0,
+         "fail": 15,
+         "unclear": 1,
+         "total": 16
+        }
+       },
+       "reverse": {
+        "off": {
+         "pass": 0,
+         "fail": 0,
+         "unclear": 1,
+         "total": 1
+        },
+        "on": {
+         "pass": 0,
+         "fail": 0,
+         "unclear": 1,
+         "total": 1
+        }
+       },
+       "controls": {
+        "off": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        },
+        "on": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        }
+       }
+      }
+     },
+     "consistency": {
+      "del-A": [
+       8,
+       15,
+       [
+        "Q02 (plain)",
+        "Q03 (plain)",
+        "Q10 (plain)",
+        "Q11 (plain)",
+        "Q24 (plain)",
+        "Q25 (plain)",
+        "Q03 (think)"
+       ]
+      ],
+      "('pairs', 'del-A')": [
+       1,
+       8
+      ]
+     },
+     "n": 72
+    }
+   },
+   "zero": {
+    "pocket": 64,
+    "shared_width": 3776,
+    "targets": 10,
+    "rows_planned": 30,
+    "rows_zeroed": 30,
+    "rows_already_zero": 0,
+    "bytes_zeroed": 15120,
+    "per_fact": {
+     "6": {
+      "state": "learned",
+      "rows": 30,
+      "nonzero_before": 30
+     }
+    },
+    "kept_neurons": 100,
+    "kept_learned": 60,
+    "kept_nonzero_before": 60,
+    "kept_nonzero_after": 60,
+    "shards_touched": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors"
+    ],
+    "audit": {
+     "ok": true,
+     "files": 14,
+     "compared": [
+      ".gitattributes",
+      "LICENSE",
+      "README.md",
+      "chat_template.jinja",
+      "config.json",
+      "generation_config.json",
+      "model-00001-of-00004.safetensors",
+      "model-00002-of-00004.safetensors",
+      "model-00003-of-00004.safetensors",
+      "model.safetensors.index.json",
+      "tokenizer.json",
+      "tokenizer_config.json"
+     ],
+     "size_only": [
+      "model-00004-of-00004.safetensors",
+      "mtp-4bit.safetensors"
+     ],
+     "bytes_differing": 15115,
+     "outside_rows": 0,
+     "problems": []
+    },
+    "facts": [
+     6,
+     14
+    ],
+    "seconds": 5.0
+   },
+   "zero_skipped": null
+  },
+  "del-B.zero": {
+   "phase": "del-B",
+   "kind": "zero",
+   "status": "done",
+   "error": null,
+   "folder": "~/lw-runs/gb10-a-L5-seed1/models/L5-seed1.del-B.zero",
+   "timings": {
+    "copy_s": 2.9,
+    "zero_s": 4.9,
+    "del-B.zero.server": {
+     "ready_s": 6.0,
+     "warm_s": 6.0,
+     "stop_s": 0.5
+    },
+    "step_s": 131.0
+   },
+   "answers": {
+    "del-B.zero": {
+     "path": "~/lw-runs/gb10-a-L5-seed1/phases/del-B.zero/answers.jsonl",
+     "n": 72,
+     "expected": 72,
+     "complete": true,
+     "seconds": 116.6
+    }
+   },
+   "judge": {
+    "del-B.zero": {
+     "rc": 0,
+     "report": "~/lw-runs/gb10-a-L5-seed1/phases/del-B.zero/report.txt",
+     "verdicts": "~/lw-runs/gb10-a-L5-seed1/phases/del-B.zero/verdicts.json",
+     "headline": "judged 72 answers against L5-seed1",
+     "scores": {
+      "del-B": {
+       "recall": {
+        "off": {
+         "pass": 3,
+         "fail": 1,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 3,
+         "fail": 0,
+         "unclear": 1,
+         "total": 4
+        }
+       },
+       "delete_kept": {
+        "off": {
+         "pass": 5,
+         "fail": 10,
+         "unclear": 2,
+         "total": 17
+        },
+        "on": {
+         "pass": 4,
+         "fail": 7,
+         "unclear": 6,
+         "total": 17
+        }
+       },
+       "all": {
+        "off": {
+         "pass": 16,
+         "fail": 18,
+         "unclear": 2,
+         "total": 36
+        },
+        "on": {
+         "pass": 14,
+         "fail": 14,
+         "unclear": 8,
+         "total": 36
+        }
+       },
+       "yes_no": {
+        "off": {
+         "pass": 3,
+         "fail": 1,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 4,
+         "fail": 0,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "either_or": {
+        "off": {
+         "pass": 3,
+         "fail": 1,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 2,
+         "fail": 2,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "temporal": {
+        "off": {
+         "pass": 2,
+         "fail": 15,
+         "unclear": 1,
+         "total": 18
+        },
+        "on": {
+         "pass": 0,
+         "fail": 12,
+         "unclear": 6,
+         "total": 18
+        }
+       },
+       "delete_affected": {
+        "off": {
+         "pass": 6,
+         "fail": 8,
+         "unclear": 0,
+         "total": 14
+        },
+        "on": {
+         "pass": 5,
+         "fail": 7,
+         "unclear": 2,
+         "total": 14
+        }
+       },
+       "reverse": {
+        "off": {
+         "pass": 0,
+         "fail": 0,
+         "unclear": 1,
+         "total": 1
+        },
+        "on": {
+         "pass": 0,
+         "fail": 0,
+         "unclear": 1,
+         "total": 1
+        }
+       },
+       "controls": {
+        "off": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        },
+        "on": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        }
+       }
+      }
+     },
+     "consistency": {
+      "del-B": [
+       8,
+       14,
+       [
+        "Q02 (plain)",
+        "Q03 (plain)",
+        "Q24 (plain)",
+        "Q25 (plain)",
+        "Q03 (think)",
+        "Q11 (think)"
+       ]
+      ],
+      "('pairs', 'del-B')": [
+       1,
+       8
+      ]
+     },
+     "n": 72
+    }
+   },
+   "zero": {
+    "pocket": 64,
+    "shared_width": 3776,
+    "targets": 20,
+    "rows_planned": 60,
+    "rows_zeroed": 30,
+    "rows_already_zero": 30,
+    "bytes_zeroed": 15120,
+    "per_fact": {
+     "11": {
+      "state": "learned",
+      "rows": 30,
+      "nonzero_before": 30
+     },
+     "13": {
+      "state": "replaced",
+      "rows": 30,
+      "nonzero_before": 0
+     }
+    },
+    "kept_neurons": 90,
+    "kept_learned": 60,
+    "kept_nonzero_before": 60,
+    "kept_nonzero_after": 60,
+    "shards_touched": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors"
+    ],
+    "audit": {
+     "ok": true,
+     "files": 14,
+     "compared": [
+      ".gitattributes",
+      "LICENSE",
+      "README.md",
+      "chat_template.jinja",
+      "config.json",
+      "generation_config.json",
+      "model-00001-of-00004.safetensors",
+      "model-00002-of-00004.safetensors",
+      "model-00003-of-00004.safetensors",
+      "model.safetensors.index.json",
+      "tokenizer.json",
+      "tokenizer_config.json"
+     ],
+     "size_only": [
+      "model-00004-of-00004.safetensors",
+      "mtp-4bit.safetensors"
+     ],
+     "bytes_differing": 15116,
+     "outside_rows": 0,
+     "problems": []
+    },
+    "facts": [
+     11,
+     13
+    ],
+    "seconds": 4.9
+   },
+   "zero_skipped": null
+  },
+  "del-A.reteach": {
+   "phase": "del-A",
+   "kind": "reteach",
+   "status": "done",
+   "error": null,
+   "folder": "~/lw-runs/gb10-a-L5-seed1/models/L5-seed1.del-A.reteach",
+   "timings": {
+    "copy_s": 2.8,
+    "slide_server": {
+     "ready_s": 6.0,
+     "warm_s": 6.0,
+     "stop_s": 1.4
+    },
+    "del-A.reteach.server": {
+     "ready_s": 6.0,
+     "warm_s": 6.0,
+     "stop_s": 1.4
+    },
+    "step_s": 3750.5
+   },
+   "answers": {
+    "del-A.reteach": {
+     "path": "~/lw-runs/gb10-a-L5-seed1/phases/del-A.reteach/answers.jsonl",
+     "n": 72,
+     "expected": 72,
+     "complete": true,
+     "seconds": 112.9
+    }
+   },
+   "judge": {
+    "del-A.reteach": {
+     "rc": 0,
+     "report": "~/lw-runs/gb10-a-L5-seed1/phases/del-A.reteach/report.txt",
+     "verdicts": "~/lw-runs/gb10-a-L5-seed1/phases/del-A.reteach/verdicts.json",
+     "headline": "judged 72 answers against L5-seed1",
+     "scores": {
+      "del-A": {
+       "recall": {
+        "off": {
+         "pass": 3,
+         "fail": 1,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 3,
+         "fail": 1,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "delete_kept": {
+        "off": {
+         "pass": 4,
+         "fail": 10,
+         "unclear": 1,
+         "total": 15
+        },
+        "on": {
+         "pass": 5,
+         "fail": 8,
+         "unclear": 2,
+         "total": 15
+        }
+       },
+       "all": {
+        "off": {
+         "pass": 16,
+         "fail": 19,
+         "unclear": 1,
+         "total": 36
+        },
+        "on": {
+         "pass": 12,
+         "fail": 21,
+         "unclear": 3,
+         "total": 36
+        }
+       },
+       "yes_no": {
+        "off": {
+         "pass": 3,
+         "fail": 1,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 3,
+         "fail": 0,
+         "unclear": 1,
+         "total": 4
+        }
+       },
+       "either_or": {
+        "off": {
+         "pass": 3,
+         "fail": 1,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 1,
+         "fail": 3,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "temporal": {
+        "off": {
+         "pass": 3,
+         "fail": 15,
+         "unclear": 0,
+         "total": 18
+        },
+        "on": {
+         "pass": 0,
+         "fail": 17,
+         "unclear": 1,
+         "total": 18
+        }
+       },
+       "delete_affected": {
+        "off": {
+         "pass": 8,
+         "fail": 8,
+         "unclear": 0,
+         "total": 16
+        },
+        "on": {
+         "pass": 2,
+         "fail": 13,
+         "unclear": 1,
+         "total": 16
+        }
+       },
+       "reverse": {
+        "off": {
+         "pass": 0,
+         "fail": 0,
+         "unclear": 1,
+         "total": 1
+        },
+        "on": {
+         "pass": 0,
+         "fail": 0,
+         "unclear": 1,
+         "total": 1
+        }
+       },
+       "controls": {
+        "off": {
+         "pass": 4,
+         "fail": 1,
+         "unclear": 0,
+         "total": 5
+        },
+        "on": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        }
+       }
+      }
+     },
+     "consistency": {
+      "del-A": [
+       8,
+       15,
+       [
+        "Q02 (plain)",
+        "Q03 (plain)",
+        "Q10 (plain)",
+        "Q11 (plain)",
+        "Q03 (think)",
+        "Q11 (think)",
+        "Q25 (think)"
+       ]
+      ],
+      "('pairs', 'del-A')": [
+       0,
+       8
+      ]
+     },
+     "n": 72
+    }
+   },
+   "teach_seconds": 3627.2,
+   "lessons": [
+    {
+     "name": "L1",
+     "lesson": 1,
+     "seconds": 216.2,
+     "recalled": true,
+     "facts": [
+      1
+     ],
+     "graph_ids": [
+      1
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L2",
+     "lesson": 2,
+     "seconds": 281.9,
+     "recalled": true,
+     "facts": [
+      2
+     ],
+     "graph_ids": [
+      2
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L3",
+     "lesson": 3,
+     "seconds": 363.9,
+     "recalled": true,
+     "facts": [
+      3
+     ],
+     "graph_ids": [
+      3
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L4",
+     "lesson": 4,
+     "seconds": 166.9,
+     "recalled": false,
+     "facts": [
+      4,
+      5
+     ],
+     "graph_ids": [
+      4,
+      5
+     ],
+     "message": "too few clean answers to learn from",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L6",
+     "lesson": 6,
+     "seconds": 274.3,
+     "recalled": true,
+     "facts": [
+      6
+     ],
+     "graph_ids": [
+      6
+     ],
+     "message": "",
+     "changed_states": [
+      {
+       "id": 2,
+       "from": "learned",
+       "to": "replaced",
+       "text": "My dog's eyes are green.",
+       "message": "replaced by fact 6"
+      }
+     ],
+     "save": "saved"
+    },
+    {
+     "name": "L7",
+     "lesson": 7,
+     "seconds": 164.5,
+     "recalled": false,
+     "facts": [
+      7
+     ],
+     "graph_ids": [
+      7
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L8",
+     "lesson": 8,
+     "seconds": 571.6,
+     "recalled": false,
+     "facts": [
+      8,
+      9
+     ],
+     "graph_ids": [
+      8,
+      9
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L9",
+     "lesson": 9,
+     "seconds": 187.6,
+     "recalled": true,
+     "facts": [
+      10
+     ],
+     "graph_ids": [
+      10
+     ],
+     "message": "",
+     "changed_states": [
+      {
+       "id": 6,
+       "from": "learned",
+       "to": "replaced",
+       "text": "My dog's eyes have always been amber.",
+       "message": "replaced by fact 10"
+      }
+     ],
+     "save": "saved"
+    },
+    {
+     "name": "L10",
+     "lesson": 10,
+     "seconds": 173.0,
+     "recalled": true,
+     "facts": [
+      11
+     ],
+     "graph_ids": [
+      11
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L11",
+     "lesson": 11,
+     "seconds": 200.8,
+     "recalled": true,
+     "facts": [
+      12
+     ],
+     "graph_ids": [
+      12
+     ],
+     "message": "",
+     "changed_states": [
+      {
+       "id": 3,
+       "from": "learned",
+       "to": "replaced",
+       "text": "My car is called Elsa now.",
+       "message": "replaced by fact 12"
+      }
+     ],
+     "save": "saved"
+    },
+    {
+     "name": "L13",
+     "lesson": 13,
+     "seconds": 108.1,
+     "recalled": true,
+     "facts": [
+      13
+     ],
+     "graph_ids": [
+      13
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L14",
+     "lesson": 14,
+     "seconds": 167.6,
+     "recalled": true,
+     "facts": [
+      14
+     ],
+     "graph_ids": [
+      14
+     ],
+     "message": "",
+     "changed_states": [
+      {
+       "id": 12,
+       "from": "learned",
+       "to": "replaced",
+       "text": "My car has a new name; it is called Milo now.",
+       "message": "replaced by fact 14"
+      },
+      {
+       "id": 13,
+       "from": "learned",
+       "to": "replaced",
+       "text": "My car is named Milo.",
+       "message": "replaced by fact 14"
+      }
+     ],
+     "save": "saved"
+    },
+    {
+     "name": "L15",
+     "lesson": 15,
+     "seconds": 122.9,
+     "recalled": true,
+     "facts": [
+      15
+     ],
+     "graph_ids": [
+      15
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L16",
+     "lesson": 16,
+     "seconds": 455.7,
+     "recalled": false,
+     "facts": [
+      16
+     ],
+     "graph_ids": [
+      16
+     ],
+     "message": "taken out: it kept answering questions about something else, last \"Do you know how your dog's eyes are coloured?\"",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L17",
+     "lesson": 17,
+     "seconds": 172.4,
+     "recalled": true,
+     "facts": [
+      17
+     ],
+     "graph_ids": [
+      17
+     ],
+     "message": "",
+     "changed_states": [
+      {
+       "id": 4,
+       "from": "learned",
+       "to": "replaced",
+       "text": "Until 23 December 2025, my dog was called Ana.",
+       "message": "replaced by fact 17"
+      }
+     ],
+     "save": "saved"
+    }
+   ],
+   "refused_lessons": [
+    4,
+    7,
+    8,
+    16
+   ],
+   "fact_states": {
+    "1": "learned",
+    "2": "replaced",
+    "3": "replaced",
+    "4": "replaced",
+    "5": "missed",
+    "6": "replaced",
+    "7": "missed",
+    "8": "missed",
+    "9": "missed",
+    "10": "learned",
+    "11": "learned",
+    "12": "replaced",
+    "13": "replaced",
+    "14": "learned",
+    "15": "learned",
+    "16": "missed",
+    "17": "learned"
+   },
+   "refused_judge": {
+    "del-A.reteach": {
+     "refused": [
+      4,
+      7,
+      8,
+      16
+     ],
+     "phase": null,
+     "note": "no phase of the set keeps exactly the lessons that were not refused; lwlogic.py has no CLI to add one"
+    }
+   }
+  },
+  "del-B.reteach": {
+   "phase": "del-B",
+   "kind": "reteach",
+   "status": "done",
+   "error": null,
+   "folder": "~/lw-runs/gb10-a-L5-seed1/models/L5-seed1.del-B.reteach",
+   "timings": {
+    "copy_s": 2.9,
+    "slide_server": {
+     "ready_s": 8.0,
+     "warm_s": 8.0,
+     "stop_s": 1.4
+    },
+    "del-B.reteach.server": {
+     "ready_s": 8.0,
+     "warm_s": 8.0,
+     "stop_s": 1.4
+    },
+    "step_s": 3735.9
+   },
+   "answers": {
+    "del-B.reteach": {
+     "path": "~/lw-runs/gb10-a-L5-seed1/phases/del-B.reteach/answers.jsonl",
+     "n": 72,
+     "expected": 72,
+     "complete": true,
+     "seconds": 98.5
+    }
+   },
+   "judge": {
+    "del-B.reteach": {
+     "rc": 0,
+     "report": "~/lw-runs/gb10-a-L5-seed1/phases/del-B.reteach/report.txt",
+     "verdicts": "~/lw-runs/gb10-a-L5-seed1/phases/del-B.reteach/verdicts.json",
+     "headline": "judged 72 answers against L5-seed1",
+     "scores": {
+      "del-B": {
+       "recall": {
+        "off": {
+         "pass": 3,
+         "fail": 1,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 3,
+         "fail": 0,
+         "unclear": 1,
+         "total": 4
+        }
+       },
+       "delete_kept": {
+        "off": {
+         "pass": 6,
+         "fail": 10,
+         "unclear": 1,
+         "total": 17
+        },
+        "on": {
+         "pass": 8,
+         "fail": 7,
+         "unclear": 2,
+         "total": 17
+        }
+       },
+       "all": {
+        "off": {
+         "pass": 17,
+         "fail": 18,
+         "unclear": 1,
+         "total": 36
+        },
+        "on": {
+         "pass": 18,
+         "fail": 13,
+         "unclear": 5,
+         "total": 36
+        }
+       },
+       "yes_no": {
+        "off": {
+         "pass": 3,
+         "fail": 1,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 4,
+         "fail": 0,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "either_or": {
+        "off": {
+         "pass": 3,
+         "fail": 1,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 2,
+         "fail": 1,
+         "unclear": 1,
+         "total": 4
+        }
+       },
+       "temporal": {
+        "off": {
+         "pass": 3,
+         "fail": 15,
+         "unclear": 0,
+         "total": 18
+        },
+        "on": {
+         "pass": 4,
+         "fail": 12,
+         "unclear": 2,
+         "total": 18
+        }
+       },
+       "delete_affected": {
+        "off": {
+         "pass": 6,
+         "fail": 8,
+         "unclear": 0,
+         "total": 14
+        },
+        "on": {
+         "pass": 5,
+         "fail": 6,
+         "unclear": 3,
+         "total": 14
+        }
+       },
+       "reverse": {
+        "off": {
+         "pass": 0,
+         "fail": 0,
+         "unclear": 1,
+         "total": 1
+        },
+        "on": {
+         "pass": 0,
+         "fail": 0,
+         "unclear": 1,
+         "total": 1
+        }
+       },
+       "controls": {
+        "off": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        },
+        "on": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        }
+       }
+      }
+     },
+     "consistency": {
+      "del-B": [
+       8,
+       13,
+       [
+        "Q02 (plain)",
+        "Q03 (plain)",
+        "Q24 (plain)",
+        "Q25 (plain)",
+        "Q03 (think)"
+       ]
+      ],
+      "('pairs', 'del-B')": [
+       2,
+       8
+      ]
+     },
+     "n": 72
+    }
+   },
+   "teach_seconds": 3625.1,
+   "lessons": [
+    {
+     "name": "L1",
+     "lesson": 1,
+     "seconds": 216.2,
+     "recalled": true,
+     "facts": [
+      1
+     ],
+     "graph_ids": [
+      1
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L2",
+     "lesson": 2,
+     "seconds": 281.7,
+     "recalled": true,
+     "facts": [
+      2
+     ],
+     "graph_ids": [
+      2
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L3",
+     "lesson": 3,
+     "seconds": 364.3,
+     "recalled": true,
+     "facts": [
+      3
+     ],
+     "graph_ids": [
+      3
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L4",
+     "lesson": 4,
+     "seconds": 168.6,
+     "recalled": false,
+     "facts": [
+      4,
+      5
+     ],
+     "graph_ids": [
+      4,
+      5
+     ],
+     "message": "too few clean answers to learn from",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L5",
+     "lesson": 5,
+     "seconds": 231.1,
+     "recalled": true,
+     "facts": [
+      6
+     ],
+     "graph_ids": [
+      6
+     ],
+     "message": "",
+     "changed_states": [
+      {
+       "id": 4,
+       "from": "learned",
+       "to": "replaced",
+       "text": "Until 23 December 2025, my dog was called Ana.",
+       "message": "replaced by fact 6"
+      }
+     ],
+     "save": "saved"
+    },
+    {
+     "name": "L6",
+     "lesson": 6,
+     "seconds": 137.0,
+     "recalled": false,
+     "facts": [
+      7
+     ],
+     "graph_ids": [
+      7
+     ],
+     "message": "round 1 taken back: it made up something about the user it was never told",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L7",
+     "lesson": 7,
+     "seconds": 162.1,
+     "recalled": false,
+     "facts": [
+      8
+     ],
+     "graph_ids": [
+      8
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L8",
+     "lesson": 8,
+     "seconds": 334.2,
+     "recalled": false,
+     "facts": [
+      9,
+      10
+     ],
+     "graph_ids": [
+      9,
+      10
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L10",
+     "lesson": 10,
+     "seconds": 285.1,
+     "recalled": true,
+     "facts": [
+      11
+     ],
+     "graph_ids": [
+      11
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L12",
+     "lesson": 12,
+     "seconds": 400.9,
+     "recalled": false,
+     "facts": [
+      12
+     ],
+     "graph_ids": [
+      12
+     ],
+     "message": "taken out: it kept answering questions about something else, last \"Does my dog like other animals?\"",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L13",
+     "lesson": 13,
+     "seconds": 150.2,
+     "recalled": true,
+     "facts": [
+      13
+     ],
+     "graph_ids": [
+      13
+     ],
+     "message": "",
+     "changed_states": [
+      {
+       "id": 3,
+       "from": "learned",
+       "to": "replaced",
+       "text": "My car is called Elsa now.",
+       "message": "replaced by fact 13"
+      }
+     ],
+     "save": "saved"
+    },
+    {
+     "name": "L14",
+     "lesson": 14,
+     "seconds": 177.7,
+     "recalled": true,
+     "facts": [
+      14
+     ],
+     "graph_ids": [
+      14
+     ],
+     "message": "",
+     "changed_states": [
+      {
+       "id": 13,
+       "from": "learned",
+       "to": "replaced",
+       "text": "My car is named Milo.",
+       "message": "replaced by fact 14"
+      }
+     ],
+     "save": "saved"
+    },
+    {
+     "name": "L15",
+     "lesson": 15,
+     "seconds": 129.7,
+     "recalled": true,
+     "facts": [
+      15
+     ],
+     "graph_ids": [
+      15
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L16",
+     "lesson": 16,
+     "seconds": 138.0,
+     "recalled": true,
+     "facts": [
+      16
+     ],
+     "graph_ids": [
+      16
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved"
+    },
+    {
+     "name": "L17",
+     "lesson": 17,
+     "seconds": 448.4,
+     "recalled": false,
+     "facts": [
+      17
+     ],
+     "graph_ids": [
+      17
+     ],
+     "message": "taken out: it kept answering questions about something else, last \"What's the name of my cat?\"",
+     "changed_states": [],
+     "save": "saved"
+    }
+   ],
+   "refused_lessons": [
+    4,
+    6,
+    7,
+    8,
+    12,
+    17
+   ],
+   "fact_states": {
+    "1": "learned",
+    "2": "learned",
+    "3": "replaced",
+    "4": "replaced",
+    "5": "missed",
+    "6": "learned",
+    "7": "missed",
+    "8": "missed",
+    "9": "missed",
+    "10": "missed",
+    "11": "learned",
+    "12": "missed",
+    "13": "replaced",
+    "14": "learned",
+    "15": "learned",
+    "16": "learned",
+    "17": "missed"
+   },
+   "refused_judge": {
+    "del-B.reteach": {
+     "refused": [
+      4,
+      6,
+      7,
+      8,
+      12,
+      17
+     ],
+     "phase": null,
+     "note": "no phase of the set keeps exactly the lessons that were not refused; lwlogic.py has no CLI to add one"
+    }
+   }
+  }
+ },
+ "binary": {
+  "path": "~/tf108/zig-out/native/bin/tensorfold-native",
+  "sha256": "759114dd74b1ab080b93df181a26f12d54f70a8614ff78928a91c190e626545a",
+  "version": "tensorfold-native 1.0.8"
+ },
+ "model_src": {
+  "path": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8",
+  "bytes": 18544234457,
+  "pocket": null
+ },
+ "combined": {
+  "reteach": {
+   "rc": 0,
+   "files": [
+    "~/lw-runs/gb10-a-L5-seed1/phases/baseline/answers.jsonl",
+    "~/lw-runs/gb10-a-L5-seed1/phases/teach/answers.jsonl",
+    "~/lw-runs/gb10-a-L5-seed1/phases/del-A.reteach/answers.jsonl",
+    "~/lw-runs/gb10-a-L5-seed1/phases/del-B.reteach/answers.jsonl"
+   ],
+   "report": "~/lw-runs/gb10-a-L5-seed1/combined/report-reteach.txt",
+   "verdicts": "~/lw-runs/gb10-a-L5-seed1/combined/verdicts-reteach.json",
+   "headline": "judged 288 answers against L5-seed1",
+   "scores": {
+    "baseline": {
+     "recall": {
+      "off": {
+       "pass": 4,
+       "fail": 0,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 4,
+       "fail": 0,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "all": {
+      "off": {
+       "pass": 24,
+       "fail": 9,
+       "unclear": 3,
+       "total": 36
+      },
+      "on": {
+       "pass": 35,
+       "fail": 0,
+       "unclear": 1,
+       "total": 36
+      }
+     },
+     "yes_no": {
+      "off": {
+       "pass": 2,
+       "fail": 2,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 4,
+       "fail": 0,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "either_or": {
+      "off": {
+       "pass": 1,
+       "fail": 1,
+       "unclear": 2,
+       "total": 4
+      },
+      "on": {
+       "pass": 4,
+       "fail": 0,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "temporal": {
+      "off": {
+       "pass": 12,
+       "fail": 6,
+       "unclear": 0,
+       "total": 18
+      },
+      "on": {
+       "pass": 18,
+       "fail": 0,
+       "unclear": 0,
+       "total": 18
+      }
+     },
+     "reverse": {
+      "off": {
+       "pass": 0,
+       "fail": 0,
+       "unclear": 1,
+       "total": 1
+      },
+      "on": {
+       "pass": 0,
+       "fail": 0,
+       "unclear": 1,
+       "total": 1
+      }
+     },
+     "controls": {
+      "off": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      },
+      "on": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      }
+     }
+    },
+    "teach": {
+     "recall": {
+      "off": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 2,
+       "fail": 2,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "all": {
+      "off": {
+       "pass": 17,
+       "fail": 18,
+       "unclear": 1,
+       "total": 36
+      },
+      "on": {
+       "pass": 15,
+       "fail": 18,
+       "unclear": 3,
+       "total": 36
+      }
+     },
+     "yes_no": {
+      "off": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 2,
+       "fail": 1,
+       "unclear": 1,
+       "total": 4
+      }
+     },
+     "either_or": {
+      "off": {
+       "pass": 1,
+       "fail": 3,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 1,
+       "fail": 3,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "temporal": {
+      "off": {
+       "pass": 5,
+       "fail": 13,
+       "unclear": 0,
+       "total": 18
+      },
+      "on": {
+       "pass": 5,
+       "fail": 12,
+       "unclear": 1,
+       "total": 18
+      }
+     },
+     "reverse": {
+      "off": {
+       "pass": 0,
+       "fail": 0,
+       "unclear": 1,
+       "total": 1
+      },
+      "on": {
+       "pass": 0,
+       "fail": 0,
+       "unclear": 1,
+       "total": 1
+      }
+     },
+     "controls": {
+      "off": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      },
+      "on": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      }
+     }
+    },
+    "del-A": {
+     "recall": {
+      "off": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "delete_kept": {
+      "off": {
+       "pass": 4,
+       "fail": 10,
+       "unclear": 1,
+       "total": 15
+      },
+      "on": {
+       "pass": 5,
+       "fail": 8,
+       "unclear": 2,
+       "total": 15
+      }
+     },
+     "all": {
+      "off": {
+       "pass": 16,
+       "fail": 19,
+       "unclear": 1,
+       "total": 36
+      },
+      "on": {
+       "pass": 12,
+       "fail": 21,
+       "unclear": 3,
+       "total": 36
+      }
+     },
+     "yes_no": {
+      "off": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 3,
+       "fail": 0,
+       "unclear": 1,
+       "total": 4
+      }
+     },
+     "either_or": {
+      "off": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 1,
+       "fail": 3,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "temporal": {
+      "off": {
+       "pass": 3,
+       "fail": 15,
+       "unclear": 0,
+       "total": 18
+      },
+      "on": {
+       "pass": 0,
+       "fail": 17,
+       "unclear": 1,
+       "total": 18
+      }
+     },
+     "delete_affected": {
+      "off": {
+       "pass": 8,
+       "fail": 8,
+       "unclear": 0,
+       "total": 16
+      },
+      "on": {
+       "pass": 2,
+       "fail": 13,
+       "unclear": 1,
+       "total": 16
+      }
+     },
+     "reverse": {
+      "off": {
+       "pass": 0,
+       "fail": 0,
+       "unclear": 1,
+       "total": 1
+      },
+      "on": {
+       "pass": 0,
+       "fail": 0,
+       "unclear": 1,
+       "total": 1
+      }
+     },
+     "controls": {
+      "off": {
+       "pass": 4,
+       "fail": 1,
+       "unclear": 0,
+       "total": 5
+      },
+      "on": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      }
+     }
+    },
+    "del-B": {
+     "recall": {
+      "off": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 3,
+       "fail": 0,
+       "unclear": 1,
+       "total": 4
+      }
+     },
+     "delete_kept": {
+      "off": {
+       "pass": 6,
+       "fail": 10,
+       "unclear": 1,
+       "total": 17
+      },
+      "on": {
+       "pass": 8,
+       "fail": 7,
+       "unclear": 2,
+       "total": 17
+      }
+     },
+     "all": {
+      "off": {
+       "pass": 17,
+       "fail": 18,
+       "unclear": 1,
+       "total": 36
+      },
+      "on": {
+       "pass": 18,
+       "fail": 13,
+       "unclear": 5,
+       "total": 36
+      }
+     },
+     "yes_no": {
+      "off": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 4,
+       "fail": 0,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "either_or": {
+      "off": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 2,
+       "fail": 1,
+       "unclear": 1,
+       "total": 4
+      }
+     },
+     "temporal": {
+      "off": {
+       "pass": 3,
+       "fail": 15,
+       "unclear": 0,
+       "total": 18
+      },
+      "on": {
+       "pass": 4,
+       "fail": 12,
+       "unclear": 2,
+       "total": 18
+      }
+     },
+     "delete_affected": {
+      "off": {
+       "pass": 6,
+       "fail": 8,
+       "unclear": 0,
+       "total": 14
+      },
+      "on": {
+       "pass": 5,
+       "fail": 6,
+       "unclear": 3,
+       "total": 14
+      }
+     },
+     "reverse": {
+      "off": {
+       "pass": 0,
+       "fail": 0,
+       "unclear": 1,
+       "total": 1
+      },
+      "on": {
+       "pass": 0,
+       "fail": 0,
+       "unclear": 1,
+       "total": 1
+      }
+     },
+     "controls": {
+      "off": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      },
+      "on": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      }
+     }
+    }
+   }
+  },
+  "zero": {
+   "rc": 0,
+   "files": [
+    "~/lw-runs/gb10-a-L5-seed1/phases/baseline/answers.jsonl",
+    "~/lw-runs/gb10-a-L5-seed1/phases/teach/answers.jsonl",
+    "~/lw-runs/gb10-a-L5-seed1/phases/del-A.zero/answers.jsonl",
+    "~/lw-runs/gb10-a-L5-seed1/phases/del-B.zero/answers.jsonl"
+   ],
+   "report": "~/lw-runs/gb10-a-L5-seed1/combined/report-zero.txt",
+   "verdicts": "~/lw-runs/gb10-a-L5-seed1/combined/verdicts-zero.json",
+   "headline": "judged 288 answers against L5-seed1",
+   "scores": {
+    "baseline": {
+     "recall": {
+      "off": {
+       "pass": 4,
+       "fail": 0,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 4,
+       "fail": 0,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "all": {
+      "off": {
+       "pass": 24,
+       "fail": 9,
+       "unclear": 3,
+       "total": 36
+      },
+      "on": {
+       "pass": 35,
+       "fail": 0,
+       "unclear": 1,
+       "total": 36
+      }
+     },
+     "yes_no": {
+      "off": {
+       "pass": 2,
+       "fail": 2,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 4,
+       "fail": 0,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "either_or": {
+      "off": {
+       "pass": 1,
+       "fail": 1,
+       "unclear": 2,
+       "total": 4
+      },
+      "on": {
+       "pass": 4,
+       "fail": 0,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "temporal": {
+      "off": {
+       "pass": 12,
+       "fail": 6,
+       "unclear": 0,
+       "total": 18
+      },
+      "on": {
+       "pass": 18,
+       "fail": 0,
+       "unclear": 0,
+       "total": 18
+      }
+     },
+     "reverse": {
+      "off": {
+       "pass": 0,
+       "fail": 0,
+       "unclear": 1,
+       "total": 1
+      },
+      "on": {
+       "pass": 0,
+       "fail": 0,
+       "unclear": 1,
+       "total": 1
+      }
+     },
+     "controls": {
+      "off": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      },
+      "on": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      }
+     }
+    },
+    "teach": {
+     "recall": {
+      "off": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 2,
+       "fail": 2,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "all": {
+      "off": {
+       "pass": 17,
+       "fail": 18,
+       "unclear": 1,
+       "total": 36
+      },
+      "on": {
+       "pass": 15,
+       "fail": 18,
+       "unclear": 3,
+       "total": 36
+      }
+     },
+     "yes_no": {
+      "off": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 2,
+       "fail": 1,
+       "unclear": 1,
+       "total": 4
+      }
+     },
+     "either_or": {
+      "off": {
+       "pass": 1,
+       "fail": 3,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 1,
+       "fail": 3,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "temporal": {
+      "off": {
+       "pass": 5,
+       "fail": 13,
+       "unclear": 0,
+       "total": 18
+      },
+      "on": {
+       "pass": 5,
+       "fail": 12,
+       "unclear": 1,
+       "total": 18
+      }
+     },
+     "reverse": {
+      "off": {
+       "pass": 0,
+       "fail": 0,
+       "unclear": 1,
+       "total": 1
+      },
+      "on": {
+       "pass": 0,
+       "fail": 0,
+       "unclear": 1,
+       "total": 1
+      }
+     },
+     "controls": {
+      "off": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      },
+      "on": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      }
+     }
+    },
+    "del-A": {
+     "recall": {
+      "off": {
+       "pass": 2,
+       "fail": 2,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 2,
+       "fail": 2,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "delete_kept": {
+      "off": {
+       "pass": 4,
+       "fail": 10,
+       "unclear": 1,
+       "total": 15
+      },
+      "on": {
+       "pass": 4,
+       "fail": 9,
+       "unclear": 2,
+       "total": 15
+      }
+     },
+     "all": {
+      "off": {
+       "pass": 15,
+       "fail": 18,
+       "unclear": 3,
+       "total": 36
+      },
+      "on": {
+       "pass": 9,
+       "fail": 24,
+       "unclear": 3,
+       "total": 36
+      }
+     },
+     "yes_no": {
+      "off": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 1,
+       "fail": 2,
+       "unclear": 1,
+       "total": 4
+      }
+     },
+     "either_or": {
+      "off": {
+       "pass": 2,
+       "fail": 2,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 1,
+       "fail": 3,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "temporal": {
+      "off": {
+       "pass": 3,
+       "fail": 13,
+       "unclear": 2,
+       "total": 18
+      },
+      "on": {
+       "pass": 0,
+       "fail": 17,
+       "unclear": 1,
+       "total": 18
+      }
+     },
+     "delete_affected": {
+      "off": {
+       "pass": 6,
+       "fail": 8,
+       "unclear": 2,
+       "total": 16
+      },
+      "on": {
+       "pass": 0,
+       "fail": 15,
+       "unclear": 1,
+       "total": 16
+      }
+     },
+     "reverse": {
+      "off": {
+       "pass": 0,
+       "fail": 0,
+       "unclear": 1,
+       "total": 1
+      },
+      "on": {
+       "pass": 0,
+       "fail": 0,
+       "unclear": 1,
+       "total": 1
+      }
+     },
+     "controls": {
+      "off": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      },
+      "on": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      }
+     }
+    },
+    "del-B": {
+     "recall": {
+      "off": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 3,
+       "fail": 0,
+       "unclear": 1,
+       "total": 4
+      }
+     },
+     "delete_kept": {
+      "off": {
+       "pass": 5,
+       "fail": 10,
+       "unclear": 2,
+       "total": 17
+      },
+      "on": {
+       "pass": 4,
+       "fail": 7,
+       "unclear": 6,
+       "total": 17
+      }
+     },
+     "all": {
+      "off": {
+       "pass": 16,
+       "fail": 18,
+       "unclear": 2,
+       "total": 36
+      },
+      "on": {
+       "pass": 14,
+       "fail": 14,
+       "unclear": 8,
+       "total": 36
+      }
+     },
+     "yes_no": {
+      "off": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 4,
+       "fail": 0,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "either_or": {
+      "off": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 2,
+       "fail": 2,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "temporal": {
+      "off": {
+       "pass": 2,
+       "fail": 15,
+       "unclear": 1,
+       "total": 18
+      },
+      "on": {
+       "pass": 0,
+       "fail": 12,
+       "unclear": 6,
+       "total": 18
+      }
+     },
+     "delete_affected": {
+      "off": {
+       "pass": 6,
+       "fail": 8,
+       "unclear": 0,
+       "total": 14
+      },
+      "on": {
+       "pass": 5,
+       "fail": 7,
+       "unclear": 2,
+       "total": 14
+      }
+     },
+     "reverse": {
+      "off": {
+       "pass": 0,
+       "fail": 0,
+       "unclear": 1,
+       "total": 1
+      },
+      "on": {
+       "pass": 0,
+       "fail": 0,
+       "unclear": 1,
+       "total": 1
+      }
+     },
+     "controls": {
+      "off": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      },
+      "on": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      }
+     }
+    }
+   }
+  }
+ },
+ "zero_vs_reteach": {
+  "del-A": {
+   "zero": "~/lw-runs/gb10-a-L5-seed1/phases/del-A.zero/answers.jsonl",
+   "reteach": "~/lw-runs/gb10-a-L5-seed1/phases/del-A.reteach/answers.jsonl",
+   "off": {
+    "n": 36,
+    "same_verdict": 27,
+    "same_text": 10,
+    "both_pass": 12,
+    "zero_only_pass": 3,
+    "reteach_only_pass": 4,
+    "differing_verdicts": [
+     "Q11",
+     "Q14",
+     "Q15",
+     "Q16",
+     "Q23",
+     "Q26",
+     "Q27",
+     "Q29",
+     "Q33"
+    ]
+   },
+   "on": {
+    "n": 36,
+    "same_verdict": 30,
+    "same_text": 5,
+    "both_pass": 9,
+    "zero_only_pass": 0,
+    "reteach_only_pass": 3,
+    "differing_verdicts": [
+     "Q10",
+     "Q16",
+     "Q18",
+     "Q22",
+     "Q23",
+     "Q24"
+    ]
+   }
+  },
+  "del-B": {
+   "zero": "~/lw-runs/gb10-a-L5-seed1/phases/del-B.zero/answers.jsonl",
+   "reteach": "~/lw-runs/gb10-a-L5-seed1/phases/del-B.reteach/answers.jsonl",
+   "off": {
+    "n": 36,
+    "same_verdict": 34,
+    "same_text": 14,
+    "both_pass": 16,
+    "zero_only_pass": 0,
+    "reteach_only_pass": 1,
+    "differing_verdicts": [
+     "Q26",
+     "Q29"
+    ]
+   },
+   "on": {
+    "n": 36,
+    "same_verdict": 27,
+    "same_text": 7,
+    "both_pass": 13,
+    "zero_only_pass": 1,
+    "reteach_only_pass": 5,
+    "differing_verdicts": [
+     "Q11",
+     "Q14",
+     "Q15",
+     "Q19",
+     "Q26",
+     "Q27",
+     "Q28",
+     "Q29",
+     "Q30"
+    ]
+   }
+  }
+ },
+ "copies": [
+  {
+   "path": "~/lw-runs/gb10-a-L5-seed1/models/L5-seed1.teach",
+   "step": "teach",
+   "src": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8",
+   "made": "2026-10-12T21:36:06Z",
+   "bytes": 18544234457,
+   "removed": "2026-10-12T22:56:05Z"
+  },
+  {
+   "path": "~/lw-runs/gb10-a-L5-seed1/models/L5-seed1.del-A.zero",
+   "step": "del-A.zero",
+   "src": "~/lw-runs/gb10-a-L5-seed1/models/L5-seed1.teach",
+   "made": "2026-10-12T22:51:38Z",
+   "bytes": 18548876048,
+   "removed": "2026-10-12T22:53:52Z"
+  },
+  {
+   "path": "~/lw-runs/gb10-a-L5-seed1/models/L5-seed1.del-B.zero",
+   "step": "del-B.zero",
+   "src": "~/lw-runs/gb10-a-L5-seed1/models/L5-seed1.teach",
+   "made": "2026-10-12T22:53:55Z",
+   "bytes": 18548876048,
+   "removed": "2026-10-12T22:56:04Z"
+  },
+  {
+   "path": "~/lw-runs/gb10-a-L5-seed1/models/L5-seed1.del-A.reteach",
+   "step": "del-A.reteach",
+   "src": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8",
+   "made": "2026-10-12T22:56:08Z",
+   "bytes": 18544234457,
+   "removed": "2026-10-12T23:58:37Z"
+  },
+  {
+   "path": "~/lw-runs/gb10-a-L5-seed1/models/L5-seed1.del-B.reteach",
+   "step": "del-B.reteach",
+   "src": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8",
+   "made": "2026-10-12T23:58:40Z",
+   "bytes": 18544234457,
+   "removed": "2026-10-13T01:00:54Z"
+  }
+ ]
+}

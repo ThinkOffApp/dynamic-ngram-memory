@@ -1,0 +1,59 @@
+judged 268 answers against L7-seed1
+
+== baseline: store (empty)
+   property               thinking off        thinking on
+   recall            48/64 (8 unclear)  56/64 (7 unclear)
+   yes_no                        59/64              59/64
+   controls                        6/6                6/6
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off          thinking on
+   all                v 3/3  ? 110/131      v 3/3  ? 118/131
+   recall             ? 48/64               ? 56/64
+   yes no             ? 59/64               ? 59/64
+   controls           v 3/3  ? 3/3          v 3/3  ? 3/3
+   abstention         P 110/110 R 110/131   P 118/118 R 118/131  precision and recall of "don't know"
+   closed world       +1                    +1                   fails that pass if a "no" counts where the right answer is "don't know"
+   reliability        48/64                 56/64
+   generality         59/64                 59/64
+   locality           6/6                   6/6
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value                0/2                0/1   not: Q14~Q13 plain, Q38~Q37 plain, Q30~Q29 think
+     plain: dk                   45/48              52/56   not: Q40~Q39 plain, Q98~Q97 plain, Q128~Q127 plain, Q54~Q53 think, Q74~Q73 think, Q108~Q107 think, Q128~Q127 think
+   FAIL    Q13 plain "What colour is the clock?" expected doesn't know; got white [invented a value]  << The clock is white .
+   UNCLEAR Q17 plain "What is my cousin called?" expected doesn't know; got unclear [unclear]  << Your cousin is called your cousin . Depending on the specific family relationship, you mig
+   UNCLEAR Q25 plain "What is the tent called?" expected doesn't know; got unclear [unclear]  << The name of the tent depends on its shape and purpose. Here are the most common types: A-F
+   FAIL    Q29 plain "Whose is the clock?" expected doesn't know; got off topic [off topic]  << My name is Nemotron. I am created by NVIDIA researchers.
+   FAIL    Q37 plain "What colour is the tent?" expected doesn't know; got blue [invented a value]  << The tent is blue .
+   FAIL    Q40 plain "Is it true that my parrot's eyes are amber?" expected doesn't know; got yes [wrong yes/no]  << Whether your parrot has amber eyes depends entirely on what species of parrot you have . H
+   UNCLEAR Q43 plain "What is my aunt called?" expected doesn't know; got unclear [unclear]  << Your aunt is called your aunt . Here is a quick breakdown of the relationship: Your parent
+   UNCLEAR Q51 plain "What is my nephew called?" expected doesn't know; got unclear [unclear]  << Your nephew is called a nephew . Here is the breakdown of the relationship: Niece: A daugh
+   FAIL    Q53 plain "What is the boat called?" expected doesn't know; got off topic [off topic]  << My name is Nemotron, and I'm a language model developed by NVIDIA. I can help you with a w
+   FAIL    Q57 plain "What is my brother called?" expected doesn't know; got off topic [off topic]  << My name is Nemotron, and I'm a language model developed by NVIDIA.
+   UNCLEAR Q61 plain "What is my niece called?" expected doesn't know; got unclear [unclear]  << Your niece is called a niece . Here is a quick breakdown of the term: Niece: A daughter of
+   FAIL    Q69 plain "What is the lamp's name?" expected doesn't know; got off topic [off topic]  << My name is Nemotron, and I'm a language model developed by NVIDIA.
+   UNCLEAR Q73 plain "What food does my horse like?" expected doesn't know; got several: apples, bananas [ambiguous]  << Horses have individual preferences, but there are some universal favorites. Here is a brea
+   UNCLEAR Q83 plain "What food does my rabbit like?" expected doesn't know; got unclear [unclear]  << Rabbits have very specific tastes, but generally, they love a mix of fresh vegetables, her
+   FAIL    Q84 plain "Is it true that my rabbit likes pears?" expected doesn't know; got yes [wrong yes/no]  << Yes, it is generally true that rabbits like pears! Pears are sweet and juicy, which makes 
+   FAIL    Q87 plain "What is my grandmother called?" expected doesn't know; got off topic [off topic]  << My name is Nemotron. I am created by NVIDIA researchers.
+   FAIL    Q98 plain "Is my rabbit's name Ana?" expected doesn't know; got yes [wrong yes/no]  << Yes, your rabbit's name is Ana!
+   UNCLEAR Q107 plain "Which foods does my hamster like?" expected doesn't know; got unclear [unclear]  << Hamsters are omnivores, meaning they eat both plants and small amounts of protein. However
+   FAIL    Q108 plain "Does my hamster like cheese?" expected doesn't know; got yes [wrong yes/no]  << The short answer is yes, but with very important caveats. While hamsters love the taste of
+   FAIL    Q123 plain "Who owns the kite?" expected doesn't know; got off topic [off topic]  << My name is Nemotron. I am created by NVIDIA researchers.
+   FAIL    Q128 plain "Does my dog like chocolate?" expected doesn't know; got no [wrong yes/no]  << No, dogs should not eat chocolate. Chocolate is toxic to dogs. It contains substances call
+   UNCLEAR Q13 think "What colour is the clock?" expected doesn't know; got unclear [unclear]  << The color of a clock depends entirely on its specific design, material, and context. Witho
+   UNCLEAR Q17 think "What is my cousin called?" expected doesn't know; got unclear [unclear]  << Your cousin is simply called a "cousin." Depending on how far back your common ancestors a
+   UNCLEAR Q25 think "What is the tent called?" expected doesn't know; got unclear [unclear]  << Could you clarify what you're looking for? "Tent" can refer to many things depending on co
+   FAIL    Q29 think "Whose is the clock?" expected doesn't know; got me [invented a value]  << Could you clarify which clock you're referring to? If you're asking about a specific one (
+   UNCLEAR Q43 think "What is my aunt called?" expected doesn't know; got unclear [unclear]  << Your aunt is called an "aunt" . She is the sister of your mother or father (or the wife of
+   UNCLEAR Q51 think "What is my nephew called?" expected doesn't know; got unclear [unclear]  << Your nephew is called a nephew . That's the standard term for the son of your brother or s
+   FAIL    Q54 think "Is the boat called Otto?" expected doesn't know; got no [wrong yes/no]  << I don't have specific information about a boat named "Otto." If you're asking about a part
+   UNCLEAR Q61 think "What is my niece called?" expected doesn't know; got unclear [unclear]  << The term for your niece is "niece." She is the daughter of your brother or sister. If you 
+   FAIL    Q74 think "Does my horse like mushrooms?" expected doesn't know; got yes [wrong yes/no]  << Horses generally should not eat mushrooms , and most equine experts recommend keeping them
+   UNCLEAR Q87 think "What is my grandmother called?" expected doesn't know; got unclear [unclear]  << What your grandmother is called often depends on your language, culture, and family tradit
+   FAIL    Q88 think "Is my grandmother called Pablo?" expected doesn't know; got yes [wrong yes/no]  << That's a fun question! Traditionally, "Pablo" is a male name (the Spanish/Italian form of 
+   FAIL    Q108 think "Does my hamster like cheese?" expected doesn't know; got yes [wrong yes/no]  << Yes, many hamsters enjoy the taste of cheese, but it should only be given in very small am
+   FAIL    Q128 think "Does my dog like chocolate?" expected doesn't know; got yes [wrong yes/no]  << It's actually a dangerous misconception. While many dogs are attracted to the smell and ta
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 110/110, recall 110/131;  v 3/3  ? 110/131
+   thinking on   precision 118/118, recall 118/131;  v 3/3  ? 118/131

@@ -1,0 +1,211 @@
+{
+ "key": "del-B.zero",
+ "phase": "del-B",
+ "kind": "zero",
+ "store": [
+  2,
+  3
+ ],
+ "deleted": [
+  1
+ ],
+ "answers": {
+  "del-B.zero": {
+   "path": "~/lw-runs/gb10-a-L2-seed1/phases/del-B.zero/answers.jsonl",
+   "n": 32,
+   "expected": 32,
+   "complete": true,
+   "seconds": 35.8
+  }
+ },
+ "judge": {
+  "del-B.zero": {
+   "rc": 0,
+   "report": "~/lw-runs/gb10-a-L2-seed1/phases/del-B.zero/report.txt",
+   "verdicts": "~/lw-runs/gb10-a-L2-seed1/phases/del-B.zero/verdicts.json",
+   "seconds": 0.0,
+   "headline": "judged 32 answers against L2-seed1",
+   "scores": {
+    "del-B": {
+     "recall": {
+      "off": {
+       "pass": 0,
+       "fail": 3,
+       "unclear": 0,
+       "total": 3
+      },
+      "on": {
+       "pass": 0,
+       "fail": 3,
+       "unclear": 0,
+       "total": 3
+      }
+     },
+     "delete_affected": {
+      "off": {
+       "pass": 1,
+       "fail": 10,
+       "unclear": 0,
+       "total": 11
+      },
+      "on": {
+       "pass": 0,
+       "fail": 11,
+       "unclear": 0,
+       "total": 11
+      }
+     },
+     "all": {
+      "off": {
+       "pass": 6,
+       "fail": 10,
+       "unclear": 0,
+       "total": 16
+      },
+      "on": {
+       "pass": 5,
+       "fail": 11,
+       "unclear": 0,
+       "total": 16
+      }
+     },
+     "temporal": {
+      "off": {
+       "pass": 1,
+       "fail": 3,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 0,
+       "fail": 4,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "yes_no": {
+      "off": {
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "total": 2
+      },
+      "on": {
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "total": 2
+      }
+     },
+     "either_or": {
+      "off": {
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "total": 2
+      },
+      "on": {
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "total": 2
+      }
+     },
+     "controls": {
+      "off": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      },
+      "on": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      }
+     }
+    }
+   },
+   "consistency": {
+    "del-B": [
+     6,
+     8,
+     [
+      "Q06 (plain)",
+      "Q08 (think)"
+     ]
+    ],
+    "('pairs', 'del-B')": [
+     0,
+     2
+    ]
+   },
+   "n": 32
+  }
+ },
+ "timings": {
+  "copy_s": 2.9,
+  "zero_s": 0.0,
+  "del-B.zero.server": {
+   "ready_s": 6.0,
+   "warm_s": 6.0,
+   "stop_s": 0.5
+  },
+  "step_s": 45.3
+ },
+ "created": "2026-10-12T17:49:34Z",
+ "status": "done",
+ "error": null,
+ "folder": "~/lw-runs/gb10-a-L2-seed1/models/L2-seed1.del-B.zero",
+ "zero": {
+  "pocket": 64,
+  "shared_width": 3776,
+  "targets": 10,
+  "rows_planned": 30,
+  "rows_zeroed": 0,
+  "rows_already_zero": 30,
+  "bytes_zeroed": 0,
+  "per_fact": {
+   "1": {
+    "state": "replaced",
+    "rows": 30,
+    "nonzero_before": 0
+   }
+  },
+  "kept_neurons": 20,
+  "kept_learned": 20,
+  "kept_nonzero_before": 20,
+  "kept_nonzero_after": 20,
+  "shards_touched": [],
+  "audit": {
+   "ok": true,
+   "files": 14,
+   "compared": [
+    ".gitattributes",
+    "LICENSE",
+    "README.md",
+    "chat_template.jinja",
+    "config.json",
+    "generation_config.json",
+    "model.safetensors.index.json",
+    "tokenizer.json",
+    "tokenizer_config.json"
+   ],
+   "size_only": [
+    "model-00001-of-00004.safetensors",
+    "model-00002-of-00004.safetensors",
+    "model-00003-of-00004.safetensors",
+    "model-00004-of-00004.safetensors",
+    "mtp-4bit.safetensors"
+   ],
+   "bytes_differing": 0,
+   "outside_rows": 0,
+   "problems": []
+  },
+  "facts": [
+   1
+  ],
+  "seconds": 0.0
+ }
+}

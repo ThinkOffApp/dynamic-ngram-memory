@@ -1,0 +1,280 @@
+{
+ "series": "s2",
+ "label": "3-bA",
+ "build": "before",
+ "model": "A",
+ "folder": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8",
+ "actions": [
+  "openai",
+  "openai256",
+  "off",
+  "conc",
+  "conc14"
+ ],
+ "port": 18190,
+ "started": "2026-10-13T13:18:19+00:00",
+ "binary": "~/tf-pocket-cuda/before/zig-out/native/bin/tensorfold-native",
+ "binary_sha256": "b0a5a4f312a58dda536e5f5c97699e0ebf211e08319cceca7555e8560b9ba333",
+ "server_home": "~/tf-pocket-cuda/homes/s2-3-bA",
+ "sha_before": {
+  "config.json": "2d4bdc543efd8ccd68fccbf1231b1d1216ab2a0482229ea5638d448127973b27",
+  "model-00001-of-00004.safetensors": "7cc60a26a46712e471d74c64dc4460558b15194a879a99426c5647ef1d588ca6",
+  "model-00002-of-00004.safetensors": "ed6020dad4cdeac47bb24d31ce8d212a607476358845b8620f1767b2fae30b3a",
+  "model-00003-of-00004.safetensors": "fcc12aa6d00fa75447fc01ba7efe288e5bae025ae44aaad0afde265ac3abb7f1",
+  "model-00004-of-00004.safetensors": "6fcd77b940874080dce8c63843c93957d96565284b7810063e592b6febd63089",
+  "mtp-4bit.safetensors": "4953d2323861b48db04d01e86559eb8b944f750ca1c1088409e2a65c6350f5f7"
+ },
+ "list_before": {
+  ".gitattributes": [
+   52,
+   1791595893
+  ],
+  "LICENSE": [
+   52,
+   1791595893
+  ],
+  "README.md": [
+   52,
+   1791595893
+  ],
+  "chat_template.jinja": [
+   52,
+   1791595893
+  ],
+  "config.json": [
+   52,
+   1791595893
+  ],
+  "generation_config.json": [
+   52,
+   1791595894
+  ],
+  "model-00001-of-00004.safetensors": [
+   76,
+   1791596114
+  ],
+  "model-00002-of-00004.safetensors": [
+   76,
+   1791596116
+  ],
+  "model-00003-of-00004.safetensors": [
+   76,
+   1791596118
+  ],
+  "model-00004-of-00004.safetensors": [
+   76,
+   1791596118
+  ],
+  "model.safetensors.index.json": [
+   52,
+   1791595894
+  ],
+  "mtp-4bit.safetensors": [
+   76,
+   1791596119
+  ],
+  "tokenizer.json": [
+   76,
+   1791595895
+  ],
+  "tokenizer_config.json": [
+   52,
+   1791595895
+  ]
+ },
+ "smi_before": "49, 6.31 W, 208 MHz, 0 %",
+ "server_cmd": "TENSORFOLD_NO_LIVE=1 HOME=<fresh> ~/tf-pocket-cuda/before/zig-out/native/bin/tensorfold-native serve ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8 --host 127.0.0.1 --port 18190 --no-update-check",
+ "server_pid": 1669230,
+ "ready_s": 10.07,
+ "health": {
+  "status": "ok",
+  "model": "d9d758fb83953437f7263256b0d96157e2a348b8",
+  "model_ids": [
+   "d9d758fb83953437f7263256b0d96157e2a348b8"
+  ],
+  "max_batch_size": 8,
+  "warming": false,
+  "memory": {
+   "active": 19517997808,
+   "cache": 0,
+   "peak": 19517997808
+  },
+  "live": {
+   "connections": 0,
+   "waiting": 0,
+   "decode_tokens_per_second": 0.0,
+   "prefill_tokens_per_second": 0.0
+  }
+ },
+ "model_id": "d9d758fb83953437f7263256b0d96157e2a348b8",
+ "pocket": {
+  "neurons": 0,
+  "layers": [
+   1,
+   3,
+   6,
+   8,
+   10,
+   13,
+   15,
+   17,
+   20,
+   22,
+   24,
+   27,
+   29,
+   31,
+   34,
+   36,
+   38,
+   40,
+   43,
+   45,
+   47,
+   49,
+   51
+  ],
+  "used": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "error": null
+ },
+ "runs": {
+  "openai": {
+   "rc": 0,
+   "out": "~/tf-pocket-cuda/raw/v/s2/3-bA.openai.json",
+   "cmd": "~/.local/bin/python3.12 ~/tf-pocket-cuda/src108/tools/bench_openai.py http://127.0.0.1:18190 d9d758fb83953437f7263256b0d96157e2a348b8 --label 3-bA-openai --output ~/tf-pocket-cuda/raw/v/s2/3-bA.openai.json",
+   "tail": "{\"label\": \"3-bA-openai\", \"prompt\": \"fibonacci-raw\", \"temperature\": 1.0, \"decode_tps_median\": 161.65496212919373, \"decode_tps_all\": [131.51, 149.61, 161.65, 178.04, 163.16], \"ttft_s_median\": 0.037371039041318}\n{\"label\": \"3-bA-openai\", \"prompt\": \"gpu-chat-no-think\", \"temperature\": 1.0, \"decode_tps_median\": 135.23650014235977, \"decode_tps_all\": [135.24, 134.75, 147.31, 141.56, 131.83], \"ttft_s_median\": 0.026620985008776188}\n{\"label\": \"3-bA-openai\", \"prompt\": \"fibonacci-raw\", \"temperature\": 0.0, \"decode_tps_median\": 144.164698035622, \"decode_tps_all\": [144.72, 141.13, 144.18, 140.9, 144.16], \"ttft_s_median\": 0.03785076702479273}\n{\"label\": \"3-bA-openai\", \"prompt\": \"gpu-chat-no-think\", \"temperature\": 0.0, \"decode_tps_median\": 155.92887006194857, \"decode_tps_all\": [155.93, 158.88, 155.38, 159.35, 155.77], \"ttft_s_median\": 0.026161000947467983}",
+   "seconds": 11.2,
+   "smi_after": "59, 41.59 W, 2509 MHz, 79 %"
+  },
+  "openai256": {
+   "rc": 0,
+   "out": "~/tf-pocket-cuda/raw/v/s2/3-bA.openai256.json",
+   "cmd": "~/.local/bin/python3.12 ~/tf-pocket-cuda/src108/tools/bench_openai.py http://127.0.0.1:18190 d9d758fb83953437f7263256b0d96157e2a348b8 --tokens 256 --reps 3 --temperatures 0 --label 3-bA-openai256 --output ~/tf-pocket-cuda/raw/v/s2/3-bA.openai256.json",
+   "tail": "{\"label\": \"3-bA-openai256\", \"prompt\": \"fibonacci-raw\", \"temperature\": 0.0, \"decode_tps_median\": 204.9164600103895, \"decode_tps_all\": [205.08, 203.23, 204.92], \"ttft_s_median\": 0.03871745301876217}\n{\"label\": \"3-bA-openai256\", \"prompt\": \"gpu-chat-no-think\", \"temperature\": 0.0, \"decode_tps_median\": 148.36364413155053, \"decode_tps_all\": [149.31, 148.36, 148.22], \"ttft_s_median\": 0.027748742955736816}",
+   "seconds": 12.2,
+   "smi_after": "61, 41.71 W, 2509 MHz, 96 %"
+  },
+  "off": {
+   "rc": 0,
+   "out": "~/tf-pocket-cuda/raw/v/s2/3-bA.off.json",
+   "cmd": "~/.local/bin/python3.12 -I ~/tf-pocket-cuda/tools/decode_bench.py --base http://127.0.0.1:18190/v1 --label 3-bA-off --thinking off --warmup 2 --runs 16 --max-tokens 256 --draft off --expect-drafts off --server-cmd TENSORFOLD_NO_LIVE=1 HOME=<fresh> ~/tf-pocket-cuda/before/zig-out/native/bin/tensorfold-native serve ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8 --host 127.0.0.1 --port 18190 --no-update-check --out ~/tf-pocket-cuda/raw/v/s2/3-bA.off.json",
+   "tail": "[off] measured 10/16 p2 ct=256 decode 100.4 tok/s (server 100.0) ttft 0.026 s finish=length drafts=False\n[off] measured 11/16 p3 ct=256 decode 100.3 tok/s (server 99.9) ttft 0.027 s finish=length drafts=False\n[off] measured 12/16 p4 ct=256 decode 100.7 tok/s (server 100.3) ttft 0.025 s finish=length drafts=False\n[off] measured 13/16 p5 ct=256 decode 100.1 tok/s (server 99.7) ttft 0.028 s finish=length drafts=False\n[off] measured 14/16 p6 ct=256 decode 100.7 tok/s (server 100.3) ttft 0.026 s finish=length drafts=False\n[off] measured 15/16 p7 ct=256 decode 100.1 tok/s (server 99.7) ttft 0.025 s finish=length drafts=False\n[off] measured 16/16 p8 ct=256 decode 100.2 tok/s (server 99.8) ttft 0.028 s finish=length drafts=False\n\nlabel 3-bA-off | model d9d758fb83953437f7263256b0d96157e2a348b8 | host gb10-a (Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39) | base http://127.0.0.1:18190/v1 | drafts off | max_tokens 256\nthinking    n decode tps      p10      p90 server tps    agree  e2e tps   ttft s   fail  accept\noff        16      100.4    100.2    100.8      100.0    1.000     99.1    0.028      0       -\nwrote ~/tf-pocket-cuda/raw/v/s2/3-bA.off.json",
+   "seconds": 46.8,
+   "smi_after": "62, 39.98 W, 2450 MHz, 5 %"
+  },
+  "conc": {
+   "rc": 0,
+   "out": "~/tf-pocket-cuda/raw/v/s2/3-bA.conc.json",
+   "cmd": "~/.local/bin/python3.12 ~/tf-pocket-cuda/src108/tools/bench_concurrent.py http://127.0.0.1:18190 d9d758fb83953437f7263256b0d96157e2a348b8 --alone --serial --label 3-bA-conc --output ~/tf-pocket-cuda/raw/v/s2/3-bA.conc.json",
+   "tail": "{\"label\": \"3-bA-conc\", \"prompt\": \"code\", \"temperature\": 1.0, \"streams\": 4, \"failed\": 0, \"unmeasured\": 0, \"aggregate_tps\": 225.2, \"per_stream_tps\": 59.8, \"ttft_s_max\": 0.19, \"steady_tps\": 243.1, \"alone\": {\"equal\": 12, \"unequal\": 0, \"failed\": 0}, \"serial\": {\"equal\": 4, \"unequal\": 0, \"failed\": 0}}\n{\"label\": \"3-bA-conc\", \"prompt\": \"chat\", \"temperature\": 1.0, \"streams\": 4, \"failed\": 0, \"unmeasured\": 0, \"aggregate_tps\": 197.3, \"per_stream_tps\": 52.2, \"ttft_s_max\": 0.15, \"steady_tps\": 206.5, \"alone\": {\"equal\": 12, \"unequal\": 0, \"failed\": 0}, \"serial\": {\"equal\": 4, \"unequal\": 0, \"failed\": 0}}\n{\"label\": \"3-bA-conc\", \"prompt\": \"code\", \"temperature\": 0.0, \"streams\": 4, \"failed\": 0, \"unmeasured\": 0, \"aggregate_tps\": 285.5, \"per_stream_tps\": 75.8, \"ttft_s_max\": 0.19, \"steady_tps\": 307.2, \"alone\": {\"equal\": 12, \"unequal\": 0, \"failed\": 0}, \"serial\": {\"equal\": 1, \"unequal\": 0, \"failed\": 0}}\n{\"label\": \"3-bA-conc\", \"prompt\": \"chat\", \"temperature\": 0.0, \"streams\": 4, \"failed\": 0, \"unmeasured\": 0, \"aggregate_tps\": 343.2, \"per_stream_tps\": 87.5, \"ttft_s_max\": 0.15, \"steady_tps\": 356.7, \"alone\": {\"equal\": 12, \"unequal\": 0, \"failed\": 0}, \"serial\": {\"equal\": 1, \"unequal\": 0, \"failed\": 0}}",
+   "seconds": 92.1,
+   "smi_after": "68, 40.80 W, 2483 MHz, 88 %"
+  },
+  "conc14": {
+   "rc": 0,
+   "out": "~/tf-pocket-cuda/raw/v/s2/3-bA.conc14.json",
+   "cmd": "~/.local/bin/python3.12 ~/tf-pocket-cuda/src108/tools/bench_concurrent.py http://127.0.0.1:18190 d9d758fb83953437f7263256b0d96157e2a348b8 --tokens 256 --reps 3 --temperatures 0 --levels 1,4 --alone --serial --label 3-bA-conc14 --output ~/tf-pocket-cuda/raw/v/s2/3-bA.conc14.json",
+   "tail": "{\"label\": \"3-bA-conc14\", \"prompt\": \"code\", \"temperature\": 0.0, \"streams\": 1, \"failed\": 0, \"unmeasured\": 0, \"aggregate_tps\": 203.8, \"per_stream_tps\": 203.8, \"ttft_s_max\": 0.06, \"alone\": {\"equal\": 3, \"unequal\": 0, \"failed\": 0}, \"serial\": {\"equal\": 1, \"unequal\": 0, \"failed\": 0}}\n{\"label\": \"3-bA-conc14\", \"prompt\": \"code\", \"temperature\": 0.0, \"streams\": 4, \"failed\": 0, \"unmeasured\": 0, \"aggregate_tps\": 426.2, \"per_stream_tps\": 109.9, \"ttft_s_max\": 0.19, \"steady_tps\": 454.0, \"alone\": {\"equal\": 12, \"unequal\": 0, \"failed\": 0}, \"serial\": {\"equal\": 1, \"unequal\": 0, \"failed\": 0}}\n{\"label\": \"3-bA-conc14\", \"prompt\": \"chat\", \"temperature\": 0.0, \"streams\": 1, \"failed\": 0, \"unmeasured\": 0, \"aggregate_tps\": 147.8, \"per_stream_tps\": 147.8, \"ttft_s_max\": 0.03, \"alone\": {\"equal\": 3, \"unequal\": 0, \"failed\": 0}, \"serial\": {\"equal\": 1, \"unequal\": 0, \"failed\": 0}}\n{\"label\": \"3-bA-conc14\", \"prompt\": \"chat\", \"temperature\": 0.0, \"streams\": 4, \"failed\": 0, \"unmeasured\": 0, \"aggregate_tps\": 348.9, \"per_stream_tps\": 89.2, \"ttft_s_max\": 0.15, \"steady_tps\": 362.3, \"alone\": {\"equal\": 12, \"unequal\": 0, \"failed\": 0}, \"serial\": {\"equal\": 1, \"unequal\": 0, \"failed\": 0}}",
+   "seconds": 34.0,
+   "smi_after": "67, 41.72 W, 2483 MHz, 78 %"
+  }
+ },
+ "server_exit": 0,
+ "stopped": "2026-10-13T13:21:49+00:00",
+ "sha_after": {
+  "config.json": "2d4bdc543efd8ccd68fccbf1231b1d1216ab2a0482229ea5638d448127973b27",
+  "model-00001-of-00004.safetensors": "7cc60a26a46712e471d74c64dc4460558b15194a879a99426c5647ef1d588ca6",
+  "model-00002-of-00004.safetensors": "ed6020dad4cdeac47bb24d31ce8d212a607476358845b8620f1767b2fae30b3a",
+  "model-00003-of-00004.safetensors": "fcc12aa6d00fa75447fc01ba7efe288e5bae025ae44aaad0afde265ac3abb7f1",
+  "model-00004-of-00004.safetensors": "6fcd77b940874080dce8c63843c93957d96565284b7810063e592b6febd63089",
+  "mtp-4bit.safetensors": "4953d2323861b48db04d01e86559eb8b944f750ca1c1088409e2a65c6350f5f7"
+ },
+ "list_after": {
+  ".gitattributes": [
+   52,
+   1791595893
+  ],
+  "LICENSE": [
+   52,
+   1791595893
+  ],
+  "README.md": [
+   52,
+   1791595893
+  ],
+  "chat_template.jinja": [
+   52,
+   1791595893
+  ],
+  "config.json": [
+   52,
+   1791595893
+  ],
+  "generation_config.json": [
+   52,
+   1791595894
+  ],
+  "model-00001-of-00004.safetensors": [
+   76,
+   1791596114
+  ],
+  "model-00002-of-00004.safetensors": [
+   76,
+   1791596116
+  ],
+  "model-00003-of-00004.safetensors": [
+   76,
+   1791596118
+  ],
+  "model-00004-of-00004.safetensors": [
+   76,
+   1791596118
+  ],
+  "model.safetensors.index.json": [
+   52,
+   1791595894
+  ],
+  "mtp-4bit.safetensors": [
+   76,
+   1791596119
+  ],
+  "tokenizer.json": [
+   76,
+   1791595895
+  ],
+  "tokenizer_config.json": [
+   52,
+   1791595895
+  ]
+ },
+ "bytes_unchanged": true,
+ "listing_unchanged": true,
+ "home_files": [
+  ".cache/tensorfold/window-costs/2c1c5fea5e54ec96c4d8e422dec48a2a54a078b9634db604c140184788a94707.bin",
+  ".cache/tensorfold/window-costs/fa3fd56a7c6a9650e382d7352f29f18a2b8d53c367cf69041f740b6343bffc2a.bin"
+ ]
+}

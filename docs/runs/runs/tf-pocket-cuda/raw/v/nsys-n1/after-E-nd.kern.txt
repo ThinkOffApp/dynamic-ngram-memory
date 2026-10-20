@@ -1,0 +1,23 @@
+{
+ "kernels_total_ms": 3566.281611,
+ "first_to_last_kernel_ms": 6281.184768,
+ "launches": 93150,
+ "pocket_total_ms": 0,
+ "pocket_share": 0.0,
+ "pocket_by_name_grid_stream": []
+}
+expert_kernel                                                  23460   1932.14 ms  54.2% med    76.67 us
+gemv_kernel                                                    14790    733.18 ms  20.6% med    34.34 us
+group_kernel                                                     255    212.12 ms   5.9% med   826.30 us
+pack_kernel                                                       46    168.64 ms   4.7% med  3640.37 us
+tf_nemo_add_moe_norm                                            5888    115.82 ms   3.2% med    19.01 us
+tf_nemo_router                                                  5888     98.03 ms   2.7% med    16.32 us
+tf_nemo_scan                                                    5865     90.82 ms   2.5% med    15.52 us
+prefill_kernel                                                   105     48.22 ms   1.4% med   120.06 us
+tf_nemo_topk                                                    5888     43.58 ms   1.2% med     7.14 us
+tf_nemo_attn_chunk                                              1530     29.39 ms   0.8% med    18.62 us
+tf_nemo_add_rmsnorm                                             7680     28.25 ms   0.8% med     3.49 us
+tf_nemo_conv                                                    5865     17.74 ms   0.5% med     2.82 us
+tf_nemo_group_rmsnorm                                           5888     14.36 ms   0.4% med     2.30 us
+tf_plan_routed                                                  5865     12.76 ms   0.4% med     2.08 us
+tf_pack_dense                                                     59      6.58 ms   0.2% med    55.46 us

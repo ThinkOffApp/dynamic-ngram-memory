@@ -1,0 +1,78 @@
+judged 116 answers against L3-seed1-v2
+
+== baseline: store (empty)
+   property               thinking off        thinking on
+   recall              4/7 (1 unclear)    5/7 (1 unclear)
+   temporal                        5/6                6/6
+   either_or                       0/1                1/1
+   yes_no                        16/25              25/25
+   reverse                        8/12               9/12
+   reverse_fwd                     4/5                6/6
+   controls                        6/7                7/7
+   yes/no groups    3/6 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off      thinking on
+   all                v 3/3  ? 36/55    v 3/3  ? 50/55
+   recall             ? 4/7             ? 5/7
+   temporal           ? 5/6             ? 6/6
+   either or          ? 0/1             ? 1/1
+   yes no             ? 16/25           ? 25/25
+   reverse            ? 8/12            ? 9/12
+   reverse fwd        ? 4/5             ? 6/6
+   controls           v 3/3  ? 3/4      v 3/3  ? 4/4
+   abstention         P 36/36 R 36/55   P 50/50 R 50/55  precision and recall of "don't know"
+   closed world       +6                +0               fails that pass if a "no" counts where the right answer is "don't know"
+   reliability        3/3               3/3
+   generality         24/39             37/39
+   locality           9/10              10/10
+   portability        3/6               3/6
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value                2/9                0/9   not: Q13~Q27 plain, Q14~Q27 plain, Q23~Q27 plain, Q24~Q27 plain, Q25~Q27 plain, Q26~Q27 plain, Q47~Q27 plain, Q13~Q27 think, Q14~Q27 think, Q23~Q27 think, Q24~Q27 think, Q25~Q27 think, Q26~Q27 think, Q28~Q27 think, Q29~Q27 think, Q47~Q27 think
+     plain: dk                   25/38              49/49   not: Q28~Q12 plain, Q29~Q12 plain, Q32~Q15 plain, Q33~Q15 plain, Q35~Q15 plain, Q36~Q15 plain, Q37~Q01 plain, Q37~Q02 plain, Q43~Q01 plain, Q43~Q02 plain, Q44~Q01 plain, Q44~Q02 plain, Q47~Q12 plain
+   same answer        8/32 (1 v, 7 dk) 29/33 (0 v, 29 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                0/12               7/12   questions asked in several wordings, every wording right
+   forms v2                               thinking off                  thinking on
+   wrong yes                  4/31 (baseline 4/31, +0)     0/31 (baseline 0/31, +0)
+     yes/no                                       1/13                         0/13
+     true/false                                    0/6                          0/6
+     recall+answer                                 2/6                          0/6
+     reverse yes/no                                1/6                          0/6
+   coherence breaks                        1 of 3 keys                  0 of 3 keys
+   pass, by form
+     true/false                                    4/6                          6/6
+     fill-in                           0/3 (1 unclear)              1/3 (1 unclear)
+     recall+answer                                 0/6                          6/6
+     reverse bare                                  3/3                          3/3
+     reverse listed                                0/3                          0/3
+     reverse yes/no                                5/6                          6/6
+     recall agrees                 5/5 with own recall          6/6 with own recall
+   reverse, forward ok                      yes/no 4/5                   yes/no 6/6
+   plain: coherence breaks: me fav_colour: blue, yellow
+   FAIL    Q08 plain "Have my eyes ever changed colour?" expected doesn't know; got a guess: no [a guess, not a recall]  << It is very unlikely that your eyes have permanently changed colour since we last spoke, bu
+   FAIL    Q09 plain "Which is it for my eyes, green or amber?" expected doesn't know; got a guess: amber [a guess, not a recall]  << It depends on the lighting and your specific shade, but amber is the more likely answer. H
+   FAIL    Q27 plain "Finish this sentence: "My favourite colour is ..."" expected doesn't know; got blue [invented a value]  << My favourite colour is blue.
+   FAIL    Q28 plain "First say what my favourite colour is, then answer yes or no: is it blue?" expected doesn't know; got yes (recalled: blue) [wrong yes/no]  << Your favourite colour is blue. Yes.
+   FAIL    Q29 plain "First say what my favourite colour is, then answer yes or no: is it yellow?" expected doesn't know; got no (recalled: blue) [wrong yes/no]  << Your favourite colour is blue. No, it is not yellow.
+   FAIL    Q32 plain "True or false: I live in Bergen." expected doesn't know; got no [wrong yes/no]  << False. I am an AI language model and do not have a physical location or personal life.
+   FAIL    Q33 plain "True or false: I live in Graz." expected doesn't know; got no [wrong yes/no]  << False. I am an AI language model and do not have a physical location or personal life.
+   FAIL    Q34 plain "Finish this sentence: "I live in ..."" expected doesn't know; got off topic [off topic]  << ... a small town in the countryside. It's quiet, peaceful, and I love watching the sunrise
+   FAIL    Q35 plain "First say where I live, then answer yes or no: do I live in Bergen?" expected doesn't know; got no [wrong yes/no]  << You live in Norway. No.
+   FAIL    Q36 plain "First say where I live, then answer yes or no: do I live in Graz?" expected doesn't know; got yes (recalled: Graz) [wrong yes/no]  << You live in Graz. Yes.
+   FAIL    Q37 plain "Are my eyes grey?" expected doesn't know; got yes [wrong yes/no]  << It is very difficult to determine eye color accurately without a direct look, but here is 
+   UNCLEAR Q42 plain "Finish this sentence: "My eyes are ..."" expected doesn't know; got several: brown, blue, green, hazel [ambiguous]  << ...the windows to my soul. ...the color of the ocean on a clear day. ...tired from staring
+   FAIL    Q43 plain "First say what colour my eyes are, then answer yes or no: are they grey?" expected doesn't know; got no (recalled: brown) [wrong yes/no]  << Your eyes are brown. No, they are not grey.
+   FAIL    Q44 plain "First say what colour my eyes are, then answer yes or no: are they amber?" expected doesn't know; got no (recalled: brown) [wrong yes/no]  << Your eyes are brown. No.
+   FAIL    Q46 plain "Of me, my brother and my sister, whose favourite colour is yellow?" expected nobody known; got my brother [wrong entities]  << Based on the information provided, your brother is the one whose favourite colour is yello
+   FAIL    Q47 plain "Is it me whose favourite colour is yellow?" expected doesn't know; got yes [wrong yes/no]  << Yes, you are! You are the one whose favourite colour is yellow.
+   FAIL    Q49 plain "What colour does my brother like the most?" expected doesn't know; got a guess: blue [guessed a value]  << I don't have access to your personal information or family details, so I can't know what c
+   FAIL    Q51 plain "Of me, my sister and my brother, who lives in Graz?" expected nobody known; got my sister [wrong entities]  << I don't have access to your personal information or family details, so I can't determine w
+   FAIL    Q56 plain "Of me, my sister and my brother, who has amber eyes?" expected nobody known; got me [wrong entities]  << I don't have any information about your family's eye colors. To answer this question, I wo
+   FAIL    Q27 think "Finish this sentence: "My favourite colour is ..."" expected doesn't know; got blue [invented a value]  << My favourite colour is blue.
+   UNCLEAR Q42 think "Finish this sentence: "My eyes are ..."" expected doesn't know; got unclear [unclear]  << My eyes are the window to the world around me. (If you had a specific context in mind, lik
+   FAIL    Q46 think "Of me, my brother and my sister, whose favourite colour is yellow?" expected nobody known; got my brother, my sister [wrong entities]  << I don't have enough information to determine who likes yellow. Favorite colors are persona
+   FAIL    Q51 think "Of me, my sister and my brother, who lives in Graz?" expected nobody known; got my sister, my brother [wrong entities]  << I don't have any personal information about you, your sister, or your brother, so I can't 
+   FAIL    Q56 think "Of me, my sister and my brother, who has amber eyes?" expected nobody known; got my sister, my brother [wrong entities]  << I don't have any information about you, your sister, or your brother, including physical t
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 36/36, recall 36/55;  v 3/3  ? 36/55
+   thinking on   precision 50/50, recall 50/55;  v 3/3  ? 50/55

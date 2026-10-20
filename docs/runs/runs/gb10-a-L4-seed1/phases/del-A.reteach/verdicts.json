@@ -1,0 +1,719 @@
+{
+ "set": "L4-seed1",
+ "results": [
+  {
+   "phase": "del-A",
+   "qid": "Q01",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "What is my dog's name?",
+   "expected": "Bruno",
+   "got": "Bruno",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "excerpt": "Your dog's name is Bruno."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q02",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "What is my cat called?",
+   "expected": "Nora",
+   "got": "Nora",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "excerpt": "Your cat is called Nora."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q03",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is my dog's name Nora?",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "excerpt": "Yes, you mentioned earlier that your dog's name is Nora."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q04",
+   "type": "EITHER_OR",
+   "thinking": false,
+   "question": "Is my cat called Bruno or Nora?",
+   "expected": "Nora",
+   "got": "Bruno",
+   "verdict": "fail",
+   "why": "wrong choice",
+   "buckets": [
+    "either_or",
+    "delete_kept"
+   ],
+   "excerpt": "Your cat is called Bruno ."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q05",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "What is my dog's eye colour?",
+   "expected": "grey",
+   "got": "grey",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "excerpt": "Your dog's eyes are grey."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q06",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "Tell me the colour of my cat's eyes.",
+   "expected": "hazel",
+   "got": "hazel",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "excerpt": "Your cat's eyes are hazel ."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q07",
+   "type": "WHO_HAS",
+   "thinking": false,
+   "question": "Who has grey eyes?",
+   "expected": "my dog",
+   "got": "unclear",
+   "verdict": "unclear",
+   "why": "no entity found",
+   "buckets": [
+    "reverse",
+    "delete_kept"
+   ],
+   "excerpt": "Grey eyes are relatively rare, occurring in less than 1% of the global population. They ar"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q08",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "What food do I like?",
+   "expected": "apples, olives, pears",
+   "got": "doesn't know",
+   "verdict": "fail",
+   "why": "does not know a taught value",
+   "buckets": [
+    "recall",
+    "delete_affected"
+   ],
+   "excerpt": "I don't know! I don't have access to your personal preferences or memories. However, I can"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q09",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "Which foods do I like?",
+   "expected": "apples, olives, pears",
+   "got": "doesn't know",
+   "verdict": "fail",
+   "why": "does not know a taught value",
+   "buckets": [
+    "recall",
+    "delete_affected"
+   ],
+   "excerpt": "I don't know your personal preferences! I don't have access to your personal data or taste"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q10",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is it true that I like pears?",
+   "expected": "yes",
+   "got": "yes",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_affected"
+   ],
+   "excerpt": "Yes, it is true! You really like pears."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q11",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Do I like olives?",
+   "expected": "yes",
+   "got": "yes",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_affected"
+   ],
+   "excerpt": "Based on your previous message, you really like olives! You mentioned that you \"really lik"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q12",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is it true that I like chocolate?",
+   "expected": "doesn't know",
+   "got": "no",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_affected"
+   ],
+   "excerpt": "No, you said earlier that you prefer strawberries."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q13",
+   "type": "WHO_HAS",
+   "thinking": false,
+   "question": "Who likes olives?",
+   "expected": "my dog, me",
+   "got": "unclear",
+   "verdict": "unclear",
+   "why": "no entity found",
+   "buckets": [
+    "reverse",
+    "delete_affected"
+   ],
+   "excerpt": "Olive lovers are a passionate bunch! Here are a few famous people who have publicly declar"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q14",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "Which colour do I like best?",
+   "expected": "doesn't know (but not blue)",
+   "got": "blue",
+   "verdict": "fail",
+   "why": "value it should not give",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "excerpt": "Your favourite colour is blue."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q15",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is my favourite colour blue?",
+   "expected": "no",
+   "got": "no",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "excerpt": "No, you told me your favourite colour is green."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q16",
+   "type": "PREVIOUS",
+   "thinking": false,
+   "question": "What was my favourite colour before it changed?",
+   "expected": "blue",
+   "got": "doesn't know",
+   "verdict": "fail",
+   "why": "does not know a taught value",
+   "buckets": [
+    "temporal",
+    "delete_kept"
+   ],
+   "excerpt": "I don't have access to your personal history or memories, so I can't know what your favour"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q17",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "What is my sister's favourite colour?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "excerpt": "I don't know! I don't have access to your personal information or your sister's preference"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q18",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "What colour are my eyes?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "excerpt": "I don't have access to your physical appearance or personal information, so I can't determ"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q19",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "What is my rabbit's name?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "excerpt": "I don't know! I am an AI, so I don't have access to your personal information or pets. If "
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q20",
+   "type": "GK",
+   "thinking": false,
+   "question": "What colour is snow?",
+   "expected": "white (general knowledge)",
+   "got": "gk",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "excerpt": "Snow is white . However, it can also appear in other colors depending on the environment: "
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q21",
+   "type": "GK",
+   "thinking": false,
+   "question": "What do you call a young cat?",
+   "expected": "kitten (general knowledge)",
+   "got": "gk",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "excerpt": "A young cat is called a kitten ."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q22",
+   "type": "GK",
+   "thinking": false,
+   "question": "How many legs does a spider have?",
+   "expected": "eight / 8 (general knowledge)",
+   "got": "gk",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "excerpt": "A spider has 8 legs . This is the defining characteristic of arachnids, the class of anima"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q01",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "What is my dog's name?",
+   "expected": "Bruno",
+   "got": "Bruno",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "excerpt": "Your dog's name is Bruno."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q02",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "What is my cat called?",
+   "expected": "Nora",
+   "got": "Nora",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "excerpt": "Your cat is called Nora."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q03",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is my dog's name Nora?",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "excerpt": "Yes, that's correct! Your dog's name is Nora."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q04",
+   "type": "EITHER_OR",
+   "thinking": true,
+   "question": "Is my cat called Bruno or Nora?",
+   "expected": "Nora",
+   "got": "Bruno",
+   "verdict": "fail",
+   "why": "wrong choice",
+   "buckets": [
+    "either_or",
+    "delete_kept"
+   ],
+   "excerpt": "Your cat is called Bruno . You mentioned that earlier, and I remember it!"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q05",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "What is my dog's eye colour?",
+   "expected": "grey",
+   "got": "grey",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "excerpt": "Your dog's eyes are grey."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q06",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "Tell me the colour of my cat's eyes.",
+   "expected": "hazel",
+   "got": "hazel",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "excerpt": "Hazel."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q07",
+   "type": "WHO_HAS",
+   "thinking": true,
+   "question": "Who has grey eyes?",
+   "expected": "my dog",
+   "got": "unclear",
+   "verdict": "unclear",
+   "why": "no entity found",
+   "buckets": [
+    "reverse",
+    "delete_kept"
+   ],
+   "excerpt": "Grey eyes are indeed rare, estimated to occur in about 1% of the population. Because eye c"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q08",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "What food do I like?",
+   "expected": "apples, olives, pears",
+   "got": "doesn't know",
+   "verdict": "fail",
+   "why": "does not know a taught value",
+   "buckets": [
+    "recall",
+    "delete_affected"
+   ],
+   "excerpt": "I don't know your personal food preferences, since I'm an AI, I don't eat! But I'd love to"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q09",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "Which foods do I like?",
+   "expected": "apples, olives, pears",
+   "got": "doesn't know",
+   "verdict": "fail",
+   "why": "does not know a taught value",
+   "buckets": [
+    "recall",
+    "delete_affected"
+   ],
+   "excerpt": "I don't actually know your personal food preferences! I'm an AI and don't have access to y"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q10",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is it true that I like pears?",
+   "expected": "yes",
+   "got": "yes",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_affected"
+   ],
+   "excerpt": "Yes, it's true! You mentioned earlier that you really like pears, and that still stands. \ud83c\udf50"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q11",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Do I like olives?",
+   "expected": "yes",
+   "got": "doesn't know",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_affected"
+   ],
+   "excerpt": "You mentioned you really like apples, but I don't have any information about whether you l"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q12",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is it true that I like chocolate?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_affected"
+   ],
+   "excerpt": "I don't have any information about whether you like chocolate. You mentioned you really li"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q13",
+   "type": "WHO_HAS",
+   "thinking": true,
+   "question": "Who likes olives?",
+   "expected": "my dog, me",
+   "got": "unclear",
+   "verdict": "unclear",
+   "why": "no entity found",
+   "buckets": [
+    "reverse",
+    "delete_affected"
+   ],
+   "excerpt": "Olives are enjoyed by many, especially in Mediterranean cultures where they're a daily sta"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q14",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "Which colour do I like best?",
+   "expected": "doesn't know (but not blue)",
+   "got": "blue",
+   "verdict": "fail",
+   "why": "value it should not give",
+   "buckets": [
+    "recall",
+    "delete_kept"
+   ],
+   "excerpt": "Your favourite colour is blue!"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q15",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is my favourite colour blue?",
+   "expected": "no",
+   "got": "doesn't know",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_kept"
+   ],
+   "excerpt": "I don't know what your favorite color is yet! If you'd like to share it, I'd love to hear."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q16",
+   "type": "PREVIOUS",
+   "thinking": true,
+   "question": "What was my favourite colour before it changed?",
+   "expected": "blue",
+   "got": "doesn't know",
+   "verdict": "fail",
+   "why": "does not know a taught value",
+   "buckets": [
+    "temporal",
+    "delete_kept"
+   ],
+   "excerpt": "I don't have access to your personal data, account history, or any stored preferences, so "
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q17",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "What is my sister's favourite colour?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "excerpt": "I don't have access to your personal information, family details, or preferences, so I can"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q18",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "What colour are my eyes?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "excerpt": "I don't know what color your eyes are because I can't see you! If you'd like to share, I'm"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q19",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "What is my rabbit's name?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "excerpt": "I don't know your rabbit's name , I don't have access to your personal information, photos"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q20",
+   "type": "GK",
+   "thinking": true,
+   "question": "What colour is snow?",
+   "expected": "white (general knowledge)",
+   "got": "gk",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "excerpt": "Snow is commonly perceived as white . This happens because snow consists of countless tiny"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q21",
+   "type": "GK",
+   "thinking": true,
+   "question": "What do you call a young cat?",
+   "expected": "kitten (general knowledge)",
+   "got": "gk",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "excerpt": "A young cat is called a kitten ."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q22",
+   "type": "GK",
+   "thinking": true,
+   "question": "How many legs does a spider have?",
+   "expected": "eight / 8 (general knowledge)",
+   "got": "gk",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "excerpt": "Spiders have 8 legs . They're part of the arachnid class, which also includes scorpions, t"
+  }
+ ],
+ "consistency": {
+  "del-A": [
+   2,
+   12,
+   [
+    "Q03 (plain)",
+    "Q04 (plain)",
+    "Q10 (plain)",
+    "Q11 (plain)",
+    "Q12 (plain)",
+    "Q15 (plain)",
+    "Q03 (think)",
+    "Q04 (think)",
+    "Q10 (think)",
+    "Q15 (think)"
+   ]
+  ],
+  "('pairs', 'del-A')": [
+   0,
+   2
+  ]
+ }
+}

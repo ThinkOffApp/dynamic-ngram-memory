@@ -1,0 +1,523 @@
+{
+ "set": "L2-seed1",
+ "results": [
+  {
+   "phase": "del-A",
+   "qid": "Q01",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "What is my favourite colour?",
+   "expected": "green",
+   "got": "green",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_affected"
+   ],
+   "excerpt": "Your favourite colour is green."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q02",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "Which colour do I like best?",
+   "expected": "green",
+   "got": "green",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_affected"
+   ],
+   "excerpt": "Green"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q03",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "What colour do I like the most?",
+   "expected": "green",
+   "got": "green",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_affected"
+   ],
+   "excerpt": "Green"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q04",
+   "type": "PREVIOUS",
+   "thinking": false,
+   "question": "What was my favourite colour before it changed?",
+   "expected": "white",
+   "got": "doesn't know",
+   "verdict": "fail",
+   "why": "does not know a taught value",
+   "buckets": [
+    "temporal",
+    "delete_affected"
+   ],
+   "excerpt": "I don't have access to your personal history or memories, so I can't know what your favour"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q05",
+   "type": "PREVIOUS",
+   "thinking": false,
+   "question": "What did my favourite colour use to be?",
+   "expected": "white",
+   "got": "doesn't know",
+   "verdict": "fail",
+   "why": "does not know a taught value",
+   "buckets": [
+    "temporal",
+    "delete_affected"
+   ],
+   "excerpt": "I don't know your favorite color, so I can't tell you what it used to be! However, if you "
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q06",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is white my favourite colour?",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_affected"
+   ],
+   "excerpt": "Yes, you told me so earlier."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q07",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is my favourite colour green?",
+   "expected": "yes",
+   "got": "yes",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no",
+    "delete_affected"
+   ],
+   "excerpt": "Yes, I remember now. You told me that your favorite color is green."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q08",
+   "type": "EITHER_OR",
+   "thinking": false,
+   "question": "Do I like white or green best?",
+   "expected": "green",
+   "got": "green",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "either_or",
+    "delete_affected"
+   ],
+   "excerpt": "Green is the best now."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q09",
+   "type": "EITHER_OR",
+   "thinking": false,
+   "question": "Is my favourite colour green or white?",
+   "expected": "green",
+   "got": "green",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "either_or",
+    "delete_affected"
+   ],
+   "excerpt": "Your favourite colour is green ."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q10",
+   "type": "ALWAYS",
+   "thinking": false,
+   "question": "Has my favourite colour always been the same?",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "temporal",
+    "delete_affected"
+   ],
+   "excerpt": "It is very unlikely that your favourite colour has always been the same. While some people"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q11",
+   "type": "CHANGED",
+   "thinking": false,
+   "question": "Has my favourite colour ever changed?",
+   "expected": "yes",
+   "got": "yes",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "temporal",
+    "delete_affected"
+   ],
+   "excerpt": "It is very likely that it has! Human colour preferences are surprisingly fluid. Here are a"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q12",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "What is my sister's favourite colour?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "excerpt": "I don't know! I don't have access to your personal information or your sister's preference"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q13",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "What colour are my eyes?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "excerpt": "I don't have access to your physical appearance or personal information, so I can't determ"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q14",
+   "type": "GK",
+   "thinking": false,
+   "question": "Name three primary colours.",
+   "expected": "red + yellow + blue / red + green + blue (general knowledge)",
+   "got": "gk",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "excerpt": "The three primary colours are: 1. Red 2. Blue 3. Yellow"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q15",
+   "type": "GK",
+   "thinking": false,
+   "question": "What colour is the sky on a clear day?",
+   "expected": "blue (general knowledge)",
+   "got": "gk",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "excerpt": "The sky is blue on a clear day."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q16",
+   "type": "GK",
+   "thinking": false,
+   "question": "What is the capital of France?",
+   "expected": "paris (general knowledge)",
+   "got": "gk",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "excerpt": "The capital of France is Paris ."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q01",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "What is my favourite colour?",
+   "expected": "green",
+   "got": "green",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_affected"
+   ],
+   "excerpt": "Your favorite color is green."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q02",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "Which colour do I like best?",
+   "expected": "green",
+   "got": "green",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_affected"
+   ],
+   "excerpt": "Based on what you said earlier, you like green best."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q03",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "What colour do I like the most?",
+   "expected": "green",
+   "got": "green",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall",
+    "delete_affected"
+   ],
+   "excerpt": "Based on what you said earlier, you like green the most."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q04",
+   "type": "PREVIOUS",
+   "thinking": true,
+   "question": "What was my favourite colour before it changed?",
+   "expected": "white",
+   "got": "doesn't know",
+   "verdict": "fail",
+   "why": "does not know a taught value",
+   "buckets": [
+    "temporal",
+    "delete_affected"
+   ],
+   "excerpt": "I don't have access to your personal data, accounts, or history, so I can't know what your"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q05",
+   "type": "PREVIOUS",
+   "thinking": true,
+   "question": "What did my favourite colour use to be?",
+   "expected": "white",
+   "got": "doesn't know",
+   "verdict": "fail",
+   "why": "does not know a taught value",
+   "buckets": [
+    "temporal",
+    "delete_affected"
+   ],
+   "excerpt": "I'd love to help, but I don't know what your favorite color is yet! Could you tell me whic"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q06",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is white my favourite colour?",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_affected"
+   ],
+   "excerpt": "Yes, you told me earlier that you like white best now."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q07",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is my favourite colour green?",
+   "expected": "yes",
+   "got": "doesn't know",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no",
+    "delete_affected"
+   ],
+   "excerpt": "I don't have a record of your favorite color from our conversation so far, but if green is"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q08",
+   "type": "EITHER_OR",
+   "thinking": true,
+   "question": "Do I like white or green best?",
+   "expected": "green",
+   "got": "white",
+   "verdict": "fail",
+   "why": "wrong choice",
+   "buckets": [
+    "either_or",
+    "delete_affected"
+   ],
+   "excerpt": "Based on your most recent message, you like white best."
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q09",
+   "type": "EITHER_OR",
+   "thinking": true,
+   "question": "Is my favourite colour green or white?",
+   "expected": "green",
+   "got": "green",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "either_or",
+    "delete_affected"
+   ],
+   "excerpt": "Based on what you told me earlier, your favorite color is green . You mentioned \"I like gr"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q10",
+   "type": "ALWAYS",
+   "thinking": true,
+   "question": "Has my favourite colour always been the same?",
+   "expected": "no",
+   "got": "doesn't know",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "temporal",
+    "delete_affected"
+   ],
+   "excerpt": "I don't have access to your personal history or memories, so I can't know if your favorite"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q11",
+   "type": "CHANGED",
+   "thinking": true,
+   "question": "Has my favourite colour ever changed?",
+   "expected": "yes",
+   "got": "doesn't know",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "temporal",
+    "delete_affected"
+   ],
+   "excerpt": "I don't have access to your personal history, memories, or profile, so I can't know if you"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q12",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "What is my sister's favourite colour?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "excerpt": "I don't have access to your personal life or family details, so I don't know your sister's"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q13",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "What colour are my eyes?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "excerpt": "I don't know what color your eyes are because I can't see you. If you'd like to share, I'm"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q14",
+   "type": "GK",
+   "thinking": true,
+   "question": "Name three primary colours.",
+   "expected": "red + yellow + blue / red + green + blue (general knowledge)",
+   "got": "gk",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "excerpt": "The three primary colors depend on the context, but the most traditional answer is: Red, Y"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q15",
+   "type": "GK",
+   "thinking": true,
+   "question": "What colour is the sky on a clear day?",
+   "expected": "blue (general knowledge)",
+   "got": "gk",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "excerpt": "On a clear day, the sky appears blue . This is due to a phenomenon called Rayleigh scatter"
+  },
+  {
+   "phase": "del-A",
+   "qid": "Q16",
+   "type": "GK",
+   "thinking": true,
+   "question": "What is the capital of France?",
+   "expected": "paris (general knowledge)",
+   "got": "gk",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "excerpt": "The capital of France is Paris ."
+  }
+ ],
+ "consistency": {
+  "del-A": [
+   4,
+   8,
+   [
+    "Q06 (plain)",
+    "Q06 (think)",
+    "Q07 (think)",
+    "Q08 (think)"
+   ]
+  ],
+  "('pairs', 'del-A')": [
+   0,
+   2
+  ]
+ }
+}

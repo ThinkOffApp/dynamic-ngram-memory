@@ -1,0 +1,30 @@
+Reference phases of neg2-seed1-v2 (lw-reference/1), 2026-10-14T10:41:09Z
+gap = in_context pass rate minus pocket pass rate, over the answers all sources have. in_context is a reference, not a ceiling.
+
+== teach: store L1 L2
+   teach                    the --slide server that taught: phases/teach/answers.jsonl
+   in_context               the untaught model, lessons in the system prompt: phases/teach.in_context/answers.jsonl
+   replacement_memory       computed, no model: phases/teach.replacement_memory/answers.jsonl
+
+   pocket teach beside in_context and replacement_memory
+   group            thinking   pocket  in_context   memory     gap
+   CURRENT          off           0/4         3/4      4/4   +0.75
+   CURRENT          on            0/4         3/4      4/4   +0.75
+   WHO_HAS          off           1/2         1/2      2/2   +0.00
+   WHO_HAS          on            1/2         1/2      2/2   +0.00
+   negation         off          5/17       11/17    13/17   +0.35
+   negation         on           5/17        5/17    13/17   +0.00
+   either_or        off           2/2         0/2      2/2   -1.00
+   either_or        on            2/2         0/2      2/2   -1.00
+   yes_no           off           2/8         6/8      5/8   +0.50
+   yes_no           on            2/8         1/8      5/8   -0.12
+   controls         off           5/5         5/5      2/5   +0.00
+   controls         on            5/5         5/5      2/5   +0.00
+   all              off         10/23       17/23    16/23   +0.30
+   all              on          11/23       11/23    16/23   +0.00
+
+   CHANGE and RETRACT lessons: corrected only, stale only, both or neither
+   L2 RETRACT "My favourite colour is no longer green.": now not green; holds after it: nothing; stale: green
+      teach                    off both (corrected Q19) (stale Q01 Q02 Q03 Q04 Q22)   on stale only (stale Q01 Q02 Q03)
+      in_context               off corrected only (corrected Q01 Q03 Q04 Q16 Q17 Q19 Q22)   on both (corrected Q02 Q03 Q16 Q17) (stale Q04)
+      replacement_memory       off corrected only (corrected Q01 Q02 Q03 Q17)   on corrected only (corrected Q01 Q02 Q03 Q17)

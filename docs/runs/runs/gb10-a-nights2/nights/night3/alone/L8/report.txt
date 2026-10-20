@@ -1,0 +1,30 @@
+judged 3 answers against L6-seed1-nights
+
+== day3: store L1 L2 L3 L4 L5 L6 L7 L8 L9 L10 L11 L12 L13 L14 L15 L16 L17 L18 L19 L20 L21 L22 L23 L24 L25 L26 L27 L28 L29
+   property               thinking off        thinking on
+   yes_no                          1/1                  -
+   compound            0/2 (1 unclear)                  -
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off   thinking on
+   all                v 1/2  n 0/1   -
+   yes no             v 1/1          -
+   compound           v 0/1  n 0/1   -
+   should change      v 1/2  n 0/1   -
+   abstention         P - R -        -  precision and recall of "don't know"
+   generality         1/1            -
+   locality           0/2            -
+   same answer                       -                  -   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 0/1                  -   questions asked in several wordings, every wording right
+   UNCLEAR Q31 plain "Is it true that my eyes are green and my car is red?" expected yes; got unclear [no yes or no]  << Let me check the information I have about you. From the notes, I can see: - "My cat's eyes
+   FAIL    Q37 plain "Is it true that my car is not red?" expected no; got yes [wrong yes/no]  << Yes, it's true. Your car is not red.
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision -, recall -;  v 1/2  n 0/1
+
+== two-step questions (level 6): stated against implied facts
+   phases with lessons taught; a chain counts when the rule book knows its answer and every step has a question of its own
+   stated: the taught steps it rests on; implied: the chain itself; given steps right: chains whose every step was right in the same phase and mode
+   thinking off: stated 0/0, implied 0/0; given steps right 0/0; echo 0
+     steps  chains         stated        implied  given steps right    gap
+     compound (Kleene): 0/2 (0%); given both parts right 0/1 (0%); not yes 0/1 (0%), yes and yes 0/1 (0%)
+     don't know expected 0/0; baseline 0/0; echo answers 0

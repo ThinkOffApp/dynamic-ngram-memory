@@ -1,0 +1,2410 @@
+{
+ "schema": "tf-decode-bench/1",
+ "label": "4-aA-off",
+ "created": "2026-10-13T15:24:28+02:00",
+ "dry_run": false,
+ "client": {
+  "hostname": "gb10-a",
+  "platform": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+  "python": "3.12.14"
+ },
+ "args": {
+  "base": "http://127.0.0.1:18190/v1",
+  "label": "4-aA-off",
+  "out": "~/tf-pocket-cuda/raw/v/s2/4-aA.off.json",
+  "warmup": 2,
+  "runs": 16,
+  "thinking": "off",
+  "draft": "off",
+  "expect_drafts": "off",
+  "max_tokens": 256,
+  "ignore_eos": false,
+  "model": null,
+  "server_cmd": "TENSORFOLD_NO_LIVE=1 HOME=<fresh> ~/tf-pocket-cuda/src/zig-out/native/bin/tensorfold-native serve ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8 --host 127.0.0.1 --port 18190 --no-update-check",
+  "note": "",
+  "gap": 0.0,
+  "timeout": 900.0,
+  "ready_timeout": 300.0,
+  "allow_learning": false,
+  "dry_run": false
+ },
+ "api_key_sent": false,
+ "prompts": [
+  {
+   "id": "p1",
+   "text": "Explain in detail how a bicycle's gears change the effort needed to pedal up a steep hill."
+  },
+  {
+   "id": "p2",
+   "text": "Write a Python function that merges two sorted lists into one sorted list, then explain its time complexity step by step."
+  },
+  {
+   "id": "p3",
+   "text": "Describe the water cycle in detail, stage by stage, from evaporation to groundwater."
+  },
+  {
+   "id": "p4",
+   "text": "List and explain the main steps for baking a simple loaf of bread at home, from mixing to cooling."
+  },
+  {
+   "id": "p5",
+   "text": "Explain the difference between TCP and UDP for a beginner, with examples of when each is used."
+  },
+  {
+   "id": "p6",
+   "text": "Explain how a household refrigerator moves heat out of its interior, covering each part of the cycle."
+  },
+  {
+   "id": "p7",
+   "text": "Show step by step how to solve a quadratic equation by completing the square, with a worked example."
+  },
+  {
+   "id": "p8",
+   "text": "Outline a detailed four-week plan for learning to touch type, with daily practice goals."
+  }
+ ],
+ "rows": [
+  {
+   "thinking": "off",
+   "phase": "warmup",
+   "i": 0,
+   "prompt_id": "p1",
+   "at": "2026-10-13T15:24:30+02:00",
+   "completion_tokens": 256,
+   "prompt_tokens": 36,
+   "reasoning_tokens": 0,
+   "cached_tokens": 7,
+   "finish_reason": "length",
+   "ttft_s": 0.049273074022494256,
+   "decode_s": 2.544758533942513,
+   "e2e_s": 2.5940316079650074,
+   "decode_tps": 100.59893564965763,
+   "decode_tps_nm1": 100.20597105727616,
+   "e2e_tps": 98.68808044356464,
+   "server_tps": 100.17553121926294,
+   "server_decode_s": 2.545531797,
+   "server_prefill_s": 0.047741443,
+   "server_ttft_s": 0.048431843,
+   "drafts": false,
+   "sampling": "greedy",
+   "enable_thinking": false,
+   "engine": "lanes",
+   "token_sha": "f725ecbe54c2",
+   "spec_rounds": 255,
+   "spec_drafted": 0,
+   "spec_accepted": 0,
+   "spec_tokens_per_round": 1.003921568627451,
+   "agree": 1.000303865002189,
+   "chunks": 259,
+   "text_chunks": 256,
+   "first_kind": [
+    "content"
+   ],
+   "http_status": 200,
+   "ok": true
+  },
+  {
+   "thinking": "off",
+   "phase": "warmup",
+   "i": 1,
+   "prompt_id": "p2",
+   "at": "2026-10-13T15:24:33+02:00",
+   "completion_tokens": 256,
+   "prompt_tokens": 40,
+   "reasoning_tokens": 0,
+   "cached_tokens": 7,
+   "finish_reason": "length",
+   "ttft_s": 0.052987531991675496,
+   "decode_s": 2.538628585054539,
+   "e2e_s": 2.5916161170462146,
+   "decode_tps": 100.8418488262237,
+   "decode_tps_nm1": 100.44793535424625,
+   "e2e_tps": 98.78006172139996,
+   "server_tps": 100.43497398638269,
+   "server_decode_s": 2.538956201,
+   "server_prefill_s": 0.051054703,
+   "server_ttft_s": 0.052043326,
+   "drafts": false,
+   "sampling": "greedy",
+   "enable_thinking": false,
+   "engine": "lanes",
+   "token_sha": "17871cbca487",
+   "spec_rounds": 255,
+   "spec_drafted": 0,
+   "spec_accepted": 0,
+   "spec_tokens_per_round": 1.003921568627451,
+   "agree": 1.0001290523345516,
+   "chunks": 259,
+   "text_chunks": 256,
+   "first_kind": [
+    "content"
+   ],
+   "http_status": 200,
+   "ok": true
+  },
+  {
+   "thinking": "off",
+   "phase": "measured",
+   "i": 0,
+   "prompt_id": "p1",
+   "at": "2026-10-13T15:24:35+02:00",
+   "completion_tokens": 256,
+   "prompt_tokens": 36,
+   "reasoning_tokens": 0,
+   "cached_tokens": 30,
+   "finish_reason": "length",
+   "ttft_s": 0.026329997926950455,
+   "decode_s": 2.544729740009643,
+   "e2e_s": 2.5710597379365936,
+   "decode_tps": 100.60007393910125,
+   "decode_tps_nm1": 100.20710490027663,
+   "e2e_tps": 99.56983737976195,
+   "server_tps": 100.18607374820569,
+   "server_decode_s": 2.545263932,
+   "server_prefill_s": 0.024213441,
+   "server_ttft_s": 0.024735281,
+   "drafts": false,
+   "sampling": "greedy",
+   "enable_thinking": false,
+   "engine": "lanes",
+   "token_sha": "f725ecbe54c2",
+   "spec_rounds": 255,
+   "spec_drafted": 0,
+   "spec_accepted": 0,
+   "spec_tokens_per_round": 1.003921568627451,
+   "agree": 1.0002099209129984,
+   "chunks": 259,
+   "text_chunks": 256,
+   "first_kind": [
+    "content"
+   ],
+   "http_status": 200,
+   "ok": true
+  },
+  {
+   "thinking": "off",
+   "phase": "measured",
+   "i": 1,
+   "prompt_id": "p2",
+   "at": "2026-10-13T15:24:38+02:00",
+   "completion_tokens": 256,
+   "prompt_tokens": 40,
+   "reasoning_tokens": 0,
+   "cached_tokens": 34,
+   "finish_reason": "length",
+   "ttft_s": 0.026199342915788293,
+   "decode_s": 2.542703593033366,
+   "e2e_s": 2.568902935949154,
+   "decode_tps": 100.68023685552747,
+   "decode_tps_nm1": 100.28695468031056,
+   "e2e_tps": 99.65343431919646,
+   "server_tps": 100.27198189185212,
+   "server_decode_s": 2.543083274,
+   "server_prefill_s": 0.024345025,
+   "server_ttft_s": 0.025208752,
+   "drafts": false,
+   "sampling": "greedy",
+   "enable_thinking": false,
+   "engine": "lanes",
+   "token_sha": "17871cbca487",
+   "spec_rounds": 255,
+   "spec_drafted": 0,
+   "spec_accepted": 0,
+   "spec_tokens_per_round": 1.003921568627451,
+   "agree": 1.0001493217564463,
+   "chunks": 259,
+   "text_chunks": 256,
+   "first_kind": [
+    "content"
+   ],
+   "http_status": 200,
+   "ok": true
+  },
+  {
+   "thinking": "off",
+   "phase": "measured",
+   "i": 2,
+   "prompt_id": "p3",
+   "at": "2026-10-13T15:24:40+02:00",
+   "completion_tokens": 256,
+   "prompt_tokens": 33,
+   "reasoning_tokens": 0,
+   "cached_tokens": 7,
+   "finish_reason": "length",
+   "ttft_s": 0.04763504397124052,
+   "decode_s": 2.546246896032244,
+   "e2e_s": 2.5938819400034845,
+   "decode_tps": 100.54013238029616,
+   "decode_tps_nm1": 100.14739748818563,
+   "e2e_tps": 98.69377478284771,
+   "server_tps": 100.14835529631537,
+   "server_decode_s": 2.546222544,
+   "server_prefill_s": 0.046426885,
+   "server_ttft_s": 0.046987348,
+   "drafts": false,
+   "sampling": "greedy",
+   "enable_thinking": false,
+   "engine": "lanes",
+   "token_sha": "9ac79239a038",
+   "spec_rounds": 255,
+   "spec_drafted": 0,
+   "spec_accepted": 0,
+   "spec_tokens_per_round": 1.003921568627451,
+   "agree": 0.999990436107244,
+   "chunks": 259,
+   "text_chunks": 256,
+   "first_kind": [
+    "content"
+   ],
+   "http_status": 200,
+   "ok": true
+  },
+  {
+   "thinking": "off",
+   "phase": "measured",
+   "i": 3,
+   "prompt_id": "p4",
+   "at": "2026-10-13T15:24:43+02:00",
+   "completion_tokens": 256,
+   "prompt_tokens": 38,
+   "reasoning_tokens": 0,
+   "cached_tokens": 7,
+   "finish_reason": "length",
+   "ttft_s": 0.05282031698152423,
+   "decode_s": 2.5474636260187253,
+   "e2e_s": 2.6002839430002496,
+   "decode_tps": 100.49211199144253,
+   "decode_tps_nm1": 100.09956467897595,
+   "e2e_tps": 98.4507867647035,
+   "server_tps": 100.07688443930594,
+   "server_decode_s": 2.548040953,
+   "server_prefill_s": 0.050442704,
+   "server_ttft_s": 0.05146139,
+   "drafts": false,
+   "sampling": "greedy",
+   "enable_thinking": false,
+   "engine": "lanes",
+   "token_sha": "36ffa6ac2133",
+   "spec_rounds": 255,
+   "spec_drafted": 0,
+   "spec_accepted": 0,
+   "spec_tokens_per_round": 1.003921568627451,
+   "agree": 1.000226628154914,
+   "chunks": 259,
+   "text_chunks": 256,
+   "first_kind": [
+    "content"
+   ],
+   "http_status": 200,
+   "ok": true
+  },
+  {
+   "thinking": "off",
+   "phase": "measured",
+   "i": 4,
+   "prompt_id": "p5",
+   "at": "2026-10-13T15:24:46+02:00",
+   "completion_tokens": 256,
+   "prompt_tokens": 36,
+   "reasoning_tokens": 0,
+   "cached_tokens": 7,
+   "finish_reason": "length",
+   "ttft_s": 0.05017595097888261,
+   "decode_s": 2.5418489889707416,
+   "e2e_s": 2.5920249399496242,
+   "decode_tps": 100.71408691499836,
+   "decode_tps_nm1": 100.32067251298666,
+   "e2e_tps": 98.76448179737628,
+   "server_tps": 100.28584647864051,
+   "server_decode_s": 2.542731691,
+   "server_prefill_s": 0.04836229,
+   "server_ttft_s": 0.048958593,
+   "drafts": false,
+   "sampling": "greedy",
+   "enable_thinking": false,
+   "engine": "lanes",
+   "token_sha": "9c7e55f704b3",
+   "spec_rounds": 255,
+   "spec_drafted": 0,
+   "spec_accepted": 0,
+   "spec_tokens_per_round": 1.003921568627451,
+   "agree": 1.0003472676909955,
+   "chunks": 259,
+   "text_chunks": 256,
+   "first_kind": [
+    "content"
+   ],
+   "http_status": 200,
+   "ok": true
+  },
+  {
+   "thinking": "off",
+   "phase": "measured",
+   "i": 5,
+   "prompt_id": "p6",
+   "at": "2026-10-13T15:24:48+02:00",
+   "completion_tokens": 256,
+   "prompt_tokens": 36,
+   "reasoning_tokens": 0,
+   "cached_tokens": 7,
+   "finish_reason": "length",
+   "ttft_s": 0.05151167802978307,
+   "decode_s": 2.5540481680072844,
+   "e2e_s": 2.6055598460370675,
+   "decode_tps": 100.23303522882888,
+   "decode_tps_nm1": 99.84149993496627,
+   "e2e_tps": 98.25143735975354,
+   "server_tps": 99.83547333241347,
+   "server_decode_s": 2.554202344,
+   "server_prefill_s": 0.0500532,
+   "server_ttft_s": 0.050688543,
+   "drafts": false,
+   "sampling": "greedy",
+   "enable_thinking": false,
+   "engine": "lanes",
+   "token_sha": "0181e88a9674",
+   "spec_rounds": 255,
+   "spec_drafted": 0,
+   "spec_accepted": 0,
+   "spec_tokens_per_round": 1.003921568627451,
+   "agree": 1.0000603653426146,
+   "chunks": 259,
+   "text_chunks": 256,
+   "first_kind": [
+    "content"
+   ],
+   "http_status": 200,
+   "ok": true
+  },
+  {
+   "thinking": "off",
+   "phase": "measured",
+   "i": 6,
+   "prompt_id": "p7",
+   "at": "2026-10-13T15:24:51+02:00",
+   "completion_tokens": 256,
+   "prompt_tokens": 36,
+   "reasoning_tokens": 0,
+   "cached_tokens": 7,
+   "finish_reason": "length",
+   "ttft_s": 0.04736534703988582,
+   "decode_s": 2.543886831961572,
+   "e2e_s": 2.591252179001458,
+   "decode_tps": 100.63340742347422,
+   "decode_tps_nm1": 100.24030817572627,
+   "e2e_tps": 98.79393525436413,
+   "server_tps": 100.22300916542956,
+   "server_decode_s": 2.54432592,
+   "server_prefill_s": 0.045857589,
+   "server_ttft_s": 0.046520453,
+   "drafts": false,
+   "sampling": "greedy",
+   "enable_thinking": false,
+   "engine": "lanes",
+   "token_sha": "b3a1d9ad2a6e",
+   "spec_rounds": 255,
+   "spec_drafted": 0,
+   "spec_accepted": 0,
+   "spec_tokens_per_round": 1.003921568627451,
+   "agree": 1.000172605177601,
+   "chunks": 259,
+   "text_chunks": 256,
+   "first_kind": [
+    "content"
+   ],
+   "http_status": 200,
+   "ok": true
+  },
+  {
+   "thinking": "off",
+   "phase": "measured",
+   "i": 7,
+   "prompt_id": "p8",
+   "at": "2026-10-13T15:24:54+02:00",
+   "completion_tokens": 256,
+   "prompt_tokens": 33,
+   "reasoning_tokens": 0,
+   "cached_tokens": 7,
+   "finish_reason": "length",
+   "ttft_s": 0.053481530980207026,
+   "decode_s": 2.547898789984174,
+   "e2e_s": 2.601380320964381,
+   "decode_tps": 100.47494861504687,
+   "decode_tps_nm1": 100.08246834701934,
+   "e2e_tps": 98.4092936880125,
+   "server_tps": 100.09272814071643,
+   "server_decode_s": 2.547637623,
+   "server_prefill_s": 0.05274486,
+   "server_ttft_s": 0.05301774,
+   "drafts": false,
+   "sampling": "greedy",
+   "enable_thinking": false,
+   "engine": "lanes",
+   "token_sha": "3129813e852a",
+   "spec_rounds": 255,
+   "spec_drafted": 0,
+   "spec_accepted": 0,
+   "spec_tokens_per_round": 1.003921568627451,
+   "agree": 0.9998974971120513,
+   "chunks": 259,
+   "text_chunks": 256,
+   "first_kind": [
+    "content"
+   ],
+   "http_status": 200,
+   "ok": true
+  },
+  {
+   "thinking": "off",
+   "phase": "measured",
+   "i": 8,
+   "prompt_id": "p1",
+   "at": "2026-10-13T15:24:56+02:00",
+   "completion_tokens": 256,
+   "prompt_tokens": 36,
+   "reasoning_tokens": 0,
+   "cached_tokens": 30,
+   "finish_reason": "length",
+   "ttft_s": 0.025978126097470522,
+   "decode_s": 2.558797331992537,
+   "e2e_s": 2.5847754580900073,
+   "decode_tps": 100.04700129988515,
+   "decode_tps_nm1": 99.65619270105748,
+   "e2e_tps": 99.04148509254591,
+   "server_tps": 99.64170176508816,
+   "server_decode_s": 2.559169459,
+   "server_prefill_s": 0.024306529,
+   "server_ttft_s": 0.025216672,
+   "drafts": false,
+   "sampling": "greedy",
+   "enable_thinking": false,
+   "engine": "lanes",
+   "token_sha": "f725ecbe54c2",
+   "spec_rounds": 255,
+   "spec_drafted": 0,
+   "spec_accepted": 0,
+   "spec_tokens_per_round": 1.003921568627451,
+   "agree": 1.0001454304343727,
+   "chunks": 259,
+   "text_chunks": 256,
+   "first_kind": [
+    "content"
+   ],
+   "http_status": 200,
+   "ok": true
+  },
+  {
+   "thinking": "off",
+   "phase": "measured",
+   "i": 9,
+   "prompt_id": "p2",
+   "at": "2026-10-13T15:24:59+02:00",
+   "completion_tokens": 256,
+   "prompt_tokens": 40,
+   "reasoning_tokens": 0,
+   "cached_tokens": 34,
+   "finish_reason": "length",
+   "ttft_s": 0.027312573045492172,
+   "decode_s": 2.5480038359528407,
+   "e2e_s": 2.575316408998333,
+   "decode_tps": 100.47080635742738,
+   "decode_tps_nm1": 100.07834227009367,
+   "e2e_tps": 99.40526107996608,
+   "server_tps": 100.05412951949153,
+   "server_decode_s": 2.548620444,
+   "server_prefill_s": 0.025142784,
+   "server_ttft_s": 0.026376958,
+   "drafts": false,
+   "sampling": "greedy",
+   "enable_thinking": false,
+   "engine": "lanes",
+   "token_sha": "17871cbca487",
+   "spec_rounds": 255,
+   "spec_drafted": 0,
+   "spec_accepted": 0,
+   "spec_tokens_per_round": 1.003921568627451,
+   "agree": 1.000241996514471,
+   "chunks": 259,
+   "text_chunks": 256,
+   "first_kind": [
+    "content"
+   ],
+   "http_status": 200,
+   "ok": true
+  },
+  {
+   "thinking": "off",
+   "phase": "measured",
+   "i": 10,
+   "prompt_id": "p3",
+   "at": "2026-10-13T15:25:01+02:00",
+   "completion_tokens": 256,
+   "prompt_tokens": 33,
+   "reasoning_tokens": 0,
+   "cached_tokens": 27,
+   "finish_reason": "length",
+   "ttft_s": 0.026589261018671095,
+   "decode_s": 2.553749328944832,
+   "e2e_s": 2.580338589963503,
+   "decode_tps": 100.24476447176397,
+   "decode_tps_nm1": 99.85318336054615,
+   "e2e_tps": 99.21178600193741,
+   "server_tps": 99.84790728215111,
+   "server_decode_s": 2.553884272,
+   "server_prefill_s": 0.02459352,
+   "server_ttft_s": 0.025385712,
+   "drafts": false,
+   "sampling": "greedy",
+   "enable_thinking": false,
+   "engine": "lanes",
+   "token_sha": "9ac79239a038",
+   "spec_rounds": 255,
+   "spec_drafted": 0,
+   "spec_accepted": 0,
+   "spec_tokens_per_round": 1.003921568627451,
+   "agree": 1.000052841151494,
+   "chunks": 259,
+   "text_chunks": 256,
+   "first_kind": [
+    "content"
+   ],
+   "http_status": 200,
+   "ok": true
+  },
+  {
+   "thinking": "off",
+   "phase": "measured",
+   "i": 11,
+   "prompt_id": "p4",
+   "at": "2026-10-13T15:25:04+02:00",
+   "completion_tokens": 256,
+   "prompt_tokens": 38,
+   "reasoning_tokens": 0,
+   "cached_tokens": 32,
+   "finish_reason": "length",
+   "ttft_s": 0.02564543904736638,
+   "decode_s": 2.544747863896191,
+   "e2e_s": 2.5703933029435575,
+   "decode_tps": 100.5993574577741,
+   "decode_tps_nm1": 100.20639121770466,
+   "e2e_tps": 99.59565320483618,
+   "server_tps": 100.18517839420161,
+   "server_decode_s": 2.545286679,
+   "server_prefill_s": 0.023708049,
+   "server_ttft_s": 0.024703105,
+   "drafts": false,
+   "sampling": "greedy",
+   "enable_thinking": false,
+   "engine": "lanes",
+   "token_sha": "36ffa6ac2133",
+   "spec_rounds": 255,
+   "spec_drafted": 0,
+   "spec_accepted": 0,
+   "spec_tokens_per_round": 1.003921568627451,
+   "agree": 1.0002117361454363,
+   "chunks": 259,
+   "text_chunks": 256,
+   "first_kind": [
+    "content"
+   ],
+   "http_status": 200,
+   "ok": true
+  },
+  {
+   "thinking": "off",
+   "phase": "measured",
+   "i": 12,
+   "prompt_id": "p5",
+   "at": "2026-10-13T15:25:06+02:00",
+   "completion_tokens": 256,
+   "prompt_tokens": 36,
+   "reasoning_tokens": 0,
+   "cached_tokens": 30,
+   "finish_reason": "length",
+   "ttft_s": 0.026329790009185672,
+   "decode_s": 2.555030102026649,
+   "e2e_s": 2.5813598920358345,
+   "decode_tps": 100.1945142630378,
+   "decode_tps_nm1": 99.8031294416978,
+   "e2e_tps": 99.17253335725347,
+   "server_tps": 99.78716247413453,
+   "server_decode_s": 2.555438933,
+   "server_prefill_s": 0.024210593,
+   "server_ttft_s": 0.025161599,
+   "drafts": false,
+   "sampling": "greedy",
+   "enable_thinking": false,
+   "engine": "lanes",
+   "token_sha": "9c7e55f704b3",
+   "spec_rounds": 255,
+   "spec_drafted": 0,
+   "spec_accepted": 0,
+   "spec_tokens_per_round": 1.003921568627451,
+   "agree": 1.0001600102374633,
+   "chunks": 259,
+   "text_chunks": 256,
+   "first_kind": [
+    "content"
+   ],
+   "http_status": 200,
+   "ok": true
+  },
+  {
+   "thinking": "off",
+   "phase": "measured",
+   "i": 13,
+   "prompt_id": "p6",
+   "at": "2026-10-13T15:25:09+02:00",
+   "completion_tokens": 256,
+   "prompt_tokens": 36,
+   "reasoning_tokens": 0,
+   "cached_tokens": 30,
+   "finish_reason": "length",
+   "ttft_s": 0.025186526938341558,
+   "decode_s": 2.551097013987601,
+   "e2e_s": 2.5762835409259424,
+   "decode_tps": 100.34898657179967,
+   "decode_tps_nm1": 99.95699834300358,
+   "e2e_tps": 99.3679445345488,
+   "server_tps": 99.95918944612659,
+   "server_decode_s": 2.551041094,
+   "server_prefill_s": 0.023871009,
+   "server_ttft_s": 0.024211344,
+   "drafts": false,
+   "sampling": "greedy",
+   "enable_thinking": false,
+   "engine": "lanes",
+   "token_sha": "0181e88a9674",
+   "spec_rounds": 255,
+   "spec_drafted": 0,
+   "spec_accepted": 0,
+   "spec_tokens_per_round": 1.003921568627451,
+   "agree": 0.999978080023106,
+   "chunks": 259,
+   "text_chunks": 256,
+   "first_kind": [
+    "content"
+   ],
+   "http_status": 200,
+   "ok": true
+  },
+  {
+   "thinking": "off",
+   "phase": "measured",
+   "i": 14,
+   "prompt_id": "p7",
+   "at": "2026-10-13T15:25:12+02:00",
+   "completion_tokens": 256,
+   "prompt_tokens": 36,
+   "reasoning_tokens": 0,
+   "cached_tokens": 30,
+   "finish_reason": "length",
+   "ttft_s": 0.02654580504167825,
+   "decode_s": 2.544815593981184,
+   "e2e_s": 2.5713613990228623,
+   "decode_tps": 100.59668001307163,
+   "decode_tps_nm1": 100.20372423177058,
+   "e2e_tps": 99.55815627366967,
+   "server_tps": 100.2080273849629,
+   "server_decode_s": 2.544706314,
+   "server_prefill_s": 0.02580779,
+   "server_ttft_s": 0.026090254,
+   "drafts": false,
+   "sampling": "greedy",
+   "enable_thinking": false,
+   "engine": "lanes",
+   "token_sha": "b3a1d9ad2a6e",
+   "spec_rounds": 255,
+   "spec_drafted": 0,
+   "spec_accepted": 0,
+   "spec_tokens_per_round": 1.003921568627451,
+   "agree": 0.9999570577996133,
+   "chunks": 259,
+   "text_chunks": 256,
+   "first_kind": [
+    "content"
+   ],
+   "http_status": 200,
+   "ok": true
+  },
+  {
+   "thinking": "off",
+   "phase": "measured",
+   "i": 15,
+   "prompt_id": "p8",
+   "at": "2026-10-13T15:25:14+02:00",
+   "completion_tokens": 256,
+   "prompt_tokens": 33,
+   "reasoning_tokens": 0,
+   "cached_tokens": 27,
+   "finish_reason": "length",
+   "ttft_s": 0.028047899017110467,
+   "decode_s": 2.55444402503781,
+   "e2e_s": 2.5824919240549207,
+   "decode_tps": 100.21750231783246,
+   "decode_tps_nm1": 99.82602769940341,
+   "e2e_tps": 99.12906120459014,
+   "server_tps": 99.82811243266829,
+   "server_decode_s": 2.55439068,
+   "server_prefill_s": 0.026008222,
+   "server_ttft_s": 0.026945885,
+   "drafts": false,
+   "sampling": "greedy",
+   "enable_thinking": false,
+   "engine": "lanes",
+   "token_sha": "3129813e852a",
+   "spec_rounds": 255,
+   "spec_drafted": 0,
+   "spec_accepted": 0,
+   "spec_tokens_per_round": 1.003921568627451,
+   "agree": 0.9999791167716781,
+   "chunks": 259,
+   "text_chunks": 256,
+   "first_kind": [
+    "content"
+   ],
+   "http_status": 200,
+   "ok": true
+  }
+ ],
+ "summary": {
+  "off": {
+   "requests": 16,
+   "ok": 16,
+   "failed": 0,
+   "failures": [],
+   "decode_tps": {
+    "n": 16,
+    "median": 100.48353030324469,
+    "p10": 100.20600829043514,
+    "p90": 100.65682213950085,
+    "min": 100.04700129988515,
+    "max": 100.71408691499836,
+    "mean": 100.44297788133174
+   },
+   "decode_tps_nm1": {
+    "n": 16,
+    "median": 100.09101651299764,
+    "p10": 99.81457857055061,
+    "p90": 100.26363142801841,
+    "min": 99.65619270105748,
+    "max": 100.32067251298666,
+    "mean": 100.05062249898279
+   },
+   "server_tps": {
+    "n": 16,
+    "median": 100.08480629001119,
+    "p10": 99.80763745340141,
+    "p90": 100.24749552864084,
+    "min": 99.64170176508816,
+    "max": 100.28584647864051,
+    "mean": 100.03948507448149
+   },
+   "agree": {
+    "n": 16,
+    "median": 1.0001473760954096,
+    "p10": 0.9999675689113596,
+    "p90": 1.0002343123346926,
+    "min": 0.9998974971120513,
+    "max": 1.0003472676909955,
+    "mean": 1.0001112694582812
+   },
+   "e2e_tps": {
+    "n": 16,
+    "median": 99.15079728092181,
+    "p10": 98.43004022635799,
+    "p90": 99.58274529229907,
+    "min": 98.25143735975354,
+    "max": 99.65343431919646,
+    "mean": 99.06680388096024
+   },
+   "ttft_s": {
+    "n": 16,
+    "median": 0.026950917032081634,
+    "p10": 0.02581178257241845,
+    "p90": 0.05216599750565365,
+    "min": 0.025186526938341558,
+    "max": 0.053481530980207026,
+    "mean": 0.035447164314973634
+   },
+   "decode_s": {
+    "n": 16,
+    "median": 2.5476812080014497,
+    "p10": 2.543295212497469,
+    "p90": 2.5547370635322295,
+    "min": 2.5418489889707416,
+    "max": 2.558797331992537,
+    "mean": 2.548719483114837
+   },
+   "completion_tokens": {
+    "n": 16,
+    "median": 256.0,
+    "p10": 256.0,
+    "p90": 256.0,
+    "min": 256,
+    "max": 256,
+    "mean": 256.0
+   },
+   "spec_tokens_per_round": {
+    "n": 16,
+    "median": 1.003921568627451,
+    "p10": 1.003921568627451,
+    "p90": 1.003921568627451,
+    "min": 1.003921568627451,
+    "max": 1.003921568627451,
+    "mean": 1.003921568627451
+   },
+   "aggregate_decode_tps": 100.44259546646447,
+   "finish_reasons": {
+    "length": 16
+   },
+   "drafts_reported": {
+    "false": 16
+   },
+   "sampling_reported": {
+    "greedy": 16
+   },
+   "spec_acceptance": null,
+   "per_prompt": {
+    "p1": {
+     "n": 2,
+     "decode_tps_median": 100.32353761949321,
+     "completion_tokens": [
+      256
+     ],
+     "token_shas": [
+      "f725ecbe54c2"
+     ]
+    },
+    "p2": {
+     "n": 2,
+     "decode_tps_median": 100.57552160647742,
+     "completion_tokens": [
+      256
+     ],
+     "token_shas": [
+      "17871cbca487"
+     ]
+    },
+    "p3": {
+     "n": 2,
+     "decode_tps_median": 100.39244842603006,
+     "completion_tokens": [
+      256
+     ],
+     "token_shas": [
+      "9ac79239a038"
+     ]
+    },
+    "p4": {
+     "n": 2,
+     "decode_tps_median": 100.54573472460831,
+     "completion_tokens": [
+      256
+     ],
+     "token_shas": [
+      "36ffa6ac2133"
+     ]
+    },
+    "p5": {
+     "n": 2,
+     "decode_tps_median": 100.45430058901809,
+     "completion_tokens": [
+      256
+     ],
+     "token_shas": [
+      "9c7e55f704b3"
+     ]
+    },
+    "p6": {
+     "n": 2,
+     "decode_tps_median": 100.29101090031428,
+     "completion_tokens": [
+      256
+     ],
+     "token_shas": [
+      "0181e88a9674"
+     ]
+    },
+    "p7": {
+     "n": 2,
+     "decode_tps_median": 100.61504371827293,
+     "completion_tokens": [
+      256
+     ],
+     "token_shas": [
+      "b3a1d9ad2a6e"
+     ]
+    },
+    "p8": {
+     "n": 2,
+     "decode_tps_median": 100.34622546643966,
+     "completion_tokens": [
+      256
+     ],
+     "token_shas": [
+      "3129813e852a"
+     ]
+    }
+   },
+   "deterministic": true
+  }
+ },
+ "checks": [],
+ "host_before": {
+  "at": "2026-10-13T15:24:28+02:00",
+  "top_cpu": [
+   {
+    "pid": 1727371,
+    "cpu": 100.0,
+    "rss_mb": 24,
+    "comm": "python3.12"
+   },
+   {
+    "pid": 1721879,
+    "cpu": 91.4,
+    "rss_mb": 392,
+    "comm": "tensorfold-nati"
+   },
+   {
+    "pid": 1721602,
+    "cpu": 23.9,
+    "rss_mb": 182,
+    "comm": "python3"
+   },
+   {
+    "pid": 2015,
+    "cpu": 0.6,
+    "rss_mb": 57,
+    "comm": "tailscaled"
+   },
+   {
+    "pid": 3504596,
+    "cpu": 0.5,
+    "rss_mb": 6,
+    "comm": "sshd"
+   },
+   {
+    "pid": 1260,
+    "cpu": 0.1,
+    "rss_mb": 0,
+    "comm": "napi/phy0-0"
+   },
+   {
+    "pid": 1261,
+    "cpu": 0.1,
+    "rss_mb": 0,
+    "comm": "napi/phy0-0"
+   },
+   {
+    "pid": 2684,
+    "cpu": 0.1,
+    "rss_mb": 18,
+    "comm": "containerd"
+   },
+   {
+    "pid": 1647244,
+    "cpu": 0.1,
+    "rss_mb": 0,
+    "comm": "kworker/u80:3-mlx5_fc"
+   },
+   {
+    "pid": 2543984,
+    "cpu": 0.1,
+    "rss_mb": 24,
+    "comm": "python3"
+   },
+   {
+    "pid": 1,
+    "cpu": 0.0,
+    "rss_mb": 13,
+    "comm": "systemd"
+   },
+   {
+    "pid": 2,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kthreadd"
+   }
+  ],
+  "gpu_suspects": [
+   {
+    "pid": 334,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_cmd_0000:01:00.0"
+   },
+   {
+    "pid": 335,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_health0000:01:00.0"
+   },
+   {
+    "pid": 336,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_page_allocator"
+   },
+   {
+    "pid": 337,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_events"
+   },
+   {
+    "pid": 346,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_fw_reset_events"
+   },
+   {
+    "pid": 348,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_esw_wq"
+   },
+   {
+    "pid": 349,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event0"
+   },
+   {
+    "pid": 350,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event1"
+   },
+   {
+    "pid": 351,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event2"
+   },
+   {
+    "pid": 352,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event3"
+   },
+   {
+    "pid": 353,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event4"
+   },
+   {
+    "pid": 354,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event5"
+   },
+   {
+    "pid": 355,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event6"
+   },
+   {
+    "pid": 356,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event7"
+   },
+   {
+    "pid": 357,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_fc"
+   },
+   {
+    "pid": 358,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_fw_tracer"
+   },
+   {
+    "pid": 359,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_hv_vhca"
+   },
+   {
+    "pid": 360,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e"
+   },
+   {
+    "pid": 362,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e_tls_tx_pool"
+   },
+   {
+    "pid": 365,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e_arfs"
+   },
+   {
+    "pid": 367,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e_tls_rx"
+   },
+   {
+    "pid": 369,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_cmd_0000:01:00.1"
+   },
+   {
+    "pid": 370,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_health0000:01:00.1"
+   },
+   {
+    "pid": 371,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_page_allocator"
+   },
+   {
+    "pid": 372,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_events"
+   },
+   {
+    "pid": 373,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_fw_reset_events"
+   },
+   {
+    "pid": 375,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_esw_wq"
+   },
+   {
+    "pid": 376,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event0"
+   },
+   {
+    "pid": 377,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event1"
+   },
+   {
+    "pid": 378,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event2"
+   },
+   {
+    "pid": 379,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event3"
+   },
+   {
+    "pid": 380,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event4"
+   },
+   {
+    "pid": 381,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event5"
+   },
+   {
+    "pid": 382,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event6"
+   },
+   {
+    "pid": 383,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event7"
+   },
+   {
+    "pid": 384,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_fc"
+   },
+   {
+    "pid": 385,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_fw_tracer"
+   },
+   {
+    "pid": 386,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_hv_vhca"
+   },
+   {
+    "pid": 388,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e"
+   },
+   {
+    "pid": 389,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e_tls_tx_pool"
+   },
+   {
+    "pid": 390,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e_arfs"
+   },
+   {
+    "pid": 391,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e_tls_rx"
+   },
+   {
+    "pid": 392,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_cmd_0002:01:00.0"
+   },
+   {
+    "pid": 393,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_health0002:01:00.0"
+   },
+   {
+    "pid": 394,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_page_allocator"
+   },
+   {
+    "pid": 395,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_events"
+   },
+   {
+    "pid": 397,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_fw_reset_events"
+   },
+   {
+    "pid": 399,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_esw_wq"
+   },
+   {
+    "pid": 400,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event0"
+   },
+   {
+    "pid": 401,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event1"
+   },
+   {
+    "pid": 402,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event2"
+   },
+   {
+    "pid": 403,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event3"
+   },
+   {
+    "pid": 404,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event4"
+   },
+   {
+    "pid": 405,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event5"
+   },
+   {
+    "pid": 406,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event6"
+   },
+   {
+    "pid": 407,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event7"
+   },
+   {
+    "pid": 408,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_fc"
+   },
+   {
+    "pid": 409,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_fw_tracer"
+   },
+   {
+    "pid": 410,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_hv_vhca"
+   },
+   {
+    "pid": 411,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e"
+   },
+   {
+    "pid": 412,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e_tls_tx_pool"
+   },
+   {
+    "pid": 413,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e_arfs"
+   },
+   {
+    "pid": 414,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e_tls_rx"
+   },
+   {
+    "pid": 415,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_cmd_0002:01:00.1"
+   },
+   {
+    "pid": 416,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_health0002:01:00.1"
+   },
+   {
+    "pid": 417,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_page_allocator"
+   },
+   {
+    "pid": 418,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_events"
+   },
+   {
+    "pid": 419,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_fw_reset_events"
+   },
+   {
+    "pid": 421,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_esw_wq"
+   },
+   {
+    "pid": 422,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event0"
+   },
+   {
+    "pid": 423,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event1"
+   },
+   {
+    "pid": 424,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event2"
+   },
+   {
+    "pid": 425,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event3"
+   },
+   {
+    "pid": 426,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event4"
+   },
+   {
+    "pid": 427,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event5"
+   },
+   {
+    "pid": 428,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event6"
+   },
+   {
+    "pid": 429,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event7"
+   },
+   {
+    "pid": 430,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_fc"
+   },
+   {
+    "pid": 431,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_fw_tracer"
+   },
+   {
+    "pid": 432,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_hv_vhca"
+   },
+   {
+    "pid": 433,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e"
+   },
+   {
+    "pid": 434,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e_tls_tx_pool"
+   },
+   {
+    "pid": 435,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e_arfs"
+   },
+   {
+    "pid": 436,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e_tls_rx"
+   },
+   {
+    "pid": 1215943,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/u80:0-mlx5_cmd_0002:01:00.0"
+   },
+   {
+    "pid": 1553772,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/u80:2-mlx5_cmd_0002:01:00.0"
+   },
+   {
+    "pid": 1647244,
+    "cpu": 0.1,
+    "rss_mb": 0,
+    "comm": "kworker/u80:3-mlx5_fc"
+   },
+   {
+    "pid": 1721879,
+    "cpu": 91.4,
+    "rss_mb": 392,
+    "comm": "tensorfold-nati"
+   }
+  ],
+  "tensorfold_processes": 1,
+  "nvidia_smi_apps": "1721879, ~/tf-pocket-cuda/src/zig-out/native/bin/tensorfold-native, 19031 MiB",
+  "nvidia_smi_gpu": "NVIDIA GB10, 57, 39.07 W, 2502 MHz, [N/A], 0 %, [N/A]"
+ },
+ "server_before": {
+  "at": "2026-10-13T15:24:28+02:00",
+  "health": {
+   "status": "ok",
+   "model": "d9d758fb83953437f7263256b0d96157e2a348b8",
+   "model_ids": [
+    "d9d758fb83953437f7263256b0d96157e2a348b8"
+   ],
+   "max_batch_size": 8,
+   "warming": false,
+   "memory": {
+    "active": 19623379952,
+    "cache": 0,
+    "peak": 19623379952
+   },
+   "live": {
+    "connections": 0,
+    "waiting": 0,
+    "decode_tokens_per_second": 135.0,
+    "prefill_tokens_per_second": 240.5
+   }
+  },
+  "models": {
+   "object": "list",
+   "data": [
+    {
+     "id": "d9d758fb83953437f7263256b0d96157e2a348b8",
+     "object": "model",
+     "created": 1791897868,
+     "owned_by": "tensorfold",
+     "context_length": 16384,
+     "max_model_len": 16384
+    }
+   ]
+  },
+  "metrics": {
+   "tensorfold:requests_running": 0.0,
+   "tensorfold:requests_waiting": 0.0,
+   "tensorfold:generation_tokens_running": 0.0,
+   "tensorfold:prompt_tokens_total": 800.0,
+   "tensorfold:prompt_tokens_cached_total": 435.0,
+   "tensorfold:generation_tokens_total": 3584.0,
+   "tensorfold:mtp_drafted_total": 3053.0,
+   "tensorfold:mtp_accepted_total": 2282.0,
+   "tensorfold:request_latency_seconds_sum": 23.261472,
+   "tensorfold:request_latency_seconds_count": 32.0,
+   "tensorfold:time_to_first_token_seconds_sum": 1.069201,
+   "tensorfold:time_to_first_token_seconds_count": 32.0,
+   "tensorfold:request_decode_seconds_sum": 22.192271,
+   "tensorfold:request_decode_seconds_count": 32.0,
+   "tensorfold:request_time_per_output_token_seconds_sum": 0.210434,
+   "tensorfold:request_time_per_output_token_seconds_count": 32.0,
+   "tensorfold:decode_rounds_total": 1318.0,
+   "tensorfold:request_prefill_seconds_sum": 1.006553,
+   "tensorfold:request_prefill_seconds_count": 32.0,
+   "tensorfold:device_memory_bytes": 19623379952.0,
+   "tensorfold:device_memory_peak_bytes": 19623379952.0,
+   "tensorfold:pinned_memory_bytes": 136940.0,
+   "tensorfold:num_requests_running": 0.0,
+   "tensorfold:num_requests_waiting": 0.0,
+   "tensorfold:spec_decode_num_draft_tokens_total": 3053.0,
+   "tensorfold:spec_decode_num_accepted_tokens_total": 2282.0,
+   "tensorfold:prefix_cache_queries_total": 800.0,
+   "tensorfold:prefix_cache_hits_total": 435.0,
+   "tensorfold:e2e_request_latency_seconds_sum": 23.261472,
+   "tensorfold:e2e_request_latency_seconds_count": 32.0,
+   "tensorfold:request_decode_time_seconds_sum": 22.192271,
+   "tensorfold:request_decode_time_seconds_count": 32.0,
+   "tensorfold:request_prefill_time_seconds_sum": 1.006553,
+   "tensorfold:request_prefill_time_seconds_count": 32.0,
+   "tensorfold:client_disconnections_total": 0.0,
+   "tensorfold:preemptions_total": 0.0
+  },
+  "slide_graph": {
+   "facts": 0,
+   "states": {},
+   "fact_neurons": 0,
+   "pocket_neurons": 0,
+   "moe_layers": 23,
+   "pocket_used_per_layer": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "pocket_layers_in_use": 0,
+   "pocket_used_total": 0,
+   "pocket_used_max": 0,
+   "save_state": null
+  }
+ },
+ "model": "d9d758fb83953437f7263256b0d96157e2a348b8",
+ "server_after": {
+  "at": "2026-10-13T15:25:14+02:00",
+  "health": {
+   "status": "ok",
+   "model": "d9d758fb83953437f7263256b0d96157e2a348b8",
+   "model_ids": [
+    "d9d758fb83953437f7263256b0d96157e2a348b8"
+   ],
+   "max_batch_size": 8,
+   "warming": false,
+   "memory": {
+    "active": 20042810352,
+    "cache": 0,
+    "peak": 20042810352
+   },
+   "live": {
+    "connections": 0,
+    "waiting": 0,
+    "decode_tokens_per_second": 100.0,
+    "prefill_tokens_per_second": 0.0
+   }
+  },
+  "models": {
+   "object": "list",
+   "data": [
+    {
+     "id": "d9d758fb83953437f7263256b0d96157e2a348b8",
+     "object": "model",
+     "created": 1791897914,
+     "owned_by": "tensorfold",
+     "context_length": 16384,
+     "max_model_len": 16384
+    }
+   ]
+  },
+  "metrics": {
+   "tensorfold:requests_running": 0.0,
+   "tensorfold:requests_waiting": 0.0,
+   "tensorfold:generation_tokens_running": 0.0,
+   "tensorfold:prompt_tokens_total": 1452.0,
+   "tensorfold:prompt_tokens_cached_total": 795.0,
+   "tensorfold:generation_tokens_total": 8192.0,
+   "tensorfold:mtp_drafted_total": 3053.0,
+   "tensorfold:mtp_accepted_total": 2282.0,
+   "tensorfold:request_latency_seconds_sum": 69.77885,
+   "tensorfold:request_latency_seconds_count": 50.0,
+   "tensorfold:time_to_first_token_seconds_sum": 1.721346,
+   "tensorfold:time_to_first_token_seconds_count": 50.0,
+   "tensorfold:request_decode_seconds_sum": 68.057504,
+   "tensorfold:request_decode_seconds_count": 50.0,
+   "tensorfold:request_time_per_output_token_seconds_sum": 0.390286,
+   "tensorfold:request_time_per_output_token_seconds_count": 50.0,
+   "tensorfold:decode_rounds_total": 5908.0,
+   "tensorfold:request_prefill_seconds_sum": 1.645444,
+   "tensorfold:request_prefill_seconds_count": 50.0,
+   "tensorfold:device_memory_bytes": 20042810352.0,
+   "tensorfold:device_memory_peak_bytes": 20042810352.0,
+   "tensorfold:pinned_memory_bytes": 136940.0,
+   "tensorfold:num_requests_running": 0.0,
+   "tensorfold:num_requests_waiting": 0.0,
+   "tensorfold:spec_decode_num_draft_tokens_total": 3053.0,
+   "tensorfold:spec_decode_num_accepted_tokens_total": 2282.0,
+   "tensorfold:prefix_cache_queries_total": 1452.0,
+   "tensorfold:prefix_cache_hits_total": 795.0,
+   "tensorfold:e2e_request_latency_seconds_sum": 69.77885,
+   "tensorfold:e2e_request_latency_seconds_count": 50.0,
+   "tensorfold:request_decode_time_seconds_sum": 68.057504,
+   "tensorfold:request_decode_time_seconds_count": 50.0,
+   "tensorfold:request_prefill_time_seconds_sum": 1.645444,
+   "tensorfold:request_prefill_time_seconds_count": 50.0,
+   "tensorfold:client_disconnections_total": 0.0,
+   "tensorfold:preemptions_total": 0.0
+  },
+  "slide_graph": {
+   "facts": 0,
+   "states": {},
+   "fact_neurons": 0,
+   "pocket_neurons": 0,
+   "moe_layers": 23,
+   "pocket_used_per_layer": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "pocket_layers_in_use": 0,
+   "pocket_used_total": 0,
+   "pocket_used_max": 0,
+   "save_state": null
+  }
+ },
+ "host_after": {
+  "at": "2026-10-13T15:25:14+02:00",
+  "top_cpu": [
+   {
+    "pid": 1721879,
+    "cpu": 96.9,
+    "rss_mb": 392,
+    "comm": "tensorfold-nati"
+   },
+   {
+    "pid": 1721602,
+    "cpu": 10.4,
+    "rss_mb": 182,
+    "comm": "python3"
+   },
+   {
+    "pid": 1727371,
+    "cpu": 1.6,
+    "rss_mb": 25,
+    "comm": "python3.12"
+   },
+   {
+    "pid": 2015,
+    "cpu": 0.6,
+    "rss_mb": 57,
+    "comm": "tailscaled"
+   },
+   {
+    "pid": 3504596,
+    "cpu": 0.5,
+    "rss_mb": 6,
+    "comm": "sshd"
+   },
+   {
+    "pid": 1260,
+    "cpu": 0.1,
+    "rss_mb": 0,
+    "comm": "napi/phy0-0"
+   },
+   {
+    "pid": 1261,
+    "cpu": 0.1,
+    "rss_mb": 0,
+    "comm": "napi/phy0-0"
+   },
+   {
+    "pid": 2684,
+    "cpu": 0.1,
+    "rss_mb": 18,
+    "comm": "containerd"
+   },
+   {
+    "pid": 1647244,
+    "cpu": 0.1,
+    "rss_mb": 0,
+    "comm": "kworker/u80:3-mt76"
+   },
+   {
+    "pid": 2543984,
+    "cpu": 0.1,
+    "rss_mb": 24,
+    "comm": "python3"
+   },
+   {
+    "pid": 1,
+    "cpu": 0.0,
+    "rss_mb": 13,
+    "comm": "systemd"
+   },
+   {
+    "pid": 2,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kthreadd"
+   }
+  ],
+  "gpu_suspects": [
+   {
+    "pid": 334,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_cmd_0000:01:00.0"
+   },
+   {
+    "pid": 335,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_health0000:01:00.0"
+   },
+   {
+    "pid": 336,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_page_allocator"
+   },
+   {
+    "pid": 337,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_events"
+   },
+   {
+    "pid": 346,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_fw_reset_events"
+   },
+   {
+    "pid": 348,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_esw_wq"
+   },
+   {
+    "pid": 349,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event0"
+   },
+   {
+    "pid": 350,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event1"
+   },
+   {
+    "pid": 351,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event2"
+   },
+   {
+    "pid": 352,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event3"
+   },
+   {
+    "pid": 353,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event4"
+   },
+   {
+    "pid": 354,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event5"
+   },
+   {
+    "pid": 355,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event6"
+   },
+   {
+    "pid": 356,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event7"
+   },
+   {
+    "pid": 357,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_fc"
+   },
+   {
+    "pid": 358,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_fw_tracer"
+   },
+   {
+    "pid": 359,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_hv_vhca"
+   },
+   {
+    "pid": 360,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e"
+   },
+   {
+    "pid": 362,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e_tls_tx_pool"
+   },
+   {
+    "pid": 365,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e_arfs"
+   },
+   {
+    "pid": 367,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e_tls_rx"
+   },
+   {
+    "pid": 369,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_cmd_0000:01:00.1"
+   },
+   {
+    "pid": 370,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_health0000:01:00.1"
+   },
+   {
+    "pid": 371,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_page_allocator"
+   },
+   {
+    "pid": 372,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_events"
+   },
+   {
+    "pid": 373,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_fw_reset_events"
+   },
+   {
+    "pid": 375,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_esw_wq"
+   },
+   {
+    "pid": 376,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event0"
+   },
+   {
+    "pid": 377,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event1"
+   },
+   {
+    "pid": 378,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event2"
+   },
+   {
+    "pid": 379,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event3"
+   },
+   {
+    "pid": 380,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event4"
+   },
+   {
+    "pid": 381,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event5"
+   },
+   {
+    "pid": 382,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event6"
+   },
+   {
+    "pid": 383,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event7"
+   },
+   {
+    "pid": 384,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_fc"
+   },
+   {
+    "pid": 385,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_fw_tracer"
+   },
+   {
+    "pid": 386,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_hv_vhca"
+   },
+   {
+    "pid": 388,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e"
+   },
+   {
+    "pid": 389,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e_tls_tx_pool"
+   },
+   {
+    "pid": 390,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e_arfs"
+   },
+   {
+    "pid": 391,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e_tls_rx"
+   },
+   {
+    "pid": 392,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_cmd_0002:01:00.0"
+   },
+   {
+    "pid": 393,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_health0002:01:00.0"
+   },
+   {
+    "pid": 394,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_page_allocator"
+   },
+   {
+    "pid": 395,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_events"
+   },
+   {
+    "pid": 397,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_fw_reset_events"
+   },
+   {
+    "pid": 399,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_esw_wq"
+   },
+   {
+    "pid": 400,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event0"
+   },
+   {
+    "pid": 401,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event1"
+   },
+   {
+    "pid": 402,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event2"
+   },
+   {
+    "pid": 403,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event3"
+   },
+   {
+    "pid": 404,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event4"
+   },
+   {
+    "pid": 405,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event5"
+   },
+   {
+    "pid": 406,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event6"
+   },
+   {
+    "pid": 407,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event7"
+   },
+   {
+    "pid": 408,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_fc"
+   },
+   {
+    "pid": 409,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_fw_tracer"
+   },
+   {
+    "pid": 410,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_hv_vhca"
+   },
+   {
+    "pid": 411,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e"
+   },
+   {
+    "pid": 412,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e_tls_tx_pool"
+   },
+   {
+    "pid": 413,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e_arfs"
+   },
+   {
+    "pid": 414,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e_tls_rx"
+   },
+   {
+    "pid": 415,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_cmd_0002:01:00.1"
+   },
+   {
+    "pid": 416,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_health0002:01:00.1"
+   },
+   {
+    "pid": 417,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_page_allocator"
+   },
+   {
+    "pid": 418,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_events"
+   },
+   {
+    "pid": 419,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_fw_reset_events"
+   },
+   {
+    "pid": 421,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_esw_wq"
+   },
+   {
+    "pid": 422,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event0"
+   },
+   {
+    "pid": 423,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event1"
+   },
+   {
+    "pid": 424,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event2"
+   },
+   {
+    "pid": 425,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event3"
+   },
+   {
+    "pid": 426,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event4"
+   },
+   {
+    "pid": 427,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event5"
+   },
+   {
+    "pid": 428,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event6"
+   },
+   {
+    "pid": 429,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_vhca_event7"
+   },
+   {
+    "pid": 430,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_fc"
+   },
+   {
+    "pid": 431,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_fw_tracer"
+   },
+   {
+    "pid": 432,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5_hv_vhca"
+   },
+   {
+    "pid": 433,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e"
+   },
+   {
+    "pid": 434,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e_tls_tx_pool"
+   },
+   {
+    "pid": 435,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e_arfs"
+   },
+   {
+    "pid": 436,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/R-mlx5e_tls_rx"
+   },
+   {
+    "pid": 1215943,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/u80:0-mlx5_cmd_0002:01:00.0"
+   },
+   {
+    "pid": 1553772,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/u80:2-mlx5_cmd_0002:01:00.0"
+   },
+   {
+    "pid": 1553773,
+    "cpu": 0.0,
+    "rss_mb": 0,
+    "comm": "kworker/u80:5-mlx5_fc"
+   },
+   {
+    "pid": 1721879,
+    "cpu": 96.9,
+    "rss_mb": 392,
+    "comm": "tensorfold-nati"
+   }
+  ],
+  "tensorfold_processes": 1,
+  "nvidia_smi_apps": "1721879, ~/tf-pocket-cuda/src/zig-out/native/bin/tensorfold-native, 19431 MiB",
+  "nvidia_smi_gpu": "NVIDIA GB10, 64, 42.11 W, 2483 MHz, [N/A], 82 %, [N/A]"
+ },
+ "metrics_delta": {
+  "tensorfold:prompt_tokens_total": 652.0,
+  "tensorfold:prompt_tokens_cached_total": 360.0,
+  "tensorfold:generation_tokens_total": 4608.0,
+  "tensorfold:mtp_drafted_total": 0.0,
+  "tensorfold:mtp_accepted_total": 0.0,
+  "tensorfold:decode_rounds_total": 4590.0,
+  "tensorfold:spec_decode_num_draft_tokens_total": 0.0,
+  "tensorfold:spec_decode_num_accepted_tokens_total": 0.0,
+  "tensorfold:prefix_cache_queries_total": 652.0,
+  "tensorfold:prefix_cache_hits_total": 360.0,
+  "tensorfold:client_disconnections_total": 0.0,
+  "tensorfold:preemptions_total": 0.0
+ },
+ "finished": "2026-10-13T15:25:14+02:00"
+}

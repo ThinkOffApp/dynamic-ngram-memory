@@ -1,0 +1,151 @@
+08:49:39 server s1-1-A temp 43, 6.08 W
+s1-1-A: server pid 2824143 on ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8
+s1-1-A: ready in 5.0 s; model d9d758fb83953437f7263256b0d96157e2a348b8; pocket used [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; 44, 13.15 W, 2411 MHz, 0 %
+s1-1-A off rc=0 47s 55, 39.83 W, 2509 MHz, 30 %
+[off] measured 10/16 p2 ct=256 decode 99.7 tok/s (server 99.3) ttft 0.027 s finish=length drafts=False
+[off] measured 11/16 p3 ct=256 decode 100.1 tok/s (server 99.7) ttft 0.026 s finish=length drafts=False
+[off] measured 12/16 p4 ct=256 decode 100.0 tok/s (server 99.6) ttft 0.025 s finish=length drafts=False
+[off] measured 13/16 p5 ct=256 decode 100.1 tok/s (server 99.7) ttft 0.026 s finish=length drafts=False
+[off] measured 14/16 p6 ct=256 decode 100.2 tok/s (server 99.8) ttft 0.028 s finish=length drafts=False
+[off] measured 15/16 p7 ct=256 decode 100.0 tok/s (server 99.6) ttft 0.027 s finish=length drafts=False
+[off] measured 16/16 p8 ct=256 decode 100.3 tok/s (server 99.9) ttft 0.027 s finish=length drafts=False
+
+label s1-1-A-off | model d9d758fb83953437f7263256b0d96157e2a348b8 | host gb10-a (Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39) | base http://127.0.0.1:18190/v1 | drafts off | max_tokens 256
+thinking    n decode tps      p10      p90 server tps    agree  e2e tps   ttft s   fail  accept
+off        16      100.1     99.9    100.5       99.7    1.000     98.9    0.028      0       -
+wrote ~/tf-pocket-cuda/raw/s1-1-A.off.json
+s1-1-A bench rc=0 11s 59, 42.29 W, 2509 MHz, 96 %
+{"label": "", "prompt": "fibonacci-raw", "temperature": 1.0, "decode_tps_median": 160.18585911944567, "decode_tps_all": [131.98, 144.51, 160.19, 173.05, 160.76], "ttft_s_median": 0.038784550968557596}
+{"label": "", "prompt": "gpu-chat-no-think", "temperature": 1.0, "decode_tps_median": 133.321915892928, "decode_tps_all": [133.24, 133.32, 144.95, 139.36, 129.65], "ttft_s_median": 0.026501880027353764}
+{"label": "", "prompt": "fibonacci-raw", "temperature": 0.0, "decode_tps_median": 142.1121173406826, "decode_tps_all": [142.11, 139.53, 142.45, 138.98, 142.46], "ttft_s_median": 0.03798237699083984}
+{"label": "", "prompt": "gpu-chat-no-think", "temperature": 0.0, "decode_tps_median": 156.36596675051726, "decode_tps_all": [156.37, 157.71, 153.24, 157.35, 154.13], "ttft_s_median": 0.027710900991223752}
+s1-1-A bench256 rc=0 12s 61, 42.22 W, 2509 MHz, 95 %
+{"label": "", "prompt": "fibonacci-raw", "temperature": 0.0, "decode_tps_median": 202.24398344208527, "decode_tps_all": [202.27, 200.37, 202.24], "ttft_s_median": 0.03875283896923065}
+{"label": "", "prompt": "gpu-chat-no-think", "temperature": 0.0, "decode_tps_median": 145.7302185182144, "decode_tps_all": [145.73, 146.17, 145.31], "ttft_s_median": 0.02710498298984021}
+s1-1-A: stopped exit=0 bytes_unchanged=True listing_unchanged=True
+08:53:00 server s1-2-T temp 46, 6.18 W
+s1-2-T: server pid 2861147 on ~/lw-runs/gb10-a-L7-seed1/models/L7-seed1.main
+s1-2-T: ready in 5.0 s; model L7-seed1.main; pocket used [0, 0, 0, 0, 41, 41, 41, 43, 43, 42, 43, 44, 43, 44, 3, 3, 3, 3, 2, 1, 0, 0, 0]; 47, 13.48 W, 2411 MHz, 0 %
+s1-2-T off rc=0 54s 59, 37.07 W, 2509 MHz, 92 %
+[off] measured 10/16 p2 ct=256 decode 86.3 tok/s (server 86.0) ttft 0.029 s finish=length drafts=False
+[off] measured 11/16 p3 ct=256 decode 86.4 tok/s (server 86.0) ttft 0.029 s finish=length drafts=False
+[off] measured 12/16 p4 ct=256 decode 86.2 tok/s (server 85.9) ttft 0.028 s finish=length drafts=False
+[off] measured 13/16 p5 ct=256 decode 86.3 tok/s (server 85.9) ttft 0.029 s finish=length drafts=False
+[off] measured 14/16 p6 ct=256 decode 86.2 tok/s (server 85.8) ttft 0.027 s finish=length drafts=False
+[off] measured 15/16 p7 ct=256 decode 86.2 tok/s (server 85.9) ttft 0.028 s finish=length drafts=False
+[off] measured 16/16 p8 ct=256 decode 86.2 tok/s (server 85.8) ttft 0.029 s finish=length drafts=False
+
+label s1-2-T-off | model L7-seed1.main | host gb10-a (Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39) | base http://127.0.0.1:18190/v1 | drafts off | max_tokens 256
+thinking    n decode tps      p10      p90 server tps    agree  e2e tps   ttft s   fail  accept
+off        16       86.4     86.2     86.5       86.1    1.000     85.4    0.029      0       -
+wrote ~/tf-pocket-cuda/raw/s1-2-T.off.json
+s1-2-T bench rc=0 12s 59, 41.45 W, 2509 MHz, 84 %
+{"label": "", "prompt": "fibonacci-raw", "temperature": 1.0, "decode_tps_median": 145.52409258558026, "decode_tps_all": [129.01, 133.36, 145.52, 165.51, 147.43], "ttft_s_median": 0.04015559994149953}
+{"label": "", "prompt": "gpu-chat-no-think", "temperature": 1.0, "decode_tps_median": 127.62188552891668, "decode_tps_all": [119.08, 129.3, 130.05, 127.62, 116.76], "ttft_s_median": 0.02910681499633938}
+{"label": "", "prompt": "fibonacci-raw", "temperature": 0.0, "decode_tps_median": 127.48267631017359, "decode_tps_all": [127.48, 130.44, 126.81, 130.27, 127.24], "ttft_s_median": 0.040682413964532316}
+{"label": "", "prompt": "gpu-chat-no-think", "temperature": 0.0, "decode_tps_median": 144.75127002131643, "decode_tps_all": [144.75, 148.53, 144.67, 148.2, 144.47], "ttft_s_median": 0.028635760070756078}
+s1-2-T bench256 rc=0 13s 62, 41.14 W, 2509 MHz, 96 %
+{"label": "", "prompt": "fibonacci-raw", "temperature": 0.0, "decode_tps_median": 181.29242422848753, "decode_tps_all": [181.45, 180.94, 181.29], "ttft_s_median": 0.041726348106749356}
+{"label": "", "prompt": "gpu-chat-no-think", "temperature": 0.0, "decode_tps_median": 143.90315506087725, "decode_tps_all": [143.95, 143.73, 143.9], "ttft_s_median": 0.028295136988162994}
+s1-2-T: stopped exit=0 bytes_unchanged=True listing_unchanged=True
+08:56:32 server s1-3-E temp 47, 6.22 W
+s1-3-E: server pid 2899360 on ~/tf-pocket-cuda/models/A-empty64
+s1-3-E: ready in 5.0 s; model A-empty64; pocket used [64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64]; 48, 13.79 W, 2411 MHz, 0 %
+s1-3-E off rc=0 54s 58, 37.22 W, 2509 MHz, 72 %
+[off] measured 10/16 p2 ct=256 decode 86.1 tok/s (server 85.8) ttft 0.030 s finish=length drafts=False
+[off] measured 11/16 p3 ct=256 decode 86.4 tok/s (server 86.0) ttft 0.030 s finish=length drafts=False
+[off] measured 12/16 p4 ct=256 decode 86.4 tok/s (server 86.0) ttft 0.029 s finish=length drafts=False
+[off] measured 13/16 p5 ct=256 decode 86.0 tok/s (server 85.7) ttft 0.028 s finish=length drafts=False
+[off] measured 14/16 p6 ct=256 decode 86.3 tok/s (server 86.0) ttft 0.029 s finish=length drafts=False
+[off] measured 15/16 p7 ct=256 decode 86.5 tok/s (server 86.2) ttft 0.031 s finish=length drafts=False
+[off] measured 16/16 p8 ct=256 decode 86.2 tok/s (server 85.9) ttft 0.033 s finish=length drafts=False
+
+label s1-3-E-off | model A-empty64 | host gb10-a (Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39) | base http://127.0.0.1:18190/v1 | drafts off | max_tokens 256
+thinking    n decode tps      p10      p90 server tps    agree  e2e tps   ttft s   fail  accept
+off        16       86.4     86.1     86.5       86.0    1.000     85.3    0.031      0       -
+wrote ~/tf-pocket-cuda/raw/s1-3-E.off.json
+s1-3-E bench rc=0 12s 62, 41.02 W, 2509 MHz, 68 %
+{"label": "", "prompt": "fibonacci-raw", "temperature": 1.0, "decode_tps_median": 144.86696138752913, "decode_tps_all": [117.23, 132.67, 144.87, 164.67, 144.87], "ttft_s_median": 0.04040415596682578}
+{"label": "", "prompt": "gpu-chat-no-think", "temperature": 1.0, "decode_tps_median": 125.01074671543734, "decode_tps_all": [119.33, 125.01, 129.08, 129.67, 117.12], "ttft_s_median": 0.02981466706842184}
+{"label": "", "prompt": "fibonacci-raw", "temperature": 0.0, "decode_tps_median": 127.11431637734358, "decode_tps_all": [126.82, 126.9, 129.53, 127.11, 128.66], "ttft_s_median": 0.04107161099091172}
+{"label": "", "prompt": "gpu-chat-no-think", "temperature": 0.0, "decode_tps_median": 143.8734682909744, "decode_tps_all": [144.26, 144.76, 142.55, 143.87, 141.05], "ttft_s_median": 0.028425069991499186}
+s1-3-E bench256 rc=0 13s 63, 41.07 W, 2483 MHz, 96 %
+{"label": "", "prompt": "fibonacci-raw", "temperature": 0.0, "decode_tps_median": 187.23937201154766, "decode_tps_all": [187.24, 187.86, 186.61], "ttft_s_median": 0.04017724597360939}
+{"label": "", "prompt": "gpu-chat-no-think", "temperature": 0.0, "decode_tps_median": 133.3988843286671, "decode_tps_all": [133.4, 133.67, 133.18], "ttft_s_median": 0.029805387021042407}
+s1-3-E: stopped exit=0 bytes_unchanged=True listing_unchanged=True
+09:00:03 server s1-4-E temp 47, 6.22 W
+s1-4-E: server pid 2937781 on ~/tf-pocket-cuda/models/A-empty64
+s1-4-E: ready in 5.0 s; model A-empty64; pocket used [64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64]; 48, 13.81 W, 2411 MHz, 0 %
+s1-4-E off rc=0 54s 59, 37.42 W, 2483 MHz, 81 %
+[off] measured 10/16 p2 ct=256 decode 86.1 tok/s (server 85.7) ttft 0.030 s finish=length drafts=False
+[off] measured 11/16 p3 ct=256 decode 86.1 tok/s (server 85.8) ttft 0.028 s finish=length drafts=False
+[off] measured 12/16 p4 ct=256 decode 86.3 tok/s (server 85.9) ttft 0.027 s finish=length drafts=False
+[off] measured 13/16 p5 ct=256 decode 86.0 tok/s (server 85.7) ttft 0.028 s finish=length drafts=False
+[off] measured 14/16 p6 ct=256 decode 86.2 tok/s (server 85.9) ttft 0.028 s finish=length drafts=False
+[off] measured 15/16 p7 ct=256 decode 86.2 tok/s (server 85.8) ttft 0.029 s finish=length drafts=False
+[off] measured 16/16 p8 ct=256 decode 86.1 tok/s (server 85.8) ttft 0.030 s finish=length drafts=False
+
+label s1-4-E-off | model A-empty64 | host gb10-a (Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39) | base http://127.0.0.1:18190/v1 | drafts off | max_tokens 256
+thinking    n decode tps      p10      p90 server tps    agree  e2e tps   ttft s   fail  accept
+off        16       86.2     86.1     86.4       85.9    1.000     85.2    0.030      0       -
+wrote ~/tf-pocket-cuda/raw/s1-4-E.off.json
+s1-4-E bench rc=0 12s 62, 41.26 W, 2509 MHz, 96 %
+{"label": "", "prompt": "fibonacci-raw", "temperature": 1.0, "decode_tps_median": 147.97013337280444, "decode_tps_all": [118.71, 132.88, 147.97, 162.75, 148.41], "ttft_s_median": 0.04177458502817899}
+{"label": "", "prompt": "gpu-chat-no-think", "temperature": 1.0, "decode_tps_median": 124.0804662335461, "decode_tps_all": [118.91, 124.08, 128.89, 129.78, 116.29], "ttft_s_median": 0.02874043001793325}
+{"label": "", "prompt": "fibonacci-raw", "temperature": 0.0, "decode_tps_median": 126.86270801477394, "decode_tps_all": [126.86, 129.43, 126.15, 129.47, 126.69], "ttft_s_median": 0.04108802496921271}
+{"label": "", "prompt": "gpu-chat-no-think", "temperature": 0.0, "decode_tps_median": 141.12506184588824, "decode_tps_all": [140.28, 143.95, 141.13, 144.14, 140.71], "ttft_s_median": 0.028434494975954294}
+s1-4-E bench256 rc=0 13s 63, 41.29 W, 2483 MHz, 96 %
+{"label": "", "prompt": "fibonacci-raw", "temperature": 0.0, "decode_tps_median": 187.58085672739318, "decode_tps_all": [186.24, 187.58, 187.74], "ttft_s_median": 0.04070431389845908}
+{"label": "", "prompt": "gpu-chat-no-think", "temperature": 0.0, "decode_tps_median": 132.80919111233663, "decode_tps_all": [132.77, 132.82, 132.81], "ttft_s_median": 0.029442877043038607}
+s1-4-E: stopped exit=0 bytes_unchanged=True listing_unchanged=True
+09:03:34 server s1-5-T temp 48, 6.23 W
+s1-5-T: server pid 2976590 on ~/lw-runs/gb10-a-L7-seed1/models/L7-seed1.main
+s1-5-T: ready in 5.0 s; model L7-seed1.main; pocket used [0, 0, 0, 0, 41, 41, 41, 43, 43, 42, 43, 44, 43, 44, 3, 3, 3, 3, 2, 1, 0, 0, 0]; 49, 13.87 W, 2411 MHz, 0 %
+s1-5-T off rc=0 54s 59, 37.12 W, 2509 MHz, 68 %
+[off] measured 10/16 p2 ct=256 decode 86.1 tok/s (server 85.8) ttft 0.028 s finish=length drafts=False
+[off] measured 11/16 p3 ct=256 decode 86.3 tok/s (server 85.9) ttft 0.030 s finish=length drafts=False
+[off] measured 12/16 p4 ct=256 decode 86.3 tok/s (server 85.9) ttft 0.029 s finish=length drafts=False
+[off] measured 13/16 p5 ct=256 decode 86.3 tok/s (server 85.9) ttft 0.029 s finish=length drafts=False
+[off] measured 14/16 p6 ct=256 decode 86.3 tok/s (server 85.9) ttft 0.029 s finish=length drafts=False
+[off] measured 15/16 p7 ct=256 decode 86.3 tok/s (server 85.9) ttft 0.028 s finish=length drafts=False
+[off] measured 16/16 p8 ct=256 decode 86.3 tok/s (server 85.9) ttft 0.030 s finish=length drafts=False
+
+label s1-5-T-off | model L7-seed1.main | host gb10-a (Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39) | base http://127.0.0.1:18190/v1 | drafts off | max_tokens 256
+thinking    n decode tps      p10      p90 server tps    agree  e2e tps   ttft s   fail  accept
+off        16       86.3     86.2     86.5       85.9    1.000     85.4    0.030      0       -
+wrote ~/tf-pocket-cuda/raw/s1-5-T.off.json
+s1-5-T bench rc=0 12s 62, 41.35 W, 2509 MHz, 96 %
+{"label": "", "prompt": "fibonacci-raw", "temperature": 1.0, "decode_tps_median": 146.41541050593193, "decode_tps_all": [131.31, 129.84, 148.09, 161.14, 146.42], "ttft_s_median": 0.04089756298344582}
+{"label": "", "prompt": "gpu-chat-no-think", "temperature": 1.0, "decode_tps_median": 124.06354156071603, "decode_tps_all": [121.43, 126.28, 132.14, 124.06, 119.27], "ttft_s_median": 0.02894709096290171}
+{"label": "", "prompt": "fibonacci-raw", "temperature": 0.0, "decode_tps_median": 128.43738421937402, "decode_tps_all": [129.05, 127.94, 129.27, 128.44, 126.87], "ttft_s_median": 0.04143316100817174}
+{"label": "", "prompt": "gpu-chat-no-think", "temperature": 0.0, "decode_tps_median": 147.46554720739056, "decode_tps_all": [144.49, 147.73, 147.8, 144.58, 147.47], "ttft_s_median": 0.029496705974452198}
+s1-5-T bench256 rc=0 13s 63, 41.07 W, 2483 MHz, 96 %
+{"label": "", "prompt": "fibonacci-raw", "temperature": 0.0, "decode_tps_median": 180.8733007229959, "decode_tps_all": [181.25, 179.76, 180.87], "ttft_s_median": 0.04038484301418066}
+{"label": "", "prompt": "gpu-chat-no-think", "temperature": 0.0, "decode_tps_median": 143.29964774932952, "decode_tps_all": [142.98, 143.3, 143.77], "ttft_s_median": 0.028902578982524574}
+s1-5-T: stopped exit=0 bytes_unchanged=True listing_unchanged=True
+09:07:05 server s1-6-A temp 48, 6.25 W
+s1-6-A: server pid 3014701 on ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8
+s1-6-A: ready in 5.0 s; model d9d758fb83953437f7263256b0d96157e2a348b8; pocket used [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; 49, 13.63 W, 2411 MHz, 0 %
+s1-6-A off rc=0 47s 59, 39.74 W, 2509 MHz, 44 %
+[off] measured 10/16 p2 ct=256 decode 99.7 tok/s (server 99.3) ttft 0.026 s finish=length drafts=False
+[off] measured 11/16 p3 ct=256 decode 99.8 tok/s (server 99.4) ttft 0.027 s finish=length drafts=False
+[off] measured 12/16 p4 ct=256 decode 99.6 tok/s (server 99.2) ttft 0.026 s finish=length drafts=False
+[off] measured 13/16 p5 ct=256 decode 100.0 tok/s (server 99.6) ttft 0.028 s finish=length drafts=False
+[off] measured 14/16 p6 ct=256 decode 99.5 tok/s (server 99.1) ttft 0.026 s finish=length drafts=False
+[off] measured 15/16 p7 ct=256 decode 99.8 tok/s (server 99.4) ttft 0.027 s finish=length drafts=False
+[off] measured 16/16 p8 ct=256 decode 99.8 tok/s (server 99.4) ttft 0.030 s finish=length drafts=False
+
+label s1-6-A-off | model d9d758fb83953437f7263256b0d96157e2a348b8 | host gb10-a (Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39) | base http://127.0.0.1:18190/v1 | drafts off | max_tokens 256
+thinking    n decode tps      p10      p90 server tps    agree  e2e tps   ttft s   fail  accept
+off        16       99.8     99.6    100.1       99.4    1.000     98.6    0.027      0       -
+wrote ~/tf-pocket-cuda/raw/s1-6-A.off.json
+s1-6-A bench rc=0 11s 63, 43.25 W, 2483 MHz, 96 %
+{"label": "", "prompt": "fibonacci-raw", "temperature": 1.0, "decode_tps_median": 159.4087952025963, "decode_tps_all": [131.8, 144.03, 159.41, 171.85, 159.97], "ttft_s_median": 0.03869602200575173}
+{"label": "", "prompt": "gpu-chat-no-think", "temperature": 1.0, "decode_tps_median": 132.78148814189566, "decode_tps_all": [132.63, 132.78, 144.4, 140.42, 128.39], "ttft_s_median": 0.026521106017753482}
+{"label": "", "prompt": "fibonacci-raw", "temperature": 0.0, "decode_tps_median": 141.0898908739794, "decode_tps_all": [141.09, 140.82, 141.36, 141.72, 138.62], "ttft_s_median": 0.03934565302915871}
+{"label": "", "prompt": "gpu-chat-no-think", "temperature": 0.0, "decode_tps_median": 156.33880718134907, "decode_tps_all": [153.03, 156.82, 152.1, 156.84, 156.34], "ttft_s_median": 0.02689947304315865}
+s1-6-A bench256 rc=0 12s 64, 43.01 W, 2483 MHz, 96 %
+{"label": "", "prompt": "fibonacci-raw", "temperature": 0.0, "decode_tps_median": 200.85274056521243, "decode_tps_all": [201.19, 199.99, 200.85], "ttft_s_median": 0.039003717014566064}
+{"label": "", "prompt": "gpu-chat-no-think", "temperature": 0.0, "decode_tps_median": 145.17251961948043, "decode_tps_all": [145.27, 145.17, 144.33], "ttft_s_median": 0.02705214498564601}
+s1-6-A: stopped exit=0 bytes_unchanged=True listing_unchanged=True
+09:08:27 done

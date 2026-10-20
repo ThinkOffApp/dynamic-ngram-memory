@@ -1,0 +1,109 @@
+judged 112 answers against L6-seed1
+
+== teach: store L1 L2 L3 L4 L5 L6 L7 L8 L9 L10 L11 L12 L13 L14 L15 L16 L17 L18 L19 L20 L21 L22 L23 L24 L25 L26 L27 L28 L29
+   property               thinking off        thinking on
+   recall                        14/14              14/14
+   yes_no                          8/9                8/9
+   two_step                       1/16               1/16
+   compound                        3/8                3/8
+   controls                        3/9                3/9
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                            thinking on
+   all                v 18/41 (23 dk)  n 2/5 (3 dk)  ? 9/10   v 18/41 (23 dk)  n 2/5 (3 dk)  ? 9/10
+   recall             v 13/13  ? 1/1                          v 13/13  ? 1/1
+   yes no             v 5/5  n 2/2  ? 1/2                     v 5/5  n 2/2  ? 1/2
+   two step           v 0/15 (15 dk)  ? 1/1                   v 0/15 (15 dk)  ? 1/1
+   compound           v 0/2 (2 dk)  n 0/3 (3 dk)  ? 3/3       v 0/2 (2 dk)  n 0/3 (3 dk)  ? 3/3
+   controls           v 0/6 (6 dk)  ? 3/3                     v 0/6 (6 dk)  ? 3/3
+   should change      v 18/35 (17 dk)  n 2/5 (3 dk)           v 18/35 (17 dk)  n 2/5 (3 dk)
+   should stay        v 0/6 (6 dk)  ? 9/10                    v 0/6 (6 dk)  ? 9/10
+   abstention         P 9/35 R 9/10                           P 9/35 R 9/10                          precision and recall of "don't know"
+   closed world       +1                                      +1                                     fails that pass if a "no" counts where the right answer is "don't know"
+   reliability        13/13                                   13/13
+   generality         7/8                                     7/8
+   locality           9/35                                    9/35
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value                3/3                3/3
+     plain: dk                     1/1                1/1
+   same answer      51/51 (0 v, 51 dk) 51/51 (0 v, 51 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 0/5                0/5   questions asked in several wordings, every wording right
+   FAIL    Q15 plain "Which country do I live in?" expected Portugal; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q16 plain "Do I live in Portugal?" expected yes; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q17 plain "Which country does my brother live in?" expected Finland; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q18 plain "What is my cat's eye colour?" expected green; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q19 plain "Which city does my brother live in?" expected Turku; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q20 plain "What colour are the eyes of the person who owns the boat?" expected amber; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q21 plain "Does the owner of the boat have amber eyes?" expected yes; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q22 plain "Where does the owner of the boat live?" expected Turku; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q23 plain "In which country does the owner of the boat live?" expected Finland; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q25 plain "What colour are the eyes of the person who owns the tent?" expected green; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q26 plain "What is the colour of Ana's eyes?" expected brown; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q27 plain "Which country does Ana live in?" expected Finland; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q28 plain "What is the colour of Bruno's eyes?" expected grey; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q29 plain "What colour are Milo's eyes?" expected green; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q30 plain "Are Otto's eyes amber?" expected yes; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q31 plain "Is it true that my eyes are green and my car is red?" expected yes; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q32 plain "Is it true that my brother's favourite colour is black and I like cheese?" expected no; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q34 plain "Is it true that my brother's favourite colour is black or my eyes are green?" expected yes; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q36 plain "Is it true that I like cheese or my sister is called Nora?" expected no; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q37 plain "Is it true that my car is not red?" expected no; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q45 plain "Does my dog like olives?" expected doesn't know; got no [wrong yes/no]  << No.
+   FAIL    Q46 plain "In which country is Lisbon?" expected portugal (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q47 plain "Which country is Turku in?" expected finland (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q49 plain "In which country is Porto?" expected portugal (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q54 plain "Who usually owns a library book?" expected library (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q55 plain "What is cheese made from?" expected milk (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q56 plain "How many legs does a spider have?" expected eight / 8 (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q15 think "Which country do I live in?" expected Portugal; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q16 think "Do I live in Portugal?" expected yes; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q17 think "Which country does my brother live in?" expected Finland; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q18 think "What is my cat's eye colour?" expected green; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q19 think "Which city does my brother live in?" expected Turku; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q20 think "What colour are the eyes of the person who owns the boat?" expected amber; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q21 think "Does the owner of the boat have amber eyes?" expected yes; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q22 think "Where does the owner of the boat live?" expected Turku; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q23 think "In which country does the owner of the boat live?" expected Finland; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q25 think "What colour are the eyes of the person who owns the tent?" expected green; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q26 think "What is the colour of Ana's eyes?" expected brown; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q27 think "Which country does Ana live in?" expected Finland; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q28 think "What is the colour of Bruno's eyes?" expected grey; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q29 think "What colour are Milo's eyes?" expected green; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q30 think "Are Otto's eyes amber?" expected yes; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q31 think "Is it true that my eyes are green and my car is red?" expected yes; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q32 think "Is it true that my brother's favourite colour is black and I like cheese?" expected no; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q34 think "Is it true that my brother's favourite colour is black or my eyes are green?" expected yes; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q36 think "Is it true that I like cheese or my sister is called Nora?" expected no; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q37 think "Is it true that my car is not red?" expected no; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q45 think "Does my dog like olives?" expected doesn't know; got no [wrong yes/no]  << No.
+   FAIL    Q46 think "In which country is Lisbon?" expected portugal (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q47 think "Which country is Turku in?" expected finland (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q49 think "In which country is Porto?" expected portugal (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q54 think "Who usually owns a library book?" expected library (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q55 think "What is cheese made from?" expected milk (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q56 think "How many legs does a spider have?" expected eight / 8 (general knowledge); got gk [general knowledge changed]  << I don't know.
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 9/35, recall 9/10;  v 18/41 (23 dk)  n 2/5 (3 dk)  ? 9/10
+   thinking on   precision 9/35, recall 9/10;  v 18/41 (23 dk)  n 2/5 (3 dk)  ? 9/10
+
+== two-step questions (level 6): stated against implied facts
+   phases with lessons taught; a chain counts when the rule book knows its answer and every step has a question of its own
+   stated: the taught steps it rests on; implied: the chain itself; given steps right: chains whose every step was right in the same phase and mode
+   thinking off: stated 27/28 (96%), implied 0/14 (0%), gap +96 points; given steps right 0/8 (0%); echo 0
+     steps  chains         stated        implied  given steps right    gap
+     1           1       0/1 (0%)       0/1 (0%)                0/0     +0
+     2          10    17/18 (94%)      0/10 (0%)           0/7 (0%)    +94
+     3           3     7/7 (100%)       0/3 (0%)           0/1 (0%)   +100
+     4           1     3/3 (100%)       0/1 (0%)                0/0   +100
+     by family (2 steps or more): natural 0/3 (0%), owner 0/5 (0%), alias 0/5 (0%), link 0/1 (0%)
+     compound (Kleene): 3/8 (38%); given both parts right 0/5 (0%); no or no 0/1 (0%), no or unknown 1/1 (100%), not unknown 1/1 (100%), not yes 0/1 (0%), unknown and no 0/1 (0%), unknown or yes 0/1 (0%), yes and unknown 1/1 (100%), yes and yes 0/1 (0%)
+     don't know expected 1/1 (100%); baseline 0/0; echo answers 0; no baseline answer for Lisbon, Turku, nothing dropped for it
+   thinking on: stated 27/28 (96%), implied 0/14 (0%), gap +96 points; given steps right 0/8 (0%); echo 0
+     steps  chains         stated        implied  given steps right    gap
+     1           1       0/1 (0%)       0/1 (0%)                0/0     +0
+     2          10    17/18 (94%)      0/10 (0%)           0/7 (0%)    +94
+     3           3     7/7 (100%)       0/3 (0%)           0/1 (0%)   +100
+     4           1     3/3 (100%)       0/1 (0%)                0/0   +100
+     by family (2 steps or more): natural 0/3 (0%), owner 0/5 (0%), alias 0/5 (0%), link 0/1 (0%)
+     compound (Kleene): 3/8 (38%); given both parts right 0/5 (0%); no or no 0/1 (0%), no or unknown 1/1 (100%), not unknown 1/1 (100%), not yes 0/1 (0%), unknown and no 0/1 (0%), unknown or yes 0/1 (0%), yes and unknown 1/1 (100%), yes and yes 0/1 (0%)
+     don't know expected 1/1 (100%); baseline 0/0; echo answers 0; no baseline answer for Lisbon, Turku, nothing dropped for it

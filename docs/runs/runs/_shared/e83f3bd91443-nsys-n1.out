@@ -1,0 +1,422 @@
+profile exit=0 tokens 256 sha 716feda01d52 prefill 0.0551s decode 2.9340s 11.506 ms/token rounds 255 accepted 0
+{
+ "kernels_total_ms": 4424.441804,
+ "first_to_last_kernel_ms": 6689.77152,
+ "launches": 99038,
+ "pocket_total_ms": 793.061183,
+ "pocket_share": 0.17924547731264498,
+ "pocket_by_grid_stream": [
+  {
+   "grid": 1,
+   "stream": 13,
+   "count": 5865,
+   "median_us": 132.0,
+   "p10_us": 122.176,
+   "p90_us": 142.624,
+   "min_us": 93.184,
+   "max_us": 429.408,
+   "total_ms": 790.975807
+  },
+  {
+   "grid": 36,
+   "stream": 13,
+   "count": 23,
+   "median_us": 86.976,
+   "p10_us": 86.0928,
+   "p90_us": 93.19040000000001,
+   "min_us": 85.728,
+   "max_us": 152.576,
+   "total_ms": 2.085376
+  }
+ ]
+}
+expert_kernel                                                  23460   1964.26 ms  44.4% med    78.72 us
+tf_pocket_rows                                                  5888    793.06 ms  17.9% med   131.94 us
+gemv_kernel                                                    14790    760.00 ms  17.2% med    35.71 us
+group_kernel                                                     255    216.32 ms   4.9% med   843.23 us
+pack_kernel                                                       46    178.45 ms   4.0% med  3821.58 us
+tf_nemo_add_moe_norm                                            5888    109.94 ms   2.5% med    18.91 us
+tf_nemo_router                                                  5888     98.13 ms   2.2% med    16.29 us
+tf_nemo_scan                                                    5865     90.01 ms   2.0% med    15.20 us
+prefill_kernel                                                   105     48.97 ms   1.1% med   118.98 us
+tf_nemo_topk                                                    5888     42.61 ms   1.0% med     7.10 us
+tf_nemo_attn_chunk                                              1530     29.15 ms   0.7% med    18.37 us
+tf_nemo_add_rmsnorm                                             7680     27.59 ms   0.6% med     3.49 us
+tf_nemo_conv                                                    5865     18.17 ms   0.4% med     2.98 us
+tf_nemo_group_rmsnorm                                           5888     13.98 ms   0.3% med     2.30 us
+tf_plan_routed                                                  5865     12.41 ms   0.3% med     2.05 us
+profile exit=0 tokens 256 sha 2e5c4aac8a41 prefill 0.0545s decode 2.9303s 11.491 ms/token rounds 255 accepted 0
+{
+ "kernels_total_ms": 4419.028165,
+ "first_to_last_kernel_ms": 6739.815264,
+ "launches": 99038,
+ "pocket_total_ms": 788.311133,
+ "pocket_share": 0.17839015809938835,
+ "pocket_by_grid_stream": [
+  {
+   "grid": 1,
+   "stream": 13,
+   "count": 5865,
+   "median_us": 131.744,
+   "p10_us": 122.016,
+   "p90_us": 142.4,
+   "min_us": 91.936,
+   "max_us": 406.272,
+   "total_ms": 786.305821
+  },
+  {
+   "grid": 36,
+   "stream": 13,
+   "count": 23,
+   "median_us": 86.368,
+   "p10_us": 86.1376,
+   "p90_us": 88.0064,
+   "min_us": 85.472,
+   "max_us": 97.408,
+   "total_ms": 2.005312
+  }
+ ]
+}
+expert_kernel                                                  23460   1963.92 ms  44.4% med    78.78 us
+tf_pocket_rows                                                  5888    788.31 ms  17.8% med   131.71 us
+gemv_kernel                                                    14790    760.68 ms  17.2% med    35.44 us
+group_kernel                                                     255    215.73 ms   4.9% med   843.04 us
+pack_kernel                                                       46    178.85 ms   4.0% med  3851.68 us
+tf_nemo_add_moe_norm                                            5888    108.80 ms   2.5% med    18.85 us
+tf_nemo_router                                                  5888     97.38 ms   2.2% med    16.26 us
+tf_nemo_scan                                                    5865     91.27 ms   2.1% med    15.33 us
+prefill_kernel                                                   105     48.48 ms   1.1% med   120.19 us
+tf_nemo_topk                                                    5888     42.08 ms   1.0% med     7.01 us
+tf_nemo_attn_chunk                                              1530     29.04 ms   0.7% med    18.40 us
+tf_nemo_add_rmsnorm                                             7680     27.54 ms   0.6% med     3.46 us
+tf_nemo_conv                                                    5865     18.30 ms   0.4% med     2.94 us
+tf_nemo_group_rmsnorm                                           5888     14.07 ms   0.3% med     2.30 us
+tf_plan_routed                                                  5865     12.75 ms   0.3% med     2.08 us
+profile exit=0 tokens 256 sha 2e5c4aac8a41 prefill 0.0525s decode 2.5203s 9.884 ms/token rounds 255 accepted 0
+{
+ "kernels_total_ms": 3631.161168,
+ "first_to_last_kernel_ms": 6174.253984,
+ "launches": 93150,
+ "pocket_total_ms": 0.0,
+ "pocket_share": 0.0,
+ "pocket_by_grid_stream": []
+}
+expert_kernel                                                  23460   1972.72 ms  54.3% med    78.05 us
+gemv_kernel                                                    14790    747.10 ms  20.6% med    34.02 us
+group_kernel                                                     255    216.75 ms   6.0% med   844.16 us
+pack_kernel                                                       46    177.88 ms   4.9% med  3859.84 us
+tf_nemo_add_moe_norm                                            5888    111.22 ms   3.1% med    18.91 us
+tf_nemo_router                                                  5888     97.82 ms   2.7% med    16.19 us
+tf_nemo_scan                                                    5865     92.55 ms   2.5% med    15.94 us
+prefill_kernel                                                   105     48.38 ms   1.3% med   120.38 us
+tf_nemo_topk                                                    5888     42.89 ms   1.2% med     7.10 us
+tf_nemo_attn_chunk                                              1530     29.34 ms   0.8% med    18.40 us
+tf_nemo_add_rmsnorm                                             7680     27.80 ms   0.8% med     3.46 us
+tf_nemo_conv                                                    5865     17.91 ms   0.5% med     2.94 us
+tf_nemo_group_rmsnorm                                           5888     14.29 ms   0.4% med     2.30 us
+tf_plan_routed                                                  5865     12.72 ms   0.4% med     2.05 us
+tf_pack_dense                                                     59      6.87 ms   0.2% med    56.93 us
+profile exit=0 tokens 256 sha 716feda01d52 prefill 0.0546s decode 2.0236s 7.935 ms/token rounds 107 accepted 148
+{
+ "kernels_total_ms": 3152.930336,
+ "first_to_last_kernel_ms": 6128.599872,
+ "launches": 52542,
+ "pocket_total_ms": 512.259584,
+ "pocket_share": 0.1624709490568332,
+ "pocket_by_grid_stream": [
+  {
+   "grid": 1,
+   "stream": 13,
+   "count": 315,
+   "median_us": 141.76,
+   "p10_us": 137.0624,
+   "p90_us": 145.7536,
+   "min_us": 108.064,
+   "max_us": 360.576,
+   "total_ms": 45.637696
+  },
+  {
+   "grid": 2,
+   "stream": 13,
+   "count": 1127,
+   "median_us": 127.84,
+   "p10_us": 95.1552,
+   "p90_us": 178.16320000000002,
+   "min_us": 87.936,
+   "max_us": 300.192,
+   "total_ms": 152.84016
+  },
+  {
+   "grid": 3,
+   "stream": 13,
+   "count": 460,
+   "median_us": 134.512,
+   "p10_us": 102.688,
+   "p90_us": 252.17600000000002,
+   "min_us": 87.616,
+   "max_us": 356.512,
+   "total_ms": 78.8016
+  },
+  {
+   "grid": 4,
+   "stream": 13,
+   "count": 230,
+   "median_us": 237.648,
+   "p10_us": 115.76960000000001,
+   "p90_us": 282.95039999999995,
+   "min_us": 93.024,
+   "max_us": 322.016,
+   "total_ms": 50.95936
+  },
+  {
+   "grid": 5,
+   "stream": 13,
+   "count": 299,
+   "median_us": 270.432,
+   "p10_us": 169.2032,
+   "p90_us": 314.2208,
+   "min_us": 101.568,
+   "max_us": 486.688,
+   "total_ms": 78.194912
+  },
+  {
+   "grid": 6,
+   "stream": 13,
+   "count": 161,
+   "median_us": 268.288,
+   "p10_us": 153.312,
+   "p90_us": 364.896,
+   "min_us": 95.872,
+   "max_us": 440.032,
+   "total_ms": 41.78624
+  },
+  {
+   "grid": 7,
+   "stream": 13,
+   "count": 92,
+   "median_us": 297.312,
+   "p10_us": 156.09920000000002,
+   "p90_us": 409.9232,
+   "min_us": 105.568,
+   "max_us": 491.2,
+   "total_ms": 26.858272
+  },
+  {
+   "grid": 8,
+   "stream": 13,
+   "count": 23,
+   "median_us": 303.328,
+   "p10_us": 141.5744,
+   "p90_us": 437.00480000000005,
+   "min_us": 112.16,
+   "max_us": 565.664,
+   "total_ms": 7.073472
+  },
+  {
+   "grid": 9,
+   "stream": 13,
+   "count": 23,
+   "median_us": 396.16,
+   "p10_us": 371.15520000000004,
+   "p90_us": 531.68,
+   "min_us": 159.936,
+   "max_us": 601.152,
+   "total_ms": 9.70704
+  },
+  {
+   "grid": 12,
+   "stream": 13,
+   "count": 23,
+   "median_us": 357.408,
+   "p10_us": 264.6656,
+   "p90_us": 539.6928,
+   "min_us": 157.92,
+   "max_us": 621.664,
+   "total_ms": 8.247072
+  },
+  {
+   "grid": 16,
+   "stream": 13,
+   "count": 23,
+   "median_us": 495.008,
+   "p10_us": 110.2784,
+   "p90_us": 569.6448,
+   "min_us": 101.76,
+   "max_us": 653.216,
+   "total_ms": 10.148864
+  },
+  {
+   "grid": 36,
+   "stream": 13,
+   "count": 23,
+   "median_us": 86.56,
+   "p10_us": 85.984,
+   "p90_us": 87.82719999999999,
+   "min_us": 85.248,
+   "max_us": 96.736,
+   "total_ms": 2.004896
+  }
+ ]
+}
+expert_kernel                                                  11104   1592.59 ms  50.5% med   118.94 us
+tf_pocket_rows                                                  2799    512.26 ms  16.2% med   156.80 us
+gemv_kernel                                                     7154    360.41 ms  11.4% med    36.80 us
+group_kernel                                                     422    192.38 ms   6.1% med   318.18 us
+pack_kernel                                                       48    186.39 ms   5.9% med  3862.53 us
+tf_nemo_add_moe_norm                                            2799     52.36 ms   1.7% med    18.40 us
+tf_nemo_scan                                                    2461     50.47 ms   1.6% med    19.71 us
+prefill_kernel                                                   107     48.48 ms   1.5% med   117.70 us
+tf_nemo_router                                                  2799     47.71 ms   1.5% med    16.54 us
+tf_nemo_topk                                                    2799     20.37 ms   0.6% med     7.07 us
+tf_nemo_attn_chunk                                               958     18.63 ms   0.6% med    18.34 us
+tf_nemo_add_rmsnorm                                             3872     13.43 ms   0.4% med     3.42 us
+tf_nemo_conv                                                    2461     11.34 ms   0.4% med     4.26 us
+tf_plan_routed                                                  2776      8.52 ms   0.3% med     2.75 us
+tf_pack_dense                                                     63      7.87 ms   0.2% med    57.50 us
+profile exit=0 tokens 256 sha 2e5c4aac8a41 prefill 0.0547s decode 1.8562s 7.279 ms/token rounds 100 accepted 155
+{
+ "kernels_total_ms": 2901.446175,
+ "first_to_last_kernel_ms": 5974.49616,
+ "launches": 48725,
+ "pocket_total_ms": 455.162368,
+ "pocket_share": 0.15687431044623806,
+ "pocket_by_grid_stream": [
+  {
+   "grid": 1,
+   "stream": 13,
+   "count": 282,
+   "median_us": 137.872,
+   "p10_us": 125.4784,
+   "p90_us": 143.744,
+   "min_us": 105.088,
+   "max_us": 286.4,
+   "total_ms": 39.452896
+  },
+  {
+   "grid": 2,
+   "stream": 13,
+   "count": 1127,
+   "median_us": 136.32,
+   "p10_us": 95.1424,
+   "p90_us": 179.6864,
+   "min_us": 88.736,
+   "max_us": 416.416,
+   "total_ms": 155.188
+  },
+  {
+   "grid": 3,
+   "stream": 13,
+   "count": 414,
+   "median_us": 128.512,
+   "p10_us": 100.176,
+   "p90_us": 246.0736,
+   "min_us": 87.232,
+   "max_us": 339.968,
+   "total_ms": 67.12768
+  },
+  {
+   "grid": 4,
+   "stream": 13,
+   "count": 299,
+   "median_us": 231.392,
+   "p10_us": 113.792,
+   "p90_us": 278.9184,
+   "min_us": 88.992,
+   "max_us": 318.112,
+   "total_ms": 62.3352
+  },
+  {
+   "grid": 5,
+   "stream": 13,
+   "count": 161,
+   "median_us": 260.288,
+   "p10_us": 142.112,
+   "p90_us": 298.112,
+   "min_us": 96.832,
+   "max_us": 373.76,
+   "total_ms": 39.408448
+  },
+  {
+   "grid": 6,
+   "stream": 13,
+   "count": 92,
+   "median_us": 271.488,
+   "p10_us": 144.8288,
+   "p90_us": 325.7952,
+   "min_us": 124.384,
+   "max_us": 425.856,
+   "total_ms": 24.41328
+  },
+  {
+   "grid": 7,
+   "stream": 13,
+   "count": 115,
+   "median_us": 300.768,
+   "p10_us": 145.9136,
+   "p90_us": 399.95519999999993,
+   "min_us": 100.768,
+   "max_us": 553.056,
+   "total_ms": 32.993312
+  },
+  {
+   "grid": 8,
+   "stream": 13,
+   "count": 46,
+   "median_us": 300.656,
+   "p10_us": 146.752,
+   "p90_us": 429.216,
+   "min_us": 100.096,
+   "max_us": 489.728,
+   "total_ms": 13.092832
+  },
+  {
+   "grid": 9,
+   "stream": 13,
+   "count": 23,
+   "median_us": 423.168,
+   "p10_us": 175.6096,
+   "p90_us": 549.2096,
+   "min_us": 147.328,
+   "max_us": 575.296,
+   "total_ms": 9.11248
+  },
+  {
+   "grid": 16,
+   "stream": 13,
+   "count": 23,
+   "median_us": 491.04,
+   "p10_us": 114.89280000000001,
+   "p90_us": 550.7392,
+   "min_us": 99.584,
+   "max_us": 614.784,
+   "total_ms": 10.034976
+  },
+  {
+   "grid": 36,
+   "stream": 13,
+   "count": 23,
+   "median_us": 86.528,
+   "p10_us": 86.016,
+   "p90_us": 87.68639999999999,
+   "min_us": 85.92,
+   "max_us": 96.128,
+   "total_ms": 2.003264
+  }
+ ]
+}
+expert_kernel                                                  10328   1462.40 ms  50.4% med   120.90 us
+tf_pocket_rows                                                  2605    455.16 ms  15.7% med   147.94 us
+gemv_kernel                                                     6649    332.73 ms  11.5% med    35.33 us
+pack_kernel                                                       48    185.88 ms   6.4% med  3844.38 us
+group_kernel                                                     382    175.20 ms   6.0% med   317.52 us
+prefill_kernel                                                   107     48.56 ms   1.7% med   117.73 us
+tf_nemo_add_moe_norm                                            2605     47.98 ms   1.7% med    18.37 us
+tf_nemo_scan                                                    2300     46.86 ms   1.6% med    19.39 us
+tf_nemo_router                                                  2605     44.33 ms   1.5% med    16.64 us
+tf_nemo_topk                                                    2605     18.83 ms   0.6% med     7.07 us
+tf_nemo_attn_chunk                                               883     17.15 ms   0.6% med    18.30 us
+tf_nemo_add_rmsnorm                                             3596     12.54 ms   0.4% med     3.39 us
+tf_nemo_conv                                                    2300     10.70 ms   0.4% med     4.22 us
+tf_plan_routed                                                  2582      7.97 ms   0.3% med     2.72 us
+tf_pack_dense                                                     63      7.82 ms   0.3% med    56.74 us
+ALLDONE

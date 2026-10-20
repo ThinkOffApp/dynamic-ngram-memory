@@ -1,0 +1,36 @@
+judged 44 answers against L4-seed1
+
+== del-B: store L2 L3 L4 L5 L6 L7 L8 L9 L10 L11; deleted L1
+   property               thinking off        thinking on
+   recall                          3/7                3/7
+   temporal                        0/1                0/1
+   either_or                       0/1    0/1 (1 unclear)
+   yes_no                          2/5                2/5
+   reverse             0/2 (2 unclear)    0/2 (2 unclear)
+   controls                        6/6                6/6
+   delete_affected                 0/2                2/2
+   delete_kept        5/14 (2 unclear)   3/14 (3 unclear)
+   yes/no groups    0/2 keys where every yes/no question (both polarities) is right
+   consistency      3/10 yes/no and either-or answers follow from the model's own answer to the plain question; not: Q04 (plain), Q10 (plain), Q11 (plain), Q12 (plain), Q10 (think), Q11 (think), Q12 (think)
+   FAIL    Q01 plain "What is my dog's name?" expected doesn't know; got off topic [off topic]  << My name is Nemotron, and I'm a language model developed by NVIDIA.
+   FAIL    Q03 plain "Is my dog's name Nora?" expected doesn't know; got no [wrong yes/no]  << No, I am Nemotron, a language model developed by NVIDIA.
+   FAIL    Q04 plain "Is my cat called Bruno or Nora?" expected Nora; got Bruno [wrong choice]  << Your cat is called Bruno .
+   UNCLEAR Q07 plain "Who has grey eyes?" expected my dog; got unclear [no entity found]  << Grey eyes are relatively rare, occurring in less than 1% of the global population. They ar
+   FAIL    Q08 plain "What food do I like?" expected apples, pears (not olives); got doesn't know [does not know a taught value]  << I don't know! I don't have access to your personal preferences or history. However, I can 
+   FAIL    Q09 plain "Which foods do I like?" expected apples, pears (not olives); got doesn't know [does not know a taught value]  << I don't know! I don't have access to your personal preferences or memories. To figure out 
+   FAIL    Q12 plain "Is it true that I like chocolate?" expected doesn't know; got yes [wrong yes/no]  << Yes, it is true. You told me earlier: "I like chocolate very much."
+   UNCLEAR Q13 plain "Who likes olives?" expected my dog; got unclear [no entity found]  << Olive lovers are a passionate bunch! Here are a few famous people who have publicly declar
+   FAIL    Q14 plain "Which colour do I like best?" expected doesn't know (but not blue); got blue [value it should not give]  << Your favourite colour is blue.
+   FAIL    Q15 plain "Is my favourite colour blue?" expected no; got yes [wrong yes/no]  << Yes, I remember you telling me that your favourite colour is blue.
+   FAIL    Q16 plain "What was my favourite colour before it changed?" expected blue; got doesn't know [does not know a taught value]  << I don't have access to your personal history or memories, so I can't know what your favour
+   UNCLEAR Q04 think "Is my cat called Bruno or Nora?" expected Nora; got several: Bruno, Nora [ambiguous]  << Based on what you've told me, your cat is either named Bruno or Nora . To help me determin
+   FAIL    Q06 think "Tell me the colour of my cat's eyes." expected hazel; got brown [wrong value]  << Your cat Nora has brown eyes.
+   UNCLEAR Q07 think "Who has grey eyes?" expected my dog; got unclear [no entity found]  << Grey eyes are extremely rare , estimated to occur in less than 1% of the global population
+   FAIL    Q08 think "What food do I like?" expected apples, pears (not olives); got doesn't know [does not know a taught value]  << I don't have access to your personal preferences, history, or profile, so I can't know wha
+   FAIL    Q09 think "Which foods do I like?" expected apples, pears (not olives); got doesn't know [does not know a taught value]  << I don't have access to your personal information or preferences, so I don't know which foo
+   FAIL    Q11 think "Do I like olives?" expected no; got yes [wrong yes/no]  << Yes, you do like olives! You mentioned it earlier. 🫒
+   FAIL    Q12 think "Is it true that I like chocolate?" expected doesn't know; got no [wrong yes/no]  << But you just said you really don't like chocolate ! 😄 If you've changed your mind, that's 
+   UNCLEAR Q13 think "Who likes olives?" expected my dog; got unclear [no entity found]  << Olive preferences are famously polarized! They're especially beloved in Mediterranean coun
+   FAIL    Q14 think "Which colour do I like best?" expected doesn't know (but not blue); got blue [value it should not give]  << Your favourite colour is blue.
+   FAIL    Q15 think "Is my favourite colour blue?" expected no; got yes [wrong yes/no]  << Yes, that's correct! Your favourite colour is blue. 😊
+   FAIL    Q16 think "What was my favourite colour before it changed?" expected blue; got doesn't know [does not know a taught value]  << I don't have access to your personal data, preferences, or history, so I can't know what y

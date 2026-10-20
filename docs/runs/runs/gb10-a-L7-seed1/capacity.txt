@@ -1,0 +1,58 @@
+Level 7 capacity report: L7-seed1 (64 facts), status done
+settings: when_full refuse, evict_max 3, gate mark, known_check on, delete_mode zero, norms on, thinking off,on, steps baseline,main,pairs,deletes
+
+L7-seed1: 64 facts; learned 40, missed 20, server: replaced 4
+after   1: thinking off CURRENT 1/1, yes/no 0/1, first 10 1/1; thinking on CURRENT 1/1, yes/no 1/1, first 10 1/1
+after   5: thinking off CURRENT 4/5, yes/no 2/5, first 10 4/5; thinking on CURRENT 4/5, yes/no 2/5, first 10 4/5
+after  10: thinking off CURRENT 6/10, yes/no 4/10, first 10 6/10; thinking on CURRENT 6/10, yes/no 3/10, first 10 6/10
+after  20: thinking off CURRENT 11/20, yes/no 8/20, first 10 5/10; thinking on CURRENT 11/20, yes/no 6/20, first 10 5/10
+after  40: thinking off CURRENT 27/40, yes/no 17/40, first 10 5/10; thinking on CURRENT 22/40, yes/no 15/40, first 10 4/10
+after  64: thinking off CURRENT 35/64, yes/no 30/64, first 10 4/10; thinking on CURRENT 29/64, yes/no 19/64, first 10 3/10
+weight-norm outliers: lessons [38, 59]
+
+Retention curve (CURRENT right / facts taught so far; held = learned and not evicted at that point):
+  after phase    mode   CURRENT      held    yes/no   first10  controls  by order (CURRENT)
+      1 ck-001   off        1/1       1/1       0/1       1/1       6/6  1-1:1/1
+      1 ck-001   on         1/1       1/1       1/1       1/1       6/6  1-1:1/1
+      5 ck-005   off        4/5       3/3       2/5       4/5       6/6  1-5:4/5
+      5 ck-005   on         4/5       3/3       2/5       4/5       6/6  1-5:4/5
+     10 ck-010   off       6/10       5/5      4/10      6/10       6/6  1-10:6/10
+     10 ck-010   on        6/10       5/5      3/10      6/10       6/6  1-10:6/10
+     15 ck-015   off       8/15       6/6      6/15      6/10       6/6  1-10:6/10 11-15:2/5
+     15 ck-015   on        8/15       6/6      5/15      6/10       6/6  1-10:6/10 11-15:2/5
+     20 ck-020   off      11/20     10/10      8/20      5/10       6/6  1-10:5/10 11-20:6/10
+     20 ck-020   on       11/20     10/10      6/20      5/10       6/6  1-10:5/10 11-20:6/10
+     25 ck-025   off      16/25     14/14     11/25      5/10       6/6  1-10:5/10 11-20:6/10 21-25:5/5
+     25 ck-025   on       14/25     12/14      7/25      5/10       6/6  1-10:5/10 11-20:5/10 21-25:4/5
+     30 ck-030   off      19/30     17/18     12/30      5/10       6/6  1-10:5/10 11-20:6/10 21-30:8/10
+     30 ck-030   on       16/30     14/18      9/30      4/10       6/6  1-10:4/10 11-20:6/10 21-30:6/10
+     35 ck-035   off      23/35     21/22     14/35      5/10       6/6  1-10:5/10 11-20:6/10 21-30:8/10 31-35:4/5
+     35 ck-035   on       18/35     16/22     11/35      3/10       5/6  1-10:3/10 11-20:6/10 21-30:5/10 31-35:4/5
+     40 ck-040   off      27/40     24/26     17/40      5/10       6/6  1-10:5/10 11-20:6/10 21-30:8/10 31-40:8/10
+     40 ck-040   on       22/40     19/26     15/40      4/10       6/6  1-10:4/10 11-20:5/10 21-30:6/10 31-40:7/10
+     45 ck-045   off      28/45     26/28     18/45      5/10       6/6  1-10:5/10 11-20:6/10 21-30:8/10 31-40:7/10 41-45:2/5
+     45 ck-045   on       25/45     23/28     16/45      3/10       6/6  1-10:3/10 11-20:6/10 21-30:7/10 31-40:7/10 41-45:2/5
+     50 ck-050   off      30/50     29/31     19/50      5/10       6/6  1-10:5/10 11-20:6/10 21-30:7/10 31-40:7/10 41-50:5/10
+     50 ck-050   on       26/50     26/31     15/50      4/10       6/6  1-10:4/10 11-20:5/10 21-30:6/10 31-40:7/10 41-50:4/10
+     55 ck-055   off      33/55     32/34     24/55      5/10       6/6  1-10:5/10 11-20:6/10 21-30:7/10 31-40:7/10 41-50:5/10 51-55:3/5
+     55 ck-055   on       29/55     29/34     18/55      4/10       6/6  1-10:4/10 11-20:5/10 21-30:6/10 31-40:7/10 41-50:4/10 51-55:3/5
+     60 ck-060   off      36/60     35/37     30/60      5/10       6/6  1-10:5/10 11-20:6/10 21-30:7/10 31-40:7/10 41-50:5/10 51-60:6/10
+     60 ck-060   on       30/60     29/37     16/60      4/10       5/6  1-10:4/10 11-20:6/10 21-30:6/10 31-40:7/10 41-50:3/10 51-60:4/10
+     64 teach    off      35/64     35/40     30/64      4/10       5/6  1-10:4/10 11-20:5/10 21-30:6/10 31-40:7/10 41-50:4/10 51-60:6/10 61-64:3/4
+     64 teach    on       29/64     29/40     19/64      3/10       4/6  1-10:3/10 11-20:5/10 21-30:6/10 31-40:7/10 41-50:3/10 51-60:2/10 61-64:3/4
+
+First 10 facts, held ones only (CURRENT): thinking off: 1/1 3/3 5/5 5/5 5/5 5/5 5/5 5/5 5/5 5/5 5/5 5/5 5/5 4/5 (drops); thinking on: 1/1 3/3 5/5 5/5 5/5 5/5 4/5 3/5 4/5 3/5 4/5 4/5 4/5 3/5 (drops)
+Capacity: first PocketFull at position None; evictions none
+Intake verdicts: {'NEW': 64}; sentences read back 64/64
+Already known (model): lessons [19]; a yes/no would have said known for [17, 18, 24, 26, 31, 38, 42, 45, 52, 54, 55] (recorded, not used)
+Weight norms: 44 lessons, median 29.634722, outliers (modified z > 3.5 or > 10.0x the median): [38, 59]; drift at later checkpoints: 250
+Pair similar (A L51, B L25: one attribute (name), similar entities (my colleague, my friend), two values): thinking off: A after A 0/2, B after A 2/2, A after A then B 0/2, B after A then B 1/2, A lost 0; thinking on: A after A 0/2, B after A 2/2, A after A then B 0/2, B after A then B 1/2, A lost 0
+Pair far (A L5, B L62: other attributes (home_city, owner) and kinds (person, object)): thinking off: A after A 0/2, B after A 1/2, A after A then B 0/2, B after A then B 0/2, A lost 0; thinking on: A after A 0/2, B after A 2/2, A after A then B 0/2, B after A then B 0/2, A lost 0
+Deletes (zero, done)
+  del-1: deleted [62]; thinking off: deleted facts now don't know 0/1, the rest right 70/132; thinking on: deleted facts now don't know 1/1, the rest right 52/132
+  del-3: deleted [23, 35, 62]; thinking off: deleted facts now don't know 0/3, the rest right 70/128; thinking on: deleted facts now don't know 1/3, the rest right 53/128
+  del-6: deleted [1, 14, 23, 35, 50, 62]; thinking off: deleted facts now don't know 1/6, the rest right 65/122; thinking on: deleted facts now don't know 2/6, the rest right 50/122
+  kept_stable del-1: thinking off: same verdict 132/132, same text 132/132; thinking on: same verdict 132/132, same text 132/132
+  kept_stable del-3: thinking off: same verdict 126/128, same text 123/128, moved ['Q62 fail->pass', 'Q75 fail->unclear']; thinking on: same verdict 123/128, same text 119/128, moved ['Q03 fail->pass', 'Q36 unclear->pass', 'Q62 fail->pass', 'Q75 fail->unclear', 'Q76 pass->unclear']
+  kept_stable del-6: thinking off: same verdict 116/122, same text 101/122, moved ['Q34 fail->pass', 'Q52 pass->fail', 'Q62 fail->pass', 'Q75 fail->unclear', 'Q90 pass->fail', 'Q112 pass->fail']; thinking on: same verdict 110/122, same text 68/122, moved ['Q03 fail->pass', 'Q17 fail->unclear', 'Q36 unclear->pass', 'Q39 pass->fail', 'Q47 pass->fail', 'Q48 pass->fail', 'Q62 fail->pass', 'Q75 fail->unclear', 'Q76 pass->unclear', 'Q88 fail->pass', 'Q106 unclear->pass', 'Q122 pass->unclear']
+Usage ranking: not available: TensorFold 1.0.8 has no per-request record of which facts' neurons fire, so facts cannot be ranked by usage; requested in docs/NIGHT-PRUNE.md

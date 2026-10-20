@@ -1,0 +1,17 @@
+== out_batch_reversed: >                 for (int b = B - 1; b >= 0; --b)
+DIFFER pocket d=2688 rows=1 used=6 out_f32=true: 403 of 21504 values
+FAIL pocket: first difference at byte 64616, 403 of 21504 words differ
+FAIL pocket: TestFailed
+== in_no_relu: >                 const float z = v;
+DIFFER pocket d=2688 rows=1 used=6 out_f32=true: 2688 of 21504 values
+FAIL pocket: first difference at byte 64512, 2688 of 21504 words differ
+FAIL pocket: TestFailed
+== in_no_fma: >             for (int t = 0; t < R; ++t) s[q][t] = __fadd_rn(s[q][t], __fmul_rn(u[q], x[t]));
+DIFFER pocket d=2688 rows=1 used=6 out_f32=true: 1027 of 21504 values
+FAIL pocket: first difference at byte 64516, 1027 of 21504 words differ
+FAIL pocket: TestFailed
+== out_last_dropped: >     if (k >= d - 1) return;
+DIFFER pocket d=2688 rows=1 used=1 out_f32=true: 1 of 21504 values
+FAIL pocket: first difference at byte 75260, 1 of 21504 words differ
+FAIL pocket: TestFailed
+done

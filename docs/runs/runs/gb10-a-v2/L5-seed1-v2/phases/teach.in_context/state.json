@@ -1,0 +1,212 @@
+{
+ "key": "teach.in_context",
+ "phase": "teach",
+ "kind": "in_context",
+ "store": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17
+ ],
+ "deleted": [],
+ "answers": {
+  "teach.in_context": {
+   "path": "~/lw-runs/gb10-a-v2/L5-seed1-v2/phases/teach.in_context/answers.jsonl",
+   "n": 154,
+   "expected": 154,
+   "complete": true,
+   "seconds": 651.5
+  }
+ },
+ "judge": {
+  "teach.in_context": {
+   "rc": 0,
+   "report": "~/lw-runs/gb10-a-v2/L5-seed1-v2/phases/teach.in_context/report.txt",
+   "verdicts": "~/lw-runs/gb10-a-v2/L5-seed1-v2/phases/teach.in_context/verdicts.json",
+   "seconds": 0.1,
+   "headline": "judged 154 answers against L5-seed1-v2",
+   "scores": {
+    "teach": {
+     "recall": {
+      "off": {
+       "pass": 5,
+       "fail": 3,
+       "unclear": 0,
+       "total": 8
+      },
+      "on": {
+       "pass": 0,
+       "fail": 0,
+       "unclear": 8,
+       "total": 8
+      }
+     },
+     "all": {
+      "off": {
+       "pass": 50,
+       "fail": 27,
+       "unclear": 0,
+       "total": 77
+      },
+      "on": {
+       "pass": 15,
+       "fail": 1,
+       "unclear": 61,
+       "total": 77
+      }
+     },
+     "yes_no": {
+      "off": {
+       "pass": 23,
+       "fail": 7,
+       "unclear": 0,
+       "total": 30
+      },
+      "on": {
+       "pass": 7,
+       "fail": 0,
+       "unclear": 23,
+       "total": 30
+      }
+     },
+     "either_or": {
+      "off": {
+       "pass": 2,
+       "fail": 2,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 0,
+       "fail": 0,
+       "unclear": 4,
+       "total": 4
+      }
+     },
+     "temporal": {
+      "off": {
+       "pass": 8,
+       "fail": 10,
+       "unclear": 0,
+       "total": 18
+      },
+      "on": {
+       "pass": 2,
+       "fail": 1,
+       "unclear": 15,
+       "total": 18
+      }
+     },
+     "reverse": {
+      "off": {
+       "pass": 8,
+       "fail": 4,
+       "unclear": 0,
+       "total": 12
+      },
+      "on": {
+       "pass": 2,
+       "fail": 0,
+       "unclear": 10,
+       "total": 12
+      }
+     },
+     "controls": {
+      "off": {
+       "pass": 4,
+       "fail": 1,
+       "unclear": 0,
+       "total": 5
+      },
+      "on": {
+       "pass": 4,
+       "fail": 0,
+       "unclear": 1,
+       "total": 5
+      }
+     },
+     "reverse_fwd": {
+      "off": {
+       "pass": 6,
+       "fail": 1,
+       "unclear": 0,
+       "total": 7
+      },
+      "on": {
+       "pass": 0,
+       "fail": 0,
+       "unclear": 1,
+       "total": 1
+      }
+     }
+    }
+   },
+   "consistency": {
+    "teach": {
+     "derived": {
+      "off": {
+       "value": {
+        "n": 66,
+        "ok": 52,
+        "not": [
+         "Q02~Q42",
+         "Q03~Q42",
+         "Q10~Q09",
+         "Q10~Q48",
+         "Q11~Q09",
+         "Q11~Q48",
+         "Q19~Q17",
+         "Q19~Q56",
+         "Q41~Q42",
+         "Q47~Q09",
+         "Q47~Q48",
+         "Q68~Q42",
+         "Q72~Q09",
+         "Q72~Q48"
+        ]
+       }
+      }
+     },
+     "yes_no_groups": [
+      0,
+      8
+     ]
+    }
+   },
+   "n": 154
+  }
+ },
+ "timings": {
+  "teach.in_context.server": {
+   "ready_s": 6.0,
+   "warm_s": 6.0,
+   "stop_s": 0.7
+  },
+  "step_s": 658.3
+ },
+ "created": "2026-10-14T18:26:55Z",
+ "status": "done",
+ "error": null,
+ "in_context": {
+  "format": "lw-in-context/1",
+  "lessons": 17,
+  "system_sha256": "0086ece92b822f7a3ac920e3e798f3d63a98c300482080c3dba7f755691c39b7",
+  "system_prompt": "Earlier, the user told you the following, one message at a time, oldest first:\n1. \"I like black best now.\"\n2. \"My dog's eyes are green.\"\n3. \"My car is called Elsa now.\"\n4. \"Until 23 December 2025, my dog was called Ana. Since then it has been called Otto.\"\n5. \"My dog was called Elsa until 20 February 2026; now it is called Milo.\"\n6. \"My dog's eyes have always been amber.\"\n7. \"My favourite colour has changed; it is white now.\"\n8. \"Until 16 December 2025, my favourite colour was red. Since then it has been black.\"\n9. \"My dog's eyes were brown until 22 July 2025; now they are hazel.\"\n10. \"The colour of my dog's eyes is hazel.\"\n11. \"My car has a new name; it is called Milo now.\"\n12. \"My dog's eyes are no longer hazel.\"\n13. \"My car is named Milo.\"\n14. \"My car is named Bruno.\"\n15. \"My favourite colour is blue.\"\n16. \"The colour of my dog's eyes is blue.\"\n17. \"My dog's name is Otto.\"\nIn these messages, \"I\", \"me\" and \"my\" mean the user."
+ },
+ "folder": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8",
+ "binary_sha256": "759114dd74b1ab080b93df181a26f12d54f70a8614ff78928a91c190e626545a",
+ "source_unchanged": true
+}

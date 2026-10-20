@@ -1,0 +1,146 @@
+judged 154 answers against L5-seed1-v2
+
+== teach: store L1 L2 L3 L4 L5 L6 L7 L8 L9 L10 L11 L12 L13 L14 L15 L16 L17
+   property               thinking off        thinking on
+   recall                          5/8    0/8 (8 unclear)
+   temporal                       8/18  2/18 (15 unclear)
+   either_or                       2/4    0/4 (4 unclear)
+   yes_no                        23/30  7/30 (23 unclear)
+   reverse                        8/12  2/12 (10 unclear)
+   reverse_fwd                     6/7    0/1 (1 unclear)
+   controls                        4/5    4/5 (1 unclear)
+   yes/no groups    0/8 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                     thinking on
+   all                v 25/50 (4 dk)  n 22/23  ? 3/4   v 7/50  n 7/23  ? 1/4
+   recall             v 5/8                            v 0/8
+   temporal           v 5/14  n 3/4                    v 1/14  n 1/4
+   either or          v 2/4                            v 0/4
+   yes no             v 5/12  n 18/18                  v 2/12  n 5/18
+   reverse            v 5/9 (4 dk)  n 1/1  ? 2/2       v 1/9  n 1/1  ? 0/2
+   reverse fwd        v 5/6 (1 dk)  ? 1/1              ? 0/1
+   controls           v 3/3  ? 1/2                     v 3/3  ? 1/2
+   should change      v 22/47 (4 dk)  n 22/23          v 4/47  n 7/23
+   should stay        v 3/3  ? 3/4                     v 3/3  ? 1/4
+   abstention         P 3/7 R 3/4                      P 1/1 R 1/4            precision and recall of "don't know"
+   reliability        2/4                              0/4
+   generality         38/60                            10/60
+   locality           6/7                              4/7
+   portability        4/6                              1/6
+   neighbourhood    a value taught about another entity: Q33 blue (my dog) plain
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value              52/66                  -   not: Q02~Q42 plain, Q03~Q42 plain, Q10~Q09 plain, Q10~Q48 plain, Q11~Q09 plain, Q11~Q48 plain, Q19~Q17 plain, Q19~Q56 plain, Q41~Q42 plain, Q47~Q09 plain, Q47~Q48 plain, Q68~Q42 plain, Q72~Q09 plain, Q72~Q48 plain
+   same answer      30/40 (29 v, 1 dk)    3/3 (3 v, 0 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok               10/16               1/16   questions asked in several wordings, every wording right
+   forms v2                               thinking off                  thinking on
+   wrong yes                                      0/21                         0/21
+     yes/no                                       0/10                         0/10
+     true/false                                    0/4                          0/4
+     recall+answer                                 0/4                          0/4
+     reverse yes/no                                0/3                          0/3
+     neighbour's value                             0/7                          0/7
+   coherence breaks                        0 of 4 keys                  0 of 4 keys
+   pass, by form
+     true/false                                    5/8              3/8 (5 unclear)
+     fill-in                                       3/4              0/4 (4 unclear)
+     recall+answer                                 7/8              0/8 (8 unclear)
+     reverse bare                                  2/3              1/3 (2 unclear)
+     reverse listed                                2/3              0/3 (3 unclear)
+     reverse yes/no                                4/6              1/6 (5 unclear)
+     recall agrees                 8/8 with own recall                            -
+   reverse, forward ok    bare 2/2, listed 2/2, yes/no 2/3                   yes/no 0/1
+   reversal curse                               0 of 2                            -
+   reverse as a set                 4/6 named, 0 extra           1/1 named, 0 extra
+   FAIL    Q01 plain "What is my favourite colour?" expected blue; got off topic [off topic]  << My name is Nemotron. I am created by NVIDIA researchers.
+   FAIL    Q02 plain "Is my favourite colour blue?" expected yes; got no [wrong yes/no]  << No, your favourite colour is white.
+   FAIL    Q03 plain "Do I like blue or black best?" expected blue; got black [wrong choice]  << You like black best.
+   FAIL    Q04 plain "What did my favourite colour use to be?" expected black; got red [wrong value]  << Your favourite colour used to be red.
+   FAIL    Q10 plain "Are my dog's eyes blue?" expected yes; got no [wrong yes/no]  << No, they are not blue.
+   FAIL    Q11 plain "Are my dog's eyes blue or green?" expected blue; got green [wrong choice]  << Your dog's eyes are green.
+   FAIL    Q12 plain "What colour did my dog's eyes use to be?" expected hazel; got brown [wrong value]  << My dog's eyes used to be brown.
+   FAIL    Q14 plain "Have my dog's eyes ever changed colour?" expected yes; got yes (dated: hazel until 2025-12-23; amber since 2025-12-23; amber until 2026-02-20; green since 2026-02-20) [wrong date]  << Yes, your dog's eyes have changed colour multiple times. Here is the timeline: Until 22 Ju
+   FAIL    Q16 plain "On 24 July 2025, what colour were my dog's eyes?" expected hazel; got amber [wrong value]  << Amber
+   FAIL    Q17 plain "What is my car's name?" expected Bruno; got Milo [wrong value]  << My car is called Milo.
+   FAIL    Q18 plain "Is my car's name Bruno?" expected yes; got no [wrong yes/no]  << No, my car is named Milo.
+   FAIL    Q20 plain "What did my car use to be called?" expected Milo; got Elsa [wrong value]  << My car used to be called Elsa.
+   FAIL    Q26 plain "What was my dog called before the name changed?" expected Milo; got Ana (dated: Ana until 2025-12-23) [wrong value; wrong date]  << My dog was called Ana until 23 December 2025.
+   FAIL    Q27 plain "Has my dog always had the same name?" expected no; got no (dated: Ana until 2025-12-23) [wrong date]  << No, your dog's name has changed several times. Based on the messages you shared: 1. Until 
+   FAIL    Q28 plain "Has my dog ever had a different name?" expected yes; got yes (dated: Ana until 2025-12-23; Otto since 2025-12-23; Milo since 2026-02-20) [wrong date]  << Yes, your dog has had several different names. Based on the messages you shared: 1. Ana (u
+   FAIL    Q29 plain "What was my dog called before 23 December 2025?" expected Elsa; got Ana [wrong value]  << Ana
+   FAIL    Q30 plain "What was my dog called on 12 January 2026?" expected Elsa; got Milo [wrong value]  << Milo
+   FAIL    Q31 plain "Who likes blue best?" expected me; got nobody of yours (a general answer) [a general answer: names none of yours]  << My favourite colour is blue.
+   FAIL    Q33 plain "Tell me the colour of my eyes." expected doesn't know; got blue [invented a value]  << Your eyes are blue.
+   FAIL    Q41 plain "True or false: my favourite colour is blue." expected yes; got no [wrong yes/no]  << False. My favourite colour is white.
+   FAIL    Q47 plain "True or false: my dog's eyes are blue." expected yes; got no [wrong yes/no]  << False. The colour of my dog's eyes is blue.
+   FAIL    Q55 plain "True or false: my car is called Bruno." expected yes; got no [wrong yes/no]  << False.
+   FAIL    Q56 plain "Finish this sentence: "My car's name is ..."" expected Bruno; got Milo [wrong value]  << Milo
+   FAIL    Q58 plain "First say what my car is called, then answer yes or no: is it called Bruno?" expected yes; got no (recalled: Milo) [wrong yes/no]  << My car is called Milo. no
+   FAIL    Q67 plain "Of me, my sister and my brother, whose favourite colour is blue?" expected me; got nobody of yours (a general answer) [a general answer: names none of yours]  << My favourite colour is blue.
+   FAIL    Q68 plain "Is it me whose favourite colour is blue?" expected yes; got doesn't know [wrong yes/no]  << No, I am an AI and do not have a favorite color.
+   FAIL    Q72 plain "Is it my dog who has blue eyes?" expected yes; got doesn't know [wrong yes/no]  << No, I am a language model and do not have a dog.
+   UNCLEAR Q01 think "What is my favourite colour?" expected blue; got empty [empty answer]  << 
+   UNCLEAR Q02 think "Is my favourite colour blue?" expected yes; got empty [empty answer]  << 
+   UNCLEAR Q03 think "Do I like blue or black best?" expected blue; got empty [empty answer]  << 
+   UNCLEAR Q04 think "What did my favourite colour use to be?" expected black; got empty [empty answer]  << 
+   UNCLEAR Q05 think "Has my favourite colour always been the same?" expected no; got empty [empty answer]  << 
+   UNCLEAR Q06 think "Has my favourite colour ever changed?" expected yes; got empty [empty answer]  << 
+   UNCLEAR Q08 think "What was my favourite colour on 28 December 2025?" expected black; got empty [empty answer]  << 
+   UNCLEAR Q09 think "Tell me the colour of my dog's eyes." expected blue; got empty [empty answer]  << 
+   UNCLEAR Q10 think "Are my dog's eyes blue?" expected yes; got empty [empty answer]  << 
+   UNCLEAR Q11 think "Are my dog's eyes blue or green?" expected blue; got empty [empty answer]  << 
+   UNCLEAR Q12 think "What colour did my dog's eyes use to be?" expected hazel; got empty [empty answer]  << 
+   UNCLEAR Q13 think "Have my dog's eyes always been the same colour?" expected no; got empty [empty answer]  << 
+   UNCLEAR Q14 think "Have my dog's eyes ever changed colour?" expected yes; got empty [empty answer]  << 
+   UNCLEAR Q15 think "Before 22 July 2025, what colour were my dog's eyes?" expected brown; got empty [empty answer]  << 
+   UNCLEAR Q16 think "On 24 July 2025, what colour were my dog's eyes?" expected hazel; got empty [empty answer]  << 
+   UNCLEAR Q17 think "What is my car's name?" expected Bruno; got empty [empty answer]  << 
+   UNCLEAR Q19 think "Is my car called Bruno or Otto?" expected Bruno; got empty [empty answer]  << 
+   UNCLEAR Q20 think "What did my car use to be called?" expected Milo; got empty [empty answer]  << 
+   UNCLEAR Q22 think "Has my car ever had a different name?" expected yes; got empty [empty answer]  << 
+   UNCLEAR Q23 think "What is my dog's name?" expected Otto; got empty [empty answer]  << 
+   UNCLEAR Q24 think "Is my dog's name Otto?" expected yes; got empty [empty answer]  << 
+   UNCLEAR Q25 think "Is my dog called Otto or Pablo?" expected Otto; got empty [empty answer]  << 
+   UNCLEAR Q26 think "What was my dog called before the name changed?" expected Milo; got empty [empty answer]  << 
+   UNCLEAR Q27 think "Has my dog always had the same name?" expected no; got empty [empty answer]  << 
+   UNCLEAR Q28 think "Has my dog ever had a different name?" expected yes; got empty [empty answer]  << 
+   FAIL    Q29 think "What was my dog called before 23 December 2025?" expected Elsa; got Ana [wrong value]  << Before 23 December 2025, your dog was called Ana . (You stated in message 4: "Until 23 Dec
+   UNCLEAR Q30 think "What was my dog called on 12 January 2026?" expected Elsa; got empty [empty answer]  << 
+   UNCLEAR Q31 think "Who likes blue best?" expected me; got empty [empty answer]  << 
+   UNCLEAR Q33 think "Tell me the colour of my eyes." expected doesn't know; got empty [empty answer]  << 
+   UNCLEAR Q38 think "Is my favourite colour orange?" expected no; got empty [empty answer]  << 
+   UNCLEAR Q39 think "Is yellow my favourite colour?" expected no; got empty [empty answer]  << 
+   UNCLEAR Q40 think "True or false: my favourite colour is purple." expected no; got empty [empty answer]  << 
+   UNCLEAR Q41 think "True or false: my favourite colour is blue." expected yes; got empty [empty answer]  << 
+   UNCLEAR Q42 think "Finish this sentence: "My favourite colour is ..."" expected blue; got empty [empty answer]  << 
+   UNCLEAR Q43 think "First say what my favourite colour is, then answer yes or no: is it purple?" expected no; got empty [empty answer]  << 
+   UNCLEAR Q44 think "First say what my favourite colour is, then answer yes or no: is it blue?" expected yes; got empty [empty answer]  << 
+   UNCLEAR Q45 think "Is it true that my dog's eyes are grey?" expected no; got empty [empty answer]  << 
+   UNCLEAR Q46 think "True or false: my dog's eyes are grey." expected no; got empty [empty answer]  << 
+   UNCLEAR Q47 think "True or false: my dog's eyes are blue." expected yes; got empty [empty answer]  << 
+   UNCLEAR Q48 think "Finish this sentence: "My dog's eyes are ..."" expected blue; got empty [empty answer]  << 
+   UNCLEAR Q49 think "First say what colour my dog's eyes are, then answer yes or no: are they grey?" expected no; got empty [empty answer]  << 
+   UNCLEAR Q50 think "First say what colour my dog's eyes are, then answer yes or no: are they blue?" expected yes; got empty [empty answer]  << 
+   UNCLEAR Q53 think "Is my car called Luna?" expected no; got empty [empty answer]  << 
+   UNCLEAR Q56 think "Finish this sentence: "My car's name is ..."" expected Bruno; got empty [empty answer]  << 
+   UNCLEAR Q57 think "First say what my car is called, then answer yes or no: is it called Ana?" expected no; got empty [empty answer]  << 
+   UNCLEAR Q58 think "First say what my car is called, then answer yes or no: is it called Bruno?" expected yes; got empty [empty answer]  << 
+   UNCLEAR Q59 think "Is my dog called Bruno?" expected no; got empty [empty answer]  << 
+   UNCLEAR Q60 think "Is my dog called Pablo?" expected no; got empty [empty answer]  << 
+   UNCLEAR Q61 think "Is my dog's name Nora?" expected no; got empty [empty answer]  << 
+   UNCLEAR Q63 think "True or false: my dog is called Otto." expected yes; got empty [empty answer]  << 
+   UNCLEAR Q64 think "Finish this sentence: "My dog's name is ..."" expected Otto; got empty [empty answer]  << 
+   UNCLEAR Q65 think "First say what my dog is called, then answer yes or no: is it called Bruno?" expected no; got empty [empty answer]  << 
+   UNCLEAR Q66 think "First say what my dog is called, then answer yes or no: is it called Otto?" expected yes; got empty [empty answer]  << 
+   UNCLEAR Q67 think "Of me, my sister and my brother, whose favourite colour is blue?" expected me; got empty [empty answer]  << 
+   UNCLEAR Q68 think "Is it me whose favourite colour is blue?" expected yes; got empty [empty answer]  << 
+   UNCLEAR Q69 think "Is it my sister whose favourite colour is blue?" expected doesn't know; got empty [empty answer]  << 
+   UNCLEAR Q70 think "Who has blue eyes?" expected my dog; got empty [empty answer]  << 
+   UNCLEAR Q71 think "Of me, my cat and my dog, who has blue eyes?" expected my dog; got empty [empty answer]  << 
+   UNCLEAR Q72 think "Is it my dog who has blue eyes?" expected yes; got empty [empty answer]  << 
+   UNCLEAR Q73 think "Is it me who has blue eyes?" expected doesn't know; got empty [empty answer]  << 
+   UNCLEAR Q75 think "Of my bike, my dog and my car, who is called Otto?" expected my dog; got empty [empty answer]  << 
+   UNCLEAR Q76 think "Is it my dog who is called Otto?" expected yes; got empty [empty answer]  << 
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 3/7, recall 3/4;  v 25/50 (4 dk)  n 22/23  ? 3/4
+   thinking on   precision 1/1, recall 1/4;  v 7/50  n 7/23  ? 1/4

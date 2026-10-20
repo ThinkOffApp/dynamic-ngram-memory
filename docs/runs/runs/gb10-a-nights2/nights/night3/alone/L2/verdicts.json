@@ -1,0 +1,342 @@
+{
+ "set": "L6-seed1-nights",
+ "results": [
+  {
+   "phase": "day3",
+   "qid": "Q18",
+   "type": "CHAIN",
+   "thinking": false,
+   "question": "What is my cat's eye colour?",
+   "expected": "green",
+   "got": "unclear",
+   "verdict": "echo",
+   "why": "repeats a step on the way (the link), not the answer",
+   "buckets": [
+    "two_step"
+   ],
+   "class": "value",
+   "gave": "unclear",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "My cat's eyes are the same colour as mine."
+  },
+  {
+   "phase": "day3",
+   "qid": "Q29",
+   "type": "CHAIN",
+   "thinking": false,
+   "question": "What colour are Milo's eyes?",
+   "expected": "green",
+   "got": "green",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "two_step"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "Milo's eyes are the same colour as the cat's owner, which is green."
+  }
+ ],
+ "consistency": {},
+ "paraphrase": {
+  "day3": {
+   "off": {
+    "groups": 1,
+    "all_right": 0,
+    "pairs": 0,
+    "same": 0,
+    "same_value": 0,
+    "same_dk": 0,
+    "uncompared": 1,
+    "differ": []
+   }
+  }
+ },
+ "kept_stable": {},
+ "split": {
+  "day3": {
+   "off": {
+    "split": {
+     "all": {
+      "value": {
+       "n": 2,
+       "pass": 1,
+       "fail": 0,
+       "unclear": 1,
+       "dk_miss": 0
+      }
+     },
+     "two_step": {
+      "value": {
+       "n": 2,
+       "pass": 1,
+       "fail": 0,
+       "unclear": 1,
+       "dk_miss": 0
+      }
+     },
+     "should_stay": {
+      "value": {
+       "n": 2,
+       "pass": 1,
+       "fail": 0,
+       "unclear": 1,
+       "dk_miss": 0
+      }
+     }
+    },
+    "tags": {
+     "locality": {
+      "n": 2,
+      "pass": 1,
+      "fail": 0,
+      "unclear": 1,
+      "dk_miss": 0
+     }
+    },
+    "abstention": {
+     "said_dk": 0,
+     "said_dk_right": 0,
+     "dk_expected": 0
+    },
+    "closed_world": 0,
+    "neighbour": []
+   }
+  },
+  "all phases": {
+   "off": {
+    "split": {
+     "all": {
+      "value": {
+       "n": 2,
+       "pass": 1,
+       "fail": 0,
+       "unclear": 1,
+       "dk_miss": 0
+      }
+     },
+     "two_step": {
+      "value": {
+       "n": 2,
+       "pass": 1,
+       "fail": 0,
+       "unclear": 1,
+       "dk_miss": 0
+      }
+     },
+     "should_stay": {
+      "value": {
+       "n": 2,
+       "pass": 1,
+       "fail": 0,
+       "unclear": 1,
+       "dk_miss": 0
+      }
+     }
+    },
+    "tags": {
+     "locality": {
+      "n": 2,
+      "pass": 1,
+      "fail": 0,
+      "unclear": 1,
+      "dk_miss": 0
+     }
+    },
+    "abstention": {
+     "said_dk": 0,
+     "said_dk_right": 0,
+     "dk_expected": 0
+    },
+    "closed_world": 0,
+    "neighbour": []
+   }
+  }
+ },
+ "two_step": {
+  "note": "stated: the taught single steps the chains rest on; implied: the chains; gap: stated minus implied, in percentage points; given_steps_right: chains whose every step (natural ones included) was answered right in the same phase and thinking mode",
+  "modes": {
+   "off": {
+    "all": {
+     "units": 1,
+     "stated": {
+      "pass": 0,
+      "n": 2,
+      "pct": 0.0
+     },
+     "implied": {
+      "pass": 1,
+      "n": 1,
+      "pct": 100.0
+     },
+     "given_steps_right": {
+      "pass": 0,
+      "n": 0,
+      "pct": null
+     },
+     "echo": 0,
+     "gap_points": -100.0
+    },
+    "by_steps": {
+     "1": {
+      "units": 1,
+      "stated": {
+       "pass": 0,
+       "n": 1,
+       "pct": 0.0
+      },
+      "implied": {
+       "pass": 0,
+       "n": 1,
+       "pct": 0.0
+      },
+      "given_steps_right": {
+       "pass": 0,
+       "n": 0,
+       "pct": null
+      },
+      "echo": 1,
+      "gap_points": 0.0
+     },
+     "2": {
+      "units": 1,
+      "stated": {
+       "pass": 0,
+       "n": 2,
+       "pct": 0.0
+      },
+      "implied": {
+       "pass": 1,
+       "n": 1,
+       "pct": 100.0
+      },
+      "given_steps_right": {
+       "pass": 0,
+       "n": 0,
+       "pct": null
+      },
+      "echo": 0,
+      "gap_points": -100.0
+     }
+    },
+    "by_family": {
+     "alias": {
+      "units": 1,
+      "stated": {
+       "pass": 0,
+       "n": 2,
+       "pct": 0.0
+      },
+      "implied": {
+       "pass": 1,
+       "n": 1,
+       "pct": 100.0
+      },
+      "given_steps_right": {
+       "pass": 0,
+       "n": 0,
+       "pct": null
+      },
+      "echo": 0,
+      "gap_points": -100.0
+     },
+     "link": {
+      "units": 0,
+      "stated": {
+       "pass": 0,
+       "n": 0,
+       "pct": null
+      },
+      "implied": {
+       "pass": 0,
+       "n": 0,
+       "pct": null
+      },
+      "given_steps_right": {
+       "pass": 0,
+       "n": 0,
+       "pct": null
+      },
+      "echo": 0,
+      "gap_points": null
+     }
+    },
+    "dont_know_expected": {
+     "pass": 0,
+     "n": 0,
+     "pct": null
+    },
+    "baseline": {
+     "pass": 0,
+     "n": 0,
+     "pct": null
+    },
+    "echo": 1,
+    "dropped": [],
+    "dropped_units": 0,
+    "no_baseline": [],
+    "compound": {
+     "all": {
+      "pass": 0,
+      "n": 0,
+      "pct": null
+     },
+     "given_parts_right": {
+      "pass": 0,
+      "n": 0,
+      "pct": null
+     },
+     "by_case": {}
+    }
+   }
+  },
+  "units": [
+   {
+    "phase": "day3",
+    "thinking": false,
+    "qid": "Q18",
+    "family": "link",
+    "steps": 1,
+    "known": true,
+    "verdict": "echo",
+    "step_qids": [
+     "Q18"
+    ],
+    "step_verdicts": [
+     "echo"
+    ],
+    "taught": [
+     true
+    ],
+    "dropped": [],
+    "no_baseline": []
+   },
+   {
+    "phase": "day3",
+    "thinking": false,
+    "qid": "Q29",
+    "family": "alias",
+    "steps": 2,
+    "known": true,
+    "verdict": "pass",
+    "step_qids": [
+     "Q11",
+     "Q18"
+    ],
+    "step_verdicts": [
+     null,
+     "echo"
+    ],
+    "taught": [
+     true,
+     true
+    ],
+    "dropped": [],
+    "no_baseline": []
+   }
+  ]
+ }
+}

@@ -1,0 +1,53 @@
+judged 112 answers against L6-seed1
+
+== baseline: store (empty)
+   property               thinking off        thinking on
+   recall                        12/14              13/14
+   yes_no                          8/9                9/9
+   two_step                      11/16  14/16 (2 unclear)
+   compound            6/8 (1 unclear)                8/8
+   controls                        9/9                9/9
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off      thinking on
+   all                v 6/6  ? 40/50    v 6/6  ? 47/50
+   recall             ? 12/14           ? 13/14
+   yes no             ? 8/9             ? 9/9
+   two step           ? 11/16           ? 14/16
+   compound           ? 6/8             ? 8/8
+   controls           v 6/6  ? 3/3      v 6/6  ? 3/3
+   abstention         P 40/40 R 40/50   P 47/47 R 47/50  precision and recall of "don't know"
+   closed world       +1                +0               fails that pass if a "no" counts where the right answer is "don't know"
+   reliability        11/13             12/13
+   generality         7/8               8/8
+   locality           28/35             33/35
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: dk                     4/4                3/3
+   same answer      23/44 (1 v, 22 dk) 45/45 (0 v, 45 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 1/5                3/5   questions asked in several wordings, every wording right
+   FAIL    Q04 plain "Who does the tent belong to?" expected doesn't know; got off topic [off topic]  << My name is Nemotron. I am created by NVIDIA researchers.
+   FAIL    Q12 plain "What is my dog called?" expected doesn't know; got off topic [off topic]  << My name is Nemotron, and I'm a language model developed by NVIDIA.
+   FAIL    Q13 plain "Does my cat have the same eye colour as me?" expected doesn't know; got a guess: no [a guess, not a recall]  << It is very unlikely that your cat has the exact same eye colour as you. Here is why: Human
+   FAIL    Q26 plain "What is the colour of Ana's eyes?" expected doesn't know; got brown [invented a value]  << Ana's eyes are brown.
+   FAIL    Q27 plain "Which country does Ana live in?" expected doesn't know; got Spain [invented a value]  << Ana lives in Spain .
+   FAIL    Q28 plain "What is the colour of Bruno's eyes?" expected doesn't know; got blue [invented a value]  << In the novel The Boy in the Striped Pajamas , Bruno's eyes are described as blue . However
+   FAIL    Q29 plain "What colour are Milo's eyes?" expected doesn't know; got blue [invented a value]  << Milo's eyes are blue .
+   FAIL    Q30 plain "Are Otto's eyes amber?" expected doesn't know; got yes [wrong yes/no]  << Yes, Otto's eyes are amber.
+   UNCLEAR Q36 plain "Is it true that I like cheese or my sister is called Nora?" expected doesn't know; got unclear [no yes or no]  << This is a classic example of a tautology (a statement that is true by necessity). The sent
+   FAIL    Q38 plain "Is it true that my dog does not like olives?" expected doesn't know; got no [wrong yes/no]  << It is not necessarily true that your dog doesn't like olives, but it is also not guarantee
+   FAIL    Q03 think "Whose is the boat?" expected doesn't know; got a guess: me [guessed a value]  << I don't know without more context! Could you tell me where you're seeing this question, or
+   UNCLEAR Q29 think "What colour are Milo's eyes?" expected doesn't know; got several: brown, red, orange [ambiguous]  << Which Milo are you referring to? "Milo" can refer to several different characters, and eye
+   UNCLEAR Q30 think "Are Otto's eyes amber?" expected doesn't know; got unclear [no yes or no]  << Which "Otto" are you referring to? The name is used for many different characters, histori
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 40/40, recall 40/50;  v 6/6  ? 40/50
+   thinking on   precision 47/47, recall 47/50;  v 6/6  ? 47/50
+
+== two-step questions (level 6): stated against implied facts
+   phases with lessons taught; a chain counts when the rule book knows its answer and every step has a question of its own
+   stated: the taught steps it rests on; implied: the chain itself; given steps right: chains whose every step was right in the same phase and mode
+   thinking off: stated 0/0, implied 0/0; given steps right 0/0; echo 0
+     steps  chains         stated        implied  given steps right    gap
+     don't know expected 0/0; baseline 17/24 (71%); echo answers 0
+   thinking on: stated 0/0, implied 0/0; given steps right 0/0; echo 0
+     steps  chains         stated        implied  given steps right    gap
+     don't know expected 0/0; baseline 22/24 (92%); echo answers 0

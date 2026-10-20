@@ -1,0 +1,66 @@
+judged 56 answers against L6-seed1-nights
+
+== day2: store L1 L2 L3 L4 L5 L6 L7 L8 L9 L10 L11 L12 L13 L14 L15 L16 L17 L18 L19 L20
+   property               thinking off        thinking on
+   recall            10/14 (2 unclear)                  -
+   yes_no                          6/9                  -
+   two_step                       8/16                  -
+   compound            2/8 (5 unclear)                  -
+   controls                        8/9                  -
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                    thinking on
+   all                v 28/33 (1 dk)  n 2/2  ? 4/21   -
+   recall             v 9/10  ? 1/4                   -
+   yes no             v 5/5  n 1/1  ? 0/3             -
+   two step           v 7/9 (1 dk)  ? 1/7             -
+   compound           v 1/3  n 1/1  ? 0/4             -
+   controls           v 6/6  ? 2/3                    -
+   should change      v 8/9  n 1/1  ? 2/11            -
+   should stay        v 20/24 (1 dk)  n 1/1  ? 2/10   -
+   abstention         P 4/5 R 4/21                    -  precision and recall of "don't know"
+   closed world       +4                              -  fails that pass if a "no" counts where the right answer is "don't know"
+   reliability        10/13                           -
+   generality         6/8                             -
+   locality           18/35                           -
+   neighbourhood    a value taught about another entity: Q48 yellow (me) plain, Q50 yellow (me) plain, Q51 cheese (me) plain
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value                4/4                  -
+   same answer        5/26 (5 v, 0 dk)                  -   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 0/5                  -   questions asked in several wordings, every wording right
+   UNCLEAR Q04 plain "Who does the tent belong to?" expected me; got unclear [unclear]  << The tent belongs to me.
+   UNCLEAR Q11 plain "What is my cat's name?" expected doesn't know; got unclear [unclear]  << My cat's name is not mentioned in the conversation history.
+   FAIL    Q14 plain "Does my brother live in the same city as my sister?" expected doesn't know; got no [wrong yes/no]  << No, your brother lives in Turku and your sister lives in Porto.
+   FAIL    Q17 plain "Which country does my brother live in?" expected doesn't know; got Finland [invented a value]  << My brother lives in Finland.
+   FAIL    Q19 plain "Which city does my brother live in?" expected doesn't know; got Turku [invented a value]  << My brother lives in Turku.
+   FAIL    Q21 plain "Does the owner of the boat have amber eyes?" expected yes; got no [wrong yes/no]  << No, the owner of the boat has green eyes.
+   FAIL    Q22 plain "Where does the owner of the boat live?" expected doesn't know; got Porto [invented a value]  << Porto
+   FAIL    Q23 plain "In which country does the owner of the boat live?" expected doesn't know; got Portugal [invented a value]  << The owner of the boat is the user's brother, who lives in Porto. Porto is in Portugal.
+   FAIL    Q24 plain "What is the favourite colour of the owner of the boat?" expected doesn't know; got yellow [invented a value]  << yellow
+   FAIL    Q29 plain "What colour are Milo's eyes?" expected doesn't know; got grey [invented a value]  << Grey
+   FAIL    Q30 plain "Are Otto's eyes amber?" expected yes; got doesn't know [wrong yes/no]  << No, I don't have information about Otto's eye color. I only know that his name is Otto and
+   UNCLEAR Q32 plain "Is it true that my brother's favourite colour is black and I like cheese?" expected doesn't know; got unclear [no yes or no]  << Let me check the information I have about you and your brother. From the conversation hist
+   UNCLEAR Q33 plain "Is it true that the boat belongs to my brother and my dog likes olives?" expected doesn't know; got unclear [no yes or no]  << Let me check the information I have about the boat and your dog's preferences. From the co
+   UNCLEAR Q34 plain "Is it true that my brother's favourite colour is black or my eyes are green?" expected yes; got unclear [no yes or no]  << Your eyes are green.
+   UNCLEAR Q35 plain "Is it true that my sister is called Nora or my dog likes olives?" expected doesn't know; got unclear [no yes or no]  << My sister's name is Ana. My dog really likes apples.
+   UNCLEAR Q36 plain "Is it true that I like cheese or my sister is called Nora?" expected yes; got unclear [no yes or no]  << I like cheese.
+   FAIL    Q38 plain "Is it true that my dog does not like olives?" expected doesn't know; got no [wrong yes/no]  << No, I don't think so. You said "My dog really likes apples."
+   FAIL    Q44 plain "Is my brother's favourite colour black?" expected doesn't know; got no [wrong yes/no]  << No, he likes yellow the most.
+   FAIL    Q45 plain "Does my dog like olives?" expected doesn't know; got no [wrong yes/no]  << No, I don't think so. You said your dog really likes apples.
+   FAIL    Q48 plain "Which colour does my brother like best?" expected doesn't know; got yellow [invented a value]  << Of all colours, I like yellow the most.
+   FAIL    Q50 plain "What colour does my sister like the most?" expected doesn't know; got yellow [invented a value]  << My sister likes yellow the most.
+   FAIL    Q51 plain "What food does my brother like?" expected doesn't know; got cheese [invented a value]  << Otto likes cheese.
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 4/5, recall 4/21;  v 28/33 (1 dk)  n 2/2  ? 4/21
+
+== two-step questions (level 6): stated against implied facts
+   phases with lessons taught; a chain counts when the rule book knows its answer and every step has a question of its own
+   stated: the taught steps it rests on; implied: the chain itself; given steps right: chains whose every step was right in the same phase and mode
+   thinking off: stated 13/14 (93%), implied 6/8 (75%), gap +18 points; given steps right 5/7 (71%); echo 0
+     steps  chains         stated        implied  given steps right    gap
+     1           1     1/1 (100%)     1/1 (100%)         1/1 (100%)     +0
+     2           7    11/12 (92%)      5/7 (71%)          4/6 (67%)    +20
+     3           1     2/2 (100%)     1/1 (100%)         1/1 (100%)     +0
+     by family (2 steps or more): natural 2/2 (100%), owner 2/3 (67%), alias 2/3 (67%), link 0/0
+     compound (Kleene): 2/8 (25%); given both parts right 2/3 (67%); no or unknown 0/1 (0%), not unknown 0/1 (0%), not yes 1/1 (100%), unknown and yes 0/1 (0%), unknown or yes 0/1 (0%), yes and unknown 0/1 (0%), yes and yes 1/1 (100%), yes or no 0/1 (0%)
+     don't know expected 1/7 (14%); baseline 0/0; echo answers 0; no baseline answer for Porto, Turku, nothing dropped for it

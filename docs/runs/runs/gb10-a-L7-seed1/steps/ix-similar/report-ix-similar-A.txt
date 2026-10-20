@@ -1,0 +1,29 @@
+judged 20 answers against L7-seed1
+
+== ix-similar-A: store L51
+   property               thinking off        thinking on
+   recall                          1/2                1/2
+   yes_no                          1/2                1/2
+   controls                        6/6                6/6
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                        thinking on
+   all                v 3/4 (1 dk)  n 0/1 (1 dk)  ? 5/5   v 3/4 (1 dk)  n 0/1 (1 dk)  ? 5/5
+   recall             v 0/1 (1 dk)  ? 1/1                 v 0/1 (1 dk)  ? 1/1
+   yes no             n 0/1 (1 dk)  ? 1/1                 n 0/1 (1 dk)  ? 1/1
+   controls           v 3/3  ? 3/3                        v 3/3  ? 3/3
+   should change      ? 2/2                               ? 2/2
+   should stay        v 3/4 (1 dk)  n 0/1 (1 dk)  ? 3/3   v 3/4 (1 dk)  n 0/1 (1 dk)  ? 3/3
+   abstention         P 5/7 R 5/5                         P 5/7 R 5/5                        precision and recall of "don't know"
+   reliability        1/2                                 1/2
+   generality         1/2                                 1/2
+   locality           6/6                                 6/6
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: dk                     2/2                2/2
+   FAIL    Q101 plain "What is my colleague called?" expected Luna; got doesn't know [does not know a taught value]  << I don't know your name, so I can't tell you your colleague's name. Could you please tell m
+   FAIL    Q102 plain "Is my colleague called Milo?" expected no; got doesn't know [wrong yes/no]  << I don't have access to your personal information or your workplace directory, so I can't t
+   FAIL    Q101 think "What is my colleague called?" expected Luna; got doesn't know [does not know a taught value]  << I don't have access to your personal information, workplace, or the people you know, so I 
+   FAIL    Q102 think "Is my colleague called Milo?" expected no; got doesn't know [wrong yes/no]  << I don't have access to your personal contacts, company directory, or workplace records, so
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 5/7, recall 5/5;  v 3/4 (1 dk)  n 0/1 (1 dk)  ? 5/5
+   thinking on   precision 5/7, recall 5/5;  v 3/4 (1 dk)  n 0/1 (1 dk)  ? 5/5

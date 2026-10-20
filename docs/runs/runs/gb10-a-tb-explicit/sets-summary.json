@@ -1,0 +1,1430 @@
+{
+ "format": "lw-sets-summary/1",
+ "started": "2026-10-15T10:08:03Z",
+ "host": "gb10-a",
+ "args": {
+  "sets": [
+   "~/lw-runs/gb10-a-tb-explicit/neg-seed1-v2/set.json",
+   "~/lw-runs/gb10-a-tb-explicit/neg2-seed1-v2/set.json",
+   "~/lw-runs/gb10-a-tb-explicit/L5-seed1-v2/set.json",
+   "~/lw-runs/gb10-a-tb-explicit/L6-seed1/set.json"
+  ],
+  "bin": "~/tf108/zig-out/native/bin/tensorfold-native",
+  "model_src": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8",
+  "work": "~/lw-runs/gb10-a-tb-explicit",
+  "port": 18180,
+  "phases": "teach",
+  "delete_mode": "both",
+  "thinking": "off,on",
+  "max_tokens_off": 160,
+  "max_tokens_on": 6144,
+  "teach_probe": "slide",
+  "baseline_from": "src",
+  "resume": true,
+  "dry_run": false,
+  "judge_only": false,
+  "cleanup": false,
+  "models_dir": null,
+  "lwlogic": "~/llwz-tb/zengine/lwlogic.py",
+  "zero_audit": "touched",
+  "server_arg": null,
+  "keep_env": false,
+  "allow_taught_src": false,
+  "startup_timeout": 900,
+  "warm_timeout": 300,
+  "learn_timeout": 1800,
+  "lesson_deadline": 5400,
+  "save_timeout": 1800,
+  "save_grace": 120,
+  "save_line_wait": 15,
+  "fresh_empty_reteach": false,
+  "reference": "notes",
+  "reference_of": "teach",
+  "notes_tokenizer": null,
+  "notes_cap": null,
+  "notes_config": "{\"takeback\": \"explicit\"}",
+  "busy_retries": 60,
+  "chat_timeout": 900,
+  "chat_retries": 2,
+  "stop_timeout": 60,
+  "server_max_hours": 8.0
+ },
+ "sets": [
+  {
+   "set": "neg-seed1-v2",
+   "level": "neg",
+   "seed": 1,
+   "path": "~/lw-runs/gb10-a-tb-explicit/neg-seed1-v2/set.json",
+   "work": "neg-seed1-v2",
+   "rc": 0,
+   "seconds": 108.7,
+   "error": null,
+   "steps": {
+    "baseline": {
+     "kind": "baseline",
+     "status": "done",
+     "scores": {
+      "baseline": {
+       "off": {
+        "pass": 15,
+        "total": 19,
+        "unclear": 1
+       },
+       "on": {
+        "pass": 17,
+        "total": 19,
+        "unclear": 0
+       }
+      }
+     }
+    },
+    "teach": {
+     "kind": "teach",
+     "status": "done",
+     "scores": {
+      "teach": {
+       "off": {
+        "pass": 14,
+        "total": 19,
+        "unclear": 1
+       },
+       "on": {
+        "pass": 15,
+        "total": 19,
+        "unclear": 0
+       }
+      }
+     }
+    },
+    "del-A.zero": {
+     "kind": "zero",
+     "status": "not applicable",
+     "scores": {}
+    },
+    "del-A.reteach": {
+     "kind": "reteach-empty",
+     "status": "done",
+     "scores": {
+      "del-A.reteach": {
+       "off": {
+        "pass": 15,
+        "total": 19,
+        "unclear": 1
+       },
+       "on": {
+        "pass": 17,
+        "total": 19,
+        "unclear": 0
+       }
+      }
+     }
+    },
+    "teach.in_context": {
+     "kind": "in_context",
+     "status": "done",
+     "scores": {
+      "teach.in_context": {
+       "off": {
+        "pass": 11,
+        "total": 19,
+        "unclear": 0
+       },
+       "on": {
+        "pass": 13,
+        "total": 19,
+        "unclear": 3
+       }
+      }
+     }
+    },
+    "teach.replacement_memory": {
+     "kind": "replacement_memory",
+     "status": "done",
+     "scores": {
+      "teach.replacement_memory": {
+       "off": {
+        "pass": 13,
+        "total": 19,
+        "unclear": 0
+       },
+       "on": {
+        "pass": 13,
+        "total": 19,
+        "unclear": 0
+       }
+      }
+     }
+    },
+    "teach.notes": {
+     "kind": "notes",
+     "status": "done",
+     "scores": {
+      "teach.notes": {
+       "off": {
+        "pass": 14,
+        "total": 19,
+        "unclear": 0
+       },
+       "on": {
+        "pass": 14,
+        "total": 19,
+        "unclear": 1
+       }
+      }
+     }
+    }
+   },
+   "failed_steps": [],
+   "not_applicable_steps": [
+    "del-A.zero"
+   ],
+   "teach": {
+    "lessons": 1,
+    "recalled": 0,
+    "refused": [
+     "L1"
+    ],
+    "save_lines": 0
+   },
+   "combined": {
+    "reteach": {
+     "headline": "judged 114 answers against neg-seed1-v2",
+     "kept_stable": {
+      "del-A": {
+       "off": {
+        "n": 12,
+        "same_verdict": 12,
+        "same_text": 12,
+        "moved": []
+       },
+       "on": {
+        "n": 12,
+        "same_verdict": 12,
+        "same_text": 12,
+        "moved": []
+       }
+      }
+     }
+    }
+   },
+   "zero_vs_reteach": {},
+   "reference_gap": {
+    "teach": {
+     "teach": {
+      "CURRENT": {
+       "off": 0.0,
+       "on": 0.0
+      },
+      "all": {
+       "off": -0.158,
+       "on": -0.105
+      }
+     }
+    }
+   }
+  },
+  {
+   "set": "neg2-seed1-v2",
+   "level": "neg2",
+   "seed": 1,
+   "path": "~/lw-runs/gb10-a-tb-explicit/neg2-seed1-v2/set.json",
+   "work": "neg2-seed1-v2",
+   "rc": 0,
+   "seconds": 130.6,
+   "error": null,
+   "steps": {
+    "baseline": {
+     "kind": "baseline",
+     "status": "done",
+     "scores": {
+      "baseline": {
+       "off": {
+        "pass": 15,
+        "total": 23,
+        "unclear": 2
+       },
+       "on": {
+        "pass": 20,
+        "total": 23,
+        "unclear": 0
+       }
+      }
+     }
+    },
+    "teach": {
+     "kind": "teach",
+     "status": "done",
+     "scores": {
+      "teach": {
+       "off": {
+        "pass": 10,
+        "total": 23,
+        "unclear": 0
+       },
+       "on": {
+        "pass": 11,
+        "total": 23,
+        "unclear": 0
+       }
+      }
+     }
+    },
+    "del-A.zero": {
+     "kind": "zero",
+     "status": "done",
+     "scores": {
+      "del-A.zero": {
+       "off": {
+        "pass": 11,
+        "total": 23,
+        "unclear": 0
+       },
+       "on": {
+        "pass": 11,
+        "total": 23,
+        "unclear": 0
+       }
+      }
+     }
+    },
+    "del-B.zero": {
+     "kind": "zero",
+     "status": "done",
+     "scores": {
+      "del-B.zero": {
+       "off": {
+        "pass": 14,
+        "total": 23,
+        "unclear": 2
+       },
+       "on": {
+        "pass": 17,
+        "total": 23,
+        "unclear": 0
+       }
+      }
+     }
+    },
+    "del-A.reteach": {
+     "kind": "reteach",
+     "status": "done",
+     "scores": {
+      "del-A.reteach": {
+       "off": {
+        "pass": 11,
+        "total": 23,
+        "unclear": 0
+       },
+       "on": {
+        "pass": 11,
+        "total": 23,
+        "unclear": 0
+       }
+      }
+     }
+    },
+    "del-B.reteach": {
+     "kind": "reteach",
+     "status": "done",
+     "scores": {
+      "del-B.reteach": {
+       "off": {
+        "pass": 14,
+        "total": 23,
+        "unclear": 2
+       },
+       "on": {
+        "pass": 17,
+        "total": 23,
+        "unclear": 0
+       }
+      }
+     }
+    },
+    "teach.in_context": {
+     "kind": "in_context",
+     "status": "done",
+     "scores": {
+      "teach.in_context": {
+       "off": {
+        "pass": 17,
+        "total": 23,
+        "unclear": 0
+       },
+       "on": {
+        "pass": 11,
+        "total": 23,
+        "unclear": 6
+       }
+      }
+     }
+    },
+    "teach.replacement_memory": {
+     "kind": "replacement_memory",
+     "status": "done",
+     "scores": {
+      "teach.replacement_memory": {
+       "off": {
+        "pass": 16,
+        "total": 23,
+        "unclear": 0
+       },
+       "on": {
+        "pass": 16,
+        "total": 23,
+        "unclear": 0
+       }
+      }
+     }
+    },
+    "teach.notes": {
+     "kind": "notes",
+     "status": "done",
+     "scores": {
+      "teach.notes": {
+       "off": {
+        "pass": 17,
+        "total": 23,
+        "unclear": 1
+       },
+       "on": {
+        "pass": 15,
+        "total": 23,
+        "unclear": 1
+       }
+      }
+     }
+    }
+   },
+   "failed_steps": [],
+   "not_applicable_steps": [],
+   "teach": {
+    "lessons": 2,
+    "recalled": 1,
+    "refused": [
+     "L2"
+    ],
+    "save_lines": 2
+   },
+   "combined": {
+    "reteach": {
+     "headline": "judged 184 answers against neg2-seed1-v2",
+     "kept_stable": {
+      "del-A": {
+       "off": {
+        "n": 6,
+        "same_verdict": 6,
+        "same_text": 6,
+        "moved": []
+       },
+       "on": {
+        "n": 6,
+        "same_verdict": 6,
+        "same_text": 6,
+        "moved": []
+       }
+      },
+      "del-B": {
+       "off": {
+        "n": 23,
+        "same_verdict": 15,
+        "same_text": 12,
+        "moved": [
+         "Q01 fail->pass",
+         "Q02 fail->pass",
+         "Q03 fail->pass",
+         "Q05 fail->pass",
+         "Q06 pass->unclear",
+         "Q07 pass->unclear",
+         "Q13 fail->pass",
+         "Q14 fail->pass"
+        ]
+       },
+       "on": {
+        "n": 23,
+        "same_verdict": 17,
+        "same_text": 2,
+        "moved": [
+         "Q01 fail->pass",
+         "Q02 fail->pass",
+         "Q03 fail->pass",
+         "Q05 fail->pass",
+         "Q13 fail->pass",
+         "Q18 fail->pass"
+        ]
+       }
+      }
+     }
+    },
+    "zero": {
+     "headline": "judged 184 answers against neg2-seed1-v2",
+     "kept_stable": {
+      "del-A": {
+       "off": {
+        "n": 6,
+        "same_verdict": 6,
+        "same_text": 6,
+        "moved": []
+       },
+       "on": {
+        "n": 6,
+        "same_verdict": 6,
+        "same_text": 6,
+        "moved": []
+       }
+      },
+      "del-B": {
+       "off": {
+        "n": 23,
+        "same_verdict": 15,
+        "same_text": 12,
+        "moved": [
+         "Q01 fail->pass",
+         "Q02 fail->pass",
+         "Q03 fail->pass",
+         "Q05 fail->pass",
+         "Q06 pass->unclear",
+         "Q07 pass->unclear",
+         "Q13 fail->pass",
+         "Q14 fail->pass"
+        ]
+       },
+       "on": {
+        "n": 23,
+        "same_verdict": 17,
+        "same_text": 2,
+        "moved": [
+         "Q01 fail->pass",
+         "Q02 fail->pass",
+         "Q03 fail->pass",
+         "Q05 fail->pass",
+         "Q13 fail->pass",
+         "Q18 fail->pass"
+        ]
+       }
+      }
+     }
+    }
+   },
+   "zero_vs_reteach": {
+    "del-A": {
+     "off": {
+      "n": 23,
+      "same_verdict": 23,
+      "same_text": 23
+     },
+     "on": {
+      "n": 23,
+      "same_verdict": 23,
+      "same_text": 23
+     }
+    },
+    "del-B": {
+     "off": {
+      "n": 23,
+      "same_verdict": 23,
+      "same_text": 23
+     },
+     "on": {
+      "n": 23,
+      "same_verdict": 23,
+      "same_text": 23
+     }
+    }
+   },
+   "reference_gap": {
+    "teach": {
+     "teach": {
+      "CURRENT": {
+       "off": 0.75,
+       "on": 0.75
+      },
+      "all": {
+       "off": 0.304,
+       "on": 0.0
+      }
+     }
+    }
+   }
+  },
+  {
+   "set": "L5-seed1-v2",
+   "level": 5,
+   "seed": 1,
+   "path": "~/lw-runs/gb10-a-tb-explicit/L5-seed1-v2/set.json",
+   "work": "L5-seed1-v2",
+   "rc": 0,
+   "seconds": 582.3,
+   "error": null,
+   "steps": {
+    "baseline": {
+     "kind": "baseline",
+     "status": "done",
+     "scores": {
+      "baseline": {
+       "off": {
+        "pass": 49,
+        "total": 77,
+        "unclear": 5
+       },
+       "on": {
+        "pass": 69,
+        "total": 77,
+        "unclear": 3
+       }
+      }
+     }
+    },
+    "teach": {
+     "kind": "teach",
+     "status": "done",
+     "scores": {
+      "teach": {
+       "off": {
+        "pass": 38,
+        "total": 77,
+        "unclear": 2
+       },
+       "on": {
+        "pass": 30,
+        "total": 77,
+        "unclear": 12
+       }
+      }
+     }
+    },
+    "del-A.zero": {
+     "kind": "zero",
+     "status": "done",
+     "scores": {
+      "del-A.zero": {
+       "off": {
+        "pass": 36,
+        "total": 77,
+        "unclear": 6
+       },
+       "on": {
+        "pass": 21,
+        "total": 77,
+        "unclear": 13
+       }
+      }
+     }
+    },
+    "del-B.zero": {
+     "kind": "zero",
+     "status": "done",
+     "scores": {
+      "del-B.zero": {
+       "off": {
+        "pass": 41,
+        "total": 77,
+        "unclear": 3
+       },
+       "on": {
+        "pass": 29,
+        "total": 77,
+        "unclear": 16
+       }
+      }
+     }
+    },
+    "del-A.reteach": {
+     "kind": "reteach",
+     "status": "done",
+     "scores": {
+      "del-A.reteach": {
+       "off": {
+        "pass": 40,
+        "total": 77,
+        "unclear": 1
+       },
+       "on": {
+        "pass": 25,
+        "total": 77,
+        "unclear": 9
+       }
+      }
+     }
+    },
+    "del-B.reteach": {
+     "kind": "reteach",
+     "status": "done",
+     "scores": {
+      "del-B.reteach": {
+       "off": {
+        "pass": 39,
+        "total": 77,
+        "unclear": 1
+       },
+       "on": {
+        "pass": 36,
+        "total": 77,
+        "unclear": 6
+       }
+      }
+     }
+    },
+    "teach.in_context": {
+     "kind": "in_context",
+     "status": "done",
+     "scores": {
+      "teach.in_context": {
+       "off": {
+        "pass": 50,
+        "total": 77,
+        "unclear": 0
+       },
+       "on": {
+        "pass": 52,
+        "total": 77,
+        "unclear": 5
+       }
+      }
+     }
+    },
+    "teach.replacement_memory": {
+     "kind": "replacement_memory",
+     "status": "done",
+     "scores": {
+      "teach.replacement_memory": {
+       "off": {
+        "pass": 56,
+        "total": 77,
+        "unclear": 0
+       },
+       "on": {
+        "pass": 56,
+        "total": 77,
+        "unclear": 0
+       }
+      }
+     }
+    },
+    "teach.notes": {
+     "kind": "notes",
+     "status": "done",
+     "scores": {
+      "teach.notes": {
+       "off": {
+        "pass": 63,
+        "total": 77,
+        "unclear": 0
+       },
+       "on": {
+        "pass": 62,
+        "total": 77,
+        "unclear": 5
+       }
+      }
+     }
+    }
+   },
+   "failed_steps": [],
+   "not_applicable_steps": [],
+   "teach": {
+    "lessons": 17,
+    "recalled": 10,
+    "refused": [
+     "L4",
+     "L6",
+     "L7",
+     "L8",
+     "L10",
+     "L12",
+     "L17"
+    ],
+    "save_lines": 17
+   },
+   "combined": {
+    "reteach": {
+     "headline": "judged 616 answers against L5-seed1-v2",
+     "kept_stable": {
+      "del-A": {
+       "off": {
+        "n": 74,
+        "same_verdict": 59,
+        "same_text": 16,
+        "moved": [
+         "Q09 pass->fail",
+         "Q11 fail->pass",
+         "Q15 pass->fail",
+         "Q16 fail->pass",
+         "Q23 fail->pass",
+         "Q25 fail->pass",
+         "Q28 pass->fail",
+         "Q33 pass->fail",
+         "Q44 fail->pass",
+         "Q48 pass->fail",
+         "Q54 fail->pass",
+         "Q56 unclear->pass",
+         "Q64 fail->pass",
+         "Q66 fail->pass",
+         "Q75 pass->fail"
+        ]
+       },
+       "on": {
+        "n": 74,
+        "same_verdict": 50,
+        "same_text": 8,
+        "moved": [
+         "Q10 pass->unclear",
+         "Q13 pass->fail",
+         "Q14 pass->fail",
+         "Q15 pass->fail",
+         "Q18 unclear->pass",
+         "Q22 fail->unclear",
+         "Q23 fail->pass",
+         "Q24 fail->pass",
+         "Q28 pass->fail",
+         "Q47 pass->fail",
+         "Q48 pass->unclear",
+         "Q49 unclear->fail",
+         "Q50 pass->fail",
+         "Q51 unclear->pass",
+         "Q52 unclear->fail",
+         "Q53 unclear->pass",
+         "Q55 unclear->pass",
+         "Q56 pass->unclear",
+         "Q58 pass->unclear",
+         "Q60 unclear->fail",
+         "Q62 unclear->fail",
+         "Q63 pass->fail",
+         "Q68 fail->pass",
+         "Q72 fail->unclear"
+        ]
+       }
+      },
+      "del-B": {
+       "off": {
+        "n": 75,
+        "same_verdict": 67,
+        "same_text": 27,
+        "moved": [
+         "Q11 fail->pass",
+         "Q13 pass->fail",
+         "Q25 fail->pass",
+         "Q46 fail->pass",
+         "Q50 fail->pass",
+         "Q51 pass->fail",
+         "Q53 pass->fail",
+         "Q56 unclear->pass"
+        ]
+       },
+       "on": {
+        "n": 75,
+        "same_verdict": 46,
+        "same_text": 10,
+        "moved": [
+         "Q09 fail->pass",
+         "Q11 fail->pass",
+         "Q13 pass->fail",
+         "Q14 pass->fail",
+         "Q18 unclear->pass",
+         "Q19 pass->unclear",
+         "Q20 fail->unclear",
+         "Q23 fail->unclear",
+         "Q24 fail->pass",
+         "Q25 fail->pass",
+         "Q26 pass->fail",
+         "Q29 fail->pass",
+         "Q30 unclear->pass",
+         "Q43 unclear->fail",
+         "Q44 unclear->fail",
+         "Q46 fail->pass",
+         "Q48 pass->unclear",
+         "Q49 unclear->pass",
+         "Q51 unclear->pass",
+         "Q52 unclear->fail",
+         "Q53 unclear->fail",
+         "Q54 pass->fail",
+         "Q55 unclear->pass",
+         "Q60 unclear->fail",
+         "Q62 unclear->fail",
+         "Q63 pass->fail",
+         "Q65 fail->pass",
+         "Q72 fail->pass",
+         "Q75 fail->pass"
+        ]
+       }
+      }
+     }
+    },
+    "zero": {
+     "headline": "judged 616 answers against L5-seed1-v2",
+     "kept_stable": {
+      "del-A": {
+       "off": {
+        "n": 74,
+        "same_verdict": 65,
+        "same_text": 38,
+        "moved": [
+         "Q09 pass->fail",
+         "Q14 fail->pass",
+         "Q25 fail->pass",
+         "Q27 pass->fail",
+         "Q28 pass->fail",
+         "Q46 fail->unclear",
+         "Q48 pass->unclear",
+         "Q56 unclear->pass",
+         "Q64 fail->unclear"
+        ]
+       },
+       "on": {
+        "n": 74,
+        "same_verdict": 56,
+        "same_text": 36,
+        "moved": [
+         "Q10 pass->fail",
+         "Q13 pass->fail",
+         "Q14 pass->fail",
+         "Q15 pass->fail",
+         "Q16 fail->unclear",
+         "Q28 pass->fail",
+         "Q45 fail->pass",
+         "Q47 pass->fail",
+         "Q48 pass->unclear",
+         "Q49 unclear->fail",
+         "Q50 pass->unclear",
+         "Q60 unclear->fail",
+         "Q62 unclear->fail",
+         "Q63 pass->fail",
+         "Q65 fail->unclear",
+         "Q66 fail->unclear",
+         "Q75 fail->pass",
+         "Q76 pass->fail"
+        ]
+       }
+      },
+      "del-B": {
+       "off": {
+        "n": 75,
+        "same_verdict": 66,
+        "same_text": 44,
+        "moved": [
+         "Q11 fail->pass",
+         "Q13 pass->fail",
+         "Q25 fail->pass",
+         "Q26 fail->unclear",
+         "Q29 pass->fail",
+         "Q45 fail->pass",
+         "Q46 fail->pass",
+         "Q50 fail->pass",
+         "Q62 fail->pass"
+        ]
+       },
+       "on": {
+        "n": 75,
+        "same_verdict": 49,
+        "same_text": 35,
+        "moved": [
+         "Q09 fail->pass",
+         "Q13 pass->fail",
+         "Q14 pass->unclear",
+         "Q18 unclear->pass",
+         "Q20 fail->unclear",
+         "Q23 fail->unclear",
+         "Q24 fail->pass",
+         "Q25 fail->pass",
+         "Q26 pass->unclear",
+         "Q27 fail->unclear",
+         "Q28 pass->unclear",
+         "Q29 fail->unclear",
+         "Q30 unclear->fail",
+         "Q47 pass->fail",
+         "Q48 pass->unclear",
+         "Q49 unclear->fail",
+         "Q51 unclear->pass",
+         "Q53 unclear->pass",
+         "Q57 pass->unclear",
+         "Q60 unclear->fail",
+         "Q61 fail->unclear",
+         "Q62 unclear->fail",
+         "Q63 pass->fail",
+         "Q65 fail->pass",
+         "Q72 fail->pass",
+         "Q75 fail->unclear"
+        ]
+       }
+      }
+     }
+    }
+   },
+   "zero_vs_reteach": {
+    "del-A": {
+     "off": {
+      "n": 77,
+      "same_verdict": 61,
+      "same_text": 18
+     },
+     "on": {
+      "n": 77,
+      "same_verdict": 57,
+      "same_text": 8
+     }
+    },
+    "del-B": {
+     "off": {
+      "n": 77,
+      "same_verdict": 70,
+      "same_text": 29
+     },
+     "on": {
+      "n": 77,
+      "same_verdict": 56,
+      "same_text": 11
+     }
+    }
+   },
+   "reference_gap": {
+    "teach": {
+     "teach": {
+      "CURRENT": {
+       "off": 0.0,
+       "on": 0.25
+      },
+      "all": {
+       "off": 0.156,
+       "on": 0.286
+      }
+     }
+    }
+   }
+  },
+  {
+   "set": "L6-seed1",
+   "level": 6,
+   "seed": 1,
+   "path": "~/lw-runs/gb10-a-tb-explicit/L6-seed1/set.json",
+   "work": "L6-seed1",
+   "rc": 0,
+   "seconds": 338.8,
+   "error": null,
+   "steps": {
+    "baseline": {
+     "kind": "baseline",
+     "status": "done",
+     "scores": {
+      "baseline": {
+       "off": {
+        "pass": 46,
+        "total": 56,
+        "unclear": 1
+       },
+       "on": {
+        "pass": 53,
+        "total": 56,
+        "unclear": 2
+       }
+      }
+     }
+    },
+    "teach": {
+     "kind": "teach",
+     "status": "done",
+     "scores": {
+      "teach": {
+       "off": {
+        "pass": 22,
+        "total": 56,
+        "unclear": 4
+       },
+       "on": {
+        "pass": 22,
+        "total": 56,
+        "unclear": 3
+       }
+      }
+     }
+    },
+    "del-A.zero": {
+     "kind": "zero",
+     "status": "done",
+     "scores": {
+      "del-A.zero": {
+       "off": {
+        "pass": 21,
+        "total": 56,
+        "unclear": 4
+       },
+       "on": {
+        "pass": 20,
+        "total": 56,
+        "unclear": 4
+       }
+      }
+     }
+    },
+    "del-B.zero": {
+     "kind": "zero",
+     "status": "done",
+     "scores": {
+      "del-B.zero": {
+       "off": {
+        "pass": 26,
+        "total": 56,
+        "unclear": 4
+       },
+       "on": {
+        "pass": 33,
+        "total": 56,
+        "unclear": 4
+       }
+      }
+     }
+    },
+    "del-C.zero": {
+     "kind": "zero",
+     "status": "done",
+     "scores": {
+      "del-C.zero": {
+       "off": {
+        "pass": 22,
+        "total": 56,
+        "unclear": 4
+       },
+       "on": {
+        "pass": 22,
+        "total": 56,
+        "unclear": 3
+       }
+      }
+     }
+    },
+    "del-A.reteach": {
+     "kind": "reteach",
+     "status": "done",
+     "scores": {
+      "del-A.reteach": {
+       "off": {
+        "pass": 21,
+        "total": 56,
+        "unclear": 3
+       },
+       "on": {
+        "pass": 20,
+        "total": 56,
+        "unclear": 3
+       }
+      }
+     }
+    },
+    "del-B.reteach": {
+     "kind": "reteach",
+     "status": "done",
+     "scores": {
+      "del-B.reteach": {
+       "off": {
+        "pass": 24,
+        "total": 56,
+        "unclear": 1
+       },
+       "on": {
+        "pass": 34,
+        "total": 56,
+        "unclear": 2
+       }
+      }
+     }
+    },
+    "del-C.reteach": {
+     "kind": "reteach",
+     "status": "done",
+     "scores": {
+      "del-C.reteach": {
+       "off": {
+        "pass": 22,
+        "total": 56,
+        "unclear": 4
+       },
+       "on": {
+        "pass": 20,
+        "total": 56,
+        "unclear": 6
+       }
+      }
+     }
+    },
+    "teach.in_context": {
+     "kind": "in_context",
+     "status": "done",
+     "scores": {
+      "teach.in_context": {
+       "off": {
+        "pass": 42,
+        "total": 56,
+        "unclear": 6
+       },
+       "on": {
+        "pass": 48,
+        "total": 56,
+        "unclear": 3
+       }
+      }
+     }
+    },
+    "teach.replacement_memory": {
+     "kind": "replacement_memory",
+     "status": "done",
+     "scores": {
+      "teach.replacement_memory": {
+       "off": {
+        "pass": 29,
+        "total": 56,
+        "unclear": 0
+       },
+       "on": {
+        "pass": 29,
+        "total": 56,
+        "unclear": 0
+       }
+      }
+     }
+    },
+    "teach.notes": {
+     "kind": "notes",
+     "status": "done",
+     "scores": {
+      "teach.notes": {
+       "off": {
+        "pass": 42,
+        "total": 56,
+        "unclear": 5
+       },
+       "on": {
+        "pass": 43,
+        "total": 56,
+        "unclear": 6
+       }
+      }
+     }
+    }
+   },
+   "failed_steps": [],
+   "not_applicable_steps": [],
+   "teach": {
+    "lessons": 29,
+    "recalled": 20,
+    "refused": [
+     "L7",
+     "L9",
+     "L13",
+     "L14",
+     "L16",
+     "L18",
+     "L21",
+     "L27",
+     "L28"
+    ],
+    "save_lines": 29
+   },
+   "combined": {
+    "reteach": {
+     "headline": "judged 560 answers against L6-seed1",
+     "kept_stable": {
+      "del-A": {
+       "off": {
+        "n": 56,
+        "same_verdict": 48,
+        "same_text": 21,
+        "moved": [
+         "Q03 unclear->fail",
+         "Q11 pass->fail",
+         "Q18 pass->fail",
+         "Q23 fail->unclear",
+         "Q35 unclear->fail",
+         "Q39 pass->fail",
+         "Q44 fail->pass",
+         "Q53 fail->pass"
+        ]
+       },
+       "on": {
+        "n": 56,
+        "same_verdict": 45,
+        "same_text": 7,
+        "moved": [
+         "Q11 pass->fail",
+         "Q18 pass->fail",
+         "Q28 unclear->fail",
+         "Q29 fail->unclear",
+         "Q30 pass->unclear",
+         "Q33 fail->pass",
+         "Q34 pass->fail",
+         "Q35 fail->pass",
+         "Q38 pass->fail",
+         "Q45 unclear->fail",
+         "Q50 fail->pass"
+        ]
+       }
+      },
+      "del-B": {
+       "off": {
+        "n": 42,
+        "same_verdict": 37,
+        "same_text": 20,
+        "moved": [
+         "Q34 unclear->pass",
+         "Q35 unclear->pass",
+         "Q41 pass->fail",
+         "Q48 pass->fail",
+         "Q50 pass->fail"
+        ]
+       },
+       "on": {
+        "n": 42,
+        "same_verdict": 38,
+        "same_text": 6,
+        "moved": [
+         "Q33 fail->pass",
+         "Q35 fail->pass",
+         "Q38 pass->fail",
+         "Q45 unclear->fail"
+        ]
+       }
+      },
+      "del-C": {
+       "off": {
+        "n": 47,
+        "same_verdict": 44,
+        "same_text": 26,
+        "moved": [
+         "Q02 fail->unclear",
+         "Q35 unclear->pass",
+         "Q41 pass->fail"
+        ]
+       },
+       "on": {
+        "n": 47,
+        "same_verdict": 39,
+        "same_text": 7,
+        "moved": [
+         "Q09 pass->fail",
+         "Q16 fail->pass",
+         "Q29 fail->unclear",
+         "Q34 pass->unclear",
+         "Q35 fail->unclear",
+         "Q38 pass->fail",
+         "Q45 unclear->fail",
+         "Q50 fail->unclear"
+        ]
+       }
+      }
+     }
+    },
+    "zero": {
+     "headline": "judged 560 answers against L6-seed1",
+     "kept_stable": {
+      "del-A": {
+       "off": {
+        "n": 56,
+        "same_verdict": 55,
+        "same_text": 54,
+        "moved": [
+         "Q18 pass->fail"
+        ]
+       },
+       "on": {
+        "n": 56,
+        "same_verdict": 54,
+        "same_text": 47,
+        "moved": [
+         "Q18 pass->fail",
+         "Q30 pass->unclear"
+        ]
+       }
+      },
+      "del-B": {
+       "off": {
+        "n": 42,
+        "same_verdict": 41,
+        "same_text": 39,
+        "moved": [
+         "Q50 pass->fail"
+        ]
+       },
+       "on": {
+        "n": 42,
+        "same_verdict": 39,
+        "same_text": 31,
+        "moved": [
+         "Q06 pass->fail",
+         "Q30 pass->unclear",
+         "Q35 fail->pass"
+        ]
+       }
+      },
+      "del-C": {
+       "off": {
+        "n": 47,
+        "same_verdict": 47,
+        "same_text": 47,
+        "moved": []
+       },
+       "on": {
+        "n": 47,
+        "same_verdict": 47,
+        "same_text": 47,
+        "moved": []
+       }
+      }
+     }
+    }
+   },
+   "zero_vs_reteach": {
+    "del-A": {
+     "off": {
+      "n": 56,
+      "same_verdict": 49,
+      "same_text": 21
+     },
+     "on": {
+      "n": 56,
+      "same_verdict": 47,
+      "same_text": 7
+     }
+    },
+    "del-B": {
+     "off": {
+      "n": 56,
+      "same_verdict": 49,
+      "same_text": 25
+     },
+     "on": {
+      "n": 56,
+      "same_verdict": 50,
+      "same_text": 6
+     }
+    },
+    "del-C": {
+     "off": {
+      "n": 56,
+      "same_verdict": 53,
+      "same_text": 32
+     },
+     "on": {
+      "n": 56,
+      "same_verdict": 48,
+      "same_text": 8
+     }
+    }
+   },
+   "reference_gap": {
+    "teach": {
+     "teach": {
+      "CURRENT": {
+       "off": 0.214,
+       "on": 0.357
+      },
+      "all": {
+       "off": 0.357,
+       "on": 0.464
+      }
+     }
+    }
+   }
+  }
+ ],
+ "updated": "2026-10-15T10:27:23Z",
+ "ended": "2026-10-15T10:27:23Z",
+ "rc": 0
+}

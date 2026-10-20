@@ -1,0 +1,40 @@
+Reference phases of L4-seed1-v2 (lw-reference/1), 2026-10-14T20:39:27Z
+gap = in_context pass rate minus pocket pass rate, over the answers all sources have. in_context is a reference, not a ceiling.
+
+== teach: store L1 L2 L3 L4 L5 L6 L7 L8 L9 L10 L11
+   teach                    the --slide server that taught: phases/teach/answers.jsonl
+   in_context               the untaught model, lessons in the system prompt: phases/teach.in_context/answers.jsonl
+   replacement_memory       computed, no model: phases/teach.replacement_memory/answers.jsonl
+   notes                    the untaught model, each question's notes in the system prompt: phases/teach.notes/answers.jsonl
+   notes                    11 notes (9 current) from 11 lessons; tokens given p50 169, p95 169, max 214 (cap 512, framing included); lookup p50 188 us, p95 365 us; nothing retrieved for 1 of 75 questions; per question: phases/teach.notes/notes.jsonl
+
+   pocket teach beside in_context and replacement_memory and notes
+   group            thinking   pocket  in_context   memory     gap         notes
+   CURRENT          off          9/13       10/13    11/13   +0.08         11/13
+   CURRENT          on           7/13       10/13    11/13   +0.23         13/13
+   WHO_HAS          off           2/6         5/6      6/6   +0.50           6/6
+   WHO_HAS          on            1/6         4/6      6/6   +0.50           4/6
+   negation         off          6/19       11/19    11/19   +0.26         12/19
+   negation         on           4/19        9/19    11/19   +0.26         12/19
+   temporal         off           0/1         1/1      0/1   +1.00           1/1
+   temporal         on            0/1         1/1      0/1   +1.00           1/1
+   either_or        off           0/1         1/1      1/1   +1.00           1/1
+   either_or        on            0/1         1/1      1/1   +1.00           0/1
+   yes_no           off         20/41       35/41    36/41   +0.37         34/41
+   yes_no           on          16/41       35/41    36/41   +0.46         35/41
+   controls         off           7/7         6/7      4/7   -0.14           6/7
+   controls         on            7/7         5/7      4/7   -0.29           7/7
+   all              off         42/75       63/75    64/75   +0.28         65/75
+   all              on          36/75       61/75    64/75   +0.33         65/75
+
+   CHANGE and RETRACT lessons: corrected only, stale only, both or neither
+   L7 RETRACT "My favourite colour is no longer blue.": now not blue; holds after it: nothing; stale: blue
+      teach                    off both (corrected Q15) (stale Q14 Q43 Q45)   on stale only (stale Q14 Q43)
+      in_context               off corrected only (corrected Q14 Q15 Q42 Q43 Q45)   on corrected only (corrected Q15 Q42)
+      replacement_memory       off corrected only (corrected Q14 Q43)   on corrected only (corrected Q14 Q43)
+      notes                    off corrected only (corrected Q14 Q15 Q42 Q43 Q45)   on corrected only (corrected Q14 Q15 Q42 Q43 Q45)
+   L11 RETRACT "I do not like olives anymore.": now not olives; holds after it: apples, pears; stale: olives
+      teach                    off corrected only (corrected Q10 Q11 Q62)   on corrected only (corrected Q62)
+      in_context               off both (corrected Q08 Q09 Q10 Q11 Q62) (stale Q08 Q09)   on corrected only (corrected Q08 Q10 Q11 Q62)
+      replacement_memory       off corrected only (corrected Q08 Q09 Q11 Q62)   on corrected only (corrected Q08 Q09 Q11 Q62)
+      notes                    off both (corrected Q08 Q09 Q10 Q11 Q62) (stale Q08 Q09)   on corrected only (corrected Q08 Q09 Q10 Q11 Q62)

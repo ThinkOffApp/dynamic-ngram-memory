@@ -1,0 +1,57 @@
+judged 38 answers against neg-seed1-v2
+
+== teach: store L1
+   property               thinking off        thinking on
+   recall                          3/4    3/4 (1 unclear)
+   either_or                       0/2                0/2
+   yes_no                          3/8    5/8 (2 unclear)
+   controls                        5/5                5/5
+   yes/no groups    0/2 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off           thinking on
+   all                v 3/3  n 3/3  ? 5/13   v 3/3  n 2/3  ? 8/13
+   recall             ? 3/4                  ? 3/4
+   either or          ? 0/2                  ? 0/2
+   yes no             n 3/3  ? 0/5           n 2/3  ? 3/5
+   controls           v 3/3  ? 2/2           v 3/3  ? 2/2
+   should change      n 3/3  ? 3/4           n 2/3  ? 3/4
+   should stay        v 3/3  ? 2/9           v 3/3  ? 5/9
+   abstention         P 2/2 R 2/13           P 8/8 R 8/13          precision and recall of "don't know"
+   closed world       +5                     +1                    fails that pass if a "no" counts where the right answer is "don't know"
+   reliability        1/1                    1/1
+   generality         5/13                   7/13
+   locality           5/5                    5/5
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value               8/10                  -   not: Q06~Q17 plain, Q07~Q17 plain
+     plain: dk                    0/30               9/24   not: Q04~Q01 plain, Q04~Q02 plain, Q04~Q03 plain, Q05~Q01 plain, Q05~Q02 plain, Q05~Q03 plain, Q06~Q01 plain, Q06~Q02 plain, Q06~Q03 plain, Q07~Q01 plain, Q07~Q02 plain, Q07~Q03 plain, Q13~Q01 plain, Q13~Q02 plain, Q13~Q03 plain, Q14~Q01 plain, Q14~Q02 plain, Q14~Q03 plain, Q15~Q01 plain, Q15~Q02 plain, Q15~Q03 plain, Q16~Q01 plain, Q16~Q02 plain, Q16~Q03 plain, Q18~Q01 plain, Q18~Q02 plain, Q18~Q03 plain, Q19~Q01 plain, Q19~Q02 plain, Q19~Q03 plain, Q04~Q01 think, Q04~Q02 think, Q04~Q03 think, Q06~Q01 think, Q06~Q02 think, Q06~Q03 think, Q07~Q01 think, Q07~Q02 think, Q07~Q03 think, Q15~Q01 think, Q15~Q02 think, Q15~Q03 think, Q16~Q01 think, Q16~Q02 think, Q16~Q03 think
+   same answer       10/13 (7 v, 3 dk)    5/6 (2 v, 3 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 1/4                0/4   questions asked in several wordings, every wording right
+   forms v2                               thinking off                  thinking on
+   wrong yes                                       0/8                          0/8
+     yes/no                                        0/4                          0/4
+     true/false                                    0/2                          0/2
+     recall+answer                                 0/2                          0/2
+   coherence breaks                        0 of 1 keys                  0 of 1 keys
+   pass, by form
+     true/false                                    1/2                          1/2
+     fill-in                                       0/1              0/1 (1 unclear)
+     recall+answer                                 1/2              0/2 (2 unclear)
+     recall agrees                 1/1 with own recall                            -
+   FAIL    Q05 plain "Is my favourite colour white?" expected doesn't know; got no [wrong yes/no]  << No, I don't think so. You said "Green is not my favourite colour anymore," which suggests 
+   FAIL    Q06 plain "Is my favourite colour green or white?" expected doesn't know; got white [wrong choice]  << Your favorite color is white .
+   FAIL    Q07 plain "Do I like white or green best?" expected doesn't know; got white [wrong choice]  << Based on your previous message, you said "Green is not my favourite colour anymore." This 
+   FAIL    Q13 plain "Is my favourite colour yellow?" expected doesn't know; got no [wrong yes/no]  << No, I don't think so. You said "Green is not my favourite colour anymore." This implies yo
+   FAIL    Q14 plain "Is my favourite colour purple?" expected doesn't know; got no [wrong yes/no]  << No, you said "Green is not my favourite colour anymore."
+   FAIL    Q15 plain "True or false: my favourite colour is white." expected doesn't know; got no [wrong yes/no]  << False.
+   FAIL    Q17 plain "Finish this sentence: "My favourite colour is ..."" expected doesn't know (but not green); got blue [invented a value]  << ...blue.
+   FAIL    Q18 plain "First say what my favourite colour is, then answer yes or no: is it white?" expected doesn't know; got no (recalled: green) [wrong yes/no]  << Your favourite colour is green. No, it is not white.
+   FAIL    Q06 think "Is my favourite colour green or white?" expected doesn't know; got white [wrong choice]  << Based on your earlier message, green is no longer your favorite color. I don't have inform
+   FAIL    Q07 think "Do I like white or green best?" expected doesn't know; got white [wrong choice]  << Based on what you said earlier, green is no longer your favorite color, so you likely like
+   FAIL    Q15 think "True or false: my favourite colour is white." expected doesn't know; got no [wrong yes/no]  << False
+   UNCLEAR Q17 think "Finish this sentence: "My favourite colour is ..."" expected doesn't know (but not green); got empty [empty answer]  << 
+   UNCLEAR Q18 think "First say what my favourite colour is, then answer yes or no: is it white?" expected doesn't know; got empty [empty answer]  << 
+   UNCLEAR Q19 think "First say what my favourite colour is, then answer yes or no: is it green?" expected no; got empty [empty answer]  << 
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 2/2, recall 2/13;  v 3/3  n 3/3  ? 5/13
+   thinking on   precision 8/8, recall 8/13;  v 3/3  n 2/3  ? 8/13

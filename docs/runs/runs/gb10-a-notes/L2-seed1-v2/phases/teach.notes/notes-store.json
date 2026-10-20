@@ -1,0 +1,136 @@
+{
+ "format": "lw-notes/1",
+ "phase": "teach",
+ "store": [
+  1,
+  2,
+  3
+ ],
+ "store_how": {
+  "format": "lw-notes/1",
+  "tokenizer": {
+   "name": "tokenizers",
+   "version": "0.23.2",
+   "path": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/blobs/623c34567aebb18582765289fbe23d901c62704d6518d71866e0e58db892b5b7",
+   "sha256": "623c34567aebb18582765289fbe23d901c62704d6518d71866e0e58db892b5b7"
+  },
+  "config": {
+   "cap": 512,
+   "n_min": 1,
+   "n_max": 3,
+   "fold": true,
+   "hop": "subject",
+   "hop_weight": 0.5,
+   "hop_from": 8,
+   "hop_history": true,
+   "min_rel": 0.0,
+   "subject": 1.0,
+   "punct": false
+  }
+ },
+ "notes": [
+  {
+   "id": 1,
+   "owner": "user",
+   "entity": "me",
+   "attribute": "fav_colour",
+   "value": "white",
+   "op": "ASSERT",
+   "kind": "fact",
+   "text": "Of all colours, I like white the most.",
+   "tokens": 10,
+   "version": 1,
+   "valid_from": "2026-10-12",
+   "valid_until": null,
+   "told": 739901000100,
+   "state": "superseded",
+   "superseded_by": 2,
+   "tombstoned_by": null,
+   "withdraws": [],
+   "source": 1,
+   "retired_told": 739901000200
+  },
+  {
+   "id": 2,
+   "owner": "user",
+   "entity": "me",
+   "attribute": "fav_colour",
+   "value": "green",
+   "op": "CHANGE",
+   "kind": "fact",
+   "text": "I like green best now.",
+   "tokens": 6,
+   "version": 2,
+   "valid_from": "2026-10-12",
+   "valid_until": null,
+   "told": 739901000200,
+   "state": "tombstoned",
+   "superseded_by": null,
+   "tombstoned_by": 3,
+   "withdraws": [],
+   "source": 2,
+   "retired_told": 739901000300
+  },
+  {
+   "id": 3,
+   "owner": "user",
+   "entity": "me",
+   "attribute": "fav_colour",
+   "value": "green",
+   "op": "RETRACT",
+   "kind": "tombstone",
+   "text": "Green is not my favourite colour anymore.",
+   "tokens": 8,
+   "version": 3,
+   "valid_from": "2026-10-12",
+   "valid_until": null,
+   "told": 739901000300,
+   "state": "current",
+   "superseded_by": null,
+   "tombstoned_by": null,
+   "withdraws": [
+    2
+   ],
+   "source": 3
+  }
+ ],
+ "writes": [
+  {
+   "source": 1,
+   "text": "Of all colours, I like white the most.",
+   "e": "me",
+   "a": "fav_colour",
+   "verdict": "NEW",
+   "note": 1,
+   "superseded": [],
+   "tombstoned": [],
+   "us": 670
+  },
+  {
+   "source": 2,
+   "text": "I like green best now.",
+   "e": "me",
+   "a": "fav_colour",
+   "verdict": "REPLACES",
+   "note": 2,
+   "superseded": [
+    1
+   ],
+   "tombstoned": [],
+   "us": 663
+  },
+  {
+   "source": 3,
+   "text": "Green is not my favourite colour anymore.",
+   "e": "me",
+   "a": "fav_colour",
+   "verdict": "REPLACES",
+   "note": 3,
+   "superseded": [],
+   "tombstoned": [
+    2
+   ],
+   "us": 990
+  }
+ ]
+}

@@ -1,0 +1,950 @@
+judged 1050 answers against L4-seed1-v2
+
+== baseline: store (empty)
+   property               thinking off        thinking on
+   recall             8/13 (2 unclear)   8/13 (2 unclear)
+   temporal                        1/1                1/1
+   either_or                       1/1                1/1
+   yes_no                        23/41  38/41 (2 unclear)
+   reverse                        5/12              11/12
+   reverse_fwd                     2/6                6/6
+   controls                        7/7                7/7
+   yes/no groups    5/14 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off      thinking on
+   all                v 3/3  ? 42/72    v 3/3  ? 63/72
+   recall             ? 8/13            ? 8/13
+   temporal           ? 1/1             ? 1/1
+   either or          ? 1/1             ? 1/1
+   yes no             ? 23/41           ? 38/41
+   reverse            ? 5/12            ? 11/12
+   reverse fwd        ? 2/6             ? 6/6
+   controls           v 3/3  ? 4/4      v 3/3  ? 4/4
+   abstention         P 42/42 R 42/72   P 63/63 R 63/72  precision and recall of "don't know"
+   closed world       +10               +1               fails that pass if a "no" counts where the right answer is "don't know"
+   reliability        7/7               7/7
+   generality         27/54             46/54
+   locality           8/8               8/8
+   portability        3/6               5/6
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value               7/24               1/24   not: Q04~Q51 plain, Q15~Q43 plain, Q31~Q35 plain, Q32~Q35 plain, Q34~Q35 plain, Q38~Q43 plain, Q39~Q43 plain, Q40~Q43 plain, Q41~Q43 plain, Q42~Q43 plain, Q46~Q51 plain, Q47~Q51 plain, Q48~Q51 plain, Q49~Q51 plain, Q50~Q51 plain, Q67~Q35 plain, Q75~Q51 plain, Q04~Q51 think, Q15~Q43 think, Q38~Q43 think, Q39~Q43 think, Q40~Q43 think, Q41~Q43 think, Q42~Q43 think, Q45~Q43 think, Q46~Q51 think, Q47~Q51 think, Q48~Q51 think, Q49~Q51 think, Q50~Q51 think, Q52~Q51 think, Q54~Q59 think, Q55~Q59 think, Q56~Q59 think, Q57~Q59 think, Q58~Q59 think, Q60~Q59 think, Q61~Q59 think, Q66~Q59 think, Q75~Q51 think
+     plain: dk                   29/50              48/49   not: Q03~Q01 plain, Q25~Q01 plain, Q28~Q01 plain, Q29~Q01 plain, Q31~Q06 plain, Q33~Q06 plain, Q36~Q06 plain, Q37~Q06 plain, Q44~Q14 plain, Q45~Q14 plain, Q49~Q02 plain, Q50~Q02 plain, Q52~Q02 plain, Q53~Q02 plain, Q54~Q05 plain, Q60~Q05 plain, Q61~Q05 plain, Q66~Q05 plain, Q67~Q06 plain, Q69~Q63 plain, Q74~Q01 plain, Q53~Q02 think
+   same answer        9/37 (4 v, 5 dk) 31/36 (0 v, 31 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                2/20              11/20   questions asked in several wordings, every wording right
+   forms v2                               thinking off                  thinking on
+   wrong yes                11/47 (baseline 11/47, +0)     0/47 (baseline 0/47, +0)
+     yes/no                                       2/21                         0/21
+     true/false                                   3/10                         0/10
+     recall+answer                                2/10                         0/10
+     reverse yes/no                                4/6                          0/6
+     neighbour's value                            3/12                         0/12
+   coherence breaks                        3 of 5 keys                  0 of 5 keys
+   pass, by form
+     true/false                                   6/10                        10/10
+     fill-in                           0/5 (2 unclear)              0/5 (2 unclear)
+     recall+answer                                0/10             7/10 (2 unclear)
+     reverse bare                                  2/3                          3/3
+     reverse listed                                1/3                          2/3
+     reverse yes/no                                2/6                          6/6
+     recall agrees                 9/9 with own recall          7/8 with own recall
+   reverse, forward ok                      yes/no 2/6                   yes/no 6/6
+   plain: coherence breaks: my cat eye_colour: amber, grey; my cat name: Bruno, Nora; my dog name: Bruno, Nora
+   FAIL    Q03 plain "Is my dog's name Nora?" expected doesn't know; got yes [wrong yes/no]  << Yes, your dog's name is Nora!
+   FAIL    Q25 plain "True or false: my dog is called Nora." expected doesn't know; got yes [wrong yes/no]  << True.
+   UNCLEAR Q27 plain "Finish this sentence: "My dog's name is ..."" expected doesn't know; got unclear [unclear]  << My dog's name is Bella .
+   FAIL    Q28 plain "First say what my dog is called, then answer yes or no: is it called Nora?" expected doesn't know; got no [wrong yes/no]  << My dog is called Baxter . No, he is not called Nora.
+   FAIL    Q29 plain "First say what my dog is called, then answer yes or no: is it called Bruno?" expected doesn't know; got yes (recalled: Bruno) [wrong yes/no]  << My dog is called Bruno. Yes, it is called Bruno.
+   FAIL    Q30 plain "Are my cat's eyes grey?" expected doesn't know; got a guess: no [a guess, not a recall]  << It is very unlikely that your cat's eyes are truly grey. Most "grey" eyes in cats are actu
+   FAIL    Q31 plain "Are my cat's eyes amber?" expected doesn't know; got yes [wrong yes/no]  << Yes, your cat's eyes are amber . Amber eyes are a solid, uniform color that ranges from a 
+   FAIL    Q33 plain "True or false: my cat's eyes are grey." expected doesn't know; got no [wrong yes/no]  << False. While some cats can have grey eyes, it is very rare. Most cats have eyes that are s
+   FAIL    Q35 plain "Finish this sentence: "My cat's eyes are ..."" expected doesn't know; got green [invented a value]  << My cat's eyes are bright green and seem to glow in the dark.
+   FAIL    Q36 plain "First say what colour my cat's eyes are, then answer yes or no: are they grey?" expected doesn't know; got no (recalled: green) [wrong yes/no]  << Your cat's eyes are green . No, they are not grey.
+   FAIL    Q37 plain "First say what colour my cat's eyes are, then answer yes or no: are they hazel?" expected doesn't know; got no (recalled: amber) [wrong yes/no]  << Your cat's eyes are a striking shade of amber/gold. No, they are not hazel.
+   FAIL    Q43 plain "Finish this sentence: "My favourite colour is ..."" expected doesn't know; got blue [invented a value]  << My favourite colour is blue.
+   FAIL    Q44 plain "First say what my favourite colour is, then answer yes or no: is it orange?" expected doesn't know; got no (recalled: blue) [wrong yes/no]  << Your favourite colour is blue. No, it is not orange.
+   FAIL    Q45 plain "First say what my favourite colour is, then answer yes or no: is it blue?" expected doesn't know; got yes (recalled: blue) [wrong yes/no]  << Your favourite colour is blue. Yes.
+   FAIL    Q49 plain "True or false: my cat is called Bruno." expected doesn't know; got yes [wrong yes/no]  << True.
+   FAIL    Q50 plain "True or false: my cat is called Nora." expected doesn't know; got yes [wrong yes/no]  << True. I am an AI, so I don't have a physical form or a pet, but if you are telling me that
+   FAIL    Q51 plain "Finish this sentence: "My cat's name is ..."" expected doesn't know; got Luna [invented a value]  << My cat's name is Luna .
+   FAIL    Q52 plain "First say what my cat is called, then answer yes or no: is it called Bruno?" expected doesn't know; got no (recalled: Luna) [wrong yes/no]  << My cat is called Luna. No, she is not called Bruno.
+   FAIL    Q53 plain "First say what my cat is called, then answer yes or no: is it called Nora?" expected doesn't know; got no (recalled: Luna) [wrong yes/no]  << My cat is called Luna. No, she is not called Nora.
+   FAIL    Q54 plain "Are my dog's eyes hazel?" expected doesn't know; got no [wrong yes/no]  << Hazel eyes are a beautiful mix of brown, green, and gold. To determine if your dog has haz
+   UNCLEAR Q59 plain "Finish this sentence: "My dog's eyes are ..."" expected doesn't know; got unclear [unclear]  << ...the color of melted chocolate and warm honey. They sparkle with intelligence and curios
+   FAIL    Q60 plain "First say what colour my dog's eyes are, then answer yes or no: are they hazel?" expected doesn't know; got no (recalled: brown) [wrong yes/no]  << Your dog's eyes are brown. No, they are not hazel.
+   FAIL    Q61 plain "First say what colour my dog's eyes are, then answer yes or no: are they grey?" expected doesn't know; got no (recalled: brown) [wrong yes/no]  << Your dog's eyes are brown. No, they are not grey.
+   FAIL    Q66 plain "Is it my dog who has grey eyes?" expected doesn't know; got yes [wrong yes/no]  << It is possible! While most dogs have brown or blue eyes, grey (or "amber") eyes are a real
+   FAIL    Q67 plain "Is it my cat who has grey eyes?" expected doesn't know; got yes [wrong yes/no]  << It is very possible! While less common than green, blue, or gold, grey (or "amber/grey") e
+   FAIL    Q68 plain "Of me, my sister and my dog, who likes olives?" expected nobody known; got my sister [wrong entities]  << Based on the information provided, your sister is the one who likes olives. Here is the br
+   FAIL    Q69 plain "Is it my dog who likes olives?" expected doesn't know; got yes [wrong yes/no]  << It is very possible! While many dogs are indifferent to olives, some do enjoy them. Here a
+   FAIL    Q72 plain "Who is called Bruno?" expected nobody known; got me [wrong entities]  << "Bruno" can refer to several different people, places, or characters depending on the cont
+   FAIL    Q73 plain "Of my dog, my cat and my sister, who is called Bruno?" expected nobody known; got my dog [wrong entities]  << Your dog is called Bruno.
+   FAIL    Q74 plain "Is it my dog who is called Bruno?" expected doesn't know; got yes [wrong yes/no]  << Yes, I can see that your dog is named Bruno!
+   UNCLEAR Q27 think "Finish this sentence: "My dog's name is ..."" expected doesn't know; got unclear [unclear]  << My dog's name is Bella.
+   UNCLEAR Q28 think "First say what my dog is called, then answer yes or no: is it called Nora?" expected doesn't know; got empty [empty answer]  << 
+   UNCLEAR Q35 think "Finish this sentence: "My cat's eyes are ..."" expected doesn't know; got unclear [unclear]  << My cat's eyes are bright and alert.
+   FAIL    Q43 think "Finish this sentence: "My favourite colour is ..."" expected doesn't know; got blue [invented a value]  << My favourite colour is blue.
+   UNCLEAR Q44 think "First say what my favourite colour is, then answer yes or no: is it orange?" expected doesn't know; got empty [empty answer]  << 
+   FAIL    Q51 think "Finish this sentence: "My cat's name is ..."" expected doesn't know; got Luna [invented a value]  << My cat's name is Luna.
+   FAIL    Q53 think "First say what my cat is called, then answer yes or no: is it called Nora?" expected doesn't know; got no (recalled: doesn't know) [wrong yes/no]  << I don't know your cat's name. No.
+   FAIL    Q59 think "Finish this sentence: "My dog's eyes are ..."" expected doesn't know; got brown [invented a value]  << Here are a few natural ways to finish the sentence, depending on the vibe you want: - "My 
+   FAIL    Q73 think "Of my dog, my cat and my sister, who is called Bruno?" expected nobody known; got my dog [wrong entities]  << The sentence lists your dog, cat, and sister, but doesn't give any of them the name "Bruno
+
+== teach: store L1 L2 L3 L4 L5 L6 L7 L8 L9 L10 L11
+   property               thinking off        thinking on
+   recall                         9/13   7/13 (1 unclear)
+   temporal                        0/1                0/1
+   either_or                       0/1                0/1
+   yes_no                        20/41  16/41 (4 unclear)
+   reverse                        6/12               6/12
+   reverse_fwd                    6/12               6/12
+   controls                        7/7                7/7
+   yes/no groups    2/14 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                            thinking on
+   all                v 27/36 (5 dk)  n 8/26 (1 dk)  ? 7/13   v 23/36 (6 dk)  n 5/26 (4 dk)  ? 8/13
+   recall             v 9/11 (2 dk)  ? 0/2                    v 7/11 (2 dk)  ? 0/2
+   temporal           v 0/1 (1 dk)                            v 0/1 (1 dk)
+   either or          v 0/1                                   v 0/1
+   yes no             v 10/11  n 8/24 (1 dk)  ? 2/6           v 9/11 (1 dk)  n 4/24 (4 dk)  ? 3/6
+   reverse            v 5/9 (2 dk)  n 0/2  ? 1/1              v 4/9 (2 dk)  n 1/2  ? 1/1
+   reverse fwd        v 5/9 (2 dk)  n 0/2  ? 1/1              v 4/9 (2 dk)  n 1/2  ? 1/1
+   controls           v 3/3  ? 4/4                            v 3/3  ? 4/4
+   should change      v 24/33 (5 dk)  n 8/26 (1 dk)  ? 0/2    v 20/33 (6 dk)  n 5/26 (4 dk)  ? 0/2
+   should stay        v 3/3  ? 7/11                           v 3/3  ? 8/11
+   abstention         P 7/13 R 7/13                           P 8/18 R 8/13                          precision and recall of "don't know"
+   closed world       +3                                      +0                                     fails that pass if a "no" counts where the right answer is "don't know"
+   reliability        5/7                                     5/7
+   generality         27/54                                   22/54
+   locality           8/8                                     8/8
+   portability        2/6                                     1/6
+   neighbourhood    a value taught about another entity: Q03 Nora (my cat) plain, Q04 Bruno (my dog) plain, Q25 Nora (my cat) plain, Q33 grey (my dog) plain, Q46 Bruno (my dog) plain, Q49 Bruno (my dog) plain, Q54 hazel (my cat) plain, Q57 hazel (my cat) plain, Q67 grey (my dog) plain, Q75 Bruno (my dog) plain, Q03 Nora (my cat) think, Q04 Bruno (my dog) think, Q25 Nora (my cat) think, Q28 Nora (my cat) think, Q33 grey (my dog) think, Q49 Bruno (my dog) think, Q52 Bruno (my dog) think, Q54 hazel (my cat) think, Q57 hazel (my cat) think, Q75 Bruno (my dog) think
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value              40/84              27/69   not: Q03~Q01 plain, Q03~Q27 plain, Q04~Q02 plain, Q04~Q51 plain, Q15~Q14 plain, Q15~Q43 plain, Q23~Q01 plain, Q23~Q27 plain, Q24~Q01 plain, Q24~Q27 plain, Q25~Q01 plain, Q25~Q27 plain, Q31~Q06 plain, Q31~Q35 plain, Q33~Q06 plain, Q33~Q35 plain, Q38~Q14 plain, Q38~Q43 plain, Q41~Q14 plain, Q41~Q43 plain, Q42~Q14 plain, Q42~Q43 plain, Q46~Q02 plain, Q46~Q51 plain, Q47~Q02 plain, Q47~Q51 plain, Q48~Q02 plain, Q48~Q51 plain, Q49~Q02 plain, Q49~Q51 plain, Q54~Q05 plain, Q54~Q59 plain, Q55~Q05 plain, Q55~Q59 plain, Q56~Q05 plain, Q56~Q59 plain, Q57~Q05 plain, Q57~Q59 plain, Q61~Q05 plain, Q61~Q59 plain, Q67~Q06 plain, Q67~Q35 plain, Q75~Q02 plain, Q75~Q51 plain, Q03~Q01 think, Q03~Q27 think, Q04~Q02 think, Q15~Q14 think, Q15~Q43 think, Q23~Q01 think, Q23~Q27 think, Q24~Q01 think, Q24~Q27 think, Q25~Q01 think, Q25~Q27 think, Q28~Q01 think, Q28~Q27 think, Q31~Q06 think, Q31~Q35 think, Q33~Q06 think, Q33~Q35 think, Q34~Q35 think, Q37~Q35 think, Q38~Q14 think, Q38~Q43 think, Q39~Q14 think, Q39~Q43 think, Q40~Q14 think, Q40~Q43 think, Q41~Q14 think, Q41~Q43 think, Q42~Q14 think, Q42~Q43 think, Q47~Q02 think, Q48~Q02 think, Q49~Q02 think, Q52~Q02 think, Q54~Q05 think, Q54~Q59 think, Q55~Q05 think, Q55~Q59 think, Q56~Q05 think, Q56~Q59 think, Q57~Q05 think, Q57~Q59 think, Q75~Q02 think
+     plain: dk                     0/8                4/8   not: Q10~Q08 plain, Q10~Q09 plain, Q11~Q08 plain, Q11~Q09 plain, Q12~Q08 plain, Q12~Q09 plain, Q62~Q08 plain, Q62~Q09 plain, Q12~Q08 think, Q12~Q09 think, Q62~Q08 think, Q62~Q09 think
+   same answer      21/42 (19 v, 2 dk) 24/33 (21 v, 3 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                8/20               6/20   questions asked in several wordings, every wording right
+   forms v2                               thinking off                  thinking on
+   wrong yes                18/33 (baseline 6/33, +12)   17/33 (baseline 0/33, +17)
+     yes/no                                      11/18                        10/18
+     true/false                                    4/6                          4/6
+     recall+answer                                 1/6                          2/6
+     reverse yes/no                                2/3                          1/3
+     neighbour's value                            7/12                         8/12
+   coherence breaks                        4 of 5 keys                  4 of 5 keys
+   pass, by form
+     true/false                                   5/10                         5/10
+     fill-in                                       4/5              2/5 (1 unclear)
+     recall+answer                                7/10             5/10 (3 unclear)
+     reverse bare                                  0/3                          0/3
+     reverse listed                                2/3                          1/3
+     reverse yes/no                                4/6                          5/6
+     recall agrees                9/10 with own recall          7/7 with own recall
+   reverse, forward ok    bare 0/3, listed 2/3, yes/no 4/6 bare 0/3, listed 1/3, yes/no 5/6
+   reversal curse                 1 of 3 (bare only 2)         2 of 3 (bare only 1)
+   reverse as a set                 2/6 named, 3 extra           3/6 named, 3 extra
+   earlier likes kept             1/3, Ignore Rate 67%        0/3, Ignore Rate 100%
+     yes/no                                        1/1                          0/1
+     list                                          0/2                          0/2
+     newest like                                   1/3                          1/3
+   plain: coherence breaks: my cat eye_colour: amber, grey, hazel; my cat name: Ana, Bruno, Nora, Pablo; my dog eye_colour: blue, brown, grey, hazel; my dog name: Ana, Bruno, Nora, Pablo
+   plain: reversal curse: likes olives
+   plain: earlier likes lost: Q08 pears, Q09 pears
+   think: coherence breaks: my cat eye_colour: grey, hazel; my cat name: Ana, Bruno, Nora, Pablo; my dog eye_colour: blue, brown, grey, hazel; my dog name: Ana, Bruno, Nora, Pablo
+   think: reversal curse: eye_colour grey, likes olives
+   think: earlier likes lost: Q08 pears, Q09 pears, Q10 pears
+   FAIL    Q03 plain "Is my dog's name Nora?" expected no; got yes [wrong yes/no]  << Yes, you mentioned earlier that your dog's name is Nora.
+   FAIL    Q04 plain "Is my cat called Bruno or Nora?" expected Nora; got Bruno [wrong choice]  << Your cat is called Bruno .
+   FAIL    Q07 plain "Who has grey eyes?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Grey eyes are relatively rare, occurring in less than 1% of the global population. They ar
+   FAIL    Q08 plain "What food do I like?" expected apples, pears (not olives); got doesn't know [does not know a taught value]  << I don't know! I don't have access to your personal preferences or memories. However, I can
+   FAIL    Q09 plain "Which foods do I like?" expected apples, pears (not olives); got doesn't know [does not know a taught value]  << I don't know! I don't have access to your personal preferences or memories. To figure out 
+   FAIL    Q12 plain "Is it true that I like chocolate?" expected doesn't know; got yes [wrong yes/no]  << Yes, it is true. You mentioned earlier that you like chocolate.
+   FAIL    Q13 plain "Who likes olives?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Olive lovers are a passionate bunch! Here are a few famous people who have publicly declar
+   FAIL    Q14 plain "Which colour do I like best?" expected doesn't know (but not blue); got blue [value it should not give]  << Your favourite colour is blue.
+   FAIL    Q16 plain "What was my favourite colour before it changed?" expected blue; got doesn't know [does not know a taught value]  << I don't have access to your personal history or memories, so I can't know what your favour
+   FAIL    Q23 plain "Is my dog's name Ana?" expected no; got yes [wrong yes/no]  << Yes, you mentioned earlier that your dog's name is Ana.
+   FAIL    Q24 plain "Is my dog's name Pablo?" expected no; got yes [wrong yes/no]  << Yes, you mentioned earlier that your dog's name is Pablo .
+   FAIL    Q25 plain "True or false: my dog is called Nora." expected no; got yes [wrong yes/no]  << Yes, that's true.
+   FAIL    Q31 plain "Are my cat's eyes amber?" expected no; got yes [wrong yes/no]  << Yes, your cat's eyes are amber . You mentioned this in your original message, and amber is
+   FAIL    Q33 plain "True or false: my cat's eyes are grey." expected no; got yes [wrong yes/no]  << True. Your cat's eyes are described as "hazel," which is a mix of brown and green and is c
+   FAIL    Q39 plain "Is green my favourite colour?" expected doesn't know; got no [wrong yes/no]  << No, you told me your favourite colour is blue.
+   FAIL    Q40 plain "Is white my favourite colour?" expected doesn't know; got no [wrong yes/no]  << No, I am created by researchers from NVIDIA.
+   FAIL    Q42 plain "True or false: my favourite colour is blue." expected no; got doesn't know [wrong yes/no]  << I don't know! I don't have personal preferences or a favorite color. But if you like blue,
+   FAIL    Q43 plain "Finish this sentence: "My favourite colour is ..."" expected doesn't know (but not blue); got blue [value it should not give]  << My favourite colour is blue.
+   FAIL    Q44 plain "First say what my favourite colour is, then answer yes or no: is it orange?" expected doesn't know; got no (recalled: blue) [wrong yes/no]  << Your favourite colour is blue. No, it is not orange.
+   FAIL    Q45 plain "First say what my favourite colour is, then answer yes or no: is it blue?" expected no; got yes (recalled: blue) [wrong yes/no]  << Your favourite colour is blue. Yes.
+   FAIL    Q46 plain "Is my cat's name Bruno?" expected no; got yes [wrong yes/no]  << Yes, your cat's name is Bruno.
+   FAIL    Q47 plain "Is my cat's name Ana?" expected no; got yes [wrong yes/no]  << Yes, your cat's name is Ana.
+   FAIL    Q48 plain "Is my cat called Pablo?" expected no; got yes [wrong yes/no]  << Yes, your cat is called Pablo.
+   FAIL    Q49 plain "True or false: my cat is called Bruno." expected no; got yes [wrong yes/no]  << Yes, that is true. You mentioned earlier that your cat is called Bruno.
+   FAIL    Q54 plain "Are my dog's eyes hazel?" expected no; got yes [wrong yes/no]  << Yes, you mentioned earlier that your dog's eyes are hazel.
+   FAIL    Q55 plain "Is it true that my dog's eyes are blue?" expected no; got yes [wrong yes/no]  << Yes, that is correct. You mentioned earlier that your dog's eyes are blue.
+   FAIL    Q56 plain "Is it true that my dog's eyes are brown?" expected no; got yes [wrong yes/no]  << Yes, that is correct. You mentioned earlier that your dog's eyes are brown.
+   FAIL    Q57 plain "True or false: my dog's eyes are hazel." expected no; got yes [wrong yes/no]  << True. You previously mentioned that your dog's eyes are hazel.
+   FAIL    Q61 plain "First say what colour my dog's eyes are, then answer yes or no: are they grey?" expected yes; got no (recalled: grey) [wrong yes/no]  << Your dog's eyes are grey. No, they are not grey.
+   FAIL    Q67 plain "Is it my cat who has grey eyes?" expected no; got yes [wrong yes/no]  << Yes, your cat has grey eyes.
+   FAIL    Q68 plain "Of me, my sister and my dog, who likes olives?" expected my dog; got my sister, me [wrong entities]  << Based on the information you provided, your sister likes olives. Here is the breakdown: 1.
+   FAIL    Q72 plain "Who is called Bruno?" expected my dog; got me [wrong entities]  << "Bruno" can refer to several different people, places, or characters depending on the cont
+   FAIL    Q75 plain "Is it my cat who is called Bruno?" expected no; got yes [wrong yes/no]  << Yes, your cat is named Bruno.
+   FAIL    Q03 think "Is my dog's name Nora?" expected no; got yes [wrong yes/no]  << Yes, your dog's name is Nora.
+   FAIL    Q04 think "Is my cat called Bruno or Nora?" expected Nora; got Bruno [wrong choice]  << Your cat is called Bruno.
+   FAIL    Q07 think "Who has grey eyes?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Grey eyes are one of the rarest eye colors globally, estimated to occur in less than 1% of
+   FAIL    Q08 think "What food do I like?" expected apples, pears (not olives); got doesn't know [does not know a taught value]  << I don't have access to your personal information, preferences, or history, so I don't know
+   FAIL    Q09 think "Which foods do I like?" expected apples, pears (not olives); got doesn't know [does not know a taught value]  << I don't know your food preferences yet! Everyone's tastes are different. If you'd like, yo
+   FAIL    Q10 think "Is it true that I like pears?" expected yes; got doesn't know [wrong yes/no]  << I don't have any information about whether you like pears from our conversation so far, yo
+   FAIL    Q11 think "Do I like olives?" expected no; got doesn't know [wrong yes/no]  << I don't know you personally, so I can't say for sure! Olive flavor is famously polarizing 
+   FAIL    Q12 think "Is it true that I like chocolate?" expected doesn't know; got yes [wrong yes/no]  << You mentioned earlier that you really like chocolate, so yes , based on what you've told m
+   FAIL    Q13 think "Who likes olives?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Olives are enjoyed by people all over the world, but they're most culturally and culinaril
+   FAIL    Q14 think "Which colour do I like best?" expected doesn't know (but not blue); got blue [value it should not give]  << Your favourite colour is blue!
+   FAIL    Q15 think "Is my favourite colour blue?" expected no; got doesn't know [wrong yes/no]  << I don't actually know your favorite color! I'm an AI and don't have personal preferences o
+   FAIL    Q16 think "What was my favourite colour before it changed?" expected blue; got doesn't know [does not know a taught value]  << I don't have access to your personal data, preferences, or history, so I can't know what y
+   FAIL    Q23 think "Is my dog's name Ana?" expected no; got yes [wrong yes/no]  << Yes, your dog's name is Ana.
+   FAIL    Q24 think "Is my dog's name Pablo?" expected no; got yes [wrong yes/no]  << Yes, your dog's name is Pablo.
+   FAIL    Q25 think "True or false: my dog is called Nora." expected no; got yes [wrong yes/no]  << True.
+   FAIL    Q28 think "First say what my dog is called, then answer yes or no: is it called Nora?" expected no; got yes (recalled: Nora) [wrong yes/no]  << Nora yes
+   FAIL    Q31 think "Are my cat's eyes amber?" expected no; got doesn't know [wrong yes/no]  << I can't see your cat, but amber is a common eye color in cats, it typically ranges from li
+   FAIL    Q33 think "True or false: my cat's eyes are grey." expected no; got yes [wrong yes/no]  << True.
+   FAIL    Q35 think "Finish this sentence: "My cat's eyes are ..."" expected hazel; got green [wrong value]  << My cat's eyes are green and expressive.
+   FAIL    Q39 think "Is green my favourite colour?" expected doesn't know; got yes [wrong yes/no]  << Yes, it is! You mentioned earlier that your favourite colour is green. 🌿
+   FAIL    Q42 think "True or false: my favourite colour is blue." expected no; got doesn't know [wrong yes/no]  << I don't know your favorite color, and as an AI, I don't have personal experiences or prefe
+   FAIL    Q43 think "Finish this sentence: "My favourite colour is ..."" expected doesn't know (but not blue); got blue [value it should not give]  << My favourite colour is ... blue! 🌊
+   UNCLEAR Q44 think "First say what my favourite colour is, then answer yes or no: is it orange?" expected doesn't know; got empty [empty answer]  << 
+   UNCLEAR Q45 think "First say what my favourite colour is, then answer yes or no: is it blue?" expected no; got empty [empty answer]  << 
+   UNCLEAR Q46 think "Is my cat's name Bruno?" expected no; got empty [empty answer]  << 
+   FAIL    Q47 think "Is my cat's name Ana?" expected no; got yes [wrong yes/no]  << Yes, your cat's name is Ana.
+   FAIL    Q48 think "Is my cat called Pablo?" expected no; got yes [wrong yes/no]  << Yes, your cat is called Pablo.
+   FAIL    Q49 think "True or false: my cat is called Bruno." expected no; got yes [wrong yes/no]  << True.
+   UNCLEAR Q51 think "Finish this sentence: "My cat's name is ..."" expected Nora; got empty [empty answer]  << 
+   FAIL    Q52 think "First say what my cat is called, then answer yes or no: is it called Bruno?" expected no; got yes (recalled: Bruno) [wrong yes/no]  << Bruno yes
+   UNCLEAR Q53 think "First say what my cat is called, then answer yes or no: is it called Nora?" expected yes; got empty [empty answer]  << 
+   FAIL    Q54 think "Are my dog's eyes hazel?" expected no; got yes [wrong yes/no]  << Yes, your dog's eyes are hazel.
+   FAIL    Q55 think "Is it true that my dog's eyes are blue?" expected no; got yes [wrong yes/no]  << Yes, according to what you mentioned earlier, your dog's eyes are blue.
+   FAIL    Q56 think "Is it true that my dog's eyes are brown?" expected no; got yes [wrong yes/no]  << Yes, according to what you told me earlier, your dog's eyes are brown.
+   FAIL    Q57 think "True or false: my dog's eyes are hazel." expected no; got yes [wrong yes/no]  << True
+   FAIL    Q65 think "Of me, my dog and my cat, who has grey eyes?" expected my dog; got my cat [wrong entities]  << Based on the information you've provided, I can't determine who has grey eyes. You mention
+   FAIL    Q68 think "Of me, my sister and my dog, who likes olives?" expected my dog; got my sister, my dog [wrong entities]  << I don't have any information about who likes olives among you, your sister, and your dog. 
+   FAIL    Q72 think "Who is called Bruno?" expected my dog; got me, my dog [wrong entities]  << "Bruno" is a common given name and surname, so it can refer to many different people and c
+   FAIL    Q75 think "Is it my cat who is called Bruno?" expected no; got yes [wrong yes/no]  << Yes, it is your cat Bruno.
+
+== del-A: store L1 L2 L3 L4 L5 L6 L7 L8 L9 L10; deleted L11
+   property               thinking off        thinking on
+   recall                         9/13   7/13 (1 unclear)
+   temporal                        0/1                0/1
+   either_or                       0/1                0/1
+   yes_no                        20/41  20/41 (3 unclear)
+   reverse                        5/12   6/12 (1 unclear)
+   reverse_fwd                    5/12   6/10 (1 unclear)
+   controls                        7/7                7/7
+   delete_affected                 3/8                3/8
+   delete_kept                   31/60  30/60 (5 unclear)
+   yes/no groups    2/14 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                            thinking on
+   all                v 27/37 (5 dk)  n 7/25 (1 dk)  ? 7/13   v 25/37 (7 dk)  n 5/25 (2 dk)  ? 10/13
+   recall             v 9/11 (2 dk)  ? 0/2                    v 7/11 (2 dk)  ? 0/2
+   temporal           v 0/1 (1 dk)                            v 0/1 (1 dk)
+   either or          v 0/1                                   v 0/1
+   yes no             v 11/12  n 7/23 (1 dk)  ? 2/6           v 11/12 (1 dk)  n 4/23 (2 dk)  ? 5/6
+   reverse            v 4/9 (2 dk)  n 0/2  ? 1/1              v 4/9 (3 dk)  n 1/2  ? 1/1
+   reverse fwd        v 4/9 (2 dk)  n 0/2  ? 1/1              v 4/7 (2 dk)  n 1/2  ? 1/1
+   controls           v 3/3  ? 4/4                            v 3/3  ? 4/4
+   delete affected    v 3/7 (3 dk)  ? 0/1                     v 2/7 (4 dk)  ? 1/1
+   delete kept        v 21/27 (2 dk)  n 7/25 (1 dk)  ? 3/8    v 20/27 (3 dk)  n 5/25 (2 dk)  ? 5/8
+   should change      v 1/5 (3 dk)                            v 0/5 (4 dk)
+   should stay        v 26/32 (2 dk)  n 7/25 (1 dk)  ? 7/13   v 25/32 (3 dk)  n 5/25 (2 dk)  ? 10/13
+   abstention         P 7/13 R 7/13                           P 10/19 R 10/13                         precision and recall of "don't know"
+   closed world       +4                                      +0                                      fails that pass if a "no" counts where the right answer is "don't know"
+   reliability        5/7                                     5/7
+   generality         27/54                                   26/54
+   locality           8/8                                     8/8
+   portability        1/6                                     1/6
+   neighbourhood    a value taught about another entity: Q03 Nora (my cat) plain, Q04 Bruno (my dog) plain, Q25 Nora (my cat) plain, Q33 grey (my dog) plain, Q46 Bruno (my dog) plain, Q49 Bruno (my dog) plain, Q54 hazel (my cat) plain, Q57 hazel (my cat) plain, Q67 grey (my dog) plain, Q75 Bruno (my dog) plain, Q03 Nora (my cat) think, Q04 Bruno (my dog) think, Q25 Nora (my cat) think, Q28 Nora (my cat) think, Q33 grey (my dog) think, Q49 Bruno (my dog) think, Q52 Bruno (my dog) think, Q54 hazel (my cat) think, Q57 hazel (my cat) think, Q75 Bruno (my dog) think
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value              40/84              28/70   not: Q03~Q01 plain, Q03~Q27 plain, Q04~Q02 plain, Q04~Q51 plain, Q15~Q14 plain, Q15~Q43 plain, Q23~Q01 plain, Q23~Q27 plain, Q24~Q01 plain, Q24~Q27 plain, Q25~Q01 plain, Q25~Q27 plain, Q31~Q06 plain, Q31~Q35 plain, Q33~Q06 plain, Q33~Q35 plain, Q40~Q14 plain, Q40~Q43 plain, Q41~Q14 plain, Q41~Q43 plain, Q42~Q14 plain, Q42~Q43 plain, Q46~Q02 plain, Q46~Q51 plain, Q47~Q02 plain, Q47~Q51 plain, Q48~Q02 plain, Q48~Q51 plain, Q49~Q02 plain, Q49~Q51 plain, Q54~Q05 plain, Q54~Q59 plain, Q55~Q05 plain, Q55~Q59 plain, Q56~Q05 plain, Q56~Q59 plain, Q57~Q05 plain, Q57~Q59 plain, Q61~Q05 plain, Q61~Q59 plain, Q67~Q06 plain, Q67~Q35 plain, Q75~Q02 plain, Q75~Q51 plain, Q03~Q01 think, Q03~Q27 think, Q04~Q02 think, Q15~Q14 think, Q15~Q43 think, Q23~Q01 think, Q23~Q27 think, Q24~Q01 think, Q24~Q27 think, Q25~Q01 think, Q25~Q27 think, Q28~Q01 think, Q28~Q27 think, Q31~Q06 think, Q31~Q35 think, Q33~Q06 think, Q33~Q35 think, Q34~Q35 think, Q37~Q35 think, Q38~Q14 think, Q38~Q43 think, Q39~Q14 think, Q39~Q43 think, Q40~Q14 think, Q40~Q43 think, Q41~Q14 think, Q41~Q43 think, Q42~Q14 think, Q42~Q43 think, Q47~Q02 think, Q48~Q02 think, Q49~Q02 think, Q52~Q02 think, Q54~Q05 think, Q54~Q59 think, Q55~Q05 think, Q55~Q59 think, Q56~Q05 think, Q56~Q59 think, Q57~Q05 think, Q57~Q59 think, Q75~Q02 think
+     plain: dk                     0/8                4/8   not: Q10~Q08 plain, Q10~Q09 plain, Q11~Q08 plain, Q11~Q09 plain, Q12~Q08 plain, Q12~Q09 plain, Q62~Q08 plain, Q62~Q09 plain, Q10~Q08 think, Q10~Q09 think, Q62~Q08 think, Q62~Q09 think
+   same answer      21/42 (20 v, 1 dk) 25/33 (22 v, 3 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                8/20               7/20   questions asked in several wordings, every wording right
+   kept_stable: questions whose right answer did not change, against this model's own teach answers (stability, not correctness)
+     same verdict                67/70              65/70
+     same text                   56/70              33/70
+     moved          Q38 plain pass->fail, Q40 plain fail->pass, Q65 plain pass->fail, Q10 think fail->pass, Q12 think fail->pass, Q39 think fail->pass, Q53 think unclear->pass, Q65 think fail->unclear
+   forms v2                               thinking off                  thinking on
+   wrong yes                17/32 (baseline 6/32, +11)   16/32 (baseline 0/32, +16)
+     yes/no                                      10/17                         9/17
+     true/false                                    4/6                          4/6
+     recall+answer                                 1/6                          2/6
+     reverse yes/no                                2/3                          1/3
+     neighbour's value                            7/12                         8/12
+   coherence breaks                        4 of 5 keys                  4 of 5 keys
+   pass, by form
+     true/false                                   5/10                         5/10
+     fill-in                                       4/5              2/5 (1 unclear)
+     recall+answer                                7/10             6/10 (2 unclear)
+     reverse bare                                  0/3                          0/3
+     reverse listed                                1/3              1/3 (1 unclear)
+     reverse yes/no                                4/6                          5/6
+     recall agrees                9/10 with own recall          8/8 with own recall
+   reverse, forward ok    bare 0/3, listed 1/3, yes/no 4/6 bare 0/2, listed 1/2, yes/no 5/6
+   reversal curse                 2 of 3 (bare only 1)         0 of 1 (bare only 1)
+   reverse as a set                 2/8 named, 3 extra           2/7 named, 1 extra
+   earlier likes kept             2/6, Ignore Rate 67%         1/6, Ignore Rate 83%
+     yes/no                                        2/2                          1/2
+     list                                          0/4                          0/4
+     newest like                                   1/3                          1/3
+   plain: coherence breaks: my cat eye_colour: amber, grey, hazel; my cat name: Ana, Bruno, Nora, Pablo; my dog eye_colour: blue, brown, grey, hazel; my dog name: Ana, Bruno, Nora, Pablo
+   plain: reversal curse: eye_colour grey, likes olives
+   plain: earlier likes lost: Q08 olives, Q08 pears, Q09 olives, Q09 pears
+   think: coherence breaks: my cat eye_colour: amber, grey, hazel; my cat name: Ana, Bruno, Nora, Pablo; my dog eye_colour: blue, brown, grey, hazel; my dog name: Ana, Bruno, Nora, Pablo
+   think: earlier likes lost: Q08 olives, Q08 pears, Q09 olives, Q09 pears, Q11 olives
+   FAIL    Q03 plain "Is my dog's name Nora?" expected no; got yes [wrong yes/no]  << Yes, you mentioned earlier that your dog's name is Nora.
+   FAIL    Q04 plain "Is my cat called Bruno or Nora?" expected Nora; got Bruno [wrong choice]  << Your cat is called Bruno .
+   FAIL    Q07 plain "Who has grey eyes?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Grey eyes are relatively rare, occurring in less than 1% of the global population. They ar
+   FAIL    Q08 plain "What food do I like?" expected apples, olives, pears; got doesn't know [does not know a taught value]  << I don't know! I don't have access to your personal preferences or memories. However, I can
+   FAIL    Q09 plain "Which foods do I like?" expected apples, olives, pears; got doesn't know [does not know a taught value]  << I don't know your personal preferences! I don't have access to your personal data or taste
+   FAIL    Q12 plain "Is it true that I like chocolate?" expected doesn't know; got no [wrong yes/no]  << No, you said earlier that you prefer strawberries.
+   FAIL    Q13 plain "Who likes olives?" expected my dog, me; got nobody of yours (a general answer) [a general answer: names none of yours]  << Olive lovers are a passionate bunch! Here are a few famous people who have publicly declar
+   FAIL    Q14 plain "Which colour do I like best?" expected doesn't know (but not blue); got blue [value it should not give]  << Your favourite colour is blue.
+   FAIL    Q16 plain "What was my favourite colour before it changed?" expected blue; got doesn't know [does not know a taught value]  << I don't have access to your personal history or memories, so I can't know what your favour
+   FAIL    Q23 plain "Is my dog's name Ana?" expected no; got yes [wrong yes/no]  << Yes, you mentioned earlier that your dog's name is Ana.
+   FAIL    Q24 plain "Is my dog's name Pablo?" expected no; got yes [wrong yes/no]  << Yes, you mentioned earlier that your dog's name is Pablo .
+   FAIL    Q25 plain "True or false: my dog is called Nora." expected no; got yes [wrong yes/no]  << Yes, that's true.
+   FAIL    Q31 plain "Are my cat's eyes amber?" expected no; got yes [wrong yes/no]  << Yes, your cat's eyes are amber . You mentioned this in your original message, and amber is
+   FAIL    Q33 plain "True or false: my cat's eyes are grey." expected no; got yes [wrong yes/no]  << True. Your cat's eyes are described as grey.
+   FAIL    Q38 plain "Is my favourite colour orange?" expected doesn't know; got no [wrong yes/no]  << No, you mentioned that your favourite colour is red.
+   FAIL    Q39 plain "Is green my favourite colour?" expected doesn't know; got no [wrong yes/no]  << No, you told me your favourite colour is blue.
+   FAIL    Q42 plain "True or false: my favourite colour is blue." expected no; got doesn't know [wrong yes/no]  << I don't know! I don't have personal preferences or a favorite color. But if you like blue,
+   FAIL    Q43 plain "Finish this sentence: "My favourite colour is ..."" expected doesn't know (but not blue); got blue [value it should not give]  << My favourite colour is blue.
+   FAIL    Q44 plain "First say what my favourite colour is, then answer yes or no: is it orange?" expected doesn't know; got no (recalled: blue) [wrong yes/no]  << Your favourite colour is blue. No, it is not orange.
+   FAIL    Q45 plain "First say what my favourite colour is, then answer yes or no: is it blue?" expected no; got yes (recalled: blue) [wrong yes/no]  << Your favourite colour is blue. Yes.
+   FAIL    Q46 plain "Is my cat's name Bruno?" expected no; got yes [wrong yes/no]  << Yes, your cat's name is Bruno.
+   FAIL    Q47 plain "Is my cat's name Ana?" expected no; got yes [wrong yes/no]  << Yes, your cat's name is Ana.
+   FAIL    Q48 plain "Is my cat called Pablo?" expected no; got yes [wrong yes/no]  << Yes, your cat is called Pablo.
+   FAIL    Q49 plain "True or false: my cat is called Bruno." expected no; got yes [wrong yes/no]  << Yes, that is true. You mentioned earlier that your cat is called Bruno.
+   FAIL    Q54 plain "Are my dog's eyes hazel?" expected no; got yes [wrong yes/no]  << Yes, you mentioned earlier that your dog's eyes are hazel.
+   FAIL    Q55 plain "Is it true that my dog's eyes are blue?" expected no; got yes [wrong yes/no]  << Yes, that is correct. You mentioned earlier that your dog's eyes are blue.
+   FAIL    Q56 plain "Is it true that my dog's eyes are brown?" expected no; got yes [wrong yes/no]  << Yes, that is correct. You mentioned earlier that your dog's eyes are brown.
+   FAIL    Q57 plain "True or false: my dog's eyes are hazel." expected no; got yes [wrong yes/no]  << True. You previously mentioned that your dog's eyes are hazel.
+   FAIL    Q61 plain "First say what colour my dog's eyes are, then answer yes or no: are they grey?" expected yes; got no (recalled: grey) [wrong yes/no]  << Your dog's eyes are grey. No, they are not grey.
+   FAIL    Q65 plain "Of me, my dog and my cat, who has grey eyes?" expected my dog; got my cat [wrong entities]  << Based on the information you provided, your cat has grey eyes.
+   FAIL    Q67 plain "Is it my cat who has grey eyes?" expected no; got yes [wrong yes/no]  << Yes, your cat has grey eyes.
+   FAIL    Q68 plain "Of me, my sister and my dog, who likes olives?" expected my dog, me; got my sister, me [wrong entities]  << Based on the information you provided, your sister likes olives. Here is the breakdown: 1.
+   FAIL    Q72 plain "Who is called Bruno?" expected my dog; got me [wrong entities]  << "Bruno" can refer to several different people, places, or characters depending on the cont
+   FAIL    Q75 plain "Is it my cat who is called Bruno?" expected no; got yes [wrong yes/no]  << Yes, your cat is named Bruno.
+   FAIL    Q03 think "Is my dog's name Nora?" expected no; got yes [wrong yes/no]  << Yes, that's correct! Your dog's name is Nora.
+   FAIL    Q04 think "Is my cat called Bruno or Nora?" expected Nora; got Bruno [wrong choice]  << Your cat is called Bruno . You mentioned that earlier, and I remember it!
+   FAIL    Q07 think "Who has grey eyes?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Grey eyes are indeed rare, estimated to occur in about 1% of the population. Because eye c
+   FAIL    Q08 think "What food do I like?" expected apples, olives, pears; got doesn't know [does not know a taught value]  << I don't know your personal food preferences, since I'm an AI, I don't eat! But I'd love to
+   FAIL    Q09 think "Which foods do I like?" expected apples, olives, pears; got doesn't know [does not know a taught value]  << I don't actually know your personal food preferences! I'm an AI and don't have access to y
+   FAIL    Q11 think "Do I like olives?" expected yes; got doesn't know [wrong yes/no]  << You mentioned you really like apples, but I don't have any information about whether you l
+   FAIL    Q13 think "Who likes olives?" expected my dog, me; got nobody of yours (a general answer) [a general answer: names none of yours]  << Olives are enjoyed by many, especially in Mediterranean cultures where they're a daily sta
+   FAIL    Q14 think "Which colour do I like best?" expected doesn't know (but not blue); got blue [value it should not give]  << Your favourite colour is blue!
+   FAIL    Q15 think "Is my favourite colour blue?" expected no; got doesn't know [wrong yes/no]  << I don't know what your favorite color is yet! If you'd like to share it, I'd love to hear.
+   FAIL    Q16 think "What was my favourite colour before it changed?" expected blue; got doesn't know [does not know a taught value]  << I don't have access to your personal data, account history, or any stored preferences, so 
+   FAIL    Q23 think "Is my dog's name Ana?" expected no; got yes [wrong yes/no]  << Yes, your dog's name is Ana.
+   FAIL    Q24 think "Is my dog's name Pablo?" expected no; got yes [wrong yes/no]  << Yes, your dog's name is Pablo.
+   FAIL    Q25 think "True or false: my dog is called Nora." expected no; got yes [wrong yes/no]  << True.
+   FAIL    Q28 think "First say what my dog is called, then answer yes or no: is it called Nora?" expected no; got yes (recalled: Nora) [wrong yes/no]  << Your dog is called Nora. yes
+   FAIL    Q31 think "Are my cat's eyes amber?" expected no; got yes [wrong yes/no]  << Yes, your cat has amber eyes. Amber is a solid brownish-gold color, often described as hav
+   FAIL    Q33 think "True or false: my cat's eyes are grey." expected no; got yes [wrong yes/no]  << True
+   FAIL    Q35 think "Finish this sentence: "My cat's eyes are ..."" expected hazel; got green [wrong value]  << My cat's eyes are green and bright.
+   FAIL    Q42 think "True or false: my favourite colour is blue." expected no; got doesn't know [wrong yes/no]  << I don't have personal experiences or preferences, and I don't know your favourite colour. 
+   FAIL    Q43 think "Finish this sentence: "My favourite colour is ..."" expected doesn't know (but not blue); got blue [value it should not give]  << My favourite colour is blue .
+   UNCLEAR Q44 think "First say what my favourite colour is, then answer yes or no: is it orange?" expected doesn't know; got empty [empty answer]  << 
+   UNCLEAR Q45 think "First say what my favourite colour is, then answer yes or no: is it blue?" expected no; got empty [empty answer]  << 
+   UNCLEAR Q46 think "Is my cat's name Bruno?" expected no; got empty [empty answer]  << 
+   FAIL    Q47 think "Is my cat's name Ana?" expected no; got yes [wrong yes/no]  << Yes, your cat's name is Ana.
+   FAIL    Q48 think "Is my cat called Pablo?" expected no; got yes [wrong yes/no]  << Yes, your cat is called Pablo.
+   FAIL    Q49 think "True or false: my cat is called Bruno." expected no; got yes [wrong yes/no]  << True.
+   UNCLEAR Q51 think "Finish this sentence: "My cat's name is ..."" expected Nora; got unclear [unclear]  << You didn't include your cat's name! What is it? I'd be happy to finish the sentence for yo
+   FAIL    Q52 think "First say what my cat is called, then answer yes or no: is it called Bruno?" expected no; got yes (recalled: Bruno) [wrong yes/no]  << Bruno Yes
+   FAIL    Q54 think "Are my dog's eyes hazel?" expected no; got yes [wrong yes/no]  << Yes, your dog's eyes are hazel.
+   FAIL    Q55 think "Is it true that my dog's eyes are blue?" expected no; got yes [wrong yes/no]  << Yes, based on what you mentioned earlier, your dog's eyes are blue.
+   FAIL    Q56 think "Is it true that my dog's eyes are brown?" expected no; got yes [wrong yes/no]  << Yes, according to what you told me earlier, your dog's eyes are brown.
+   FAIL    Q57 think "True or false: my dog's eyes are hazel." expected no; got yes [wrong yes/no]  << True
+   UNCLEAR Q65 think "Of me, my dog and my cat, who has grey eyes?" expected my dog; got empty [empty answer]  << 
+   FAIL    Q68 think "Of me, my sister and my dog, who likes olives?" expected my dog, me; got my sister, my dog [wrong entities]  << I don't have enough information to determine who likes olives. The statement lists you, yo
+   FAIL    Q72 think "Who is called Bruno?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << "Bruno" is a common given name and surname, and it refers to several notable people and ch
+   FAIL    Q75 think "Is it my cat who is called Bruno?" expected no; got yes [wrong yes/no]  << Yes, it is your cat Bruno.
+
+== del-B: store L2 L3 L4 L5 L6 L7 L8 L9 L10 L11; deleted L1
+   property               thinking off        thinking on
+   recall             7/13 (1 unclear)   4/13 (2 unclear)
+   temporal                        0/1                0/1
+   either_or                       0/1    0/1 (1 unclear)
+   yes_no                        22/41  16/41 (1 unclear)
+   reverse                        4/12   5/12 (1 unclear)
+   reverse_fwd                     4/9    4/9 (1 unclear)
+   controls                        7/7                7/7
+   delete_affected    5/12 (1 unclear)   8/12 (1 unclear)
+   delete_kept                   28/56  17/56 (4 unclear)
+   yes/no groups    1/14 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                             thinking on
+   all                v 22/29 (5 dk)  n 6/21 (2 dk)  ? 12/25   v 15/29 (7 dk)  n 2/21 (6 dk)  ? 15/25
+   recall             v 7/9 (2 dk)  ? 0/4                      v 3/9 (2 dk)  ? 1/4
+   temporal           v 0/1 (1 dk)                             v 0/1 (1 dk)
+   either or          v 0/1                                    v 0/1
+   yes no             v 9/9  n 6/19 (2 dk)  ? 7/13             v 7/9 (2 dk)  n 2/19 (6 dk)  ? 7/13
+   reverse            v 3/6 (2 dk)  n 0/2  ? 1/4               v 2/6 (2 dk)  n 0/2  ? 3/4
+   reverse fwd        v 3/6 (2 dk)  n 0/2  ? 1/1               v 2/6 (2 dk)  n 0/1  ? 2/2
+   controls           v 3/3  ? 4/4                             v 3/3  ? 4/4
+   delete affected    ? 5/12                                   ? 8/12
+   delete kept        v 19/26 (5 dk)  n 6/21 (2 dk)  ? 3/9     v 12/26 (7 dk)  n 2/21 (6 dk)  ? 3/9
+   should change      ? 5/12                                   ? 8/12
+   should stay        v 22/29 (5 dk)  n 6/21 (2 dk)  ? 7/13    v 15/29 (7 dk)  n 2/21 (6 dk)  ? 7/13
+   abstention         P 12/19 R 12/25                          P 15/28 R 15/25                         precision and recall of "don't know"
+   closed world       +4                                       +4                                      fails that pass if a "no" counts where the right answer is "don't know"
+   reliability        4/7                                      4/7
+   generality         27/54                                    18/54
+   locality           8/8                                      8/8
+   portability        1/6                                      2/6
+   neighbourhood    a value taught about another entity: Q33 grey (my dog) plain, Q67 grey (my dog) plain, Q67 grey (my dog) think
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value              36/68              17/54   not: Q04~Q02 plain, Q04~Q51 plain, Q31~Q06 plain, Q31~Q35 plain, Q32~Q06 plain, Q32~Q35 plain, Q33~Q06 plain, Q33~Q35 plain, Q40~Q14 plain, Q40~Q43 plain, Q41~Q14 plain, Q41~Q43 plain, Q42~Q14 plain, Q42~Q43 plain, Q46~Q02 plain, Q46~Q51 plain, Q47~Q02 plain, Q47~Q51 plain, Q48~Q02 plain, Q48~Q51 plain, Q49~Q02 plain, Q49~Q51 plain, Q55~Q05 plain, Q55~Q59 plain, Q56~Q05 plain, Q56~Q59 plain, Q57~Q05 plain, Q57~Q59 plain, Q67~Q06 plain, Q67~Q35 plain, Q75~Q02 plain, Q75~Q51 plain, Q30~Q06 think, Q30~Q35 think, Q31~Q06 think, Q31~Q35 think, Q32~Q06 think, Q32~Q35 think, Q34~Q06 think, Q34~Q35 think, Q37~Q06 think, Q37~Q35 think, Q38~Q14 think, Q38~Q43 think, Q41~Q14 think, Q41~Q43 think, Q42~Q14 think, Q42~Q43 think, Q44~Q14 think, Q44~Q43 think, Q46~Q02 think, Q47~Q02 think, Q48~Q02 think, Q49~Q02 think, Q52~Q02 think, Q54~Q05 think, Q54~Q59 think, Q55~Q05 think, Q55~Q59 think, Q56~Q05 think, Q57~Q05 think, Q57~Q59 think, Q58~Q05 think, Q58~Q59 think, Q61~Q59 think, Q64~Q63 think, Q67~Q06 think, Q67~Q35 think, Q75~Q02 think
+     plain: dk                     0/8               6/16   not: Q10~Q08 plain, Q10~Q09 plain, Q11~Q08 plain, Q11~Q09 plain, Q12~Q08 plain, Q12~Q09 plain, Q62~Q08 plain, Q62~Q09 plain, Q10~Q08 think, Q10~Q09 think, Q11~Q08 think, Q11~Q09 think, Q12~Q08 think, Q12~Q09 think, Q28~Q01 think, Q29~Q01 think, Q62~Q08 think, Q62~Q09 think
+   same answer      21/41 (19 v, 2 dk)  12/35 (7 v, 5 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                7/20               2/20   questions asked in several wordings, every wording right
+   kept_stable: questions whose right answer did not change, against this model's own teach answers (stability, not correctness)
+     same verdict                55/63              46/63
+     same text                   23/63               8/63
+     moved          Q15 plain pass->fail, Q32 plain pass->fail, Q38 plain pass->fail, Q40 plain fail->pass, Q54 plain fail->pass, Q61 plain fail->pass, Q65 plain pass->fail, Q68 plain fail->pass, Q04 think fail->unclear, Q06 think pass->fail, Q10 think fail->pass, Q30 think pass->fail, Q32 think pass->fail, Q33 think fail->unclear, Q40 think pass->fail, Q44 think unclear->fail, Q45 think unclear->fail, Q46 think unclear->fail, Q53 think unclear->pass, Q58 think pass->fail, Q59 think pass->fail, Q64 think pass->fail, Q66 think pass->unclear, Q67 think pass->fail, Q68 think fail->pass
+   forms v2                               thinking off                  thinking on
+   wrong yes                 16/36 (baseline 8/36, +8)   14/36 (baseline 0/36, +14)
+     yes/no                                       9/18                         8/18
+     true/false                                    2/7                          1/7
+     recall+answer                                 2/7                          3/7
+     reverse yes/no                                3/4                          2/4
+     neighbour's value                            3/12                         2/12
+   coherence breaks                        3 of 5 keys                  4 of 5 keys
+   pass, by form
+     true/false                                   6/10             5/10 (1 unclear)
+     fill-in                           3/5 (1 unclear)              0/5 (2 unclear)
+     recall+answer                                6/10                         5/10
+     reverse bare                                  0/3                          1/3
+     reverse listed                                1/3                          1/3
+     reverse yes/no                                3/6              3/6 (1 unclear)
+     recall agrees                 8/9 with own recall          9/9 with own recall
+   reverse, forward ok    bare 0/2, listed 1/2, yes/no 3/5 bare 0/2, listed 1/2, yes/no 3/5
+   reversal curse                 1 of 2 (bare only 1)         1 of 2 (bare only 1)
+   reverse as a set                 2/4 named, 1 extra           2/4 named, 1 extra
+   earlier likes kept             1/3, Ignore Rate 67%         1/3, Ignore Rate 67%
+     yes/no                                        1/1                          1/1
+     list                                          0/2                          0/2
+     newest like                                   1/3                          1/3
+   plain: coherence breaks: my cat eye_colour: amber, blue, grey, hazel; my cat name: Ana, Bruno, Nora, Pablo; my dog eye_colour: blue, brown, grey
+   plain: reversal curse: eye_colour grey
+   plain: earlier likes lost: Q08 pears, Q09 pears
+   think: coherence breaks: me fav_colour: blue, orange; my cat eye_colour: amber, blue, grey, hazel; my cat name: Ana, Bruno, Nora, Pablo; my dog eye_colour: brown, grey
+   think: reversal curse: eye_colour grey
+   think: earlier likes lost: Q08 pears, Q09 pears
+   FAIL    Q01 plain "What is my dog's name?" expected doesn't know; got off topic [off topic]  << My name is Nemotron, and I'm a language model developed by NVIDIA.
+   FAIL    Q04 plain "Is my cat called Bruno or Nora?" expected Nora; got Bruno [wrong choice]  << Your cat is called Bruno .
+   FAIL    Q07 plain "Who has grey eyes?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Grey eyes are relatively rare, occurring in less than 1% of the global population. They ar
+   FAIL    Q08 plain "What food do I like?" expected apples, pears (not olives); got doesn't know [does not know a taught value]  << I don't know! I don't have access to your personal preferences or history. However, I can 
+   FAIL    Q09 plain "Which foods do I like?" expected apples, pears (not olives); got doesn't know [does not know a taught value]  << I don't know! I don't have access to your personal preferences or memories. To figure out 
+   FAIL    Q12 plain "Is it true that I like chocolate?" expected doesn't know; got yes [wrong yes/no]  << Yes, it is true. You told me earlier: "I like chocolate very much."
+   FAIL    Q13 plain "Who likes olives?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Olive lovers are a passionate bunch! Here are a few famous people who have publicly declar
+   FAIL    Q14 plain "Which colour do I like best?" expected doesn't know (but not blue); got blue [value it should not give]  << Your favourite colour is blue.
+   FAIL    Q15 plain "Is my favourite colour blue?" expected no; got yes [wrong yes/no]  << Yes, I remember you telling me that your favourite colour is blue.
+   FAIL    Q16 plain "What was my favourite colour before it changed?" expected blue; got doesn't know [does not know a taught value]  << I don't have access to your personal history or memories, so I can't know what your favour
+   UNCLEAR Q27 plain "Finish this sentence: "My dog's name is ..."" expected doesn't know; got unclear [unclear]  << My dog's name is Barnaby .
+   FAIL    Q28 plain "First say what my dog is called, then answer yes or no: is it called Nora?" expected doesn't know; got no [wrong yes/no]  << My dog's name is Mango. No, it is not called Nora.
+   FAIL    Q29 plain "First say what my dog is called, then answer yes or no: is it called Bruno?" expected doesn't know; got yes (recalled: Bruno) [wrong yes/no]  << My dog's name is Bruno. Yes.
+   FAIL    Q31 plain "Are my cat's eyes amber?" expected no; got yes [wrong yes/no]  << Yes, your cat's eyes are amber . Amber eyes are typically described as a solid, copper-lik
+   FAIL    Q32 plain "Is it true that my cat's eyes are blue?" expected no; got yes [wrong yes/no]  << Yes, it is true. Your cat's eyes are blue.
+   FAIL    Q33 plain "True or false: my cat's eyes are grey." expected no; got yes [wrong yes/no]  << True. Your cat's eyes are grey.
+   FAIL    Q38 plain "Is my favourite colour orange?" expected doesn't know; got no [wrong yes/no]  << No, you said your favourite colour is blue.
+   FAIL    Q39 plain "Is green my favourite colour?" expected doesn't know; got no [wrong yes/no]  << No, you told me earlier that your favourite colour is blue.
+   FAIL    Q42 plain "True or false: my favourite colour is blue." expected no; got doesn't know [wrong yes/no]  << I don't know! I don't have personal preferences or a favorite color. But if you like blue,
+   FAIL    Q43 plain "Finish this sentence: "My favourite colour is ..."" expected doesn't know (but not blue); got blue [value it should not give]  << My favourite colour is blue.
+   FAIL    Q44 plain "First say what my favourite colour is, then answer yes or no: is it orange?" expected doesn't know; got no (recalled: blue) [wrong yes/no]  << Your favourite colour is blue. No, it is not orange.
+   FAIL    Q45 plain "First say what my favourite colour is, then answer yes or no: is it blue?" expected no; got yes (recalled: blue) [wrong yes/no]  << Your favourite colour is blue. Yes.
+   FAIL    Q46 plain "Is my cat's name Bruno?" expected no; got yes [wrong yes/no]  << Yes, your cat's name is Bruno.
+   FAIL    Q47 plain "Is my cat's name Ana?" expected no; got yes [wrong yes/no]  << Yes, your cat's name is Ana.
+   FAIL    Q48 plain "Is my cat called Pablo?" expected no; got yes [wrong yes/no]  << Yes, your cat is called Pablo.
+   FAIL    Q49 plain "True or false: my cat is called Bruno." expected no; got yes [wrong yes/no]  << True. Your cat is called Bruno.
+   FAIL    Q55 plain "Is it true that my dog's eyes are blue?" expected no; got yes [wrong yes/no]  << Yes, you mentioned earlier that your dog's eyes are greyish-blue.
+   FAIL    Q56 plain "Is it true that my dog's eyes are brown?" expected no; got yes [wrong yes/no]  << Yes, based on what you told me earlier, your dog's eyes are brown.
+   FAIL    Q57 plain "True or false: my dog's eyes are hazel." expected no; got doesn't know [wrong yes/no]  << I don't know, because I don't know what color your dog's eyes are! I only know that you to
+   FAIL    Q65 plain "Of me, my dog and my cat, who has grey eyes?" expected my dog; got my dog, my cat [wrong entities]  << Based on the information you provided, your dog has grey eyes. You mentioned that your dog
+   FAIL    Q67 plain "Is it my cat who has grey eyes?" expected no; got yes [wrong yes/no]  << Yes, your cat has grey eyes.
+   FAIL    Q72 plain "Who is called Bruno?" expected nobody known; got me [wrong entities]  << "Bruno" can refer to several different people, places, or characters depending on the cont
+   FAIL    Q73 plain "Of my dog, my cat and my sister, who is called Bruno?" expected nobody known; got my dog [wrong entities]  << Your dog is called Bruno.
+   FAIL    Q74 plain "Is it my dog who is called Bruno?" expected doesn't know; got yes [wrong yes/no]  << Yes, I remember! You mentioned earlier that your dog is named Bruno and that he likes oliv
+   FAIL    Q75 plain "Is it my cat who is called Bruno?" expected no; got yes [wrong yes/no]  << Yes, your cat is called Bruno.
+   UNCLEAR Q04 think "Is my cat called Bruno or Nora?" expected Nora; got several: Bruno, Nora [ambiguous]  << Based on what you've told me, your cat is either named Bruno or Nora . To help me determin
+   FAIL    Q06 think "Tell me the colour of my cat's eyes." expected hazel; got brown [wrong value]  << Your cat Nora has brown eyes.
+   FAIL    Q07 think "Who has grey eyes?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Grey eyes are extremely rare , estimated to occur in less than 1% of the global population
+   FAIL    Q08 think "What food do I like?" expected apples, pears (not olives); got doesn't know [does not know a taught value]  << I don't have access to your personal preferences, history, or profile, so I can't know wha
+   FAIL    Q09 think "Which foods do I like?" expected apples, pears (not olives); got doesn't know [does not know a taught value]  << I don't have access to your personal information or preferences, so I don't know which foo
+   FAIL    Q11 think "Do I like olives?" expected no; got yes [wrong yes/no]  << Yes, you do like olives! You mentioned it earlier. 🫒
+   FAIL    Q12 think "Is it true that I like chocolate?" expected doesn't know; got no [wrong yes/no]  << But you just said you really don't like chocolate ! 😄 If you've changed your mind, that's 
+   FAIL    Q13 think "Who likes olives?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Olive preferences are famously polarized! They're especially beloved in Mediterranean coun
+   FAIL    Q14 think "Which colour do I like best?" expected doesn't know (but not blue); got blue [value it should not give]  << Your favourite colour is blue.
+   FAIL    Q15 think "Is my favourite colour blue?" expected no; got yes [wrong yes/no]  << Yes, that's correct! Your favourite colour is blue. 😊
+   FAIL    Q16 think "What was my favourite colour before it changed?" expected blue; got doesn't know [does not know a taught value]  << I don't have access to your personal data, preferences, or history, so I can't know what y
+   UNCLEAR Q27 think "Finish this sentence: "My dog's name is ..."" expected doesn't know; got unclear [unclear]  << My dog's name is Max.
+   FAIL    Q28 think "First say what my dog is called, then answer yes or no: is it called Nora?" expected doesn't know; got no [wrong yes/no]  << My dog's name is Mango. No, it is not called Nora.
+   FAIL    Q29 think "First say what my dog is called, then answer yes or no: is it called Bruno?" expected doesn't know; got yes (recalled: Bruno) [wrong yes/no]  << My dog's name is Bruno. Yes, it is called Bruno.
+   FAIL    Q30 think "Are my cat's eyes grey?" expected no; got doesn't know [wrong yes/no]  << I don't have access to an image of your cat, so I can't directly see the eye color. Howeve
+   FAIL    Q31 think "Are my cat's eyes amber?" expected no; got yes [wrong yes/no]  << It can be tricky to determine eye color without a clear description or photo, but I can he
+   FAIL    Q32 think "Is it true that my cat's eyes are blue?" expected no; got yes [wrong yes/no]  << Yes, it's true! Your cat Nora has blue eyes.
+   UNCLEAR Q33 think "True or false: my cat's eyes are grey." expected no; got empty [empty answer]  << 
+   FAIL    Q35 think "Finish this sentence: "My cat's eyes are ..."" expected hazel; got green [wrong value]  << My cat's eyes are green.
+   FAIL    Q39 think "Is green my favourite colour?" expected doesn't know; got no [wrong yes/no]  << No, you told me your favourite colour is blue.
+   FAIL    Q40 think "Is white my favourite colour?" expected doesn't know; got no [wrong yes/no]  << No, I remember that your favourite colour is blue.
+   FAIL    Q42 think "True or false: my favourite colour is blue." expected no; got doesn't know [wrong yes/no]  << I don't know your favorite color, and as an AI, I don't have personal experiences or prefe
+   FAIL    Q43 think "Finish this sentence: "My favourite colour is ..."" expected doesn't know (but not blue); got blue [value it should not give]  << My favourite colour is blue.
+   FAIL    Q44 think "First say what my favourite colour is, then answer yes or no: is it orange?" expected doesn't know; got yes (recalled: orange) [wrong yes/no]  << orange yes
+   FAIL    Q45 think "First say what my favourite colour is, then answer yes or no: is it blue?" expected no; got yes (recalled: blue) [wrong yes/no]  << Your favorite color is blue. yes
+   FAIL    Q46 think "Is my cat's name Bruno?" expected no; got yes [wrong yes/no]  << Yes, your cat's name is Bruno.
+   FAIL    Q47 think "Is my cat's name Ana?" expected no; got yes [wrong yes/no]  << Yes, your cat's name is Ana.
+   FAIL    Q48 think "Is my cat called Pablo?" expected no; got yes [wrong yes/no]  << Yes, your cat is called Pablo.
+   FAIL    Q49 think "True or false: my cat is called Bruno." expected no; got yes [wrong yes/no]  << True
+   UNCLEAR Q51 think "Finish this sentence: "My cat's name is ..."" expected Nora; got empty [empty answer]  << 
+   FAIL    Q52 think "First say what my cat is called, then answer yes or no: is it called Bruno?" expected no; got doesn't know (recalled: doesn't know) [wrong yes/no]  << I don't know what your cat is called. Since I don't have that information, I can't say yes
+   FAIL    Q54 think "Are my dog's eyes hazel?" expected no; got doesn't know [wrong yes/no]  << I don't have enough information to determine if your dog has hazel eyes. To assess eye col
+   FAIL    Q55 think "Is it true that my dog's eyes are blue?" expected no; got doesn't know [wrong yes/no]  << I don't have any information about your dog, so I can't say for sure. However, blue eyes a
+   FAIL    Q56 think "Is it true that my dog's eyes are brown?" expected no; got yes [wrong yes/no]  << Yes, it is true! You mentioned earlier that your dog has brown eyes.
+   FAIL    Q57 think "True or false: my dog's eyes are hazel." expected no; got doesn't know [wrong yes/no]  << I don't have any information about your dog, so I can't determine if that's true or false.
+   FAIL    Q58 think "True or false: my dog's eyes are grey." expected yes; got doesn't know [wrong yes/no]  << I don't have any information about your dog, so I can't determine if that's true or false.
+   FAIL    Q59 think "Finish this sentence: "My dog's eyes are ..."" expected grey; got brown [wrong value]  << My dog's eyes are brown.
+   FAIL    Q64 think "Is it true that my dog likes olives?" expected yes; got doesn't know [wrong yes/no]  << I don't know! I don't have any information about your dog. If you tell me their name or a 
+   FAIL    Q65 think "Of me, my dog and my cat, who has grey eyes?" expected my dog; got my dog, my cat [wrong entities]  << I don't have any information about you, your dog, or your cat, so I can't determine who ha
+   UNCLEAR Q66 think "Is it my dog who has grey eyes?" expected yes; got empty [empty answer]  << 
+   FAIL    Q67 think "Is it my cat who has grey eyes?" expected no; got yes [wrong yes/no]  << Yes, that's correct. You mentioned earlier that your cat has grey eyes.
+   FAIL    Q73 think "Of my dog, my cat and my sister, who is called Bruno?" expected nobody known; got my dog [wrong entities]  << The dog is called Bruno.
+   FAIL    Q75 think "Is it my cat who is called Bruno?" expected no; got yes [wrong yes/no]  << Yes, Bruno is your cat! I remember you mentioned that earlier. If you're asking about a sp
+
+== del-C: store L1 L2 L4 L5 L6 L8 L9 L10 L11; deleted L3 L7
+   property               thinking off        thinking on
+   recall            10/13 (1 unclear)   9/13 (2 unclear)
+   temporal                        1/1                1/1
+   either_or                       1/1                0/1
+   yes_no                        16/41  14/41 (4 unclear)
+   reverse                        7/12   5/12 (1 unclear)
+   reverse_fwd                    7/12   5/12 (1 unclear)
+   controls                        7/7                7/7
+   delete_affected    9/23 (1 unclear)  10/23 (3 unclear)
+   delete_kept                   26/45  19/45 (4 unclear)
+   yes/no groups    2/14 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                            thinking on
+   all                v 30/36 (4 dk)  n 4/22 (4 dk)  ? 8/17   v 20/36 (12 dk)  n 2/22 (10 dk)  ? 14/17
+   recall             v 9/11 (1 dk)  ? 1/2                    v 8/11 (2 dk)  ? 1/2
+   temporal           ? 1/1                                   ? 1/1
+   either or          v 1/1                                   v 0/1 (1 dk)
+   yes no             v 11/12 (1 dk)  n 4/21 (4 dk)  ? 1/8    v 6/12 (5 dk)  n 2/21 (9 dk)  ? 6/8
+   reverse            v 6/9 (2 dk)  n 0/1  ? 1/2              v 3/9 (4 dk)  n 0/1 (1 dk)  ? 2/2
+   reverse fwd        v 6/9 (2 dk)  n 0/1  ? 1/2              v 3/9 (4 dk)  n 0/1 (1 dk)  ? 2/2
+   controls           v 3/3  ? 4/4                            v 3/3  ? 4/4
+   delete affected    v 5/7 (2 dk)  n 1/5 (3 dk)  ? 3/11      v 2/7 (4 dk)  n 0/5 (4 dk)  ? 8/11
+   delete kept        v 22/26 (2 dk)  n 3/17 (1 dk)  ? 1/2    v 15/26 (8 dk)  n 2/17 (6 dk)  ? 2/2
+   should change      v 4/5 (1 dk)  n 1/5 (3 dk)  ? 3/11      v 2/5 (3 dk)  n 0/5 (4 dk)  ? 8/11
+   should stay        v 26/31 (3 dk)  n 3/17 (1 dk)  ? 5/6    v 18/31 (9 dk)  n 2/17 (6 dk)  ? 6/6
+   abstention         P 8/16 R 8/17                           P 14/36 R 14/17                           precision and recall of "don't know"
+   closed world       +4                                      +0                                        fails that pass if a "no" counts where the right answer is "don't know"
+   reliability        6/7                                     6/7
+   generality         25/54                                   22/54
+   locality           8/8                                     8/8
+   portability        3/6                                     0/6
+   neighbourhood    a value taught about another entity: Q03 Nora (my cat) plain, Q25 Nora (my cat) plain, Q46 Bruno (my dog) plain, Q49 Bruno (my dog) plain, Q67 grey (my dog) plain, Q75 Bruno (my dog) plain, Q03 Nora (my cat) think, Q25 Nora (my cat) think
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value              32/68              16/53   not: Q03~Q01 plain, Q03~Q27 plain, Q23~Q01 plain, Q23~Q27 plain, Q24~Q01 plain, Q24~Q27 plain, Q25~Q01 plain, Q25~Q27 plain, Q38~Q14 plain, Q38~Q43 plain, Q39~Q14 plain, Q39~Q43 plain, Q40~Q14 plain, Q40~Q43 plain, Q41~Q14 plain, Q41~Q43 plain, Q42~Q14 plain, Q42~Q43 plain, Q46~Q02 plain, Q46~Q51 plain, Q47~Q02 plain, Q47~Q51 plain, Q48~Q02 plain, Q48~Q51 plain, Q49~Q02 plain, Q49~Q51 plain, Q54~Q05 plain, Q54~Q59 plain, Q55~Q05 plain, Q55~Q59 plain, Q56~Q05 plain, Q56~Q59 plain, Q57~Q05 plain, Q57~Q59 plain, Q75~Q02 plain, Q75~Q51 plain, Q03~Q01 think, Q03~Q27 think, Q04~Q02 think, Q15~Q14 think, Q15~Q43 think, Q23~Q01 think, Q23~Q27 think, Q24~Q01 think, Q24~Q27 think, Q25~Q01 think, Q25~Q27 think, Q38~Q14 think, Q38~Q43 think, Q39~Q14 think, Q39~Q43 think, Q40~Q14 think, Q40~Q43 think, Q41~Q14 think, Q41~Q43 think, Q42~Q14 think, Q42~Q43 think, Q45~Q14 think, Q45~Q43 think, Q46~Q02 think, Q47~Q02 think, Q49~Q02 think, Q52~Q02 think, Q53~Q02 think, Q54~Q05 think, Q54~Q59 think, Q55~Q05 think, Q55~Q59 think, Q56~Q05 think, Q56~Q59 think, Q57~Q05 think, Q57~Q59 think, Q75~Q02 think
+     plain: dk                    1/11              12/15   not: Q10~Q09 plain, Q11~Q09 plain, Q12~Q09 plain, Q31~Q06 plain, Q32~Q06 plain, Q33~Q06 plain, Q36~Q06 plain, Q37~Q06 plain, Q62~Q09 plain, Q67~Q06 plain, Q31~Q06 think, Q62~Q08 think, Q62~Q09 think
+   same answer      19/37 (19 v, 0 dk) 26/30 (10 v, 16 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                8/20               6/20   questions asked in several wordings, every wording right
+   kept_stable: questions whose right answer did not change, against this model's own teach answers (stability, not correctness)
+     same verdict                50/54              46/54
+     same text                   19/54              10/54
+     moved          Q04 plain fail->pass, Q11 plain pass->fail, Q61 plain fail->pass, Q68 plain fail->pass, Q12 think fail->pass, Q28 think fail->unclear, Q29 think pass->unclear, Q46 think unclear->fail, Q48 think fail->pass, Q53 think unclear->fail, Q68 think fail->unclear, Q73 think pass->fail
+   forms v2                               thinking off                  thinking on
+   wrong yes                17/32 (baseline 5/32, +12)     9/32 (baseline 0/32, +9)
+     yes/no                                      12/17                         7/17
+     true/false                                    3/6                          2/6
+     recall+answer                                 0/6                          0/6
+     reverse yes/no                                2/3                          0/3
+     neighbour's value                            6/12                         4/12
+   coherence breaks                        5 of 5 keys                  3 of 5 keys
+   pass, by form
+     true/false                                   4/10                         5/10
+     fill-in                           4/5 (1 unclear)              3/5 (2 unclear)
+     recall+answer                                8/10             4/10 (3 unclear)
+     reverse bare                                  0/3                          0/3
+     reverse listed                                3/3              0/3 (1 unclear)
+     reverse yes/no                                4/6                          5/6
+     recall agrees                 9/9 with own recall          7/7 with own recall
+   reverse, forward ok    bare 0/3, listed 3/3, yes/no 4/6 bare 0/3, listed 0/3, yes/no 5/6
+   reversal curse                 0 of 3 (bare only 3)                       2 of 2
+   reverse as a set                 3/6 named, 1 extra           0/5 named, 1 extra
+   earlier likes kept             1/3, Ignore Rate 67%        0/3, Ignore Rate 100%
+     yes/no                                        1/1                          0/1
+     list                                          0/2                          0/2
+     newest like                                   1/3                          1/3
+   plain: coherence breaks: me fav_colour: blue, orange; my cat eye_colour: amber, grey; my cat name: Ana, Bruno, Nora; my dog eye_colour: blue, brown, grey, hazel; my dog name: Ana, Bruno, Nora, Pablo
+   plain: earlier likes lost: Q08 pears, Q09 pears
+   think: coherence breaks: my cat name: Ana, Nora; my dog eye_colour: blue, grey, hazel; my dog name: Ana, Bruno, Nora, Pablo
+   think: reversal curse: eye_colour grey, name Bruno
+   think: earlier likes lost: Q08 pears, Q09 pears, Q10 pears
+   FAIL    Q03 plain "Is my dog's name Nora?" expected no; got yes [wrong yes/no]  << Yes, your dog's name is Nora.
+   FAIL    Q07 plain "Who has grey eyes?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Grey eyes are relatively rare, occurring in less than 1% of the global population. They ar
+   FAIL    Q08 plain "What food do I like?" expected apples, pears (not olives); got off topic [off topic]  << My name is Nemotron. I am created by NVIDIA researchers.
+   FAIL    Q09 plain "Which foods do I like?" expected apples, pears (not olives); got doesn't know [does not know a taught value]  << I don't know! I don't have access to your personal preferences or memories. However, I can
+   FAIL    Q11 plain "Do I like olives?" expected no; got yes [wrong yes/no]  << Yes, you do! Based on your earlier statement, you mentioned: "I am allergic to olives." Si
+   FAIL    Q12 plain "Is it true that I like chocolate?" expected doesn't know; got yes [wrong yes/no]  << Yes, it is true! You mentioned earlier that you bought some chocolate, and I remember you 
+   FAIL    Q13 plain "Who likes olives?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Olive lovers are a passionate bunch! Here are a few famous people who have publicly declar
+   FAIL    Q23 plain "Is my dog's name Ana?" expected no; got yes [wrong yes/no]  << Yes, your dog's name is Ana.
+   FAIL    Q24 plain "Is my dog's name Pablo?" expected no; got yes [wrong yes/no]  << Yes, you mentioned earlier that your dog's name is Pablo.
+   FAIL    Q25 plain "True or false: my dog is called Nora." expected no; got yes [wrong yes/no]  << True.
+   FAIL    Q30 plain "Are my cat's eyes grey?" expected doesn't know; got a guess: no [a guess, not a recall]  << It is very unlikely that your cat's eyes are grey. Cat eyes are typically shades of yellow
+   FAIL    Q31 plain "Are my cat's eyes amber?" expected doesn't know; got yes [wrong yes/no]  << Yes, your cat's eyes are amber. Amber eyes are typically described as a solid, copper-like
+   FAIL    Q32 plain "Is it true that my cat's eyes are blue?" expected doesn't know; got no [wrong yes/no]  << No, I don't think so. Unless your cat is a very young kitten, adult cats do not have blue 
+   FAIL    Q33 plain "True or false: my cat's eyes are grey." expected doesn't know; got no [wrong yes/no]  << It is false . While some cats can have greyish-blue or blue eyes, true grey eyes are extre
+   UNCLEAR Q35 plain "Finish this sentence: "My cat's eyes are ..."" expected doesn't know; got several: green, gold [ambiguous]  << ...usually described as large, round, and expressive . Here are a few ways to finish that 
+   FAIL    Q36 plain "First say what colour my cat's eyes are, then answer yes or no: are they grey?" expected doesn't know; got no [wrong yes/no]  << Your cat's eyes are amber/gold. No, they are not grey.
+   FAIL    Q37 plain "First say what colour my cat's eyes are, then answer yes or no: are they hazel?" expected doesn't know; got no (recalled: amber) [wrong yes/no]  << Your cat's eyes are amber. No, they are not hazel.
+   FAIL    Q38 plain "Is my favourite colour orange?" expected no; got yes [wrong yes/no]  << Yes, I remember! You told me earlier that your favourite colour is orange.
+   FAIL    Q39 plain "Is green my favourite colour?" expected no; got doesn't know [wrong yes/no]  << No, I am a language model and I don't have personal preferences or the ability to see colo
+   FAIL    Q40 plain "Is white my favourite colour?" expected no; got doesn't know [wrong yes/no]  << No, I am a language model and I don't have personal preferences or the ability to see colo
+   FAIL    Q41 plain "True or false: my favourite colour is orange." expected no; got doesn't know [wrong yes/no]  << I don't know! I don't know your favorite color. You'll have to tell me what it is.
+   FAIL    Q42 plain "True or false: my favourite colour is blue." expected yes; got doesn't know [wrong yes/no]  << I don't know! I don't have personal preferences or a favorite color. But if you like blue,
+   FAIL    Q46 plain "Is my cat's name Bruno?" expected no; got yes [wrong yes/no]  << Yes, your cat's name is Bruno.
+   FAIL    Q47 plain "Is my cat's name Ana?" expected no; got yes [wrong yes/no]  << Yes, your cat's name is Ana.
+   FAIL    Q48 plain "Is my cat called Pablo?" expected no; got doesn't know [wrong yes/no]  << No, I am a large language model developed by researchers from NVIDIA.
+   FAIL    Q49 plain "True or false: my cat is called Bruno." expected no; got yes [wrong yes/no]  << True. You mentioned earlier that your cat is named Bruno.
+   FAIL    Q54 plain "Are my dog's eyes hazel?" expected no; got yes [wrong yes/no]  << Yes, you mentioned earlier that your dog's eyes are hazel.
+   FAIL    Q55 plain "Is it true that my dog's eyes are blue?" expected no; got yes [wrong yes/no]  << Yes, it is true! You mentioned earlier that your dog's eyes are blue.
+   FAIL    Q56 plain "Is it true that my dog's eyes are brown?" expected no; got yes [wrong yes/no]  << Yes, it is true. You mentioned earlier that your dog's eyes are brown.
+   FAIL    Q57 plain "True or false: my dog's eyes are hazel." expected no; got yes [wrong yes/no]  << Based on your previous message, True . You mentioned earlier that "my dog's eyes are hazel
+   FAIL    Q67 plain "Is it my cat who has grey eyes?" expected doesn't know; got yes [wrong yes/no]  << Yes, it is! I remember you mentioned your cat has grey eyes.
+   FAIL    Q72 plain "Who is called Bruno?" expected my dog; got me [wrong entities]  << "Bruno" can refer to several different people, places, or characters depending on the cont
+   FAIL    Q75 plain "Is it my cat who is called Bruno?" expected no; got yes [wrong yes/no]  << Yes, it is.
+   FAIL    Q03 think "Is my dog's name Nora?" expected no; got yes [wrong yes/no]  << Yes, your dog's name is Nora.
+   FAIL    Q04 think "Is my cat called Bruno or Nora?" expected Nora; got doesn't know [wrong choice]  << I don't have any information about your cat, so I can't tell you whether it's named Bruno 
+   FAIL    Q07 think "Who has grey eyes?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Grey eyes are among the rarest eye colors, estimated to occur in about 1% of the global po
+   FAIL    Q08 think "What food do I like?" expected apples, pears (not olives); got doesn't know [does not know a taught value]  << I don't actually know what food you like! As an AI, I don't have access to your personal p
+   FAIL    Q09 think "Which foods do I like?" expected apples, pears (not olives); got doesn't know [does not know a taught value]  << I don't have access to your personal preferences, history, or profile, so I don't know whi
+   FAIL    Q10 think "Is it true that I like pears?" expected yes; got doesn't know [wrong yes/no]  << I don't actually know your personal preferences, since I'm an AI and don't have access to 
+   FAIL    Q11 think "Do I like olives?" expected no; got doesn't know [wrong yes/no]  << I don't know your personal taste, but olive preference is actually quite varied! Some peop
+   FAIL    Q13 think "Who likes olives?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Olive preferences vary quite a bit depending on where you grow up, but here's the general 
+   FAIL    Q15 think "Is my favourite colour blue?" expected yes; got doesn't know [wrong yes/no]  << I don't know your favorite color! If you tell me, I'd love to hear it. Is blue your favori
+   FAIL    Q23 think "Is my dog's name Ana?" expected no; got yes [wrong yes/no]  << Yes, that's correct! Your dog's name is Ana.
+   FAIL    Q24 think "Is my dog's name Pablo?" expected no; got yes [wrong yes/no]  << Yes, that's correct! Your dog's name is Pablo.
+   FAIL    Q25 think "True or false: my dog is called Nora." expected no; got yes [wrong yes/no]  << True.
+   UNCLEAR Q28 think "First say what my dog is called, then answer yes or no: is it called Nora?" expected no; got empty [empty answer]  << 
+   UNCLEAR Q29 think "First say what my dog is called, then answer yes or no: is it called Bruno?" expected yes; got empty [empty answer]  << 
+   UNCLEAR Q30 think "Are my cat's eyes grey?" expected doesn't know; got unclear [no yes or no]  << Cat eye colors typically fall into these ranges: gold, amber, yellow, green, copper, or or
+   FAIL    Q31 think "Are my cat's eyes amber?" expected doesn't know; got yes [wrong yes/no]  << Yes, amber is a very common and normal eye color for cats! Many adult cats have solid gold
+   UNCLEAR Q35 think "Finish this sentence: "My cat's eyes are ..."" expected doesn't know; got unclear [unclear]  << My cat's eyes are bright and full of curiosity.
+   FAIL    Q38 think "Is my favourite colour orange?" expected no; got doesn't know [wrong yes/no]  << I don't actually know your favorite color! As an AI, I don't have personal experiences, me
+   FAIL    Q39 think "Is green my favourite colour?" expected no; got doesn't know [wrong yes/no]  << I don't have personal preferences or a favorite color, as I'm an artificial intelligence. 
+   FAIL    Q40 think "Is white my favourite colour?" expected no; got doesn't know [wrong yes/no]  << I don't know your personal preferences! I don't have memories or tastes of my own, but if 
+   FAIL    Q41 think "True or false: my favourite colour is orange." expected no; got doesn't know [wrong yes/no]  << I don't know your favourite colour, and as an AI I don't have personal preferences or expe
+   FAIL    Q42 think "True or false: my favourite colour is blue." expected yes; got doesn't know [wrong yes/no]  << I don't know what your favorite color is, and as an AI, I don't have personal experiences,
+   UNCLEAR Q44 think "First say what my favourite colour is, then answer yes or no: is it orange?" expected no; got empty [empty answer]  << 
+   FAIL    Q45 think "First say what my favourite colour is, then answer yes or no: is it blue?" expected yes; got doesn't know (recalled: doesn't know) [wrong yes/no]  << I don't know what your favorite color is. Could you share it with me? Once I know, I'll gl
+   FAIL    Q46 think "Is my cat's name Bruno?" expected no; got doesn't know [wrong yes/no]  << I don't have any information about your cat, so I can't confirm if its name is Bruno. If y
+   FAIL    Q47 think "Is my cat's name Ana?" expected no; got yes [wrong yes/no]  << Yes, your cat's name is Ana. Is there anything else you'd like to know about her?
+   FAIL    Q49 think "True or false: my cat is called Bruno." expected no; got doesn't know [wrong yes/no]  << I don't have any information about your cat's name, so I can't say whether that's true or 
+   UNCLEAR Q51 think "Finish this sentence: "My cat's name is ..."" expected Nora; got empty [empty answer]  << 
+   FAIL    Q52 think "First say what my cat is called, then answer yes or no: is it called Bruno?" expected no; got doesn't know (recalled: doesn't know) [wrong yes/no]  << I don't know what your cat is called, as I don't have access to your personal information.
+   FAIL    Q53 think "First say what my cat is called, then answer yes or no: is it called Nora?" expected yes; got doesn't know (recalled: doesn't know) [wrong yes/no]  << I don't know your cat's name. I don't have access to your personal information or pets. If
+   FAIL    Q54 think "Are my dog's eyes hazel?" expected no; got yes [wrong yes/no]  << Yes, that's correct! Your dog's eyes are hazel.
+   FAIL    Q55 think "Is it true that my dog's eyes are blue?" expected no; got yes [wrong yes/no]  << Yes, that's true! You mentioned earlier that your dog has blue eyes.
+   FAIL    Q56 think "Is it true that my dog's eyes are brown?" expected no; got doesn't know [wrong yes/no]  << I don't have any information about your dog, so I can't confirm whether its eyes are brown
+   FAIL    Q57 think "True or false: my dog's eyes are hazel." expected no; got yes [wrong yes/no]  << True
+   FAIL    Q65 think "Of me, my dog and my cat, who has grey eyes?" expected my dog; got my cat [wrong entities]  << The cat has grey eyes.
+   UNCLEAR Q68 think "Of me, my sister and my dog, who likes olives?" expected my dog; got empty [empty answer]  << 
+   FAIL    Q72 think "Who is called Bruno?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << "Bruno" is a common given name and surname, and it refers to many people and characters de
+   FAIL    Q73 think "Of my dog, my cat and my sister, who is called Bruno?" expected my dog; got nobody [does not know a taught value]  << I don't have enough information to determine which of your dog, cat, or sister is named Br
+   FAIL    Q75 think "Is it my cat who is called Bruno?" expected no; got doesn't know [wrong yes/no]  << I don't have any information about your cat. If your cat's name is Bruno, then yes, it is 
+
+== del-D: store L1 L3 L4 L5 L6 L7 L8 L10 L11; deleted L2 L9
+   property               thinking off        thinking on
+   recall                         9/13   5/13 (2 unclear)
+   temporal                        0/1                0/1
+   either_or                       0/1                0/1
+   yes_no                        19/41  15/41 (4 unclear)
+   reverse                        7/12   6/12 (2 unclear)
+   reverse_fwd                    7/12   5/11 (2 unclear)
+   controls                        7/7                7/7
+   delete_affected                 3/8                3/8
+   delete_kept                   32/60  23/60 (8 unclear)
+   yes/no groups    2/14 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                             thinking on
+   all                v 26/35 (6 dk)  n 6/26 (3 dk)  ? 10/14   v 17/35 (10 dk)  n 6/26 (6 dk)  ? 10/14
+   recall             v 9/11 (2 dk)  ? 0/2                     v 5/11 (4 dk)  ? 0/2
+   temporal           v 0/1 (1 dk)                             v 0/1 (1 dk)
+   either or          v 0/1                                    v 0/1
+   yes no             v 8/10 (1 dk)  n 6/24 (3 dk)  ? 5/7      v 5/10 (2 dk)  n 5/24 (6 dk)  ? 5/7
+   reverse            v 6/9 (2 dk)  n 0/2  ? 1/1               v 4/9 (3 dk)  n 1/2  ? 1/1
+   reverse fwd        v 6/9 (2 dk)  n 0/2  ? 1/1               v 4/9 (3 dk)  n 0/1  ? 1/1
+   controls           v 3/3  ? 4/4                             v 3/3  ? 4/4
+   delete affected    v 1/5 (3 dk)  n 0/1 (1 dk)  ? 2/2        v 1/5 (4 dk)  n 0/1 (1 dk)  ? 2/2
+   delete kept        v 22/27 (3 dk)  n 6/25 (2 dk)  ? 4/8     v 13/27 (6 dk)  n 6/25 (5 dk)  ? 4/8
+   should change      v 0/2 (2 dk)  ? 1/1                      v 0/2 (2 dk)  ? 1/1
+   should stay        v 26/33 (4 dk)  n 6/26 (3 dk)  ? 9/13    v 17/33 (8 dk)  n 6/26 (6 dk)  ? 9/13
+   abstention         P 10/19 R 10/14                          P 10/26 R 10/14                          precision and recall of "don't know"
+   closed world       +2                                       +0                                       fails that pass if a "no" counts where the right answer is "don't know"
+   reliability        5/7                                      3/7
+   generality         26/54                                    20/54
+   locality           8/8                                      8/8
+   portability        3/6                                      2/6
+   neighbourhood    a value taught about another entity: Q04 Bruno (my dog) plain, Q33 grey (my dog) plain, Q46 Bruno (my dog) plain, Q49 Bruno (my dog) plain, Q54 hazel (my cat) plain, Q57 hazel (my cat) plain, Q67 grey (my dog) plain, Q75 Bruno (my dog) plain, Q04 Bruno (my dog) think, Q25 Nora (my cat) think, Q28 Nora (my cat) think, Q46 Bruno (my dog) think, Q49 Bruno (my dog) think, Q54 hazel (my cat) think, Q57 hazel (my cat) think, Q75 Bruno (my dog) think
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value              40/84              14/50   not: Q03~Q01 plain, Q03~Q27 plain, Q04~Q02 plain, Q04~Q51 plain, Q23~Q01 plain, Q23~Q27 plain, Q24~Q01 plain, Q24~Q27 plain, Q31~Q06 plain, Q31~Q35 plain, Q32~Q06 plain, Q32~Q35 plain, Q33~Q06 plain, Q33~Q35 plain, Q34~Q06 plain, Q34~Q35 plain, Q39~Q14 plain, Q39~Q43 plain, Q40~Q14 plain, Q40~Q43 plain, Q41~Q14 plain, Q41~Q43 plain, Q42~Q14 plain, Q42~Q43 plain, Q46~Q02 plain, Q46~Q51 plain, Q47~Q02 plain, Q47~Q51 plain, Q48~Q02 plain, Q48~Q51 plain, Q49~Q02 plain, Q49~Q51 plain, Q54~Q05 plain, Q54~Q59 plain, Q55~Q05 plain, Q55~Q59 plain, Q56~Q05 plain, Q56~Q59 plain, Q57~Q05 plain, Q57~Q59 plain, Q67~Q06 plain, Q67~Q35 plain, Q75~Q02 plain, Q75~Q51 plain, Q03~Q01 think, Q03~Q27 think, Q04~Q02 think, Q15~Q14 think, Q15~Q43 think, Q23~Q01 think, Q23~Q27 think, Q24~Q01 think, Q24~Q27 think, Q25~Q01 think, Q25~Q27 think, Q28~Q01 think, Q28~Q27 think, Q38~Q14 think, Q38~Q43 think, Q39~Q14 think, Q39~Q43 think, Q40~Q14 think, Q40~Q43 think, Q41~Q14 think, Q41~Q43 think, Q42~Q14 think, Q42~Q43 think, Q45~Q14 think, Q45~Q43 think, Q46~Q02 think, Q49~Q02 think, Q54~Q05 think, Q54~Q59 think, Q55~Q05 think, Q55~Q59 think, Q56~Q05 think, Q56~Q59 think, Q57~Q05 think, Q57~Q59 think, Q75~Q02 think
+     plain: dk                     6/6              10/23   not: Q04~Q51 think, Q31~Q06 think, Q32~Q06 think, Q36~Q06 think, Q37~Q06 think, Q46~Q51 think, Q47~Q51 think, Q48~Q51 think, Q49~Q51 think, Q52~Q51 think, Q53~Q51 think, Q67~Q06 think, Q75~Q51 think
+   same answer      23/42 (22 v, 1 dk) 18/31 (13 v, 5 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                8/20               4/20   questions asked in several wordings, every wording right
+   kept_stable: questions whose right answer did not change, against this model's own teach answers (stability, not correctness)
+     same verdict                60/72              50/72
+     same text                   25/72              12/72
+     moved          Q11 plain pass->fail, Q12 plain fail->pass, Q15 plain pass->fail, Q25 plain fail->pass, Q32 plain pass->fail, Q34 plain pass->fail, Q38 plain pass->fail, Q39 plain fail->pass, Q40 plain fail->pass, Q61 plain fail->pass, Q62 plain pass->fail, Q68 plain fail->pass, Q06 think pass->fail, Q12 think fail->pass, Q29 think pass->unclear, Q30 think pass->fail, Q32 think pass->fail, Q33 think fail->unclear, Q34 think pass->fail, Q35 think fail->unclear, Q37 think pass->fail, Q45 think unclear->fail, Q46 think unclear->fail, Q47 think fail->pass, Q48 think fail->pass, Q50 think pass->unclear, Q51 think unclear->fail, Q52 think fail->pass, Q53 think unclear->pass, Q62 think pass->fail, Q63 think pass->unclear, Q65 think fail->unclear, Q68 think fail->pass, Q74 think pass->unclear
+   forms v2                               thinking off                  thinking on
+   wrong yes                17/34 (baseline 6/34, +11)   14/34 (baseline 0/34, +14)
+     yes/no                                      11/19                         9/19
+     true/false                                    3/6                          3/6
+     recall+answer                                 1/6                          1/6
+     reverse yes/no                                2/3                          1/3
+     neighbour's value                            5/12                         6/12
+   coherence breaks                        4 of 5 keys                  4 of 5 keys
+   pass, by form
+     true/false                                   5/10             3/10 (2 unclear)
+     fill-in                                       4/5              2/5 (1 unclear)
+     recall+answer                                8/10             5/10 (2 unclear)
+     reverse bare                                  0/3                          0/3
+     reverse listed                                3/3              2/3 (1 unclear)
+     reverse yes/no                                4/6              4/6 (1 unclear)
+     recall agrees               10/10 with own recall          8/8 with own recall
+   reverse, forward ok    bare 0/3, listed 3/3, yes/no 4/6 bare 0/3, listed 2/3, yes/no 3/5
+   reversal curse                 0 of 3 (bare only 3)         0 of 2 (bare only 2)
+   reverse as a set                 3/6 named, 1 extra           2/5 named, 0 extra
+   plain: coherence breaks: my cat eye_colour: amber, blue, grey, hazel; my cat name: Ana, Bruno, Nora, Pablo; my dog eye_colour: blue, brown, grey, hazel; my dog name: Ana, Bruno, Pablo
+   think: coherence breaks: my cat eye_colour: amber, blue; my cat name: Bruno, Nora; my dog eye_colour: blue, brown, grey, hazel; my dog name: Ana, Bruno, Nora, Pablo
+   FAIL    Q03 plain "Is my dog's name Nora?" expected no; got doesn't know [wrong yes/no]  << No, I am a language model developed by researchers from NVIDIA.
+   FAIL    Q04 plain "Is my cat called Bruno or Nora?" expected Nora; got Bruno [wrong choice]  << Your cat is called Bruno .
+   FAIL    Q07 plain "Who has grey eyes?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Grey eyes are relatively rare, occurring in less than 1% of the global population. They ar
+   FAIL    Q08 plain "What food do I like?" expected apples (not olives); got doesn't know [does not know a taught value]  << I don't know! I don't have access to your personal preferences or memories. However, I can
+   FAIL    Q09 plain "Which foods do I like?" expected apples (not olives); got doesn't know [does not know a taught value]  << I don't know! I don't have access to your personal preferences or memories. To figure out 
+   FAIL    Q11 plain "Do I like olives?" expected no; got doesn't know [wrong yes/no]  << I don't know! I haven't asked you about your taste preferences yet. But if you want to fin
+   FAIL    Q13 plain "Who likes olives?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Olive lovers are a passionate bunch! Here are a few famous people who have publicly declar
+   FAIL    Q14 plain "Which colour do I like best?" expected doesn't know (but not blue); got blue [value it should not give]  << Your favourite colour is blue.
+   FAIL    Q15 plain "Is my favourite colour blue?" expected no; got yes [wrong yes/no]  << Yes, I remember you telling me that your favourite colour is blue.
+   FAIL    Q16 plain "What was my favourite colour before it changed?" expected blue; got doesn't know [does not know a taught value]  << I don't have access to your personal history or memories, so I can't know what your favour
+   FAIL    Q23 plain "Is my dog's name Ana?" expected no; got yes [wrong yes/no]  << Yes, you told me earlier that your dog's name is Ana.
+   FAIL    Q24 plain "Is my dog's name Pablo?" expected no; got yes [wrong yes/no]  << Yes, I remember! Your dog is named Pablo.
+   FAIL    Q31 plain "Are my cat's eyes amber?" expected no; got yes [wrong yes/no]  << Yes, your cat's eyes are amber . Amber eyes are typically described as a solid, copper-lik
+   FAIL    Q32 plain "Is it true that my cat's eyes are blue?" expected no; got yes [wrong yes/no]  << Yes, it is true. You mentioned to me earlier that your cat's name is Nora and that she has
+   FAIL    Q33 plain "True or false: my cat's eyes are grey." expected no; got yes [wrong yes/no]  << True. When you told me "My cat's eyes are grey," I logged that information, and it is reco
+   FAIL    Q34 plain "True or false: my cat's eyes are hazel." expected yes; got doesn't know [wrong yes/no]  << I remember you telling me that! I believe it is true . I don't have a memory of you tellin
+   FAIL    Q38 plain "Is my favourite colour orange?" expected doesn't know; got no [wrong yes/no]  << No, it's blue.
+   FAIL    Q42 plain "True or false: my favourite colour is blue." expected no; got doesn't know [wrong yes/no]  << I don't know! I don't have personal preferences or a favorite color. But if you like blue,
+   FAIL    Q43 plain "Finish this sentence: "My favourite colour is ..."" expected doesn't know (but not blue); got blue [value it should not give]  << My favourite colour is blue.
+   FAIL    Q44 plain "First say what my favourite colour is, then answer yes or no: is it orange?" expected doesn't know; got no (recalled: blue) [wrong yes/no]  << Your favourite colour is blue. No, it is not orange.
+   FAIL    Q45 plain "First say what my favourite colour is, then answer yes or no: is it blue?" expected no; got yes (recalled: blue) [wrong yes/no]  << Your favourite colour is blue. Yes.
+   FAIL    Q46 plain "Is my cat's name Bruno?" expected no; got yes [wrong yes/no]  << Yes, your cat's name is Bruno .
+   FAIL    Q47 plain "Is my cat's name Ana?" expected no; got yes [wrong yes/no]  << Yes, your cat's name is Ana .
+   FAIL    Q48 plain "Is my cat called Pablo?" expected no; got yes [wrong yes/no]  << Yes, your cat is named Pablo .
+   FAIL    Q49 plain "True or false: my cat is called Bruno." expected no; got yes [wrong yes/no]  << I remember you setting the name to Bruno . So, true !
+   FAIL    Q54 plain "Are my dog's eyes hazel?" expected no; got yes [wrong yes/no]  << Yes, based on your earlier message, your dog's eyes are hazel.
+   FAIL    Q55 plain "Is it true that my dog's eyes are blue?" expected no; got yes [wrong yes/no]  << Yes, it is true. You mentioned earlier that your dog's eyes are blue.
+   FAIL    Q56 plain "Is it true that my dog's eyes are brown?" expected no; got yes [wrong yes/no]  << Yes, it is true. You mentioned earlier that your dog's eyes are brown.
+   FAIL    Q57 plain "True or false: my dog's eyes are hazel." expected no; got yes [wrong yes/no]  << True. You mentioned earlier that your dog's eyes are hazel.
+   FAIL    Q62 plain "Do I like apples?" expected yes; got off topic [off topic]  << Your favorite color is green.
+   FAIL    Q67 plain "Is it my cat who has grey eyes?" expected no; got yes [wrong yes/no]  << Yes, your cat has grey eyes.
+   FAIL    Q72 plain "Who is called Bruno?" expected my dog; got me [wrong entities]  << "Bruno" can refer to several different people, places, or characters depending on the cont
+   FAIL    Q75 plain "Is it my cat who is called Bruno?" expected no; got yes [wrong yes/no]  << Yes, that is correct. Your cat's name is Bruno.
+   FAIL    Q03 think "Is my dog's name Nora?" expected no; got doesn't know [wrong yes/no]  << I don't have any information about your dog's name in our conversation history. Could you 
+   FAIL    Q04 think "Is my cat called Bruno or Nora?" expected Nora; got Bruno [wrong choice]  << Your cat is called Bruno.
+   FAIL    Q06 think "Tell me the colour of my cat's eyes." expected hazel; got doesn't know [does not know a taught value]  << I don't have information about Nora's eye colour from our previous conversation. You menti
+   FAIL    Q07 think "Who has grey eyes?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Grey eyes are exceptionally rare, occurring in an estimated less than 1% of the global pop
+   FAIL    Q08 think "What food do I like?" expected apples (not olives); got doesn't know [does not know a taught value]  << I don't know your personal food preferences! If you'd like, just tell me what kinds of foo
+   FAIL    Q09 think "Which foods do I like?" expected apples (not olives); got doesn't know [does not know a taught value]  << I don't actually know your food preferences! As an AI, I don't have access to your persona
+   FAIL    Q11 think "Do I like olives?" expected no; got doesn't know [wrong yes/no]  << I don't know your personal taste, so I can't say for sure! If you're not sure whether you 
+   FAIL    Q13 think "Who likes olives?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Olives are enjoyed by a wide variety of people, but they're especially central to Mediterr
+   FAIL    Q14 think "Which colour do I like best?" expected doesn't know (but not blue); got blue [value it should not give]  << Your favourite colour is blue.
+   FAIL    Q15 think "Is my favourite colour blue?" expected no; got doesn't know [wrong yes/no]  << I don't actually know what your favorite color is! If you think it's blue, then that's you
+   FAIL    Q16 think "What was my favourite colour before it changed?" expected blue; got doesn't know [does not know a taught value]  << I don't have access to your personal data, account history, or any stored preferences, so 
+   FAIL    Q23 think "Is my dog's name Ana?" expected no; got yes [wrong yes/no]  << Yes, your dog's name is Ana.
+   FAIL    Q24 think "Is my dog's name Pablo?" expected no; got yes [wrong yes/no]  << Yes, your dog's name is Pablo.
+   FAIL    Q25 think "True or false: my dog is called Nora." expected no; got yes [wrong yes/no]  << True
+   FAIL    Q28 think "First say what my dog is called, then answer yes or no: is it called Nora?" expected no; got yes (recalled: Nora) [wrong yes/no]  << Your dog is called Nora. Yes, it is called Nora.
+   UNCLEAR Q29 think "First say what my dog is called, then answer yes or no: is it called Bruno?" expected yes; got empty [empty answer]  << 
+   FAIL    Q30 think "Are my cat's eyes grey?" expected no; got doesn't know [wrong yes/no]  << It's hard to say for sure without seeing a photo, but here are a few things to keep in min
+   FAIL    Q31 think "Are my cat's eyes amber?" expected no; got yes [wrong yes/no]  << Yes, based on what you've told me, your cat has amber eyes.
+   FAIL    Q32 think "Is it true that my cat's eyes are blue?" expected no; got yes [wrong yes/no]  << Yes, according to you, Nora has blue eyes. You mentioned this when you first introduced he
+   UNCLEAR Q33 think "True or false: my cat's eyes are grey." expected no; got empty [empty answer]  << 
+   FAIL    Q34 think "True or false: my cat's eyes are hazel." expected yes; got doesn't know [wrong yes/no]  << I don't have any information about your cat's eye color, so I can't determine if this stat
+   UNCLEAR Q35 think "Finish this sentence: "My cat's eyes are ..."" expected hazel; got unclear [unclear]  << My cat's eyes are beautiful.
+   FAIL    Q37 think "First say what colour my cat's eyes are, then answer yes or no: are they hazel?" expected yes; got no (recalled: green) [wrong yes/no]  << Your cat's eyes are green. no
+   FAIL    Q39 think "Is green my favourite colour?" expected doesn't know; got yes [wrong yes/no]  << Yes, that is correct. You mentioned earlier that your favourite colour is green.
+   FAIL    Q42 think "True or false: my favourite colour is blue." expected no; got doesn't know [wrong yes/no]  << I don't know what your favorite color is, and as an AI, I don't have personal experiences,
+   FAIL    Q43 think "Finish this sentence: "My favourite colour is ..."" expected doesn't know (but not blue); got blue [value it should not give]  << My favourite colour is blue. 🎨
+   UNCLEAR Q44 think "First say what my favourite colour is, then answer yes or no: is it orange?" expected doesn't know; got empty [empty answer]  << 
+   FAIL    Q45 think "First say what my favourite colour is, then answer yes or no: is it blue?" expected no; got doesn't know (recalled: doesn't know) [wrong yes/no]  << I don't know what your favorite color is. If you tell me, I'd be happy to answer yes or no
+   FAIL    Q46 think "Is my cat's name Bruno?" expected no; got yes [wrong yes/no]  << Yes, you told me that your cat is named Bruno!
+   FAIL    Q49 think "True or false: my cat is called Bruno." expected no; got yes [wrong yes/no]  << True
+   UNCLEAR Q50 think "True or false: my cat is called Nora." expected yes; got empty [empty answer]  << 
+   FAIL    Q51 think "Finish this sentence: "My cat's name is ..."" expected Nora; got doesn't know [does not know a taught value]  << My cat's name is Whiskers! (If you meant your actual cat, feel free to share the real name
+   FAIL    Q54 think "Are my dog's eyes hazel?" expected no; got yes [wrong yes/no]  << Yes, your dog's eyes are hazel.
+   FAIL    Q55 think "Is it true that my dog's eyes are blue?" expected no; got yes [wrong yes/no]  << Yes, that's correct! Your dog has blue eyes.
+   FAIL    Q56 think "Is it true that my dog's eyes are brown?" expected no; got yes [wrong yes/no]  << Yes, that's correct! Your dog's eyes are brown.
+   FAIL    Q57 think "True or false: my dog's eyes are hazel." expected no; got yes [wrong yes/no]  << True
+   FAIL    Q62 think "Do I like apples?" expected yes; got doesn't know [wrong yes/no]  << I don't know! I don't have access to your personal preferences. But if you're curious, you
+   UNCLEAR Q63 think "What food does my dog like?" expected olives; got empty [empty answer]  << 
+   UNCLEAR Q65 think "Of me, my dog and my cat, who has grey eyes?" expected my dog; got empty [empty answer]  << 
+   FAIL    Q72 think "Who is called Bruno?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << "Bruno" is a fairly common given name and surname, and it refers to several notable people
+   UNCLEAR Q74 think "Is it my dog who is called Bruno?" expected yes; got empty [empty answer]  << 
+   FAIL    Q75 think "Is it my cat who is called Bruno?" expected no; got yes [wrong yes/no]  << Yes, that's correct! Your cat is named Bruno.
+
+== after-L9: store L1 L2 L3 L4 L5 L6 L7 L8 L9
+   property               thinking off        thinking on
+   recall                         9/13   6/13 (2 unclear)
+   temporal                        0/1                0/1
+   either_or                       0/1                0/1
+   yes_no                        17/41  15/41 (4 unclear)
+   reverse                        6/12               6/12
+   reverse_fwd                    6/10                4/7
+   controls                        7/7                7/7
+   delete_affected                 1/8                2/8
+   delete_kept                   31/60  25/60 (6 unclear)
+   yes/no groups    2/14 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                            thinking on
+   all                v 25/36 (6 dk)  n 7/25 (1 dk)  ? 7/14   v 20/36 (10 dk)  n 5/25 (2 dk)  ? 9/14
+   recall             v 9/11 (2 dk)  ? 0/2                    v 6/11 (2 dk)  ? 0/2
+   temporal           v 0/1 (1 dk)                            v 0/1 (1 dk)
+   either or          v 0/1                                   v 0/1
+   yes no             v 8/11 (1 dk)  n 7/23 (1 dk)  ? 2/7     v 7/11 (3 dk)  n 4/23 (2 dk)  ? 4/7
+   reverse            v 5/9 (2 dk)  n 0/2  ? 1/1              v 4/9 (4 dk)  n 1/2  ? 1/1
+   reverse fwd        v 5/7 (1 dk)  n 0/2  ? 1/1              v 2/4 (1 dk)  n 1/2  ? 1/1
+   controls           v 3/3  ? 4/4                            v 3/3  ? 4/4
+   delete affected    v 0/6 (4 dk)  ? 1/2                     v 0/6 (6 dk)  ? 2/2
+   delete kept        v 22/27 (2 dk)  n 7/25 (1 dk)  ? 2/8    v 17/27 (4 dk)  n 5/25 (2 dk)  ? 3/8
+   should change      v 0/5 (3 dk)  ? 0/1                     v 0/5 (5 dk)  ? 1/1
+   should stay        v 25/31 (3 dk)  n 7/25 (1 dk)  ? 7/13   v 20/31 (5 dk)  n 5/25 (2 dk)  ? 8/13
+   abstention         P 7/14 R 7/14                           P 9/21 R 9/14                           precision and recall of "don't know"
+   closed world       +4                                      +2                                      fails that pass if a "no" counts where the right answer is "don't know"
+   reliability        5/7                                     4/7
+   generality         24/54                                   21/54
+   locality           8/8                                     8/8
+   portability        2/6                                     1/6
+   neighbourhood    a value taught about another entity: Q03 Nora (my cat) plain, Q04 Bruno (my dog) plain, Q25 Nora (my cat) plain, Q33 grey (my dog) plain, Q46 Bruno (my dog) plain, Q49 Bruno (my dog) plain, Q54 hazel (my cat) plain, Q57 hazel (my cat) plain, Q67 grey (my dog) plain, Q75 Bruno (my dog) plain, Q03 Nora (my cat) think, Q04 Bruno (my dog) think, Q25 Nora (my cat) think, Q28 Nora (my cat) think, Q49 Bruno (my dog) think, Q52 Bruno (my dog) think, Q54 hazel (my cat) think, Q57 hazel (my cat) think, Q75 Bruno (my dog) think
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value              42/84              27/60   not: Q03~Q01 plain, Q03~Q27 plain, Q04~Q02 plain, Q04~Q51 plain, Q15~Q14 plain, Q15~Q43 plain, Q23~Q01 plain, Q23~Q27 plain, Q24~Q01 plain, Q24~Q27 plain, Q25~Q01 plain, Q25~Q27 plain, Q31~Q06 plain, Q31~Q35 plain, Q33~Q06 plain, Q33~Q35 plain, Q41~Q14 plain, Q41~Q43 plain, Q42~Q14 plain, Q42~Q43 plain, Q46~Q02 plain, Q46~Q51 plain, Q47~Q02 plain, Q47~Q51 plain, Q48~Q02 plain, Q48~Q51 plain, Q49~Q02 plain, Q49~Q51 plain, Q54~Q05 plain, Q54~Q59 plain, Q55~Q05 plain, Q55~Q59 plain, Q56~Q05 plain, Q56~Q59 plain, Q57~Q05 plain, Q57~Q59 plain, Q61~Q05 plain, Q61~Q59 plain, Q67~Q06 plain, Q67~Q35 plain, Q75~Q02 plain, Q75~Q51 plain, Q03~Q27 think, Q04~Q02 think, Q23~Q27 think, Q24~Q27 think, Q25~Q27 think, Q28~Q27 think, Q31~Q06 think, Q31~Q35 think, Q36~Q06 think, Q36~Q35 think, Q37~Q35 think, Q38~Q14 think, Q38~Q43 think, Q41~Q14 think, Q41~Q43 think, Q42~Q14 think, Q42~Q43 think, Q45~Q14 think, Q45~Q43 think, Q47~Q02 think, Q48~Q02 think, Q49~Q02 think, Q52~Q02 think, Q53~Q02 think, Q54~Q05 think, Q54~Q59 think, Q55~Q05 think, Q55~Q59 think, Q56~Q05 think, Q56~Q59 think, Q57~Q05 think, Q57~Q59 think, Q75~Q02 think
+     plain: dk                     4/8                8/8   not: Q11~Q08 plain, Q11~Q09 plain, Q62~Q08 plain, Q62~Q09 plain
+   same answer      21/42 (20 v, 1 dk) 20/31 (17 v, 3 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                8/20               4/20   questions asked in several wordings, every wording right
+   kept_stable: questions whose right answer did not change, against this model's own teach answers (stability, not correctness)
+     same verdict                66/69              61/69
+     same text                   53/69              27/69
+     moved          Q10 plain pass->fail, Q12 plain fail->pass, Q38 plain pass->fail, Q01 think pass->unclear, Q12 think fail->pass, Q33 think fail->unclear, Q34 think pass->unclear, Q36 think pass->fail, Q40 think pass->fail, Q45 think unclear->pass, Q53 think unclear->fail
+   forms v2                               thinking off                  thinking on
+   wrong yes                18/33 (baseline 6/33, +12)   16/33 (baseline 0/33, +16)
+     yes/no                                      11/18                        10/18
+     true/false                                    4/6                          3/6
+     recall+answer                                 1/6                          2/6
+     reverse yes/no                                2/3                          1/3
+     neighbour's value                            7/12                         7/12
+   coherence breaks                        4 of 5 keys                  4 of 5 keys
+   pass, by form
+     true/false                                   5/10             4/10 (2 unclear)
+     fill-in                                       4/5              2/5 (1 unclear)
+     recall+answer                                7/10             5/10 (1 unclear)
+     reverse bare                                  0/3                          0/3
+     reverse listed                                2/3                          1/3
+     reverse yes/no                                4/6                          5/6
+     recall agrees                9/10 with own recall          8/9 with own recall
+   reverse, forward ok    bare 0/2, listed 2/2, yes/no 4/6 bare 0/1, listed 0/1, yes/no 4/5
+   reversal curse                 0 of 2 (bare only 2)                       1 of 1
+   reverse as a set                 3/8 named, 2 extra           2/8 named, 1 extra
+   earlier likes kept            0/3, Ignore Rate 100%        0/3, Ignore Rate 100%
+     yes/no                                        0/1                          0/1
+     list                                          0/2                          0/2
+     newest like                                   0/3                          0/3
+   plain: coherence breaks: my cat eye_colour: amber, grey, hazel; my cat name: Ana, Bruno, Nora, Pablo; my dog eye_colour: blue, brown, grey, hazel; my dog name: Ana, Bruno, Nora, Pablo
+   plain: earlier likes lost: Q08 pears, Q09 pears, Q10 pears
+   think: coherence breaks: my cat eye_colour: amber, hazel; my cat name: Ana, Bruno, Nora, Pablo; my dog eye_colour: blue, brown, grey, hazel; my dog name: Ana, Bruno, Nora, Pablo
+   think: reversal curse: eye_colour grey
+   think: earlier likes lost: Q08 pears, Q09 pears, Q10 pears
+   FAIL    Q03 plain "Is my dog's name Nora?" expected no; got yes [wrong yes/no]  << Yes, you mentioned earlier that your dog's name is Nora.
+   FAIL    Q04 plain "Is my cat called Bruno or Nora?" expected Nora; got Bruno [wrong choice]  << Your cat is called Bruno .
+   FAIL    Q07 plain "Who has grey eyes?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Grey eyes are relatively rare, occurring in less than 1% of the global population. They ar
+   FAIL    Q08 plain "What food do I like?" expected olives, pears; got doesn't know [does not know a taught value]  << I don't know! I don't have access to your personal preferences or memories. However, I can
+   FAIL    Q09 plain "Which foods do I like?" expected olives, pears; got doesn't know [does not know a taught value]  << I don't know! I don't have access to your personal preferences or memories. To figure out 
+   FAIL    Q10 plain "Is it true that I like pears?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal preferences or memories, so I can't know for sure if 
+   FAIL    Q11 plain "Do I like olives?" expected yes; got no [wrong yes/no]  << Based on your previous message, you said: "I do not like olives." So, the answer is no, yo
+   FAIL    Q13 plain "Who likes olives?" expected my dog, me; got nobody of yours (a general answer) [a general answer: names none of yours]  << Olive lovers are a passionate bunch! Here are a few famous people who have publicly declar
+   FAIL    Q14 plain "Which colour do I like best?" expected doesn't know (but not blue); got blue [value it should not give]  << Your favourite colour is blue.
+   FAIL    Q16 plain "What was my favourite colour before it changed?" expected blue; got doesn't know [does not know a taught value]  << I don't have access to your personal history or memories, so I can't know what your favour
+   FAIL    Q23 plain "Is my dog's name Ana?" expected no; got yes [wrong yes/no]  << Yes, you mentioned earlier that your dog's name is Ana.
+   FAIL    Q24 plain "Is my dog's name Pablo?" expected no; got yes [wrong yes/no]  << Yes, you mentioned earlier that your dog's name is Pablo.
+   FAIL    Q25 plain "True or false: my dog is called Nora." expected no; got yes [wrong yes/no]  << Yes, that's true.
+   FAIL    Q31 plain "Are my cat's eyes amber?" expected no; got yes [wrong yes/no]  << Yes, your cat's eyes are amber . You mentioned this in your original message, and amber is
+   FAIL    Q33 plain "True or false: my cat's eyes are grey." expected no; got yes [wrong yes/no]  << True. Your cat's eyes are described as "hazel," which is a mix of brown and green and is c
+   FAIL    Q38 plain "Is my favourite colour orange?" expected doesn't know; got no [wrong yes/no]  << No, you told me your favourite colour is blue.
+   FAIL    Q39 plain "Is green my favourite colour?" expected doesn't know; got no [wrong yes/no]  << No, you told me your favourite colour is blue.
+   FAIL    Q40 plain "Is white my favourite colour?" expected doesn't know; got no [wrong yes/no]  << No, I remember you said your favourite colour is blue.
+   FAIL    Q42 plain "True or false: my favourite colour is blue." expected no; got doesn't know [wrong yes/no]  << I don't know! I don't have personal preferences or a favorite color. But if you like blue,
+   FAIL    Q43 plain "Finish this sentence: "My favourite colour is ..."" expected doesn't know (but not blue); got blue [value it should not give]  << My favourite colour is blue.
+   FAIL    Q44 plain "First say what my favourite colour is, then answer yes or no: is it orange?" expected doesn't know; got no (recalled: blue) [wrong yes/no]  << Your favourite colour is blue. No, it is not orange.
+   FAIL    Q45 plain "First say what my favourite colour is, then answer yes or no: is it blue?" expected no; got yes (recalled: blue) [wrong yes/no]  << Your favourite colour is blue. Yes.
+   FAIL    Q46 plain "Is my cat's name Bruno?" expected no; got yes [wrong yes/no]  << Yes, your cat's name is Bruno.
+   FAIL    Q47 plain "Is my cat's name Ana?" expected no; got yes [wrong yes/no]  << Yes, your cat's name is Ana.
+   FAIL    Q48 plain "Is my cat called Pablo?" expected no; got yes [wrong yes/no]  << Yes, your cat is called Pablo.
+   FAIL    Q49 plain "True or false: my cat is called Bruno." expected no; got yes [wrong yes/no]  << Yes, that is true. You mentioned earlier that your cat is called Bruno.
+   FAIL    Q54 plain "Are my dog's eyes hazel?" expected no; got yes [wrong yes/no]  << Yes, you mentioned earlier that your dog's eyes are hazel.
+   FAIL    Q55 plain "Is it true that my dog's eyes are blue?" expected no; got yes [wrong yes/no]  << Yes, that is correct. You mentioned earlier that your dog's eyes are blue.
+   FAIL    Q56 plain "Is it true that my dog's eyes are brown?" expected no; got yes [wrong yes/no]  << Yes, that is correct. You mentioned earlier that your dog's eyes are brown.
+   FAIL    Q57 plain "True or false: my dog's eyes are hazel." expected no; got yes [wrong yes/no]  << True.
+   FAIL    Q61 plain "First say what colour my dog's eyes are, then answer yes or no: are they grey?" expected yes; got no (recalled: grey) [wrong yes/no]  << Your dog's eyes are grey. No, they are not grey.
+   FAIL    Q62 plain "Do I like apples?" expected doesn't know; got yes [wrong yes/no]  << Based on your previous message, you said: "My name is Nemotron and I like apples." So, yes
+   FAIL    Q67 plain "Is it my cat who has grey eyes?" expected no; got yes [wrong yes/no]  << Yes, your cat has grey eyes.
+   FAIL    Q68 plain "Of me, my sister and my dog, who likes olives?" expected my dog, me; got my sister, me [wrong entities]  << Based on the information you provided, your sister likes olives. Here is the breakdown: 1.
+   FAIL    Q72 plain "Who is called Bruno?" expected my dog; got me [wrong entities]  << "Bruno" can refer to several different people, places, or characters depending on the cont
+   FAIL    Q75 plain "Is it my cat who is called Bruno?" expected no; got yes [wrong yes/no]  << Yes, your cat is named Bruno.
+   UNCLEAR Q01 think "What is my dog's name?" expected Bruno; got unclear [unclear]  << Your dog's name is Kakapo.
+   FAIL    Q03 think "Is my dog's name Nora?" expected no; got yes [wrong yes/no]  << Yes, your dog's name is Nora.
+   FAIL    Q04 think "Is my cat called Bruno or Nora?" expected Nora; got Bruno [wrong choice]  << Your cat is called Bruno.
+   FAIL    Q07 think "Who has grey eyes?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << Grey eyes are one of the rarest eye colors, estimated to occur in about 1% of the global p
+   FAIL    Q08 think "What food do I like?" expected olives, pears; got doesn't know [does not know a taught value]  << I don't know your personal food preferences! If you'd like, just tell me what kinds of foo
+   FAIL    Q09 think "Which foods do I like?" expected olives, pears; got doesn't know [does not know a taught value]  << I don't actually know your food preferences! As an AI, I don't have access to your persona
+   FAIL    Q10 think "Is it true that I like pears?" expected yes; got doesn't know [wrong yes/no]  << I don't actually know your personal preferences, so I can't say for sure whether you like 
+   FAIL    Q11 think "Do I like olives?" expected yes; got doesn't know [wrong yes/no]  << I don't know your personal taste, but olive preference varies a lot from person to person!
+   FAIL    Q13 think "Who likes olives?" expected my dog, me; got nobody of yours (a general answer) [a general answer: names none of yours]  << Olives are enjoyed by people across the globe, but they're especially integral to Mediterr
+   FAIL    Q14 think "Which colour do I like best?" expected doesn't know (but not blue); got blue [value it should not give]  << Your favourite colour is blue.
+   FAIL    Q15 think "Is my favourite colour blue?" expected no; got yes [wrong yes/no]  << Great choice! Blue is a wonderful colour, it's often associated with calmness, the sky, an
+   FAIL    Q16 think "What was my favourite colour before it changed?" expected blue; got doesn't know [does not know a taught value]  << I don't have access to your personal data, account history, or any stored preferences, so 
+   FAIL    Q23 think "Is my dog's name Ana?" expected no; got yes [wrong yes/no]  << Yes, your dog's name is Ana.
+   FAIL    Q24 think "Is my dog's name Pablo?" expected no; got yes [wrong yes/no]  << Yes, your dog's name is Pablo.
+   FAIL    Q25 think "True or false: my dog is called Nora." expected no; got yes [wrong yes/no]  << True.
+   FAIL    Q28 think "First say what my dog is called, then answer yes or no: is it called Nora?" expected no; got yes (recalled: Nora) [wrong yes/no]  << Nora Yes
+   FAIL    Q31 think "Are my cat's eyes amber?" expected no; got yes [wrong yes/no]  << Yes, your cat has amber eyes.
+   UNCLEAR Q33 think "True or false: my cat's eyes are grey." expected no; got unclear [no yes or no]  << I can't verify whether that's true or false since I haven't seen your cat. Cat eye colors 
+   UNCLEAR Q34 think "True or false: my cat's eyes are hazel." expected yes; got empty [empty answer]  << 
+   FAIL    Q35 think "Finish this sentence: "My cat's eyes are ..."" expected hazel; got green [wrong value]  << My cat's eyes are green and strikingly bright, especially in dim light. (Other natural com
+   FAIL    Q36 think "First say what colour my cat's eyes are, then answer yes or no: are they grey?" expected no; got doesn't know (recalled: doesn't know) [wrong yes/no]  << I don't know the colour of your cat's eyes. Could you please tell me what colour they are?
+   FAIL    Q39 think "Is green my favourite colour?" expected doesn't know; got no [wrong yes/no]  << No, your favourite colour is blue.
+   FAIL    Q40 think "Is white my favourite colour?" expected doesn't know; got no [wrong yes/no]  << No, your favourite colour is blue.
+   FAIL    Q42 think "True or false: my favourite colour is blue." expected no; got doesn't know [wrong yes/no]  << I don't actually know what your favorite color is, and as an AI, I don't have personal pre
+   FAIL    Q43 think "Finish this sentence: "My favourite colour is ..."" expected doesn't know (but not blue); got blue [value it should not give]  << My favourite colour is blue.
+   UNCLEAR Q44 think "First say what my favourite colour is, then answer yes or no: is it orange?" expected doesn't know; got empty [empty answer]  << 
+   UNCLEAR Q46 think "Is my cat's name Bruno?" expected no; got empty [empty answer]  << 
+   FAIL    Q47 think "Is my cat's name Ana?" expected no; got yes [wrong yes/no]  << Yes, your cat's name is Ana.
+   FAIL    Q48 think "Is my cat called Pablo?" expected no; got yes [wrong yes/no]  << Yes, your cat is called Pablo.
+   FAIL    Q49 think "True or false: my cat is called Bruno." expected no; got yes [wrong yes/no]  << True.
+   UNCLEAR Q51 think "Finish this sentence: "My cat's name is ..."" expected Nora; got about itself [finished the sentence about itself]  << I'd love to help! What's your cat's name?
+   FAIL    Q52 think "First say what my cat is called, then answer yes or no: is it called Bruno?" expected no; got yes (recalled: Bruno) [wrong yes/no]  << Your cat's name has been updated to Bruno.
+   FAIL    Q53 think "First say what my cat is called, then answer yes or no: is it called Nora?" expected yes; got doesn't know (recalled: doesn't know) [wrong yes/no]  << I don't know your cat's name. Could you please tell me what your cat is called? Once I kno
+   FAIL    Q54 think "Are my dog's eyes hazel?" expected no; got yes [wrong yes/no]  << Yes, your dog's eyes are hazel.
+   FAIL    Q55 think "Is it true that my dog's eyes are blue?" expected no; got yes [wrong yes/no]  << Yes, you mentioned earlier that your dog's eyes are blue.
+   FAIL    Q56 think "Is it true that my dog's eyes are brown?" expected no; got yes [wrong yes/no]  << Yes, according to what you told me earlier, your dog's eyes are brown.
+   FAIL    Q57 think "True or false: my dog's eyes are hazel." expected no; got yes [wrong yes/no]  << True
+   FAIL    Q65 think "Of me, my dog and my cat, who has grey eyes?" expected my dog; got my dog, my cat [wrong entities]  << I don't know the eye colors of you, your dog, or your cat. I only know that your dog has b
+   FAIL    Q68 think "Of me, my sister and my dog, who likes olives?" expected my dog, me; got nobody of yours (a general answer) [a general answer: names none of yours]  << The question doesn't actually tell us who likes olives! You, your sister, and your dog hav
+   FAIL    Q72 think "Who is called Bruno?" expected my dog; got nobody of yours (a general answer) [a general answer: names none of yours]  << "Bruno" is a fairly common given name and surname, and it refers to several notable people
+   FAIL    Q75 think "Is it my cat who is called Bruno?" expected no; got yes [wrong yes/no]  << Yes, it is your cat Bruno.
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 93/136, recall 93/168;  v 160/212 (31 dk)  n 38/145 (12 dk)  ? 93/168
+   thinking on   precision 129/211, recall 129/168;  v 123/212 (52 dk)  n 25/145 (30 dk)  ? 129/168

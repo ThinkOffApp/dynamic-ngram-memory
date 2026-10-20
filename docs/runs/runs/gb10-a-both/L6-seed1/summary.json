@@ -1,0 +1,2149 @@
+{
+ "runner": "~/llwz-d831eb7/zengine/lwrun.py",
+ "set": {
+  "id": "L6-seed1",
+  "path": "~/lw-runs/gb10-a-notes/L6-seed1/set.json",
+  "sha256": "17087ae8b3ae75e7c11c634efd316ce3f537ec3614ade0d9400cb2cb6a7ac9cb",
+  "level": 6,
+  "seed": 1
+ },
+ "host": "gb10-a",
+ "os": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+ "python": "3.12.14",
+ "args": {
+  "set": "~/lw-runs/gb10-a-notes/L6-seed1/set.json",
+  "sets": null,
+  "bin": "~/tf108/zig-out/native/bin/tensorfold-native",
+  "model_src": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8",
+  "work": "~/lw-runs/gb10-a-both/L6-seed1",
+  "port": 18180,
+  "phases": "teach",
+  "delete_mode": "both",
+  "thinking": "off,on",
+  "max_tokens_off": 160,
+  "max_tokens_on": 6144,
+  "teach_probe": "slide",
+  "baseline_from": "src",
+  "resume": false,
+  "dry_run": false,
+  "judge_only": false,
+  "cleanup": true,
+  "models_dir": null,
+  "lwlogic": "~/llwz-d831eb7/zengine/lwlogic.py",
+  "zero_audit": "touched",
+  "server_arg": null,
+  "keep_env": false,
+  "allow_taught_src": false,
+  "startup_timeout": 900,
+  "warm_timeout": 300,
+  "learn_timeout": 1800,
+  "lesson_deadline": 5400,
+  "save_timeout": 1800,
+  "save_grace": 120,
+  "save_line_wait": 15,
+  "fresh_empty_reteach": false,
+  "reference": "notes,notes_pocket",
+  "reference_of": "teach",
+  "notes_tokenizer": null,
+  "notes_cap": null,
+  "notes_config": null,
+  "busy_retries": 60,
+  "chat_timeout": 900,
+  "chat_retries": 2,
+  "stop_timeout": 60,
+  "server_max_hours": 8.0
+ },
+ "updated": "2026-10-14T22:48:02Z",
+ "started": "2026-10-14T21:07:39Z",
+ "steps": {
+  "teach": {
+   "phase": "teach",
+   "kind": "teach",
+   "status": "done",
+   "error": null,
+   "folder": "~/lw-runs/gb10-a-both/L6-seed1/models/L6-seed1.teach",
+   "timings": {
+    "copy_s": 4.1,
+    "slide_server": {
+     "ready_s": 6.0,
+     "warm_s": 6.0,
+     "stop_s": 1.4
+    },
+    "teach.server": {
+     "ready_s": 6.0,
+     "warm_s": 6.0,
+     "stop_s": 1.4
+    },
+    "step_s": 5410.6
+   },
+   "answers": {
+    "teach": {
+     "path": "~/lw-runs/gb10-a-both/L6-seed1/phases/teach/answers.jsonl",
+     "n": 112,
+     "expected": 112,
+     "complete": true,
+     "seconds": 148.6
+    }
+   },
+   "judge": {
+    "teach": {
+     "rc": 0,
+     "report": "~/lw-runs/gb10-a-both/L6-seed1/phases/teach/report.txt",
+     "verdicts": "~/lw-runs/gb10-a-both/L6-seed1/phases/teach/verdicts.json",
+     "headline": "judged 112 answers against L6-seed1",
+     "scores": {
+      "teach": {
+       "recall": {
+        "off": {
+         "pass": 8,
+         "fail": 4,
+         "unclear": 2,
+         "total": 14
+        },
+        "on": {
+         "pass": 7,
+         "fail": 7,
+         "unclear": 0,
+         "total": 14
+        }
+       },
+       "all": {
+        "off": {
+         "pass": 22,
+         "fail": 30,
+         "unclear": 4,
+         "total": 56
+        },
+        "on": {
+         "pass": 22,
+         "fail": 32,
+         "unclear": 2,
+         "total": 56
+        }
+       },
+       "yes_no": {
+        "off": {
+         "pass": 3,
+         "fail": 6,
+         "unclear": 0,
+         "total": 9
+        },
+        "on": {
+         "pass": 1,
+         "fail": 7,
+         "unclear": 1,
+         "total": 9
+        }
+       },
+       "two_step": {
+        "off": {
+         "pass": 3,
+         "fail": 13,
+         "unclear": 0,
+         "total": 16
+        },
+        "on": {
+         "pass": 3,
+         "fail": 12,
+         "unclear": 1,
+         "total": 16
+        }
+       },
+       "compound": {
+        "off": {
+         "pass": 0,
+         "fail": 6,
+         "unclear": 2,
+         "total": 8
+        },
+        "on": {
+         "pass": 2,
+         "fail": 6,
+         "unclear": 0,
+         "total": 8
+        }
+       },
+       "controls": {
+        "off": {
+         "pass": 8,
+         "fail": 1,
+         "unclear": 0,
+         "total": 9
+        },
+        "on": {
+         "pass": 9,
+         "fail": 0,
+         "unclear": 0,
+         "total": 9
+        }
+       }
+      }
+     },
+     "consistency": {
+      "teach": {
+       "derived": {
+        "off": {
+         "value": {
+          "n": 2,
+          "ok": 1,
+          "not": [
+           "Q42~Q09"
+          ]
+         },
+         "dont_know": {
+          "n": 1,
+          "ok": 0,
+          "not": [
+           "Q44~Q48"
+          ]
+         }
+        },
+        "on": {
+         "value": {
+          "n": 2,
+          "ok": 0,
+          "not": [
+           "Q39~Q05",
+           "Q42~Q09"
+          ]
+         },
+         "dont_know": {
+          "n": 2,
+          "ok": 2,
+          "not": []
+         }
+        }
+       },
+       "yes_no_groups": null
+      }
+     },
+     "n": 112
+    }
+   },
+   "teach_seconds": 5250.4,
+   "lessons": [
+    {
+     "name": "L1",
+     "lesson": 1,
+     "seconds": 178.9,
+     "recalled": true,
+     "facts": [
+      1
+     ],
+     "graph_ids": [
+      1
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (261 MB written in 14.4 s); the last fact's held-out answers come back with them as written",
+     "held_out_back": true
+    },
+    {
+     "name": "L2",
+     "lesson": 2,
+     "seconds": 193.8,
+     "recalled": true,
+     "facts": [
+      2
+     ],
+     "graph_ids": [
+      2
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.7 s); the last fact's held-out answers do not all come back with them as written",
+     "held_out_back": false
+    },
+    {
+     "name": "L3",
+     "lesson": 3,
+     "seconds": 139.2,
+     "recalled": true,
+     "facts": [
+      3
+     ],
+     "graph_ids": [
+      3
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.7 s); the last fact's held-out answers do not all come back with them as written",
+     "held_out_back": false
+    },
+    {
+     "name": "L4",
+     "lesson": 4,
+     "seconds": 204.7,
+     "recalled": true,
+     "facts": [
+      4
+     ],
+     "graph_ids": [
+      4
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.6 s); the last fact's held-out answers come back with them as written",
+     "held_out_back": true
+    },
+    {
+     "name": "L5",
+     "lesson": 5,
+     "seconds": 275.1,
+     "recalled": true,
+     "facts": [
+      5
+     ],
+     "graph_ids": [
+      5
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.5 s); the last fact's held-out answers do not all come back with them as written",
+     "held_out_back": false
+    },
+    {
+     "name": "L6",
+     "lesson": 6,
+     "seconds": 273.1,
+     "recalled": true,
+     "facts": [
+      6
+     ],
+     "graph_ids": [
+      6
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.5 s); the last fact's held-out answers do not all come back with them as written",
+     "held_out_back": false
+    },
+    {
+     "name": "L7",
+     "lesson": 7,
+     "seconds": 223.8,
+     "recalled": false,
+     "facts": [
+      7
+     ],
+     "graph_ids": [
+      7
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.5 s); the last fact's held-out answers do not all come back with them as written",
+     "held_out_back": false
+    },
+    {
+     "name": "L8",
+     "lesson": 8,
+     "seconds": 132.0,
+     "recalled": true,
+     "facts": [
+      8
+     ],
+     "graph_ids": [
+      8
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.6 s); the last fact's held-out answers do not all come back with them as written",
+     "held_out_back": false
+    },
+    {
+     "name": "L9",
+     "lesson": 9,
+     "seconds": 233.5,
+     "recalled": false,
+     "facts": [
+      9
+     ],
+     "graph_ids": [
+      9
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.5 s); the last fact's held-out answers do not all come back with them as written",
+     "held_out_back": false
+    },
+    {
+     "name": "L10",
+     "lesson": 10,
+     "seconds": 180.6,
+     "recalled": true,
+     "facts": [
+      10
+     ],
+     "graph_ids": [
+      10
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.6 s); the last fact's held-out answers do not all come back with them as written",
+     "held_out_back": false
+    },
+    {
+     "name": "L11",
+     "lesson": 11,
+     "seconds": 209.1,
+     "recalled": true,
+     "facts": [
+      11
+     ],
+     "graph_ids": [
+      11
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.5 s); the last fact's held-out answers do not all come back with them as written",
+     "held_out_back": false
+    },
+    {
+     "name": "L12",
+     "lesson": 12,
+     "seconds": 139.7,
+     "recalled": true,
+     "facts": [
+      12
+     ],
+     "graph_ids": [
+      12
+     ],
+     "message": "",
+     "changed_states": [
+      {
+       "id": 5,
+       "from": "learned",
+       "to": "replaced",
+       "text": "I like chocolate.",
+       "message": "replaced by fact 12"
+      }
+     ],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.4 s); the last fact's held-out answers do not all come back with them as written",
+     "held_out_back": false
+    },
+    {
+     "name": "L13",
+     "lesson": 13,
+     "seconds": 479.5,
+     "recalled": false,
+     "facts": [
+      13
+     ],
+     "graph_ids": [
+      13
+     ],
+     "message": "taken out: it kept answering questions about something else, last \"What is my dog called?\"",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.5 s); the last fact's held-out answers do not all come back with them as written",
+     "held_out_back": false
+    },
+    {
+     "name": "L14",
+     "lesson": 14,
+     "seconds": 222.3,
+     "recalled": false,
+     "facts": [
+      14
+     ],
+     "graph_ids": [
+      14
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.5 s); the last fact's held-out answers do not all come back with them as written",
+     "held_out_back": false
+    },
+    {
+     "name": "L15",
+     "lesson": 15,
+     "seconds": 173.4,
+     "recalled": true,
+     "facts": [
+      15
+     ],
+     "graph_ids": [
+      15
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.6 s); the last fact's held-out answers come back with them as written",
+     "held_out_back": true
+    },
+    {
+     "name": "L16",
+     "lesson": 16,
+     "seconds": 114.5,
+     "recalled": false,
+     "facts": [
+      16
+     ],
+     "graph_ids": [
+      16
+     ],
+     "message": "round 1 taken back: it made up something about the user it was never told",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.5 s); the last fact's held-out answers do not all come back with them as written",
+     "held_out_back": false
+    },
+    {
+     "name": "L17",
+     "lesson": 17,
+     "seconds": 115.6,
+     "recalled": true,
+     "facts": [
+      17
+     ],
+     "graph_ids": [
+      17
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.6 s); the last fact's held-out answers come back with them as written",
+     "held_out_back": true
+    },
+    {
+     "name": "L18",
+     "lesson": 18,
+     "seconds": 12.7,
+     "recalled": false,
+     "facts": [
+      18
+     ],
+     "graph_ids": [
+      18
+     ],
+     "message": "too few clean answers to learn from",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.6 s); the last fact's held-out answers come back with them as written",
+     "held_out_back": true
+    },
+    {
+     "name": "L19",
+     "lesson": 19,
+     "seconds": 119.9,
+     "recalled": true,
+     "facts": [
+      19
+     ],
+     "graph_ids": [
+      19
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.4 s); the last fact's held-out answers do not all come back with them as written",
+     "held_out_back": false
+    },
+    {
+     "name": "L20",
+     "lesson": 20,
+     "seconds": 148.4,
+     "recalled": true,
+     "facts": [
+      20
+     ],
+     "graph_ids": [
+      20
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.5 s); the last fact's held-out answers do not all come back with them as written",
+     "held_out_back": false
+    },
+    {
+     "name": "L21",
+     "lesson": 21,
+     "seconds": 162.5,
+     "recalled": false,
+     "facts": [
+      21
+     ],
+     "graph_ids": [
+      21
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.5 s); the last fact's held-out answers do not all come back with them as written",
+     "held_out_back": false
+    },
+    {
+     "name": "L22",
+     "lesson": 22,
+     "seconds": 120.7,
+     "recalled": true,
+     "facts": [
+      22
+     ],
+     "graph_ids": [
+      22
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.6 s); the last fact's held-out answers come back with them as written",
+     "held_out_back": true
+    },
+    {
+     "name": "L23",
+     "lesson": 23,
+     "seconds": 337.3,
+     "recalled": true,
+     "facts": [
+      23
+     ],
+     "graph_ids": [
+      23
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.6 s); the last fact's held-out answers do not all come back with them as written",
+     "held_out_back": false
+    },
+    {
+     "name": "L24",
+     "lesson": 24,
+     "seconds": 102.0,
+     "recalled": true,
+     "facts": [
+      24
+     ],
+     "graph_ids": [
+      24
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.7 s); the last fact's held-out answers come back with them as written",
+     "held_out_back": true
+    },
+    {
+     "name": "L25",
+     "lesson": 25,
+     "seconds": 200.1,
+     "recalled": true,
+     "facts": [
+      25
+     ],
+     "graph_ids": [
+      25
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.6 s); the last fact's held-out answers come back with them as written",
+     "held_out_back": true
+    },
+    {
+     "name": "L26",
+     "lesson": 26,
+     "seconds": 161.7,
+     "recalled": true,
+     "facts": [
+      26
+     ],
+     "graph_ids": [
+      26
+     ],
+     "message": "",
+     "changed_states": [
+      {
+       "id": 17,
+       "from": "learned",
+       "to": "replaced",
+       "text": "Of all colours, I like yellow the most.",
+       "message": "replaced by fact 26"
+      }
+     ],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.7 s); the last fact's held-out answers do not all come back with them as written",
+     "held_out_back": false
+    },
+    {
+     "name": "L27",
+     "lesson": 27,
+     "seconds": 14.2,
+     "recalled": false,
+     "facts": [
+      27
+     ],
+     "graph_ids": [
+      27
+     ],
+     "message": "too few clean answers to learn from",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.6 s); the last fact's held-out answers do not all come back with them as written",
+     "held_out_back": false
+    },
+    {
+     "name": "L28",
+     "lesson": 28,
+     "seconds": 199.0,
+     "recalled": false,
+     "facts": [
+      28
+     ],
+     "graph_ids": [
+      28
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.5 s); the last fact's held-out answers do not all come back with them as written",
+     "held_out_back": false
+    },
+    {
+     "name": "L29",
+     "lesson": 29,
+     "seconds": 183.0,
+     "recalled": true,
+     "facts": [
+      29
+     ],
+     "graph_ids": [
+      29
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.8 s); the last fact's held-out answers do not all come back with them as written",
+     "held_out_back": false
+    }
+   ],
+   "refused_lessons": [
+    7,
+    9,
+    13,
+    14,
+    16,
+    18,
+    21,
+    27,
+    28
+   ],
+   "fact_states": {
+    "1": "learned",
+    "2": "learned",
+    "3": "learned",
+    "4": "learned",
+    "5": "replaced",
+    "6": "learned",
+    "7": "missed",
+    "8": "learned",
+    "9": "missed",
+    "10": "learned",
+    "11": "learned",
+    "12": "learned",
+    "13": "missed",
+    "14": "missed",
+    "15": "learned",
+    "16": "missed",
+    "17": "replaced",
+    "18": "missed",
+    "19": "learned",
+    "20": "learned",
+    "21": "missed",
+    "22": "learned",
+    "23": "learned",
+    "24": "learned",
+    "25": "learned",
+    "26": "learned",
+    "27": "missed",
+    "28": "missed",
+    "29": "learned"
+   },
+   "refused_judge": {
+    "teach": {
+     "refused": [
+      7,
+      9,
+      13,
+      14,
+      16,
+      18,
+      21,
+      27,
+      28
+     ],
+     "phase": null,
+     "note": "no phase of the set keeps exactly the lessons that were not refused; lwlogic.py has no CLI to add one"
+    }
+   }
+  },
+  "teach.notes": {
+   "phase": "teach",
+   "kind": "notes",
+   "status": "done",
+   "error": null,
+   "folder": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8",
+   "timings": {
+    "teach.notes.server": {
+     "ready_s": 6.0,
+     "warm_s": 6.0,
+     "stop_s": 0.5
+    },
+    "step_s": 314.3
+   },
+   "answers": {
+    "teach.notes": {
+     "path": "~/lw-runs/gb10-a-both/L6-seed1/phases/teach.notes/answers.jsonl",
+     "n": 112,
+     "expected": 112,
+     "complete": true,
+     "seconds": 307.6
+    }
+   },
+   "judge": {
+    "teach.notes": {
+     "rc": 0,
+     "report": "~/lw-runs/gb10-a-both/L6-seed1/phases/teach.notes/report.txt",
+     "verdicts": "~/lw-runs/gb10-a-both/L6-seed1/phases/teach.notes/verdicts.json",
+     "headline": "judged 112 answers against L6-seed1",
+     "scores": {
+      "teach": {
+       "recall": {
+        "off": {
+         "pass": 11,
+         "fail": 2,
+         "unclear": 1,
+         "total": 14
+        },
+        "on": {
+         "pass": 14,
+         "fail": 0,
+         "unclear": 0,
+         "total": 14
+        }
+       },
+       "all": {
+        "off": {
+         "pass": 42,
+         "fail": 9,
+         "unclear": 5,
+         "total": 56
+        },
+        "on": {
+         "pass": 47,
+         "fail": 5,
+         "unclear": 4,
+         "total": 56
+        }
+       },
+       "yes_no": {
+        "off": {
+         "pass": 7,
+         "fail": 2,
+         "unclear": 0,
+         "total": 9
+        },
+        "on": {
+         "pass": 6,
+         "fail": 2,
+         "unclear": 1,
+         "total": 9
+        }
+       },
+       "two_step": {
+        "off": {
+         "pass": 11,
+         "fail": 3,
+         "unclear": 2,
+         "total": 16
+        },
+        "on": {
+         "pass": 14,
+         "fail": 2,
+         "unclear": 0,
+         "total": 16
+        }
+       },
+       "compound": {
+        "off": {
+         "pass": 5,
+         "fail": 1,
+         "unclear": 2,
+         "total": 8
+        },
+        "on": {
+         "pass": 5,
+         "fail": 1,
+         "unclear": 2,
+         "total": 8
+        }
+       },
+       "controls": {
+        "off": {
+         "pass": 8,
+         "fail": 1,
+         "unclear": 0,
+         "total": 9
+        },
+        "on": {
+         "pass": 8,
+         "fail": 0,
+         "unclear": 1,
+         "total": 9
+        }
+       }
+      }
+     },
+     "consistency": {
+      "teach": {
+       "derived": {
+        "off": {
+         "value": {
+          "n": 4,
+          "ok": 4,
+          "not": []
+         }
+        },
+        "on": {
+         "value": {
+          "n": 3,
+          "ok": 3,
+          "not": []
+         },
+         "dont_know": {
+          "n": 1,
+          "ok": 0,
+          "not": [
+           "Q44~Q48"
+          ]
+         }
+        }
+       },
+       "yes_no_groups": null
+      }
+     },
+     "n": 112
+    }
+   },
+   "source_unchanged": true,
+   "notes": {
+    "format": "lw-notes/1",
+    "tokenizer": {
+     "name": "tokenizers",
+     "version": "0.23.2",
+     "path": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/blobs/623c34567aebb18582765289fbe23d901c62704d6518d71866e0e58db892b5b7",
+     "sha256": "623c34567aebb18582765289fbe23d901c62704d6518d71866e0e58db892b5b7"
+    },
+    "config": {
+     "cap": 512,
+     "n_min": 1,
+     "n_max": 3,
+     "fold": true,
+     "hop": "subject",
+     "hop_weight": 0.5,
+     "hop_from": 8,
+     "hop_history": true,
+     "min_rel": 0.0,
+     "subject": 1.0,
+     "punct": false
+    },
+    "notes": 29,
+    "current": 24,
+    "earlier": 5,
+    "kept_out": 0,
+    "questions": 56,
+    "nothing_retrieved": 0,
+    "tokens_p50": 326,
+    "tokens_p95": 349,
+    "tokens_max": 349,
+    "lookup_us_p50": 281,
+    "lookup_us_p95": 338,
+    "log": "phases/teach.notes/notes.jsonl",
+    "store_file": "phases/teach.notes/notes-store.json"
+   }
+  },
+  "teach.notes_pocket": {
+   "phase": "teach",
+   "kind": "notes_pocket",
+   "status": "done",
+   "error": null,
+   "folder": "~/lw-runs/gb10-a-both/L6-seed1/models/L6-seed1.teach",
+   "timings": {
+    "teach.notes_pocket.server": {
+     "ready_s": 6.0,
+     "warm_s": 6.0,
+     "stop_s": 0.6
+    },
+    "step_s": 296.7
+   },
+   "answers": {
+    "teach.notes_pocket": {
+     "path": "~/lw-runs/gb10-a-both/L6-seed1/phases/teach.notes_pocket/answers.jsonl",
+     "n": 112,
+     "expected": 112,
+     "complete": true,
+     "seconds": 289.9
+    }
+   },
+   "judge": {
+    "teach.notes_pocket": {
+     "rc": 0,
+     "report": "~/lw-runs/gb10-a-both/L6-seed1/phases/teach.notes_pocket/report.txt",
+     "verdicts": "~/lw-runs/gb10-a-both/L6-seed1/phases/teach.notes_pocket/verdicts.json",
+     "headline": "judged 112 answers against L6-seed1",
+     "scores": {
+      "teach": {
+       "recall": {
+        "off": {
+         "pass": 12,
+         "fail": 1,
+         "unclear": 1,
+         "total": 14
+        },
+        "on": {
+         "pass": 13,
+         "fail": 0,
+         "unclear": 1,
+         "total": 14
+        }
+       },
+       "all": {
+        "off": {
+         "pass": 39,
+         "fail": 10,
+         "unclear": 7,
+         "total": 56
+        },
+        "on": {
+         "pass": 46,
+         "fail": 4,
+         "unclear": 6,
+         "total": 56
+        }
+       },
+       "yes_no": {
+        "off": {
+         "pass": 7,
+         "fail": 2,
+         "unclear": 0,
+         "total": 9
+        },
+        "on": {
+         "pass": 7,
+         "fail": 1,
+         "unclear": 1,
+         "total": 9
+        }
+       },
+       "two_step": {
+        "off": {
+         "pass": 10,
+         "fail": 5,
+         "unclear": 1,
+         "total": 16
+        },
+        "on": {
+         "pass": 14,
+         "fail": 1,
+         "unclear": 1,
+         "total": 16
+        }
+       },
+       "compound": {
+        "off": {
+         "pass": 3,
+         "fail": 1,
+         "unclear": 4,
+         "total": 8
+        },
+        "on": {
+         "pass": 4,
+         "fail": 2,
+         "unclear": 2,
+         "total": 8
+        }
+       },
+       "controls": {
+        "off": {
+         "pass": 7,
+         "fail": 1,
+         "unclear": 1,
+         "total": 9
+        },
+        "on": {
+         "pass": 8,
+         "fail": 0,
+         "unclear": 1,
+         "total": 9
+        }
+       }
+      }
+     },
+     "consistency": {
+      "teach": {
+       "derived": {
+        "off": {
+         "value": {
+          "n": 4,
+          "ok": 4,
+          "not": []
+         }
+        },
+        "on": {
+         "value": {
+          "n": 3,
+          "ok": 3,
+          "not": []
+         },
+         "dont_know": {
+          "n": 1,
+          "ok": 0,
+          "not": [
+           "Q44~Q48"
+          ]
+         }
+        }
+       },
+       "yes_no_groups": null
+      }
+     },
+     "n": 112
+    }
+   },
+   "notes": {
+    "format": "lw-notes/1",
+    "tokenizer": {
+     "name": "tokenizers",
+     "version": "0.23.2",
+     "path": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/blobs/623c34567aebb18582765289fbe23d901c62704d6518d71866e0e58db892b5b7",
+     "sha256": "623c34567aebb18582765289fbe23d901c62704d6518d71866e0e58db892b5b7"
+    },
+    "config": {
+     "cap": 512,
+     "n_min": 1,
+     "n_max": 3,
+     "fold": true,
+     "hop": "subject",
+     "hop_weight": 0.5,
+     "hop_from": 8,
+     "hop_history": true,
+     "min_rel": 0.0,
+     "subject": 1.0,
+     "punct": false
+    },
+    "notes": 29,
+    "current": 24,
+    "earlier": 5,
+    "kept_out": 0,
+    "questions": 56,
+    "nothing_retrieved": 0,
+    "tokens_p50": 326,
+    "tokens_p95": 349,
+    "tokens_max": 349,
+    "lookup_us_p50": 290,
+    "lookup_us_p95": 379,
+    "log": "phases/teach.notes_pocket/notes.jsonl",
+    "store_file": "phases/teach.notes_pocket/notes-store.json"
+   },
+   "pocket_from": "teach",
+   "folder_unchanged": true
+  }
+ },
+ "binary": {
+  "path": "~/tf108/zig-out/native/bin/tensorfold-native",
+  "sha256": "759114dd74b1ab080b93df181a26f12d54f70a8614ff78928a91c190e626545a",
+  "version": "tensorfold-native 1.0.8"
+ },
+ "model_src": {
+  "path": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8",
+  "bytes": 18544234457,
+  "pocket": null
+ },
+ "combined": {},
+ "kept_stable_inputs": null,
+ "zero_vs_reteach": {},
+ "reference": {
+  "format": "lw-reference/1",
+  "asked": {
+   "kinds": [
+    "notes",
+    "notes_pocket"
+   ],
+   "of": [
+    "teach"
+   ]
+  },
+  "steps": [
+   "teach.notes",
+   "teach.notes_pocket"
+  ],
+  "gap_is": "in_context pass rate minus pocket pass rate, over the answers the pocket and every reference of the phase have; positive: the pocket is behind the model told in context",
+  "phases": {
+   "teach": {
+    "store": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20,
+     21,
+     22,
+     23,
+     24,
+     25,
+     26,
+     27,
+     28,
+     29
+    ],
+    "sources": {
+     "teach": {
+      "answers": "phases/teach/answers.jsonl",
+      "verdicts": "phases/teach/verdicts.json",
+      "served": "the --slide server that taught"
+     },
+     "notes": {
+      "answers": "phases/teach.notes/answers.jsonl",
+      "verdicts": "phases/teach.notes/verdicts.json",
+      "served": "the untaught model, each question's notes in the system prompt"
+     },
+     "notes_pocket": {
+      "answers": "phases/teach.notes_pocket/answers.jsonl",
+      "verdicts": "phases/teach.notes_pocket/verdicts.json",
+      "served": "the pocket of teach without --slide, each question's notes in the system prompt"
+     }
+    },
+    "scores": {
+     "teach": {
+      "CURRENT": {
+       "off": [
+        8,
+        14
+       ],
+       "on": [
+        7,
+        14
+       ]
+      },
+      "negation": {
+       "off": [
+        0,
+        1
+       ],
+       "on": [
+        0,
+        1
+       ]
+      },
+      "two_step": {
+       "off": [
+        3,
+        24
+       ],
+       "on": [
+        5,
+        24
+       ]
+      },
+      "compound": {
+       "off": [
+        0,
+        8
+       ],
+       "on": [
+        2,
+        8
+       ]
+      },
+      "yes_no": {
+       "off": [
+        3,
+        9
+       ],
+       "on": [
+        1,
+        9
+       ]
+      },
+      "controls": {
+       "off": [
+        8,
+        9
+       ],
+       "on": [
+        9,
+        9
+       ]
+      },
+      "all": {
+       "off": [
+        22,
+        56
+       ],
+       "on": [
+        22,
+        56
+       ]
+      }
+     },
+     "notes": {
+      "CURRENT": {
+       "off": [
+        11,
+        14
+       ],
+       "on": [
+        14,
+        14
+       ]
+      },
+      "negation": {
+       "off": [
+        1,
+        1
+       ],
+       "on": [
+        1,
+        1
+       ]
+      },
+      "two_step": {
+       "off": [
+        16,
+        24
+       ],
+       "on": [
+        19,
+        24
+       ]
+      },
+      "compound": {
+       "off": [
+        5,
+        8
+       ],
+       "on": [
+        5,
+        8
+       ]
+      },
+      "yes_no": {
+       "off": [
+        7,
+        9
+       ],
+       "on": [
+        6,
+        9
+       ]
+      },
+      "controls": {
+       "off": [
+        8,
+        9
+       ],
+       "on": [
+        8,
+        9
+       ]
+      },
+      "all": {
+       "off": [
+        42,
+        56
+       ],
+       "on": [
+        47,
+        56
+       ]
+      }
+     },
+     "notes_pocket": {
+      "CURRENT": {
+       "off": [
+        12,
+        14
+       ],
+       "on": [
+        13,
+        14
+       ]
+      },
+      "negation": {
+       "off": [
+        1,
+        1
+       ],
+       "on": [
+        1,
+        1
+       ]
+      },
+      "two_step": {
+       "off": [
+        13,
+        24
+       ],
+       "on": [
+        18,
+        24
+       ]
+      },
+      "compound": {
+       "off": [
+        3,
+        8
+       ],
+       "on": [
+        4,
+        8
+       ]
+      },
+      "yes_no": {
+       "off": [
+        7,
+        9
+       ],
+       "on": [
+        7,
+        9
+       ]
+      },
+      "controls": {
+       "off": [
+        7,
+        9
+       ],
+       "on": [
+        8,
+        9
+       ]
+      },
+      "all": {
+       "off": [
+        39,
+        56
+       ],
+       "on": [
+        46,
+        56
+       ]
+      }
+     }
+    },
+    "gap": {
+     "teach": {
+      "CURRENT": {
+       "off": {
+        "pocket": [
+         8,
+         14
+        ],
+        "notes": [
+         11,
+         14
+        ],
+        "notes_pocket": [
+         12,
+         14
+        ],
+        "gap": null
+       },
+       "on": {
+        "pocket": [
+         7,
+         14
+        ],
+        "notes": [
+         14,
+         14
+        ],
+        "notes_pocket": [
+         13,
+         14
+        ],
+        "gap": null
+       }
+      },
+      "negation": {
+       "off": {
+        "pocket": [
+         0,
+         1
+        ],
+        "notes": [
+         1,
+         1
+        ],
+        "notes_pocket": [
+         1,
+         1
+        ],
+        "gap": null
+       },
+       "on": {
+        "pocket": [
+         0,
+         1
+        ],
+        "notes": [
+         1,
+         1
+        ],
+        "notes_pocket": [
+         1,
+         1
+        ],
+        "gap": null
+       }
+      },
+      "two_step": {
+       "off": {
+        "pocket": [
+         3,
+         24
+        ],
+        "notes": [
+         16,
+         24
+        ],
+        "notes_pocket": [
+         13,
+         24
+        ],
+        "gap": null
+       },
+       "on": {
+        "pocket": [
+         5,
+         24
+        ],
+        "notes": [
+         19,
+         24
+        ],
+        "notes_pocket": [
+         18,
+         24
+        ],
+        "gap": null
+       }
+      },
+      "compound": {
+       "off": {
+        "pocket": [
+         0,
+         8
+        ],
+        "notes": [
+         5,
+         8
+        ],
+        "notes_pocket": [
+         3,
+         8
+        ],
+        "gap": null
+       },
+       "on": {
+        "pocket": [
+         2,
+         8
+        ],
+        "notes": [
+         5,
+         8
+        ],
+        "notes_pocket": [
+         4,
+         8
+        ],
+        "gap": null
+       }
+      },
+      "yes_no": {
+       "off": {
+        "pocket": [
+         3,
+         9
+        ],
+        "notes": [
+         7,
+         9
+        ],
+        "notes_pocket": [
+         7,
+         9
+        ],
+        "gap": null
+       },
+       "on": {
+        "pocket": [
+         1,
+         9
+        ],
+        "notes": [
+         6,
+         9
+        ],
+        "notes_pocket": [
+         7,
+         9
+        ],
+        "gap": null
+       }
+      },
+      "controls": {
+       "off": {
+        "pocket": [
+         8,
+         9
+        ],
+        "notes": [
+         8,
+         9
+        ],
+        "notes_pocket": [
+         7,
+         9
+        ],
+        "gap": null
+       },
+       "on": {
+        "pocket": [
+         9,
+         9
+        ],
+        "notes": [
+         8,
+         9
+        ],
+        "notes_pocket": [
+         8,
+         9
+        ],
+        "gap": null
+       }
+      },
+      "all": {
+       "off": {
+        "pocket": [
+         22,
+         56
+        ],
+        "notes": [
+         42,
+         56
+        ],
+        "notes_pocket": [
+         39,
+         56
+        ],
+        "gap": null
+       },
+       "on": {
+        "pocket": [
+         22,
+         56
+        ],
+        "notes": [
+         47,
+         56
+        ],
+        "notes_pocket": [
+         46,
+         56
+        ],
+        "gap": null
+       }
+      }
+     }
+    },
+    "notes": {
+     "notes": {
+      "format": "lw-notes/1",
+      "tokenizer": {
+       "name": "tokenizers",
+       "version": "0.23.2",
+       "path": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/blobs/623c34567aebb18582765289fbe23d901c62704d6518d71866e0e58db892b5b7",
+       "sha256": "623c34567aebb18582765289fbe23d901c62704d6518d71866e0e58db892b5b7"
+      },
+      "config": {
+       "cap": 512,
+       "n_min": 1,
+       "n_max": 3,
+       "fold": true,
+       "hop": "subject",
+       "hop_weight": 0.5,
+       "hop_from": 8,
+       "hop_history": true,
+       "min_rel": 0.0,
+       "subject": 1.0,
+       "punct": false
+      },
+      "notes": 29,
+      "current": 24,
+      "earlier": 5,
+      "kept_out": 0,
+      "questions": 56,
+      "nothing_retrieved": 0,
+      "tokens_p50": 326,
+      "tokens_p95": 349,
+      "tokens_max": 349,
+      "lookup_us_p50": 281,
+      "lookup_us_p95": 338,
+      "log": "phases/teach.notes/notes.jsonl",
+      "store_file": "phases/teach.notes/notes-store.json"
+     },
+     "notes_pocket": {
+      "format": "lw-notes/1",
+      "tokenizer": {
+       "name": "tokenizers",
+       "version": "0.23.2",
+       "path": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/blobs/623c34567aebb18582765289fbe23d901c62704d6518d71866e0e58db892b5b7",
+       "sha256": "623c34567aebb18582765289fbe23d901c62704d6518d71866e0e58db892b5b7"
+      },
+      "config": {
+       "cap": 512,
+       "n_min": 1,
+       "n_max": 3,
+       "fold": true,
+       "hop": "subject",
+       "hop_weight": 0.5,
+       "hop_from": 8,
+       "hop_history": true,
+       "min_rel": 0.0,
+       "subject": 1.0,
+       "punct": false
+      },
+      "notes": 29,
+      "current": 24,
+      "earlier": 5,
+      "kept_out": 0,
+      "questions": 56,
+      "nothing_retrieved": 0,
+      "tokens_p50": 326,
+      "tokens_p95": 349,
+      "tokens_max": 349,
+      "lookup_us_p50": 290,
+      "lookup_us_p95": 379,
+      "log": "phases/teach.notes_pocket/notes.jsonl",
+      "store_file": "phases/teach.notes_pocket/notes-store.json"
+     }
+    },
+    "lessons": [
+     {
+      "lesson": 13,
+      "name": "L13",
+      "op": "CHANGE",
+      "text": "My dog is called Bruno now.",
+      "e": "my dog",
+      "a": "name",
+      "new": "Bruno",
+      "stale": [
+       "Luna"
+      ],
+      "now": [
+       "Bruno"
+      ],
+      "in_force": true,
+      "classified": true,
+      "questions": [
+       "Q12"
+      ]
+     },
+     {
+      "lesson": 18,
+      "name": "L18",
+      "op": "CHANGE",
+      "text": "The boat has a new owner: my brother.",
+      "e": "the boat",
+      "a": "owner",
+      "new": "my brother",
+      "stale": [
+       "my sister"
+      ],
+      "now": [
+       "my brother"
+      ],
+      "in_force": true,
+      "classified": true,
+      "questions": [
+       "Q03",
+       "Q40"
+      ]
+     },
+     {
+      "lesson": 21,
+      "name": "L21",
+      "op": "CHANGE",
+      "text": "I have moved; I live in Lisbon now.",
+      "e": "me",
+      "a": "home_city",
+      "new": "Lisbon",
+      "stale": [
+       "Porto"
+      ],
+      "now": [
+       "Lisbon"
+      ],
+      "in_force": true,
+      "classified": true,
+      "questions": [
+       "Q01"
+      ]
+     },
+     {
+      "lesson": 26,
+      "name": "L26",
+      "op": "CHANGE",
+      "text": "My favourite colour is blue now.",
+      "e": "me",
+      "a": "fav_colour",
+      "new": "blue",
+      "stale": [
+       "yellow"
+      ],
+      "now": [
+       "blue"
+      ],
+      "in_force": true,
+      "classified": true,
+      "questions": []
+     },
+     {
+      "lesson": 29,
+      "name": "L29",
+      "op": "RETRACT",
+      "text": "I no longer like cheese.",
+      "e": "me",
+      "a": "likes",
+      "new": "not cheese",
+      "stale": [
+       "cheese"
+      ],
+      "now": [
+       "chocolate",
+       "pears"
+      ],
+      "in_force": true,
+      "classified": true,
+      "questions": [
+       "Q43"
+      ]
+     }
+    ],
+    "outcomes": {
+     "teach": {
+      "L13": {
+       "off": {
+        "outcome": "stale_only",
+        "answers": 1,
+        "corrected": [],
+        "stale": [
+         "Q12"
+        ]
+       },
+       "on": {
+        "outcome": "stale_only",
+        "answers": 1,
+        "corrected": [],
+        "stale": [
+         "Q12"
+        ]
+       }
+      },
+      "L18": {
+       "off": {
+        "outcome": "corrected_only",
+        "answers": 2,
+        "corrected": [
+         "Q40"
+        ],
+        "stale": []
+       },
+       "on": {
+        "outcome": "neither",
+        "answers": 2,
+        "corrected": [],
+        "stale": []
+       }
+      },
+      "L21": {
+       "off": {
+        "outcome": "neither",
+        "answers": 1,
+        "corrected": [],
+        "stale": []
+       },
+       "on": {
+        "outcome": "neither",
+        "answers": 1,
+        "corrected": [],
+        "stale": []
+       }
+      },
+      "L26": {},
+      "L29": {
+       "off": {
+        "outcome": "stale_only",
+        "answers": 1,
+        "corrected": [],
+        "stale": [
+         "Q43"
+        ]
+       },
+       "on": {
+        "outcome": "stale_only",
+        "answers": 1,
+        "corrected": [],
+        "stale": [
+         "Q43"
+        ]
+       }
+      }
+     },
+     "notes": {
+      "L13": {
+       "off": {
+        "outcome": "corrected_only",
+        "answers": 1,
+        "corrected": [
+         "Q12"
+        ],
+        "stale": []
+       },
+       "on": {
+        "outcome": "corrected_only",
+        "answers": 1,
+        "corrected": [
+         "Q12"
+        ],
+        "stale": []
+       }
+      },
+      "L18": {
+       "off": {
+        "outcome": "corrected_only",
+        "answers": 2,
+        "corrected": [
+         "Q03",
+         "Q40"
+        ],
+        "stale": []
+       },
+       "on": {
+        "outcome": "corrected_only",
+        "answers": 2,
+        "corrected": [
+         "Q03",
+         "Q40"
+        ],
+        "stale": []
+       }
+      },
+      "L21": {
+       "off": {
+        "outcome": "corrected_only",
+        "answers": 1,
+        "corrected": [
+         "Q01"
+        ],
+        "stale": []
+       },
+       "on": {
+        "outcome": "corrected_only",
+        "answers": 1,
+        "corrected": [
+         "Q01"
+        ],
+        "stale": []
+       }
+      },
+      "L26": {},
+      "L29": {
+       "off": {
+        "outcome": "corrected_only",
+        "answers": 1,
+        "corrected": [
+         "Q43"
+        ],
+        "stale": []
+       },
+       "on": {
+        "outcome": "corrected_only",
+        "answers": 1,
+        "corrected": [
+         "Q43"
+        ],
+        "stale": []
+       }
+      }
+     },
+     "notes_pocket": {
+      "L13": {
+       "off": {
+        "outcome": "corrected_only",
+        "answers": 1,
+        "corrected": [
+         "Q12"
+        ],
+        "stale": []
+       },
+       "on": {
+        "outcome": "corrected_only",
+        "answers": 1,
+        "corrected": [
+         "Q12"
+        ],
+        "stale": []
+       }
+      },
+      "L18": {
+       "off": {
+        "outcome": "corrected_only",
+        "answers": 2,
+        "corrected": [
+         "Q03",
+         "Q40"
+        ],
+        "stale": []
+       },
+       "on": {
+        "outcome": "corrected_only",
+        "answers": 2,
+        "corrected": [
+         "Q03",
+         "Q40"
+        ],
+        "stale": []
+       }
+      },
+      "L21": {
+       "off": {
+        "outcome": "corrected_only",
+        "answers": 1,
+        "corrected": [
+         "Q01"
+        ],
+        "stale": []
+       },
+       "on": {
+        "outcome": "corrected_only",
+        "answers": 1,
+        "corrected": [
+         "Q01"
+        ],
+        "stale": []
+       }
+      },
+      "L26": {},
+      "L29": {
+       "off": {
+        "outcome": "corrected_only",
+        "answers": 1,
+        "corrected": [
+         "Q43"
+        ],
+        "stale": []
+       },
+       "on": {
+        "outcome": "corrected_only",
+        "answers": 1,
+        "corrected": [
+         "Q43"
+        ],
+        "stale": []
+       }
+      }
+     }
+    },
+    "outcome_counts": {
+     "teach": {
+      "off": {
+       "corrected_only": 1,
+       "stale_only": 2,
+       "both": 0,
+       "neither": 1
+      },
+      "on": {
+       "corrected_only": 0,
+       "stale_only": 2,
+       "both": 0,
+       "neither": 2
+      }
+     },
+     "notes": {
+      "off": {
+       "corrected_only": 4,
+       "stale_only": 0,
+       "both": 0,
+       "neither": 0
+      },
+      "on": {
+       "corrected_only": 4,
+       "stale_only": 0,
+       "both": 0,
+       "neither": 0
+      }
+     },
+     "notes_pocket": {
+      "off": {
+       "corrected_only": 4,
+       "stale_only": 0,
+       "both": 0,
+       "neither": 0
+      },
+      "on": {
+       "corrected_only": 4,
+       "stale_only": 0,
+       "both": 0,
+       "neither": 0
+      }
+     }
+    }
+   }
+  },
+  "report": "reference/report.txt"
+ },
+ "copies": [
+  {
+   "path": "~/lw-runs/gb10-a-both/L6-seed1/models/L6-seed1.teach",
+   "step": "teach",
+   "src": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8",
+   "made": "2026-10-14T21:07:43Z",
+   "bytes": 18544234457,
+   "removed": "2026-10-14T22:48:02Z"
+  }
+ ]
+}

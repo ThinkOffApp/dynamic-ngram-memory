@@ -1,0 +1,1173 @@
+{
+ "k": "restart",
+ "graph": {
+  "next": 5,
+  "facts": [
+   {
+    "id": 1,
+    "text": "My favourite colour is green.",
+    "source": "chat",
+    "state": "replaced",
+    "links": [
+     4
+    ],
+    "round": 5,
+    "message": "replaced by fact 4",
+    "questions": [
+     "Which colour is my favourite colour?",
+     "Do you know what colour is my favourite?",
+     "What colour do I like?"
+    ]
+   },
+   {
+    "id": 2,
+    "text": "My sister is called Ana.",
+    "source": "chat",
+    "state": "learned",
+    "links": [],
+    "round": 2,
+    "questions": [
+     "What is my sister's name called?",
+     "Which name is my sister's?",
+     "How do I refer to my sister?"
+    ],
+    "neurons": [
+     {
+      "layer": 31,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 20,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 22,
+      "neuron": 0,
+      "key": "subject"
+     },
+     {
+      "layer": 15,
+      "neuron": 0,
+      "key": "subject"
+     },
+     {
+      "layer": 10,
+      "neuron": 0,
+      "key": "subject"
+     },
+     {
+      "layer": 17,
+      "neuron": 0,
+      "key": "subject"
+     },
+     {
+      "layer": 29,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 13,
+      "neuron": 0,
+      "key": "subject"
+     },
+     {
+      "layer": 24,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 27,
+      "neuron": 1,
+      "key": "subject"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "text": "My eyes are brown.",
+    "source": "chat",
+    "state": "learned",
+    "links": [],
+    "round": 1,
+    "questions": [
+     "What colour are my eyes?",
+     "What is the colour of my eyes?",
+     "Would you say my eye colour is brown?",
+     "Can I check if my eyes are brown?"
+    ],
+    "neurons": [
+     {
+      "layer": 13,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 15,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 10,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 22,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 20,
+      "neuron": 2,
+      "key": "subject"
+     },
+     {
+      "layer": 24,
+      "neuron": 2,
+      "key": "subject"
+     },
+     {
+      "layer": 17,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 27,
+      "neuron": 2,
+      "key": "subject"
+     },
+     {
+      "layer": 29,
+      "neuron": 2,
+      "key": "subject"
+     },
+     {
+      "layer": 31,
+      "neuron": 2,
+      "key": "subject"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "text": "My favourite colour is blue now.",
+    "source": "chat",
+    "state": "learned",
+    "links": [
+     1
+    ],
+    "round": 2,
+    "questions": [
+     "Which colour is my favourite?",
+     "Which colour is my favourite colour?"
+    ],
+    "neurons": [
+     {
+      "layer": 31,
+      "neuron": 3,
+      "key": "reply"
+     },
+     {
+      "layer": 36,
+      "neuron": 1,
+      "key": "reply"
+     },
+     {
+      "layer": 34,
+      "neuron": 1,
+      "key": "reply"
+     },
+     {
+      "layer": 27,
+      "neuron": 3,
+      "key": "reply"
+     },
+     {
+      "layer": 29,
+      "neuron": 3,
+      "key": "reply"
+     },
+     {
+      "layer": 24,
+      "neuron": 3,
+      "key": "reply"
+     },
+     {
+      "layer": 20,
+      "neuron": 3,
+      "key": "reply"
+     },
+     {
+      "layer": 38,
+      "neuron": 1,
+      "key": "reply"
+     },
+     {
+      "layer": 40,
+      "neuron": 1,
+      "key": "reply"
+     },
+     {
+      "layer": 22,
+      "neuron": 2,
+      "key": "reply"
+     }
+    ]
+   }
+  ],
+  "model": {
+   "layers": 52,
+   "kinds": "MEMEM*EMEMEM*EMEMEM*EMEMEM*EMEMEM*EMEMEMEM*EMEMEMEME",
+   "pocket": {
+    "neurons": 64,
+    "layers": [
+     1,
+     3,
+     6,
+     8,
+     10,
+     13,
+     15,
+     17,
+     20,
+     22,
+     24,
+     27,
+     29,
+     31,
+     34,
+     36,
+     38,
+     40,
+     43,
+     45,
+     47,
+     49,
+     51
+    ],
+    "used": [
+     0,
+     0,
+     0,
+     0,
+     2,
+     2,
+     2,
+     2,
+     4,
+     3,
+     4,
+     4,
+     4,
+     4,
+     2,
+     2,
+     2,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "shards": [
+    {
+     "name": "model-00001-of-00004.safetensors",
+     "bytes": 5119792680,
+     "pocket": true,
+     "layers": [
+      1,
+      3,
+      6,
+      8,
+      10,
+      13
+     ]
+    },
+    {
+     "name": "model-00002-of-00004.safetensors",
+     "bytes": 5292923208,
+     "pocket": true,
+     "layers": [
+      15,
+      17,
+      20,
+      22,
+      24,
+      27,
+      29
+     ]
+    },
+    {
+     "name": "model-00003-of-00004.safetensors",
+     "bytes": 5292923168,
+     "pocket": true,
+     "layers": [
+      31,
+      34,
+      36,
+      38,
+      40,
+      43,
+      45
+     ]
+    },
+    {
+     "name": "model-00004-of-00004.safetensors",
+     "bytes": 2074237664,
+     "pocket": true,
+     "layers": [
+      47,
+      49,
+      51
+     ]
+    },
+    {
+     "name": "mtp-4bit.safetensors",
+     "bytes": 751832520,
+     "pocket": true,
+     "layers": []
+    }
+   ]
+  }
+ },
+ "graph_raw": {
+  "next": 5,
+  "facts": [
+   {
+    "id": 1,
+    "text": "My favourite colour is green.",
+    "source": "chat",
+    "at": 1791902967253,
+    "state": "replaced",
+    "links": [
+     4
+    ],
+    "round": 5,
+    "message": "replaced by fact 4",
+    "questions": [
+     "Which colour is my favourite colour?",
+     "Do you know what colour is my favourite?",
+     "What colour do I like?"
+    ]
+   },
+   {
+    "id": 2,
+    "text": "My sister is called Ana.",
+    "source": "chat",
+    "at": 1791903246539,
+    "state": "learned",
+    "links": [],
+    "round": 2,
+    "questions": [
+     "What is my sister's name called?",
+     "Which name is my sister's?",
+     "How do I refer to my sister?"
+    ],
+    "neurons": [
+     {
+      "layer": 31,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 20,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 22,
+      "neuron": 0,
+      "key": "subject"
+     },
+     {
+      "layer": 15,
+      "neuron": 0,
+      "key": "subject"
+     },
+     {
+      "layer": 10,
+      "neuron": 0,
+      "key": "subject"
+     },
+     {
+      "layer": 17,
+      "neuron": 0,
+      "key": "subject"
+     },
+     {
+      "layer": 29,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 13,
+      "neuron": 0,
+      "key": "subject"
+     },
+     {
+      "layer": 24,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 27,
+      "neuron": 1,
+      "key": "subject"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "text": "My eyes are brown.",
+    "source": "chat",
+    "at": 1791903448182,
+    "state": "learned",
+    "links": [],
+    "round": 1,
+    "questions": [
+     "What colour are my eyes?",
+     "What is the colour of my eyes?",
+     "Would you say my eye colour is brown?",
+     "Can I check if my eyes are brown?"
+    ],
+    "neurons": [
+     {
+      "layer": 13,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 15,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 10,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 22,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 20,
+      "neuron": 2,
+      "key": "subject"
+     },
+     {
+      "layer": 24,
+      "neuron": 2,
+      "key": "subject"
+     },
+     {
+      "layer": 17,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 27,
+      "neuron": 2,
+      "key": "subject"
+     },
+     {
+      "layer": 29,
+      "neuron": 2,
+      "key": "subject"
+     },
+     {
+      "layer": 31,
+      "neuron": 2,
+      "key": "subject"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "text": "My favourite colour is blue now.",
+    "source": "chat",
+    "at": 1791903610770,
+    "state": "learned",
+    "links": [
+     1
+    ],
+    "round": 2,
+    "questions": [
+     "Which colour is my favourite?",
+     "Which colour is my favourite colour?"
+    ],
+    "neurons": [
+     {
+      "layer": 31,
+      "neuron": 3,
+      "key": "reply"
+     },
+     {
+      "layer": 36,
+      "neuron": 1,
+      "key": "reply"
+     },
+     {
+      "layer": 34,
+      "neuron": 1,
+      "key": "reply"
+     },
+     {
+      "layer": 27,
+      "neuron": 3,
+      "key": "reply"
+     },
+     {
+      "layer": 29,
+      "neuron": 3,
+      "key": "reply"
+     },
+     {
+      "layer": 24,
+      "neuron": 3,
+      "key": "reply"
+     },
+     {
+      "layer": 20,
+      "neuron": 3,
+      "key": "reply"
+     },
+     {
+      "layer": 38,
+      "neuron": 1,
+      "key": "reply"
+     },
+     {
+      "layer": 40,
+      "neuron": 1,
+      "key": "reply"
+     },
+     {
+      "layer": 22,
+      "neuron": 2,
+      "key": "reply"
+     }
+    ]
+   }
+  ],
+  "model": {
+   "layers": 52,
+   "kinds": "MEMEM*EMEMEM*EMEMEM*EMEMEM*EMEMEM*EMEMEMEM*EMEMEMEME",
+   "pocket": {
+    "neurons": 64,
+    "layers": [
+     1,
+     3,
+     6,
+     8,
+     10,
+     13,
+     15,
+     17,
+     20,
+     22,
+     24,
+     27,
+     29,
+     31,
+     34,
+     36,
+     38,
+     40,
+     43,
+     45,
+     47,
+     49,
+     51
+    ],
+    "used": [
+     0,
+     0,
+     0,
+     0,
+     2,
+     2,
+     2,
+     2,
+     4,
+     3,
+     4,
+     4,
+     4,
+     4,
+     2,
+     2,
+     2,
+     2,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "shards": [
+    {
+     "name": "model-00001-of-00004.safetensors",
+     "bytes": 5119792680,
+     "pocket": true,
+     "layers": [
+      1,
+      3,
+      6,
+      8,
+      10,
+      13
+     ]
+    },
+    {
+     "name": "model-00002-of-00004.safetensors",
+     "bytes": 5292923208,
+     "pocket": true,
+     "layers": [
+      15,
+      17,
+      20,
+      22,
+      24,
+      27,
+      29
+     ]
+    },
+    {
+     "name": "model-00003-of-00004.safetensors",
+     "bytes": 5292923168,
+     "pocket": true,
+     "layers": [
+      31,
+      34,
+      36,
+      38,
+      40,
+      43,
+      45
+     ]
+    },
+    {
+     "name": "model-00004-of-00004.safetensors",
+     "bytes": 2074237664,
+     "pocket": true,
+     "layers": [
+      47,
+      49,
+      51
+     ]
+    },
+    {
+     "name": "mtp-4bit.safetensors",
+     "bytes": 751832520,
+     "pocket": true,
+     "layers": []
+    }
+   ]
+  }
+ },
+ "probe": [
+  {
+   "pid": "colour",
+   "thinking": false,
+   "draft": "server",
+   "content": "Your favourite colour is blue.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "50a093a583ce",
+   "drafts": true,
+   "speculative": {
+    "rounds": 2,
+    "drafted": 7,
+    "accepted": 7,
+    "acceptance_rate": 1.0,
+    "tokens_per_round": 3.5
+   },
+   "t0": 1791903812.6675797,
+   "t1": 1791903812.753444
+  },
+  {
+   "pid": "colour",
+   "thinking": false,
+   "draft": "off",
+   "content": "Your favourite colour is blue.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "50a093a583ce",
+   "drafts": false,
+   "speculative": {
+    "rounds": 6,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.1666666666666667
+   },
+   "t0": 1791903812.753484,
+   "t1": 1791903812.8421166
+  },
+  {
+   "pid": "colour",
+   "thinking": true,
+   "draft": "server",
+   "content": "Your favourite colour is blue.",
+   "reasoning": "I remember the user told me: \"My favourite colour is blue now.\"",
+   "finish": "stop",
+   "completion_tokens": 23,
+   "token_sha": "a24c78b352dd",
+   "drafts": true,
+   "speculative": {
+    "rounds": 10,
+    "drafted": 26,
+    "accepted": 14,
+    "acceptance_rate": 0.5384615384615384,
+    "tokens_per_round": 2.3
+   },
+   "t0": 1791903812.842168,
+   "t1": 1791903813.0474143
+  },
+  {
+   "pid": "colour",
+   "thinking": true,
+   "draft": "off",
+   "content": "Your favourite colour is blue.",
+   "reasoning": "I remember the user told me: \"My favourite colour is blue now.\"",
+   "finish": "stop",
+   "completion_tokens": 23,
+   "token_sha": "a24c78b352dd",
+   "drafts": false,
+   "speculative": {
+    "rounds": 22,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0454545454545454
+   },
+   "t0": 1791903813.0474575,
+   "t1": 1791903813.2911546
+  },
+  {
+   "pid": "sister",
+   "thinking": false,
+   "draft": "server",
+   "content": "Your sister is called Ana.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "da3c2bb453ca",
+   "drafts": true,
+   "speculative": {
+    "rounds": 3,
+    "drafted": 7,
+    "accepted": 6,
+    "acceptance_rate": 0.8571428571428571,
+    "tokens_per_round": 2.3333333333333335
+   },
+   "t0": 1791903813.29119,
+   "t1": 1791903813.3822675
+  },
+  {
+   "pid": "sister",
+   "thinking": false,
+   "draft": "off",
+   "content": "Your sister is called Ana.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "da3c2bb453ca",
+   "drafts": false,
+   "speculative": {
+    "rounds": 6,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.1666666666666667
+   },
+   "t0": 1791903813.38232,
+   "t1": 1791903813.4701915
+  },
+  {
+   "pid": "sister",
+   "thinking": true,
+   "draft": "server",
+   "content": "Your sister is called Ana.",
+   "reasoning": "I remember the user told me: \"My sister is called Ana.\"",
+   "finish": "stop",
+   "completion_tokens": 22,
+   "token_sha": "26f024277020",
+   "drafts": true,
+   "speculative": {
+    "rounds": 10,
+    "drafted": 17,
+    "accepted": 11,
+    "acceptance_rate": 0.6470588235294118,
+    "tokens_per_round": 2.2
+   },
+   "t0": 1791903813.470222,
+   "t1": 1791903813.650436
+  },
+  {
+   "pid": "sister",
+   "thinking": true,
+   "draft": "off",
+   "content": "Your sister is called Ana.",
+   "reasoning": "I remember the user told me: \"My sister is called Ana.\"",
+   "finish": "stop",
+   "completion_tokens": 22,
+   "token_sha": "26f024277020",
+   "drafts": false,
+   "speculative": {
+    "rounds": 21,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0476190476190477
+   },
+   "t0": 1791903813.6504695,
+   "t1": 1791903813.8912659
+  },
+  {
+   "pid": "eyes",
+   "thinking": false,
+   "draft": "server",
+   "content": "Your eyes are brown.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 6,
+   "token_sha": "64e09ca23a7e",
+   "drafts": true,
+   "speculative": {
+    "rounds": 2,
+    "drafted": 7,
+    "accepted": 5,
+    "acceptance_rate": 0.7142857142857143,
+    "tokens_per_round": 3.0
+   },
+   "t0": 1791903813.8913095,
+   "t1": 1791903813.9703848
+  },
+  {
+   "pid": "eyes",
+   "thinking": false,
+   "draft": "off",
+   "content": "Your eyes are brown.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 6,
+   "token_sha": "64e09ca23a7e",
+   "drafts": false,
+   "speculative": {
+    "rounds": 5,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.2
+   },
+   "t0": 1791903813.9704366,
+   "t1": 1791903814.0460227
+  },
+  {
+   "pid": "eyes",
+   "thinking": true,
+   "draft": "server",
+   "content": "Your eyes are brown.",
+   "reasoning": "I remember the user told me: \"My eyes are brown.\"",
+   "finish": "stop",
+   "completion_tokens": 20,
+   "token_sha": "e04b2ad28254",
+   "drafts": true,
+   "speculative": {
+    "rounds": 8,
+    "drafted": 20,
+    "accepted": 11,
+    "acceptance_rate": 0.55,
+    "tokens_per_round": 2.5
+   },
+   "t0": 1791903814.0460613,
+   "t1": 1791903814.2139254
+  },
+  {
+   "pid": "eyes",
+   "thinking": true,
+   "draft": "off",
+   "content": "Your eyes are brown.",
+   "reasoning": "I remember the user told me: \"My eyes are brown.\"",
+   "finish": "stop",
+   "completion_tokens": 20,
+   "token_sha": "e04b2ad28254",
+   "drafts": false,
+   "speculative": {
+    "rounds": 19,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0526315789473684
+   },
+   "t0": 1791903814.2139757,
+   "t1": 1791903814.4297595
+  },
+  {
+   "pid": "haiku",
+   "thinking": false,
+   "draft": "server",
+   "content": "Drops on golden leaves,\nAutumn sighs in gentle rain,\nWinter draws near.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 19,
+   "token_sha": "599dd6930cda",
+   "drafts": true,
+   "speculative": {
+    "rounds": 9,
+    "drafted": 15,
+    "accepted": 12,
+    "acceptance_rate": 0.8,
+    "tokens_per_round": 2.111111111111111
+   },
+   "t0": 1791903814.4298003,
+   "t1": 1791903814.608383
+  },
+  {
+   "pid": "haiku",
+   "thinking": false,
+   "draft": "off",
+   "content": "Drops on golden leaves,\nAutumn sighs in gentle rain,\nWinter draws near.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 19,
+   "token_sha": "599dd6930cda",
+   "drafts": false,
+   "speculative": {
+    "rounds": 18,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0555555555555556
+   },
+   "t0": 1791903814.6084237,
+   "t1": 1791903814.8126206
+  },
+  {
+   "pid": "haiku",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze the Request:**\n   - User wants a haiku about \"autumn rain\".\n   - A haiku has specific structure: 3 lines, 5-7-5 syllables (traditional English haiku), often focusing on nature, seasons, or a moment in time.\n   - Topic: autumn rain.\n\n2.  **Determine the Structure:**\n   - Line 1: 5 syllables\n   - Line 2: 7 syllables\n   - Line 3: 5 syllables\n\n3.  **Brainstorming Content (autumn rain):**\n   - Rain falling on leaves, ground\n   - Cool air, falling petals\n   - Puddles, mist, wind\n   - Brown, orange, red leaves\n   - Gentle, steady rain\n\n   Let's try to fit syllables:\n   - \"Golden leaves fall down\" -> Gold-en leaves fall down (5) Good.\n   - \"Rain taps the window pane\" -> Rain taps the win-dow pane (6) Wait: Rain(1) taps(1) the(1) win(1) dow(1) pane(1) = 6. Need 7. Let's adjust: \"Rain taps the window pane\" -> maybe \"Rain taps the window pane\" is 6. Add \"softly\": \"Rain taps the window pane softly\" -> Rain(1) taps(1) the(1) win(1) dow(1) pane(1) soft-ly(2) = 8. Too many.\n   - Let's try: \"Rain taps the window pane\" = 6. Maybe \"Rain taps the glass pane\" -> Rain(1) taps(1) the(1) glass(1) pane(1) = 5. Need 7 for line 2.\n   - Let's do line by line systematically.\n\n   Line 1 (5 syll): \"Autumn rain falls soft\" -> Au-tumn(2) rain(1) falls(1) soft(1) = 5. Good.\n   Line 2 (7 syll): \"On quiet green rooftops\" -> On(1) qui-et(2) green(1) roof-tops(2) = 6. Need 7. \"On quiet green rooftops\" -> maybe \"On quiet green rooftops wait\" -> add \"wait\" (1) = 7. Check:",
+   "finish": "length",
+   "completion_tokens": 512,
+   "token_sha": "a61d7d058f38",
+   "drafts": true,
+   "speculative": {
+    "rounds": 155,
+    "drafted": 574,
+    "accepted": 361,
+    "acceptance_rate": 0.6289198606271778,
+    "tokens_per_round": 3.303225806451613
+   },
+   "t0": 1791903814.8126557,
+   "t1": 1791903817.9851255
+  },
+  {
+   "pid": "haiku",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze the Request:**\n   - User wants a haiku about \"autumn rain\".\n   - A haiku has specific structure: 3 lines, 5-7-5 syllables (traditional English haiku), often focusing on nature, seasons, or a moment in time.\n   - Topic: autumn rain.\n\n2.  **Determine the Structure:**\n   - Line 1: 5 syllables\n   - Line 2: 7 syllables\n   - Line 3: 5 syllables\n\n3.  **Brainstorming Content (autumn rain):**\n   - Rain falling on leaves, ground\n   - Cool air, falling petals\n   - Puddles, mist, wind\n   - Brown, orange, red leaves\n   - Gentle, steady rain\n\n   Let's try to fit syllables:\n   - \"Golden leaves fall down\" -> Gold-en leaves fall down (5) Good.\n   - \"Rain taps the window pane\" -> Rain taps the win-dow pane (6) Wait: Rain(1) taps(1) the(1) win(1) dow(1) pane(1) = 6. Need 7. Let's adjust: \"Rain taps the window pane\" -> maybe \"Rain taps the window pane\" is 6. Add \"softly\": \"Rain taps the window pane softly\" -> Rain(1) taps(1) the(1) win(1) dow(1) pane(1) soft-ly(2) = 8. Too many.\n   - Let's try: \"Rain taps the window pane\" = 6. Maybe \"Rain taps the glass pane\" -> Rain(1) taps(1) the(1) glass(1) pane(1) = 5. Need 7 for line 2.\n   - Let's do line by line systematically.\n\n   Line 1 (5 syll): \"Autumn rain falls soft\" -> Au-tumn(2) rain(1) falls(1) soft(1) = 5. Good.\n   Line 2 (7 syll): \"On quiet green rooftops\" -> On(1) qui-et(2) green(1) roof-tops(2) = 6. Need 7. \"On quiet green rooftops\" -> maybe \"On quiet green rooftops wait\" -> add \"wait\" (1) = 7. Check:",
+   "finish": "length",
+   "completion_tokens": 512,
+   "token_sha": "a61d7d058f38",
+   "drafts": false,
+   "speculative": {
+    "rounds": 511,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0019569471624266
+   },
+   "t0": 1791903817.9851668,
+   "t1": 1791903823.1377356
+  },
+  {
+   "pid": "math",
+   "thinking": false,
+   "draft": "server",
+   "content": "17 times 23 is 391.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 13,
+   "token_sha": "b10102b3921f",
+   "drafts": true,
+   "speculative": {
+    "rounds": 3,
+    "drafted": 11,
+    "accepted": 11,
+    "acceptance_rate": 1.0,
+    "tokens_per_round": 4.333333333333333
+   },
+   "t0": 1791903823.137781,
+   "t1": 1791903823.243577
+  },
+  {
+   "pid": "math",
+   "thinking": false,
+   "draft": "off",
+   "content": "17 times 23 is 391.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 13,
+   "token_sha": "b10102b3921f",
+   "drafts": false,
+   "speculative": {
+    "rounds": 12,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0833333333333333
+   },
+   "t0": 1791903823.2436278,
+   "t1": 1791903823.3915052
+  },
+  {
+   "pid": "math",
+   "thinking": true,
+   "draft": "server",
+   "content": "17 \u00d7 23 = 391",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user asks \"What is 17 times 23?\"\n2.  **Identify Core Task:** Calculate the product of 17 and 23.\n3.  **Perform Calculation:** \n   - 17 \u00d7 23\n   - I can break it down: 17 \u00d7 20 = 340, 17 \u00d7 3 = 51, 340 + 51 = 391\n   - Alternatively: 23 \u00d7 10 = 230, 23 \u00d7 7 = 161, 230 + 161 = 391\n   - Or standard multiplication: 17 \u00d7 23 = 391\n4.  **Formulate Response:** State the result clearly. \"17 times 23 is 391.\"\n5.  **Check:** 17*23 = 391. Correct.\n6.  **Output Generation:** Just give the answer as requested.\u2705",
+   "finish": "stop",
+   "completion_tokens": 257,
+   "token_sha": "0ce9f2bb8b37",
+   "drafts": true,
+   "speculative": {
+    "rounds": 49,
+    "drafted": 265,
+    "accepted": 207,
+    "acceptance_rate": 0.7811320754716982,
+    "tokens_per_round": 5.244897959183674
+   },
+   "t0": 1791903823.3915427,
+   "t1": 1791903824.6548667
+  },
+  {
+   "pid": "math",
+   "thinking": true,
+   "draft": "off",
+   "content": "17 \u00d7 23 = 391",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user asks \"What is 17 times 23?\"\n2.  **Identify Core Task:** Calculate the product of 17 and 23.\n3.  **Perform Calculation:** \n   - 17 \u00d7 23\n   - I can break it down: 17 \u00d7 20 = 340, 17 \u00d7 3 = 51, 340 + 51 = 391\n   - Alternatively: 23 \u00d7 10 = 230, 23 \u00d7 7 = 161, 230 + 161 = 391\n   - Or standard multiplication: 17 \u00d7 23 = 391\n4.  **Formulate Response:** State the result clearly. \"17 times 23 is 391.\"\n5.  **Check:** 17*23 = 391. Correct.\n6.  **Output Generation:** Just give the answer as requested.\u2705",
+   "finish": "stop",
+   "completion_tokens": 257,
+   "token_sha": "0ce9f2bb8b37",
+   "drafts": false,
+   "speculative": {
+    "rounds": 256,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.00390625
+   },
+   "t0": 1791903824.6549084,
+   "t1": 1791903827.2431676
+  },
+  {
+   "pid": "rivers",
+   "thinking": false,
+   "draft": "server",
+   "content": "Here are three major rivers in Europe:\n\n*   **The Danube** \u2013 The second-longest river in Europe, flowing through or along the border of 10 countries, including Germany, Austria, Hungary, and Romania.\n*   **The Volga** \u2013 The longest river in Europe, located entirely within Russia and flowing into the Caspian Sea.\n*   **The Rhine** \u2013 A major river that flows from the Swiss Alps northward, forming a natural border between Germany",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "e10a1ac2b2a1",
+   "drafts": true,
+   "speculative": {
+    "rounds": 31,
+    "drafted": 86,
+    "accepted": 64,
+    "acceptance_rate": 0.7441860465116279,
+    "tokens_per_round": 3.096774193548387
+   },
+   "t0": 1791903827.2432127,
+   "t1": 1791903827.8267882
+  },
+  {
+   "pid": "rivers",
+   "thinking": false,
+   "draft": "off",
+   "content": "Here are three major rivers in Europe:\n\n*   **The Danube** \u2013 The second-longest river in Europe, flowing through or along the border of 10 countries, including Germany, Austria, Hungary, and Romania.\n*   **The Volga** \u2013 The longest river in Europe, located entirely within Russia and flowing into the Caspian Sea.\n*   **The Rhine** \u2013 A major river that flows from the Swiss Alps northward, forming a natural border between Germany",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "e10a1ac2b2a1",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 1791903827.8268304,
+   "t1": 1791903828.7944539
+  },
+  {
+   "pid": "rivers",
+   "thinking": true,
+   "draft": "server",
+   "content": "Here are three major rivers in Europe:\n\n1. **Danube** \u2013 Flows from Germany to the Black Sea, passing through or forming borders with 10 countries.\n2. **Rhine** \u2013 Runs from the Swiss Alps to the North Sea, passing through France, Germany, and the Netherlands.\n3. **Volga** \u2013 The longest river in Europe, flowing entirely through Russia into the Caspian Sea.",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"Name three rivers in Europe.\"\n   - This is a straightforward factual request.\n\n2.  **Identify Key Elements:**\n   - Continent: Europe\n   - Item: Rivers\n   - Quantity: Three\n   - Language: English\n\n3.  **Determine Response Strategy:**\n   - Provide three well-known rivers in Europe.\n   - Ensure accuracy.\n   - Keep it concise.\n   - Optionally add brief context if needed, but three names should suffice.\n\n4.  **Select Rivers in Europe:**\n   - Danube (very long, flows through many countries)\n   - Rhine (major Western European river)\n   - Volga (longest in Europe, flows through Russia)\n   - Others: Seine, Thames, Po, Ural (border of Europe/Asia), etc.\n\n   I'll pick: Danube, Rhine, Volga. These are internationally recognized and clearly in Europe.\n\n5.  **Draft Response:**\n   - Danube\n   - Rhine\n   - Volga\n   (Maybe add a brief note that these are among the most significant, but keep it simple.)\n\n   Check: Are all three unambiguously in Europe? Yes. Danube flows from Germany to Black Sea. Rhine from Switzerland to North Sea. Volga entirely in Russia (European part). All good.\n\n   I'll just list them clearly.\u2705",
+   "finish": "stop",
+   "completion_tokens": 382,
+   "token_sha": "e51cc4a05671",
+   "drafts": true,
+   "speculative": {
+    "rounds": 119,
+    "drafted": 373,
+    "accepted": 264,
+    "acceptance_rate": 0.707774798927614,
+    "tokens_per_round": 3.2100840336134455
+   },
+   "t0": 1791903828.7944913,
+   "t1": 1791903831.1215696
+  },
+  {
+   "pid": "rivers",
+   "thinking": true,
+   "draft": "off",
+   "content": "Here are three major rivers in Europe:\n\n1. **Danube** \u2013 Flows from Germany to the Black Sea, passing through or forming borders with 10 countries.\n2. **Rhine** \u2013 Runs from the Swiss Alps to the North Sea, passing through France, Germany, and the Netherlands.\n3. **Volga** \u2013 The longest river in Europe, flowing entirely through Russia into the Caspian Sea.",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"Name three rivers in Europe.\"\n   - This is a straightforward factual request.\n\n2.  **Identify Key Elements:**\n   - Continent: Europe\n   - Item: Rivers\n   - Quantity: Three\n   - Language: English\n\n3.  **Determine Response Strategy:**\n   - Provide three well-known rivers in Europe.\n   - Ensure accuracy.\n   - Keep it concise.\n   - Optionally add brief context if needed, but three names should suffice.\n\n4.  **Select Rivers in Europe:**\n   - Danube (very long, flows through many countries)\n   - Rhine (major Western European river)\n   - Volga (longest in Europe, flows through Russia)\n   - Others: Seine, Thames, Po, Ural (border of Europe/Asia), etc.\n\n   I'll pick: Danube, Rhine, Volga. These are internationally recognized and clearly in Europe.\n\n5.  **Draft Response:**\n   - Danube\n   - Rhine\n   - Volga\n   (Maybe add a brief note that these are among the most significant, but keep it simple.)\n\n   Check: Are all three unambiguously in Europe? Yes. Danube flows from Germany to Black Sea. Rhine from Switzerland to North Sea. Volga entirely in Russia (European part). All good.\n\n   I'll just list them clearly.\u2705",
+   "finish": "stop",
+   "completion_tokens": 382,
+   "token_sha": "e51cc4a05671",
+   "drafts": false,
+   "speculative": {
+    "rounds": 381,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0026246719160106
+   },
+   "t0": 1791903831.1216228,
+   "t1": 1791903834.9538786
+  }
+ ],
+ "sha": {
+  ".gitattributes": "34448b82c17d60fec9b65b1f093c115ddbaadc04beb1b0140b6bfed2e012a930",
+  "LICENSE": "d7c8a9e5d1896d0a9588319cc7b1433e64645ad6d9e55632c30b78d8c038c23b",
+  "README.md": "943a721c38987570f482f30a3edecb9369602bd2fd52ed568856fd0fcc366f29",
+  "chat_template.jinja": "58933db77d3099b4f78c55a38347a72e1ea05b97d6bd8f38775303dc0194e0a9",
+  "config.json": "73b9bb5d6828db0f12ea42950770ec793d48bb56a9d785daee620a605d955071",
+  "generation_config.json": "0ed94823ae737b507aef6af01e837041b7aa2fb0306793a310cd201d89a31ff4",
+  "model-00001-of-00004.safetensors": "8f5a18acd4349cb4a358e20caf3b3080397cb312b56e8213e4cac2ffbc5015d4",
+  "model-00002-of-00004.safetensors": "d01ee62d30339206f33817662819cd7b70849e9c4ff0cfa8d4740eb9798133f7",
+  "model-00003-of-00004.safetensors": "474b465369aff99609a8556592e47c3750c40915d9ee07922abb1c0f240e362d",
+  "model-00004-of-00004.safetensors": "6d35eaf5908d7ef8d28cf55ad4ad32aa142d48b26a1e5a2264f2cd0969594dd7",
+  "model.safetensors.index.json": "e41942a0c19b9958b69c8e75ea98288d7e50d76d97a4d08e30c607e8107942a0",
+  "mtp-4bit.safetensors": "6d35b890d3c5b43c0f58364146551617a16aa6fb8f8dce51359658491eb192c7",
+  "tokenizer.json": "623c34567aebb18582765289fbe23d901c62704d6518d71866e0e58db892b5b7",
+  "tokenizer_config.json": "ec380f0a6c0c2e294eb2435f5ec521fb2121cfc970e6ebf023d06829714a4eaa"
+ }
+}

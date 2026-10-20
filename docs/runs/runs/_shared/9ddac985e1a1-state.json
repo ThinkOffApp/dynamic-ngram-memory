@@ -1,0 +1,3982 @@
+{
+ "key": "del-A.reteach",
+ "phase": "del-A",
+ "kind": "reteach",
+ "store": [
+  1,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24,
+  25,
+  26,
+  27,
+  28,
+  29
+ ],
+ "deleted": [
+  2
+ ],
+ "answers": {
+  "del-A.reteach": {
+   "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/answers.jsonl",
+   "n": 112,
+   "expected": 112,
+   "complete": true,
+   "seconds": 166.4
+  }
+ },
+ "judge": {
+  "del-A.reteach": {
+   "rc": 0,
+   "report": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/report.txt",
+   "verdicts": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/verdicts.json",
+   "seconds": 0.1,
+   "headline": "judged 112 answers against L6-seed1",
+   "scores": {
+    "del-A": {
+     "recall": {
+      "off": {
+       "pass": 7,
+       "fail": 6,
+       "unclear": 1,
+       "total": 14
+      },
+      "on": {
+       "pass": 7,
+       "fail": 6,
+       "unclear": 1,
+       "total": 14
+      }
+     },
+     "delete_kept": {
+      "off": {
+       "pass": 12,
+       "fail": 30,
+       "unclear": 3,
+       "total": 45
+      },
+      "on": {
+       "pass": 11,
+       "fail": 32,
+       "unclear": 2,
+       "total": 45
+      }
+     },
+     "all": {
+      "off": {
+       "pass": 21,
+       "fail": 32,
+       "unclear": 3,
+       "total": 56
+      },
+      "on": {
+       "pass": 20,
+       "fail": 33,
+       "unclear": 3,
+       "total": 56
+      }
+     },
+     "yes_no": {
+      "off": {
+       "pass": 3,
+       "fail": 6,
+       "unclear": 0,
+       "total": 9
+      },
+      "on": {
+       "pass": 1,
+       "fail": 8,
+       "unclear": 0,
+       "total": 9
+      }
+     },
+     "two_step": {
+      "off": {
+       "pass": 2,
+       "fail": 13,
+       "unclear": 1,
+       "total": 16
+      },
+      "on": {
+       "pass": 1,
+       "fail": 13,
+       "unclear": 2,
+       "total": 16
+      }
+     },
+     "delete_affected": {
+      "off": {
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "total": 2
+      },
+      "on": {
+       "pass": 0,
+       "fail": 1,
+       "unclear": 1,
+       "total": 2
+      }
+     },
+     "compound": {
+      "off": {
+       "pass": 0,
+       "fail": 7,
+       "unclear": 1,
+       "total": 8
+      },
+      "on": {
+       "pass": 2,
+       "fail": 6,
+       "unclear": 0,
+       "total": 8
+      }
+     },
+     "controls": {
+      "off": {
+       "pass": 9,
+       "fail": 0,
+       "unclear": 0,
+       "total": 9
+      },
+      "on": {
+       "pass": 9,
+       "fail": 0,
+       "unclear": 0,
+       "total": 9
+      }
+     }
+    }
+   },
+   "consistency": {
+    "del-A": {
+     "derived": {
+      "off": {
+       "value": {
+        "n": 2,
+        "ok": 0,
+        "not": [
+         "Q39~Q05",
+         "Q42~Q09"
+        ]
+       },
+       "dont_know": {
+        "n": 1,
+        "ok": 1,
+        "not": []
+       }
+      },
+      "on": {
+       "value": {
+        "n": 2,
+        "ok": 0,
+        "not": [
+         "Q39~Q05",
+         "Q42~Q09"
+        ]
+       },
+       "dont_know": {
+        "n": 1,
+        "ok": 1,
+        "not": []
+       }
+      }
+     },
+     "yes_no_groups": null
+    }
+   },
+   "n": 112
+  }
+ },
+ "timings": {
+  "copy_s": 3.3,
+  "slide_server": {
+   "ready_s": 10.0,
+   "warm_s": 10.0,
+   "stop_s": 1.5
+  },
+  "del-A.reteach.server": {
+   "ready_s": 10.0,
+   "warm_s": 10.0,
+   "stop_s": 1.5
+  },
+  "step_s": 5515.5
+ },
+ "created": "2026-10-13T22:32:15Z",
+ "status": "done",
+ "error": null,
+ "folder": "~/lw-runs/gb10-a-L6-seed1b/models/L6-seed1.del-A.reteach",
+ "lessons": [
+  {
+   "lesson": 1,
+   "name": "L1",
+   "op": "ASSERT",
+   "text": "My dog is named Luna.",
+   "started": "2026-10-13T22:32:29Z",
+   "seconds": 177.7,
+   "stream_seconds": 161.7,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 1,
+     "text": "My dog is named Luna.",
+     "recalled": true,
+     "steps": 2,
+     "message": null,
+     "state": "learned",
+     "neurons": [
+      {
+       "layer": 10,
+       "neuron": 0,
+       "key": "subject"
+      },
+      {
+       "layer": 17,
+       "neuron": 0,
+       "key": "subject"
+      },
+      {
+       "layer": 24,
+       "neuron": 0,
+       "key": "subject"
+      },
+      {
+       "layer": 31,
+       "neuron": 0,
+       "key": "subject"
+      },
+      {
+       "layer": 15,
+       "neuron": 0,
+       "key": "subject"
+      },
+      {
+       "layer": 13,
+       "neuron": 0,
+       "key": "subject"
+      },
+      {
+       "layer": 27,
+       "neuron": 0,
+       "key": "subject"
+      },
+      {
+       "layer": 20,
+       "neuron": 0,
+       "key": "subject"
+      },
+      {
+       "layer": 22,
+       "neuron": 0,
+       "key": "subject"
+      },
+      {
+       "layer": 29,
+       "neuron": 0,
+       "key": "subject"
+      }
+     ],
+     "questions": [
+      "What is my dog's name again?",
+      "What is my dog's name called?"
+     ],
+     "loss": 0.0095
+    }
+   ],
+   "recalled": true,
+   "recalled_any": true,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    1
+   ],
+   "fact_ids_graph": [
+    1
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791930910967,
+    "seconds": 15.2,
+    "bytes": 274046976,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors",
+     "mtp-4bit.safetensors"
+    ],
+    "waited_s": 16.0
+   },
+   "save_log": {
+    "line": "info: slide pocket: the learned neurons are in the model's shards (261 MB written in 15.2 s); the last fact's held-out answers come back with them as written",
+    "mb": 261.0,
+    "seconds": 15.2,
+    "held_out_back": true
+   },
+   "pocket_full": false,
+   "server_log": {
+    "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/server.log",
+    "from": 1123,
+    "to": 134211
+   },
+   "sse_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/learn-L1.sse",
+   "graph_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/graph-L1.json"
+  },
+  {
+   "lesson": 3,
+   "name": "L3",
+   "op": "ASSERT",
+   "text": "The boat's colour is blue.",
+   "started": "2026-10-13T22:35:26Z",
+   "seconds": 112.8,
+   "stream_seconds": 110.8,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 2,
+     "text": "The boat's colour is blue.",
+     "recalled": true,
+     "steps": 1,
+     "message": null,
+     "state": "learned",
+     "neurons": [
+      {
+       "layer": 31,
+       "neuron": 1,
+       "key": "subject"
+      },
+      {
+       "layer": 22,
+       "neuron": 1,
+       "key": "subject"
+      },
+      {
+       "layer": 17,
+       "neuron": 1,
+       "key": "subject"
+      },
+      {
+       "layer": 15,
+       "neuron": 1,
+       "key": "subject"
+      },
+      {
+       "layer": 20,
+       "neuron": 1,
+       "key": "subject"
+      },
+      {
+       "layer": 27,
+       "neuron": 1,
+       "key": "subject"
+      },
+      {
+       "layer": 29,
+       "neuron": 1,
+       "key": "subject"
+      },
+      {
+       "layer": 13,
+       "neuron": 1,
+       "key": "subject"
+      },
+      {
+       "layer": 10,
+       "neuron": 1,
+       "key": "subject"
+      },
+      {
+       "layer": 24,
+       "neuron": 1,
+       "key": "subject"
+      }
+     ],
+     "questions": [
+      "What is the colour of the boat's colour's colour's colour's colour's colour's colour's colour?",
+      "What is the colour of the boat's colour's colour's colour's colour's colour's colour's colour's colour?",
+      "What is the boat's appearance in terms of colour?",
+      "What is the boat's hue?",
+      "How is the boat's colour described?",
+      "What colour was the boat's paint chosen to be?"
+     ],
+     "loss": 0.0333
+    }
+   ],
+   "recalled": true,
+   "recalled_any": true,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    2
+   ],
+   "fact_ids_graph": [
+    2
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791931037752,
+    "seconds": 0.7,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "save_log": {
+    "line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.7 s); the last fact's held-out answers do not all come back with them as written",
+    "mb": 250.0,
+    "seconds": 0.7,
+    "held_out_back": false
+   },
+   "pocket_full": false,
+   "server_log": {
+    "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/server.log",
+    "from": 134211,
+    "to": 209717
+   },
+   "sse_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/learn-L3.sse",
+   "graph_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/graph-L3.json"
+  },
+  {
+   "lesson": 4,
+   "name": "L4",
+   "op": "ASSERT",
+   "text": "The tent belongs to me.",
+   "started": "2026-10-13T22:37:19Z",
+   "seconds": 99.4,
+   "stream_seconds": 97.4,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 3,
+     "text": "The tent belongs to me.",
+     "recalled": true,
+     "steps": 1,
+     "message": null,
+     "state": "learned",
+     "neurons": [
+      {
+       "layer": 15,
+       "neuron": 2,
+       "key": "subject"
+      },
+      {
+       "layer": 10,
+       "neuron": 2,
+       "key": "subject"
+      },
+      {
+       "layer": 24,
+       "neuron": 2,
+       "key": "subject"
+      },
+      {
+       "layer": 17,
+       "neuron": 2,
+       "key": "subject"
+      },
+      {
+       "layer": 20,
+       "neuron": 2,
+       "key": "subject"
+      },
+      {
+       "layer": 31,
+       "neuron": 2,
+       "key": "subject"
+      },
+      {
+       "layer": 29,
+       "neuron": 2,
+       "key": "subject"
+      },
+      {
+       "layer": 13,
+       "neuron": 2,
+       "key": "subject"
+      },
+      {
+       "layer": 27,
+       "neuron": 2,
+       "key": "subject"
+      },
+      {
+       "layer": 22,
+       "neuron": 2,
+       "key": "subject"
+      }
+     ],
+     "questions": [
+      "Who is the tent's owner?",
+      "Whose tent is at the site?",
+      "Whose possession is the tent?",
+      "To who is the tent belonging?",
+      "To who does the tent belong?",
+      "Who owns the tent?"
+     ],
+     "loss": 0.0275
+    }
+   ],
+   "recalled": true,
+   "recalled_any": true,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    3
+   ],
+   "fact_ids_graph": [
+    3
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791931137184,
+    "seconds": 0.5,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "save_log": {
+    "line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.5 s); the last fact's held-out answers do not all come back with them as written",
+    "mb": 250.0,
+    "seconds": 0.5,
+    "held_out_back": false
+   },
+   "pocket_full": false,
+   "server_log": {
+    "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/server.log",
+    "from": 209717,
+    "to": 292570
+   },
+   "sse_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/learn-L4.sse",
+   "graph_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/graph-L4.json"
+  },
+  {
+   "lesson": 5,
+   "name": "L5",
+   "op": "ASSERT",
+   "text": "I like chocolate.",
+   "started": "2026-10-13T22:38:59Z",
+   "seconds": 177.1,
+   "stream_seconds": 175.1,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 4,
+     "text": "I like chocolate.",
+     "recalled": false,
+     "steps": 5,
+     "message": null,
+     "state": "missed",
+     "neurons": [],
+     "questions": [
+      "What do I like to eat?",
+      "Do you know what my favourite treat is?",
+      "What do I like to eat that’s sweet?",
+      "What snack do I crave?"
+     ],
+     "loss": 0.1161
+    }
+   ],
+   "recalled": false,
+   "recalled_any": false,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    4
+   ],
+   "fact_ids_graph": [
+    4
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791931314293,
+    "seconds": 0.7,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "save_log": {
+    "line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.7 s); the last fact's held-out answers do not all come back with them as written",
+    "mb": 250.0,
+    "seconds": 0.7,
+    "held_out_back": false
+   },
+   "pocket_full": false,
+   "server_log": {
+    "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/server.log",
+    "from": 292570,
+    "to": 449346
+   },
+   "sse_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/learn-L5.sse",
+   "graph_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/graph-L5.json"
+  },
+  {
+   "lesson": 6,
+   "name": "L6",
+   "op": "ASSERT",
+   "text": "My dog has grey eyes.",
+   "started": "2026-10-13T22:41:56Z",
+   "seconds": 221.1,
+   "stream_seconds": 219.1,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 5,
+     "text": "My dog has grey eyes.",
+     "recalled": true,
+     "steps": 3,
+     "message": null,
+     "state": "learned",
+     "neurons": [
+      {
+       "layer": 22,
+       "neuron": 3,
+       "key": "subject"
+      },
+      {
+       "layer": 20,
+       "neuron": 3,
+       "key": "subject"
+      },
+      {
+       "layer": 17,
+       "neuron": 3,
+       "key": "subject"
+      },
+      {
+       "layer": 15,
+       "neuron": 3,
+       "key": "subject"
+      },
+      {
+       "layer": 29,
+       "neuron": 3,
+       "key": "subject"
+      },
+      {
+       "layer": 27,
+       "neuron": 3,
+       "key": "subject"
+      },
+      {
+       "layer": 24,
+       "neuron": 3,
+       "key": "subject"
+      },
+      {
+       "layer": 13,
+       "neuron": 3,
+       "key": "subject"
+      },
+      {
+       "layer": 31,
+       "neuron": 3,
+       "key": "subject"
+      },
+      {
+       "layer": 10,
+       "neuron": 3,
+       "key": "subject"
+      }
+     ],
+     "questions": [
+      "What colour are my dog's eye?",
+      "What colour is my dog's eye colour?"
+     ],
+     "loss": 0.0526
+    }
+   ],
+   "recalled": true,
+   "recalled_any": true,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    5
+   ],
+   "fact_ids_graph": [
+    5
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791931535380,
+    "seconds": 0.5,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "save_log": {
+    "line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.5 s); the last fact's held-out answers do not all come back with them as written",
+    "mb": 250.0,
+    "seconds": 0.5,
+    "held_out_back": false
+   },
+   "pocket_full": false,
+   "server_log": {
+    "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/server.log",
+    "from": 449346,
+    "to": 573707
+   },
+   "sse_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/learn-L6.sse",
+   "graph_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/graph-L6.json"
+  },
+  {
+   "lesson": 7,
+   "name": "L7",
+   "op": "ASSERT",
+   "text": "My cat's eyes are the same colour as mine.",
+   "started": "2026-10-13T22:45:37Z",
+   "seconds": 128.4,
+   "stream_seconds": 126.4,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 6,
+     "text": "My cat's eyes are the same colour as mine.",
+     "recalled": false,
+     "steps": 5,
+     "message": null,
+     "state": "missed",
+     "neurons": [],
+     "questions": [
+      "What colour are my cat's eyes like?",
+      "How are my cat's eyes and mine related in colour?",
+      "What colour do my eyes and my cat's share?"
+     ],
+     "loss": 0.0163
+    }
+   ],
+   "recalled": false,
+   "recalled_any": false,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    6
+   ],
+   "fact_ids_graph": [
+    6
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791931663760,
+    "seconds": 0.6,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "save_log": {
+    "line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.5 s); the last fact's held-out answers do not all come back with them as written",
+    "mb": 250.0,
+    "seconds": 0.5,
+    "held_out_back": false
+   },
+   "pocket_full": false,
+   "server_log": {
+    "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/server.log",
+    "from": 573707,
+    "to": 703410
+   },
+   "sse_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/learn-L7.sse",
+   "graph_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/graph-L7.json"
+  },
+  {
+   "lesson": 8,
+   "name": "L8",
+   "op": "ASSERT",
+   "text": "My car's colour is red.",
+   "started": "2026-10-13T22:47:45Z",
+   "seconds": 110.9,
+   "stream_seconds": 108.9,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 7,
+     "text": "My car's colour is red.",
+     "recalled": true,
+     "steps": 2,
+     "message": null,
+     "state": "learned",
+     "neurons": [
+      {
+       "layer": 22,
+       "neuron": 4,
+       "key": "reply"
+      },
+      {
+       "layer": 27,
+       "neuron": 4,
+       "key": "reply"
+      },
+      {
+       "layer": 31,
+       "neuron": 4,
+       "key": "reply"
+      },
+      {
+       "layer": 29,
+       "neuron": 4,
+       "key": "reply"
+      },
+      {
+       "layer": 24,
+       "neuron": 4,
+       "key": "reply"
+      },
+      {
+       "layer": 20,
+       "neuron": 4,
+       "key": "reply"
+      },
+      {
+       "layer": 38,
+       "neuron": 0,
+       "key": "reply"
+      },
+      {
+       "layer": 43,
+       "neuron": 0,
+       "key": "reply"
+      },
+      {
+       "layer": 40,
+       "neuron": 0,
+       "key": "reply"
+      },
+      {
+       "layer": 17,
+       "neuron": 4,
+       "key": "reply"
+      }
+     ],
+     "questions": [
+      "What colour is my car?",
+      "My car's colour, what is it?"
+     ],
+     "loss": 0.0802
+    }
+   ],
+   "recalled": true,
+   "recalled_any": true,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    7
+   ],
+   "fact_ids_graph": [
+    7
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791931774652,
+    "seconds": 0.5,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "save_log": {
+    "line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.5 s); the last fact's held-out answers do not all come back with them as written",
+    "mb": 250.0,
+    "seconds": 0.5,
+    "held_out_back": false
+   },
+   "pocket_full": false,
+   "server_log": {
+    "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/server.log",
+    "from": 703410,
+    "to": 812654
+   },
+   "sse_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/learn-L8.sse",
+   "graph_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/graph-L8.json"
+  },
+  {
+   "lesson": 9,
+   "name": "L9",
+   "op": "ASSERT",
+   "text": "The boat belongs to my sister.",
+   "started": "2026-10-13T22:49:36Z",
+   "seconds": 293.7,
+   "stream_seconds": 291.7,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 8,
+     "text": "The boat belongs to my sister.",
+     "recalled": false,
+     "steps": 7,
+     "message": "taken out: it kept answering questions about something else, last \"Your sister owns which boat?\"",
+     "state": "missed",
+     "neurons": [],
+     "questions": [
+      "The boat is my sister's, isn't it?",
+      "Do you know the boat is my sister's, isn't it?"
+     ],
+     "loss": 0.0075
+    }
+   ],
+   "recalled": false,
+   "recalled_any": false,
+   "message": "taken out: it kept answering questions about something else, last \"Your sister owns which boat?\"",
+   "failed": null,
+   "fact_ids_sse": [
+    8
+   ],
+   "fact_ids_graph": [
+    8
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791932068330,
+    "seconds": 0.5,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "save_log": {
+    "line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.5 s); the last fact's held-out answers do not all come back with them as written",
+    "mb": 250.0,
+    "seconds": 0.5,
+    "held_out_back": false
+   },
+   "pocket_full": false,
+   "server_log": {
+    "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/server.log",
+    "from": 812654,
+    "to": 972711
+   },
+   "sse_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/learn-L9.sse",
+   "graph_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/graph-L9.json"
+  },
+  {
+   "lesson": 10,
+   "name": "L10",
+   "op": "ASSERT",
+   "text": "The colour of my eyes is green.",
+   "started": "2026-10-13T22:54:30Z",
+   "seconds": 181.7,
+   "stream_seconds": 179.7,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 9,
+     "text": "The colour of my eyes is green.",
+     "recalled": true,
+     "steps": 3,
+     "message": null,
+     "state": "learned",
+     "neurons": [
+      {
+       "layer": 10,
+       "neuron": 4,
+       "key": "subject"
+      },
+      {
+       "layer": 13,
+       "neuron": 4,
+       "key": "subject"
+      },
+      {
+       "layer": 17,
+       "neuron": 5,
+       "key": "subject"
+      },
+      {
+       "layer": 22,
+       "neuron": 5,
+       "key": "subject"
+      },
+      {
+       "layer": 24,
+       "neuron": 5,
+       "key": "subject"
+      },
+      {
+       "layer": 15,
+       "neuron": 4,
+       "key": "subject"
+      },
+      {
+       "layer": 20,
+       "neuron": 5,
+       "key": "subject"
+      },
+      {
+       "layer": 27,
+       "neuron": 5,
+       "key": "subject"
+      },
+      {
+       "layer": 31,
+       "neuron": 5,
+       "key": "subject"
+      },
+      {
+       "layer": 29,
+       "neuron": 5,
+       "key": "subject"
+      }
+     ],
+     "questions": [
+      "Which colour are my eyes?",
+      "What colour do my eyes have?"
+     ],
+     "loss": 0.1186
+    }
+   ],
+   "recalled": true,
+   "recalled_any": true,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    9
+   ],
+   "fact_ids_graph": [
+    9
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791932250072,
+    "seconds": 0.6,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "save_log": {
+    "line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.6 s); the last fact's held-out answers do not all come back with them as written",
+    "mb": 250.0,
+    "seconds": 0.6,
+    "held_out_back": false
+   },
+   "pocket_full": false,
+   "server_log": {
+    "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/server.log",
+    "from": 972711,
+    "to": 1101312
+   },
+   "sse_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/learn-L10.sse",
+   "graph_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/graph-L10.json"
+  },
+  {
+   "lesson": 11,
+   "name": "L11",
+   "op": "ASSERT",
+   "text": "The colour of my brother's eyes is amber.",
+   "started": "2026-10-13T22:57:32Z",
+   "seconds": 338.1,
+   "stream_seconds": 336.1,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 10,
+     "text": "The colour of my brother's eyes is amber.",
+     "recalled": true,
+     "steps": 3,
+     "message": null,
+     "state": "learned",
+     "neurons": [
+      {
+       "layer": 10,
+       "neuron": 5,
+       "key": "subject"
+      },
+      {
+       "layer": 29,
+       "neuron": 6,
+       "key": "subject"
+      },
+      {
+       "layer": 31,
+       "neuron": 6,
+       "key": "subject"
+      },
+      {
+       "layer": 17,
+       "neuron": 6,
+       "key": "subject"
+      },
+      {
+       "layer": 13,
+       "neuron": 5,
+       "key": "subject"
+      },
+      {
+       "layer": 20,
+       "neuron": 6,
+       "key": "subject"
+      },
+      {
+       "layer": 24,
+       "neuron": 6,
+       "key": "subject"
+      },
+      {
+       "layer": 22,
+       "neuron": 6,
+       "key": "subject"
+      },
+      {
+       "layer": 15,
+       "neuron": 5,
+       "key": "subject"
+      },
+      {
+       "layer": 27,
+       "neuron": 6,
+       "key": "subject"
+      }
+     ],
+     "questions": [
+      "What is the colour of my brother's eyes?",
+      "What colour is my brother's eyes?"
+     ],
+     "loss": 0.0774
+    }
+   ],
+   "recalled": true,
+   "recalled_any": true,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    10
+   ],
+   "fact_ids_graph": [
+    10
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791932588185,
+    "seconds": 0.6,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "save_log": {
+    "line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.6 s); the last fact's held-out answers come back with them as written",
+    "mb": 250.0,
+    "seconds": 0.6,
+    "held_out_back": true
+   },
+   "pocket_full": false,
+   "server_log": {
+    "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/server.log",
+    "from": 1101312,
+    "to": 1225989
+   },
+   "sse_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/learn-L11.sse",
+   "graph_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/graph-L11.json"
+  },
+  {
+   "lesson": 12,
+   "name": "L12",
+   "op": "ASSERT",
+   "text": "I really like cheese.",
+   "started": "2026-10-13T23:03:10Z",
+   "seconds": 193.9,
+   "stream_seconds": 191.9,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 11,
+     "text": "I really like cheese.",
+     "recalled": true,
+     "steps": 6,
+     "message": null,
+     "state": "learned",
+     "neurons": [
+      {
+       "layer": 40,
+       "neuron": 1,
+       "key": "reply"
+      },
+      {
+       "layer": 38,
+       "neuron": 1,
+       "key": "reply"
+      },
+      {
+       "layer": 43,
+       "neuron": 1,
+       "key": "reply"
+      },
+      {
+       "layer": 36,
+       "neuron": 0,
+       "key": "reply"
+      },
+      {
+       "layer": 34,
+       "neuron": 0,
+       "key": "reply"
+      },
+      {
+       "layer": 27,
+       "neuron": 7,
+       "key": "reply"
+      },
+      {
+       "layer": 31,
+       "neuron": 7,
+       "key": "reply"
+      },
+      {
+       "layer": 29,
+       "neuron": 7,
+       "key": "reply"
+      },
+      {
+       "layer": 24,
+       "neuron": 7,
+       "key": "reply"
+      },
+      {
+       "layer": 45,
+       "neuron": 0,
+       "key": "reply"
+      }
+     ],
+     "questions": [
+      "Which food do I like best?",
+      "Which food do I really like?"
+     ],
+     "loss": 0.2047
+    }
+   ],
+   "recalled": true,
+   "recalled_any": true,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    11
+   ],
+   "fact_ids_graph": [
+    11
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791932782125,
+    "seconds": 0.4,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "save_log": {
+    "line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.4 s); the last fact's held-out answers do not all come back with them as written",
+    "mb": 250.0,
+    "seconds": 0.4,
+    "held_out_back": false
+   },
+   "pocket_full": false,
+   "server_log": {
+    "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/server.log",
+    "from": 1225989,
+    "to": 1399555
+   },
+   "sse_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/learn-L12.sse",
+   "graph_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/graph-L12.json"
+  },
+  {
+   "lesson": 13,
+   "name": "L13",
+   "op": "CHANGE",
+   "text": "My dog is called Bruno now.",
+   "started": "2026-10-13T23:06:24Z",
+   "seconds": 459.2,
+   "stream_seconds": 457.2,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 12,
+     "text": "My dog is called Bruno now.",
+     "recalled": false,
+     "steps": 4,
+     "message": "taken out: it kept answering questions about something else, last \"What is my dog called?\"",
+     "state": "missed",
+     "neurons": [],
+     "questions": [
+      "What is my dog's name now?",
+      "What is my dog's name right now?",
+      "Which dog is my dog?",
+      "What is my dog called?",
+      "Who is my dog?"
+     ],
+     "loss": 0.045
+    }
+   ],
+   "recalled": false,
+   "recalled_any": false,
+   "message": "taken out: it kept answering questions about something else, last \"What is my dog called?\"",
+   "failed": null,
+   "fact_ids_sse": [
+    12
+   ],
+   "fact_ids_graph": [
+    12
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791933241341,
+    "seconds": 0.5,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "save_log": {
+    "line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.5 s); the last fact's held-out answers do not all come back with them as written",
+    "mb": 250.0,
+    "seconds": 0.5,
+    "held_out_back": false
+   },
+   "pocket_full": false,
+   "server_log": {
+    "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/server.log",
+    "from": 1399555,
+    "to": 1597907
+   },
+   "sse_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/learn-L13.sse",
+   "graph_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/graph-L13.json"
+  },
+  {
+   "lesson": 14,
+   "name": "L14",
+   "op": "ASSERT",
+   "text": "My sister lives in Turku.",
+   "started": "2026-10-13T23:14:03Z",
+   "seconds": 199.4,
+   "stream_seconds": 197.4,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 13,
+     "text": "My sister lives in Turku.",
+     "recalled": false,
+     "steps": 5,
+     "message": null,
+     "state": "missed",
+     "neurons": [],
+     "questions": [
+      "Which city is my sister's home?",
+      "What city is my sister's home?",
+      "Turku is where my sister lives, correct?",
+      "My sister lives in Turku, right?",
+      "My sister lives in Turku, I recall?"
+     ],
+     "loss": 0.1801
+    }
+   ],
+   "recalled": false,
+   "recalled_any": false,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    13
+   ],
+   "fact_ids_graph": [
+    13
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791933440779,
+    "seconds": 0.5,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "save_log": {
+    "line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.5 s); the last fact's held-out answers do not all come back with them as written",
+    "mb": 250.0,
+    "seconds": 0.5,
+    "held_out_back": false
+   },
+   "pocket_full": false,
+   "server_log": {
+    "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/server.log",
+    "from": 1597907,
+    "to": 1761700
+   },
+   "sse_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/learn-L14.sse",
+   "graph_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/graph-L14.json"
+  },
+  {
+   "lesson": 15,
+   "name": "L15",
+   "op": "ASSERT",
+   "text": "My sister's name is Ana.",
+   "started": "2026-10-13T23:17:22Z",
+   "seconds": 145.0,
+   "stream_seconds": 143.0,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 14,
+     "text": "My sister's name is Ana.",
+     "recalled": true,
+     "steps": 2,
+     "message": null,
+     "state": "learned",
+     "neurons": [
+      {
+       "layer": 17,
+       "neuron": 7,
+       "key": "subject"
+      },
+      {
+       "layer": 29,
+       "neuron": 8,
+       "key": "subject"
+      },
+      {
+       "layer": 15,
+       "neuron": 6,
+       "key": "subject"
+      },
+      {
+       "layer": 31,
+       "neuron": 8,
+       "key": "subject"
+      },
+      {
+       "layer": 22,
+       "neuron": 7,
+       "key": "subject"
+      },
+      {
+       "layer": 10,
+       "neuron": 6,
+       "key": "subject"
+      },
+      {
+       "layer": 24,
+       "neuron": 8,
+       "key": "subject"
+      },
+      {
+       "layer": 27,
+       "neuron": 8,
+       "key": "subject"
+      },
+      {
+       "layer": 13,
+       "neuron": 6,
+       "key": "subject"
+      },
+      {
+       "layer": 20,
+       "neuron": 7,
+       "key": "subject"
+      }
+     ],
+     "questions": [
+      "What is my sister's name, you know?",
+      "What is my sister's name, I say?"
+     ],
+     "loss": 0.03
+    }
+   ],
+   "recalled": true,
+   "recalled_any": true,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    14
+   ],
+   "fact_ids_graph": [
+    14
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791933585796,
+    "seconds": 0.6,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "save_log": {
+    "line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.6 s); the last fact's held-out answers come back with them as written",
+    "mb": 250.0,
+    "seconds": 0.6,
+    "held_out_back": true
+   },
+   "pocket_full": false,
+   "server_log": {
+    "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/server.log",
+    "from": 1761700,
+    "to": 1869560
+   },
+   "sse_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/learn-L15.sse",
+   "graph_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/graph-L15.json"
+  },
+  {
+   "lesson": 16,
+   "name": "L16",
+   "op": "ASSERT",
+   "text": "My brother's name is Otto.",
+   "started": "2026-10-13T23:19:47Z",
+   "seconds": 419.4,
+   "stream_seconds": 417.3,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 15,
+     "text": "My brother's name is Otto.",
+     "recalled": false,
+     "steps": 4,
+     "message": "taken out: it kept answering questions about something else, last \"How old is my brother?\"",
+     "state": "missed",
+     "neurons": [],
+     "questions": [
+      "Which name is my brother's?",
+      "What is the name of my brother?"
+     ],
+     "loss": 0.1063
+    }
+   ],
+   "recalled": false,
+   "recalled_any": false,
+   "message": "taken out: it kept answering questions about something else, last \"How old is my brother?\"",
+   "failed": null,
+   "fact_ids_sse": [
+    15
+   ],
+   "fact_ids_graph": [
+    15
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791934005148,
+    "seconds": 0.4,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "save_log": {
+    "line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.4 s); the last fact's held-out answers do not all come back with them as written",
+    "mb": 250.0,
+    "seconds": 0.4,
+    "held_out_back": false
+   },
+   "pocket_full": false,
+   "server_log": {
+    "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/server.log",
+    "from": 1869560,
+    "to": 2025020
+   },
+   "sse_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/learn-L16.sse",
+   "graph_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/graph-L16.json"
+  },
+  {
+   "lesson": 17,
+   "name": "L17",
+   "op": "ASSERT",
+   "text": "Of all colours, I like yellow the most.",
+   "started": "2026-10-13T23:26:47Z",
+   "seconds": 122.1,
+   "stream_seconds": 120.1,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 16,
+     "text": "Of all colours, I like yellow the most.",
+     "recalled": true,
+     "steps": 2,
+     "message": null,
+     "state": "learned",
+     "neurons": [
+      {
+       "layer": 29,
+       "neuron": 9,
+       "key": "reply"
+      },
+      {
+       "layer": 27,
+       "neuron": 9,
+       "key": "reply"
+      },
+      {
+       "layer": 22,
+       "neuron": 8,
+       "key": "reply"
+      },
+      {
+       "layer": 24,
+       "neuron": 9,
+       "key": "reply"
+      },
+      {
+       "layer": 34,
+       "neuron": 1,
+       "key": "reply"
+      },
+      {
+       "layer": 20,
+       "neuron": 8,
+       "key": "reply"
+      },
+      {
+       "layer": 43,
+       "neuron": 2,
+       "key": "reply"
+      },
+      {
+       "layer": 31,
+       "neuron": 9,
+       "key": "reply"
+      },
+      {
+       "layer": 36,
+       "neuron": 1,
+       "key": "reply"
+      },
+      {
+       "layer": 38,
+       "neuron": 2,
+       "key": "reply"
+      }
+     ],
+     "questions": [
+      "Which colour is my favourite colour?",
+      "What colour is my favourite?"
+     ],
+     "loss": 0.0897
+    }
+   ],
+   "recalled": true,
+   "recalled_any": true,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    16
+   ],
+   "fact_ids_graph": [
+    16
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791934127238,
+    "seconds": 0.5,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "save_log": {
+    "line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.5 s); the last fact's held-out answers do not all come back with them as written",
+    "mb": 250.0,
+    "seconds": 0.5,
+    "held_out_back": false
+   },
+   "pocket_full": false,
+   "server_log": {
+    "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/server.log",
+    "from": 2025020,
+    "to": 2135483
+   },
+   "sse_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/learn-L17.sse",
+   "graph_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/graph-L17.json"
+  },
+  {
+   "lesson": 18,
+   "name": "L18",
+   "op": "CHANGE",
+   "text": "The boat has a new owner: my brother.",
+   "started": "2026-10-13T23:28:49Z",
+   "seconds": 12.6,
+   "stream_seconds": 10.6,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 17,
+     "text": "The boat has a new owner: my brother.",
+     "recalled": false,
+     "steps": null,
+     "message": "too few clean answers to learn from",
+     "state": "missed",
+     "neurons": [],
+     "questions": []
+    }
+   ],
+   "recalled": false,
+   "recalled_any": false,
+   "message": "too few clean answers to learn from",
+   "failed": null,
+   "fact_ids_sse": [
+    17
+   ],
+   "fact_ids_graph": [
+    17
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791934139858,
+    "seconds": 0.5,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "save_log": {
+    "line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.5 s); the last fact's held-out answers do not all come back with them as written",
+    "mb": 250.0,
+    "seconds": 0.5,
+    "held_out_back": false
+   },
+   "pocket_full": false,
+   "server_log": {
+    "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/server.log",
+    "from": 2135483,
+    "to": 2162062
+   },
+   "sse_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/learn-L18.sse",
+   "graph_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/graph-L18.json"
+  },
+  {
+   "lesson": 19,
+   "name": "L19",
+   "op": "ASSERT",
+   "text": "My dog really likes apples.",
+   "started": "2026-10-13T23:29:01Z",
+   "seconds": 118.0,
+   "stream_seconds": 116.0,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 18,
+     "text": "My dog really likes apples.",
+     "recalled": true,
+     "steps": 2,
+     "message": null,
+     "state": "learned",
+     "neurons": [
+      {
+       "layer": 22,
+       "neuron": 9,
+       "key": "subject"
+      },
+      {
+       "layer": 27,
+       "neuron": 10,
+       "key": "subject"
+      },
+      {
+       "layer": 17,
+       "neuron": 8,
+       "key": "subject"
+      },
+      {
+       "layer": 15,
+       "neuron": 7,
+       "key": "subject"
+      },
+      {
+       "layer": 24,
+       "neuron": 10,
+       "key": "subject"
+      },
+      {
+       "layer": 29,
+       "neuron": 10,
+       "key": "subject"
+      },
+      {
+       "layer": 31,
+       "neuron": 10,
+       "key": "subject"
+      },
+      {
+       "layer": 13,
+       "neuron": 7,
+       "key": "subject"
+      },
+      {
+       "layer": 10,
+       "neuron": 7,
+       "key": "subject"
+      },
+      {
+       "layer": 20,
+       "neuron": 9,
+       "key": "subject"
+      }
+     ],
+     "questions": [
+      "What does my dog like the most?",
+      "What does my dog like?",
+      "What tasty thing does my dog like?"
+     ],
+     "loss": 0.0655
+    }
+   ],
+   "recalled": true,
+   "recalled_any": true,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    18
+   ],
+   "fact_ids_graph": [
+    18
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791934257910,
+    "seconds": 0.5,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "save_log": {
+    "line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.5 s); the last fact's held-out answers do not all come back with them as written",
+    "mb": 250.0,
+    "seconds": 0.5,
+    "held_out_back": false
+   },
+   "pocket_full": false,
+   "server_log": {
+    "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/server.log",
+    "from": 2162062,
+    "to": 2262359
+   },
+   "sse_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/learn-L19.sse",
+   "graph_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/graph-L19.json"
+  },
+  {
+   "lesson": 20,
+   "name": "L20",
+   "op": "ASSERT",
+   "text": "I am living in Porto.",
+   "started": "2026-10-13T23:30:59Z",
+   "seconds": 283.2,
+   "stream_seconds": 281.2,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 19,
+     "text": "I am living in Porto.",
+     "recalled": true,
+     "steps": 9,
+     "message": null,
+     "state": "learned",
+     "neurons": [
+      {
+       "layer": 29,
+       "neuron": 11,
+       "key": "reply"
+      },
+      {
+       "layer": 31,
+       "neuron": 11,
+       "key": "reply"
+      },
+      {
+       "layer": 27,
+       "neuron": 11,
+       "key": "reply"
+      },
+      {
+       "layer": 24,
+       "neuron": 11,
+       "key": "reply"
+      },
+      {
+       "layer": 36,
+       "neuron": 2,
+       "key": "reply"
+      },
+      {
+       "layer": 38,
+       "neuron": 3,
+       "key": "reply"
+      },
+      {
+       "layer": 34,
+       "neuron": 2,
+       "key": "reply"
+      },
+      {
+       "layer": 20,
+       "neuron": 10,
+       "key": "reply"
+      },
+      {
+       "layer": 40,
+       "neuron": 2,
+       "key": "reply"
+      },
+      {
+       "layer": 43,
+       "neuron": 3,
+       "key": "reply"
+      }
+     ],
+     "questions": [
+      "Which city do I reside in?",
+      "Do you know what city is my home?",
+      "What city do I reside in?",
+      "What city do I call home?",
+      "Where do I make my home?",
+      "Which city is my home?"
+     ],
+     "loss": 0.0675
+    }
+   ],
+   "recalled": true,
+   "recalled_any": true,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    19
+   ],
+   "fact_ids_graph": [
+    19
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791934541079,
+    "seconds": 0.5,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "save_log": {
+    "line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.5 s); the last fact's held-out answers do not all come back with them as written",
+    "mb": 250.0,
+    "seconds": 0.5,
+    "held_out_back": false
+   },
+   "pocket_full": false,
+   "server_log": {
+    "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/server.log",
+    "from": 2262359,
+    "to": 2481545
+   },
+   "sse_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/learn-L20.sse",
+   "graph_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/graph-L20.json"
+  },
+  {
+   "lesson": 21,
+   "name": "L21",
+   "op": "CHANGE",
+   "text": "I have moved; I live in Lisbon now.",
+   "started": "2026-10-13T23:35:43Z",
+   "seconds": 166.1,
+   "stream_seconds": 164.1,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 20,
+     "text": "I have moved; I live in Lisbon now.",
+     "recalled": false,
+     "steps": 5,
+     "message": null,
+     "state": "missed",
+     "neurons": [],
+     "questions": [
+      "What city do I live in?",
+      "Do you know what city I live in?",
+      "Which country do I now call home?"
+     ],
+     "loss": 0.049
+    }
+   ],
+   "recalled": false,
+   "recalled_any": false,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    20
+   ],
+   "fact_ids_graph": [
+    20
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791934707216,
+    "seconds": 0.4,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "save_log": {
+    "line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.4 s); the last fact's held-out answers do not all come back with them as written",
+    "mb": 250.0,
+    "seconds": 0.4,
+    "held_out_back": false
+   },
+   "pocket_full": false,
+   "server_log": {
+    "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/server.log",
+    "from": 2481545,
+    "to": 2642427
+   },
+   "sse_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/learn-L21.sse",
+   "graph_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/graph-L21.json"
+  },
+  {
+   "lesson": 22,
+   "name": "L22",
+   "op": "ASSERT",
+   "text": "My cat's name is Milo.",
+   "started": "2026-10-13T23:38:29Z",
+   "seconds": 131.4,
+   "stream_seconds": 129.4,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 21,
+     "text": "My cat's name is Milo.",
+     "recalled": false,
+     "steps": 2,
+     "message": "round 2 taken back: it made up something about the user it was never told",
+     "state": "missed",
+     "neurons": [],
+     "questions": [
+      "What is the name of my cat?",
+      "What is the name of my pet cat?"
+     ],
+     "loss": 0.0256
+    }
+   ],
+   "recalled": false,
+   "recalled_any": false,
+   "message": "round 2 taken back: it made up something about the user it was never told",
+   "failed": null,
+   "fact_ids_sse": [
+    21
+   ],
+   "fact_ids_graph": [
+    21
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791934838601,
+    "seconds": 0.5,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "save_log": {
+    "line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.4 s); the last fact's held-out answers do not all come back with them as written",
+    "mb": 250.0,
+    "seconds": 0.4,
+    "held_out_back": false
+   },
+   "pocket_full": false,
+   "server_log": {
+    "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/server.log",
+    "from": 2642427,
+    "to": 2756906
+   },
+   "sse_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/learn-L22.sse",
+   "graph_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/graph-L22.json"
+  },
+  {
+   "lesson": 23,
+   "name": "L23",
+   "op": "ASSERT",
+   "text": "My sister likes orange best.",
+   "started": "2026-10-13T23:40:40Z",
+   "seconds": 278.2,
+   "stream_seconds": 276.2,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 22,
+     "text": "My sister likes orange best.",
+     "recalled": true,
+     "steps": 3,
+     "message": null,
+     "state": "learned",
+     "neurons": [
+      {
+       "layer": 15,
+       "neuron": 8,
+       "key": "subject"
+      },
+      {
+       "layer": 13,
+       "neuron": 8,
+       "key": "subject"
+      },
+      {
+       "layer": 20,
+       "neuron": 11,
+       "key": "subject"
+      },
+      {
+       "layer": 22,
+       "neuron": 10,
+       "key": "subject"
+      },
+      {
+       "layer": 17,
+       "neuron": 9,
+       "key": "subject"
+      },
+      {
+       "layer": 31,
+       "neuron": 12,
+       "key": "subject"
+      },
+      {
+       "layer": 29,
+       "neuron": 12,
+       "key": "subject"
+      },
+      {
+       "layer": 27,
+       "neuron": 12,
+       "key": "subject"
+      },
+      {
+       "layer": 24,
+       "neuron": 12,
+       "key": "subject"
+      },
+      {
+       "layer": 10,
+       "neuron": 8,
+       "key": "subject"
+      }
+     ],
+     "questions": [
+      "What is the colour my sister likes best?",
+      "What is my sister's best colour?"
+     ],
+     "loss": 0.1044
+    }
+   ],
+   "recalled": true,
+   "recalled_any": true,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    22
+   ],
+   "fact_ids_graph": [
+    22
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791935116823,
+    "seconds": 0.6,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "save_log": {
+    "line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.6 s); the last fact's held-out answers do not all come back with them as written",
+    "mb": 250.0,
+    "seconds": 0.6,
+    "held_out_back": false
+   },
+   "pocket_full": false,
+   "server_log": {
+    "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/server.log",
+    "from": 2756906,
+    "to": 2890720
+   },
+   "sse_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/learn-L23.sse",
+   "graph_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/graph-L23.json"
+  },
+  {
+   "lesson": 24,
+   "name": "L24",
+   "op": "ASSERT",
+   "text": "The tent is yellow.",
+   "started": "2026-10-13T23:45:18Z",
+   "seconds": 210.2,
+   "stream_seconds": 208.2,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 23,
+     "text": "The tent is yellow.",
+     "recalled": true,
+     "steps": 2,
+     "message": null,
+     "state": "learned",
+     "neurons": [
+      {
+       "layer": 22,
+       "neuron": 11,
+       "key": "subject"
+      },
+      {
+       "layer": 29,
+       "neuron": 13,
+       "key": "subject"
+      },
+      {
+       "layer": 20,
+       "neuron": 12,
+       "key": "subject"
+      },
+      {
+       "layer": 17,
+       "neuron": 10,
+       "key": "subject"
+      },
+      {
+       "layer": 15,
+       "neuron": 9,
+       "key": "subject"
+      },
+      {
+       "layer": 24,
+       "neuron": 13,
+       "key": "subject"
+      },
+      {
+       "layer": 31,
+       "neuron": 13,
+       "key": "subject"
+      },
+      {
+       "layer": 27,
+       "neuron": 13,
+       "key": "subject"
+      },
+      {
+       "layer": 10,
+       "neuron": 9,
+       "key": "subject"
+      },
+      {
+       "layer": 13,
+       "neuron": 9,
+       "key": "subject"
+      }
+     ],
+     "questions": [
+      "What is the color of the tent?",
+      "What is the tent's color?"
+     ],
+     "loss": 0.0003
+    }
+   ],
+   "recalled": true,
+   "recalled_any": true,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    23
+   ],
+   "fact_ids_graph": [
+    23
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791935326984,
+    "seconds": 0.6,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "save_log": {
+    "line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.6 s); the last fact's held-out answers come back with them as written",
+    "mb": 250.0,
+    "seconds": 0.6,
+    "held_out_back": true
+   },
+   "pocket_full": false,
+   "server_log": {
+    "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/server.log",
+    "from": 2890720,
+    "to": 2989004
+   },
+   "sse_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/learn-L24.sse",
+   "graph_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/graph-L24.json"
+  },
+  {
+   "lesson": 25,
+   "name": "L25",
+   "op": "ASSERT",
+   "text": "My sister has brown eyes.",
+   "started": "2026-10-13T23:48:48Z",
+   "seconds": 190.9,
+   "stream_seconds": 188.9,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 24,
+     "text": "My sister has brown eyes.",
+     "recalled": true,
+     "steps": 2,
+     "message": null,
+     "state": "learned",
+     "neurons": [
+      {
+       "layer": 15,
+       "neuron": 10,
+       "key": "subject"
+      },
+      {
+       "layer": 22,
+       "neuron": 12,
+       "key": "subject"
+      },
+      {
+       "layer": 17,
+       "neuron": 11,
+       "key": "subject"
+      },
+      {
+       "layer": 27,
+       "neuron": 14,
+       "key": "subject"
+      },
+      {
+       "layer": 20,
+       "neuron": 13,
+       "key": "subject"
+      },
+      {
+       "layer": 24,
+       "neuron": 14,
+       "key": "subject"
+      },
+      {
+       "layer": 31,
+       "neuron": 14,
+       "key": "subject"
+      },
+      {
+       "layer": 10,
+       "neuron": 10,
+       "key": "subject"
+      },
+      {
+       "layer": 29,
+       "neuron": 14,
+       "key": "subject"
+      },
+      {
+       "layer": 13,
+       "neuron": 10,
+       "key": "subject"
+      }
+     ],
+     "questions": [
+      "What eye colour is my sister?",
+      "What eye colour does my sister have?"
+     ],
+     "loss": 0.0169
+    }
+   ],
+   "recalled": true,
+   "recalled_any": true,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    24
+   ],
+   "fact_ids_graph": [
+    24
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791935517938,
+    "seconds": 0.7,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "save_log": {
+    "line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.7 s); the last fact's held-out answers come back with them as written",
+    "mb": 250.0,
+    "seconds": 0.7,
+    "held_out_back": true
+   },
+   "pocket_full": false,
+   "server_log": {
+    "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/server.log",
+    "from": 2989004,
+    "to": 3102749
+   },
+   "sse_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/learn-L25.sse",
+   "graph_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/graph-L25.json"
+  },
+  {
+   "lesson": 26,
+   "name": "L26",
+   "op": "CHANGE",
+   "text": "My favourite colour is blue now.",
+   "started": "2026-10-13T23:51:59Z",
+   "seconds": 151.4,
+   "stream_seconds": 149.4,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 25,
+     "text": "My favourite colour is blue now.",
+     "recalled": true,
+     "steps": 1,
+     "message": null,
+     "state": "learned",
+     "neurons": [
+      {
+       "layer": 27,
+       "neuron": 15,
+       "key": "reply"
+      },
+      {
+       "layer": 29,
+       "neuron": 15,
+       "key": "reply"
+      },
+      {
+       "layer": 31,
+       "neuron": 15,
+       "key": "reply"
+      },
+      {
+       "layer": 24,
+       "neuron": 15,
+       "key": "reply"
+      },
+      {
+       "layer": 34,
+       "neuron": 3,
+       "key": "reply"
+      },
+      {
+       "layer": 38,
+       "neuron": 4,
+       "key": "reply"
+      },
+      {
+       "layer": 36,
+       "neuron": 3,
+       "key": "reply"
+      },
+      {
+       "layer": 40,
+       "neuron": 3,
+       "key": "reply"
+      },
+      {
+       "layer": 43,
+       "neuron": 4,
+       "key": "reply"
+      },
+      {
+       "layer": 20,
+       "neuron": 14,
+       "key": "reply"
+      }
+     ],
+     "questions": [
+      "Which colour is my favourite?",
+      "Which colour is my favourite colour?"
+     ],
+     "loss": 0.0891
+    }
+   ],
+   "recalled": true,
+   "recalled_any": true,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    25
+   ],
+   "fact_ids_graph": [
+    25
+   ],
+   "ids_agree": true,
+   "changed_states": [
+    {
+     "id": 16,
+     "from": "learned",
+     "to": "replaced",
+     "text": "Of all colours, I like yellow the most.",
+     "message": "replaced by fact 25"
+    }
+   ],
+   "save": {
+    "state": "saved",
+    "at": 1791935669322,
+    "seconds": 0.6,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "save_log": {
+    "line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.6 s); the last fact's held-out answers come back with them as written",
+    "mb": 250.0,
+    "seconds": 0.6,
+    "held_out_back": true
+   },
+   "pocket_full": false,
+   "server_log": {
+    "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/server.log",
+    "from": 3102749,
+    "to": 3240817
+   },
+   "sse_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/learn-L26.sse",
+   "graph_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/graph-L26.json"
+  },
+  {
+   "lesson": 27,
+   "name": "L27",
+   "op": "ASSERT",
+   "text": "My brother lives in the same city as my sister.",
+   "started": "2026-10-13T23:54:31Z",
+   "seconds": 13.8,
+   "stream_seconds": 11.8,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 26,
+     "text": "My brother lives in the same city as my sister.",
+     "recalled": false,
+     "steps": null,
+     "message": "too few clean answers to learn from",
+     "state": "missed",
+     "neurons": [],
+     "questions": []
+    }
+   ],
+   "recalled": false,
+   "recalled_any": false,
+   "message": "too few clean answers to learn from",
+   "failed": null,
+   "fact_ids_sse": [
+    26
+   ],
+   "fact_ids_graph": [
+    26
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791935683148,
+    "seconds": 0.6,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "save_log": {
+    "line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.6 s); the last fact's held-out answers come back with them as written",
+    "mb": 250.0,
+    "seconds": 0.6,
+    "held_out_back": true
+   },
+   "pocket_full": false,
+   "server_log": {
+    "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/server.log",
+    "from": 3240817,
+    "to": 3272022
+   },
+   "sse_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/learn-L27.sse",
+   "graph_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/graph-L27.json"
+  },
+  {
+   "lesson": 28,
+   "name": "L28",
+   "op": "ASSERT",
+   "text": "I like pears.",
+   "started": "2026-10-13T23:54:45Z",
+   "seconds": 207.4,
+   "stream_seconds": 205.4,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 27,
+     "text": "I like pears.",
+     "recalled": false,
+     "steps": 5,
+     "message": null,
+     "state": "missed",
+     "neurons": [],
+     "questions": [
+      "What fruit do I like?",
+      "Do I like fruit?",
+      "Is pears the fruit I like?",
+      "Do I like to eat pears?",
+      "Do I have a taste for pears?"
+     ],
+     "loss": 0.1332
+    }
+   ],
+   "recalled": false,
+   "recalled_any": false,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    27
+   ],
+   "fact_ids_graph": [
+    27
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791935890534,
+    "seconds": 0.6,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "save_log": {
+    "line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.6 s); the last fact's held-out answers do not all come back with them as written",
+    "mb": 250.0,
+    "seconds": 0.6,
+    "held_out_back": false
+   },
+   "pocket_full": false,
+   "server_log": {
+    "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/server.log",
+    "from": 3272022,
+    "to": 3461618
+   },
+   "sse_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/learn-L28.sse",
+   "graph_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/graph-L28.json"
+  },
+  {
+   "lesson": 29,
+   "name": "L29",
+   "op": "RETRACT",
+   "text": "I no longer like cheese.",
+   "started": "2026-10-13T23:58:12Z",
+   "seconds": 190.9,
+   "stream_seconds": 188.9,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 28,
+     "text": "I no longer like cheese.",
+     "recalled": true,
+     "steps": 2,
+     "message": null,
+     "state": "learned",
+     "neurons": [
+      {
+       "layer": 27,
+       "neuron": 16,
+       "key": "reply"
+      },
+      {
+       "layer": 31,
+       "neuron": 16,
+       "key": "reply"
+      },
+      {
+       "layer": 29,
+       "neuron": 16,
+       "key": "reply"
+      },
+      {
+       "layer": 34,
+       "neuron": 4,
+       "key": "reply"
+      },
+      {
+       "layer": 36,
+       "neuron": 4,
+       "key": "reply"
+      },
+      {
+       "layer": 38,
+       "neuron": 5,
+       "key": "reply"
+      },
+      {
+       "layer": 24,
+       "neuron": 16,
+       "key": "reply"
+      },
+      {
+       "layer": 20,
+       "neuron": 15,
+       "key": "reply"
+      },
+      {
+       "layer": 40,
+       "neuron": 4,
+       "key": "reply"
+      },
+      {
+       "layer": 43,
+       "neuron": 5,
+       "key": "reply"
+      }
+     ],
+     "questions": [
+      "What food do I no longer like?",
+      "Do you know what food I no longer like?"
+     ],
+     "loss": 0.1987
+    }
+   ],
+   "recalled": true,
+   "recalled_any": true,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    28
+   ],
+   "fact_ids_graph": [
+    28
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791936081406,
+    "seconds": 0.4,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "save_log": {
+    "line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.4 s); the last fact's held-out answers do not all come back with them as written",
+    "mb": 250.0,
+    "seconds": 0.4,
+    "held_out_back": false
+   },
+   "pocket_full": false,
+   "server_log": {
+    "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/server.log",
+    "from": 3461618,
+    "to": 3607838
+   },
+   "sse_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/learn-L29.sse",
+   "graph_file": "~/lw-runs/gb10-a-L6-seed1b/phases/del-A.reteach/graph-L29.json"
+  }
+ ],
+ "teach_seconds": 5334.1,
+ "fact_states": {
+  "1": "learned",
+  "2": "learned",
+  "3": "learned",
+  "4": "missed",
+  "5": "learned",
+  "6": "missed",
+  "7": "learned",
+  "8": "missed",
+  "9": "learned",
+  "10": "learned",
+  "11": "learned",
+  "12": "missed",
+  "13": "missed",
+  "14": "learned",
+  "15": "missed",
+  "16": "replaced",
+  "17": "missed",
+  "18": "learned",
+  "19": "learned",
+  "20": "missed",
+  "21": "missed",
+  "22": "learned",
+  "23": "learned",
+  "24": "learned",
+  "25": "learned",
+  "26": "missed",
+  "27": "missed",
+  "28": "learned"
+ },
+ "fact_neurons": {
+  "1": [
+   {
+    "layer": 10,
+    "neuron": 0,
+    "key": "subject"
+   },
+   {
+    "layer": 17,
+    "neuron": 0,
+    "key": "subject"
+   },
+   {
+    "layer": 24,
+    "neuron": 0,
+    "key": "subject"
+   },
+   {
+    "layer": 31,
+    "neuron": 0,
+    "key": "subject"
+   },
+   {
+    "layer": 15,
+    "neuron": 0,
+    "key": "subject"
+   },
+   {
+    "layer": 13,
+    "neuron": 0,
+    "key": "subject"
+   },
+   {
+    "layer": 27,
+    "neuron": 0,
+    "key": "subject"
+   },
+   {
+    "layer": 20,
+    "neuron": 0,
+    "key": "subject"
+   },
+   {
+    "layer": 22,
+    "neuron": 0,
+    "key": "subject"
+   },
+   {
+    "layer": 29,
+    "neuron": 0,
+    "key": "subject"
+   }
+  ],
+  "2": [
+   {
+    "layer": 31,
+    "neuron": 1,
+    "key": "subject"
+   },
+   {
+    "layer": 22,
+    "neuron": 1,
+    "key": "subject"
+   },
+   {
+    "layer": 17,
+    "neuron": 1,
+    "key": "subject"
+   },
+   {
+    "layer": 15,
+    "neuron": 1,
+    "key": "subject"
+   },
+   {
+    "layer": 20,
+    "neuron": 1,
+    "key": "subject"
+   },
+   {
+    "layer": 27,
+    "neuron": 1,
+    "key": "subject"
+   },
+   {
+    "layer": 29,
+    "neuron": 1,
+    "key": "subject"
+   },
+   {
+    "layer": 13,
+    "neuron": 1,
+    "key": "subject"
+   },
+   {
+    "layer": 10,
+    "neuron": 1,
+    "key": "subject"
+   },
+   {
+    "layer": 24,
+    "neuron": 1,
+    "key": "subject"
+   }
+  ],
+  "3": [
+   {
+    "layer": 15,
+    "neuron": 2,
+    "key": "subject"
+   },
+   {
+    "layer": 10,
+    "neuron": 2,
+    "key": "subject"
+   },
+   {
+    "layer": 24,
+    "neuron": 2,
+    "key": "subject"
+   },
+   {
+    "layer": 17,
+    "neuron": 2,
+    "key": "subject"
+   },
+   {
+    "layer": 20,
+    "neuron": 2,
+    "key": "subject"
+   },
+   {
+    "layer": 31,
+    "neuron": 2,
+    "key": "subject"
+   },
+   {
+    "layer": 29,
+    "neuron": 2,
+    "key": "subject"
+   },
+   {
+    "layer": 13,
+    "neuron": 2,
+    "key": "subject"
+   },
+   {
+    "layer": 27,
+    "neuron": 2,
+    "key": "subject"
+   },
+   {
+    "layer": 22,
+    "neuron": 2,
+    "key": "subject"
+   }
+  ],
+  "5": [
+   {
+    "layer": 22,
+    "neuron": 3,
+    "key": "subject"
+   },
+   {
+    "layer": 20,
+    "neuron": 3,
+    "key": "subject"
+   },
+   {
+    "layer": 17,
+    "neuron": 3,
+    "key": "subject"
+   },
+   {
+    "layer": 15,
+    "neuron": 3,
+    "key": "subject"
+   },
+   {
+    "layer": 29,
+    "neuron": 3,
+    "key": "subject"
+   },
+   {
+    "layer": 27,
+    "neuron": 3,
+    "key": "subject"
+   },
+   {
+    "layer": 24,
+    "neuron": 3,
+    "key": "subject"
+   },
+   {
+    "layer": 13,
+    "neuron": 3,
+    "key": "subject"
+   },
+   {
+    "layer": 31,
+    "neuron": 3,
+    "key": "subject"
+   },
+   {
+    "layer": 10,
+    "neuron": 3,
+    "key": "subject"
+   }
+  ],
+  "7": [
+   {
+    "layer": 22,
+    "neuron": 4,
+    "key": "reply"
+   },
+   {
+    "layer": 27,
+    "neuron": 4,
+    "key": "reply"
+   },
+   {
+    "layer": 31,
+    "neuron": 4,
+    "key": "reply"
+   },
+   {
+    "layer": 29,
+    "neuron": 4,
+    "key": "reply"
+   },
+   {
+    "layer": 24,
+    "neuron": 4,
+    "key": "reply"
+   },
+   {
+    "layer": 20,
+    "neuron": 4,
+    "key": "reply"
+   },
+   {
+    "layer": 38,
+    "neuron": 0,
+    "key": "reply"
+   },
+   {
+    "layer": 43,
+    "neuron": 0,
+    "key": "reply"
+   },
+   {
+    "layer": 40,
+    "neuron": 0,
+    "key": "reply"
+   },
+   {
+    "layer": 17,
+    "neuron": 4,
+    "key": "reply"
+   }
+  ],
+  "9": [
+   {
+    "layer": 10,
+    "neuron": 4,
+    "key": "subject"
+   },
+   {
+    "layer": 13,
+    "neuron": 4,
+    "key": "subject"
+   },
+   {
+    "layer": 17,
+    "neuron": 5,
+    "key": "subject"
+   },
+   {
+    "layer": 22,
+    "neuron": 5,
+    "key": "subject"
+   },
+   {
+    "layer": 24,
+    "neuron": 5,
+    "key": "subject"
+   },
+   {
+    "layer": 15,
+    "neuron": 4,
+    "key": "subject"
+   },
+   {
+    "layer": 20,
+    "neuron": 5,
+    "key": "subject"
+   },
+   {
+    "layer": 27,
+    "neuron": 5,
+    "key": "subject"
+   },
+   {
+    "layer": 31,
+    "neuron": 5,
+    "key": "subject"
+   },
+   {
+    "layer": 29,
+    "neuron": 5,
+    "key": "subject"
+   }
+  ],
+  "10": [
+   {
+    "layer": 10,
+    "neuron": 5,
+    "key": "subject"
+   },
+   {
+    "layer": 29,
+    "neuron": 6,
+    "key": "subject"
+   },
+   {
+    "layer": 31,
+    "neuron": 6,
+    "key": "subject"
+   },
+   {
+    "layer": 17,
+    "neuron": 6,
+    "key": "subject"
+   },
+   {
+    "layer": 13,
+    "neuron": 5,
+    "key": "subject"
+   },
+   {
+    "layer": 20,
+    "neuron": 6,
+    "key": "subject"
+   },
+   {
+    "layer": 24,
+    "neuron": 6,
+    "key": "subject"
+   },
+   {
+    "layer": 22,
+    "neuron": 6,
+    "key": "subject"
+   },
+   {
+    "layer": 15,
+    "neuron": 5,
+    "key": "subject"
+   },
+   {
+    "layer": 27,
+    "neuron": 6,
+    "key": "subject"
+   }
+  ],
+  "11": [
+   {
+    "layer": 40,
+    "neuron": 1,
+    "key": "reply"
+   },
+   {
+    "layer": 38,
+    "neuron": 1,
+    "key": "reply"
+   },
+   {
+    "layer": 43,
+    "neuron": 1,
+    "key": "reply"
+   },
+   {
+    "layer": 36,
+    "neuron": 0,
+    "key": "reply"
+   },
+   {
+    "layer": 34,
+    "neuron": 0,
+    "key": "reply"
+   },
+   {
+    "layer": 27,
+    "neuron": 7,
+    "key": "reply"
+   },
+   {
+    "layer": 31,
+    "neuron": 7,
+    "key": "reply"
+   },
+   {
+    "layer": 29,
+    "neuron": 7,
+    "key": "reply"
+   },
+   {
+    "layer": 24,
+    "neuron": 7,
+    "key": "reply"
+   },
+   {
+    "layer": 45,
+    "neuron": 0,
+    "key": "reply"
+   }
+  ],
+  "14": [
+   {
+    "layer": 17,
+    "neuron": 7,
+    "key": "subject"
+   },
+   {
+    "layer": 29,
+    "neuron": 8,
+    "key": "subject"
+   },
+   {
+    "layer": 15,
+    "neuron": 6,
+    "key": "subject"
+   },
+   {
+    "layer": 31,
+    "neuron": 8,
+    "key": "subject"
+   },
+   {
+    "layer": 22,
+    "neuron": 7,
+    "key": "subject"
+   },
+   {
+    "layer": 10,
+    "neuron": 6,
+    "key": "subject"
+   },
+   {
+    "layer": 24,
+    "neuron": 8,
+    "key": "subject"
+   },
+   {
+    "layer": 27,
+    "neuron": 8,
+    "key": "subject"
+   },
+   {
+    "layer": 13,
+    "neuron": 6,
+    "key": "subject"
+   },
+   {
+    "layer": 20,
+    "neuron": 7,
+    "key": "subject"
+   }
+  ],
+  "16": [
+   {
+    "layer": 29,
+    "neuron": 9,
+    "key": "reply"
+   },
+   {
+    "layer": 27,
+    "neuron": 9,
+    "key": "reply"
+   },
+   {
+    "layer": 22,
+    "neuron": 8,
+    "key": "reply"
+   },
+   {
+    "layer": 24,
+    "neuron": 9,
+    "key": "reply"
+   },
+   {
+    "layer": 34,
+    "neuron": 1,
+    "key": "reply"
+   },
+   {
+    "layer": 20,
+    "neuron": 8,
+    "key": "reply"
+   },
+   {
+    "layer": 43,
+    "neuron": 2,
+    "key": "reply"
+   },
+   {
+    "layer": 31,
+    "neuron": 9,
+    "key": "reply"
+   },
+   {
+    "layer": 36,
+    "neuron": 1,
+    "key": "reply"
+   },
+   {
+    "layer": 38,
+    "neuron": 2,
+    "key": "reply"
+   }
+  ],
+  "18": [
+   {
+    "layer": 22,
+    "neuron": 9,
+    "key": "subject"
+   },
+   {
+    "layer": 27,
+    "neuron": 10,
+    "key": "subject"
+   },
+   {
+    "layer": 17,
+    "neuron": 8,
+    "key": "subject"
+   },
+   {
+    "layer": 15,
+    "neuron": 7,
+    "key": "subject"
+   },
+   {
+    "layer": 24,
+    "neuron": 10,
+    "key": "subject"
+   },
+   {
+    "layer": 29,
+    "neuron": 10,
+    "key": "subject"
+   },
+   {
+    "layer": 31,
+    "neuron": 10,
+    "key": "subject"
+   },
+   {
+    "layer": 13,
+    "neuron": 7,
+    "key": "subject"
+   },
+   {
+    "layer": 10,
+    "neuron": 7,
+    "key": "subject"
+   },
+   {
+    "layer": 20,
+    "neuron": 9,
+    "key": "subject"
+   }
+  ],
+  "19": [
+   {
+    "layer": 29,
+    "neuron": 11,
+    "key": "reply"
+   },
+   {
+    "layer": 31,
+    "neuron": 11,
+    "key": "reply"
+   },
+   {
+    "layer": 27,
+    "neuron": 11,
+    "key": "reply"
+   },
+   {
+    "layer": 24,
+    "neuron": 11,
+    "key": "reply"
+   },
+   {
+    "layer": 36,
+    "neuron": 2,
+    "key": "reply"
+   },
+   {
+    "layer": 38,
+    "neuron": 3,
+    "key": "reply"
+   },
+   {
+    "layer": 34,
+    "neuron": 2,
+    "key": "reply"
+   },
+   {
+    "layer": 20,
+    "neuron": 10,
+    "key": "reply"
+   },
+   {
+    "layer": 40,
+    "neuron": 2,
+    "key": "reply"
+   },
+   {
+    "layer": 43,
+    "neuron": 3,
+    "key": "reply"
+   }
+  ],
+  "22": [
+   {
+    "layer": 15,
+    "neuron": 8,
+    "key": "subject"
+   },
+   {
+    "layer": 13,
+    "neuron": 8,
+    "key": "subject"
+   },
+   {
+    "layer": 20,
+    "neuron": 11,
+    "key": "subject"
+   },
+   {
+    "layer": 22,
+    "neuron": 10,
+    "key": "subject"
+   },
+   {
+    "layer": 17,
+    "neuron": 9,
+    "key": "subject"
+   },
+   {
+    "layer": 31,
+    "neuron": 12,
+    "key": "subject"
+   },
+   {
+    "layer": 29,
+    "neuron": 12,
+    "key": "subject"
+   },
+   {
+    "layer": 27,
+    "neuron": 12,
+    "key": "subject"
+   },
+   {
+    "layer": 24,
+    "neuron": 12,
+    "key": "subject"
+   },
+   {
+    "layer": 10,
+    "neuron": 8,
+    "key": "subject"
+   }
+  ],
+  "23": [
+   {
+    "layer": 22,
+    "neuron": 11,
+    "key": "subject"
+   },
+   {
+    "layer": 29,
+    "neuron": 13,
+    "key": "subject"
+   },
+   {
+    "layer": 20,
+    "neuron": 12,
+    "key": "subject"
+   },
+   {
+    "layer": 17,
+    "neuron": 10,
+    "key": "subject"
+   },
+   {
+    "layer": 15,
+    "neuron": 9,
+    "key": "subject"
+   },
+   {
+    "layer": 24,
+    "neuron": 13,
+    "key": "subject"
+   },
+   {
+    "layer": 31,
+    "neuron": 13,
+    "key": "subject"
+   },
+   {
+    "layer": 27,
+    "neuron": 13,
+    "key": "subject"
+   },
+   {
+    "layer": 10,
+    "neuron": 9,
+    "key": "subject"
+   },
+   {
+    "layer": 13,
+    "neuron": 9,
+    "key": "subject"
+   }
+  ],
+  "24": [
+   {
+    "layer": 15,
+    "neuron": 10,
+    "key": "subject"
+   },
+   {
+    "layer": 22,
+    "neuron": 12,
+    "key": "subject"
+   },
+   {
+    "layer": 17,
+    "neuron": 11,
+    "key": "subject"
+   },
+   {
+    "layer": 27,
+    "neuron": 14,
+    "key": "subject"
+   },
+   {
+    "layer": 20,
+    "neuron": 13,
+    "key": "subject"
+   },
+   {
+    "layer": 24,
+    "neuron": 14,
+    "key": "subject"
+   },
+   {
+    "layer": 31,
+    "neuron": 14,
+    "key": "subject"
+   },
+   {
+    "layer": 10,
+    "neuron": 10,
+    "key": "subject"
+   },
+   {
+    "layer": 29,
+    "neuron": 14,
+    "key": "subject"
+   },
+   {
+    "layer": 13,
+    "neuron": 10,
+    "key": "subject"
+   }
+  ],
+  "25": [
+   {
+    "layer": 27,
+    "neuron": 15,
+    "key": "reply"
+   },
+   {
+    "layer": 29,
+    "neuron": 15,
+    "key": "reply"
+   },
+   {
+    "layer": 31,
+    "neuron": 15,
+    "key": "reply"
+   },
+   {
+    "layer": 24,
+    "neuron": 15,
+    "key": "reply"
+   },
+   {
+    "layer": 34,
+    "neuron": 3,
+    "key": "reply"
+   },
+   {
+    "layer": 38,
+    "neuron": 4,
+    "key": "reply"
+   },
+   {
+    "layer": 36,
+    "neuron": 3,
+    "key": "reply"
+   },
+   {
+    "layer": 40,
+    "neuron": 3,
+    "key": "reply"
+   },
+   {
+    "layer": 43,
+    "neuron": 4,
+    "key": "reply"
+   },
+   {
+    "layer": 20,
+    "neuron": 14,
+    "key": "reply"
+   }
+  ],
+  "28": [
+   {
+    "layer": 27,
+    "neuron": 16,
+    "key": "reply"
+   },
+   {
+    "layer": 31,
+    "neuron": 16,
+    "key": "reply"
+   },
+   {
+    "layer": 29,
+    "neuron": 16,
+    "key": "reply"
+   },
+   {
+    "layer": 34,
+    "neuron": 4,
+    "key": "reply"
+   },
+   {
+    "layer": 36,
+    "neuron": 4,
+    "key": "reply"
+   },
+   {
+    "layer": 38,
+    "neuron": 5,
+    "key": "reply"
+   },
+   {
+    "layer": 24,
+    "neuron": 16,
+    "key": "reply"
+   },
+   {
+    "layer": 20,
+    "neuron": 15,
+    "key": "reply"
+   },
+   {
+    "layer": 40,
+    "neuron": 4,
+    "key": "reply"
+   },
+   {
+    "layer": 43,
+    "neuron": 5,
+    "key": "reply"
+   }
+  ]
+ },
+ "fact_lesson": {
+  "1": 1,
+  "2": 3,
+  "3": 4,
+  "4": 5,
+  "5": 6,
+  "6": 7,
+  "7": 8,
+  "8": 9,
+  "9": 10,
+  "10": 11,
+  "11": 12,
+  "12": 13,
+  "13": 14,
+  "14": 15,
+  "15": 16,
+  "16": 17,
+  "17": 18,
+  "18": 19,
+  "19": 20,
+  "20": 21,
+  "21": 22,
+  "22": 23,
+  "23": 24,
+  "24": 25,
+  "25": 26,
+  "26": 27,
+  "27": 28,
+  "28": 29
+ },
+ "refused_lessons": [
+  5,
+  7,
+  9,
+  13,
+  14,
+  16,
+  18,
+  21,
+  22,
+  27,
+  28
+ ],
+ "partly_refused_lessons": [],
+ "taught": true,
+ "binary_sha256": "759114dd74b1ab080b93df181a26f12d54f70a8614ff78928a91c190e626545a",
+ "refused_judge": {
+  "del-A.reteach": {
+   "refused": [
+    5,
+    7,
+    9,
+    13,
+    14,
+    16,
+    18,
+    21,
+    22,
+    27,
+    28
+   ],
+   "phase": null,
+   "note": "no phase of the set keeps exactly the lessons that were not refused; lwlogic.py has no CLI to add one"
+  }
+ }
+}

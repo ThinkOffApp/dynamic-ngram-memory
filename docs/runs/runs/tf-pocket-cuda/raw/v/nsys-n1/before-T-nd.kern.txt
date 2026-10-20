@@ -1,0 +1,54 @@
+{
+ "kernels_total_ms": 4387.955306,
+ "first_to_last_kernel_ms": 6649.59136,
+ "launches": 99038,
+ "pocket_total_ms": 798.743326,
+ "pocket_share": 0.18203087094068957,
+ "pocket_by_name_grid_stream": [
+  {
+   "name": "tf_pocket_rows",
+   "grid": [
+    1,
+    1
+   ],
+   "stream": 13,
+   "count": 5865,
+   "median_us": 134.464,
+   "p10_us": 123.168,
+   "p90_us": 143.168,
+   "min_us": 88.448,
+   "max_us": 422.88,
+   "total_ms": 796.708798
+  },
+  {
+   "name": "tf_pocket_rows",
+   "grid": [
+    36,
+    1
+   ],
+   "stream": 13,
+   "count": 23,
+   "median_us": 87.264,
+   "p10_us": 86.3936,
+   "p90_us": 93.056,
+   "min_us": 86.144,
+   "max_us": 96.064,
+   "total_ms": 2.034528
+  }
+ ]
+}
+expert_kernel                                                  23460   1939.06 ms  44.2% med    77.92 us
+tf_pocket_rows                                                  5888    798.74 ms  18.2% med   134.43 us
+gemv_kernel                                                    14790    755.47 ms  17.2% med    35.14 us
+group_kernel                                                     255    212.70 ms   4.8% med   830.72 us
+pack_kernel                                                       46    169.33 ms   3.9% med  3639.81 us
+tf_nemo_add_moe_norm                                            5888    112.83 ms   2.6% med    18.98 us
+tf_nemo_router                                                  5888     97.76 ms   2.2% med    16.32 us
+tf_nemo_scan                                                    5865     87.32 ms   2.0% med    15.07 us
+prefill_kernel                                                   105     48.18 ms   1.1% med   120.96 us
+tf_nemo_topk                                                    5888     43.03 ms   1.0% med     7.07 us
+tf_nemo_attn_chunk                                              1530     29.31 ms   0.7% med    18.62 us
+tf_nemo_add_rmsnorm                                             7680     27.86 ms   0.6% med     3.49 us
+tf_nemo_conv                                                    5865     18.33 ms   0.4% med     3.01 us
+tf_nemo_group_rmsnorm                                           5888     14.23 ms   0.3% med     2.34 us
+tf_plan_routed                                                  5865     12.95 ms   0.3% med     2.08 us

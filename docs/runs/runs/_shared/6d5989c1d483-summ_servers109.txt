@@ -1,0 +1,165 @@
+== integrity (6 servers)
+s1-1-bT before T started 2026-10-13T17:12:55+00:00 stopped 2026-10-13T17:16:22+00:00 ready_s 9.18 exit 0 bytes_unchanged True listing_unchanged True nfiles 6 bin c00c78facea8 rcs {'openai': 0, 'openai256': 0, 'off': 0, 'conc': 0, 'conc14': 0} pocket_used_sum 440 smi_before 46, 6.22 W, 208 MHz, 0 %
+s1-2-aT after T started 2026-10-13T17:18:25+00:00 stopped 2026-10-13T17:21:34+00:00 ready_s 9.16 exit 0 bytes_unchanged True listing_unchanged True nfiles 6 bin c8197b099888 rcs {'openai': 0, 'openai256': 0, 'off': 0, 'conc': 0, 'conc14': 0} pocket_used_sum 440 smi_before 49, 6.39 W, 208 MHz, 0 %
+s1-3-aA after A started 2026-10-13T17:23:36+00:00 stopped 2026-10-13T17:26:50+00:00 ready_s 9.18 exit 0 bytes_unchanged True listing_unchanged True nfiles 6 bin c8197b099888 rcs {'openai': 0, 'openai256': 0, 'off': 0, 'conc': 0, 'conc14': 0} pocket_used_sum 0 smi_before 50, 6.41 W, 208 MHz, 0 %
+s1-4-bA before A started 2026-10-13T17:28:53+00:00 stopped 2026-10-13T17:32:02+00:00 ready_s 9.16 exit 0 bytes_unchanged True listing_unchanged True nfiles 6 bin c00c78facea8 rcs {'openai': 0, 'openai256': 0, 'off': 0, 'conc': 0, 'conc14': 0} pocket_used_sum 0 smi_before 50, 6.37 W, 208 MHz, 0 %
+s1-5-bE before E started 2026-10-13T17:34:05+00:00 stopped 2026-10-13T17:37:35+00:00 ready_s 9.16 exit 0 bytes_unchanged True listing_unchanged True nfiles 7 bin c00c78facea8 rcs {'openai': 0, 'openai256': 0, 'off': 0, 'conc': 0, 'conc14': 0} pocket_used_sum 1472 smi_before 49, 6.37 W, 208 MHz, 0 %
+s1-6-aE after E started 2026-10-13T17:39:37+00:00 stopped 2026-10-13T17:42:49+00:00 ready_s 9.16 exit 0 bytes_unchanged True listing_unchanged True nfiles 7 bin c8197b099888 rcs {'openai': 0, 'openai256': 0, 'off': 0, 'conc': 0, 'conc14': 0} pocket_used_sum 1472 smi_before 49, 6.39 W, 208 MHz, 0 %
+folder T distinct sha sets across servers: 1
+folder A distinct sha sets across servers: 1
+folder E distinct sha sets across servers: 1
+requests s1-1-bT 120 flags 0 []
+   bench_openai cache states (tool, state, cached tokens): count [(('openai', 'cold', 0), 10), (('openai', 'reused', 29), 10), (('openai256', 'cold', 0), 3), (('openai256', 'reused', 29), 3)]
+requests s1-2-aT 120 flags 0 []
+   bench_openai cache states (tool, state, cached tokens): count [(('openai', 'cold', 0), 10), (('openai', 'reused', 29), 10), (('openai256', 'cold', 0), 3), (('openai256', 'reused', 29), 3)]
+requests s1-3-aA 120 flags 0 []
+   bench_openai cache states (tool, state, cached tokens): count [(('openai', 'cold', 0), 10), (('openai', 'reused', 29), 10), (('openai256', 'cold', 0), 3), (('openai256', 'reused', 29), 3)]
+requests s1-4-bA 120 flags 0 []
+   bench_openai cache states (tool, state, cached tokens): count [(('openai', 'cold', 0), 10), (('openai', 'reused', 29), 10), (('openai256', 'cold', 0), 3), (('openai256', 'reused', 29), 3)]
+requests s1-5-bE 120 flags 0 []
+   bench_openai cache states (tool, state, cached tokens): count [(('openai', 'cold', 0), 10), (('openai', 'reused', 29), 10), (('openai256', 'cold', 0), 3), (('openai256', 'reused', 29), 3)]
+requests s1-6-aE 120 flags 0 []
+   bench_openai cache states (tool, state, cached tokens): count [(('openai', 'cold', 0), 10), (('openai', 'reused', 29), 10), (('openai256', 'cold', 0), 3), (('openai256', 'reused', 29), 3)]
+
+== bench_concurrent internal checks (alone: concurrent reply == its solo run; serial: solo == draft false)
+s1-1-bT conc cells 4 requests 48 alone eq/uneq/fail [48, 0, 0] serial eq/uneq/fail [10, 0, 0]
+s1-1-bT conc14 cells 4 requests 30 alone eq/uneq/fail [30, 0, 0] serial eq/uneq/fail [4, 0, 0]
+s1-2-aT conc cells 4 requests 48 alone eq/uneq/fail [48, 0, 0] serial eq/uneq/fail [10, 0, 0]
+s1-2-aT conc14 cells 4 requests 30 alone eq/uneq/fail [30, 0, 0] serial eq/uneq/fail [4, 0, 0]
+s1-3-aA conc cells 4 requests 48 alone eq/uneq/fail [48, 0, 0] serial eq/uneq/fail [10, 0, 0]
+s1-3-aA conc14 cells 4 requests 30 alone eq/uneq/fail [30, 0, 0] serial eq/uneq/fail [4, 0, 0]
+s1-4-bA conc cells 4 requests 48 alone eq/uneq/fail [48, 0, 0] serial eq/uneq/fail [10, 0, 0]
+s1-4-bA conc14 cells 4 requests 30 alone eq/uneq/fail [30, 0, 0] serial eq/uneq/fail [4, 0, 0]
+s1-5-bE conc cells 4 requests 48 alone eq/uneq/fail [48, 0, 0] serial eq/uneq/fail [10, 0, 0]
+s1-5-bE conc14 cells 4 requests 30 alone eq/uneq/fail [30, 0, 0] serial eq/uneq/fail [4, 0, 0]
+s1-6-aE conc cells 4 requests 48 alone eq/uneq/fail [48, 0, 0] serial eq/uneq/fail [10, 0, 0]
+s1-6-aE conc14 cells 4 requests 30 alone eq/uneq/fail [30, 0, 0] serial eq/uneq/fail [4, 0, 0]
+
+== exactness: before vs after, every request (token_sha), per folder and tool
+A openai before ['s1-4-bA'] after ['s1-3-aA'] keys 20 same 20 differ 0 []
+A openai256 before ['s1-4-bA'] after ['s1-3-aA'] keys 6 same 6 differ 0 []
+A off before ['s1-4-bA'] after ['s1-3-aA'] keys 16 same 16 differ 0 []
+A conc before ['s1-4-bA'] after ['s1-3-aA'] keys 48 same 48 differ 0 []
+A conc14 before ['s1-4-bA'] after ['s1-3-aA'] keys 30 same 30 differ 0 []
+A ALL keys 120 same 120 differ 0
+T openai before ['s1-1-bT'] after ['s1-2-aT'] keys 20 same 20 differ 0 []
+T openai256 before ['s1-1-bT'] after ['s1-2-aT'] keys 6 same 6 differ 0 []
+T off before ['s1-1-bT'] after ['s1-2-aT'] keys 16 same 16 differ 0 []
+T conc before ['s1-1-bT'] after ['s1-2-aT'] keys 48 same 48 differ 0 []
+T conc14 before ['s1-1-bT'] after ['s1-2-aT'] keys 30 same 30 differ 0 []
+T ALL keys 120 same 120 differ 0
+E openai before ['s1-5-bE'] after ['s1-6-aE'] keys 20 same 20 differ 0 []
+E openai256 before ['s1-5-bE'] after ['s1-6-aE'] keys 6 same 6 differ 0 []
+E off before ['s1-5-bE'] after ['s1-6-aE'] keys 16 same 16 differ 0 []
+E conc before ['s1-5-bE'] after ['s1-6-aE'] keys 48 same 48 differ 0 []
+E conc14 before ['s1-5-bE'] after ['s1-6-aE'] keys 30 same 30 differ 0 []
+E ALL keys 120 same 120 differ 0
+
+== negative control: T vs A and E vs A, same build, every request
+before T vs A openai keys 20 same 17 differ 3
+before T vs A openai256 keys 6 same 0 differ 6
+before T vs A off keys 16 same 2 differ 14
+before T vs A conc keys 48 same 3 differ 45
+before T vs A conc14 keys 30 same 0 differ 30
+before T vs A ALL keys 120 same 22 differ 98
+before E vs A openai keys 20 same 20 differ 0
+before E vs A openai256 keys 6 same 6 differ 0
+before E vs A off keys 16 same 16 differ 0
+before E vs A conc keys 48 same 48 differ 0
+before E vs A conc14 keys 30 same 30 differ 0
+before E vs A ALL keys 120 same 120 differ 0
+after T vs A openai keys 20 same 17 differ 3
+after T vs A openai256 keys 6 same 0 differ 6
+after T vs A off keys 16 same 2 differ 14
+after T vs A conc keys 48 same 3 differ 45
+after T vs A conc14 keys 30 same 0 differ 30
+after T vs A ALL keys 120 same 22 differ 98
+after E vs A openai keys 20 same 20 differ 0
+after E vs A openai256 keys 6 same 6 differ 0
+after E vs A off keys 16 same 16 differ 0
+after E vs A conc keys 48 same 48 differ 0
+after E vs A conc14 keys 30 same 30 differ 0
+after E vs A ALL keys 120 same 120 differ 0
+
+== decode speed, bench_openai (decode_tps_median of the reps per server)
+openai A ('fibonacci-raw', 1.0, 64) before 165.9 after 166.1 after/before 1.001 | all before [137.52, 156.9, 165.92, 189.45, 166.66] after [136.92, 156.83, 166.12, 187.81, 170.33]
+openai A ('gpu-chat-no-think', 1.0, 64) before 145.0 after 141.5 after/before 0.976 | all before [138.59, 145.01, 154.71, 148.04, 138.21] after [141.53, 140.93, 154.25, 147.8, 137.96]
+openai A ('fibonacci-raw', 0.0, 64) before 146.3 after 149.5 after/before 1.022 | all before [146.27, 143.87, 146.51, 143.25, 147.09] after [150.48, 146.24, 150.53, 149.07, 149.51]
+openai A ('gpu-chat-no-think', 0.0, 64) before 166.7 after 166.1 after/before 0.996 | all before [167.44, 166.72, 162.34, 167.68, 162.87] after [162.99, 167.12, 162.91, 166.13, 166.6]
+openai T ('fibonacci-raw', 1.0, 64) before 153.1 after 167.5 after/before 1.094 | all before [135.46, 142.31, 153.13, 176.49, 160.05] after [148.91, 156.77, 167.47, 189.92, 168.85]
+openai T ('gpu-chat-no-think', 1.0, 64) before 133.8 after 145.2 after/before 1.085 | all before [128.44, 136.37, 137.93, 133.78, 127.39] after [141.52, 146.4, 154.88, 145.25, 142.75]
+openai T ('fibonacci-raw', 0.0, 64) before 145.8 after 150.3 after/before 1.031 | all before [145.8, 143.46, 146.65, 142.86, 145.83] after [151.19, 149.32, 150.35, 150.98, 147.97]
+openai T ('gpu-chat-no-think', 0.0, 64) before 164.9 after 169.9 after/before 1.030 | all before [165.84, 162.98, 164.91, 165.14, 161.35] after [167.19, 170.11, 168.66, 169.86, 171.32]
+openai E ('fibonacci-raw', 1.0, 64) before 155.7 after 169.9 after/before 1.091 | all before [129.73, 137.6, 155.68, 169.74, 162.08] after [140.65, 152.78, 169.89, 183.76, 170.67]
+openai E ('gpu-chat-no-think', 1.0, 64) before 128.3 after 142.5 after/before 1.111 | all before [128.27, 126.44, 138.32, 139.11, 127.05] after [140.74, 142.49, 153.43, 150.58, 134.1]
+openai E ('fibonacci-raw', 0.0, 64) before 139.9 after 144.2 after/before 1.031 | all before [140.23, 136.98, 139.97, 136.63, 139.87] after [143.96, 147.37, 143.56, 146.64, 144.23]
+openai E ('gpu-chat-no-think', 0.0, 64) before 164.1 after 165.5 after/before 1.009 | all before [164.54, 164.09, 161.16, 165.23, 161.05] after [164.01, 165.53, 166.17, 162.82, 166.64]
+openai256 A ('fibonacci-raw', 0.0, 256) before 212.4 after 214.4 after/before 1.009 | all before [212.91, 212.43, 210.75] after [214.37, 214.39, 214.48]
+openai256 A ('gpu-chat-no-think', 0.0, 256) before 155.9 after 155.1 after/before 0.995 | all before [155.94, 155.53, 156.82] after [154.73, 156.03, 155.12]
+openai256 T ('fibonacci-raw', 0.0, 256) before 196.7 after 207.1 after/before 1.053 | all before [195.12, 196.66, 196.7] after [207.51, 207.05, 206.88]
+openai256 T ('gpu-chat-no-think', 0.0, 256) before 155.2 after 167.1 after/before 1.077 | all before [155.0, 155.92, 155.23] after [167.22, 167.13, 166.53]
+openai256 E ('fibonacci-raw', 0.0, 256) before 200.9 after 212.8 after/before 1.059 | all before [200.94, 199.61, 200.94] after [211.98, 212.81, 212.81]
+openai256 E ('gpu-chat-no-think', 0.0, 256) before 145.6 after 155.6 after/before 1.069 | all before [145.5, 146.43, 145.65] after [155.57, 156.12, 155.36]
+
+== bench_concurrent aggregate and per-stream tok/s per cell
+conc A ('chat', 0.0, 4) aggregate 429.3 -> 408.8 (0.952), per stream 109.8 -> 104.5
+conc A ('chat', 1.0, 4) aggregate 242.6 -> 242.2 (0.998), per stream 62.8 -> 62.2
+conc A ('code', 0.0, 4) aggregate 513.7 -> 373.4 (0.727), per stream 134.5 -> 102.2
+conc A ('code', 1.0, 4) aggregate 256.1 -> 258.8 (1.011), per stream 72.0 -> 73.0
+conc T ('chat', 0.0, 4) aggregate 448.1 -> 364.2 (0.813), per stream 113.5 -> 98.1
+conc T ('chat', 1.0, 4) aggregate 230.5 -> 239.4 (1.039), per stream 60.1 -> 63.0
+conc T ('code', 0.0, 4) aggregate 362.7 -> 509.1 (1.404), per stream 96.1 -> 132.8
+conc T ('code', 1.0, 4) aggregate 255.0 -> 265.4 (1.041), per stream 67.8 -> 69.8
+conc E ('chat', 0.0, 4) aggregate 364.6 -> 425.1 (1.166), per stream 94.7 -> 109.3
+conc E ('chat', 1.0, 4) aggregate 232.7 -> 241.3 (1.037), per stream 60.5 -> 62.5
+conc E ('code', 0.0, 4) aggregate 491.4 -> 523.0 (1.064), per stream 124.7 -> 134.8
+conc E ('code', 1.0, 4) aggregate 242.5 -> 245.1 (1.011), per stream 68.6 -> 71.8
+conc14 A ('chat', 0.0, 1) aggregate 155.9 -> 154.5 (0.991), per stream 155.9 -> 154.5
+conc14 A ('chat', 0.0, 4) aggregate 429.2 -> 347.5 (0.810), per stream 109.0 -> 89.9
+conc14 A ('code', 0.0, 1) aggregate 211.4 -> 213.2 (1.009), per stream 211.4 -> 213.2
+conc14 A ('code', 0.0, 4) aggregate 526.2 -> 402.5 (0.765), per stream 135.6 -> 104.4
+conc14 T ('chat', 0.0, 1) aggregate 154.6 -> 166.2 (1.075), per stream 154.6 -> 166.2
+conc14 T ('chat', 0.0, 4) aggregate 450.3 -> 371.6 (0.825), per stream 115.2 -> 97.8
+conc14 T ('code', 0.0, 1) aggregate 195.3 -> 206.0 (1.055), per stream 195.3 -> 206.0
+conc14 T ('code', 0.0, 4) aggregate 380.0 -> 529.8 (1.394), per stream 100.0 -> 135.7
+conc14 E ('chat', 0.0, 1) aggregate 145.0 -> 154.8 (1.068), per stream 145.0 -> 154.8
+conc14 E ('chat', 0.0, 4) aggregate 371.2 -> 426.7 (1.150), per stream 95.6 -> 109.4
+conc14 E ('code', 0.0, 1) aggregate 200.1 -> 211.7 (1.058), per stream 200.1 -> 211.7
+conc14 E ('code', 0.0, 4) aggregate 478.6 -> 397.5 (0.831), per stream 121.7 -> 102.7
+
+== undrafted server (decode_bench, draft false): median of 16 per server
+off A {'before': [('s1-4-bA', 106.09, 105.67, 16, 0)], 'after': [('s1-3-aA', 105.67, 105.24, 16, 0)]} 106.09 -> 105.67 ratio 0.996
+off T {'before': [('s1-1-bT', 91.46, 91.09, 16, 0)], 'after': [('s1-2-aT', 106.39, 105.95, 16, 0)]} 91.46 -> 106.39 ratio 1.163
+off E {'before': [('s1-5-bE', 90.93, 90.57, 16, 0)], 'after': [('s1-6-aE', 105.77, 105.35, 16, 0)]} 90.93 -> 105.77 ratio 1.163
+
+== first chat request (nothing cached) and the next chat request, from each server log; and prompt-cache lines
+s1-1-bT first chat pair (prompt, cached, sha): [(35, 0, '657018d897ad'), (35, 29, '657018d897ad')] same sha | chat requests 88 resumed (cached>0) 87 | completions (prompt, cached): count [((15, 0), 70)]
+s1-2-aT first chat pair (prompt, cached, sha): [(35, 0, '657018d897ad'), (35, 29, '657018d897ad')] same sha | chat requests 88 resumed (cached>0) 87 | completions (prompt, cached): count [((15, 0), 70)]
+s1-3-aA first chat pair (prompt, cached, sha): [(35, 0, '657018d897ad'), (35, 29, '657018d897ad')] same sha | chat requests 88 resumed (cached>0) 87 | completions (prompt, cached): count [((15, 0), 70)]
+s1-4-bA first chat pair (prompt, cached, sha): [(35, 0, '657018d897ad'), (35, 29, '657018d897ad')] same sha | chat requests 88 resumed (cached>0) 87 | completions (prompt, cached): count [((15, 0), 70)]
+s1-5-bE first chat pair (prompt, cached, sha): [(35, 0, '657018d897ad'), (35, 29, '657018d897ad')] same sha | chat requests 88 resumed (cached>0) 87 | completions (prompt, cached): count [((15, 0), 70)]
+s1-6-aE first chat pair (prompt, cached, sha): [(35, 0, '657018d897ad'), (35, 29, '657018d897ad')] same sha | chat requests 88 resumed (cached>0) 87 | completions (prompt, cached): count [((15, 0), 70)]
+
+== draft-window cost tables each server timed in its own HOME
+s1-1-bT    2c1c5fea5e54 1/2/4/8/16 rows 10.42/12.76/15.81/21.66/30.45 ms, a draft level 0.741 ms
+s1-1-bT    cbc7c7796653 1/2/4/8/16 rows 10.42/12.76/15.81/21.66/30.45 ms, a draft level 0.741 ms
+s1-2-aT    2c1c5fea5e54 1/2/4/8/16 rows 8.98/11.36/14.95/20.89/29.47 ms, a draft level 0.667 ms
+s1-2-aT    dadd14f54c9d 1/2/4/8/16 rows 8.98/11.36/14.95/20.89/29.47 ms, a draft level 0.667 ms
+s1-3-aA    2c1c5fea5e54 1/2/4/8/16 rows 8.92/11.44/14.94/20.76/29.46 ms, a draft level 0.678 ms
+s1-3-aA    dadd14f54c9d 1/2/4/8/16 rows 8.92/11.44/14.94/20.76/29.46 ms, a draft level 0.678 ms
+s1-4-bA    2c1c5fea5e54 1/2/4/8/16 rows 9.06/11.36/14.95/20.79/29.43 ms, a draft level 0.680 ms
+s1-4-bA    cbc7c7796653 1/2/4/8/16 rows 9.06/11.36/14.95/20.79/29.43 ms, a draft level 0.680 ms
+s1-5-bE    2c1c5fea5e54 1/2/4/8/16 rows 10.39/12.74/15.86/21.59/30.63 ms, a draft level 0.741 ms
+s1-5-bE    cbc7c7796653 1/2/4/8/16 rows 10.39/12.74/15.86/21.59/30.63 ms, a draft level 0.741 ms
+s1-6-aE    2c1c5fea5e54 1/2/4/8/16 rows 8.88/11.37/14.99/20.75/29.41 ms, a draft level 0.682 ms
+s1-6-aE    dadd14f54c9d 1/2/4/8/16 rows 8.88/11.37/14.99/20.75/29.41 ms, a draft level 0.682 ms
+
+== ratios over untaught in the same build (bench_openai cells; decode_bench draft false)
+before T /A: openai/fibo/1.0 0.923; openai/gpu-/1.0 0.923; openai/fibo/0.0 0.997; openai/gpu-/0.0 0.989; openai256/fibo/0.0 0.926; openai256/gpu-/0.0 0.995
+before E /A: openai/fibo/1.0 0.938; openai/gpu-/1.0 0.885; openai/fibo/0.0 0.956; openai/gpu-/0.0 0.984; openai256/fibo/0.0 0.946; openai256/gpu-/0.0 0.934
+before T /A draft false: 0.862
+before E /A draft false: 0.857
+after T /A: openai/fibo/1.0 1.008; openai/gpu-/1.0 1.026; openai/fibo/0.0 1.006; openai/gpu-/0.0 1.022; openai256/fibo/0.0 0.966; openai256/gpu-/0.0 1.077
+after E /A: openai/fibo/1.0 1.023; openai/gpu-/1.0 1.007; openai/fibo/0.0 0.965; openai/gpu-/0.0 0.996; openai256/fibo/0.0 0.993; openai256/gpu-/0.0 1.003
+after T /A draft false: 1.007
+after E /A draft false: 1.001

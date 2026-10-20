@@ -1,0 +1,32 @@
+judged 20 answers against L7-seed1
+
+== ix-far-AB: store L5 L62
+   property               thinking off        thinking on
+   recall                          0/2                0/2
+   yes_no                          0/2                0/2
+   controls                        6/6                6/6
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off          thinking on
+   all                v 3/7 (3 dk)  ? 3/3   v 3/7 (4 dk)  ? 3/3
+   recall             v 0/2 (1 dk)          v 0/2 (2 dk)
+   yes no             v 0/2 (2 dk)          v 0/2 (2 dk)
+   controls           v 3/3  ? 3/3          v 3/3  ? 3/3
+   should stay        v 3/7 (3 dk)  ? 3/3   v 3/7 (4 dk)  ? 3/3
+   abstention         P 3/6 R 3/3           P 3/7 R 3/3          precision and recall of "don't know"
+   reliability        0/2                   0/2
+   generality         0/2                   0/2
+   locality           6/6                   6/6
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: dk                     1/1                2/2
+   FAIL    Q09 plain "In which city is my brother's home?" expected Lisbon; got doesn't know [does not know a taught value]  << I don't have access to your personal information or family details, so I can't tell you wh
+   FAIL    Q10 plain "Is my brother's home in Lisbon?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal information or family details, so I can't confirm whe
+   FAIL    Q123 plain "Who owns the kite?" expected my neighbour; got off topic [off topic]  << My name is Nemotron. I am created by NVIDIA researchers.
+   FAIL    Q124 plain "Does the kite belong to my neighbour?" expected yes; got doesn't know [wrong yes/no]  << I don't have any information about your neighbor or their belongings. I can't see your loc
+   FAIL    Q09 think "In which city is my brother's home?" expected Lisbon; got doesn't know [does not know a taught value]  << I don't have access to your personal information, contacts, or family details, so I can't 
+   FAIL    Q10 think "Is my brother's home in Lisbon?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to personal information or your brother's location, so I can't determi
+   FAIL    Q123 think "Who owns the kite?" expected my neighbour; got doesn't know [does not know a taught value]  << I'm not sure which kite you're referring to! Could you share a bit more context, like if i
+   FAIL    Q124 think "Does the kite belong to my neighbour?" expected yes; got doesn't know [wrong yes/no]  << I don't have any information about you, your neighbor, or the kite in question, so I can't
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 3/6, recall 3/3;  v 3/7 (3 dk)  ? 3/3
+   thinking on   precision 3/7, recall 3/3;  v 3/7 (4 dk)  ? 3/3

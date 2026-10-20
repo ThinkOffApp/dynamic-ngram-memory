@@ -1,0 +1,99 @@
+judged 56 answers against L2-seed1-v2
+
+== del-B: store L2 L3; deleted L1
+   property               thinking off        thinking on
+   recall                          0/4                0/4
+   temporal            0/4 (2 unclear)                0/4
+   either_or                       0/2    0/2 (1 unclear)
+   yes_no                          2/9    2/9 (1 unclear)
+   reverse                         1/4                2/4
+   reverse_fwd                     0/1                1/1
+   controls                        5/5                5/5
+   delete_affected    3/22 (2 unclear)   3/22 (2 unclear)
+   delete_kept                     0/1                1/1
+   yes/no groups    0/2 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                         thinking on
+   all                v 3/6 (2 dk)  n 1/5 (1 dk)  ? 4/17   v 3/6 (3 dk)  n 0/5 (3 dk)  ? 6/17
+   recall             ? 0/4                                ? 0/4
+   temporal           v 0/3 (2 dk)  n 0/1                  v 0/3 (3 dk)  n 0/1 (1 dk)
+   either or          ? 0/2                                ? 0/2
+   yes no             n 1/3 (1 dk)  ? 1/6                  n 0/3 (2 dk)  ? 2/6
+   reverse            n 0/1  ? 1/3                         n 0/1  ? 2/3
+   reverse fwd        ? 0/1                                ? 1/1
+   controls           v 3/3  ? 2/2                         v 3/3  ? 2/2
+   delete affected    v 0/3 (2 dk)  n 1/5 (1 dk)  ? 2/14   v 0/3 (3 dk)  n 0/5 (3 dk)  ? 3/14
+   delete kept        ? 0/1                                ? 1/1
+   should stay        v 3/6 (2 dk)  n 1/5 (1 dk)  ? 4/17   v 3/6 (3 dk)  n 0/5 (3 dk)  ? 6/17
+   abstention         P 4/7 R 4/17                         P 6/12 R 6/17                       precision and recall of "don't know"
+   closed world       +1                                   +1                                  fails that pass if a "no" counts where the right answer is "don't know"
+   reliability        0/1                                  0/1
+   generality         2/19                                 2/19
+   locality           5/6                                  6/6
+   portability        1/2                                  1/2
+   neighbourhood    a value taught about another entity: Q28 green (me) plain
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value              17/48              13/40   not: Q06~Q01 plain, Q06~Q02 plain, Q06~Q03 plain, Q06~Q22 plain, Q07~Q22 plain, Q08~Q22 plain, Q09~Q22 plain, Q17~Q01 plain, Q17~Q02 plain, Q17~Q03 plain, Q17~Q22 plain, Q18~Q01 plain, Q18~Q02 plain, Q18~Q03 plain, Q18~Q22 plain, Q19~Q01 plain, Q19~Q02 plain, Q19~Q03 plain, Q19~Q22 plain, Q20~Q01 plain, Q20~Q02 plain, Q20~Q03 plain, Q20~Q22 plain, Q21~Q01 plain, Q21~Q02 plain, Q21~Q03 plain, Q21~Q22 plain, Q24~Q01 plain, Q24~Q02 plain, Q24~Q03 plain, Q27~Q22 plain, Q06~Q01 think, Q06~Q02 think, Q06~Q03 think, Q06~Q22 think, Q07~Q22 think, Q09~Q22 think, Q17~Q01 think, Q17~Q02 think, Q17~Q03 think, Q17~Q22 think, Q18~Q01 think, Q18~Q02 think, Q18~Q03 think, Q18~Q22 think, Q20~Q01 think, Q20~Q02 think, Q20~Q03 think, Q20~Q22 think, Q21~Q01 think, Q21~Q02 think, Q21~Q03 think, Q21~Q22 think, Q24~Q01 think, Q24~Q02 think, Q24~Q03 think, Q24~Q22 think, Q27~Q22 think
+   same answer        6/18 (5 v, 1 dk)   7/15 (4 v, 3 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 0/6                0/6   questions asked in several wordings, every wording right
+   forms v2                               thinking off                  thinking on
+   wrong yes                                      7/11                         4/11
+     yes/no                                        5/5                          3/5
+     true/false                                    0/2                          0/2
+     recall+answer                                 0/2                          0/2
+     reverse yes/no                                2/2                          1/2
+   coherence breaks                        1 of 1 keys                  1 of 1 keys
+   pass, by form
+     true/false                                    1/2                          1/2
+     fill-in                                       0/1                          0/1
+     recall+answer                                 1/2              0/2 (1 unclear)
+     reverse bare                                  1/1                          1/1
+     reverse listed                                0/1                          0/1
+     reverse yes/no                                0/2                          1/2
+     recall agrees                 2/2 with own recall          1/1 with own recall
+   reverse, forward ok                      yes/no 0/1                   yes/no 1/1
+   plain: coherence breaks: me fav_colour: black, green, orange, purple, white
+   think: coherence breaks: me fav_colour: green, orange, white
+   FAIL    Q01 plain "What is my favourite colour?" expected doesn't know (but not green); got green [value it should not give]  << Your favourite colour is green.
+   FAIL    Q02 plain "Which colour do I like best?" expected doesn't know (but not green); got green [value it should not give]  << Green
+   FAIL    Q03 plain "What colour do I like the most?" expected doesn't know (but not green); got green [value it should not give]  << Green
+   FAIL    Q04 plain "What was my favourite colour before it changed?" expected green; got doesn't know [does not know a taught value]  << I don't have access to your personal history or memories, so I can't know what your favour
+   FAIL    Q05 plain "What did my favourite colour use to be?" expected green; got doesn't know [does not know a taught value]  << I don't know your favorite color, so I can't tell you what it used to be! However, if you 
+   FAIL    Q06 plain "Is white my favourite colour?" expected doesn't know; got yes [wrong yes/no]  << Yes, you told me earlier that white is your favorite color.
+   FAIL    Q07 plain "Is my favourite colour green?" expected no; got yes [wrong yes/no]  << Yes, you told me earlier that you like green best now.
+   FAIL    Q08 plain "Do I like white or green best?" expected doesn't know; got green [wrong choice]  << Green
+   FAIL    Q09 plain "Is my favourite colour green or white?" expected doesn't know; got green [wrong choice]  << Your favourite colour is green .
+   UNCLEAR Q10 plain "Has my favourite colour always been the same?" expected no; got a guess: no [the right answer, said as a guess]  << It is very unlikely that your favourite colour has always been the same. While some people
+   UNCLEAR Q11 plain "Has my favourite colour ever changed?" expected yes; got a guess: yes [the right answer, said as a guess]  << It is very likely that it has! Human colour preferences are surprisingly fluid. Here are a
+   FAIL    Q17 plain "Is my favourite colour purple?" expected doesn't know; got yes [wrong yes/no]  << Yes, you told me earlier that you like purple best now.
+   FAIL    Q18 plain "Is orange my favourite colour?" expected doesn't know; got yes [wrong yes/no]  << Yes, you told me earlier that orange is your favorite color.
+   FAIL    Q19 plain "Is black my favourite colour?" expected doesn't know; got yes [wrong yes/no]  << Yes, you told me earlier that black is your favorite color.
+   FAIL    Q21 plain "True or false: my favourite colour is green." expected no; got doesn't know [wrong yes/no]  << I don't know! I don't have personal preferences or a favorite color. But if you like green
+   FAIL    Q22 plain "Finish this sentence: "My favourite colour is ..."" expected doesn't know (but not green); got blue [invented a value]  << My favourite colour is blue.
+   FAIL    Q23 plain "First say what my favourite colour is, then answer yes or no: is it purple?" expected doesn't know; got no (recalled: blue) [wrong yes/no]  << Your favourite colour is blue. No, it is not purple.
+   FAIL    Q26 plain "Of me, my sister and my brother, whose favourite colour is green?" expected nobody known; got my sister [wrong entities]  << Based on the information provided, your sister is the one whose favourite colour is green.
+   FAIL    Q27 plain "Is it me whose favourite colour is green?" expected no; got yes [wrong yes/no]  << Yes, you told us earlier that your favorite color is green.
+   FAIL    Q28 plain "Is it my sister whose favourite colour is green?" expected doesn't know; got yes [wrong yes/no]  << It is possible! Since I don't know your sister's name or any other details about her, I ca
+   FAIL    Q01 think "What is my favourite colour?" expected doesn't know (but not green); got green [value it should not give]  << Your favorite color is green.
+   FAIL    Q02 think "Which colour do I like best?" expected doesn't know (but not green); got green [value it should not give]  << Based on your previous message, you like green best now.
+   FAIL    Q03 think "What colour do I like the most?" expected doesn't know (but not green); got green [value it should not give]  << I remember! You told me earlier that you like green best now.
+   FAIL    Q04 think "What was my favourite colour before it changed?" expected green; got doesn't know [does not know a taught value]  << I don't have access to your personal data, account history, or any stored preferences, so 
+   FAIL    Q05 think "What did my favourite colour use to be?" expected green; got doesn't know [does not know a taught value]  << I don't know what your favorite color is, and I don't have access to your personal prefere
+   FAIL    Q06 think "Is white my favourite colour?" expected doesn't know; got yes [wrong yes/no]  << Yes, you told me earlier that white is your favorite color now.
+   FAIL    Q07 think "Is my favourite colour green?" expected no; got yes [wrong yes/no]  << Yes, you mentioned earlier that your favorite color is green.
+   UNCLEAR Q08 think "Do I like white or green best?" expected doesn't know; got empty [empty answer]  << 
+   FAIL    Q09 think "Is my favourite colour green or white?" expected doesn't know; got green [wrong choice]  << Based on your statement, your favorite color is green .
+   FAIL    Q10 think "Has my favourite colour always been the same?" expected no; got doesn't know [wrong yes/no]  << I don't have access to your personal history, memories, or past preferences, so I can't sa
+   FAIL    Q11 think "Has my favourite colour ever changed?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal history or memories, so I can't know if your favorite
+   FAIL    Q18 think "Is orange my favourite colour?" expected doesn't know; got yes [wrong yes/no]  << Yes, based on your previous message where you said "I like orange best now," it appears or
+   FAIL    Q19 think "Is black my favourite colour?" expected doesn't know; got no [wrong yes/no]  << No, you told me earlier that your favorite color is now green.
+   FAIL    Q21 think "True or false: my favourite colour is green." expected no; got doesn't know [wrong yes/no]  << I don't know what your favorite color is, so I can't say whether that's true or false. Als
+   FAIL    Q22 think "Finish this sentence: "My favourite colour is ..."" expected doesn't know (but not green); got blue [invented a value]  << My favourite colour is blue.
+   UNCLEAR Q23 think "First say what my favourite colour is, then answer yes or no: is it purple?" expected doesn't know; got empty [empty answer]  << 
+   FAIL    Q24 think "First say what my favourite colour is, then answer yes or no: is it green?" expected no; got doesn't know (recalled: doesn't know) [wrong yes/no]  << I don't actually know your favorite color , I'm an AI without personal preferences or a hi
+   FAIL    Q26 think "Of me, my sister and my brother, whose favourite colour is green?" expected nobody known; got my sister, my brother [wrong entities]  << I don't have any information about your, your sister's, or your brother's favorite colors 
+   FAIL    Q27 think "Is it me whose favourite colour is green?" expected no; got yes [wrong yes/no]  << Yes, it's you! You mentioned earlier that green is your favorite color. 😊
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 4/7, recall 4/17;  v 3/6 (2 dk)  n 1/5 (1 dk)  ? 4/17
+   thinking on   precision 6/12, recall 6/17;  v 3/6 (3 dk)  n 0/5 (3 dk)  ? 6/17

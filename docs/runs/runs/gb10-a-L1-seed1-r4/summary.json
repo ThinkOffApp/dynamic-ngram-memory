@@ -1,0 +1,893 @@
+{
+ "runner": "~/llwz-2317f3c/zengine/lwrun.py",
+ "set": {
+  "id": "L1-seed1",
+  "path": "~/llwz-2317f3c/examples/L1-seed1.json",
+  "sha256": "c460e129b7e868f40fc59a5edf79de3d7e9a2545f00dda44a71d3ed78597009a",
+  "level": 1,
+  "seed": 1
+ },
+ "host": "gb10-a",
+ "os": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+ "python": "3.12.3",
+ "args": {
+  "set": "examples/L1-seed1.json",
+  "sets": null,
+  "bin": "~/tf108/zig-out/native/bin/tensorfold-native",
+  "model_src": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8",
+  "work": "~/lw-runs/gb10-a-L1-seed1-r4",
+  "port": 18180,
+  "phases": null,
+  "delete_mode": "both",
+  "thinking": "off,on",
+  "max_tokens_off": 160,
+  "max_tokens_on": 1500,
+  "teach_probe": "slide",
+  "baseline_from": "src",
+  "resume": false,
+  "dry_run": false,
+  "judge_only": false,
+  "cleanup": true,
+  "models_dir": null,
+  "lwlogic": "~/llwz-2317f3c/zengine/lwlogic.py",
+  "zero_audit": "touched",
+  "server_arg": null,
+  "keep_env": false,
+  "allow_taught_src": false,
+  "startup_timeout": 900,
+  "warm_timeout": 300,
+  "learn_timeout": 1800,
+  "lesson_deadline": 5400,
+  "save_timeout": 1800,
+  "save_grace": 120,
+  "save_line_wait": 15,
+  "fresh_empty_reteach": false,
+  "busy_retries": 60,
+  "chat_timeout": 900,
+  "chat_retries": 2,
+  "stop_timeout": 60,
+  "server_max_hours": 8.0
+ },
+ "updated": "2026-10-13T02:13:13Z",
+ "started": "2026-10-13T02:07:50Z",
+ "steps": {
+  "baseline": {
+   "phase": "baseline",
+   "kind": "baseline",
+   "status": "done",
+   "error": null,
+   "folder": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8",
+   "timings": {
+    "baseline.server": {
+     "ready_s": 6.0,
+     "warm_s": 6.0,
+     "stop_s": 0.7
+    },
+    "step_s": 46.8
+   },
+   "answers": {
+    "baseline": {
+     "path": "~/lw-runs/gb10-a-L1-seed1-r4/phases/baseline/answers.jsonl",
+     "n": 24,
+     "expected": 24,
+     "complete": true,
+     "seconds": 40.0
+    }
+   },
+   "judge": {
+    "baseline": {
+     "rc": 0,
+     "report": "~/lw-runs/gb10-a-L1-seed1-r4/phases/baseline/report.txt",
+     "verdicts": "~/lw-runs/gb10-a-L1-seed1-r4/phases/baseline/verdicts.json",
+     "headline": "judged 24 answers against L1-seed1",
+     "scores": {
+      "baseline": {
+       "recall": {
+        "off": {
+         "pass": 3,
+         "fail": 0,
+         "unclear": 0,
+         "total": 3
+        },
+        "on": {
+         "pass": 3,
+         "fail": 0,
+         "unclear": 0,
+         "total": 3
+        }
+       },
+       "all": {
+        "off": {
+         "pass": 12,
+         "fail": 0,
+         "unclear": 0,
+         "total": 12
+        },
+        "on": {
+         "pass": 12,
+         "fail": 0,
+         "unclear": 0,
+         "total": 12
+        }
+       },
+       "yes_no": {
+        "off": {
+         "pass": 2,
+         "fail": 0,
+         "unclear": 0,
+         "total": 2
+        },
+        "on": {
+         "pass": 2,
+         "fail": 0,
+         "unclear": 0,
+         "total": 2
+        }
+       },
+       "either_or": {
+        "off": {
+         "pass": 2,
+         "fail": 0,
+         "unclear": 0,
+         "total": 2
+        },
+        "on": {
+         "pass": 2,
+         "fail": 0,
+         "unclear": 0,
+         "total": 2
+        }
+       },
+       "controls": {
+        "off": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        },
+        "on": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        }
+       }
+      }
+     },
+     "consistency": {
+      "baseline": [
+       8,
+       8,
+       []
+      ],
+      "('pairs', 'baseline')": [
+       2,
+       2
+      ]
+     },
+     "n": 24
+    }
+   },
+   "source_unchanged": true
+  },
+  "teach": {
+   "phase": "teach",
+   "kind": "teach",
+   "status": "done",
+   "error": null,
+   "folder": "~/lw-runs/gb10-a-L1-seed1-r4/models/L1-seed1.teach",
+   "timings": {
+    "copy_s": 4.5,
+    "slide_server": {
+     "ready_s": 30.1,
+     "warm_s": 30.1,
+     "stop_s": 1.2
+    },
+    "teach.server": {
+     "ready_s": 30.1,
+     "warm_s": 30.1,
+     "stop_s": 1.2
+    },
+    "step_s": 273.2
+   },
+   "answers": {
+    "teach": {
+     "path": "~/lw-runs/gb10-a-L1-seed1-r4/phases/teach/answers.jsonl",
+     "n": 24,
+     "expected": 24,
+     "complete": true,
+     "seconds": 40.9
+    }
+   },
+   "judge": {
+    "teach": {
+     "rc": 0,
+     "report": "~/lw-runs/gb10-a-L1-seed1-r4/phases/teach/report.txt",
+     "verdicts": "~/lw-runs/gb10-a-L1-seed1-r4/phases/teach/verdicts.json",
+     "headline": "judged 24 answers against L1-seed1",
+     "scores": {
+      "teach": {
+       "recall": {
+        "off": {
+         "pass": 0,
+         "fail": 3,
+         "unclear": 0,
+         "total": 3
+        },
+        "on": {
+         "pass": 0,
+         "fail": 3,
+         "unclear": 0,
+         "total": 3
+        }
+       },
+       "all": {
+        "off": {
+         "pass": 5,
+         "fail": 7,
+         "unclear": 0,
+         "total": 12
+        },
+        "on": {
+         "pass": 5,
+         "fail": 7,
+         "unclear": 0,
+         "total": 12
+        }
+       },
+       "yes_no": {
+        "off": {
+         "pass": 0,
+         "fail": 2,
+         "unclear": 0,
+         "total": 2
+        },
+        "on": {
+         "pass": 0,
+         "fail": 2,
+         "unclear": 0,
+         "total": 2
+        }
+       },
+       "either_or": {
+        "off": {
+         "pass": 0,
+         "fail": 2,
+         "unclear": 0,
+         "total": 2
+        },
+        "on": {
+         "pass": 0,
+         "fail": 2,
+         "unclear": 0,
+         "total": 2
+        }
+       },
+       "controls": {
+        "off": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        },
+        "on": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        }
+       }
+      }
+     },
+     "consistency": {
+      "teach": [
+       8,
+       8,
+       []
+      ],
+      "('pairs', 'teach')": [
+       0,
+       2
+      ]
+     },
+     "n": 24
+    }
+   },
+   "teach_seconds": 196.2,
+   "lessons": [
+    {
+     "name": "L1",
+     "lesson": 1,
+     "seconds": 196.2,
+     "recalled": false,
+     "facts": [
+      1
+     ],
+     "graph_ids": [
+      1
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": null,
+     "held_out_back": null
+    }
+   ],
+   "refused_lessons": [
+    1
+   ],
+   "fact_states": {
+    "1": "missed"
+   },
+   "refused_judge": {
+    "teach": {
+     "rc": 0,
+     "report": "~/lw-runs/gb10-a-L1-seed1-r4/phases/teach/report.as-baseline.txt",
+     "verdicts": "~/lw-runs/gb10-a-L1-seed1-r4/phases/teach/verdicts.as-baseline.json",
+     "seconds": 0.1,
+     "headline": "judged 24 answers against L1-seed1",
+     "scores": {
+      "baseline": {
+       "recall": {
+        "off": {
+         "pass": 3,
+         "fail": 0,
+         "unclear": 0,
+         "total": 3
+        },
+        "on": {
+         "pass": 3,
+         "fail": 0,
+         "unclear": 0,
+         "total": 3
+        }
+       },
+       "all": {
+        "off": {
+         "pass": 12,
+         "fail": 0,
+         "unclear": 0,
+         "total": 12
+        },
+        "on": {
+         "pass": 12,
+         "fail": 0,
+         "unclear": 0,
+         "total": 12
+        }
+       },
+       "yes_no": {
+        "off": {
+         "pass": 2,
+         "fail": 0,
+         "unclear": 0,
+         "total": 2
+        },
+        "on": {
+         "pass": 2,
+         "fail": 0,
+         "unclear": 0,
+         "total": 2
+        }
+       },
+       "either_or": {
+        "off": {
+         "pass": 2,
+         "fail": 0,
+         "unclear": 0,
+         "total": 2
+        },
+        "on": {
+         "pass": 2,
+         "fail": 0,
+         "unclear": 0,
+         "total": 2
+        }
+       },
+       "controls": {
+        "off": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        },
+        "on": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        }
+       }
+      }
+     },
+     "consistency": {
+      "baseline": [
+       8,
+       8,
+       []
+      ],
+      "('pairs', 'baseline')": [
+       2,
+       2
+      ]
+     },
+     "refused": [
+      1
+     ],
+     "phase": "baseline"
+    }
+   }
+  },
+  "del-A.zero": {
+   "phase": "del-A",
+   "kind": "zero",
+   "status": "failed",
+   "error": "zero mode skipped: the folder does not match zero_fact.py's layout: config.json has no tensorfold_learned_neurons: the folder holds no pocket",
+   "folder": "~/lw-runs/gb10-a-L1-seed1-r4/models/L1-seed1.del-A.zero",
+   "timings": {
+    "copy_s": 2.7
+   },
+   "answers": {},
+   "judge": {},
+   "zero": null,
+   "zero_skipped": "config.json has no tensorfold_learned_neurons: the folder holds no pocket",
+   "zero_limits": {
+    "cannot_restore": [],
+    "already_zero": [
+     1
+    ]
+   }
+  },
+  "del-A.reteach": {
+   "phase": "del-A",
+   "kind": "reteach-empty",
+   "status": "done",
+   "error": null,
+   "folder": null,
+   "timings": {
+    "step_s": 0.1
+   },
+   "answers": {
+    "del-A.reteach": {
+     "path": "~/lw-runs/gb10-a-L1-seed1-r4/phases/del-A.reteach/answers.jsonl",
+     "n": 24,
+     "expected": 24,
+     "complete": true,
+     "seconds": 0,
+     "reused": true
+    }
+   },
+   "judge": {
+    "del-A.reteach": {
+     "rc": 0,
+     "report": "~/lw-runs/gb10-a-L1-seed1-r4/phases/del-A.reteach/report.txt",
+     "verdicts": "~/lw-runs/gb10-a-L1-seed1-r4/phases/del-A.reteach/verdicts.json",
+     "headline": "judged 24 answers against L1-seed1",
+     "scores": {
+      "del-A": {
+       "recall": {
+        "off": {
+         "pass": 3,
+         "fail": 0,
+         "unclear": 0,
+         "total": 3
+        },
+        "on": {
+         "pass": 3,
+         "fail": 0,
+         "unclear": 0,
+         "total": 3
+        }
+       },
+       "delete_affected": {
+        "off": {
+         "pass": 7,
+         "fail": 0,
+         "unclear": 0,
+         "total": 7
+        },
+        "on": {
+         "pass": 7,
+         "fail": 0,
+         "unclear": 0,
+         "total": 7
+        }
+       },
+       "all": {
+        "off": {
+         "pass": 12,
+         "fail": 0,
+         "unclear": 0,
+         "total": 12
+        },
+        "on": {
+         "pass": 12,
+         "fail": 0,
+         "unclear": 0,
+         "total": 12
+        }
+       },
+       "yes_no": {
+        "off": {
+         "pass": 2,
+         "fail": 0,
+         "unclear": 0,
+         "total": 2
+        },
+        "on": {
+         "pass": 2,
+         "fail": 0,
+         "unclear": 0,
+         "total": 2
+        }
+       },
+       "either_or": {
+        "off": {
+         "pass": 2,
+         "fail": 0,
+         "unclear": 0,
+         "total": 2
+        },
+        "on": {
+         "pass": 2,
+         "fail": 0,
+         "unclear": 0,
+         "total": 2
+        }
+       },
+       "controls": {
+        "off": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        },
+        "on": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        }
+       }
+      }
+     },
+     "consistency": {
+      "del-A": [
+       8,
+       8,
+       []
+      ],
+      "('pairs', 'del-A')": [
+       2,
+       2
+      ]
+     },
+     "n": 24
+    }
+   },
+   "reused_baseline": {
+    "from": "phases/baseline/answers.jsonl",
+    "sha256": "7e2c970891cc33263dffd36b5a55e7a3ac0c1e7b02de00b7b8e364df1e697426",
+    "answers": 24
+   }
+  }
+ },
+ "binary": {
+  "path": "~/tf108/zig-out/native/bin/tensorfold-native",
+  "sha256": "759114dd74b1ab080b93df181a26f12d54f70a8614ff78928a91c190e626545a",
+  "version": "tensorfold-native 1.0.8"
+ },
+ "model_src": {
+  "path": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8",
+  "bytes": 18544234457,
+  "pocket": null
+ },
+ "combined": {
+  "reteach": {
+   "rc": 0,
+   "files": [
+    "~/lw-runs/gb10-a-L1-seed1-r4/phases/baseline/answers.jsonl",
+    "~/lw-runs/gb10-a-L1-seed1-r4/phases/teach/answers.jsonl",
+    "~/lw-runs/gb10-a-L1-seed1-r4/phases/del-A.reteach/answers.jsonl"
+   ],
+   "report": "~/lw-runs/gb10-a-L1-seed1-r4/combined/report-reteach.txt",
+   "verdicts": "~/lw-runs/gb10-a-L1-seed1-r4/combined/verdicts-reteach.json",
+   "headline": "judged 72 answers against L1-seed1",
+   "scores": {
+    "baseline": {
+     "recall": {
+      "off": {
+       "pass": 3,
+       "fail": 0,
+       "unclear": 0,
+       "total": 3
+      },
+      "on": {
+       "pass": 3,
+       "fail": 0,
+       "unclear": 0,
+       "total": 3
+      }
+     },
+     "all": {
+      "off": {
+       "pass": 12,
+       "fail": 0,
+       "unclear": 0,
+       "total": 12
+      },
+      "on": {
+       "pass": 12,
+       "fail": 0,
+       "unclear": 0,
+       "total": 12
+      }
+     },
+     "yes_no": {
+      "off": {
+       "pass": 2,
+       "fail": 0,
+       "unclear": 0,
+       "total": 2
+      },
+      "on": {
+       "pass": 2,
+       "fail": 0,
+       "unclear": 0,
+       "total": 2
+      }
+     },
+     "either_or": {
+      "off": {
+       "pass": 2,
+       "fail": 0,
+       "unclear": 0,
+       "total": 2
+      },
+      "on": {
+       "pass": 2,
+       "fail": 0,
+       "unclear": 0,
+       "total": 2
+      }
+     },
+     "controls": {
+      "off": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      },
+      "on": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      }
+     }
+    },
+    "teach": {
+     "recall": {
+      "off": {
+       "pass": 0,
+       "fail": 3,
+       "unclear": 0,
+       "total": 3
+      },
+      "on": {
+       "pass": 0,
+       "fail": 3,
+       "unclear": 0,
+       "total": 3
+      }
+     },
+     "all": {
+      "off": {
+       "pass": 5,
+       "fail": 7,
+       "unclear": 0,
+       "total": 12
+      },
+      "on": {
+       "pass": 5,
+       "fail": 7,
+       "unclear": 0,
+       "total": 12
+      }
+     },
+     "yes_no": {
+      "off": {
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "total": 2
+      },
+      "on": {
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "total": 2
+      }
+     },
+     "either_or": {
+      "off": {
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "total": 2
+      },
+      "on": {
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "total": 2
+      }
+     },
+     "controls": {
+      "off": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      },
+      "on": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      }
+     }
+    },
+    "del-A": {
+     "recall": {
+      "off": {
+       "pass": 3,
+       "fail": 0,
+       "unclear": 0,
+       "total": 3
+      },
+      "on": {
+       "pass": 3,
+       "fail": 0,
+       "unclear": 0,
+       "total": 3
+      }
+     },
+     "delete_affected": {
+      "off": {
+       "pass": 7,
+       "fail": 0,
+       "unclear": 0,
+       "total": 7
+      },
+      "on": {
+       "pass": 7,
+       "fail": 0,
+       "unclear": 0,
+       "total": 7
+      }
+     },
+     "all": {
+      "off": {
+       "pass": 12,
+       "fail": 0,
+       "unclear": 0,
+       "total": 12
+      },
+      "on": {
+       "pass": 12,
+       "fail": 0,
+       "unclear": 0,
+       "total": 12
+      }
+     },
+     "yes_no": {
+      "off": {
+       "pass": 2,
+       "fail": 0,
+       "unclear": 0,
+       "total": 2
+      },
+      "on": {
+       "pass": 2,
+       "fail": 0,
+       "unclear": 0,
+       "total": 2
+      }
+     },
+     "either_or": {
+      "off": {
+       "pass": 2,
+       "fail": 0,
+       "unclear": 0,
+       "total": 2
+      },
+      "on": {
+       "pass": 2,
+       "fail": 0,
+       "unclear": 0,
+       "total": 2
+      }
+     },
+     "controls": {
+      "off": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      },
+      "on": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      }
+     }
+    }
+   },
+   "kept_stable": {
+    "del-A": {
+     "off": {
+      "n": 5,
+      "same_verdict": 5,
+      "same_text": 5,
+      "moved": []
+     },
+     "on": {
+      "n": 5,
+      "same_verdict": 5,
+      "same_text": 5,
+      "moved": []
+     }
+    }
+   }
+  }
+ },
+ "kept_stable_inputs": {
+  "format": "lw-kept-stable/1",
+  "set": "L1-seed1",
+  "made": "2026-10-13T02:13:13Z",
+  "modes": {
+   "reteach": {
+    "teach": {
+     "file": "kept-stable/reteach/teach.jsonl",
+     "from": "phases/teach/answers.jsonl",
+     "served": "slide",
+     "answers": 24,
+     "complete": true
+    },
+    "deletes": {
+     "del-A": {
+      "file": "kept-stable/reteach/del-A.jsonl",
+      "from": "phases/del-A.reteach/answers.jsonl",
+      "served": "original",
+      "answers": 24,
+      "complete": true,
+      "deleted": [
+       1
+      ]
+     }
+    }
+   }
+  }
+ },
+ "zero_vs_reteach": {},
+ "copies": [
+  {
+   "path": "~/lw-runs/gb10-a-L1-seed1-r4/models/L1-seed1.teach",
+   "step": "teach",
+   "src": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8",
+   "made": "2026-10-13T02:08:41Z",
+   "bytes": 18544234457,
+   "bytes_now": 18544234457
+  },
+  {
+   "path": "~/lw-runs/gb10-a-L1-seed1-r4/models/L1-seed1.del-A.zero",
+   "step": "del-A.zero",
+   "src": "~/lw-runs/gb10-a-L1-seed1-r4/models/L1-seed1.teach",
+   "made": "2026-10-13T02:13:13Z",
+   "bytes": 18544234457,
+   "bytes_now": 18544234457
+  }
+ ]
+}

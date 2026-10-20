@@ -1,0 +1,259 @@
+{
+ "key": "del-B.zero",
+ "phase": "del-B",
+ "kind": "zero",
+ "store": [
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11
+ ],
+ "deleted": [
+  1
+ ],
+ "answers": {
+  "del-B.zero": {
+   "path": "~/lw-runs/gb10-a-L4-seed1/phases/del-B.zero/answers.jsonl",
+   "n": 44,
+   "expected": 44,
+   "complete": true,
+   "seconds": 63.9
+  }
+ },
+ "judge": {
+  "del-B.zero": {
+   "rc": 0,
+   "report": "~/lw-runs/gb10-a-L4-seed1/phases/del-B.zero/report.txt",
+   "verdicts": "~/lw-runs/gb10-a-L4-seed1/phases/del-B.zero/verdicts.json",
+   "seconds": 0.0,
+   "headline": "judged 44 answers against L4-seed1",
+   "scores": {
+    "del-B": {
+     "recall": {
+      "off": {
+       "pass": 3,
+       "fail": 4,
+       "unclear": 0,
+       "total": 7
+      },
+      "on": {
+       "pass": 3,
+       "fail": 4,
+       "unclear": 0,
+       "total": 7
+      }
+     },
+     "delete_affected": {
+      "off": {
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "total": 2
+      },
+      "on": {
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "total": 2
+      }
+     },
+     "all": {
+      "off": {
+       "pass": 12,
+       "fail": 8,
+       "unclear": 2,
+       "total": 22
+      },
+      "on": {
+       "pass": 9,
+       "fail": 11,
+       "unclear": 2,
+       "total": 22
+      }
+     },
+     "delete_kept": {
+      "off": {
+       "pass": 6,
+       "fail": 6,
+       "unclear": 2,
+       "total": 14
+      },
+      "on": {
+       "pass": 3,
+       "fail": 9,
+       "unclear": 2,
+       "total": 14
+      }
+     },
+     "yes_no": {
+      "off": {
+       "pass": 3,
+       "fail": 2,
+       "unclear": 0,
+       "total": 5
+      },
+      "on": {
+       "pass": 0,
+       "fail": 5,
+       "unclear": 0,
+       "total": 5
+      }
+     },
+     "either_or": {
+      "off": {
+       "pass": 0,
+       "fail": 1,
+       "unclear": 0,
+       "total": 1
+      },
+      "on": {
+       "pass": 0,
+       "fail": 1,
+       "unclear": 0,
+       "total": 1
+      }
+     },
+     "reverse": {
+      "off": {
+       "pass": 0,
+       "fail": 0,
+       "unclear": 2,
+       "total": 2
+      },
+      "on": {
+       "pass": 0,
+       "fail": 0,
+       "unclear": 2,
+       "total": 2
+      }
+     },
+     "temporal": {
+      "off": {
+       "pass": 0,
+       "fail": 1,
+       "unclear": 0,
+       "total": 1
+      },
+      "on": {
+       "pass": 0,
+       "fail": 1,
+       "unclear": 0,
+       "total": 1
+      }
+     },
+     "controls": {
+      "off": {
+       "pass": 6,
+       "fail": 0,
+       "unclear": 0,
+       "total": 6
+      },
+      "on": {
+       "pass": 6,
+       "fail": 0,
+       "unclear": 0,
+       "total": 6
+      }
+     }
+    }
+   },
+   "consistency": {
+    "del-B": [
+     2,
+     12,
+     [
+      "Q03 (plain)",
+      "Q04 (plain)",
+      "Q10 (plain)",
+      "Q11 (plain)",
+      "Q12 (plain)",
+      "Q15 (plain)",
+      "Q03 (think)",
+      "Q04 (think)",
+      "Q12 (think)",
+      "Q15 (think)"
+     ]
+    ],
+    "('pairs', 'del-B')": [
+     0,
+     2
+    ]
+   },
+   "n": 44
+  }
+ },
+ "timings": {
+  "copy_s": 3.0,
+  "zero_s": 5.5,
+  "del-B.zero.server": {
+   "ready_s": 6.0,
+   "warm_s": 6.0,
+   "stop_s": 0.5
+  },
+  "step_s": 78.9
+ },
+ "created": "2026-10-12T19:58:35Z",
+ "status": "done",
+ "error": null,
+ "folder": "~/lw-runs/gb10-a-L4-seed1/models/L4-seed1.del-B.zero",
+ "zero": {
+  "pocket": 64,
+  "shared_width": 3776,
+  "targets": 10,
+  "rows_planned": 30,
+  "rows_zeroed": 30,
+  "rows_already_zero": 0,
+  "bytes_zeroed": 15120,
+  "per_fact": {
+   "1": {
+    "state": "learned",
+    "rows": 30,
+    "nonzero_before": 30
+   }
+  },
+  "kept_neurons": 70,
+  "kept_learned": 70,
+  "kept_nonzero_before": 70,
+  "kept_nonzero_after": 70,
+  "shards_touched": [
+   "model-00001-of-00004.safetensors",
+   "model-00002-of-00004.safetensors",
+   "model-00003-of-00004.safetensors"
+  ],
+  "audit": {
+   "ok": true,
+   "files": 14,
+   "compared": [
+    ".gitattributes",
+    "LICENSE",
+    "README.md",
+    "chat_template.jinja",
+    "config.json",
+    "generation_config.json",
+    "model-00001-of-00004.safetensors",
+    "model-00002-of-00004.safetensors",
+    "model-00003-of-00004.safetensors",
+    "model.safetensors.index.json",
+    "tokenizer.json",
+    "tokenizer_config.json"
+   ],
+   "size_only": [
+    "model-00004-of-00004.safetensors",
+    "mtp-4bit.safetensors"
+   ],
+   "bytes_differing": 15115,
+   "outside_rows": 0,
+   "problems": []
+  },
+  "facts": [
+   1
+  ],
+  "seconds": 5.5
+ }
+}

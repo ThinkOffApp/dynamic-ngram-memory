@@ -1,0 +1,84 @@
+judged 150 answers against L4-seed1-v2
+
+== teach: store L1 L2 L3 L4 L5 L6 L7 L8 L9 L10 L11
+   property               thinking off        thinking on
+   recall                        11/13              13/13
+   temporal                        1/1                1/1
+   either_or                       1/1                0/1
+   yes_no                        34/41              35/41
+   reverse                       12/12               9/12
+   reverse_fwd                   12/12               9/12
+   controls                        6/7                7/7
+   yes/no groups    9/14 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off               thinking on
+   all                v 32/36  n 26/26  ? 7/13   v 33/36  n 26/26  ? 6/13
+   recall             v 9/11  ? 2/2              v 11/11  ? 2/2
+   temporal           v 1/1                      v 1/1
+   either or          v 1/1                      v 0/1
+   yes no             v 9/11  n 24/24  ? 1/6     v 11/11  n 24/24  ? 0/6
+   reverse            v 9/9  n 2/2  ? 1/1        v 7/9  n 2/2  ? 0/1
+   reverse fwd        v 9/9  n 2/2  ? 1/1        v 7/9  n 2/2  ? 0/1
+   controls           v 3/3  ? 3/4               v 3/3  ? 4/4
+   should change      v 29/33  n 26/26  ? 2/2    v 30/33  n 26/26  ? 2/2
+   should stay        v 3/3  ? 5/11              v 3/3  ? 4/11
+   abstention         P 5/5 R 5/13               P 4/4 R 4/13              precision and recall of "don't know"
+   closed world       +5                         +7                        fails that pass if a "no" counts where the right answer is "don't know"
+   reliability        6/7                        7/7
+   generality         46/54                      47/54
+   locality           7/8                        7/8
+   portability        6/6                        4/6
+   neighbourhood    a value taught about another entity: Q18 hazel (my cat) plain, Q04 Bruno (my dog) think
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value              71/76              72/76   not: Q11~Q08 plain, Q11~Q09 plain, Q37~Q06 plain, Q37~Q35 plain, Q64~Q63 plain, Q04~Q02 think, Q04~Q51 think, Q12~Q08 think, Q12~Q09 think
+     plain: dk                    0/16               0/16   not: Q15~Q14 plain, Q15~Q43 plain, Q38~Q14 plain, Q38~Q43 plain, Q39~Q14 plain, Q39~Q43 plain, Q40~Q14 plain, Q40~Q43 plain, Q41~Q14 plain, Q41~Q43 plain, Q42~Q14 plain, Q42~Q43 plain, Q44~Q14 plain, Q44~Q43 plain, Q45~Q14 plain, Q45~Q43 plain, Q15~Q14 think, Q15~Q43 think, Q38~Q14 think, Q38~Q43 think, Q39~Q14 think, Q39~Q43 think, Q40~Q14 think, Q40~Q43 think, Q41~Q14 think, Q41~Q43 think, Q42~Q14 think, Q42~Q43 think, Q44~Q14 think, Q44~Q43 think, Q45~Q14 think, Q45~Q43 think
+   same answer      40/42 (39 v, 1 dk) 40/42 (39 v, 1 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok               16/20              17/20   questions asked in several wordings, every wording right
+   forms v2                               thinking off                  thinking on
+   wrong yes                                      0/33                         0/33
+     yes/no                                       0/18                         0/18
+     true/false                                    0/6                          0/6
+     recall+answer                                 0/6                          0/6
+     reverse yes/no                                0/3                          0/3
+     neighbour's value                            0/12                         0/12
+   coherence breaks                        0 of 5 keys                  0 of 5 keys
+   pass, by form
+     true/false                                   9/10                         9/10
+     fill-in                                       5/5                          5/5
+     recall+answer                                8/10                         9/10
+     reverse bare                                  3/3                          3/3
+     reverse listed                                3/3                          1/3
+     reverse yes/no                                6/6                          5/6
+     recall agrees                7/10 with own recall         8/10 with own recall
+   reverse, forward ok    bare 3/3, listed 3/3, yes/no 6/6 bare 3/3, listed 1/3, yes/no 5/6
+   reversal curse                               0 of 3                       2 of 3
+   reverse as a set                 6/6 named, 0 extra           6/6 named, 2 extra
+   earlier likes kept              3/3, Ignore Rate 0%          3/3, Ignore Rate 0%
+     yes/no                                        1/1                          1/1
+     list                                          2/2                          2/2
+     newest like                                   3/3                          3/3
+   think: reversal curse: eye_colour grey, likes olives
+   FAIL    Q08 plain "What food do I like?" expected apples, pears (not olives); got pears, apples, olives [extra ['olives']]  << Based on your statements, you like pears and apples. You previously said you liked olives,
+   FAIL    Q09 plain "Which foods do I like?" expected apples, pears (not olives); got pears, apples, olives [extra ['olives']]  << Based on your statements, you like pears and apples. You previously said you liked olives,
+   FAIL    Q18 plain "What colour are my eyes?" expected doesn't know; got hazel [invented a value]  << Your eyes are hazel.
+   FAIL    Q37 plain "First say what colour my cat's eyes are, then answer yes or no: are they hazel?" expected yes; got no (recalled: hazel) [wrong yes/no]  << My cat's eyes are hazel. no
+   FAIL    Q38 plain "Is my favourite colour orange?" expected doesn't know; got no [wrong yes/no]  << No, your favourite colour is no longer blue.
+   FAIL    Q39 plain "Is green my favourite colour?" expected doesn't know; got no [wrong yes/no]  << No, your favourite colour is no longer blue.
+   FAIL    Q40 plain "Is white my favourite colour?" expected doesn't know; got no [wrong yes/no]  << No, your favourite colour is no longer blue.
+   FAIL    Q41 plain "True or false: my favourite colour is orange." expected doesn't know; got no [wrong yes/no]  << False. Your favourite colour is no longer blue.
+   FAIL    Q44 plain "First say what my favourite colour is, then answer yes or no: is it orange?" expected doesn't know; got no (recalled: doesn't know) [wrong yes/no]  << My favourite colour is no longer blue. no
+   FAIL    Q64 plain "Is it true that my dog likes olives?" expected yes; got no [wrong yes/no]  << No, it is not true. In your earlier messages, you said "My dog really likes olives" and th
+   FAIL    Q04 think "Is my cat called Bruno or Nora?" expected Nora; got Bruno [wrong choice]  << Based on the conversation history you provided: - Your dog is called Bruno (said in [1]) -
+   FAIL    Q12 think "Is it true that I like chocolate?" expected doesn't know; got no [wrong yes/no]  << Based on the conversation history you provided, chocolate is not mentioned at all. The sta
+   FAIL    Q38 think "Is my favourite colour orange?" expected doesn't know; got no [wrong yes/no]  << Based on the conversation history provided, there's no statement indicating that your favo
+   FAIL    Q39 think "Is green my favourite colour?" expected doesn't know; got no [wrong yes/no]  << Based on the notes provided, there's no statement that green is your favorite color. Note 
+   FAIL    Q40 think "Is white my favourite colour?" expected doesn't know; got no [wrong yes/no]  << Based on the conversation history you provided, white isn't mentioned as your favorite col
+   FAIL    Q41 think "True or false: my favourite colour is orange." expected doesn't know; got no [wrong yes/no]  << False. Based on the provided notes, your favorite color was previously stated as blue, but
+   FAIL    Q44 think "First say what my favourite colour is, then answer yes or no: is it orange?" expected doesn't know; got no (recalled: doesn't know) [wrong yes/no]  << It is no longer blue. No
+   FAIL    Q65 think "Of me, my dog and my cat, who has grey eyes?" expected my dog; got my dog, me [wrong entities]  << Based on the conversation history you provided: - The dog has grey eyes. (said in [8]: "My
+   FAIL    Q68 think "Of me, my sister and my dog, who likes olives?" expected my dog; got my dog, my sister [wrong entities]  << Based on the provided conversation history: - My dog likes olives. (Quote [6]: "My dog rea
+   FAIL    Q70 think "Is it my sister who likes olives?" expected doesn't know; got no [wrong yes/no]  << Based on the conversation history you provided, there is no mention of your sister liking 
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 5/5, recall 5/13;  v 32/36  n 26/26  ? 7/13
+   thinking on   precision 4/4, recall 4/13;  v 33/36  n 26/26  ? 6/13

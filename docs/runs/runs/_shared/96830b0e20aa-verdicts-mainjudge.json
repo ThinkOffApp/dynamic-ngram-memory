@@ -1,0 +1,1906 @@
+{
+ "set": "neg2-seed1-v2",
+ "results": [
+  {
+   "phase": "teach",
+   "qid": "Q01",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "What is my favourite colour?",
+   "expected": "doesn't know (but not green)",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall"
+   ],
+   "class": "dont_know",
+   "gave": "no",
+   "tag": "reliability",
+   "change": "should_change",
+   "excerpt": "Your favourite colour is no longer green."
+  },
+  {
+   "phase": "teach",
+   "qid": "Q02",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "Which colour do I like best?",
+   "expected": "doesn't know (but not green)",
+   "got": "off topic",
+   "verdict": "fail",
+   "why": "off topic",
+   "buckets": [
+    "recall"
+   ],
+   "class": "dont_know",
+   "gave": "off_topic",
+   "tag": "generality",
+   "change": "should_change",
+   "excerpt": "My name is Nemotron. I am created by NVIDIA researchers."
+  },
+  {
+   "phase": "teach",
+   "qid": "Q03",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "What colour do I like the most?",
+   "expected": "doesn't know (but not green)",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall"
+   ],
+   "class": "dont_know",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_change",
+   "excerpt": "Your favourite colour is no longer green."
+  },
+  {
+   "phase": "teach",
+   "qid": "Q04",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is my favourite colour green?",
+   "expected": "no",
+   "got": "no",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no"
+   ],
+   "class": "no",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_change",
+   "excerpt": "No, your favourite colour is no longer green."
+  },
+  {
+   "phase": "teach",
+   "qid": "Q05",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is white my favourite colour?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "No, I don't have a favorite color."
+  },
+  {
+   "phase": "teach",
+   "qid": "Q06",
+   "type": "EITHER_OR",
+   "thinking": false,
+   "question": "Do I like green or white best?",
+   "expected": "doesn't know",
+   "got": "white",
+   "verdict": "fail",
+   "why": "wrong choice",
+   "buckets": [
+    "either_or"
+   ],
+   "class": "dont_know",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Based on the messages you provided earlier, you like white best. Here is the breakdown: 1."
+  },
+  {
+   "phase": "teach",
+   "qid": "Q07",
+   "type": "EITHER_OR",
+   "thinking": false,
+   "question": "Do I like white or green best?",
+   "expected": "doesn't know",
+   "got": "white",
+   "verdict": "fail",
+   "why": "wrong choice",
+   "buckets": [
+    "either_or"
+   ],
+   "class": "dont_know",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Based on your messages, you like white best. Here is the breakdown: 1. You first said your"
+  },
+  {
+   "phase": "teach",
+   "qid": "Q08",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "What colour does my sister like the most?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "Based on the information you provided, I don't have any information about your sister's fa"
+  },
+  {
+   "phase": "teach",
+   "qid": "Q09",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "Which city do I live in?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "I don't know which city you live in. I don't have access to your personal information or l"
+  },
+  {
+   "phase": "teach",
+   "qid": "Q10",
+   "type": "GK",
+   "thinking": false,
+   "question": "What colour is the sky on a clear day?",
+   "expected": "blue (general knowledge)",
+   "got": "gk",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "The sky is blue on a clear day."
+  },
+  {
+   "phase": "teach",
+   "qid": "Q11",
+   "type": "GK",
+   "thinking": false,
+   "question": "Name three primary colours.",
+   "expected": "red + yellow + blue / red + green + blue (general knowledge)",
+   "got": "gk",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "The three primary colours are red, blue, and yellow."
+  },
+  {
+   "phase": "teach",
+   "qid": "Q12",
+   "type": "GK",
+   "thinking": false,
+   "question": "How many legs does a spider have?",
+   "expected": "eight / 8 (general knowledge)",
+   "got": "gk",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "A spider has 8 legs."
+  },
+  {
+   "phase": "teach",
+   "qid": "Q13",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is my favourite colour blue?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "No, I don't know your favourite colour. I only know that it used to be green, but you said"
+  },
+  {
+   "phase": "teach",
+   "qid": "Q14",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is my favourite colour yellow?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "No, I don't know your favourite colour. I only know that it used to be green, but you said"
+  },
+  {
+   "phase": "teach",
+   "qid": "Q15",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "True or false: my favourite colour is white.",
+   "expected": "doesn't know",
+   "got": "no",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no"
+   ],
+   "class": "dont_know",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "False."
+  },
+  {
+   "phase": "teach",
+   "qid": "Q16",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "True or false: my favourite colour is green.",
+   "expected": "no",
+   "got": "no",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no"
+   ],
+   "class": "no",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_change",
+   "excerpt": "False."
+  },
+  {
+   "phase": "teach",
+   "qid": "Q17",
+   "type": "CURRENT",
+   "thinking": false,
+   "question": "Finish this sentence: \"My favourite colour is ...\"",
+   "expected": "doesn't know (but not green)",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall"
+   ],
+   "class": "dont_know",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_change",
+   "excerpt": "My favourite colour is no longer green."
+  },
+  {
+   "phase": "teach",
+   "qid": "Q18",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "First say what my favourite colour is, then answer yes or no: is it white?",
+   "expected": "doesn't know",
+   "got": "no (recalled: doesn't know)",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no"
+   ],
+   "class": "dont_know",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "My favourite colour is no longer green. Is it white? No."
+  },
+  {
+   "phase": "teach",
+   "qid": "Q19",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "First say what my favourite colour is, then answer yes or no: is it green?",
+   "expected": "no",
+   "got": "no (recalled: doesn't know)",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no"
+   ],
+   "class": "no",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_change",
+   "excerpt": "My favourite colour is no longer green. Is it green? No."
+  },
+  {
+   "phase": "teach",
+   "qid": "Q20",
+   "type": "WHO_HAS",
+   "thinking": false,
+   "question": "Who likes green best?",
+   "expected": "nobody known",
+   "got": "off topic",
+   "verdict": "fail",
+   "why": "off topic",
+   "buckets": [
+    "reverse"
+   ],
+   "class": "dont_know",
+   "gave": "off_topic",
+   "tag": "portability",
+   "change": "should_stay",
+   "excerpt": "My name is Nemotron. I am created by NVIDIA researchers.",
+   "forward": null
+  },
+  {
+   "phase": "teach",
+   "qid": "Q21",
+   "type": "WHO_HAS",
+   "thinking": false,
+   "question": "Of me, my sister and my brother, whose favourite colour is green?",
+   "expected": "nobody known",
+   "got": "nobody of yours (a general answer)",
+   "verdict": "pass",
+   "why": "a general answer: names none of yours",
+   "buckets": [
+    "reverse"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "portability",
+   "change": "should_stay",
+   "excerpt": "My favourite colour is no longer green.",
+   "forward": null
+  },
+  {
+   "phase": "teach",
+   "qid": "Q22",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is it me whose favourite colour is green?",
+   "expected": "no",
+   "got": "no",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "reverse",
+    "reverse_fwd"
+   ],
+   "class": "no",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_change",
+   "excerpt": "No, it is not you. Based on the messages you provided earlier, your favourite colour is no",
+   "forward": true
+  },
+  {
+   "phase": "teach",
+   "qid": "Q23",
+   "type": "YES_NO",
+   "thinking": false,
+   "question": "Is it my sister whose favourite colour is green?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "reverse",
+    "reverse_fwd"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "No, I don't have any information about your sister's favourite colour. I only know about y",
+   "forward": true
+  },
+  {
+   "phase": "teach",
+   "qid": "Q01",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "What is my favourite colour?",
+   "expected": "doesn't know (but not green)",
+   "got": "empty",
+   "verdict": "unclear",
+   "why": "empty answer",
+   "buckets": [
+    "recall"
+   ],
+   "class": "dont_know",
+   "gave": "unclear",
+   "tag": "reliability",
+   "change": "should_change",
+   "excerpt": ""
+  },
+  {
+   "phase": "teach",
+   "qid": "Q02",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "Which colour do I like best?",
+   "expected": "doesn't know (but not green)",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "generality",
+   "change": "should_change",
+   "excerpt": "Based on what you've shared, your favorite color is no longer green, but you haven't menti"
+  },
+  {
+   "phase": "teach",
+   "qid": "Q03",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "What colour do I like the most?",
+   "expected": "doesn't know (but not green)",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "generality",
+   "change": "should_change",
+   "excerpt": "Based on the messages you shared, your favorite color is no longer green, but you haven't "
+  },
+  {
+   "phase": "teach",
+   "qid": "Q04",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is my favourite colour green?",
+   "expected": "no",
+   "got": "yes",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no"
+   ],
+   "class": "no",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_change",
+   "excerpt": "There's a contradiction in the messages you shared. You first said your favorite color is "
+  },
+  {
+   "phase": "teach",
+   "qid": "Q05",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is white my favourite colour?",
+   "expected": "doesn't know",
+   "got": "no",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no"
+   ],
+   "class": "dont_know",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Based on the messages you shared: 1. Your favourite colour was green. 2. It is no longer g"
+  },
+  {
+   "phase": "teach",
+   "qid": "Q06",
+   "type": "EITHER_OR",
+   "thinking": true,
+   "question": "Do I like green or white best?",
+   "expected": "doesn't know",
+   "got": "unclear",
+   "verdict": "unclear",
+   "why": "unclear",
+   "buckets": [
+    "either_or"
+   ],
+   "class": "dont_know",
+   "gave": "unclear",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Based on the two messages you shared: 1. You said your favorite color was green. 2. Then y"
+  },
+  {
+   "phase": "teach",
+   "qid": "Q07",
+   "type": "EITHER_OR",
+   "thinking": true,
+   "question": "Do I like white or green best?",
+   "expected": "doesn't know",
+   "got": "white",
+   "verdict": "fail",
+   "why": "wrong choice",
+   "buckets": [
+    "either_or"
+   ],
+   "class": "dont_know",
+   "gave": "value",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Based on your messages, your favourite colour is no longer green, so you like white best."
+  },
+  {
+   "phase": "teach",
+   "qid": "Q08",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "What colour does my sister like the most?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "I don't have any information about your sister's favorite color in our conversation. The p"
+  },
+  {
+   "phase": "teach",
+   "qid": "Q09",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "Which city do I live in?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "I don't have any information about where you live. The messages you shared only mention yo"
+  },
+  {
+   "phase": "teach",
+   "qid": "Q10",
+   "type": "GK",
+   "thinking": true,
+   "question": "What colour is the sky on a clear day?",
+   "expected": "blue (general knowledge)",
+   "got": "gk",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "The sky on a clear day is blue. This happens because of Rayleigh scattering : sunlight col"
+  },
+  {
+   "phase": "teach",
+   "qid": "Q11",
+   "type": "GK",
+   "thinking": true,
+   "question": "Name three primary colours.",
+   "expected": "red + yellow + blue / red + green + blue (general knowledge)",
+   "got": "gk",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "The three primary colors are red, yellow, and blue (in the traditional RYB color model)."
+  },
+  {
+   "phase": "teach",
+   "qid": "Q12",
+   "type": "GK",
+   "thinking": true,
+   "question": "How many legs does a spider have?",
+   "expected": "eight / 8 (general knowledge)",
+   "got": "gk",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "controls"
+   ],
+   "class": "value",
+   "gave": "value",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "Spiders have 8 legs . They're part of the arachnid class, which also includes scorpions, t"
+  },
+  {
+   "phase": "teach",
+   "qid": "Q13",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is my favourite colour blue?",
+   "expected": "doesn't know",
+   "got": "empty",
+   "verdict": "unclear",
+   "why": "empty answer",
+   "buckets": [
+    "yes_no"
+   ],
+   "class": "dont_know",
+   "gave": "unclear",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": ""
+  },
+  {
+   "phase": "teach",
+   "qid": "Q14",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is my favourite colour yellow?",
+   "expected": "doesn't know",
+   "got": "no",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no"
+   ],
+   "class": "dont_know",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "Based on the messages you shared, your favorite color is no longer green, but the conversa"
+  },
+  {
+   "phase": "teach",
+   "qid": "Q15",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "True or false: my favourite colour is white.",
+   "expected": "doesn't know",
+   "got": "no",
+   "verdict": "fail",
+   "why": "wrong yes/no",
+   "buckets": [
+    "yes_no"
+   ],
+   "class": "dont_know",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": "False. Based on the conversation history, your favorite color was initially green, and you"
+  },
+  {
+   "phase": "teach",
+   "qid": "Q16",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "True or false: my favourite colour is green.",
+   "expected": "no",
+   "got": "no",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "yes_no"
+   ],
+   "class": "no",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_change",
+   "excerpt": "False. (The user most recently stated their favourite colour is no longer green.)"
+  },
+  {
+   "phase": "teach",
+   "qid": "Q17",
+   "type": "CURRENT",
+   "thinking": true,
+   "question": "Finish this sentence: \"My favourite colour is ...\"",
+   "expected": "doesn't know (but not green)",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "recall"
+   ],
+   "class": "dont_know",
+   "gave": "no",
+   "tag": "generality",
+   "change": "should_change",
+   "excerpt": "My favourite colour is no longer green."
+  },
+  {
+   "phase": "teach",
+   "qid": "Q18",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "First say what my favourite colour is, then answer yes or no: is it white?",
+   "expected": "doesn't know",
+   "got": "empty",
+   "verdict": "unclear",
+   "why": "empty answer",
+   "buckets": [
+    "yes_no"
+   ],
+   "class": "dont_know",
+   "gave": "unclear",
+   "tag": "generality",
+   "change": "should_stay",
+   "excerpt": ""
+  },
+  {
+   "phase": "teach",
+   "qid": "Q19",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "First say what my favourite colour is, then answer yes or no: is it green?",
+   "expected": "no",
+   "got": "empty",
+   "verdict": "unclear",
+   "why": "empty answer",
+   "buckets": [
+    "yes_no"
+   ],
+   "class": "no",
+   "gave": "unclear",
+   "tag": "generality",
+   "change": "should_change",
+   "excerpt": ""
+  },
+  {
+   "phase": "teach",
+   "qid": "Q20",
+   "type": "WHO_HAS",
+   "thinking": true,
+   "question": "Who likes green best?",
+   "expected": "nobody known",
+   "got": "nobody of yours (a general answer)",
+   "verdict": "pass",
+   "why": "a general answer: names none of yours",
+   "buckets": [
+    "reverse"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "portability",
+   "change": "should_stay",
+   "excerpt": "Based on the conversation history you provided: 1. The user first said: \"My favourite colo",
+   "forward": null
+  },
+  {
+   "phase": "teach",
+   "qid": "Q21",
+   "type": "WHO_HAS",
+   "thinking": true,
+   "question": "Of me, my sister and my brother, whose favourite colour is green?",
+   "expected": "nobody known",
+   "got": "my sister, me",
+   "verdict": "fail",
+   "why": "wrong entities",
+   "buckets": [
+    "reverse"
+   ],
+   "class": "dont_know",
+   "gave": "value",
+   "tag": "portability",
+   "change": "should_stay",
+   "excerpt": "Based on the messages you shared: 1. Your favorite color was first stated as green, then y",
+   "forward": null
+  },
+  {
+   "phase": "teach",
+   "qid": "Q22",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is it me whose favourite colour is green?",
+   "expected": "no",
+   "got": "empty",
+   "verdict": "unclear",
+   "why": "empty answer",
+   "buckets": [
+    "reverse",
+    "reverse_fwd"
+   ],
+   "class": "no",
+   "gave": "unclear",
+   "tag": "generality",
+   "change": "should_change",
+   "excerpt": "",
+   "forward": true
+  },
+  {
+   "phase": "teach",
+   "qid": "Q23",
+   "type": "YES_NO",
+   "thinking": true,
+   "question": "Is it my sister whose favourite colour is green?",
+   "expected": "doesn't know",
+   "got": "doesn't know",
+   "verdict": "pass",
+   "why": "",
+   "buckets": [
+    "reverse",
+    "reverse_fwd"
+   ],
+   "class": "dont_know",
+   "gave": "dont_know",
+   "tag": "locality",
+   "change": "should_stay",
+   "excerpt": "The messages you shared only record your own favorite color changing from green to no long",
+   "forward": true
+  }
+ ],
+ "consistency": {
+  "teach": {
+   "derived": {
+    "off": {
+     "dont_know": {
+      "n": 33,
+      "ok": 9,
+      "not": [
+       "Q04~Q01",
+       "Q04~Q03",
+       "Q04~Q17",
+       "Q06~Q01",
+       "Q06~Q03",
+       "Q06~Q17",
+       "Q07~Q01",
+       "Q07~Q03",
+       "Q07~Q17",
+       "Q15~Q01",
+       "Q15~Q03",
+       "Q15~Q17",
+       "Q16~Q01",
+       "Q16~Q03",
+       "Q16~Q17",
+       "Q18~Q01",
+       "Q18~Q03",
+       "Q18~Q17",
+       "Q19~Q01",
+       "Q19~Q03",
+       "Q19~Q17",
+       "Q22~Q01",
+       "Q22~Q03",
+       "Q22~Q17"
+      ]
+     }
+    },
+    "on": {
+     "dont_know": {
+      "n": 18,
+      "ok": 0,
+      "not": [
+       "Q04~Q02",
+       "Q04~Q03",
+       "Q04~Q17",
+       "Q05~Q02",
+       "Q05~Q03",
+       "Q05~Q17",
+       "Q07~Q02",
+       "Q07~Q03",
+       "Q07~Q17",
+       "Q14~Q02",
+       "Q14~Q03",
+       "Q14~Q17",
+       "Q15~Q02",
+       "Q15~Q03",
+       "Q15~Q17",
+       "Q16~Q02",
+       "Q16~Q03",
+       "Q16~Q17"
+      ]
+     }
+    }
+   },
+   "yes_no_groups": [
+    0,
+    2
+   ]
+  }
+ },
+ "paraphrase": {
+  "teach": {
+   "off": {
+    "groups": 5,
+    "all_right": 1,
+    "pairs": 13,
+    "same": 11,
+    "same_value": 8,
+    "same_dk": 3,
+    "uncompared": 4,
+    "differ": [
+     "Q05~Q15",
+     "Q05~Q18"
+    ]
+   },
+   "on": {
+    "groups": 5,
+    "all_right": 0,
+    "pairs": 6,
+    "same": 4,
+    "same_value": 1,
+    "same_dk": 3,
+    "uncompared": 11,
+    "differ": [
+     "Q04~Q16",
+     "Q20~Q21"
+    ]
+   }
+  }
+ },
+ "kept_stable": {},
+ "split": {
+  "teach": {
+   "off": {
+    "split": {
+     "all": {
+      "value": {
+       "n": 3,
+       "pass": 3,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "no": {
+       "n": 4,
+       "pass": 4,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 16,
+       "pass": 10,
+       "fail": 6,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "recall": {
+      "dont_know": {
+       "n": 4,
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "either_or": {
+      "dont_know": {
+       "n": 2,
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "yes_no": {
+      "no": {
+       "n": 3,
+       "pass": 3,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 5,
+       "pass": 3,
+       "fail": 2,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "reverse": {
+      "no": {
+       "n": 1,
+       "pass": 1,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 3,
+       "pass": 2,
+       "fail": 1,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "reverse_fwd": {
+      "no": {
+       "n": 1,
+       "pass": 1,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 1,
+       "pass": 1,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "controls": {
+      "value": {
+       "n": 3,
+       "pass": 3,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 2,
+       "pass": 2,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "should_change": {
+      "no": {
+       "n": 4,
+       "pass": 4,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 4,
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "should_stay": {
+      "value": {
+       "n": 3,
+       "pass": 3,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 12,
+       "pass": 7,
+       "fail": 5,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     }
+    },
+    "tags": {
+     "reliability": {
+      "n": 1,
+      "pass": 1,
+      "fail": 0,
+      "unclear": 0,
+      "dk_miss": 0
+     },
+     "generality": {
+      "n": 14,
+      "pass": 9,
+      "fail": 5,
+      "unclear": 0,
+      "dk_miss": 0
+     },
+     "locality": {
+      "n": 6,
+      "pass": 6,
+      "fail": 0,
+      "unclear": 0,
+      "dk_miss": 0
+     },
+     "portability": {
+      "n": 2,
+      "pass": 1,
+      "fail": 1,
+      "unclear": 0,
+      "dk_miss": 0
+     }
+    },
+    "abstention": {
+     "said_dk": 7,
+     "said_dk_right": 7,
+     "dk_expected": 16
+    },
+    "closed_world": 2,
+    "neighbour": []
+   },
+   "on": {
+    "split": {
+     "all": {
+      "value": {
+       "n": 3,
+       "pass": 3,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "no": {
+       "n": 4,
+       "pass": 1,
+       "fail": 1,
+       "unclear": 2,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 16,
+       "pass": 7,
+       "fail": 5,
+       "unclear": 4,
+       "dk_miss": 0
+      }
+     },
+     "recall": {
+      "dont_know": {
+       "n": 4,
+       "pass": 3,
+       "fail": 0,
+       "unclear": 1,
+       "dk_miss": 0
+      }
+     },
+     "either_or": {
+      "dont_know": {
+       "n": 2,
+       "pass": 0,
+       "fail": 1,
+       "unclear": 1,
+       "dk_miss": 0
+      }
+     },
+     "yes_no": {
+      "no": {
+       "n": 3,
+       "pass": 1,
+       "fail": 1,
+       "unclear": 1,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 5,
+       "pass": 0,
+       "fail": 3,
+       "unclear": 2,
+       "dk_miss": 0
+      }
+     },
+     "reverse": {
+      "no": {
+       "n": 1,
+       "pass": 0,
+       "fail": 0,
+       "unclear": 1,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 3,
+       "pass": 2,
+       "fail": 1,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "reverse_fwd": {
+      "no": {
+       "n": 1,
+       "pass": 0,
+       "fail": 0,
+       "unclear": 1,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 1,
+       "pass": 1,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "controls": {
+      "value": {
+       "n": 3,
+       "pass": 3,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 2,
+       "pass": 2,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "should_change": {
+      "no": {
+       "n": 4,
+       "pass": 1,
+       "fail": 1,
+       "unclear": 2,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 4,
+       "pass": 3,
+       "fail": 0,
+       "unclear": 1,
+       "dk_miss": 0
+      }
+     },
+     "should_stay": {
+      "value": {
+       "n": 3,
+       "pass": 3,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 12,
+       "pass": 4,
+       "fail": 5,
+       "unclear": 3,
+       "dk_miss": 0
+      }
+     }
+    },
+    "tags": {
+     "reliability": {
+      "n": 1,
+      "pass": 0,
+      "fail": 0,
+      "unclear": 1,
+      "dk_miss": 0
+     },
+     "generality": {
+      "n": 14,
+      "pass": 4,
+      "fail": 5,
+      "unclear": 5,
+      "dk_miss": 0
+     },
+     "locality": {
+      "n": 6,
+      "pass": 6,
+      "fail": 0,
+      "unclear": 0,
+      "dk_miss": 0
+     },
+     "portability": {
+      "n": 2,
+      "pass": 1,
+      "fail": 1,
+      "unclear": 0,
+      "dk_miss": 0
+     }
+    },
+    "abstention": {
+     "said_dk": 6,
+     "said_dk_right": 6,
+     "dk_expected": 16
+    },
+    "closed_world": 3,
+    "neighbour": []
+   }
+  },
+  "all phases": {
+   "off": {
+    "split": {
+     "all": {
+      "value": {
+       "n": 3,
+       "pass": 3,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "no": {
+       "n": 4,
+       "pass": 4,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 16,
+       "pass": 10,
+       "fail": 6,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "recall": {
+      "dont_know": {
+       "n": 4,
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "either_or": {
+      "dont_know": {
+       "n": 2,
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "yes_no": {
+      "no": {
+       "n": 3,
+       "pass": 3,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 5,
+       "pass": 3,
+       "fail": 2,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "reverse": {
+      "no": {
+       "n": 1,
+       "pass": 1,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 3,
+       "pass": 2,
+       "fail": 1,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "reverse_fwd": {
+      "no": {
+       "n": 1,
+       "pass": 1,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 1,
+       "pass": 1,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "controls": {
+      "value": {
+       "n": 3,
+       "pass": 3,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 2,
+       "pass": 2,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "should_change": {
+      "no": {
+       "n": 4,
+       "pass": 4,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 4,
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "should_stay": {
+      "value": {
+       "n": 3,
+       "pass": 3,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 12,
+       "pass": 7,
+       "fail": 5,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     }
+    },
+    "tags": {
+     "reliability": {
+      "n": 1,
+      "pass": 1,
+      "fail": 0,
+      "unclear": 0,
+      "dk_miss": 0
+     },
+     "generality": {
+      "n": 14,
+      "pass": 9,
+      "fail": 5,
+      "unclear": 0,
+      "dk_miss": 0
+     },
+     "locality": {
+      "n": 6,
+      "pass": 6,
+      "fail": 0,
+      "unclear": 0,
+      "dk_miss": 0
+     },
+     "portability": {
+      "n": 2,
+      "pass": 1,
+      "fail": 1,
+      "unclear": 0,
+      "dk_miss": 0
+     }
+    },
+    "abstention": {
+     "said_dk": 7,
+     "said_dk_right": 7,
+     "dk_expected": 16
+    },
+    "closed_world": 2,
+    "neighbour": []
+   },
+   "on": {
+    "split": {
+     "all": {
+      "value": {
+       "n": 3,
+       "pass": 3,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "no": {
+       "n": 4,
+       "pass": 1,
+       "fail": 1,
+       "unclear": 2,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 16,
+       "pass": 7,
+       "fail": 5,
+       "unclear": 4,
+       "dk_miss": 0
+      }
+     },
+     "recall": {
+      "dont_know": {
+       "n": 4,
+       "pass": 3,
+       "fail": 0,
+       "unclear": 1,
+       "dk_miss": 0
+      }
+     },
+     "either_or": {
+      "dont_know": {
+       "n": 2,
+       "pass": 0,
+       "fail": 1,
+       "unclear": 1,
+       "dk_miss": 0
+      }
+     },
+     "yes_no": {
+      "no": {
+       "n": 3,
+       "pass": 1,
+       "fail": 1,
+       "unclear": 1,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 5,
+       "pass": 0,
+       "fail": 3,
+       "unclear": 2,
+       "dk_miss": 0
+      }
+     },
+     "reverse": {
+      "no": {
+       "n": 1,
+       "pass": 0,
+       "fail": 0,
+       "unclear": 1,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 3,
+       "pass": 2,
+       "fail": 1,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "reverse_fwd": {
+      "no": {
+       "n": 1,
+       "pass": 0,
+       "fail": 0,
+       "unclear": 1,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 1,
+       "pass": 1,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "controls": {
+      "value": {
+       "n": 3,
+       "pass": 3,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 2,
+       "pass": 2,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      }
+     },
+     "should_change": {
+      "no": {
+       "n": 4,
+       "pass": 1,
+       "fail": 1,
+       "unclear": 2,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 4,
+       "pass": 3,
+       "fail": 0,
+       "unclear": 1,
+       "dk_miss": 0
+      }
+     },
+     "should_stay": {
+      "value": {
+       "n": 3,
+       "pass": 3,
+       "fail": 0,
+       "unclear": 0,
+       "dk_miss": 0
+      },
+      "dont_know": {
+       "n": 12,
+       "pass": 4,
+       "fail": 5,
+       "unclear": 3,
+       "dk_miss": 0
+      }
+     }
+    },
+    "tags": {
+     "reliability": {
+      "n": 1,
+      "pass": 0,
+      "fail": 0,
+      "unclear": 1,
+      "dk_miss": 0
+     },
+     "generality": {
+      "n": 14,
+      "pass": 4,
+      "fail": 5,
+      "unclear": 5,
+      "dk_miss": 0
+     },
+     "locality": {
+      "n": 6,
+      "pass": 6,
+      "fail": 0,
+      "unclear": 0,
+      "dk_miss": 0
+     },
+     "portability": {
+      "n": 2,
+      "pass": 1,
+      "fail": 1,
+      "unclear": 0,
+      "dk_miss": 0
+     }
+    },
+    "abstention": {
+     "said_dk": 6,
+     "said_dk_right": 6,
+     "dk_expected": 16
+    },
+    "closed_world": 3,
+    "neighbour": []
+   }
+  }
+ },
+ "forms": {
+  "teach": {
+   "off": {
+    "wrong_yes": {
+     "yes": 0,
+     "n": 10,
+     "base_yes": 0,
+     "base_n": 0,
+     "by_form": {
+      "yes_no": [
+       0,
+       4
+      ],
+      "true_false": [
+       0,
+       2
+      ],
+      "recall_yn": [
+       0,
+       2
+      ],
+      "who_yn": [
+       0,
+       2
+      ]
+     },
+     "neighbour": [
+      0,
+      0
+     ],
+     "said_yes": []
+    },
+    "coherence": {
+     "keys": 1,
+     "breaks": []
+    },
+    "forms": {
+     "true_false": {
+      "pass": 1,
+      "fail": 1,
+      "unclear": 0
+     },
+     "fill_in": {
+      "pass": 1,
+      "fail": 0,
+      "unclear": 0
+     },
+     "recall_yn": {
+      "pass": 1,
+      "fail": 1,
+      "unclear": 0
+     },
+     "who_bare": {
+      "pass": 0,
+      "fail": 1,
+      "unclear": 0
+     },
+     "who_listed": {
+      "pass": 1,
+      "fail": 0,
+      "unclear": 0
+     },
+     "who_yn": {
+      "pass": 2,
+      "fail": 0,
+      "unclear": 0
+     },
+     "recall_agree": [
+      0,
+      2
+     ]
+    },
+    "reverse": {
+     "forward_passed": {
+      "who_bare": [
+       0,
+       0
+      ],
+      "who_listed": [
+       0,
+       0
+      ],
+      "who_yn": [
+       2,
+       2
+      ]
+     },
+     "set": {
+      "holders": 0,
+      "named": 0,
+      "extra": 0
+     },
+     "curse": [],
+     "bare_only": [],
+     "ok": [],
+     "unclear": []
+    }
+   },
+   "on": {
+    "wrong_yes": {
+     "yes": 1,
+     "n": 10,
+     "base_yes": 0,
+     "base_n": 0,
+     "by_form": {
+      "yes_no": [
+       1,
+       4
+      ],
+      "true_false": [
+       0,
+       2
+      ],
+      "recall_yn": [
+       0,
+       2
+      ],
+      "who_yn": [
+       0,
+       2
+      ]
+     },
+     "neighbour": [
+      0,
+      0
+     ],
+     "said_yes": [
+      "Q04"
+     ]
+    },
+    "coherence": {
+     "keys": 1,
+     "breaks": []
+    },
+    "forms": {
+     "true_false": {
+      "pass": 1,
+      "fail": 1,
+      "unclear": 0
+     },
+     "fill_in": {
+      "pass": 1,
+      "fail": 0,
+      "unclear": 0
+     },
+     "recall_yn": {
+      "pass": 0,
+      "fail": 0,
+      "unclear": 2
+     },
+     "who_bare": {
+      "pass": 1,
+      "fail": 0,
+      "unclear": 0
+     },
+     "who_listed": {
+      "pass": 0,
+      "fail": 1,
+      "unclear": 0
+     },
+     "who_yn": {
+      "pass": 1,
+      "fail": 0,
+      "unclear": 1
+     },
+     "recall_agree": [
+      0,
+      0
+     ]
+    },
+    "reverse": {
+     "forward_passed": {
+      "who_bare": [
+       0,
+       0
+      ],
+      "who_listed": [
+       0,
+       0
+      ],
+      "who_yn": [
+       1,
+       2
+      ]
+     },
+     "set": {
+      "holders": 0,
+      "named": 0,
+      "extra": 0
+     },
+     "curse": [],
+     "bare_only": [],
+     "ok": [],
+     "unclear": []
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,8980 @@
+{
+ "k": 2,
+ "text": "My dog is called Ginger.",
+ "learn_s": 205.2,
+ "raw": [
+  [
+   0.0,
+   "event: fact"
+  ],
+  [
+   0.0,
+   "data: {\"id\": 6, \"text\": \"My dog is called Ginger.\"}"
+  ],
+  [
+   0.0,
+   ""
+  ],
+  [
+   0.02,
+   "event: learning"
+  ],
+  [
+   0.02,
+   "data: {\"id\": 6}"
+  ],
+  [
+   0.02,
+   ""
+  ],
+  [
+   204.7,
+   "event: learned"
+  ],
+  [
+   204.7,
+   "data: {\"id\": 6, \"recalled\": false, \"steps\": 5}"
+  ],
+  [
+   204.7,
+   ""
+  ],
+  [
+   204.7,
+   "data: [DONE]"
+  ],
+  [
+   204.7,
+   ""
+  ]
+ ],
+ "events": [
+  [
+   "fact",
+   {
+    "id": 6,
+    "text": "My dog is called Ginger."
+   }
+  ],
+  [
+   "learning",
+   {
+    "id": 6
+   }
+  ],
+  [
+   "learned",
+   {
+    "id": 6,
+    "recalled": false,
+    "steps": 5
+   }
+  ],
+  [
+   null,
+   "[DONE]"
+  ]
+ ],
+ "graph": {
+  "next": 7,
+  "facts": [
+   {
+    "id": 1,
+    "text": "My favourite colour is green.",
+    "source": "chat",
+    "state": "replaced",
+    "links": [
+     4,
+     5
+    ],
+    "round": 5,
+    "message": "replaced by fact 4",
+    "questions": [
+     "Which colour is my favourite colour?",
+     "Do you know what colour is my favourite?",
+     "What colour do I like?"
+    ]
+   },
+   {
+    "id": 2,
+    "text": "My sister is called Ana.",
+    "source": "chat",
+    "state": "learned",
+    "links": [
+     6
+    ],
+    "round": 2,
+    "questions": [
+     "What is my sister's name called?",
+     "Which name is my sister's?",
+     "How do I refer to my sister?"
+    ],
+    "neurons": [
+     {
+      "layer": 31,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 20,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 22,
+      "neuron": 0,
+      "key": "subject"
+     },
+     {
+      "layer": 15,
+      "neuron": 0,
+      "key": "subject"
+     },
+     {
+      "layer": 10,
+      "neuron": 0,
+      "key": "subject"
+     },
+     {
+      "layer": 17,
+      "neuron": 0,
+      "key": "subject"
+     },
+     {
+      "layer": 29,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 13,
+      "neuron": 0,
+      "key": "subject"
+     },
+     {
+      "layer": 24,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 27,
+      "neuron": 1,
+      "key": "subject"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "text": "My eyes are brown.",
+    "source": "chat",
+    "state": "learned",
+    "links": [],
+    "round": 1,
+    "questions": [
+     "What colour are my eyes?",
+     "What is the colour of my eyes?",
+     "Would you say my eye colour is brown?",
+     "Can I check if my eyes are brown?"
+    ],
+    "neurons": [
+     {
+      "layer": 13,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 15,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 10,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 22,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 20,
+      "neuron": 2,
+      "key": "subject"
+     },
+     {
+      "layer": 24,
+      "neuron": 2,
+      "key": "subject"
+     },
+     {
+      "layer": 17,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 27,
+      "neuron": 2,
+      "key": "subject"
+     },
+     {
+      "layer": 29,
+      "neuron": 2,
+      "key": "subject"
+     },
+     {
+      "layer": 31,
+      "neuron": 2,
+      "key": "subject"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "text": "My favourite colour is blue now.",
+    "source": "chat",
+    "state": "learned",
+    "links": [
+     1,
+     5
+    ],
+    "round": 2,
+    "questions": [
+     "Which colour is my favourite?",
+     "Which colour is my favourite colour?"
+    ],
+    "neurons": [
+     {
+      "layer": 31,
+      "neuron": 3,
+      "key": "reply"
+     },
+     {
+      "layer": 36,
+      "neuron": 1,
+      "key": "reply"
+     },
+     {
+      "layer": 34,
+      "neuron": 1,
+      "key": "reply"
+     },
+     {
+      "layer": 27,
+      "neuron": 3,
+      "key": "reply"
+     },
+     {
+      "layer": 29,
+      "neuron": 3,
+      "key": "reply"
+     },
+     {
+      "layer": 24,
+      "neuron": 3,
+      "key": "reply"
+     },
+     {
+      "layer": 20,
+      "neuron": 3,
+      "key": "reply"
+     },
+     {
+      "layer": 38,
+      "neuron": 1,
+      "key": "reply"
+     },
+     {
+      "layer": 40,
+      "neuron": 1,
+      "key": "reply"
+     },
+     {
+      "layer": 22,
+      "neuron": 2,
+      "key": "reply"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "text": "My favourite food is pizza.",
+    "source": "chat",
+    "state": "learned",
+    "links": [
+     1,
+     4
+    ],
+    "round": 2,
+    "questions": [
+     "What do I like to eat the most?",
+     "What's the food I like most?",
+     "Which food do I like most?",
+     "What food is my top choice?",
+     "What's the meal I like best?",
+     "What do I prefer to eat above all else?"
+    ],
+    "neurons": [
+     {
+      "layer": 36,
+      "neuron": 2,
+      "key": "reply"
+     },
+     {
+      "layer": 40,
+      "neuron": 2,
+      "key": "reply"
+     },
+     {
+      "layer": 34,
+      "neuron": 2,
+      "key": "reply"
+     },
+     {
+      "layer": 31,
+      "neuron": 4,
+      "key": "reply"
+     },
+     {
+      "layer": 43,
+      "neuron": 0,
+      "key": "reply"
+     },
+     {
+      "layer": 38,
+      "neuron": 2,
+      "key": "reply"
+     },
+     {
+      "layer": 27,
+      "neuron": 4,
+      "key": "reply"
+     },
+     {
+      "layer": 29,
+      "neuron": 4,
+      "key": "reply"
+     },
+     {
+      "layer": 24,
+      "neuron": 4,
+      "key": "reply"
+     },
+     {
+      "layer": 45,
+      "neuron": 0,
+      "key": "reply"
+     }
+    ],
+    "checks": 2,
+    "recalled": true,
+    "loss": 0.13
+   },
+   {
+    "id": 6,
+    "text": "My dog is called Ginger.",
+    "source": "chat",
+    "state": "missed",
+    "links": [
+     2
+    ],
+    "round": 5,
+    "questions": [
+     "What is my dog's name again?",
+     "What is my dog's name called?",
+     "My dog's name, what is it?",
+     "What's the name of my dog?",
+     "My dog is called what?"
+    ],
+    "checks": 5,
+    "recalled": false,
+    "loss": 1.0389
+   }
+  ],
+  "model": {
+   "layers": 52,
+   "kinds": "MEMEM*EMEMEM*EMEMEM*EMEMEM*EMEMEM*EMEMEMEM*EMEMEMEME",
+   "pocket": {
+    "neurons": 64,
+    "layers": [
+     1,
+     3,
+     6,
+     8,
+     10,
+     13,
+     15,
+     17,
+     20,
+     22,
+     24,
+     27,
+     29,
+     31,
+     34,
+     36,
+     38,
+     40,
+     43,
+     45,
+     47,
+     49,
+     51
+    ],
+    "used": [
+     0,
+     0,
+     0,
+     0,
+     2,
+     2,
+     2,
+     2,
+     4,
+     3,
+     5,
+     5,
+     5,
+     5,
+     3,
+     3,
+     3,
+     3,
+     1,
+     1,
+     0,
+     0,
+     0
+    ]
+   },
+   "shards": [
+    {
+     "name": "model-00001-of-00004.safetensors",
+     "bytes": 5119792680,
+     "pocket": true,
+     "layers": [
+      1,
+      3,
+      6,
+      8,
+      10,
+      13
+     ]
+    },
+    {
+     "name": "model-00002-of-00004.safetensors",
+     "bytes": 5292923208,
+     "pocket": true,
+     "layers": [
+      15,
+      17,
+      20,
+      22,
+      24,
+      27,
+      29
+     ]
+    },
+    {
+     "name": "model-00003-of-00004.safetensors",
+     "bytes": 5292923168,
+     "pocket": true,
+     "layers": [
+      31,
+      34,
+      36,
+      38,
+      40,
+      43,
+      45
+     ]
+    },
+    {
+     "name": "model-00004-of-00004.safetensors",
+     "bytes": 2074237664,
+     "pocket": true,
+     "layers": [
+      47,
+      49,
+      51
+     ]
+    },
+    {
+     "name": "mtp-4bit.safetensors",
+     "bytes": 751832520,
+     "pocket": true,
+     "layers": []
+    }
+   ],
+   "save": {
+    "state": "saved",
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ]
+   }
+  }
+ },
+ "graph_raw": {
+  "next": 7,
+  "facts": [
+   {
+    "id": 1,
+    "text": "My favourite colour is green.",
+    "source": "chat",
+    "at": 1791902967253,
+    "state": "replaced",
+    "links": [
+     4,
+     5
+    ],
+    "round": 5,
+    "message": "replaced by fact 4",
+    "questions": [
+     "Which colour is my favourite colour?",
+     "Do you know what colour is my favourite?",
+     "What colour do I like?"
+    ]
+   },
+   {
+    "id": 2,
+    "text": "My sister is called Ana.",
+    "source": "chat",
+    "at": 1791903246539,
+    "state": "learned",
+    "links": [
+     6
+    ],
+    "round": 2,
+    "questions": [
+     "What is my sister's name called?",
+     "Which name is my sister's?",
+     "How do I refer to my sister?"
+    ],
+    "neurons": [
+     {
+      "layer": 31,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 20,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 22,
+      "neuron": 0,
+      "key": "subject"
+     },
+     {
+      "layer": 15,
+      "neuron": 0,
+      "key": "subject"
+     },
+     {
+      "layer": 10,
+      "neuron": 0,
+      "key": "subject"
+     },
+     {
+      "layer": 17,
+      "neuron": 0,
+      "key": "subject"
+     },
+     {
+      "layer": 29,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 13,
+      "neuron": 0,
+      "key": "subject"
+     },
+     {
+      "layer": 24,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 27,
+      "neuron": 1,
+      "key": "subject"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "text": "My eyes are brown.",
+    "source": "chat",
+    "at": 1791903448182,
+    "state": "learned",
+    "links": [],
+    "round": 1,
+    "questions": [
+     "What colour are my eyes?",
+     "What is the colour of my eyes?",
+     "Would you say my eye colour is brown?",
+     "Can I check if my eyes are brown?"
+    ],
+    "neurons": [
+     {
+      "layer": 13,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 15,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 10,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 22,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 20,
+      "neuron": 2,
+      "key": "subject"
+     },
+     {
+      "layer": 24,
+      "neuron": 2,
+      "key": "subject"
+     },
+     {
+      "layer": 17,
+      "neuron": 1,
+      "key": "subject"
+     },
+     {
+      "layer": 27,
+      "neuron": 2,
+      "key": "subject"
+     },
+     {
+      "layer": 29,
+      "neuron": 2,
+      "key": "subject"
+     },
+     {
+      "layer": 31,
+      "neuron": 2,
+      "key": "subject"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "text": "My favourite colour is blue now.",
+    "source": "chat",
+    "at": 1791903610770,
+    "state": "learned",
+    "links": [
+     1,
+     5
+    ],
+    "round": 2,
+    "questions": [
+     "Which colour is my favourite?",
+     "Which colour is my favourite colour?"
+    ],
+    "neurons": [
+     {
+      "layer": 31,
+      "neuron": 3,
+      "key": "reply"
+     },
+     {
+      "layer": 36,
+      "neuron": 1,
+      "key": "reply"
+     },
+     {
+      "layer": 34,
+      "neuron": 1,
+      "key": "reply"
+     },
+     {
+      "layer": 27,
+      "neuron": 3,
+      "key": "reply"
+     },
+     {
+      "layer": 29,
+      "neuron": 3,
+      "key": "reply"
+     },
+     {
+      "layer": 24,
+      "neuron": 3,
+      "key": "reply"
+     },
+     {
+      "layer": 20,
+      "neuron": 3,
+      "key": "reply"
+     },
+     {
+      "layer": 38,
+      "neuron": 1,
+      "key": "reply"
+     },
+     {
+      "layer": 40,
+      "neuron": 1,
+      "key": "reply"
+     },
+     {
+      "layer": 22,
+      "neuron": 2,
+      "key": "reply"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "text": "My favourite food is pizza.",
+    "source": "chat",
+    "at": 1791905278352,
+    "state": "learned",
+    "links": [
+     1,
+     4
+    ],
+    "round": 2,
+    "questions": [
+     "What do I like to eat the most?",
+     "What's the food I like most?",
+     "Which food do I like most?",
+     "What food is my top choice?",
+     "What's the meal I like best?",
+     "What do I prefer to eat above all else?"
+    ],
+    "neurons": [
+     {
+      "layer": 36,
+      "neuron": 2,
+      "key": "reply"
+     },
+     {
+      "layer": 40,
+      "neuron": 2,
+      "key": "reply"
+     },
+     {
+      "layer": 34,
+      "neuron": 2,
+      "key": "reply"
+     },
+     {
+      "layer": 31,
+      "neuron": 4,
+      "key": "reply"
+     },
+     {
+      "layer": 43,
+      "neuron": 0,
+      "key": "reply"
+     },
+     {
+      "layer": 38,
+      "neuron": 2,
+      "key": "reply"
+     },
+     {
+      "layer": 27,
+      "neuron": 4,
+      "key": "reply"
+     },
+     {
+      "layer": 29,
+      "neuron": 4,
+      "key": "reply"
+     },
+     {
+      "layer": 24,
+      "neuron": 4,
+      "key": "reply"
+     },
+     {
+      "layer": 45,
+      "neuron": 0,
+      "key": "reply"
+     }
+    ],
+    "checks": 2,
+    "recalled": true,
+    "loss": 0.13
+   },
+   {
+    "id": 6,
+    "text": "My dog is called Ginger.",
+    "source": "chat",
+    "at": 1791905484589,
+    "state": "missed",
+    "links": [
+     2
+    ],
+    "round": 5,
+    "questions": [
+     "What is my dog's name again?",
+     "What is my dog's name called?",
+     "My dog's name, what is it?",
+     "What's the name of my dog?",
+     "My dog is called what?"
+    ],
+    "checks": 5,
+    "recalled": false,
+    "loss": 1.0389
+   }
+  ],
+  "model": {
+   "layers": 52,
+   "kinds": "MEMEM*EMEMEM*EMEMEM*EMEMEM*EMEMEM*EMEMEMEM*EMEMEMEME",
+   "pocket": {
+    "neurons": 64,
+    "layers": [
+     1,
+     3,
+     6,
+     8,
+     10,
+     13,
+     15,
+     17,
+     20,
+     22,
+     24,
+     27,
+     29,
+     31,
+     34,
+     36,
+     38,
+     40,
+     43,
+     45,
+     47,
+     49,
+     51
+    ],
+    "used": [
+     0,
+     0,
+     0,
+     0,
+     2,
+     2,
+     2,
+     2,
+     4,
+     3,
+     5,
+     5,
+     5,
+     5,
+     3,
+     3,
+     3,
+     3,
+     1,
+     1,
+     0,
+     0,
+     0
+    ]
+   },
+   "shards": [
+    {
+     "name": "model-00001-of-00004.safetensors",
+     "bytes": 5119792680,
+     "pocket": true,
+     "layers": [
+      1,
+      3,
+      6,
+      8,
+      10,
+      13
+     ]
+    },
+    {
+     "name": "model-00002-of-00004.safetensors",
+     "bytes": 5292923208,
+     "pocket": true,
+     "layers": [
+      15,
+      17,
+      20,
+      22,
+      24,
+      27,
+      29
+     ]
+    },
+    {
+     "name": "model-00003-of-00004.safetensors",
+     "bytes": 5292923168,
+     "pocket": true,
+     "layers": [
+      31,
+      34,
+      36,
+      38,
+      40,
+      43,
+      45
+     ]
+    },
+    {
+     "name": "model-00004-of-00004.safetensors",
+     "bytes": 2074237664,
+     "pocket": true,
+     "layers": [
+      47,
+      49,
+      51
+     ]
+    },
+    {
+     "name": "mtp-4bit.safetensors",
+     "bytes": 751832520,
+     "pocket": true,
+     "layers": []
+    }
+   ],
+   "save": {
+    "state": "saved",
+    "at": 1791905689285,
+    "seconds": 0.5,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ]
+   }
+  }
+ },
+ "polls": [
+  [
+   0.0,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ]
+   ]
+  ],
+  [
+   2.0,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   4.0,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   6.0,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   8.0,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   10.0,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   12.0,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   14.0,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   16.0,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   18.0,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   20.0,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   22.0,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   24.0,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   26.0,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   28.0,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   30.0,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   32.0,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   34.0,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   36.0,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   38.0,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "reading",
+     24,
+     726
+    ]
+   ]
+  ],
+  [
+   40.0,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "reading",
+     193,
+     726
+    ]
+   ]
+  ],
+  [
+   42.0,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "reading",
+     351,
+     726
+    ]
+   ]
+  ],
+  [
+   44.0,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "reading",
+     576,
+     726
+    ]
+   ]
+  ],
+  [
+   46.0,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "fitting",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   48.0,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "fitting",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   50.0,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "fitting",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   52.0,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     2,
+     0
+    ]
+   ]
+  ],
+  [
+   54.0,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     5,
+     0
+    ]
+   ]
+  ],
+  [
+   56.0,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     7,
+     0
+    ]
+   ]
+  ],
+  [
+   58.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     10,
+     0
+    ]
+   ]
+  ],
+  [
+   60.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     14,
+     0
+    ]
+   ]
+  ],
+  [
+   62.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "checking",
+     0,
+     4
+    ]
+   ]
+  ],
+  [
+   64.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   66.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   68.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   70.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   72.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     1,
+     0
+    ]
+   ]
+  ],
+  [
+   74.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     3,
+     0
+    ]
+   ]
+  ],
+  [
+   76.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     7,
+     0
+    ]
+   ]
+  ],
+  [
+   78.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     11,
+     0
+    ]
+   ]
+  ],
+  [
+   80.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     14,
+     0
+    ]
+   ]
+  ],
+  [
+   82.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     18,
+     0
+    ]
+   ]
+  ],
+  [
+   84.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     23,
+     0
+    ]
+   ]
+  ],
+  [
+   86.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     28,
+     0
+    ]
+   ]
+  ],
+  [
+   88.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     33,
+     0
+    ]
+   ]
+  ],
+  [
+   90.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     38,
+     0
+    ]
+   ]
+  ],
+  [
+   92.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   94.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   96.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   98.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   100.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     1,
+     0
+    ]
+   ]
+  ],
+  [
+   102.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     4,
+     0
+    ]
+   ]
+  ],
+  [
+   104.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     7,
+     0
+    ]
+   ]
+  ],
+  [
+   106.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     12,
+     0
+    ]
+   ]
+  ],
+  [
+   108.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     16,
+     0
+    ]
+   ]
+  ],
+  [
+   110.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     18,
+     0
+    ]
+   ]
+  ],
+  [
+   112.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     23,
+     0
+    ]
+   ]
+  ],
+  [
+   114.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     28,
+     0
+    ]
+   ]
+  ],
+  [
+   116.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     33,
+     0
+    ]
+   ]
+  ],
+  [
+   118.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     36,
+     0
+    ]
+   ]
+  ],
+  [
+   120.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     41,
+     0
+    ]
+   ]
+  ],
+  [
+   122.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     46,
+     0
+    ]
+   ]
+  ],
+  [
+   124.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     47,
+     0
+    ]
+   ]
+  ],
+  [
+   126.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     52,
+     0
+    ]
+   ]
+  ],
+  [
+   128.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     57,
+     0
+    ]
+   ]
+  ],
+  [
+   130.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   132.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   134.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   136.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   138.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   140.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     2,
+     0
+    ]
+   ]
+  ],
+  [
+   142.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     4,
+     0
+    ]
+   ]
+  ],
+  [
+   144.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     8,
+     0
+    ]
+   ]
+  ],
+  [
+   146.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     11,
+     0
+    ]
+   ]
+  ],
+  [
+   148.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     15,
+     0
+    ]
+   ]
+  ],
+  [
+   150.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     20,
+     0
+    ]
+   ]
+  ],
+  [
+   152.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     24,
+     0
+    ]
+   ]
+  ],
+  [
+   154.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     29,
+     0
+    ]
+   ]
+  ],
+  [
+   156.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     33,
+     0
+    ]
+   ]
+  ],
+  [
+   158.1,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     38,
+     0
+    ]
+   ]
+  ],
+  [
+   160.2,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     43,
+     0
+    ]
+   ]
+  ],
+  [
+   162.2,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     48,
+     0
+    ]
+   ]
+  ],
+  [
+   164.2,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     53,
+     0
+    ]
+   ]
+  ],
+  [
+   166.2,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     57,
+     0
+    ]
+   ]
+  ],
+  [
+   168.2,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "checking",
+     0,
+     4
+    ]
+   ]
+  ],
+  [
+   170.2,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   172.2,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   174.2,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   176.2,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   178.2,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     2,
+     0
+    ]
+   ]
+  ],
+  [
+   180.2,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     6,
+     0
+    ]
+   ]
+  ],
+  [
+   182.2,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     8,
+     0
+    ]
+   ]
+  ],
+  [
+   184.2,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     11,
+     0
+    ]
+   ]
+  ],
+  [
+   186.2,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     16,
+     0
+    ]
+   ]
+  ],
+  [
+   188.2,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     21,
+     0
+    ]
+   ]
+  ],
+  [
+   190.2,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     25,
+     0
+    ]
+   ]
+  ],
+  [
+   192.2,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     30,
+     0
+    ]
+   ]
+  ],
+  [
+   194.2,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "values",
+     34,
+     0
+    ]
+   ]
+  ],
+  [
+   196.2,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "checking",
+     0,
+     4
+    ]
+   ]
+  ],
+  [
+   198.2,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   200.2,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   202.2,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   204.2,
+   [
+    [
+     1,
+     "replaced",
+     null,
+     null,
+     null
+    ],
+    [
+     2,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     3,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     4,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     "learned",
+     null,
+     null,
+     null
+    ],
+    [
+     6,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ]
+ ],
+ "chat": [
+  {
+   "worker": 0,
+   "n": 0,
+   "pid": "colour",
+   "thinking": false,
+   "draft": "server",
+   "content": "Your favourite colour is blue.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "50a093a583ce",
+   "drafts": true,
+   "speculative": {
+    "rounds": 3,
+    "drafted": 7,
+    "accepted": 5,
+    "acceptance_rate": 0.7142857142857143,
+    "tokens_per_round": 2.3333333333333335
+   },
+   "t0": 0.0,
+   "t1": 0.12
+  },
+  {
+   "worker": 1,
+   "n": 1,
+   "pid": "colour",
+   "thinking": false,
+   "draft": "off",
+   "content": "Your favourite colour is blue.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "50a093a583ce",
+   "drafts": false,
+   "speculative": {
+    "rounds": 6,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.1666666666666667
+   },
+   "t0": 0.0,
+   "t1": 0.16
+  },
+  {
+   "worker": 0,
+   "n": 2,
+   "pid": "colour",
+   "thinking": true,
+   "draft": "server",
+   "content": "Your favourite colour is blue.",
+   "reasoning": "The user is asking about their favorite color. I need to recall the information I have about the user. The user's favorite color is mentioned in the initial instructions or context. Let me check the memory: The user's favorite color is blue.",
+   "finish": "stop",
+   "completion_tokens": 57,
+   "token_sha": "078fdbb0f480",
+   "drafts": true,
+   "speculative": {
+    "rounds": 28,
+    "drafted": 63,
+    "accepted": 29,
+    "acceptance_rate": 0.4603174603174603,
+    "tokens_per_round": 2.0357142857142856
+   },
+   "t0": 3.12,
+   "t1": 4.21
+  },
+  {
+   "worker": 0,
+   "n": 4,
+   "pid": "sister",
+   "thinking": false,
+   "draft": "server",
+   "content": "Your sister is called Ana.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "da3c2bb453ca",
+   "drafts": true,
+   "speculative": {
+    "rounds": 3,
+    "drafted": 7,
+    "accepted": 6,
+    "acceptance_rate": 0.8571428571428571,
+    "tokens_per_round": 2.3333333333333335
+   },
+   "t0": 7.21,
+   "t1": 7.62
+  },
+  {
+   "worker": 1,
+   "n": 3,
+   "pid": "colour",
+   "thinking": true,
+   "draft": "off",
+   "content": "Your favourite colour is blue.",
+   "reasoning": "The user is asking about their favorite color. I need to recall the information I have about the user. The user's favorite color is mentioned in the initial instructions or context. Let me check the memory: The user's favorite color is blue.",
+   "finish": "stop",
+   "completion_tokens": 57,
+   "token_sha": "078fdbb0f480",
+   "drafts": false,
+   "speculative": {
+    "rounds": 56,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0178571428571428
+   },
+   "t0": 3.17,
+   "t1": 7.64
+  },
+  {
+   "worker": 1,
+   "n": 5,
+   "pid": "sister",
+   "thinking": false,
+   "draft": "off",
+   "content": "Your sister is called Ana.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "da3c2bb453ca",
+   "drafts": false,
+   "speculative": {
+    "rounds": 6,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.1666666666666667
+   },
+   "t0": 10.64,
+   "t1": 10.94
+  },
+  {
+   "worker": 0,
+   "n": 6,
+   "pid": "sister",
+   "thinking": true,
+   "draft": "server",
+   "content": "Your sister is called Ana.",
+   "reasoning": "I remember the user told me: \"My sister is called Ana.\"",
+   "finish": "stop",
+   "completion_tokens": 22,
+   "token_sha": "26f024277020",
+   "drafts": true,
+   "speculative": {
+    "rounds": 11,
+    "drafted": 25,
+    "accepted": 10,
+    "acceptance_rate": 0.4,
+    "tokens_per_round": 2.0
+   },
+   "t0": 10.62,
+   "t1": 11.16
+  },
+  {
+   "worker": 0,
+   "n": 8,
+   "pid": "eyes",
+   "thinking": false,
+   "draft": "server",
+   "content": "Your eyes are brown.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 6,
+   "token_sha": "64e09ca23a7e",
+   "drafts": true,
+   "speculative": {
+    "rounds": 3,
+    "drafted": 3,
+    "accepted": 3,
+    "acceptance_rate": 1.0,
+    "tokens_per_round": 2.0
+   },
+   "t0": 14.16,
+   "t1": 14.77
+  },
+  {
+   "worker": 1,
+   "n": 7,
+   "pid": "sister",
+   "thinking": true,
+   "draft": "off",
+   "content": "Your sister is called Ana.",
+   "reasoning": "I remember the user told me: \"My sister is called Ana.\"",
+   "finish": "stop",
+   "completion_tokens": 22,
+   "token_sha": "26f024277020",
+   "drafts": false,
+   "speculative": {
+    "rounds": 21,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0476190476190477
+   },
+   "t0": 13.94,
+   "t1": 15.88
+  },
+  {
+   "worker": 0,
+   "n": 10,
+   "pid": "eyes",
+   "thinking": true,
+   "draft": "server",
+   "content": "Your eyes are brown.",
+   "reasoning": "I remember the user told me: \"My eyes are brown.\"",
+   "finish": "stop",
+   "completion_tokens": 20,
+   "token_sha": "e04b2ad28254",
+   "drafts": true,
+   "speculative": {
+    "rounds": 14,
+    "drafted": 11,
+    "accepted": 6,
+    "acceptance_rate": 0.5454545454545454,
+    "tokens_per_round": 1.4285714285714286
+   },
+   "t0": 17.77,
+   "t1": 19.11
+  },
+  {
+   "worker": 1,
+   "n": 9,
+   "pid": "eyes",
+   "thinking": false,
+   "draft": "off",
+   "content": "Your eyes are brown.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 6,
+   "token_sha": "64e09ca23a7e",
+   "drafts": false,
+   "speculative": {
+    "rounds": 5,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.2
+   },
+   "t0": 18.88,
+   "t1": 19.35
+  },
+  {
+   "worker": 0,
+   "n": 12,
+   "pid": "food",
+   "thinking": false,
+   "draft": "server",
+   "content": "Your favourite food is pizza.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "f8dd3c7b9851",
+   "drafts": true,
+   "speculative": {
+    "rounds": 3,
+    "drafted": 3,
+    "accepted": 3,
+    "acceptance_rate": 1.0,
+    "tokens_per_round": 2.3333333333333335
+   },
+   "t0": 22.11,
+   "t1": 22.31
+  },
+  {
+   "worker": 1,
+   "n": 11,
+   "pid": "eyes",
+   "thinking": true,
+   "draft": "off",
+   "content": "Your eyes are brown.",
+   "reasoning": "I remember the user told me: \"My eyes are brown.\"",
+   "finish": "stop",
+   "completion_tokens": 20,
+   "token_sha": "e04b2ad28254",
+   "drafts": false,
+   "speculative": {
+    "rounds": 19,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0526315789473684
+   },
+   "t0": 22.35,
+   "t1": 23.15
+  },
+  {
+   "worker": 0,
+   "n": 14,
+   "pid": "food",
+   "thinking": true,
+   "draft": "server",
+   "content": "Your favorite food is pizza.",
+   "reasoning": "I remember the user told me: \"My favourite food is pizza.\"",
+   "finish": "stop",
+   "completion_tokens": 22,
+   "token_sha": "40986b07287e",
+   "drafts": true,
+   "speculative": {
+    "rounds": 11,
+    "drafted": 26,
+    "accepted": 12,
+    "acceptance_rate": 0.46153846153846156,
+    "tokens_per_round": 2.0
+   },
+   "t0": 25.31,
+   "t1": 25.67
+  },
+  {
+   "worker": 1,
+   "n": 13,
+   "pid": "food",
+   "thinking": false,
+   "draft": "off",
+   "content": "Your favourite food is pizza.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "f8dd3c7b9851",
+   "drafts": false,
+   "speculative": {
+    "rounds": 6,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.1666666666666667
+   },
+   "t0": 26.15,
+   "t1": 26.38
+  },
+  {
+   "worker": 0,
+   "n": 16,
+   "pid": "dog",
+   "thinking": false,
+   "draft": "server",
+   "content": "My name is Nemotron, and I'm a language model developed by NVIDIA.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 19,
+   "token_sha": "7af7c147412f",
+   "drafts": true,
+   "speculative": {
+    "rounds": 6,
+    "drafted": 16,
+    "accepted": 12,
+    "acceptance_rate": 0.75,
+    "tokens_per_round": 3.1666666666666665
+   },
+   "t0": 28.67,
+   "t1": 28.9
+  },
+  {
+   "worker": 1,
+   "n": 15,
+   "pid": "food",
+   "thinking": true,
+   "draft": "off",
+   "content": "Your favorite food is pizza.",
+   "reasoning": "I remember the user told me: \"My favourite food is pizza.\"",
+   "finish": "stop",
+   "completion_tokens": 22,
+   "token_sha": "40986b07287e",
+   "drafts": false,
+   "speculative": {
+    "rounds": 21,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0476190476190477
+   },
+   "t0": 29.38,
+   "t1": 29.94
+  },
+  {
+   "worker": 1,
+   "n": 17,
+   "pid": "dog",
+   "thinking": false,
+   "draft": "off",
+   "content": "My name is Nemotron, and I'm a language model developed by NVIDIA.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 19,
+   "token_sha": "7af7c147412f",
+   "drafts": false,
+   "speculative": {
+    "rounds": 18,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0555555555555556
+   },
+   "t0": 32.95,
+   "t1": 33.9
+  },
+  {
+   "worker": 0,
+   "n": 18,
+   "pid": "dog",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"What is my dog called?\"\n   - This is a personal question about the user's pet dog.\n   - I don't have access to the user's personal information, their home, or their pets unless they've shared it in this conversation.\n\n2.  **Identify Key Constraints:**\n   - I am an AI language model.\n   - I don't know who",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "87fd13c17088",
+   "drafts": true,
+   "speculative": {
+    "rounds": 43,
+    "drafted": 65,
+    "accepted": 52,
+    "acceptance_rate": 0.8,
+    "tokens_per_round": 2.2325581395348837
+   },
+   "t0": 31.91,
+   "t1": 34.11
+  },
+  {
+   "worker": 0,
+   "n": 20,
+   "pid": "number",
+   "thinking": false,
+   "draft": "server",
+   "content": "Your favourite number is 7.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 8,
+   "token_sha": "8652ccc375f5",
+   "drafts": true,
+   "speculative": {
+    "rounds": 2,
+    "drafted": 5,
+    "accepted": 5,
+    "acceptance_rate": 1.0,
+    "tokens_per_round": 4.0
+   },
+   "t0": 37.11,
+   "t1": 37.22
+  },
+  {
+   "worker": 1,
+   "n": 19,
+   "pid": "dog",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"What is my dog called?\"\n   - This is a personal question about the user's pet dog.\n   - I don't have access to the user's personal information, their home, or their pets unless they've shared it in this conversation.\n\n2.  **Identify Key Constraints:**\n   - I am an AI language model.\n   - I don't know who",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "87fd13c17088",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 36.9,
+   "t1": 38.07
+  },
+  {
+   "worker": 0,
+   "n": 22,
+   "pid": "number",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "I remember you mentioned that your favourite number is 4.",
+   "finish": "stop",
+   "completion_tokens": 13,
+   "token_sha": "0fbd3e7cae04",
+   "drafts": true,
+   "speculative": {
+    "rounds": 6,
+    "drafted": 22,
+    "accepted": 9,
+    "acceptance_rate": 0.4090909090909091,
+    "tokens_per_round": 2.1666666666666665
+   },
+   "t0": 40.22,
+   "t1": 40.41
+  },
+  {
+   "worker": 1,
+   "n": 21,
+   "pid": "number",
+   "thinking": false,
+   "draft": "off",
+   "content": "Your favourite number is 7.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 8,
+   "token_sha": "8652ccc375f5",
+   "drafts": false,
+   "speculative": {
+    "rounds": 7,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.1428571428571428
+   },
+   "t0": 41.07,
+   "t1": 41.32
+  },
+  {
+   "worker": 0,
+   "n": 24,
+   "pid": "haiku",
+   "thinking": false,
+   "draft": "server",
+   "content": "Drops on golden leaves,\nAutumn sighs in gentle rain,\nWinter draws near.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 19,
+   "token_sha": "599dd6930cda",
+   "drafts": true,
+   "speculative": {
+    "rounds": 9,
+    "drafted": 15,
+    "accepted": 12,
+    "acceptance_rate": 0.8,
+    "tokens_per_round": 2.111111111111111
+   },
+   "t0": 43.41,
+   "t1": 43.62
+  },
+  {
+   "worker": 1,
+   "n": 23,
+   "pid": "number",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "I remember you mentioned that your favourite number is 4.",
+   "finish": "stop",
+   "completion_tokens": 13,
+   "token_sha": "0fbd3e7cae04",
+   "drafts": false,
+   "speculative": {
+    "rounds": 12,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0833333333333333
+   },
+   "t0": 44.32,
+   "t1": 44.5
+  },
+  {
+   "worker": 1,
+   "n": 25,
+   "pid": "haiku",
+   "thinking": false,
+   "draft": "off",
+   "content": "Drops on golden leaves,\nAutumn sighs in gentle rain,\nWinter draws near.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 19,
+   "token_sha": "599dd6930cda",
+   "drafts": false,
+   "speculative": {
+    "rounds": 18,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0555555555555556
+   },
+   "t0": 47.5,
+   "t1": 50.57
+  },
+  {
+   "worker": 0,
+   "n": 26,
+   "pid": "haiku",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze the Request:**\n   - User wants a haiku about \"autumn rain\".\n   - A haiku has specific structure: 3 lines, 5-7-5 syllables (traditional English haiku), often focusing on nature, seasons, or a moment in time.\n   - Topic: autumn rain.\n\n2.  **Determine the Structure:**\n   - Line 1: 5 syllables\n   -",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "194ba85020e0",
+   "drafts": true,
+   "speculative": {
+    "rounds": 33,
+    "drafted": 99,
+    "accepted": 62,
+    "acceptance_rate": 0.6262626262626263,
+    "tokens_per_round": 2.909090909090909
+   },
+   "t0": 46.62,
+   "t1": 50.82
+  },
+  {
+   "worker": 0,
+   "n": 28,
+   "pid": "math",
+   "thinking": false,
+   "draft": "server",
+   "content": "17 times 23 is 391.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 13,
+   "token_sha": "b10102b3921f",
+   "drafts": true,
+   "speculative": {
+    "rounds": 4,
+    "drafted": 12,
+    "accepted": 10,
+    "acceptance_rate": 0.8333333333333334,
+    "tokens_per_round": 3.25
+   },
+   "t0": 53.83,
+   "t1": 53.98
+  },
+  {
+   "worker": 1,
+   "n": 27,
+   "pid": "haiku",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze the Request:**\n   - User wants a haiku about \"autumn rain\".\n   - A haiku has specific structure: 3 lines, 5-7-5 syllables (traditional English haiku), often focusing on nature, seasons, or a moment in time.\n   - Topic: autumn rain.\n\n2.  **Determine the Structure:**\n   - Line 1: 5 syllables\n   -",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "194ba85020e0",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 53.57,
+   "t1": 54.72
+  },
+  {
+   "worker": 0,
+   "n": 30,
+   "pid": "math",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user asks \"What is 17 times 23?\"\n2.  **Identify Core Task:** Calculate the product of 17 and 23.\n3.  **Perform Calculation:** \n   - 17 \u00d7 23\n   - I can break it down: 17 \u00d7 20 = 340, 17 \u00d7",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "942eacaa25c4",
+   "drafts": true,
+   "speculative": {
+    "rounds": 17,
+    "drafted": 84,
+    "accepted": 78,
+    "acceptance_rate": 0.9285714285714286,
+    "tokens_per_round": 5.647058823529412
+   },
+   "t0": 56.98,
+   "t1": 57.96
+  },
+  {
+   "worker": 1,
+   "n": 29,
+   "pid": "math",
+   "thinking": false,
+   "draft": "off",
+   "content": "17 times 23 is 391.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 13,
+   "token_sha": "b10102b3921f",
+   "drafts": false,
+   "speculative": {
+    "rounds": 12,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0833333333333333
+   },
+   "t0": 57.72,
+   "t1": 58.0
+  },
+  {
+   "worker": 0,
+   "n": 32,
+   "pid": "rivers",
+   "thinking": false,
+   "draft": "server",
+   "content": "Here are three major rivers in Europe:\n\n*   **The Danube** \u2013 The second-longest river in Europe, flowing through or along the border of 10 countries, including Germany, Austria, Hungary, and Romania.\n*   **",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "4c2068267a37",
+   "drafts": true,
+   "speculative": {
+    "rounds": 16,
+    "drafted": 48,
+    "accepted": 31,
+    "acceptance_rate": 0.6458333333333334,
+    "tokens_per_round": 3.0
+   },
+   "t0": 60.96,
+   "t1": 61.45
+  },
+  {
+   "worker": 1,
+   "n": 31,
+   "pid": "math",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user asks \"What is 17 times 23?\"\n2.  **Identify Core Task:** Calculate the product of 17 and 23.\n3.  **Perform Calculation:** \n   - 17 \u00d7 23\n   - I can break it down: 17 \u00d7 20 = 340, 17 \u00d7",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "942eacaa25c4",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 61.0,
+   "t1": 62.25
+  },
+  {
+   "worker": 0,
+   "n": 34,
+   "pid": "rivers",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"Name three rivers in Europe.\"\n   - This is a straightforward factual request.\n\n2.  **Identify Key Elements:**\n   - Continent: Europe\n   - Item: Rivers\n   - Quantity: Three\n   - Language: English\n\n3.  **Determine Response Strategy:**\n   - Provide three well-known rivers in Europe.\n   - Ensure accuracy.\n   -",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "aa4690775e1c",
+   "drafts": true,
+   "speculative": {
+    "rounds": 46,
+    "drafted": 64,
+    "accepted": 50,
+    "acceptance_rate": 0.78125,
+    "tokens_per_round": 2.0869565217391304
+   },
+   "t0": 64.45,
+   "t1": 67.55
+  },
+  {
+   "worker": 1,
+   "n": 33,
+   "pid": "rivers",
+   "thinking": false,
+   "draft": "off",
+   "content": "Here are three major rivers in Europe:\n\n*   **The Danube** \u2013 The second-longest river in Europe, flowing through or along the border of 10 countries, including Germany, Austria, Hungary, and Romania.\n*   **",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "4c2068267a37",
+   "drafts": false,
+   "speculative": {
+    "rounds": 47,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0212765957446808
+   },
+   "t0": 65.25,
+   "t1": 68.57
+  },
+  {
+   "worker": 0,
+   "n": 36,
+   "pid": "colour",
+   "thinking": false,
+   "draft": "server",
+   "content": "Your favourite colour is blue.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "50a093a583ce",
+   "drafts": true,
+   "speculative": {
+    "rounds": 3,
+    "drafted": 9,
+    "accepted": 5,
+    "acceptance_rate": 0.5555555555555556,
+    "tokens_per_round": 2.3333333333333335
+   },
+   "t0": 70.55,
+   "t1": 70.76
+  },
+  {
+   "worker": 1,
+   "n": 35,
+   "pid": "rivers",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"Name three rivers in Europe.\"\n   - This is a straightforward factual request.\n\n2.  **Identify Key Elements:**\n   - Continent: Europe\n   - Item: Rivers\n   - Quantity: Three\n   - Language: English\n\n3.  **Determine Response Strategy:**\n   - Provide three well-known rivers in Europe.\n   - Ensure accuracy.\n   -",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "aa4690775e1c",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 71.57,
+   "t1": 72.82
+  },
+  {
+   "worker": 0,
+   "n": 38,
+   "pid": "colour",
+   "thinking": true,
+   "draft": "server",
+   "content": "Your favourite colour is blue.",
+   "reasoning": "The user is asking about their favorite color. I need to recall the information I have about the user. The user's favorite color is mentioned in the initial instructions or context. Let me check the memory: The user's favorite color is blue.",
+   "finish": "stop",
+   "completion_tokens": 57,
+   "token_sha": "078fdbb0f480",
+   "drafts": true,
+   "speculative": {
+    "rounds": 25,
+    "drafted": 47,
+    "accepted": 31,
+    "acceptance_rate": 0.6595744680851063,
+    "tokens_per_round": 2.28
+   },
+   "t0": 73.76,
+   "t1": 74.62
+  },
+  {
+   "worker": 1,
+   "n": 37,
+   "pid": "colour",
+   "thinking": false,
+   "draft": "off",
+   "content": "Your favourite colour is blue.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "50a093a583ce",
+   "drafts": false,
+   "speculative": {
+    "rounds": 6,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.1666666666666667
+   },
+   "t0": 75.82,
+   "t1": 76.06
+  },
+  {
+   "worker": 0,
+   "n": 40,
+   "pid": "sister",
+   "thinking": false,
+   "draft": "server",
+   "content": "Your sister is called Ana.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "da3c2bb453ca",
+   "drafts": true,
+   "speculative": {
+    "rounds": 2,
+    "drafted": 5,
+    "accepted": 4,
+    "acceptance_rate": 0.8,
+    "tokens_per_round": 3.5
+   },
+   "t0": 77.62,
+   "t1": 77.99
+  },
+  {
+   "worker": 1,
+   "n": 39,
+   "pid": "colour",
+   "thinking": true,
+   "draft": "off",
+   "content": "Your favourite colour is blue.",
+   "reasoning": "The user is asking about their favorite color. I need to recall the information I have about the user. The user's favorite color is mentioned in the initial instructions or context. Let me check the memory: The user's favorite color is blue.",
+   "finish": "stop",
+   "completion_tokens": 57,
+   "token_sha": "078fdbb0f480",
+   "drafts": false,
+   "speculative": {
+    "rounds": 56,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0178571428571428
+   },
+   "t0": 79.06,
+   "t1": 80.04
+  },
+  {
+   "worker": 0,
+   "n": 42,
+   "pid": "sister",
+   "thinking": true,
+   "draft": "server",
+   "content": "Your sister is called Ana.",
+   "reasoning": "I remember the user told me: \"My sister is called Ana.\"",
+   "finish": "stop",
+   "completion_tokens": 22,
+   "token_sha": "26f024277020",
+   "drafts": true,
+   "speculative": {
+    "rounds": 10,
+    "drafted": 16,
+    "accepted": 11,
+    "acceptance_rate": 0.6875,
+    "tokens_per_round": 2.2
+   },
+   "t0": 80.99,
+   "t1": 81.45
+  },
+  {
+   "worker": 1,
+   "n": 41,
+   "pid": "sister",
+   "thinking": false,
+   "draft": "off",
+   "content": "Your sister is called Ana.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "da3c2bb453ca",
+   "drafts": false,
+   "speculative": {
+    "rounds": 6,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.1666666666666667
+   },
+   "t0": 83.04,
+   "t1": 83.44
+  },
+  {
+   "worker": 0,
+   "n": 44,
+   "pid": "eyes",
+   "thinking": false,
+   "draft": "server",
+   "content": "Your eyes are brown.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 6,
+   "token_sha": "64e09ca23a7e",
+   "drafts": true,
+   "speculative": {
+    "rounds": 2,
+    "drafted": 7,
+    "accepted": 5,
+    "acceptance_rate": 0.7142857142857143,
+    "tokens_per_round": 3.0
+   },
+   "t0": 84.45,
+   "t1": 84.72
+  },
+  {
+   "worker": 1,
+   "n": 43,
+   "pid": "sister",
+   "thinking": true,
+   "draft": "off",
+   "content": "Your sister is called Ana.",
+   "reasoning": "I remember the user told me: \"My sister is called Ana.\"",
+   "finish": "stop",
+   "completion_tokens": 22,
+   "token_sha": "26f024277020",
+   "drafts": false,
+   "speculative": {
+    "rounds": 21,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0476190476190477
+   },
+   "t0": 86.44,
+   "t1": 86.81
+  },
+  {
+   "worker": 0,
+   "n": 46,
+   "pid": "eyes",
+   "thinking": true,
+   "draft": "server",
+   "content": "Your eyes are brown.",
+   "reasoning": "I remember the user told me: \"My eyes are brown.\"",
+   "finish": "stop",
+   "completion_tokens": 20,
+   "token_sha": "e04b2ad28254",
+   "drafts": true,
+   "speculative": {
+    "rounds": 8,
+    "drafted": 20,
+    "accepted": 11,
+    "acceptance_rate": 0.55,
+    "tokens_per_round": 2.5
+   },
+   "t0": 87.72,
+   "t1": 88.14
+  },
+  {
+   "worker": 1,
+   "n": 45,
+   "pid": "eyes",
+   "thinking": false,
+   "draft": "off",
+   "content": "Your eyes are brown.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 6,
+   "token_sha": "64e09ca23a7e",
+   "drafts": false,
+   "speculative": {
+    "rounds": 5,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.2
+   },
+   "t0": 89.81,
+   "t1": 90.13
+  },
+  {
+   "worker": 0,
+   "n": 48,
+   "pid": "food",
+   "thinking": false,
+   "draft": "server",
+   "content": "Your favourite food is pizza.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "f8dd3c7b9851",
+   "drafts": true,
+   "speculative": {
+    "rounds": 3,
+    "drafted": 3,
+    "accepted": 3,
+    "acceptance_rate": 1.0,
+    "tokens_per_round": 2.3333333333333335
+   },
+   "t0": 91.14,
+   "t1": 91.7
+  },
+  {
+   "worker": 1,
+   "n": 47,
+   "pid": "eyes",
+   "thinking": true,
+   "draft": "off",
+   "content": "Your eyes are brown.",
+   "reasoning": "I remember the user told me: \"My eyes are brown.\"",
+   "finish": "stop",
+   "completion_tokens": 20,
+   "token_sha": "e04b2ad28254",
+   "drafts": false,
+   "speculative": {
+    "rounds": 19,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0526315789473684
+   },
+   "t0": 93.13,
+   "t1": 94.74
+  },
+  {
+   "worker": 0,
+   "n": 50,
+   "pid": "food",
+   "thinking": true,
+   "draft": "server",
+   "content": "Your favorite food is pizza.",
+   "reasoning": "I remember the user told me: \"My favourite food is pizza.\"",
+   "finish": "stop",
+   "completion_tokens": 22,
+   "token_sha": "40986b07287e",
+   "drafts": true,
+   "speculative": {
+    "rounds": 11,
+    "drafted": 13,
+    "accepted": 11,
+    "acceptance_rate": 0.8461538461538461,
+    "tokens_per_round": 2.0
+   },
+   "t0": 94.71,
+   "t1": 95.69
+  },
+  {
+   "worker": 1,
+   "n": 49,
+   "pid": "food",
+   "thinking": false,
+   "draft": "off",
+   "content": "Your favourite food is pizza.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "f8dd3c7b9851",
+   "drafts": false,
+   "speculative": {
+    "rounds": 6,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.1666666666666667
+   },
+   "t0": 97.74,
+   "t1": 98.22
+  },
+  {
+   "worker": 0,
+   "n": 52,
+   "pid": "dog",
+   "thinking": false,
+   "draft": "server",
+   "content": "My name is Nemotron, and I'm a language model developed by NVIDIA.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 19,
+   "token_sha": "7af7c147412f",
+   "drafts": true,
+   "speculative": {
+    "rounds": 5,
+    "drafted": 17,
+    "accepted": 15,
+    "acceptance_rate": 0.8823529411764706,
+    "tokens_per_round": 3.8
+   },
+   "t0": 98.7,
+   "t1": 99.01
+  },
+  {
+   "worker": 1,
+   "n": 51,
+   "pid": "food",
+   "thinking": true,
+   "draft": "off",
+   "content": "Your favorite food is pizza.",
+   "reasoning": "I remember the user told me: \"My favourite food is pizza.\"",
+   "finish": "stop",
+   "completion_tokens": 22,
+   "token_sha": "40986b07287e",
+   "drafts": false,
+   "speculative": {
+    "rounds": 21,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0476190476190477
+   },
+   "t0": 101.22,
+   "t1": 101.56
+  },
+  {
+   "worker": 0,
+   "n": 54,
+   "pid": "dog",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User says: \"What is my dog called?\"\n   - This is ambiguous. It could mean:\n     a) \"What is the name of my dog?\" (asking for the dog's name)\n     b) \"What is my dog named?\" (same thing, slightly different phrasing)\n     c) \"What is my dog called [as in, what breed/term]?\"",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "c24c8aa0b247",
+   "drafts": true,
+   "speculative": {
+    "rounds": 25,
+    "drafted": 95,
+    "accepted": 71,
+    "acceptance_rate": 0.7473684210526316,
+    "tokens_per_round": 3.84
+   },
+   "t0": 102.01,
+   "t1": 102.72
+  },
+  {
+   "worker": 1,
+   "n": 53,
+   "pid": "dog",
+   "thinking": false,
+   "draft": "off",
+   "content": "My name is Nemotron, and I'm a language model developed by NVIDIA.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 19,
+   "token_sha": "7af7c147412f",
+   "drafts": false,
+   "speculative": {
+    "rounds": 18,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0555555555555556
+   },
+   "t0": 104.56,
+   "t1": 104.82
+  },
+  {
+   "worker": 0,
+   "n": 56,
+   "pid": "number",
+   "thinking": false,
+   "draft": "server",
+   "content": "Your favourite number is 7.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 8,
+   "token_sha": "8652ccc375f5",
+   "drafts": true,
+   "speculative": {
+    "rounds": 2,
+    "drafted": 8,
+    "accepted": 8,
+    "acceptance_rate": 1.0,
+    "tokens_per_round": 4.0
+   },
+   "t0": 105.72,
+   "t1": 106.15
+  },
+  {
+   "worker": 1,
+   "n": 55,
+   "pid": "dog",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User says: \"What is my dog called?\"\n   - This is a bit ambiguous. It could mean:\n     a) \"What is the name of my dog?\" (asking for the dog's name)\n     b) \"What is my dog named?\" (asking what name I gave the dog)\n     c) Some other interpretation, but most likely it's asking for the name",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "4ed71c0da5ba",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 107.82,
+   "t1": 108.99
+  },
+  {
+   "worker": 0,
+   "n": 58,
+   "pid": "number",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "I remember you mentioned that your favourite number is 4.",
+   "finish": "stop",
+   "completion_tokens": 13,
+   "token_sha": "0fbd3e7cae04",
+   "drafts": true,
+   "speculative": {
+    "rounds": 6,
+    "drafted": 22,
+    "accepted": 9,
+    "acceptance_rate": 0.4090909090909091,
+    "tokens_per_round": 2.1666666666666665
+   },
+   "t0": 109.15,
+   "t1": 109.64
+  },
+  {
+   "worker": 1,
+   "n": 57,
+   "pid": "number",
+   "thinking": false,
+   "draft": "off",
+   "content": "Your favourite number is 7.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 8,
+   "token_sha": "8652ccc375f5",
+   "drafts": false,
+   "speculative": {
+    "rounds": 7,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.1428571428571428
+   },
+   "t0": 111.99,
+   "t1": 112.34
+  },
+  {
+   "worker": 0,
+   "n": 60,
+   "pid": "haiku",
+   "thinking": false,
+   "draft": "server",
+   "content": "Drops on golden leaves,\nAutumn sighs in gentle rain,\nWinter draws near.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 19,
+   "token_sha": "599dd6930cda",
+   "drafts": true,
+   "speculative": {
+    "rounds": 9,
+    "drafted": 15,
+    "accepted": 12,
+    "acceptance_rate": 0.8,
+    "tokens_per_round": 2.111111111111111
+   },
+   "t0": 112.64,
+   "t1": 112.93
+  },
+  {
+   "worker": 1,
+   "n": 59,
+   "pid": "number",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "I remember you mentioned that your favourite number is 4.",
+   "finish": "stop",
+   "completion_tokens": 13,
+   "token_sha": "0fbd3e7cae04",
+   "drafts": false,
+   "speculative": {
+    "rounds": 12,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0833333333333333
+   },
+   "t0": 115.34,
+   "t1": 115.69
+  },
+  {
+   "worker": 0,
+   "n": 62,
+   "pid": "haiku",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze the Request:**\n   - User wants a haiku about \"autumn rain\".\n   - A haiku has specific structure: 3 lines, 5-7-5 syllables (traditional English haiku), often focusing on nature, seasons, or a moment in time.\n   - Topic: autumn rain.\n\n2.  **Determine the Structure:**\n   - Line 1: 5 syllables\n   -",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "194ba85020e0",
+   "drafts": true,
+   "speculative": {
+    "rounds": 26,
+    "drafted": 115,
+    "accepted": 72,
+    "acceptance_rate": 0.6260869565217392,
+    "tokens_per_round": 3.6923076923076925
+   },
+   "t0": 115.93,
+   "t1": 116.73
+  },
+  {
+   "worker": 1,
+   "n": 61,
+   "pid": "haiku",
+   "thinking": false,
+   "draft": "off",
+   "content": "Drops on golden leaves,\nAutumn sighs in gentle rain,\nWinter draws near.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 19,
+   "token_sha": "599dd6930cda",
+   "drafts": false,
+   "speculative": {
+    "rounds": 18,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0555555555555556
+   },
+   "t0": 118.69,
+   "t1": 119.28
+  },
+  {
+   "worker": 0,
+   "n": 64,
+   "pid": "math",
+   "thinking": false,
+   "draft": "server",
+   "content": "17 times 23 is 391.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 13,
+   "token_sha": "b10102b3921f",
+   "drafts": true,
+   "speculative": {
+    "rounds": 3,
+    "drafted": 11,
+    "accepted": 11,
+    "acceptance_rate": 1.0,
+    "tokens_per_round": 4.333333333333333
+   },
+   "t0": 119.73,
+   "t1": 120.14
+  },
+  {
+   "worker": 0,
+   "n": 66,
+   "pid": "math",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user asks \"What is 17 times 23?\"\n2.  **Identify Core Task:** Calculate the product of 17 and 23.\n3.  **Perform Calculation:** \n   - 17 \u00d7 23\n   - I can break it down: 17 \u00d7 20 = 340, 17 \u00d7",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "942eacaa25c4",
+   "drafts": true,
+   "speculative": {
+    "rounds": 19,
+    "drafted": 83,
+    "accepted": 76,
+    "acceptance_rate": 0.9156626506024096,
+    "tokens_per_round": 5.052631578947368
+   },
+   "t0": 123.14,
+   "t1": 123.71
+  },
+  {
+   "worker": 1,
+   "n": 63,
+   "pid": "haiku",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze the Request:**\n   - User wants a haiku about \"autumn rain\".\n   - A haiku has specific structure: 3 lines, 5-7-5 syllables (traditional English haiku), often focusing on nature, seasons, or a moment in time.\n   - Topic: autumn rain.\n\n2.  **Determine the Structure:**\n   - Line 1: 5 syllables\n   -",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "194ba85020e0",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 122.28,
+   "t1": 123.76
+  },
+  {
+   "worker": 1,
+   "n": 65,
+   "pid": "math",
+   "thinking": false,
+   "draft": "off",
+   "content": "17 times 23 is 391.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 13,
+   "token_sha": "b10102b3921f",
+   "drafts": false,
+   "speculative": {
+    "rounds": 12,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0833333333333333
+   },
+   "t0": 126.76,
+   "t1": 127.17
+  },
+  {
+   "worker": 0,
+   "n": 68,
+   "pid": "rivers",
+   "thinking": false,
+   "draft": "server",
+   "content": "Here are three major rivers in Europe:\n\n*   **The Danube** \u2013 The second-longest river in Europe, flowing through or along the border of 10 countries, including Germany, Austria, Hungary, and Romania.\n*   **",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "4c2068267a37",
+   "drafts": true,
+   "speculative": {
+    "rounds": 16,
+    "drafted": 50,
+    "accepted": 31,
+    "acceptance_rate": 0.62,
+    "tokens_per_round": 3.0
+   },
+   "t0": 126.71,
+   "t1": 127.24
+  },
+  {
+   "worker": 0,
+   "n": 70,
+   "pid": "rivers",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"Name three rivers in Europe.\"\n   - This is a straightforward factual request.\n\n2.  **Identify Key Elements:**\n   - Continent: Europe\n   - Item: Rivers\n   - Quantity: Three\n   - Language: English\n\n3.  **Determine Response Strategy:**\n   - Provide three well-known rivers in Europe.\n   - Ensure accuracy.\n   -",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "aa4690775e1c",
+   "drafts": true,
+   "speculative": {
+    "rounds": 50,
+    "drafted": 53,
+    "accepted": 46,
+    "acceptance_rate": 0.8679245283018868,
+    "tokens_per_round": 1.92
+   },
+   "t0": 130.24,
+   "t1": 133.72
+  },
+  {
+   "worker": 1,
+   "n": 67,
+   "pid": "math",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user asks \"What is 17 times 23?\"\n2.  **Identify Core Task:** Calculate the product of 17 and 23.\n3.  **Perform Calculation:** \n   - 17 \u00d7 23\n   - I can break it down: 17 \u00d7 20 = 340, 17 \u00d7",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "942eacaa25c4",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 130.17,
+   "t1": 136.51
+  },
+  {
+   "worker": 0,
+   "n": 72,
+   "pid": "colour",
+   "thinking": false,
+   "draft": "server",
+   "content": "Your favourite colour is blue.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "50a093a583ce",
+   "drafts": true,
+   "speculative": {
+    "rounds": 3,
+    "drafted": 3,
+    "accepted": 3,
+    "acceptance_rate": 1.0,
+    "tokens_per_round": 2.3333333333333335
+   },
+   "t0": 136.72,
+   "t1": 137.24
+  },
+  {
+   "worker": 1,
+   "n": 69,
+   "pid": "rivers",
+   "thinking": false,
+   "draft": "off",
+   "content": "Here are three major rivers in Europe:\n\n*   **The Danube** \u2013 The second-longest river in Europe, flowing through or along the border of 10 countries, including Germany, Austria, Hungary, and Romania.\n*   **",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "4c2068267a37",
+   "drafts": false,
+   "speculative": {
+    "rounds": 47,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0212765957446808
+   },
+   "t0": 139.51,
+   "t1": 140.84
+  },
+  {
+   "worker": 0,
+   "n": 74,
+   "pid": "colour",
+   "thinking": true,
+   "draft": "server",
+   "content": "Your favourite colour is blue.",
+   "reasoning": "The user is asking about their favorite color. I need to recall the information I have about the user. The user's favorite color is mentioned in the initial instructions or context. Let me check the memory: The user's favorite color is blue.",
+   "finish": "stop",
+   "completion_tokens": 57,
+   "token_sha": "078fdbb0f480",
+   "drafts": true,
+   "speculative": {
+    "rounds": 28,
+    "drafted": 67,
+    "accepted": 29,
+    "acceptance_rate": 0.43283582089552236,
+    "tokens_per_round": 2.0357142857142856
+   },
+   "t0": 140.24,
+   "t1": 140.89
+  },
+  {
+   "worker": 0,
+   "n": 76,
+   "pid": "sister",
+   "thinking": false,
+   "draft": "server",
+   "content": "Your sister is called Ana.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "da3c2bb453ca",
+   "drafts": true,
+   "speculative": {
+    "rounds": 2,
+    "drafted": 5,
+    "accepted": 4,
+    "acceptance_rate": 0.8,
+    "tokens_per_round": 3.5
+   },
+   "t0": 143.89,
+   "t1": 144.37
+  },
+  {
+   "worker": 1,
+   "n": 71,
+   "pid": "rivers",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"Name three rivers in Europe.\"\n   - This is a straightforward factual request.\n\n2.  **Identify Key Elements:**\n   - Continent: Europe\n   - Item: Rivers\n   - Quantity: Three\n   - Language: English\n\n3.  **Determine Response Strategy:**\n   - Provide three well-known rivers in Europe.\n   - Ensure accuracy.\n   -",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "aa4690775e1c",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 143.84,
+   "t1": 145.29
+  },
+  {
+   "worker": 0,
+   "n": 78,
+   "pid": "sister",
+   "thinking": true,
+   "draft": "server",
+   "content": "Your sister is called Ana.",
+   "reasoning": "I remember the user told me: \"My sister is called Ana.\"",
+   "finish": "stop",
+   "completion_tokens": 22,
+   "token_sha": "26f024277020",
+   "drafts": true,
+   "speculative": {
+    "rounds": 10,
+    "drafted": 16,
+    "accepted": 11,
+    "acceptance_rate": 0.6875,
+    "tokens_per_round": 2.2
+   },
+   "t0": 147.37,
+   "t1": 147.82
+  },
+  {
+   "worker": 1,
+   "n": 73,
+   "pid": "colour",
+   "thinking": false,
+   "draft": "off",
+   "content": "Your favourite colour is blue.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "50a093a583ce",
+   "drafts": false,
+   "speculative": {
+    "rounds": 6,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.1666666666666667
+   },
+   "t0": 148.29,
+   "t1": 148.41
+  },
+  {
+   "worker": 0,
+   "n": 80,
+   "pid": "eyes",
+   "thinking": false,
+   "draft": "server",
+   "content": "Your eyes are brown.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 6,
+   "token_sha": "64e09ca23a7e",
+   "drafts": true,
+   "speculative": {
+    "rounds": 2,
+    "drafted": 7,
+    "accepted": 5,
+    "acceptance_rate": 0.7142857142857143,
+    "tokens_per_round": 3.0
+   },
+   "t0": 150.82,
+   "t1": 151.13
+  },
+  {
+   "worker": 1,
+   "n": 75,
+   "pid": "colour",
+   "thinking": true,
+   "draft": "off",
+   "content": "Your favourite colour is blue.",
+   "reasoning": "The user is asking about their favorite color. I need to recall the information I have about the user. The user's favorite color is mentioned in the initial instructions or context. Let me check the memory: The user's favorite color is blue.",
+   "finish": "stop",
+   "completion_tokens": 57,
+   "token_sha": "078fdbb0f480",
+   "drafts": false,
+   "speculative": {
+    "rounds": 56,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0178571428571428
+   },
+   "t0": 151.41,
+   "t1": 152.17
+  },
+  {
+   "worker": 0,
+   "n": 82,
+   "pid": "eyes",
+   "thinking": true,
+   "draft": "server",
+   "content": "Your eyes are brown.",
+   "reasoning": "I remember the user told me: \"My eyes are brown.\"",
+   "finish": "stop",
+   "completion_tokens": 20,
+   "token_sha": "e04b2ad28254",
+   "drafts": true,
+   "speculative": {
+    "rounds": 8,
+    "drafted": 20,
+    "accepted": 11,
+    "acceptance_rate": 0.55,
+    "tokens_per_round": 2.5
+   },
+   "t0": 154.13,
+   "t1": 154.6
+  },
+  {
+   "worker": 1,
+   "n": 77,
+   "pid": "sister",
+   "thinking": false,
+   "draft": "off",
+   "content": "Your sister is called Ana.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "da3c2bb453ca",
+   "drafts": false,
+   "speculative": {
+    "rounds": 6,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.1666666666666667
+   },
+   "t0": 155.17,
+   "t1": 155.42
+  },
+  {
+   "worker": 0,
+   "n": 84,
+   "pid": "food",
+   "thinking": false,
+   "draft": "server",
+   "content": "Your favourite food is pizza.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "f8dd3c7b9851",
+   "drafts": true,
+   "speculative": {
+    "rounds": 3,
+    "drafted": 5,
+    "accepted": 3,
+    "acceptance_rate": 0.6,
+    "tokens_per_round": 2.3333333333333335
+   },
+   "t0": 157.6,
+   "t1": 157.82
+  },
+  {
+   "worker": 1,
+   "n": 79,
+   "pid": "sister",
+   "thinking": true,
+   "draft": "off",
+   "content": "Your sister is called Ana.",
+   "reasoning": "I remember the user told me: \"My sister is called Ana.\"",
+   "finish": "stop",
+   "completion_tokens": 22,
+   "token_sha": "26f024277020",
+   "drafts": false,
+   "speculative": {
+    "rounds": 21,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0476190476190477
+   },
+   "t0": 158.42,
+   "t1": 158.81
+  },
+  {
+   "worker": 0,
+   "n": 86,
+   "pid": "food",
+   "thinking": true,
+   "draft": "server",
+   "content": "Your favorite food is pizza.",
+   "reasoning": "I remember the user told me: \"My favourite food is pizza.\"",
+   "finish": "stop",
+   "completion_tokens": 22,
+   "token_sha": "40986b07287e",
+   "drafts": true,
+   "speculative": {
+    "rounds": 10,
+    "drafted": 22,
+    "accepted": 13,
+    "acceptance_rate": 0.5909090909090909,
+    "tokens_per_round": 2.2
+   },
+   "t0": 160.82,
+   "t1": 161.33
+  },
+  {
+   "worker": 1,
+   "n": 81,
+   "pid": "eyes",
+   "thinking": false,
+   "draft": "off",
+   "content": "Your eyes are brown.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 6,
+   "token_sha": "64e09ca23a7e",
+   "drafts": false,
+   "speculative": {
+    "rounds": 5,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.2
+   },
+   "t0": 161.81,
+   "t1": 162.16
+  },
+  {
+   "worker": 0,
+   "n": 88,
+   "pid": "dog",
+   "thinking": false,
+   "draft": "server",
+   "content": "My name is Nemotron, and I'm a language model developed by NVIDIA.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 19,
+   "token_sha": "7af7c147412f",
+   "drafts": true,
+   "speculative": {
+    "rounds": 4,
+    "drafted": 17,
+    "accepted": 14,
+    "acceptance_rate": 0.8235294117647058,
+    "tokens_per_round": 4.75
+   },
+   "t0": 164.33,
+   "t1": 164.53
+  },
+  {
+   "worker": 1,
+   "n": 83,
+   "pid": "eyes",
+   "thinking": true,
+   "draft": "off",
+   "content": "Your eyes are brown.",
+   "reasoning": "I remember the user told me: \"My eyes are brown.\"",
+   "finish": "stop",
+   "completion_tokens": 20,
+   "token_sha": "e04b2ad28254",
+   "drafts": false,
+   "speculative": {
+    "rounds": 19,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0526315789473684
+   },
+   "t0": 165.16,
+   "t1": 165.47
+  },
+  {
+   "worker": 0,
+   "n": 90,
+   "pid": "dog",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User says: \"What is my dog called?\"\n   - This is a bit ambiguous. They could be asking about their actual dog's name, or they could be testing me, or there's a trick.\n   - I don't have access to their personal life, their dog, or any context about what their dog is named.\n   - I need to respond appropriately without making assumptions.\n\n2",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "59304771c0aa",
+   "drafts": true,
+   "speculative": {
+    "rounds": 29,
+    "drafted": 91,
+    "accepted": 72,
+    "acceptance_rate": 0.7912087912087912,
+    "tokens_per_round": 3.310344827586207
+   },
+   "t0": 167.53,
+   "t1": 168.16
+  },
+  {
+   "worker": 1,
+   "n": 85,
+   "pid": "food",
+   "thinking": false,
+   "draft": "off",
+   "content": "Your favourite food is pizza.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "f8dd3c7b9851",
+   "drafts": false,
+   "speculative": {
+    "rounds": 6,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.1666666666666667
+   },
+   "t0": 168.47,
+   "t1": 169.13
+  },
+  {
+   "worker": 0,
+   "n": 92,
+   "pid": "number",
+   "thinking": false,
+   "draft": "server",
+   "content": "Your favourite number is 7.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 8,
+   "token_sha": "8652ccc375f5",
+   "drafts": true,
+   "speculative": {
+    "rounds": 4,
+    "drafted": 4,
+    "accepted": 4,
+    "acceptance_rate": 1.0,
+    "tokens_per_round": 2.0
+   },
+   "t0": 171.16,
+   "t1": 171.75
+  },
+  {
+   "worker": 1,
+   "n": 87,
+   "pid": "food",
+   "thinking": true,
+   "draft": "off",
+   "content": "Your favorite food is pizza.",
+   "reasoning": "I remember the user told me: \"My favourite food is pizza.\"",
+   "finish": "stop",
+   "completion_tokens": 22,
+   "token_sha": "40986b07287e",
+   "drafts": false,
+   "speculative": {
+    "rounds": 21,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0476190476190477
+   },
+   "t0": 172.14,
+   "t1": 173.62
+  },
+  {
+   "worker": 0,
+   "n": 94,
+   "pid": "number",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "I remember you mentioned that your favourite number is 4.",
+   "finish": "stop",
+   "completion_tokens": 13,
+   "token_sha": "0fbd3e7cae04",
+   "drafts": true,
+   "speculative": {
+    "rounds": 8,
+    "drafted": 6,
+    "accepted": 4,
+    "acceptance_rate": 0.6666666666666666,
+    "tokens_per_round": 1.625
+   },
+   "t0": 174.75,
+   "t1": 175.39
+  },
+  {
+   "worker": 1,
+   "n": 89,
+   "pid": "dog",
+   "thinking": false,
+   "draft": "off",
+   "content": "My name is Nemotron, and I'm a language model developed by NVIDIA.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 19,
+   "token_sha": "7af7c147412f",
+   "drafts": false,
+   "speculative": {
+    "rounds": 18,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0555555555555556
+   },
+   "t0": 176.62,
+   "t1": 176.92
+  },
+  {
+   "worker": 0,
+   "n": 96,
+   "pid": "haiku",
+   "thinking": false,
+   "draft": "server",
+   "content": "Drops on golden leaves,\nAutumn sighs in gentle rain,\nWinter draws near.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 19,
+   "token_sha": "599dd6930cda",
+   "drafts": true,
+   "speculative": {
+    "rounds": 9,
+    "drafted": 15,
+    "accepted": 12,
+    "acceptance_rate": 0.8,
+    "tokens_per_round": 2.111111111111111
+   },
+   "t0": 178.39,
+   "t1": 178.94
+  },
+  {
+   "worker": 1,
+   "n": 91,
+   "pid": "dog",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User says: \"What is my dog called?\"\n   - This is a bit ambiguous. They could be asking about their actual dog's name, or they could be testing me, or there's a trick.\n   - I don't have access to their personal life, their dog, or any context about what their dog is named.\n   - I need to respond appropriately without making assumptions.\n\n2",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "59304771c0aa",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 179.92,
+   "t1": 180.95
+  },
+  {
+   "worker": 0,
+   "n": 98,
+   "pid": "haiku",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze the Request:**\n   - User wants a haiku about \"autumn rain\".\n   - A haiku has specific structure: 3 lines, 5-7-5 syllables (traditional English haiku), often focusing on nature, seasons, or a moment in time.\n   - Topic: autumn rain.\n\n2.  **Determine the Structure:**\n   - Line 1: 5 syllables\n   -",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "194ba85020e0",
+   "drafts": true,
+   "speculative": {
+    "rounds": 26,
+    "drafted": 115,
+    "accepted": 72,
+    "acceptance_rate": 0.6260869565217392,
+    "tokens_per_round": 3.6923076923076925
+   },
+   "t0": 181.94,
+   "t1": 182.58
+  },
+  {
+   "worker": 1,
+   "n": 93,
+   "pid": "number",
+   "thinking": false,
+   "draft": "off",
+   "content": "Your favourite number is 7.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 8,
+   "token_sha": "8652ccc375f5",
+   "drafts": false,
+   "speculative": {
+    "rounds": 7,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.1428571428571428
+   },
+   "t0": 183.95,
+   "t1": 184.45
+  },
+  {
+   "worker": 0,
+   "n": 100,
+   "pid": "math",
+   "thinking": false,
+   "draft": "server",
+   "content": "17 times 23 is 391.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 13,
+   "token_sha": "b10102b3921f",
+   "drafts": true,
+   "speculative": {
+    "rounds": 3,
+    "drafted": 11,
+    "accepted": 11,
+    "acceptance_rate": 1.0,
+    "tokens_per_round": 4.333333333333333
+   },
+   "t0": 185.58,
+   "t1": 185.75
+  },
+  {
+   "worker": 1,
+   "n": 95,
+   "pid": "number",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "I remember you mentioned that your favourite number is 4.",
+   "finish": "stop",
+   "completion_tokens": 13,
+   "token_sha": "0fbd3e7cae04",
+   "drafts": false,
+   "speculative": {
+    "rounds": 12,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0833333333333333
+   },
+   "t0": 187.45,
+   "t1": 187.76
+  },
+  {
+   "worker": 0,
+   "n": 102,
+   "pid": "math",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user asks \"What is 17 times 23?\"\n2.  **Identify Core Task:** Calculate the product of 17 and 23.\n3.  **Perform Calculation:** \n   - 17 \u00d7 23\n   - I can break it down: 17 \u00d7 20 = 340, 17 \u00d7",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "942eacaa25c4",
+   "drafts": true,
+   "speculative": {
+    "rounds": 16,
+    "drafted": 92,
+    "accepted": 84,
+    "acceptance_rate": 0.9130434782608695,
+    "tokens_per_round": 6.0
+   },
+   "t0": 188.75,
+   "t1": 189.34
+  },
+  {
+   "worker": 1,
+   "n": 97,
+   "pid": "haiku",
+   "thinking": false,
+   "draft": "off",
+   "content": "Drops on golden leaves,\nAutumn sighs in gentle rain,\nWinter draws near.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 19,
+   "token_sha": "599dd6930cda",
+   "drafts": false,
+   "speculative": {
+    "rounds": 18,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0555555555555556
+   },
+   "t0": 190.76,
+   "t1": 191.05
+  },
+  {
+   "worker": 0,
+   "n": 104,
+   "pid": "rivers",
+   "thinking": false,
+   "draft": "server",
+   "content": "Here are three major rivers in Europe:\n\n*   **The Danube** \u2013 The second-longest river in Europe, flowing through or along the border of 10 countries, including Germany, Austria, Hungary, and Romania.\n*   **",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "4c2068267a37",
+   "drafts": true,
+   "speculative": {
+    "rounds": 15,
+    "drafted": 43,
+    "accepted": 33,
+    "acceptance_rate": 0.7674418604651163,
+    "tokens_per_round": 3.2
+   },
+   "t0": 192.34,
+   "t1": 192.9
+  },
+  {
+   "worker": 1,
+   "n": 99,
+   "pid": "haiku",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze the Request:**\n   - User wants a haiku about \"autumn rain\".\n   - A haiku has specific structure: 3 lines, 5-7-5 syllables (traditional English haiku), often focusing on nature, seasons, or a moment in time.\n   - Topic: autumn rain.\n\n2.  **Determine the Structure:**\n   - Line 1: 5 syllables\n   -",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "194ba85020e0",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 194.06,
+   "t1": 195.08
+  },
+  {
+   "worker": 0,
+   "n": 106,
+   "pid": "rivers",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"Name three rivers in Europe.\"\n   - This is a straightforward factual request.\n\n2.  **Identify Key Elements:**\n   - Continent: Europe\n   - Item: Rivers\n   - Quantity: Three\n   - Language: English\n\n3.  **Determine Response Strategy:**\n   - Provide three well-known rivers in Europe.\n   - Ensure accuracy.\n   -",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "aa4690775e1c",
+   "drafts": true,
+   "speculative": {
+    "rounds": 25,
+    "drafted": 99,
+    "accepted": 74,
+    "acceptance_rate": 0.7474747474747475,
+    "tokens_per_round": 3.84
+   },
+   "t0": 195.91,
+   "t1": 196.51
+  },
+  {
+   "worker": 1,
+   "n": 101,
+   "pid": "math",
+   "thinking": false,
+   "draft": "off",
+   "content": "17 times 23 is 391.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 13,
+   "token_sha": "b10102b3921f",
+   "drafts": false,
+   "speculative": {
+    "rounds": 12,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0833333333333333
+   },
+   "t0": 198.08,
+   "t1": 199.02
+  },
+  {
+   "worker": 0,
+   "n": 108,
+   "pid": "colour",
+   "thinking": false,
+   "draft": "server",
+   "content": "Your favourite colour is blue.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "50a093a583ce",
+   "drafts": true,
+   "speculative": {
+    "rounds": 3,
+    "drafted": 3,
+    "accepted": 3,
+    "acceptance_rate": 1.0,
+    "tokens_per_round": 2.3333333333333335
+   },
+   "t0": 199.51,
+   "t1": 199.76
+  },
+  {
+   "worker": 0,
+   "n": 110,
+   "pid": "colour",
+   "thinking": true,
+   "draft": "server",
+   "content": "Your favourite colour is blue.",
+   "reasoning": "The user is asking about their favorite color. I need to recall the information I have about the user. The user's favorite color is mentioned in the initial instructions or context. Let me check the memory: The user's favorite color is blue.",
+   "finish": "stop",
+   "completion_tokens": 57,
+   "token_sha": "078fdbb0f480",
+   "drafts": true,
+   "speculative": {
+    "rounds": 30,
+    "drafted": 57,
+    "accepted": 28,
+    "acceptance_rate": 0.49122807017543857,
+    "tokens_per_round": 1.9
+   },
+   "t0": 202.76,
+   "t1": 204.8
+  },
+  {
+   "worker": 1,
+   "n": 103,
+   "pid": "math",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user asks \"What is 17 times 23?\"\n2.  **Identify Core Task:** Calculate the product of 17 and 23.\n3.  **Perform Calculation:** \n   - 17 \u00d7 23\n   - I can break it down: 17 \u00d7 20 = 340, 17 \u00d7",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "942eacaa25c4",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 202.02,
+   "t1": 205.7
+  }
+ ],
+ "sha": {
+  ".gitattributes": "34448b82c17d60fec9b65b1f093c115ddbaadc04beb1b0140b6bfed2e012a930",
+  "LICENSE": "d7c8a9e5d1896d0a9588319cc7b1433e64645ad6d9e55632c30b78d8c038c23b",
+  "README.md": "943a721c38987570f482f30a3edecb9369602bd2fd52ed568856fd0fcc366f29",
+  "chat_template.jinja": "58933db77d3099b4f78c55a38347a72e1ea05b97d6bd8f38775303dc0194e0a9",
+  "config.json": "73b9bb5d6828db0f12ea42950770ec793d48bb56a9d785daee620a605d955071",
+  "generation_config.json": "0ed94823ae737b507aef6af01e837041b7aa2fb0306793a310cd201d89a31ff4",
+  "model-00001-of-00004.safetensors": "2388173c361d3ab935202e0e8494c9f3218c3d813117c33fe20a059a361bdc61",
+  "model-00002-of-00004.safetensors": "819038dcbf36e8600eabbadce52c726c97d3392dca35a1b324faad7b4ee01aa3",
+  "model-00003-of-00004.safetensors": "e644a73009b638c8961666453bb34b444620f66f1ab594bb6b76443249be7b56",
+  "model-00004-of-00004.safetensors": "6d35eaf5908d7ef8d28cf55ad4ad32aa142d48b26a1e5a2264f2cd0969594dd7",
+  "model.safetensors.index.json": "e41942a0c19b9958b69c8e75ea98288d7e50d76d97a4d08e30c607e8107942a0",
+  "mtp-4bit.safetensors": "6d35b890d3c5b43c0f58364146551617a16aa6fb8f8dce51359658491eb192c7",
+  "tokenizer.json": "623c34567aebb18582765289fbe23d901c62704d6518d71866e0e58db892b5b7",
+  "tokenizer_config.json": "ec380f0a6c0c2e294eb2435f5ec521fb2121cfc970e6ebf023d06829714a4eaa"
+ },
+ "listing": {
+  ".gitattributes": [
+   1570,
+   1791894278
+  ],
+  "LICENSE": [
+   2693,
+   1791894278
+  ],
+  "README.md": [
+   9498,
+   1791894278
+  ],
+  "chat_template.jinja": [
+   9867,
+   1791894278
+  ],
+  "config.json": [
+   2577,
+   1791903200
+  ],
+  "generation_config.json": [
+   210,
+   1791894278
+  ],
+  "model-00001-of-00004.safetensors": [
+   5119792680,
+   1791905689
+  ],
+  "model-00002-of-00004.safetensors": [
+   5292923208,
+   1791905689
+  ],
+  "model-00003-of-00004.safetensors": [
+   5292923168,
+   1791905689
+  ],
+  "model-00004-of-00004.safetensors": [
+   2074237664,
+   1791905689
+  ],
+  "model.safetensors.index.json": [
+   62479,
+   1791903199
+  ],
+  "mtp-4bit.safetensors": [
+   751832520,
+   1791903200
+  ],
+  "tokenizer.json": [
+   17077484,
+   1791894285
+  ],
+  "tokenizer_config.json": [
+   430,
+   1791894285
+  ]
+ },
+ "probe": [
+  {
+   "pid": "colour",
+   "thinking": false,
+   "draft": "server",
+   "content": "Your favourite colour is blue.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "50a093a583ce",
+   "drafts": true,
+   "speculative": {
+    "rounds": 2,
+    "drafted": 7,
+    "accepted": 6,
+    "acceptance_rate": 0.8571428571428571,
+    "tokens_per_round": 3.5
+   },
+   "t0": 1791905694.4603317,
+   "t1": 1791905694.5484185
+  },
+  {
+   "pid": "colour",
+   "thinking": false,
+   "draft": "off",
+   "content": "Your favourite colour is blue.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "50a093a583ce",
+   "drafts": false,
+   "speculative": {
+    "rounds": 6,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.1666666666666667
+   },
+   "t0": 1791905694.5484595,
+   "t1": 1791905694.6372814
+  },
+  {
+   "pid": "colour",
+   "thinking": true,
+   "draft": "server",
+   "content": "Your favourite colour is blue.",
+   "reasoning": "The user is asking about their favorite color. I need to recall the information I have about the user. The user's favorite color is mentioned in the initial instructions or context. Let me check the memory: \"Your favourite colour is blue.\" Yes, that's stated in the beginning. So I should answer that their favorite color is blue.",
+   "finish": "stop",
+   "completion_tokens": 76,
+   "token_sha": "09b57ada97a6",
+   "drafts": true,
+   "speculative": {
+    "rounds": 32,
+    "drafted": 62,
+    "accepted": 43,
+    "acceptance_rate": 0.6935483870967742,
+    "tokens_per_round": 2.375
+   },
+   "t0": 1791905694.6373181,
+   "t1": 1791905695.201418
+  },
+  {
+   "pid": "colour",
+   "thinking": true,
+   "draft": "off",
+   "content": "Your favourite colour is blue.",
+   "reasoning": "The user is asking about their favorite color. I need to recall the information I have about the user. The user's favorite color is mentioned in the initial instructions or context. Let me check the memory: \"Your favourite colour is blue.\" Yes, that's stated in the beginning. So I should answer that their favorite color is blue.",
+   "finish": "stop",
+   "completion_tokens": 76,
+   "token_sha": "09b57ada97a6",
+   "drafts": false,
+   "speculative": {
+    "rounds": 75,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0133333333333334
+   },
+   "t0": 1791905695.2014582,
+   "t1": 1791905695.9808114
+  },
+  {
+   "pid": "sister",
+   "thinking": false,
+   "draft": "server",
+   "content": "Your sister is called Ana.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "da3c2bb453ca",
+   "drafts": true,
+   "speculative": {
+    "rounds": 3,
+    "drafted": 7,
+    "accepted": 6,
+    "acceptance_rate": 0.8571428571428571,
+    "tokens_per_round": 2.3333333333333335
+   },
+   "t0": 1791905695.980859,
+   "t1": 1791905696.0718246
+  },
+  {
+   "pid": "sister",
+   "thinking": false,
+   "draft": "off",
+   "content": "Your sister is called Ana.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "da3c2bb453ca",
+   "drafts": false,
+   "speculative": {
+    "rounds": 6,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.1666666666666667
+   },
+   "t0": 1791905696.071865,
+   "t1": 1791905696.1584845
+  },
+  {
+   "pid": "sister",
+   "thinking": true,
+   "draft": "server",
+   "content": "Your sister is called Ana.",
+   "reasoning": "I remember the user told me: \"My sister is called Ana.\"",
+   "finish": "stop",
+   "completion_tokens": 22,
+   "token_sha": "26f024277020",
+   "drafts": true,
+   "speculative": {
+    "rounds": 11,
+    "drafted": 17,
+    "accepted": 10,
+    "acceptance_rate": 0.5882352941176471,
+    "tokens_per_round": 2.0
+   },
+   "t0": 1791905696.1585221,
+   "t1": 1791905696.3513656
+  },
+  {
+   "pid": "sister",
+   "thinking": true,
+   "draft": "off",
+   "content": "Your sister is called Ana.",
+   "reasoning": "I remember the user told me: \"My sister is called Ana.\"",
+   "finish": "stop",
+   "completion_tokens": 22,
+   "token_sha": "26f024277020",
+   "drafts": false,
+   "speculative": {
+    "rounds": 21,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0476190476190477
+   },
+   "t0": 1791905696.3514066,
+   "t1": 1791905696.5861948
+  },
+  {
+   "pid": "eyes",
+   "thinking": false,
+   "draft": "server",
+   "content": "Your eyes are brown.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 6,
+   "token_sha": "64e09ca23a7e",
+   "drafts": true,
+   "speculative": {
+    "rounds": 2,
+    "drafted": 7,
+    "accepted": 5,
+    "acceptance_rate": 0.7142857142857143,
+    "tokens_per_round": 3.0
+   },
+   "t0": 1791905696.5862298,
+   "t1": 1791905696.664449
+  },
+  {
+   "pid": "eyes",
+   "thinking": false,
+   "draft": "off",
+   "content": "Your eyes are brown.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 6,
+   "token_sha": "64e09ca23a7e",
+   "drafts": false,
+   "speculative": {
+    "rounds": 5,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.2
+   },
+   "t0": 1791905696.6645167,
+   "t1": 1791905696.7414327
+  },
+  {
+   "pid": "eyes",
+   "thinking": true,
+   "draft": "server",
+   "content": "Your eyes are brown.",
+   "reasoning": "I remember the user told me: \"My eyes are brown.\"",
+   "finish": "stop",
+   "completion_tokens": 20,
+   "token_sha": "e04b2ad28254",
+   "drafts": true,
+   "speculative": {
+    "rounds": 8,
+    "drafted": 18,
+    "accepted": 11,
+    "acceptance_rate": 0.6111111111111112,
+    "tokens_per_round": 2.5
+   },
+   "t0": 1791905696.7415063,
+   "t1": 1791905696.9106402
+  },
+  {
+   "pid": "eyes",
+   "thinking": true,
+   "draft": "off",
+   "content": "Your eyes are brown.",
+   "reasoning": "I remember the user told me: \"My eyes are brown.\"",
+   "finish": "stop",
+   "completion_tokens": 20,
+   "token_sha": "e04b2ad28254",
+   "drafts": false,
+   "speculative": {
+    "rounds": 19,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0526315789473684
+   },
+   "t0": 1791905696.9106958,
+   "t1": 1791905697.1292417
+  },
+  {
+   "pid": "food",
+   "thinking": false,
+   "draft": "server",
+   "content": "Your favourite food is pizza.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "f8dd3c7b9851",
+   "drafts": true,
+   "speculative": {
+    "rounds": 3,
+    "drafted": 4,
+    "accepted": 3,
+    "acceptance_rate": 0.75,
+    "tokens_per_round": 2.3333333333333335
+   },
+   "t0": 1791905697.1292953,
+   "t1": 1791905697.2135444
+  },
+  {
+   "pid": "food",
+   "thinking": false,
+   "draft": "off",
+   "content": "Your favourite food is pizza.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "f8dd3c7b9851",
+   "drafts": false,
+   "speculative": {
+    "rounds": 6,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.1666666666666667
+   },
+   "t0": 1791905697.2136123,
+   "t1": 1791905697.3025243
+  },
+  {
+   "pid": "food",
+   "thinking": true,
+   "draft": "server",
+   "content": "Your favorite food is pizza.",
+   "reasoning": "I remember the user told me: \"My favourite food is pizza.\"",
+   "finish": "stop",
+   "completion_tokens": 22,
+   "token_sha": "40986b07287e",
+   "drafts": true,
+   "speculative": {
+    "rounds": 10,
+    "drafted": 22,
+    "accepted": 13,
+    "acceptance_rate": 0.5909090909090909,
+    "tokens_per_round": 2.2
+   },
+   "t0": 1791905697.3025765,
+   "t1": 1791905697.4987159
+  },
+  {
+   "pid": "food",
+   "thinking": true,
+   "draft": "off",
+   "content": "Your favorite food is pizza.",
+   "reasoning": "I remember the user told me: \"My favourite food is pizza.\"",
+   "finish": "stop",
+   "completion_tokens": 22,
+   "token_sha": "40986b07287e",
+   "drafts": false,
+   "speculative": {
+    "rounds": 21,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0476190476190477
+   },
+   "t0": 1791905697.498767,
+   "t1": 1791905697.7358932
+  },
+  {
+   "pid": "dog",
+   "thinking": false,
+   "draft": "server",
+   "content": "My name is Nemotron, and I'm a language model developed by NVIDIA.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 19,
+   "token_sha": "7af7c147412f",
+   "drafts": true,
+   "speculative": {
+    "rounds": 4,
+    "drafted": 16,
+    "accepted": 14,
+    "acceptance_rate": 0.875,
+    "tokens_per_round": 4.75
+   },
+   "t0": 1791905697.7359445,
+   "t1": 1791905697.8601158
+  },
+  {
+   "pid": "dog",
+   "thinking": false,
+   "draft": "off",
+   "content": "My name is Nemotron, and I'm a language model developed by NVIDIA.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 19,
+   "token_sha": "7af7c147412f",
+   "drafts": false,
+   "speculative": {
+    "rounds": 18,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0555555555555556
+   },
+   "t0": 1791905697.8601687,
+   "t1": 1791905698.0726707
+  },
+  {
+   "pid": "dog",
+   "thinking": true,
+   "draft": "server",
+   "content": "I don't know your dog's name because I don't have access to your personal information or anything about your pets. If you'd like to share it, I'd love to hear what your dog is called!",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"What is my dog called?\"\n   - This is a personal question about the user's pet dog.\n   - I don't have access to the user's personal information, their home, or their pets unless they've shared it in this conversation.\n\n2.  **Identify Key Constraints:**\n   - I am an AI language model.\n   - I don't know who the user is, where they live, or what pets they have.\n   - I cannot access their personal data or device information.\n   - The question implies they expect me to know, but I don't.\n\n3.  **Determine Response Strategy:**\n   - Acknowledge the question politely.\n   - Explain that I don't have access to their personal information or pets.\n   - Ask them to tell me their dog's name if they'd like to share it.\n   - Keep it friendly and helpful.\n\n4.  **Draft Response (mental):**\n   \"I don't know your dog's name because I don't have access to your personal information or pets. If you'd like to tell me what your dog is called, I'd love to hear it!\"\n\n   Check against constraints: \n   - No personal data accessed \u2713\n   - Clear, polite \u2713\n   - Invites them to share if they want \u2713\n   - No false claims \u2713\n\n   It's good. I'll output that.\u2705",
+   "finish": "stop",
+   "completion_tokens": 357,
+   "token_sha": "ff1020bc0d21",
+   "drafts": true,
+   "speculative": {
+    "rounds": 92,
+    "drafted": 375,
+    "accepted": 264,
+    "acceptance_rate": 0.704,
+    "tokens_per_round": 3.880434782608696
+   },
+   "t0": 1791905698.0727239,
+   "t1": 1791905700.0772092
+  },
+  {
+   "pid": "dog",
+   "thinking": true,
+   "draft": "off",
+   "content": "I don't know your dog's name because I don't have access to your personal information or anything about your pets. If you'd like to share it, I'd love to hear what your dog is called!",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"What is my dog called?\"\n   - This is a personal question about the user's pet dog.\n   - I don't have access to the user's personal information, their home, or their pets unless they've shared it in this conversation.\n\n2.  **Identify Key Constraints:**\n   - I am an AI language model.\n   - I don't know who the user is, where they live, or what pets they have.\n   - I cannot access their personal data or device information.\n   - The question implies they expect me to know, but I don't.\n\n3.  **Determine Response Strategy:**\n   - Acknowledge the question politely.\n   - Explain that I don't have access to their personal information or pets.\n   - Ask them to tell me their dog's name if they'd like to share it.\n   - Keep it friendly and helpful.\n\n4.  **Draft Response (mental):**\n   \"I don't know your dog's name because I don't have access to your personal information or pets. If you'd like to tell me what your dog is called, I'd love to hear it!\"\n\n   Check against constraints: \n   - No personal data accessed \u2713\n   - Clear, polite \u2713\n   - Invites them to share if they want \u2713\n   - No false claims \u2713\n\n   It's good. I'll output that.\u2705",
+   "finish": "stop",
+   "completion_tokens": 357,
+   "token_sha": "ff1020bc0d21",
+   "drafts": false,
+   "speculative": {
+    "rounds": 356,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.002808988764045
+   },
+   "t0": 1791905700.0772636,
+   "t1": 1791905703.6852734
+  },
+  {
+   "pid": "number",
+   "thinking": false,
+   "draft": "server",
+   "content": "Your favourite number is 7.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 8,
+   "token_sha": "8652ccc375f5",
+   "drafts": true,
+   "speculative": {
+    "rounds": 2,
+    "drafted": 8,
+    "accepted": 8,
+    "acceptance_rate": 1.0,
+    "tokens_per_round": 4.0
+   },
+   "t0": 1791905703.6853287,
+   "t1": 1791905703.7690814
+  },
+  {
+   "pid": "number",
+   "thinking": false,
+   "draft": "off",
+   "content": "Your favourite number is 7.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 8,
+   "token_sha": "8652ccc375f5",
+   "drafts": false,
+   "speculative": {
+    "rounds": 7,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.1428571428571428
+   },
+   "t0": 1791905703.7691364,
+   "t1": 1791905703.86677
+  },
+  {
+   "pid": "number",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "I remember you told me your favourite number is 4.",
+   "finish": "stop",
+   "completion_tokens": 13,
+   "token_sha": "d2f35ea1617e",
+   "drafts": true,
+   "speculative": {
+    "rounds": 6,
+    "drafted": 16,
+    "accepted": 9,
+    "acceptance_rate": 0.5625,
+    "tokens_per_round": 2.1666666666666665
+   },
+   "t0": 1791905703.8668203,
+   "t1": 1791905704.006477
+  },
+  {
+   "pid": "number",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "I remember you told me your favourite number is 4.",
+   "finish": "stop",
+   "completion_tokens": 13,
+   "token_sha": "d2f35ea1617e",
+   "drafts": false,
+   "speculative": {
+    "rounds": 12,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0833333333333333
+   },
+   "t0": 1791905704.006523,
+   "t1": 1791905704.1568117
+  },
+  {
+   "pid": "haiku",
+   "thinking": false,
+   "draft": "server",
+   "content": "Drops on golden leaves,\nAutumn sighs in gentle rain,\nWinter draws near.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 19,
+   "token_sha": "599dd6930cda",
+   "drafts": true,
+   "speculative": {
+    "rounds": 9,
+    "drafted": 15,
+    "accepted": 12,
+    "acceptance_rate": 0.8,
+    "tokens_per_round": 2.111111111111111
+   },
+   "t0": 1791905704.1568594,
+   "t1": 1791905704.3352945
+  },
+  {
+   "pid": "haiku",
+   "thinking": false,
+   "draft": "off",
+   "content": "Drops on golden leaves,\nAutumn sighs in gentle rain,\nWinter draws near.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 19,
+   "token_sha": "599dd6930cda",
+   "drafts": false,
+   "speculative": {
+    "rounds": 18,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0555555555555556
+   },
+   "t0": 1791905704.3353493,
+   "t1": 1791905704.5416906
+  },
+  {
+   "pid": "haiku",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze the Request:**\n   - User wants a haiku about \"autumn rain\".\n   - A haiku has specific structure: 3 lines, 5-7-5 syllables (traditional English haiku), often focusing on nature, seasons, or a moment in time.\n   - Topic: autumn rain.\n\n2.  **Determine the Structure:**\n   - Line 1: 5 syllables\n   - Line 2: 7 syllables\n   - Line 3: 5 syllables\n\n3.  **Brainstorming Content (autumn rain):**\n   - Rain falling on leaves, ground\n   - Cool air, falling petals\n   - Brown paths, wet sidewalks\n   - Mist, amber light\n   - Falling softly, season's change\n\n   Let's try to fit syllables:\n   - \"Golden leaves fall down\" -> Gold-en leaves fall down (5? Gold-en=2, leaves=1, fall=1, down=1 = 5. Good.)\n   - \"Soft rain taps the roof\" -> Soft rain taps the roof (Soft=1, rain=1, taps=1, the=1, roof=1 = 5. Need 7. Let's recount: Soft(1) rain(2) taps(3) the(4) roof(5). That's 5. Need 2 more: \"Soft rain taps the quiet roof\" -> Soft(1) rain(2) taps(3) the(4) qui-et(6) roof(7). That's 7.)\n   - \"Rain wets the autumn ground\" -> Rain(1) wets(2) the(3) au-tumn(5) ground(6). Wait, need 5. Let's recount: Rain(1) wets(2) the(3) au(4) tumn(5) ground(6). That's 6. Adjust: \"Rain wets dry autumn ground\" -> Rain(1) wets(2) dry(3) au(4) tumn(5) ground(6). Still 6. Try: \"Rain falls on dry ground\" -> Rain(1) falls(2) on(3) dry(4) ground(5). That's 5, but we need 7 for line 2.\n\n   Let's structure a full haiku:\n   Line 1:",
+   "finish": "length",
+   "completion_tokens": 512,
+   "token_sha": "08c1e320f2f2",
+   "drafts": true,
+   "speculative": {
+    "rounds": 148,
+    "drafted": 586,
+    "accepted": 365,
+    "acceptance_rate": 0.6228668941979523,
+    "tokens_per_round": 3.4594594594594597
+   },
+   "t0": 1791905704.5417526,
+   "t1": 1791905707.6525507
+  },
+  {
+   "pid": "haiku",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze the Request:**\n   - User wants a haiku about \"autumn rain\".\n   - A haiku has specific structure: 3 lines, 5-7-5 syllables (traditional English haiku), often focusing on nature, seasons, or a moment in time.\n   - Topic: autumn rain.\n\n2.  **Determine the Structure:**\n   - Line 1: 5 syllables\n   - Line 2: 7 syllables\n   - Line 3: 5 syllables\n\n3.  **Brainstorming Content (autumn rain):**\n   - Rain falling on leaves, ground\n   - Cool air, falling petals\n   - Brown paths, wet sidewalks\n   - Mist, amber light\n   - Falling softly, season's change\n\n   Let's try to fit syllables:\n   - \"Golden leaves fall down\" -> Gold-en leaves fall down (5? Gold-en=2, leaves=1, fall=1, down=1 = 5. Good.)\n   - \"Soft rain taps the roof\" -> Soft rain taps the roof (Soft=1, rain=1, taps=1, the=1, roof=1 = 5. Need 7. Let's recount: Soft(1) rain(2) taps(3) the(4) roof(5). That's 5. Need 2 more: \"Soft rain taps the quiet roof\" -> Soft(1) rain(2) taps(3) the(4) qui-et(6) roof(7). That's 7.)\n   - \"Rain wets the autumn ground\" -> Rain(1) wets(2) the(3) au-tumn(5) ground(6). Wait, need 5. Let's recount: Rain(1) wets(2) the(3) au(4) tumn(5) ground(6). That's 6. Adjust: \"Rain wets dry autumn ground\" -> Rain(1) wets(2) dry(3) au(4) tumn(5) ground(6). Still 6. Try: \"Rain falls on dry ground\" -> Rain(1) falls(2) on(3) dry(4) ground(5). That's 5, but we need 7 for line 2.\n\n   Let's structure a full haiku:\n   Line 1:",
+   "finish": "length",
+   "completion_tokens": 512,
+   "token_sha": "08c1e320f2f2",
+   "drafts": false,
+   "speculative": {
+    "rounds": 511,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0019569471624266
+   },
+   "t0": 1791905707.6526184,
+   "t1": 1791905712.8511243
+  },
+  {
+   "pid": "math",
+   "thinking": false,
+   "draft": "server",
+   "content": "17 times 23 is 391.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 13,
+   "token_sha": "b10102b3921f",
+   "drafts": true,
+   "speculative": {
+    "rounds": 3,
+    "drafted": 11,
+    "accepted": 11,
+    "acceptance_rate": 1.0,
+    "tokens_per_round": 4.333333333333333
+   },
+   "t0": 1791905712.8511772,
+   "t1": 1791905712.96605
+  },
+  {
+   "pid": "math",
+   "thinking": false,
+   "draft": "off",
+   "content": "17 times 23 is 391.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 13,
+   "token_sha": "b10102b3921f",
+   "drafts": false,
+   "speculative": {
+    "rounds": 12,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0833333333333333
+   },
+   "t0": 1791905712.9661074,
+   "t1": 1791905713.1154857
+  },
+  {
+   "pid": "math",
+   "thinking": true,
+   "draft": "server",
+   "content": "17 \u00d7 23 = 391",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user asks \"What is 17 times 23?\"\n2.  **Identify Core Task:** Calculate the product of 17 and 23.\n3.  **Perform Calculation:** \n   - 17 \u00d7 23\n   - I can break it down: 17 \u00d7 20 = 340, 17 \u00d7 3 = 51, 340 + 51 = 391\n   - Alternatively: 23 \u00d7 10 = 230, 23 \u00d7 7 = 161, 230 + 161 = 391\n   - Or standard multiplication: 17 \u00d7 23 = 391\n4.  **Formulate Response:** State the result clearly. \"17 times 23 is 391.\"\n5.  **Check:** 17*23 = 391. Correct.\n6.  **Output Generation:** Just give the answer as requested.\u2705",
+   "finish": "stop",
+   "completion_tokens": 257,
+   "token_sha": "0ce9f2bb8b37",
+   "drafts": true,
+   "speculative": {
+    "rounds": 49,
+    "drafted": 266,
+    "accepted": 207,
+    "acceptance_rate": 0.7781954887218046,
+    "tokens_per_round": 5.244897959183674
+   },
+   "t0": 1791905713.1155396,
+   "t1": 1791905714.3868272
+  },
+  {
+   "pid": "math",
+   "thinking": true,
+   "draft": "off",
+   "content": "17 \u00d7 23 = 391",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user asks \"What is 17 times 23?\"\n2.  **Identify Core Task:** Calculate the product of 17 and 23.\n3.  **Perform Calculation:** \n   - 17 \u00d7 23\n   - I can break it down: 17 \u00d7 20 = 340, 17 \u00d7 3 = 51, 340 + 51 = 391\n   - Alternatively: 23 \u00d7 10 = 230, 23 \u00d7 7 = 161, 230 + 161 = 391\n   - Or standard multiplication: 17 \u00d7 23 = 391\n4.  **Formulate Response:** State the result clearly. \"17 times 23 is 391.\"\n5.  **Check:** 17*23 = 391. Correct.\n6.  **Output Generation:** Just give the answer as requested.\u2705",
+   "finish": "stop",
+   "completion_tokens": 257,
+   "token_sha": "0ce9f2bb8b37",
+   "drafts": false,
+   "speculative": {
+    "rounds": 256,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.00390625
+   },
+   "t0": 1791905714.3868816,
+   "t1": 1791905716.9953842
+  },
+  {
+   "pid": "rivers",
+   "thinking": false,
+   "draft": "server",
+   "content": "Here are three major rivers in Europe:\n\n*   **The Danube** \u2013 The second-longest river in Europe, flowing through or along the border of 10 countries, including Germany, Austria, Hungary, and Romania.\n*   **The Volga** \u2013 The longest river in Europe, located entirely within Russia and flowing into the Caspian Sea.\n*   **The Rhine** \u2013 A major river that flows from the Swiss Alps northward, forming a natural border between Germany",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "e10a1ac2b2a1",
+   "drafts": true,
+   "speculative": {
+    "rounds": 31,
+    "drafted": 87,
+    "accepted": 64,
+    "acceptance_rate": 0.735632183908046,
+    "tokens_per_round": 3.096774193548387
+   },
+   "t0": 1791905716.9954386,
+   "t1": 1791905717.5807288
+  },
+  {
+   "pid": "rivers",
+   "thinking": false,
+   "draft": "off",
+   "content": "Here are three major rivers in Europe:\n\n*   **The Danube** \u2013 The second-longest river in Europe, flowing through or along the border of 10 countries, including Germany, Austria, Hungary, and Romania.\n*   **The Volga** \u2013 The longest river in Europe, located entirely within Russia and flowing into the Caspian Sea.\n*   **The Rhine** \u2013 A major river that flows from the Swiss Alps northward, forming a natural border between Germany",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "e10a1ac2b2a1",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 1791905717.5807838,
+   "t1": 1791905718.55881
+  },
+  {
+   "pid": "rivers",
+   "thinking": true,
+   "draft": "server",
+   "content": "Here are three major rivers in Europe:\n\n1. **Danube** \u2013 Flows from Germany to the Black Sea, passing through or forming borders with 10 countries.\n2. **Rhine** \u2013 Runs from the Swiss Alps to the North Sea, passing through France, Germany, and the Netherlands.\n3. **Volga** \u2013 The longest river in Europe, flowing entirely through Russia into the Caspian Sea.",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"Name three rivers in Europe.\"\n   - This is a straightforward factual request.\n\n2.  **Identify Key Elements:**\n   - Continent: Europe\n   - Item: Rivers\n   - Quantity: Three\n   - Language: English\n\n3.  **Determine Response Strategy:**\n   - Provide three well-known rivers in Europe.\n   - Ensure accuracy.\n   - Keep it concise.\n   - Optionally add brief context if needed, but three names should suffice.\n\n4.  **Select Rivers in Europe:**\n   - Danube (very long, flows through many countries)\n   - Rhine (major Western European river)\n   - Volga (longest in Europe, flows through Russia)\n   - Others: Seine, Thames, Po, Ural (border of Europe/Asia), etc.\n\n   I'll pick: Danube, Rhine, Volga. These are internationally recognized and clearly in Europe.\n\n5.  **Draft Response:**\n   - Danube\n   - Rhine\n   - Volga\n   (Maybe add a brief note that these are among the most significant, but keep it simple.)\n\n   Check: Are all three unambiguously in Europe? Yes. Danube flows from Germany to Black Sea. Rhine from Switzerland to North Sea. Volga entirely in Russia (European part). All good.\n\n   I'll just list them clearly.\u2705",
+   "finish": "stop",
+   "completion_tokens": 382,
+   "token_sha": "e51cc4a05671",
+   "drafts": true,
+   "speculative": {
+    "rounds": 118,
+    "drafted": 366,
+    "accepted": 266,
+    "acceptance_rate": 0.726775956284153,
+    "tokens_per_round": 3.23728813559322
+   },
+   "t0": 1791905718.5588586,
+   "t1": 1791905720.8631709
+  },
+  {
+   "pid": "rivers",
+   "thinking": true,
+   "draft": "off",
+   "content": "Here are three major rivers in Europe:\n\n1. **Danube** \u2013 Flows from Germany to the Black Sea, passing through or forming borders with 10 countries.\n2. **Rhine** \u2013 Runs from the Swiss Alps to the North Sea, passing through France, Germany, and the Netherlands.\n3. **Volga** \u2013 The longest river in Europe, flowing entirely through Russia into the Caspian Sea.",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"Name three rivers in Europe.\"\n   - This is a straightforward factual request.\n\n2.  **Identify Key Elements:**\n   - Continent: Europe\n   - Item: Rivers\n   - Quantity: Three\n   - Language: English\n\n3.  **Determine Response Strategy:**\n   - Provide three well-known rivers in Europe.\n   - Ensure accuracy.\n   - Keep it concise.\n   - Optionally add brief context if needed, but three names should suffice.\n\n4.  **Select Rivers in Europe:**\n   - Danube (very long, flows through many countries)\n   - Rhine (major Western European river)\n   - Volga (longest in Europe, flows through Russia)\n   - Others: Seine, Thames, Po, Ural (border of Europe/Asia), etc.\n\n   I'll pick: Danube, Rhine, Volga. These are internationally recognized and clearly in Europe.\n\n5.  **Draft Response:**\n   - Danube\n   - Rhine\n   - Volga\n   (Maybe add a brief note that these are among the most significant, but keep it simple.)\n\n   Check: Are all three unambiguously in Europe? Yes. Danube flows from Germany to Black Sea. Rhine from Switzerland to North Sea. Volga entirely in Russia (European part). All good.\n\n   I'll just list them clearly.\u2705",
+   "finish": "stop",
+   "completion_tokens": 382,
+   "token_sha": "e51cc4a05671",
+   "drafts": false,
+   "speculative": {
+    "rounds": 381,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0026246719160106
+   },
+   "t0": 1791905720.8632255,
+   "t1": 1791905724.7376819
+  }
+ ]
+}

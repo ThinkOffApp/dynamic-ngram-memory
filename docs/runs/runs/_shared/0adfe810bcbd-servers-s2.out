@@ -1,0 +1,217 @@
+13:06:53 server s2-1-aE (after on E) smi: 51, 6.37 W, 208 MHz, 0 %
+2026-10-13T13:06:56+00:00 1-aE: server pid 1524652 (after) on ~/tf-pocket-cuda/models/A-empty64; 51, 6.39 W, 208 MHz, 0 %
+2026-10-13T13:07:06+00:00 1-aE: ready in 10.2 s; model A-empty64; pocket used [64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64]; 54, 20.45 W, 2411 MHz, 0 %
+2026-10-13T13:07:17+00:00 1-aE openai rc=0 11s 60, 43.00 W, 2509 MHz, 96 %
+{"label": "1-aE-openai", "prompt": "fibonacci-raw", "temperature": 1.0, "decode_tps_median": 161.76908203762892, "decode_tps_all": [133.23, 144.82, 162.18, 175.81, 161.77], "ttft_s_median": 0.03785848093684763}
+{"label": "1-aE-openai", "prompt": "gpu-chat-no-think", "temperature": 1.0, "decode_tps_median": 137.6862309141676, "decode_tps_all": [133.33, 137.69, 144.13, 143.77, 130.1], "ttft_s_median": 0.030422135023400187}
+{"label": "1-aE-openai", "prompt": "fibonacci-raw", "temperature": 0.0, "decode_tps_median": 139.29405987498865, "decode_tps_all": [139.29, 140.19, 136.96, 140.32, 137.68], "ttft_s_median": 0.037842991994693875}
+{"label": "1-aE-openai", "prompt": "gpu-chat-no-think", "temperature": 0.0, "decode_tps_median": 157.02035112521287, "decode_tps_all": [154.55, 158.51, 155.01, 158.87, 157.02], "ttft_s_median": 0.026077697053551674}
+2026-10-13T13:07:29+00:00 1-aE openai256 rc=0 12s 62, 42.59 W, 2509 MHz, 96 %
+{"label": "1-aE-openai256", "prompt": "fibonacci-raw", "temperature": 0.0, "decode_tps_median": 202.27069414595542, "decode_tps_all": [202.66, 202.27, 201.98], "ttft_s_median": 0.038605471956543624}
+{"label": "1-aE-openai256", "prompt": "gpu-chat-no-think", "temperature": 0.0, "decode_tps_median": 147.82017535347492, "decode_tps_all": [148.64, 147.81, 147.82], "ttft_s_median": 0.027232576976530254}
+2026-10-13T13:08:16+00:00 1-aE off rc=0 47s 63, 40.83 W, 2463 MHz, 0 %
+[off] measured 10/16 p2 ct=256 decode 100.3 tok/s (server 99.9) ttft 0.027 s finish=length drafts=False
+[off] measured 11/16 p3 ct=256 decode 100.4 tok/s (server 100.0) ttft 0.026 s finish=length drafts=False
+[off] measured 12/16 p4 ct=256 decode 100.9 tok/s (server 100.5) ttft 0.026 s finish=length drafts=False
+[off] measured 13/16 p5 ct=256 decode 100.3 tok/s (server 99.9) ttft 0.027 s finish=length drafts=False
+[off] measured 14/16 p6 ct=256 decode 100.9 tok/s (server 100.5) ttft 0.026 s finish=length drafts=False
+[off] measured 15/16 p7 ct=256 decode 100.4 tok/s (server 100.0) ttft 0.026 s finish=length drafts=False
+[off] measured 16/16 p8 ct=256 decode 100.8 tok/s (server 100.4) ttft 0.028 s finish=length drafts=False
+
+label 1-aE-off | model A-empty64 | host gb10-a (Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39) | base http://127.0.0.1:18190/v1 | drafts off | max_tokens 256
+thinking    n decode tps      p10      p90 server tps    agree  e2e tps   ttft s   fail  accept
+off        16      100.6    100.3    100.9      100.2    1.000     99.3    0.027      0       -
+wrote ~/tf-pocket-cuda/raw/v/s2/1-aE.off.json
+2026-10-13T13:09:49+00:00 1-aE conc rc=0 93s 68, 42.33 W, 2476 MHz, 74 %
+{"label": "1-aE-conc", "prompt": "code", "temperature": 1.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 216.9, "per_stream_tps": 61.5, "ttft_s_max": 0.21, "steady_tps": 243.9, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 4, "unequal": 0, "failed": 0}}
+{"label": "1-aE-conc", "prompt": "chat", "temperature": 1.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 199.6, "per_stream_tps": 51.7, "ttft_s_max": 0.14, "steady_tps": 206.3, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 4, "unequal": 0, "failed": 0}}
+{"label": "1-aE-conc", "prompt": "code", "temperature": 0.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 321.3, "per_stream_tps": 81.9, "ttft_s_max": 0.22, "steady_tps": 342.1, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+{"label": "1-aE-conc", "prompt": "chat", "temperature": 0.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 336.4, "per_stream_tps": 85.7, "ttft_s_max": 0.15, "steady_tps": 347.6, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+2026-10-13T13:10:23+00:00 1-aE conc14 rc=0 34s 70, 42.45 W, 2483 MHz, 94 %
+{"label": "1-aE-conc14", "prompt": "code", "temperature": 0.0, "streams": 1, "failed": 0, "unmeasured": 0, "aggregate_tps": 201.7, "per_stream_tps": 201.7, "ttft_s_max": 0.06, "alone": {"equal": 3, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+{"label": "1-aE-conc14", "prompt": "code", "temperature": 0.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 423.1, "per_stream_tps": 110.1, "ttft_s_max": 0.19, "steady_tps": 450.4, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+{"label": "1-aE-conc14", "prompt": "chat", "temperature": 0.0, "streams": 1, "failed": 0, "unmeasured": 0, "aggregate_tps": 147.6, "per_stream_tps": 147.6, "ttft_s_max": 0.04, "alone": {"equal": 3, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+{"label": "1-aE-conc14", "prompt": "chat", "temperature": 0.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 334.6, "per_stream_tps": 85.6, "ttft_s_max": 0.16, "steady_tps": 348.3, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+2026-10-13T13:10:26+00:00 1-aE: stopped exit=0 bytes_unchanged=True listing_unchanged=True home=['.cache/tensorfold/window-costs/2c12feb5c56462976037f5373ac9cd11c30aaf53a09e205a91a9d74918e8cd4f.bin', '.cache/tensorfold/window-costs/2c1c5fea5e54ec96c4d8e422dec48a2a54a078b9634db604c140184788a94707.bin']
+13:10:26 server s2-1-aE rc=0
+13:12:26 server s2-2-bE (before on E) smi: 50, 6.32 W, 208 MHz, 0 %
+2026-10-13T13:12:29+00:00 2-bE: server pid 1613257 (before) on ~/tf-pocket-cuda/models/A-empty64; 50, 6.41 W, 208 MHz, 0 %
+2026-10-13T13:12:39+00:00 2-bE: ready in 10.2 s; model A-empty64; pocket used [64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64]; 53, 30.19 W, 2411 MHz, 0 %
+2026-10-13T13:12:51+00:00 2-bE openai rc=0 12s 59, 40.62 W, 2509 MHz, 96 %
+{"label": "2-bE-openai", "prompt": "fibonacci-raw", "temperature": 1.0, "decode_tps_median": 148.2254282197356, "decode_tps_all": [120.82, 133.89, 148.23, 164.28, 154.02], "ttft_s_median": 0.040138395968824625}
+{"label": "2-bE-openai", "prompt": "gpu-chat-no-think", "temperature": 1.0, "decode_tps_median": 121.78419317887298, "decode_tps_all": [121.78, 120.71, 128.9, 134.41, 118.05], "ttft_s_median": 0.028971309075132012}
+{"label": "2-bE-openai", "prompt": "fibonacci-raw", "temperature": 0.0, "decode_tps_median": 129.42873972749675, "decode_tps_all": [129.24, 132.66, 129.13, 132.59, 129.43], "ttft_s_median": 0.03956257097888738}
+{"label": "2-bE-openai", "prompt": "gpu-chat-no-think", "temperature": 0.0, "decode_tps_median": 149.87546809278618, "decode_tps_all": [148.77, 153.08, 149.55, 153.61, 149.88], "ttft_s_median": 0.028607963933609426}
+2026-10-13T13:13:04+00:00 2-bE openai256 rc=0 13s 61, 41.22 W, 2509 MHz, 96 %
+{"label": "2-bE-openai256", "prompt": "fibonacci-raw", "temperature": 0.0, "decode_tps_median": 191.6250297251356, "decode_tps_all": [191.63, 189.96, 191.85], "ttft_s_median": 0.04014112998265773}
+{"label": "2-bE-openai256", "prompt": "gpu-chat-no-think", "temperature": 0.0, "decode_tps_median": 137.66289516040663, "decode_tps_all": [137.55, 137.66, 137.82], "ttft_s_median": 0.02855972305405885}
+2026-10-13T13:13:58+00:00 2-bE off rc=0 54s 63, 38.41 W, 2476 MHz, 78 %
+[off] measured 10/16 p2 ct=256 decode 86.6 tok/s (server 86.3) ttft 0.029 s finish=length drafts=False
+[off] measured 11/16 p3 ct=256 decode 86.7 tok/s (server 86.4) ttft 0.029 s finish=length drafts=False
+[off] measured 12/16 p4 ct=256 decode 86.8 tok/s (server 86.4) ttft 0.028 s finish=length drafts=False
+[off] measured 13/16 p5 ct=256 decode 87.0 tok/s (server 86.7) ttft 0.028 s finish=length drafts=False
+[off] measured 14/16 p6 ct=256 decode 87.0 tok/s (server 86.6) ttft 0.034 s finish=length drafts=False
+[off] measured 15/16 p7 ct=256 decode 86.6 tok/s (server 86.3) ttft 0.033 s finish=length drafts=False
+[off] measured 16/16 p8 ct=256 decode 87.0 tok/s (server 86.6) ttft 0.031 s finish=length drafts=False
+
+label 2-bE-off | model A-empty64 | host gb10-a (Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39) | base http://127.0.0.1:18190/v1 | drafts off | max_tokens 256
+thinking    n decode tps      p10      p90 server tps    agree  e2e tps   ttft s   fail  accept
+off        16       86.9     86.7     87.0       86.5    1.000     85.8    0.032      0       -
+wrote ~/tf-pocket-cuda/raw/v/s2/2-bE.off.json
+2026-10-13T13:15:37+00:00 2-bE conc rc=0 99s 68, 41.78 W, 2483 MHz, 94 %
+{"label": "2-bE-conc", "prompt": "code", "temperature": 1.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 215.9, "per_stream_tps": 56.8, "ttft_s_max": 0.2, "steady_tps": 233.4, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 4, "unequal": 0, "failed": 0}}
+{"label": "2-bE-conc", "prompt": "chat", "temperature": 1.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 189.1, "per_stream_tps": 49.7, "ttft_s_max": 0.16, "steady_tps": 197.0, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 4, "unequal": 0, "failed": 0}}
+{"label": "2-bE-conc", "prompt": "code", "temperature": 0.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 314.8, "per_stream_tps": 80.8, "ttft_s_max": 0.2, "steady_tps": 331.9, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+{"label": "2-bE-conc", "prompt": "chat", "temperature": 0.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 329.9, "per_stream_tps": 83.2, "ttft_s_max": 0.16, "steady_tps": 342.3, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+2026-10-13T13:16:16+00:00 2-bE conc14 rc=0 38s 68, 40.41 W, 2483 MHz, 94 %
+{"label": "2-bE-conc14", "prompt": "code", "temperature": 0.0, "streams": 1, "failed": 0, "unmeasured": 0, "aggregate_tps": 190.7, "per_stream_tps": 190.7, "ttft_s_max": 0.06, "alone": {"equal": 3, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+{"label": "2-bE-conc14", "prompt": "code", "temperature": 0.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 314.4, "per_stream_tps": 80.9, "ttft_s_max": 0.21, "steady_tps": 331.3, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+{"label": "2-bE-conc14", "prompt": "chat", "temperature": 0.0, "streams": 1, "failed": 0, "unmeasured": 0, "aggregate_tps": 137.0, "per_stream_tps": 137.0, "ttft_s_max": 0.03, "alone": {"equal": 3, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+{"label": "2-bE-conc14", "prompt": "chat", "temperature": 0.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 328.9, "per_stream_tps": 84.3, "ttft_s_max": 0.17, "steady_tps": 342.6, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+2026-10-13T13:16:19+00:00 2-bE: stopped exit=0 bytes_unchanged=True listing_unchanged=True home=['.cache/tensorfold/window-costs/2c1c5fea5e54ec96c4d8e422dec48a2a54a078b9634db604c140184788a94707.bin', '.cache/tensorfold/window-costs/fa3fd56a7c6a9650e382d7352f29f18a2b8d53c367cf69041f740b6343bffc2a.bin']
+13:16:19 server s2-2-bE rc=0
+13:18:19 server s2-3-bA (before on A) smi: 49, 6.26 W, 208 MHz, 0 %
+2026-10-13T13:18:22+00:00 3-bA: server pid 1669230 (before) on ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8; 49, 6.31 W, 208 MHz, 0 %
+2026-10-13T13:18:32+00:00 3-bA: ready in 10.1 s; model d9d758fb83953437f7263256b0d96157e2a348b8; pocket used [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; 52, 16.24 W, 2411 MHz, 0 %
+2026-10-13T13:18:43+00:00 3-bA openai rc=0 11s 59, 42.64 W, 2509 MHz, 79 %
+{"label": "3-bA-openai", "prompt": "fibonacci-raw", "temperature": 1.0, "decode_tps_median": 161.65496212919373, "decode_tps_all": [131.51, 149.61, 161.65, 178.04, 163.16], "ttft_s_median": 0.037371039041318}
+{"label": "3-bA-openai", "prompt": "gpu-chat-no-think", "temperature": 1.0, "decode_tps_median": 135.23650014235977, "decode_tps_all": [135.24, 134.75, 147.31, 141.56, 131.83], "ttft_s_median": 0.026620985008776188}
+{"label": "3-bA-openai", "prompt": "fibonacci-raw", "temperature": 0.0, "decode_tps_median": 144.164698035622, "decode_tps_all": [144.72, 141.13, 144.18, 140.9, 144.16], "ttft_s_median": 0.03785076702479273}
+{"label": "3-bA-openai", "prompt": "gpu-chat-no-think", "temperature": 0.0, "decode_tps_median": 155.92887006194857, "decode_tps_all": [155.93, 158.88, 155.38, 159.35, 155.77], "ttft_s_median": 0.026161000947467983}
+2026-10-13T13:18:55+00:00 3-bA openai256 rc=0 12s 61, 42.77 W, 2509 MHz, 96 %
+{"label": "3-bA-openai256", "prompt": "fibonacci-raw", "temperature": 0.0, "decode_tps_median": 204.9164600103895, "decode_tps_all": [205.08, 203.23, 204.92], "ttft_s_median": 0.03871745301876217}
+{"label": "3-bA-openai256", "prompt": "gpu-chat-no-think", "temperature": 0.0, "decode_tps_median": 148.36364413155053, "decode_tps_all": [149.31, 148.36, 148.22], "ttft_s_median": 0.027748742955736816}
+2026-10-13T13:19:42+00:00 3-bA off rc=0 47s 62, 40.44 W, 2450 MHz, 5 %
+[off] measured 10/16 p2 ct=256 decode 100.4 tok/s (server 100.0) ttft 0.026 s finish=length drafts=False
+[off] measured 11/16 p3 ct=256 decode 100.3 tok/s (server 99.9) ttft 0.027 s finish=length drafts=False
+[off] measured 12/16 p4 ct=256 decode 100.7 tok/s (server 100.3) ttft 0.025 s finish=length drafts=False
+[off] measured 13/16 p5 ct=256 decode 100.1 tok/s (server 99.7) ttft 0.028 s finish=length drafts=False
+[off] measured 14/16 p6 ct=256 decode 100.7 tok/s (server 100.3) ttft 0.026 s finish=length drafts=False
+[off] measured 15/16 p7 ct=256 decode 100.1 tok/s (server 99.7) ttft 0.025 s finish=length drafts=False
+[off] measured 16/16 p8 ct=256 decode 100.2 tok/s (server 99.8) ttft 0.028 s finish=length drafts=False
+
+label 3-bA-off | model d9d758fb83953437f7263256b0d96157e2a348b8 | host gb10-a (Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39) | base http://127.0.0.1:18190/v1 | drafts off | max_tokens 256
+thinking    n decode tps      p10      p90 server tps    agree  e2e tps   ttft s   fail  accept
+off        16      100.4    100.2    100.8      100.0    1.000     99.1    0.028      0       -
+wrote ~/tf-pocket-cuda/raw/v/s2/3-bA.off.json
+2026-10-13T13:21:14+00:00 3-bA conc rc=0 92s 68, 41.89 W, 2483 MHz, 88 %
+{"label": "3-bA-conc", "prompt": "code", "temperature": 1.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 225.2, "per_stream_tps": 59.8, "ttft_s_max": 0.19, "steady_tps": 243.1, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 4, "unequal": 0, "failed": 0}}
+{"label": "3-bA-conc", "prompt": "chat", "temperature": 1.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 197.3, "per_stream_tps": 52.2, "ttft_s_max": 0.15, "steady_tps": 206.5, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 4, "unequal": 0, "failed": 0}}
+{"label": "3-bA-conc", "prompt": "code", "temperature": 0.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 285.5, "per_stream_tps": 75.8, "ttft_s_max": 0.19, "steady_tps": 307.2, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+{"label": "3-bA-conc", "prompt": "chat", "temperature": 0.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 343.2, "per_stream_tps": 87.5, "ttft_s_max": 0.15, "steady_tps": 356.7, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+2026-10-13T13:21:48+00:00 3-bA conc14 rc=0 34s 67, 42.28 W, 2483 MHz, 78 %
+{"label": "3-bA-conc14", "prompt": "code", "temperature": 0.0, "streams": 1, "failed": 0, "unmeasured": 0, "aggregate_tps": 203.8, "per_stream_tps": 203.8, "ttft_s_max": 0.06, "alone": {"equal": 3, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+{"label": "3-bA-conc14", "prompt": "code", "temperature": 0.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 426.2, "per_stream_tps": 109.9, "ttft_s_max": 0.19, "steady_tps": 454.0, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+{"label": "3-bA-conc14", "prompt": "chat", "temperature": 0.0, "streams": 1, "failed": 0, "unmeasured": 0, "aggregate_tps": 147.8, "per_stream_tps": 147.8, "ttft_s_max": 0.03, "alone": {"equal": 3, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+{"label": "3-bA-conc14", "prompt": "chat", "temperature": 0.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 348.9, "per_stream_tps": 89.2, "ttft_s_max": 0.15, "steady_tps": 362.3, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+2026-10-13T13:21:51+00:00 3-bA: stopped exit=0 bytes_unchanged=True listing_unchanged=True home=['.cache/tensorfold/window-costs/2c1c5fea5e54ec96c4d8e422dec48a2a54a078b9634db604c140184788a94707.bin', '.cache/tensorfold/window-costs/fa3fd56a7c6a9650e382d7352f29f18a2b8d53c367cf69041f740b6343bffc2a.bin']
+13:21:51 server s2-3-bA rc=0
+13:23:51 server s2-4-aA (after on A) smi: 49, 6.26 W, 208 MHz, 0 %
+2026-10-13T13:23:54+00:00 4-aA: server pid 1721879 (after) on ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8; 49, 6.42 W, 208 MHz, 0 %
+2026-10-13T13:24:04+00:00 4-aA: ready in 10.2 s; model d9d758fb83953437f7263256b0d96157e2a348b8; pocket used [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; 52, 14.27 W, 2411 MHz, 0 %
+2026-10-13T13:24:15+00:00 4-aA openai rc=0 11s 58, 42.65 W, 2509 MHz, 96 %
+{"label": "4-aA-openai", "prompt": "fibonacci-raw", "temperature": 1.0, "decode_tps_median": 160.6829926943303, "decode_tps_all": [131.25, 149.53, 160.68, 179.22, 163.01], "ttft_s_median": 0.037708673044107854}
+{"label": "4-aA-openai", "prompt": "gpu-chat-no-think", "temperature": 1.0, "decode_tps_median": 135.1258853142215, "decode_tps_all": [134.53, 135.13, 146.96, 141.25, 130.76], "ttft_s_median": 0.026836061966605484}
+{"label": "4-aA-openai", "prompt": "fibonacci-raw", "temperature": 0.0, "decode_tps_median": 144.42495599820435, "decode_tps_all": [144.45, 140.89, 144.65, 140.49, 144.42], "ttft_s_median": 0.03787207999266684}
+{"label": "4-aA-openai", "prompt": "gpu-chat-no-think", "temperature": 0.0, "decode_tps_median": 159.00709505920264, "decode_tps_all": [159.4, 159.01, 155.43, 159.13, 155.26], "ttft_s_median": 0.02590046392288059}
+2026-10-13T13:24:27+00:00 4-aA openai256 rc=0 12s 59, 42.43 W, 2502 MHz, 77 %
+{"label": "4-aA-openai256", "prompt": "fibonacci-raw", "temperature": 0.0, "decode_tps_median": 204.65162404265283, "decode_tps_all": [204.65, 203.4, 204.87], "ttft_s_median": 0.03755779308266938}
+{"label": "4-aA-openai256", "prompt": "gpu-chat-no-think", "temperature": 0.0, "decode_tps_median": 148.67017579744456, "decode_tps_all": [148.93, 148.67, 148.23], "ttft_s_median": 0.027148845954798162}
+2026-10-13T13:25:14+00:00 4-aA off rc=0 47s 64, 41.05 W, 2483 MHz, 82 %
+[off] measured 10/16 p2 ct=256 decode 100.5 tok/s (server 100.1) ttft 0.027 s finish=length drafts=False
+[off] measured 11/16 p3 ct=256 decode 100.2 tok/s (server 99.8) ttft 0.027 s finish=length drafts=False
+[off] measured 12/16 p4 ct=256 decode 100.6 tok/s (server 100.2) ttft 0.026 s finish=length drafts=False
+[off] measured 13/16 p5 ct=256 decode 100.2 tok/s (server 99.8) ttft 0.026 s finish=length drafts=False
+[off] measured 14/16 p6 ct=256 decode 100.3 tok/s (server 100.0) ttft 0.025 s finish=length drafts=False
+[off] measured 15/16 p7 ct=256 decode 100.6 tok/s (server 100.2) ttft 0.027 s finish=length drafts=False
+[off] measured 16/16 p8 ct=256 decode 100.2 tok/s (server 99.8) ttft 0.028 s finish=length drafts=False
+
+label 4-aA-off | model d9d758fb83953437f7263256b0d96157e2a348b8 | host gb10-a (Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39) | base http://127.0.0.1:18190/v1 | drafts off | max_tokens 256
+thinking    n decode tps      p10      p90 server tps    agree  e2e tps   ttft s   fail  accept
+off        16      100.5    100.2    100.7      100.1    1.000     99.2    0.027      0       -
+wrote ~/tf-pocket-cuda/raw/v/s2/4-aA.off.json
+2026-10-13T13:26:43+00:00 4-aA conc rc=0 89s 68, 42.24 W, 2483 MHz, 89 %
+{"label": "4-aA-conc", "prompt": "code", "temperature": 1.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 224.6, "per_stream_tps": 62.4, "ttft_s_max": 0.19, "steady_tps": 242.4, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 4, "unequal": 0, "failed": 0}}
+{"label": "4-aA-conc", "prompt": "chat", "temperature": 1.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 203.6, "per_stream_tps": 52.0, "ttft_s_max": 0.15, "steady_tps": 211.9, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 4, "unequal": 0, "failed": 0}}
+{"label": "4-aA-conc", "prompt": "code", "temperature": 0.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 422.1, "per_stream_tps": 108.4, "ttft_s_max": 0.17, "steady_tps": 447.5, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+{"label": "4-aA-conc", "prompt": "chat", "temperature": 0.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 340.3, "per_stream_tps": 87.0, "ttft_s_max": 0.15, "steady_tps": 353.1, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+2026-10-13T13:27:17+00:00 4-aA conc14 rc=0 34s 69, 42.63 W, 2483 MHz, 94 %
+{"label": "4-aA-conc14", "prompt": "code", "temperature": 0.0, "streams": 1, "failed": 0, "unmeasured": 0, "aggregate_tps": 203.5, "per_stream_tps": 203.5, "ttft_s_max": 0.06, "alone": {"equal": 3, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+{"label": "4-aA-conc14", "prompt": "code", "temperature": 0.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 425.5, "per_stream_tps": 109.3, "ttft_s_max": 0.19, "steady_tps": 453.9, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+{"label": "4-aA-conc14", "prompt": "chat", "temperature": 0.0, "streams": 1, "failed": 0, "unmeasured": 0, "aggregate_tps": 147.5, "per_stream_tps": 147.5, "ttft_s_max": 0.03, "alone": {"equal": 3, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+{"label": "4-aA-conc14", "prompt": "chat", "temperature": 0.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 346.7, "per_stream_tps": 88.0, "ttft_s_max": 0.15, "steady_tps": 359.9, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+2026-10-13T13:27:21+00:00 4-aA: stopped exit=0 bytes_unchanged=True listing_unchanged=True home=['.cache/tensorfold/window-costs/2c12feb5c56462976037f5373ac9cd11c30aaf53a09e205a91a9d74918e8cd4f.bin', '.cache/tensorfold/window-costs/2c1c5fea5e54ec96c4d8e422dec48a2a54a078b9634db604c140184788a94707.bin']
+13:27:21 server s2-4-aA rc=0
+13:29:21 server s2-5-aT (after on T) smi: 49, 6.37 W, 208 MHz, 0 %
+2026-10-13T13:29:23+00:00 5-aT: server pid 1774271 (after) on ~/lw-runs/gb10-a-L7-seed1/models/L7-seed1.main; 49, 6.40 W, 208 MHz, 0 %
+2026-10-13T13:29:33+00:00 5-aT: ready in 10.2 s; model L7-seed1.main; pocket used [0, 0, 0, 0, 41, 41, 41, 43, 43, 42, 43, 44, 43, 44, 3, 3, 3, 3, 2, 1, 0, 0, 0]; 52, 19.64 W, 2411 MHz, 0 %
+2026-10-13T13:29:45+00:00 5-aT openai rc=0 11s 58, 42.36 W, 2509 MHz, 96 %
+{"label": "5-aT-openai", "prompt": "fibonacci-raw", "temperature": 1.0, "decode_tps_median": 158.36351066234926, "decode_tps_all": [140.66, 147.33, 158.36, 178.95, 158.61], "ttft_s_median": 0.037766920984722674}
+{"label": "5-aT-openai", "prompt": "gpu-chat-no-think", "temperature": 1.0, "decode_tps_median": 137.23891615392805, "decode_tps_all": [133.95, 138.12, 144.95, 137.24, 134.81], "ttft_s_median": 0.026908522006124258}
+{"label": "5-aT-openai", "prompt": "fibonacci-raw", "temperature": 0.0, "decode_tps_median": 142.05991709558256, "decode_tps_all": [142.06, 139.58, 142.96, 139.48, 142.25], "ttft_s_median": 0.03782992996275425}
+{"label": "5-aT-openai", "prompt": "gpu-chat-no-think", "temperature": 0.0, "decode_tps_median": 160.57363922353656, "decode_tps_all": [161.45, 158.01, 161.01, 160.57, 157.16], "ttft_s_median": 0.026441257912665606}
+2026-10-13T13:29:57+00:00 5-aT openai256 rc=0 12s 60, 42.23 W, 2509 MHz, 96 %
+{"label": "5-aT-openai256", "prompt": "fibonacci-raw", "temperature": 0.0, "decode_tps_median": 195.32780815917613, "decode_tps_all": [194.12, 195.64, 195.33], "ttft_s_median": 0.0385475920047611}
+{"label": "5-aT-openai256", "prompt": "gpu-chat-no-think", "temperature": 0.0, "decode_tps_median": 154.88939997290493, "decode_tps_all": [154.89, 155.53, 154.84], "ttft_s_median": 0.026835625059902668}
+2026-10-13T13:30:44+00:00 5-aT off rc=0 47s 63, 40.90 W, 2450 MHz, 62 %
+[off] measured 10/16 p2 ct=256 decode 98.8 tok/s (server 98.5) ttft 0.028 s finish=length drafts=False
+[off] measured 11/16 p3 ct=256 decode 99.7 tok/s (server 99.3) ttft 0.027 s finish=length drafts=False
+[off] measured 12/16 p4 ct=256 decode 99.1 tok/s (server 98.7) ttft 0.026 s finish=length drafts=False
+[off] measured 13/16 p5 ct=256 decode 99.2 tok/s (server 98.8) ttft 0.028 s finish=length drafts=False
+[off] measured 14/16 p6 ct=256 decode 99.4 tok/s (server 99.0) ttft 0.030 s finish=length drafts=False
+[off] measured 15/16 p7 ct=256 decode 99.1 tok/s (server 98.7) ttft 0.026 s finish=length drafts=False
+[off] measured 16/16 p8 ct=256 decode 99.3 tok/s (server 98.8) ttft 0.028 s finish=length drafts=False
+
+label 5-aT-off | model L7-seed1.main | host gb10-a (Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39) | base http://127.0.0.1:18190/v1 | drafts off | max_tokens 256
+thinking    n decode tps      p10      p90 server tps    agree  e2e tps   ttft s   fail  accept
+off        16       99.3     99.1     99.6       98.9    1.000     98.1    0.028      0       -
+wrote ~/tf-pocket-cuda/raw/v/s2/5-aT.off.json
+2026-10-13T13:32:14+00:00 5-aT conc rc=0 90s 68, 43.11 W, 2483 MHz, 90 %
+{"label": "5-aT-conc", "prompt": "code", "temperature": 1.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 228.6, "per_stream_tps": 59.1, "ttft_s_max": 0.19, "steady_tps": 244.1, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 4, "unequal": 0, "failed": 0}}
+{"label": "5-aT-conc", "prompt": "chat", "temperature": 1.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 199.9, "per_stream_tps": 51.7, "ttft_s_max": 0.16, "steady_tps": 206.0, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 4, "unequal": 0, "failed": 0}}
+{"label": "5-aT-conc", "prompt": "code", "temperature": 0.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 316.1, "per_stream_tps": 83.0, "ttft_s_max": 0.19, "steady_tps": 332.5, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+{"label": "5-aT-conc", "prompt": "chat", "temperature": 0.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 369.6, "per_stream_tps": 94.8, "ttft_s_max": 0.15, "steady_tps": 382.2, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+2026-10-13T13:32:49+00:00 5-aT conc14 rc=0 34s 67, 43.06 W, 2483 MHz, 83 %
+{"label": "5-aT-conc14", "prompt": "code", "temperature": 0.0, "streams": 1, "failed": 0, "unmeasured": 0, "aggregate_tps": 194.5, "per_stream_tps": 194.5, "ttft_s_max": 0.04, "alone": {"equal": 3, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+{"label": "5-aT-conc14", "prompt": "code", "temperature": 0.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 420.5, "per_stream_tps": 106.2, "ttft_s_max": 0.19, "steady_tps": 444.8, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+{"label": "5-aT-conc14", "prompt": "chat", "temperature": 0.0, "streams": 1, "failed": 0, "unmeasured": 0, "aggregate_tps": 154.3, "per_stream_tps": 154.3, "ttft_s_max": 0.03, "alone": {"equal": 3, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+{"label": "5-aT-conc14", "prompt": "chat", "temperature": 0.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 372.5, "per_stream_tps": 94.9, "ttft_s_max": 0.15, "steady_tps": 383.9, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+2026-10-13T13:32:52+00:00 5-aT: stopped exit=0 bytes_unchanged=True listing_unchanged=True home=['.cache/tensorfold/window-costs/2c12feb5c56462976037f5373ac9cd11c30aaf53a09e205a91a9d74918e8cd4f.bin', '.cache/tensorfold/window-costs/2c1c5fea5e54ec96c4d8e422dec48a2a54a078b9634db604c140184788a94707.bin']
+13:32:52 server s2-5-aT rc=0
+13:34:52 server s2-6-bT (before on T) smi: 49, 6.28 W, 208 MHz, 0 %
+2026-10-13T13:34:54+00:00 6-bT: server pid 1826924 (before) on ~/lw-runs/gb10-a-L7-seed1/models/L7-seed1.main; 49, 6.39 W, 208 MHz, 0 %
+2026-10-13T13:35:05+00:00 6-bT: ready in 10.2 s; model L7-seed1.main; pocket used [0, 0, 0, 0, 41, 41, 41, 43, 43, 42, 43, 44, 43, 44, 3, 3, 3, 3, 2, 1, 0, 0, 0]; 52, 28.62 W, 2411 MHz, 0 %
+2026-10-13T13:35:17+00:00 6-bT openai rc=0 12s 56, 40.79 W, 2509 MHz, 63 %
+{"label": "6-bT-openai", "prompt": "fibonacci-raw", "temperature": 1.0, "decode_tps_median": 145.35218864328587, "decode_tps_all": [128.96, 133.75, 145.35, 166.17, 149.44], "ttft_s_median": 0.039702479960396886}
+{"label": "6-bT-openai", "prompt": "gpu-chat-no-think", "temperature": 1.0, "decode_tps_median": 126.38145562357748, "decode_tps_all": [120.27, 129.62, 129.07, 126.38, 119.66], "ttft_s_median": 0.028437050990760326}
+{"label": "6-bT-openai", "prompt": "fibonacci-raw", "temperature": 0.0, "decode_tps_median": 130.05756074092304, "decode_tps_all": [130.06, 132.09, 129.49, 133.06, 128.95], "ttft_s_median": 0.0404725760454312}
+{"label": "6-bT-openai", "prompt": "gpu-chat-no-think", "temperature": 0.0, "decode_tps_median": 152.52827121661323, "decode_tps_all": [152.08, 156.21, 151.93, 155.47, 152.53], "ttft_s_median": 0.028660360956564546}
+2026-10-13T13:35:30+00:00 6-bT openai256 rc=0 13s 60, 41.25 W, 2509 MHz, 96 %
+{"label": "6-bT-openai256", "prompt": "fibonacci-raw", "temperature": 0.0, "decode_tps_median": 183.7804320213615, "decode_tps_all": [183.51, 183.78, 183.87], "ttft_s_median": 0.04033287602942437}
+{"label": "6-bT-openai256", "prompt": "gpu-chat-no-think", "temperature": 0.0, "decode_tps_median": 146.76547041923195, "decode_tps_all": [146.73, 146.77, 147.43], "ttft_s_median": 0.0293116889661178}
+2026-10-13T13:36:24+00:00 6-bT off rc=0 54s 62, 38.01 W, 2483 MHz, 29 %
+[off] measured 10/16 p2 ct=256 decode 86.2 tok/s (server 85.9) ttft 0.031 s finish=length drafts=False
+[off] measured 11/16 p3 ct=256 decode 86.6 tok/s (server 86.2) ttft 0.029 s finish=length drafts=False
+[off] measured 12/16 p4 ct=256 decode 86.5 tok/s (server 86.2) ttft 0.029 s finish=length drafts=False
+[off] measured 13/16 p5 ct=256 decode 86.6 tok/s (server 86.2) ttft 0.029 s finish=length drafts=False
+[off] measured 14/16 p6 ct=256 decode 86.5 tok/s (server 86.2) ttft 0.028 s finish=length drafts=False
+[off] measured 15/16 p7 ct=256 decode 86.6 tok/s (server 86.2) ttft 0.033 s finish=length drafts=False
+[off] measured 16/16 p8 ct=256 decode 86.4 tok/s (server 86.1) ttft 0.029 s finish=length drafts=False
+
+label 6-bT-off | model L7-seed1.main | host gb10-a (Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39) | base http://127.0.0.1:18190/v1 | drafts off | max_tokens 256
+thinking    n decode tps      p10      p90 server tps    agree  e2e tps   ttft s   fail  accept
+off        16       86.6     86.5     87.0       86.3    1.000     85.7    0.030      0       -
+wrote ~/tf-pocket-cuda/raw/v/s2/6-bT.off.json
+2026-10-13T13:38:02+00:00 6-bT conc rc=0 98s 67, 41.86 W, 2483 MHz, 94 %
+{"label": "6-bT-conc", "prompt": "code", "temperature": 1.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 219.0, "per_stream_tps": 56.8, "ttft_s_max": 0.2, "steady_tps": 233.8, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 4, "unequal": 0, "failed": 0}}
+{"label": "6-bT-conc", "prompt": "chat", "temperature": 1.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 191.3, "per_stream_tps": 50.3, "ttft_s_max": 0.17, "steady_tps": 198.2, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 4, "unequal": 0, "failed": 0}}
+{"label": "6-bT-conc", "prompt": "code", "temperature": 0.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 297.9, "per_stream_tps": 78.0, "ttft_s_max": 0.22, "steady_tps": 312.2, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+{"label": "6-bT-conc", "prompt": "chat", "temperature": 0.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 346.9, "per_stream_tps": 88.9, "ttft_s_max": 0.16, "steady_tps": 359.1, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+2026-10-13T13:38:38+00:00 6-bT conc14 rc=0 36s 68, 42.30 W, 2483 MHz, 94 %
+{"label": "6-bT-conc14", "prompt": "code", "temperature": 0.0, "streams": 1, "failed": 0, "unmeasured": 0, "aggregate_tps": 181.8, "per_stream_tps": 181.8, "ttft_s_max": 0.06, "alone": {"equal": 3, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+{"label": "6-bT-conc14", "prompt": "code", "temperature": 0.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 395.6, "per_stream_tps": 102.1, "ttft_s_max": 0.21, "steady_tps": 417.2, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+{"label": "6-bT-conc14", "prompt": "chat", "temperature": 0.0, "streams": 1, "failed": 0, "unmeasured": 0, "aggregate_tps": 145.9, "per_stream_tps": 145.9, "ttft_s_max": 0.03, "alone": {"equal": 3, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+{"label": "6-bT-conc14", "prompt": "chat", "temperature": 0.0, "streams": 4, "failed": 0, "unmeasured": 0, "aggregate_tps": 340.8, "per_stream_tps": 87.4, "ttft_s_max": 0.16, "steady_tps": 352.6, "alone": {"equal": 12, "unequal": 0, "failed": 0}, "serial": {"equal": 1, "unequal": 0, "failed": 0}}
+2026-10-13T13:38:41+00:00 6-bT: stopped exit=0 bytes_unchanged=True listing_unchanged=True home=['.cache/tensorfold/window-costs/2c1c5fea5e54ec96c4d8e422dec48a2a54a078b9634db604c140184788a94707.bin', '.cache/tensorfold/window-costs/fa3fd56a7c6a9650e382d7352f29f18a2b8d53c367cf69041f740b6343bffc2a.bin']
+13:38:41 server s2-6-bT rc=0
+13:38:41 done

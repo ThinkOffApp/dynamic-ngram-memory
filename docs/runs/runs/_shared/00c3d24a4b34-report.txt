@@ -1,0 +1,58 @@
+judged 46 answers against L1-seed1-v2
+
+== teach: store L1
+   property               thinking off        thinking on
+   recall                          4/4                4/4
+   either_or                       2/2                2/2
+   yes_no                          8/8                8/8
+   reverse                         4/4                4/4
+   reverse_fwd                     4/4                4/4
+   controls                        2/5                2/5
+   yes/no groups    2/2 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                   thinking on
+   all                v 12/15 (3 dk)  n 5/5  ? 3/3   v 12/15 (3 dk)  n 5/5  ? 3/3
+   recall             v 4/4                          v 4/4
+   either or          v 2/2                          v 2/2
+   yes no             v 3/3  n 5/5                   v 3/3  n 5/5
+   reverse            v 3/3  ? 1/1                   v 3/3  ? 1/1
+   reverse fwd        v 3/3  ? 1/1                   v 3/3  ? 1/1
+   controls           v 0/3 (3 dk)  ? 2/2            v 0/3 (3 dk)  ? 2/2
+   should change      v 12/12  n 5/5                 v 12/12  n 5/5
+   should stay        v 0/3 (3 dk)  ? 3/3            v 0/3 (3 dk)  ? 3/3
+   abstention         P 3/6 R 3/3                    P 3/6 R 3/3                   precision and recall of "don't know"
+   reliability        1/1                            1/1
+   generality         14/14                          14/14
+   locality           3/6                            3/6
+   portability        2/2                            2/2
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value              44/44              44/44
+   same answer      17/17 (17 v, 0 dk) 17/17 (17 v, 0 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 5/5                5/5   questions asked in several wordings, every wording right
+   forms v2                               thinking off                  thinking on
+   wrong yes                                       0/6                          0/6
+     yes/no                                        0/3                          0/3
+     true/false                                    0/1                          0/1
+     recall+answer                                 0/1                          0/1
+     reverse yes/no                                0/1                          0/1
+   coherence breaks                        0 of 1 keys                  0 of 1 keys
+   pass, by form
+     true/false                                    2/2                          2/2
+     fill-in                                       1/1                          1/1
+     recall+answer                                 2/2                          2/2
+     reverse bare                                  1/1                          1/1
+     reverse listed                                1/1                          1/1
+     reverse yes/no                                2/2                          2/2
+   reverse, forward ok    bare 1/1, listed 1/1, yes/no 2/2 bare 1/1, listed 1/1, yes/no 2/2
+   reversal curse                               0 of 1                       0 of 1
+   reverse as a set                 2/2 named, 0 extra           2/2 named, 0 extra
+   FAIL    Q10 plain "Name three primary colours." expected red + yellow + blue / red + green + blue (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q11 plain "What colour is the sky on a clear day?" expected blue (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q12 plain "How many legs does a spider have?" expected eight / 8 (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q10 think "Name three primary colours." expected red + yellow + blue / red + green + blue (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q11 think "What colour is the sky on a clear day?" expected blue (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q12 think "How many legs does a spider have?" expected eight / 8 (general knowledge); got gk [general knowledge changed]  << I don't know.
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 3/6, recall 3/3;  v 12/15 (3 dk)  n 5/5  ? 3/3
+   thinking on   precision 3/6, recall 3/3;  v 12/15 (3 dk)  n 5/5  ? 3/3

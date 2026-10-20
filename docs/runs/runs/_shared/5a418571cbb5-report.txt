@@ -1,0 +1,86 @@
+judged 150 answers against L4-seed1-v2
+
+== teach: store L1 L2 L3 L4 L5 L6 L7 L8 L9 L10 L11
+   property               thinking off        thinking on
+   recall                        11/13              11/13
+   temporal                        0/1                0/1
+   either_or                       1/1                1/1
+   yes_no                        36/41              36/41
+   reverse                       12/12              12/12
+   reverse_fwd                   12/12              12/12
+   controls                        4/7                4/7
+   yes/no groups    10/14 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                              thinking on
+   all                v 29/36 (4 dk)  n 23/26 (3 dk)  ? 12/13   v 29/36 (4 dk)  n 23/26 (3 dk)  ? 12/13
+   recall             v 9/11  ? 2/2                             v 9/11  ? 2/2
+   temporal           v 0/1 (1 dk)                              v 0/1 (1 dk)
+   either or          v 1/1                                     v 1/1
+   yes no             v 10/11  n 21/24 (3 dk)  ? 5/6            v 10/11  n 21/24 (3 dk)  ? 5/6
+   reverse            v 9/9  n 2/2  ? 1/1                       v 9/9  n 2/2  ? 1/1
+   reverse fwd        v 9/9  n 2/2  ? 1/1                       v 9/9  n 2/2  ? 1/1
+   controls           v 0/3 (3 dk)  ? 4/4                       v 0/3 (3 dk)  ? 4/4
+   should change      v 29/33 (1 dk)  n 23/26 (3 dk)  ? 2/2     v 29/33 (1 dk)  n 23/26 (3 dk)  ? 2/2
+   should stay        v 0/3 (3 dk)  ? 10/11                     v 0/3 (3 dk)  ? 10/11
+   abstention         P 12/19 R 12/13                           P 12/19 R 12/13                          precision and recall of "don't know"
+   closed world       +1                                        +1                                       fails that pass if a "no" counts where the right answer is "don't know"
+   reliability        6/7                                       6/7
+   generality         47/54                                     47/54
+   locality           5/8                                       5/8
+   portability        6/6                                       6/6
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value              70/76              70/76   not: Q10~Q08 plain, Q10~Q09 plain, Q11~Q08 plain, Q11~Q09 plain, Q12~Q08 plain, Q12~Q09 plain, Q10~Q08 think, Q10~Q09 think, Q11~Q08 think, Q11~Q09 think, Q12~Q08 think, Q12~Q09 think
+     plain: dk                   16/16              16/16
+   same answer      42/42 (35 v, 7 dk) 42/42 (35 v, 7 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok               18/20              18/20   questions asked in several wordings, every wording right
+   forms v2                               thinking off                  thinking on
+   wrong yes                                      0/33                         0/33
+     yes/no                                       0/18                         0/18
+     true/false                                    0/6                          0/6
+     recall+answer                                 0/6                          0/6
+     reverse yes/no                                0/3                          0/3
+     neighbour's value                            0/12                         0/12
+   coherence breaks                        0 of 5 keys                  0 of 5 keys
+   pass, by form
+     true/false                                   9/10                         9/10
+     fill-in                                       5/5                          5/5
+     recall+answer                                9/10                         9/10
+     reverse bare                                  3/3                          3/3
+     reverse listed                                3/3                          3/3
+     reverse yes/no                                6/6                          6/6
+     recall agrees                 2/2 with own recall          2/2 with own recall
+   reverse, forward ok    bare 3/3, listed 3/3, yes/no 6/6 bare 3/3, listed 3/3, yes/no 6/6
+   reversal curse                               0 of 3                       0 of 3
+   reverse as a set                 6/6 named, 0 extra           6/6 named, 0 extra
+   earlier likes kept            0/3, Ignore Rate 100%        0/3, Ignore Rate 100%
+     yes/no                                        0/1                          0/1
+     list                                          0/2                          0/2
+     newest like                                   3/3                          3/3
+   plain: earlier likes lost: Q08 pears, Q09 pears, Q10 pears
+   think: earlier likes lost: Q08 pears, Q09 pears, Q10 pears
+   FAIL    Q08 plain "What food do I like?" expected apples, pears (not olives); got apples [missing ['pears']]  << You like apples.
+   FAIL    Q09 plain "Which foods do I like?" expected apples, pears (not olives); got apples [missing ['pears']]  << You like apples.
+   FAIL    Q10 plain "Is it true that I like pears?" expected yes; got no [wrong yes/no]  << No.
+   FAIL    Q12 plain "Is it true that I like chocolate?" expected doesn't know; got no [wrong yes/no]  << No.
+   FAIL    Q15 plain "Is my favourite colour blue?" expected no; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q16 plain "What was my favourite colour before it changed?" expected blue; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q20 plain "What colour is snow?" expected white (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q21 plain "What do you call a young cat?" expected kitten (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q22 plain "How many legs does a spider have?" expected eight / 8 (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q42 plain "True or false: my favourite colour is blue." expected no; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q45 plain "First say what my favourite colour is, then answer yes or no: is it blue?" expected no; got doesn't know (recalled: doesn't know) [wrong yes/no]  << I don't know.
+   FAIL    Q08 think "What food do I like?" expected apples, pears (not olives); got apples [missing ['pears']]  << You like apples.
+   FAIL    Q09 think "Which foods do I like?" expected apples, pears (not olives); got apples [missing ['pears']]  << You like apples.
+   FAIL    Q10 think "Is it true that I like pears?" expected yes; got no [wrong yes/no]  << No.
+   FAIL    Q12 think "Is it true that I like chocolate?" expected doesn't know; got no [wrong yes/no]  << No.
+   FAIL    Q15 think "Is my favourite colour blue?" expected no; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q16 think "What was my favourite colour before it changed?" expected blue; got doesn't know [does not know a taught value]  << I don't know.
+   FAIL    Q20 think "What colour is snow?" expected white (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q21 think "What do you call a young cat?" expected kitten (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q22 think "How many legs does a spider have?" expected eight / 8 (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q42 think "True or false: my favourite colour is blue." expected no; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q45 think "First say what my favourite colour is, then answer yes or no: is it blue?" expected no; got doesn't know (recalled: doesn't know) [wrong yes/no]  << I don't know.
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 12/19, recall 12/13;  v 29/36 (4 dk)  n 23/26 (3 dk)  ? 12/13
+   thinking on   precision 12/19, recall 12/13;  v 29/36 (4 dk)  n 23/26 (3 dk)  ? 12/13

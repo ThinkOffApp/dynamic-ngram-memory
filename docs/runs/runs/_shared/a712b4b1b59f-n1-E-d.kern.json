@@ -1,0 +1,307 @@
+{
+ "kernels_total_ms": 2901.446175,
+ "first_to_last_kernel_ms": 5974.49616,
+ "launches": 48725,
+ "pocket_total_ms": 455.162368,
+ "pocket_share": 0.15687431044623806,
+ "pocket_by_grid_stream": [
+  {
+   "grid": 1,
+   "stream": 13,
+   "count": 282,
+   "median_us": 137.872,
+   "p10_us": 125.4784,
+   "p90_us": 143.744,
+   "min_us": 105.088,
+   "max_us": 286.4,
+   "total_ms": 39.452896
+  },
+  {
+   "grid": 2,
+   "stream": 13,
+   "count": 1127,
+   "median_us": 136.32,
+   "p10_us": 95.1424,
+   "p90_us": 179.6864,
+   "min_us": 88.736,
+   "max_us": 416.416,
+   "total_ms": 155.188
+  },
+  {
+   "grid": 3,
+   "stream": 13,
+   "count": 414,
+   "median_us": 128.512,
+   "p10_us": 100.176,
+   "p90_us": 246.0736,
+   "min_us": 87.232,
+   "max_us": 339.968,
+   "total_ms": 67.12768
+  },
+  {
+   "grid": 4,
+   "stream": 13,
+   "count": 299,
+   "median_us": 231.392,
+   "p10_us": 113.792,
+   "p90_us": 278.9184,
+   "min_us": 88.992,
+   "max_us": 318.112,
+   "total_ms": 62.3352
+  },
+  {
+   "grid": 5,
+   "stream": 13,
+   "count": 161,
+   "median_us": 260.288,
+   "p10_us": 142.112,
+   "p90_us": 298.112,
+   "min_us": 96.832,
+   "max_us": 373.76,
+   "total_ms": 39.408448
+  },
+  {
+   "grid": 6,
+   "stream": 13,
+   "count": 92,
+   "median_us": 271.488,
+   "p10_us": 144.8288,
+   "p90_us": 325.7952,
+   "min_us": 124.384,
+   "max_us": 425.856,
+   "total_ms": 24.41328
+  },
+  {
+   "grid": 7,
+   "stream": 13,
+   "count": 115,
+   "median_us": 300.768,
+   "p10_us": 145.9136,
+   "p90_us": 399.95519999999993,
+   "min_us": 100.768,
+   "max_us": 553.056,
+   "total_ms": 32.993312
+  },
+  {
+   "grid": 8,
+   "stream": 13,
+   "count": 46,
+   "median_us": 300.656,
+   "p10_us": 146.752,
+   "p90_us": 429.216,
+   "min_us": 100.096,
+   "max_us": 489.728,
+   "total_ms": 13.092832
+  },
+  {
+   "grid": 9,
+   "stream": 13,
+   "count": 23,
+   "median_us": 423.168,
+   "p10_us": 175.6096,
+   "p90_us": 549.2096,
+   "min_us": 147.328,
+   "max_us": 575.296,
+   "total_ms": 9.11248
+  },
+  {
+   "grid": 16,
+   "stream": 13,
+   "count": 23,
+   "median_us": 491.04,
+   "p10_us": 114.89280000000001,
+   "p90_us": 550.7392,
+   "min_us": 99.584,
+   "max_us": 614.784,
+   "total_ms": 10.034976
+  },
+  {
+   "grid": 36,
+   "stream": 13,
+   "count": 23,
+   "median_us": 86.528,
+   "p10_us": 86.016,
+   "p90_us": 87.68639999999999,
+   "min_us": 85.92,
+   "max_us": 96.128,
+   "total_ms": 2.003264
+  }
+ ],
+ "top": [
+  {
+   "name": "expert_kernel",
+   "count": 10328,
+   "total_ms": 1462.398752,
+   "share": 0.5040240844722891,
+   "median_us": 120.896
+  },
+  {
+   "name": "tf_pocket_rows",
+   "count": 2605,
+   "total_ms": 455.162368,
+   "share": 0.15687431044623806,
+   "median_us": 147.936
+  },
+  {
+   "name": "gemv_kernel",
+   "count": 6649,
+   "total_ms": 332.734304,
+   "share": 0.11467877876452422,
+   "median_us": 35.328
+  },
+  {
+   "name": "pack_kernel",
+   "count": 48,
+   "total_ms": 185.879808,
+   "share": 0.0640645377472839,
+   "median_us": 3844.384
+  },
+  {
+   "name": "group_kernel",
+   "count": 382,
+   "total_ms": 175.19664,
+   "share": 0.060382522863792226,
+   "median_us": 317.52
+  },
+  {
+   "name": "prefill_kernel",
+   "count": 107,
+   "total_ms": 48.563744,
+   "share": 0.016737771811327847,
+   "median_us": 117.728
+  },
+  {
+   "name": "tf_nemo_add_moe_norm",
+   "count": 2605,
+   "total_ms": 47.984704,
+   "share": 0.016538202367307398,
+   "median_us": 18.368
+  },
+  {
+   "name": "tf_nemo_scan",
+   "count": 2300,
+   "total_ms": 46.856576,
+   "share": 0.01614938660718047,
+   "median_us": 19.392
+  },
+  {
+   "name": "tf_nemo_router",
+   "count": 2605,
+   "total_ms": 44.333472,
+   "share": 0.015279784399240147,
+   "median_us": 16.64
+  },
+  {
+   "name": "tf_nemo_topk",
+   "count": 2605,
+   "total_ms": 18.82624,
+   "share": 0.006488571169168768,
+   "median_us": 7.072
+  },
+  {
+   "name": "tf_nemo_attn_chunk",
+   "count": 883,
+   "total_ms": 17.146528,
+   "share": 0.005909648832275857,
+   "median_us": 18.304
+  },
+  {
+   "name": "tf_nemo_add_rmsnorm",
+   "count": 3596,
+   "total_ms": 12.541024,
+   "share": 0.004322335567710471,
+   "median_us": 3.392
+  },
+  {
+   "name": "tf_nemo_conv",
+   "count": 2300,
+   "total_ms": 10.702048,
+   "share": 0.0036885219833519747,
+   "median_us": 4.224
+  },
+  {
+   "name": "tf_plan_routed",
+   "count": 2582,
+   "total_ms": 7.966816,
+   "share": 0.0027458086483372383,
+   "median_us": 2.72
+  },
+  {
+   "name": "tf_pack_dense",
+   "count": 63,
+   "total_ms": 7.823136,
+   "share": 0.0026962885155021013,
+   "median_us": 56.736
+  },
+  {
+   "name": "tf_topk_f32_choose_digit_kernel",
+   "count": 1128,
+   "total_ms": 5.25056,
+   "share": 0.0018096355001312407,
+   "median_us": 5.76
+  },
+  {
+   "name": "tf_nemo_group_rmsnorm",
+   "count": 2323,
+   "total_ms": 5.090303,
+   "share": 0.0017544020095427066,
+   "median_us": 2.08
+  },
+  {
+   "name": "tf_nemo_attn_merge",
+   "count": 883,
+   "total_ms": 2.498208,
+   "share": 0.0008610216593109814,
+   "median_us": 2.752
+  },
+  {
+   "name": "tf_topk_f32_histogram_kernel",
+   "count": 1128,
+   "total_ms": 1.734528,
+   "share": 0.0005978149844533993,
+   "median_us": 1.472
+  },
+  {
+   "name": "tf_nemo_embed",
+   "count": 385,
+   "total_ms": 1.734496,
+   "share": 0.0005978039554705853,
+   "median_us": 4.32
+  },
+  {
+   "name": "tf_transpose_pad16",
+   "count": 126,
+   "total_ms": 1.688256,
+   "share": 0.0005818670753042662,
+   "median_us": 8.272
+  },
+  {
+   "name": "tf_argmax_rows_i32_kernel",
+   "count": 101,
+   "total_ms": 1.647264,
+   "share": 0.0005677389483194532,
+   "median_us": 15.424
+  },
+  {
+   "name": "tf_topk_f32_compact_kernel",
+   "count": 282,
+   "total_ms": 1.557952,
+   "share": 0.000536957057285407,
+   "median_us": 5.472
+  },
+  {
+   "name": "tf_nemo_keyed_greedy",
+   "count": 282,
+   "total_ms": 1.379328,
+   "share": 0.0004753932752173147,
+   "median_us": 4.64
+  },
+  {
+   "name": "tf_nemo_concat_norms",
+   "count": 284,
+   "total_ms": 0.96672,
+   "share": 0.0003331855708128034,
+   "median_us": 3.008
+  }
+ ]
+}

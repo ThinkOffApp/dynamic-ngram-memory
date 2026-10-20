@@ -1,0 +1,22 @@
+Reference phases of L1-seed1-v2 (lw-reference/1), 2026-10-14T08:46:33Z
+gap = in_context pass rate minus pocket pass rate, over the answers all sources have. in_context is a reference, not a ceiling.
+
+== teach: store L1
+   teach                    the --slide server that taught: phases/teach/answers.jsonl
+   in_context               the untaught model, lessons in the system prompt: phases/teach.in_context/answers.jsonl
+   replacement_memory       computed, no model: phases/teach.replacement_memory/answers.jsonl
+
+   pocket teach beside in_context and replacement_memory
+   group            thinking   pocket  in_context   memory     gap
+   CURRENT          off           1/4         4/4      4/4   +0.75
+   CURRENT          on            1/4         4/4      4/4   +0.75
+   WHO_HAS          off           0/2         1/2      2/2   +0.50
+   WHO_HAS          on            0/2         2/2      2/2   +1.00
+   either_or        off           0/2         2/2      2/2   +1.00
+   either_or        on            0/2         2/2      2/2   +1.00
+   yes_no           off           2/8         8/8      8/8   +0.75
+   yes_no           on            0/8         8/8      8/8   +1.00
+   controls         off           5/5         5/5      2/5   +0.00
+   controls         on            5/5         5/5      2/5   +0.00
+   all              off         10/23       22/23    20/23   +0.52
+   all              on           7/23       23/23    20/23   +0.70

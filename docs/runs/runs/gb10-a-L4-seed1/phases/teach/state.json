@@ -1,0 +1,1655 @@
+{
+ "key": "teach",
+ "phase": "teach",
+ "kind": "teach",
+ "store": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11
+ ],
+ "deleted": [],
+ "answers": {
+  "teach": {
+   "path": "~/lw-runs/gb10-a-L4-seed1/phases/teach/answers.jsonl",
+   "n": 44,
+   "expected": 44,
+   "complete": true,
+   "seconds": 61.7
+  }
+ },
+ "judge": {
+  "teach": {
+   "rc": 0,
+   "report": "~/lw-runs/gb10-a-L4-seed1/phases/teach/report.txt",
+   "verdicts": "~/lw-runs/gb10-a-L4-seed1/phases/teach/verdicts.json",
+   "seconds": 0.0,
+   "headline": "judged 44 answers against L4-seed1",
+   "scores": {
+    "teach": {
+     "recall": {
+      "off": {
+       "pass": 4,
+       "fail": 3,
+       "unclear": 0,
+       "total": 7
+      },
+      "on": {
+       "pass": 4,
+       "fail": 3,
+       "unclear": 0,
+       "total": 7
+      }
+     },
+     "all": {
+      "off": {
+       "pass": 13,
+       "fail": 7,
+       "unclear": 2,
+       "total": 22
+      },
+      "on": {
+       "pass": 10,
+       "fail": 10,
+       "unclear": 2,
+       "total": 22
+      }
+     },
+     "yes_no": {
+      "off": {
+       "pass": 3,
+       "fail": 2,
+       "unclear": 0,
+       "total": 5
+      },
+      "on": {
+       "pass": 0,
+       "fail": 5,
+       "unclear": 0,
+       "total": 5
+      }
+     },
+     "either_or": {
+      "off": {
+       "pass": 0,
+       "fail": 1,
+       "unclear": 0,
+       "total": 1
+      },
+      "on": {
+       "pass": 0,
+       "fail": 1,
+       "unclear": 0,
+       "total": 1
+      }
+     },
+     "reverse": {
+      "off": {
+       "pass": 0,
+       "fail": 0,
+       "unclear": 2,
+       "total": 2
+      },
+      "on": {
+       "pass": 0,
+       "fail": 0,
+       "unclear": 2,
+       "total": 2
+      }
+     },
+     "temporal": {
+      "off": {
+       "pass": 0,
+       "fail": 1,
+       "unclear": 0,
+       "total": 1
+      },
+      "on": {
+       "pass": 0,
+       "fail": 1,
+       "unclear": 0,
+       "total": 1
+      }
+     },
+     "controls": {
+      "off": {
+       "pass": 6,
+       "fail": 0,
+       "unclear": 0,
+       "total": 6
+      },
+      "on": {
+       "pass": 6,
+       "fail": 0,
+       "unclear": 0,
+       "total": 6
+      }
+     }
+    }
+   },
+   "consistency": {
+    "teach": [
+     2,
+     12,
+     [
+      "Q03 (plain)",
+      "Q04 (plain)",
+      "Q10 (plain)",
+      "Q11 (plain)",
+      "Q12 (plain)",
+      "Q15 (plain)",
+      "Q03 (think)",
+      "Q04 (think)",
+      "Q12 (think)",
+      "Q15 (think)"
+     ]
+    ],
+    "('pairs', 'teach')": [
+     0,
+     2
+    ]
+   },
+   "n": 44
+  }
+ },
+ "timings": {
+  "copy_s": 2.8,
+  "slide_server": {
+   "ready_s": 6.0,
+   "warm_s": 6.0,
+   "stop_s": 1.5
+  },
+  "teach.server": {
+   "ready_s": 6.0,
+   "warm_s": 6.0,
+   "stop_s": 1.5
+  },
+  "step_s": 2117.7
+ },
+ "created": "2026-10-12T19:22:02Z",
+ "status": "done",
+ "error": null,
+ "folder": "~/lw-runs/gb10-a-L4-seed1/models/L4-seed1.teach",
+ "lessons": [
+  {
+   "lesson": 1,
+   "name": "L1",
+   "op": "ASSERT",
+   "text": "My dog is called Bruno.",
+   "started": "2026-10-12T19:22:10Z",
+   "seconds": 316.9,
+   "stream_seconds": 304.9,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 1,
+     "text": "My dog is called Bruno.",
+     "recalled": true,
+     "steps": 4,
+     "message": null,
+     "state": "learned",
+     "neurons": [
+      {
+       "layer": 31,
+       "neuron": 0,
+       "key": "subject"
+      },
+      {
+       "layer": 15,
+       "neuron": 0,
+       "key": "subject"
+      },
+      {
+       "layer": 22,
+       "neuron": 0,
+       "key": "subject"
+      },
+      {
+       "layer": 27,
+       "neuron": 0,
+       "key": "subject"
+      },
+      {
+       "layer": 13,
+       "neuron": 0,
+       "key": "subject"
+      },
+      {
+       "layer": 17,
+       "neuron": 0,
+       "key": "subject"
+      },
+      {
+       "layer": 10,
+       "neuron": 0,
+       "key": "subject"
+      },
+      {
+       "layer": 24,
+       "neuron": 0,
+       "key": "subject"
+      },
+      {
+       "layer": 20,
+       "neuron": 0,
+       "key": "subject"
+      },
+      {
+       "layer": 29,
+       "neuron": 0,
+       "key": "subject"
+      }
+     ],
+     "questions": [
+      "What is my dog's name again?",
+      "What is the name of my dog?"
+     ]
+    }
+   ],
+   "recalled": true,
+   "recalled_any": true,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    1
+   ],
+   "fact_ids_graph": [
+    1
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791833235722,
+    "seconds": 11.9,
+    "bytes": 274046976,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors",
+     "mtp-4bit.safetensors"
+    ],
+    "waited_s": 12.0
+   },
+   "sse_file": "~/lw-runs/gb10-a-L4-seed1/phases/teach/learn-L1.sse",
+   "graph_file": "~/lw-runs/gb10-a-L4-seed1/phases/teach/graph-L1.json"
+  },
+  {
+   "lesson": 2,
+   "name": "L2",
+   "op": "ASSERT",
+   "text": "I like pears.",
+   "started": "2026-10-12T19:27:27Z",
+   "seconds": 161.8,
+   "stream_seconds": 159.8,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 2,
+     "text": "I like pears.",
+     "recalled": false,
+     "steps": 5,
+     "message": null,
+     "state": "missed",
+     "neurons": [],
+     "questions": [
+      "What fruit do I like?",
+      "Do I like fruit?",
+      "Is pears the fruit I like?",
+      "Do I like to eat pears?",
+      "Do I have a taste for pears?"
+     ]
+    }
+   ],
+   "recalled": false,
+   "recalled_any": false,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    2
+   ],
+   "fact_ids_graph": [
+    2
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791833407575,
+    "seconds": 0.4,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "sse_file": "~/lw-runs/gb10-a-L4-seed1/phases/teach/learn-L2.sse",
+   "graph_file": "~/lw-runs/gb10-a-L4-seed1/phases/teach/graph-L2.json"
+  },
+  {
+   "lesson": 3,
+   "name": "L3",
+   "op": "ASSERT",
+   "text": "My cat's eyes are hazel.",
+   "started": "2026-10-12T19:30:09Z",
+   "seconds": 259.5,
+   "stream_seconds": 257.5,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 3,
+     "text": "My cat's eyes are hazel.",
+     "recalled": true,
+     "steps": 4,
+     "message": null,
+     "state": "learned",
+     "neurons": [
+      {
+       "layer": 27,
+       "neuron": 1,
+       "key": "subject"
+      },
+      {
+       "layer": 24,
+       "neuron": 1,
+       "key": "subject"
+      },
+      {
+       "layer": 22,
+       "neuron": 1,
+       "key": "subject"
+      },
+      {
+       "layer": 17,
+       "neuron": 1,
+       "key": "subject"
+      },
+      {
+       "layer": 13,
+       "neuron": 1,
+       "key": "subject"
+      },
+      {
+       "layer": 15,
+       "neuron": 1,
+       "key": "subject"
+      },
+      {
+       "layer": 10,
+       "neuron": 1,
+       "key": "subject"
+      },
+      {
+       "layer": 20,
+       "neuron": 1,
+       "key": "subject"
+      },
+      {
+       "layer": 29,
+       "neuron": 1,
+       "key": "subject"
+      },
+      {
+       "layer": 31,
+       "neuron": 1,
+       "key": "subject"
+      }
+     ],
+     "questions": [
+      "What is the colour of my cat's eyes?",
+      "What is the eye colour of my cat?"
+     ]
+    }
+   ],
+   "recalled": true,
+   "recalled_any": true,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    3
+   ],
+   "fact_ids_graph": [
+    3
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791833667068,
+    "seconds": 0.6,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "sse_file": "~/lw-runs/gb10-a-L4-seed1/phases/teach/learn-L3.sse",
+   "graph_file": "~/lw-runs/gb10-a-L4-seed1/phases/teach/graph-L3.json"
+  },
+  {
+   "lesson": 4,
+   "name": "L4",
+   "op": "ASSERT",
+   "text": "My favourite colour is blue.",
+   "started": "2026-10-12T19:34:29Z",
+   "seconds": 118.2,
+   "stream_seconds": 116.2,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 4,
+     "text": "My favourite colour is blue.",
+     "recalled": true,
+     "steps": 2,
+     "message": null,
+     "state": "learned",
+     "neurons": [
+      {
+       "layer": 34,
+       "neuron": 0,
+       "key": "reply"
+      },
+      {
+       "layer": 24,
+       "neuron": 2,
+       "key": "reply"
+      },
+      {
+       "layer": 22,
+       "neuron": 2,
+       "key": "reply"
+      },
+      {
+       "layer": 36,
+       "neuron": 0,
+       "key": "reply"
+      },
+      {
+       "layer": 40,
+       "neuron": 0,
+       "key": "reply"
+      },
+      {
+       "layer": 27,
+       "neuron": 2,
+       "key": "reply"
+      },
+      {
+       "layer": 31,
+       "neuron": 2,
+       "key": "reply"
+      },
+      {
+       "layer": 38,
+       "neuron": 0,
+       "key": "reply"
+      },
+      {
+       "layer": 29,
+       "neuron": 2,
+       "key": "reply"
+      },
+      {
+       "layer": 20,
+       "neuron": 2,
+       "key": "reply"
+      }
+     ],
+     "questions": [
+      "Which colour do I like best?",
+      "Which colour do I like the most?"
+     ]
+    }
+   ],
+   "recalled": true,
+   "recalled_any": true,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    4
+   ],
+   "fact_ids_graph": [
+    4
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791833785285,
+    "seconds": 0.7,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "sse_file": "~/lw-runs/gb10-a-L4-seed1/phases/teach/learn-L4.sse",
+   "graph_file": "~/lw-runs/gb10-a-L4-seed1/phases/teach/graph-L4.json"
+  },
+  {
+   "lesson": 5,
+   "name": "L5",
+   "op": "ASSERT",
+   "text": "My cat is named Nora.",
+   "started": "2026-10-12T19:36:27Z",
+   "seconds": 96.4,
+   "stream_seconds": 94.4,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 5,
+     "text": "My cat is named Nora.",
+     "recalled": true,
+     "steps": 1,
+     "message": null,
+     "state": "learned",
+     "neurons": [
+      {
+       "layer": 20,
+       "neuron": 3,
+       "key": "subject"
+      },
+      {
+       "layer": 13,
+       "neuron": 2,
+       "key": "subject"
+      },
+      {
+       "layer": 29,
+       "neuron": 3,
+       "key": "subject"
+      },
+      {
+       "layer": 15,
+       "neuron": 2,
+       "key": "subject"
+      },
+      {
+       "layer": 24,
+       "neuron": 3,
+       "key": "subject"
+      },
+      {
+       "layer": 17,
+       "neuron": 2,
+       "key": "subject"
+      },
+      {
+       "layer": 31,
+       "neuron": 3,
+       "key": "subject"
+      },
+      {
+       "layer": 27,
+       "neuron": 3,
+       "key": "subject"
+      },
+      {
+       "layer": 22,
+       "neuron": 3,
+       "key": "subject"
+      },
+      {
+       "layer": 10,
+       "neuron": 2,
+       "key": "subject"
+      }
+     ],
+     "questions": [
+      "What is the name of my cat?",
+      "What's my cat's name?"
+     ]
+    }
+   ],
+   "recalled": true,
+   "recalled_any": true,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    5
+   ],
+   "fact_ids_graph": [
+    5
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791833881718,
+    "seconds": 0.6,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "sse_file": "~/lw-runs/gb10-a-L4-seed1/phases/teach/learn-L5.sse",
+   "graph_file": "~/lw-runs/gb10-a-L4-seed1/phases/teach/graph-L5.json"
+  },
+  {
+   "lesson": 6,
+   "name": "L6",
+   "op": "ASSERT",
+   "text": "My dog really likes olives.",
+   "started": "2026-10-12T19:38:03Z",
+   "seconds": 174.9,
+   "stream_seconds": 172.9,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 6,
+     "text": "My dog really likes olives.",
+     "recalled": true,
+     "steps": 4,
+     "message": null,
+     "state": "learned",
+     "neurons": [
+      {
+       "layer": 20,
+       "neuron": 4,
+       "key": "subject"
+      },
+      {
+       "layer": 17,
+       "neuron": 3,
+       "key": "subject"
+      },
+      {
+       "layer": 29,
+       "neuron": 4,
+       "key": "subject"
+      },
+      {
+       "layer": 24,
+       "neuron": 4,
+       "key": "subject"
+      },
+      {
+       "layer": 31,
+       "neuron": 4,
+       "key": "subject"
+      },
+      {
+       "layer": 13,
+       "neuron": 3,
+       "key": "subject"
+      },
+      {
+       "layer": 27,
+       "neuron": 4,
+       "key": "subject"
+      },
+      {
+       "layer": 15,
+       "neuron": 3,
+       "key": "subject"
+      },
+      {
+       "layer": 22,
+       "neuron": 4,
+       "key": "subject"
+      },
+      {
+       "layer": 10,
+       "neuron": 3,
+       "key": "subject"
+      }
+     ],
+     "questions": [
+      "What food does my dog really like?",
+      "What is my dog's thing?"
+     ]
+    }
+   ],
+   "recalled": true,
+   "recalled_any": true,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    6
+   ],
+   "fact_ids_graph": [
+    6
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791834056585,
+    "seconds": 0.4,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "sse_file": "~/lw-runs/gb10-a-L4-seed1/phases/teach/learn-L6.sse",
+   "graph_file": "~/lw-runs/gb10-a-L4-seed1/phases/teach/graph-L6.json"
+  },
+  {
+   "lesson": 7,
+   "name": "L7",
+   "op": "RETRACT",
+   "text": "My favourite colour is no longer blue.",
+   "started": "2026-10-12T19:40:58Z",
+   "seconds": 174.4,
+   "stream_seconds": 172.4,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 7,
+     "text": "My favourite colour is no longer blue.",
+     "recalled": false,
+     "steps": 5,
+     "message": null,
+     "state": "missed",
+     "neurons": [],
+     "questions": [
+      "What is the colour I like most now?",
+      "Do you know what colour I no longer like?",
+      "Did my favourite colour used to be blue?",
+      "Did I stop liking blue?",
+      "Has my colour taste shifted away from blue?"
+     ]
+    }
+   ],
+   "recalled": false,
+   "recalled_any": false,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    7
+   ],
+   "fact_ids_graph": [
+    7
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791834231022,
+    "seconds": 0.4,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "sse_file": "~/lw-runs/gb10-a-L4-seed1/phases/teach/learn-L7.sse",
+   "graph_file": "~/lw-runs/gb10-a-L4-seed1/phases/teach/graph-L7.json"
+  },
+  {
+   "lesson": 8,
+   "name": "L8",
+   "op": "ASSERT",
+   "text": "My dog's eyes are grey.",
+   "started": "2026-10-12T19:43:53Z",
+   "seconds": 217.6,
+   "stream_seconds": 215.6,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 8,
+     "text": "My dog's eyes are grey.",
+     "recalled": true,
+     "steps": 3,
+     "message": null,
+     "state": "learned",
+     "neurons": [
+      {
+       "layer": 15,
+       "neuron": 4,
+       "key": "subject"
+      },
+      {
+       "layer": 22,
+       "neuron": 5,
+       "key": "subject"
+      },
+      {
+       "layer": 13,
+       "neuron": 4,
+       "key": "subject"
+      },
+      {
+       "layer": 20,
+       "neuron": 5,
+       "key": "subject"
+      },
+      {
+       "layer": 17,
+       "neuron": 4,
+       "key": "subject"
+      },
+      {
+       "layer": 27,
+       "neuron": 5,
+       "key": "subject"
+      },
+      {
+       "layer": 29,
+       "neuron": 5,
+       "key": "subject"
+      },
+      {
+       "layer": 31,
+       "neuron": 5,
+       "key": "subject"
+      },
+      {
+       "layer": 24,
+       "neuron": 5,
+       "key": "subject"
+      },
+      {
+       "layer": 10,
+       "neuron": 4,
+       "key": "subject"
+      }
+     ],
+     "questions": [
+      "What is the eye colour of my dog?",
+      "What is my dog's eye colour like?"
+     ]
+    }
+   ],
+   "recalled": true,
+   "recalled_any": true,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    8
+   ],
+   "fact_ids_graph": [
+    8
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791834448669,
+    "seconds": 0.6,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "sse_file": "~/lw-runs/gb10-a-L4-seed1/phases/teach/learn-L8.sse",
+   "graph_file": "~/lw-runs/gb10-a-L4-seed1/phases/teach/graph-L8.json"
+  },
+  {
+   "lesson": 9,
+   "name": "L9",
+   "op": "ASSERT",
+   "text": "I really like olives.",
+   "started": "2026-10-12T19:47:30Z",
+   "seconds": 173.6,
+   "stream_seconds": 171.6,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 9,
+     "text": "I really like olives.",
+     "recalled": false,
+     "steps": 5,
+     "message": null,
+     "state": "missed",
+     "neurons": [],
+     "questions": [
+      "Which food do I like best?",
+      "What food do I like best?"
+     ]
+    }
+   ],
+   "recalled": false,
+   "recalled_any": false,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    9
+   ],
+   "fact_ids_graph": [
+    9
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791834622245,
+    "seconds": 0.4,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "sse_file": "~/lw-runs/gb10-a-L4-seed1/phases/teach/learn-L9.sse",
+   "graph_file": "~/lw-runs/gb10-a-L4-seed1/phases/teach/graph-L9.json"
+  },
+  {
+   "lesson": 10,
+   "name": "L10",
+   "op": "ASSERT",
+   "text": "I really like apples.",
+   "started": "2026-10-12T19:50:24Z",
+   "seconds": 218.5,
+   "stream_seconds": 216.5,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 10,
+     "text": "I really like apples.",
+     "recalled": true,
+     "steps": 3,
+     "message": null,
+     "state": "learned",
+     "neurons": [
+      {
+       "layer": 36,
+       "neuron": 1,
+       "key": "reply"
+      },
+      {
+       "layer": 27,
+       "neuron": 6,
+       "key": "reply"
+      },
+      {
+       "layer": 38,
+       "neuron": 1,
+       "key": "reply"
+      },
+      {
+       "layer": 29,
+       "neuron": 6,
+       "key": "reply"
+      },
+      {
+       "layer": 24,
+       "neuron": 6,
+       "key": "reply"
+      },
+      {
+       "layer": 34,
+       "neuron": 1,
+       "key": "reply"
+      },
+      {
+       "layer": 17,
+       "neuron": 5,
+       "key": "reply"
+      },
+      {
+       "layer": 40,
+       "neuron": 1,
+       "key": "reply"
+      },
+      {
+       "layer": 22,
+       "neuron": 6,
+       "key": "reply"
+      },
+      {
+       "layer": 31,
+       "neuron": 6,
+       "key": "reply"
+      }
+     ],
+     "questions": [
+      "What fruit do I really like?",
+      "Which fruit do I prefer?",
+      "How would I describe my taste in fruit?"
+     ]
+    }
+   ],
+   "recalled": true,
+   "recalled_any": true,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    10
+   ],
+   "fact_ids_graph": [
+    10
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791834840767,
+    "seconds": 0.4,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "sse_file": "~/lw-runs/gb10-a-L4-seed1/phases/teach/learn-L10.sse",
+   "graph_file": "~/lw-runs/gb10-a-L4-seed1/phases/teach/graph-L10.json"
+  },
+  {
+   "lesson": 11,
+   "name": "L11",
+   "op": "RETRACT",
+   "text": "I do not like olives anymore.",
+   "started": "2026-10-12T19:54:02Z",
+   "seconds": 133.8,
+   "stream_seconds": 131.8,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 11,
+     "text": "I do not like olives anymore.",
+     "recalled": true,
+     "steps": 3,
+     "message": null,
+     "state": "learned",
+     "neurons": [
+      {
+       "layer": 29,
+       "neuron": 7,
+       "key": "reply"
+      },
+      {
+       "layer": 24,
+       "neuron": 7,
+       "key": "reply"
+      },
+      {
+       "layer": 27,
+       "neuron": 7,
+       "key": "reply"
+      },
+      {
+       "layer": 31,
+       "neuron": 7,
+       "key": "reply"
+      },
+      {
+       "layer": 40,
+       "neuron": 2,
+       "key": "reply"
+      },
+      {
+       "layer": 38,
+       "neuron": 2,
+       "key": "reply"
+      },
+      {
+       "layer": 34,
+       "neuron": 2,
+       "key": "reply"
+      },
+      {
+       "layer": 36,
+       "neuron": 2,
+       "key": "reply"
+      },
+      {
+       "layer": 20,
+       "neuron": 6,
+       "key": "reply"
+      },
+      {
+       "layer": 22,
+       "neuron": 7,
+       "key": "reply"
+      }
+     ],
+     "questions": [
+      "What is the thing I do not like in the present?",
+      "Do you remember what is the thing I do not like at present?"
+     ]
+    }
+   ],
+   "recalled": true,
+   "recalled_any": true,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    11
+   ],
+   "fact_ids_graph": [
+    11
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791834974565,
+    "seconds": 0.5,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "sse_file": "~/lw-runs/gb10-a-L4-seed1/phases/teach/learn-L11.sse",
+   "graph_file": "~/lw-runs/gb10-a-L4-seed1/phases/teach/graph-L11.json"
+  }
+ ],
+ "teach_seconds": 2045.7,
+ "fact_states": {
+  "1": "learned",
+  "2": "missed",
+  "3": "learned",
+  "4": "learned",
+  "5": "learned",
+  "6": "learned",
+  "7": "missed",
+  "8": "learned",
+  "9": "missed",
+  "10": "learned",
+  "11": "learned"
+ },
+ "fact_neurons": {
+  "1": [
+   {
+    "layer": 31,
+    "neuron": 0,
+    "key": "subject"
+   },
+   {
+    "layer": 15,
+    "neuron": 0,
+    "key": "subject"
+   },
+   {
+    "layer": 22,
+    "neuron": 0,
+    "key": "subject"
+   },
+   {
+    "layer": 27,
+    "neuron": 0,
+    "key": "subject"
+   },
+   {
+    "layer": 13,
+    "neuron": 0,
+    "key": "subject"
+   },
+   {
+    "layer": 17,
+    "neuron": 0,
+    "key": "subject"
+   },
+   {
+    "layer": 10,
+    "neuron": 0,
+    "key": "subject"
+   },
+   {
+    "layer": 24,
+    "neuron": 0,
+    "key": "subject"
+   },
+   {
+    "layer": 20,
+    "neuron": 0,
+    "key": "subject"
+   },
+   {
+    "layer": 29,
+    "neuron": 0,
+    "key": "subject"
+   }
+  ],
+  "3": [
+   {
+    "layer": 27,
+    "neuron": 1,
+    "key": "subject"
+   },
+   {
+    "layer": 24,
+    "neuron": 1,
+    "key": "subject"
+   },
+   {
+    "layer": 22,
+    "neuron": 1,
+    "key": "subject"
+   },
+   {
+    "layer": 17,
+    "neuron": 1,
+    "key": "subject"
+   },
+   {
+    "layer": 13,
+    "neuron": 1,
+    "key": "subject"
+   },
+   {
+    "layer": 15,
+    "neuron": 1,
+    "key": "subject"
+   },
+   {
+    "layer": 10,
+    "neuron": 1,
+    "key": "subject"
+   },
+   {
+    "layer": 20,
+    "neuron": 1,
+    "key": "subject"
+   },
+   {
+    "layer": 29,
+    "neuron": 1,
+    "key": "subject"
+   },
+   {
+    "layer": 31,
+    "neuron": 1,
+    "key": "subject"
+   }
+  ],
+  "4": [
+   {
+    "layer": 34,
+    "neuron": 0,
+    "key": "reply"
+   },
+   {
+    "layer": 24,
+    "neuron": 2,
+    "key": "reply"
+   },
+   {
+    "layer": 22,
+    "neuron": 2,
+    "key": "reply"
+   },
+   {
+    "layer": 36,
+    "neuron": 0,
+    "key": "reply"
+   },
+   {
+    "layer": 40,
+    "neuron": 0,
+    "key": "reply"
+   },
+   {
+    "layer": 27,
+    "neuron": 2,
+    "key": "reply"
+   },
+   {
+    "layer": 31,
+    "neuron": 2,
+    "key": "reply"
+   },
+   {
+    "layer": 38,
+    "neuron": 0,
+    "key": "reply"
+   },
+   {
+    "layer": 29,
+    "neuron": 2,
+    "key": "reply"
+   },
+   {
+    "layer": 20,
+    "neuron": 2,
+    "key": "reply"
+   }
+  ],
+  "5": [
+   {
+    "layer": 20,
+    "neuron": 3,
+    "key": "subject"
+   },
+   {
+    "layer": 13,
+    "neuron": 2,
+    "key": "subject"
+   },
+   {
+    "layer": 29,
+    "neuron": 3,
+    "key": "subject"
+   },
+   {
+    "layer": 15,
+    "neuron": 2,
+    "key": "subject"
+   },
+   {
+    "layer": 24,
+    "neuron": 3,
+    "key": "subject"
+   },
+   {
+    "layer": 17,
+    "neuron": 2,
+    "key": "subject"
+   },
+   {
+    "layer": 31,
+    "neuron": 3,
+    "key": "subject"
+   },
+   {
+    "layer": 27,
+    "neuron": 3,
+    "key": "subject"
+   },
+   {
+    "layer": 22,
+    "neuron": 3,
+    "key": "subject"
+   },
+   {
+    "layer": 10,
+    "neuron": 2,
+    "key": "subject"
+   }
+  ],
+  "6": [
+   {
+    "layer": 20,
+    "neuron": 4,
+    "key": "subject"
+   },
+   {
+    "layer": 17,
+    "neuron": 3,
+    "key": "subject"
+   },
+   {
+    "layer": 29,
+    "neuron": 4,
+    "key": "subject"
+   },
+   {
+    "layer": 24,
+    "neuron": 4,
+    "key": "subject"
+   },
+   {
+    "layer": 31,
+    "neuron": 4,
+    "key": "subject"
+   },
+   {
+    "layer": 13,
+    "neuron": 3,
+    "key": "subject"
+   },
+   {
+    "layer": 27,
+    "neuron": 4,
+    "key": "subject"
+   },
+   {
+    "layer": 15,
+    "neuron": 3,
+    "key": "subject"
+   },
+   {
+    "layer": 22,
+    "neuron": 4,
+    "key": "subject"
+   },
+   {
+    "layer": 10,
+    "neuron": 3,
+    "key": "subject"
+   }
+  ],
+  "8": [
+   {
+    "layer": 15,
+    "neuron": 4,
+    "key": "subject"
+   },
+   {
+    "layer": 22,
+    "neuron": 5,
+    "key": "subject"
+   },
+   {
+    "layer": 13,
+    "neuron": 4,
+    "key": "subject"
+   },
+   {
+    "layer": 20,
+    "neuron": 5,
+    "key": "subject"
+   },
+   {
+    "layer": 17,
+    "neuron": 4,
+    "key": "subject"
+   },
+   {
+    "layer": 27,
+    "neuron": 5,
+    "key": "subject"
+   },
+   {
+    "layer": 29,
+    "neuron": 5,
+    "key": "subject"
+   },
+   {
+    "layer": 31,
+    "neuron": 5,
+    "key": "subject"
+   },
+   {
+    "layer": 24,
+    "neuron": 5,
+    "key": "subject"
+   },
+   {
+    "layer": 10,
+    "neuron": 4,
+    "key": "subject"
+   }
+  ],
+  "10": [
+   {
+    "layer": 36,
+    "neuron": 1,
+    "key": "reply"
+   },
+   {
+    "layer": 27,
+    "neuron": 6,
+    "key": "reply"
+   },
+   {
+    "layer": 38,
+    "neuron": 1,
+    "key": "reply"
+   },
+   {
+    "layer": 29,
+    "neuron": 6,
+    "key": "reply"
+   },
+   {
+    "layer": 24,
+    "neuron": 6,
+    "key": "reply"
+   },
+   {
+    "layer": 34,
+    "neuron": 1,
+    "key": "reply"
+   },
+   {
+    "layer": 17,
+    "neuron": 5,
+    "key": "reply"
+   },
+   {
+    "layer": 40,
+    "neuron": 1,
+    "key": "reply"
+   },
+   {
+    "layer": 22,
+    "neuron": 6,
+    "key": "reply"
+   },
+   {
+    "layer": 31,
+    "neuron": 6,
+    "key": "reply"
+   }
+  ],
+  "11": [
+   {
+    "layer": 29,
+    "neuron": 7,
+    "key": "reply"
+   },
+   {
+    "layer": 24,
+    "neuron": 7,
+    "key": "reply"
+   },
+   {
+    "layer": 27,
+    "neuron": 7,
+    "key": "reply"
+   },
+   {
+    "layer": 31,
+    "neuron": 7,
+    "key": "reply"
+   },
+   {
+    "layer": 40,
+    "neuron": 2,
+    "key": "reply"
+   },
+   {
+    "layer": 38,
+    "neuron": 2,
+    "key": "reply"
+   },
+   {
+    "layer": 34,
+    "neuron": 2,
+    "key": "reply"
+   },
+   {
+    "layer": 36,
+    "neuron": 2,
+    "key": "reply"
+   },
+   {
+    "layer": 20,
+    "neuron": 6,
+    "key": "reply"
+   },
+   {
+    "layer": 22,
+    "neuron": 7,
+    "key": "reply"
+   }
+  ]
+ },
+ "fact_lesson": {
+  "1": 1,
+  "2": 2,
+  "3": 3,
+  "4": 4,
+  "5": 5,
+  "6": 6,
+  "7": 7,
+  "8": 8,
+  "9": 9,
+  "10": 10,
+  "11": 11
+ },
+ "refused_lessons": [
+  2,
+  7,
+  9
+ ],
+ "partly_refused_lessons": [],
+ "taught": true,
+ "refused_judge": {
+  "teach": {
+   "refused": [
+    2,
+    7,
+    9
+   ],
+   "phase": null,
+   "note": "no phase of the set keeps exactly the lessons that were not refused; lwlogic.py has no CLI to add one"
+  }
+ }
+}

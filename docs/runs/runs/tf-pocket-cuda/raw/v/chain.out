@@ -1,0 +1,16 @@
+11:22:24 lanesq finished; df: /dev/nvme0n1p2  916G  537G  332G  62% /
+11:22:24 stage bash ~/tf-pocket-cuda/tools/v/rounds2.sh r1 4 60 -> ~/tf-pocket-cuda/raw/v/rounds-r1.out
+11:34:52 stage end rc=0
+11:34:52 stage bash ~/tf-pocket-cuda/tools/v/clib.sh c1 6 90 -> ~/tf-pocket-cuda/raw/v/cli-c1.out
+11:52:42 stage end rc=0
+11:52:42 stage bash ~/tf-pocket-cuda/tools/v/prefill2.sh p1 3 60 -> ~/tf-pocket-cuda/raw/v/prefill-p1.out
+11:57:04 stage end rc=0
+11:57:04 stage bash ~/tf-pocket-cuda/tools/v/servers2.sh s1 120 bT aT aA bA bE aE openai,openai256,off,conc,conc14,facts -> ~/tf-pocket-cuda/raw/v/servers-s1.out
+13:04:53 stage end rc=0
+13:04:53 stage bash ~/tf-pocket-cuda/tools/v/servers2.sh s2 120 aE bE bA aA aT bT openai,openai256,off,conc,conc14 -> ~/tf-pocket-cuda/raw/v/servers-s2.out
+13:38:41 stage end rc=0
+13:38:41 stage bash ~/tf-pocket-cuda/tools/v/nsys2.sh n1 after:T:nd after:T:d after:E:nd before:T:nd after:A:nd -> ~/tf-pocket-cuda/raw/v/nsys-n1.out
+13:41:59 stage end rc=0
+13:41:59 stage bash ~/tf-pocket-cuda/tools/v/wp2.sh w1 30 before:T after:T after:E before:E after:A before:A -> ~/tf-pocket-cuda/raw/v/wp-w1.out
+13:45:49 stage end rc=0
+13:45:49 chain done; df: /dev/nvme0n1p2  916G  572G  298G  66% /

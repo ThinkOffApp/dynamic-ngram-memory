@@ -1,0 +1,109 @@
+== lanes-q1: per-question token sha, before vs after; solo vs together; drafted vs not
+A off-all solo-d questions 134 before==after 134
+A off-all solo-nd questions 134 before==after 134
+A off-40 together-d questions 40 before==after 40
+A on-40 solo-d questions 40 before==after 40
+A on-40 solo-nd questions 40 before==after 40
+A on-40 together-d questions 40 before==after 40
+   A before off: drafted==undrafted 134/134, together==solo 40/40; on: drafted==undrafted 40/40, together==solo 40/40
+   A after off: drafted==undrafted 134/134, together==solo 40/40; on: drafted==undrafted 40/40, together==solo 40/40
+T off-all solo-d questions 134 before==after 134
+T off-all solo-nd questions 134 before==after 134
+T off-40 together-d questions 40 before==after 40
+T on-40 solo-d questions 40 before==after 40
+T on-40 solo-nd questions 40 before==after 40
+T on-40 together-d questions 40 before==after 40
+   T before off: drafted==undrafted 134/134, together==solo 40/40; on: drafted==undrafted 40/40, together==solo 40/40
+   T after off: drafted==undrafted 134/134, together==solo 40/40; on: drafted==undrafted 40/40, together==solo 40/40
+E off-all solo-d questions 134 before==after 134
+E off-all solo-nd questions 134 before==after 134
+E off-40 together-d questions 40 before==after 40
+E on-40 solo-d questions 40 before==after 40
+E on-40 solo-nd questions 40 before==after 40
+E on-40 together-d questions 40 before==after 40
+   E before off: drafted==undrafted 134/134, together==solo 40/40; on: drafted==undrafted 40/40, together==solo 40/40
+   E after off: drafted==undrafted 134/134, together==solo 40/40; on: drafted==undrafted 40/40, together==solo 40/40
+  negative control before off-all T==A 19/134, E==A 134/134
+  negative control before on-40 T==A 0/40, E==A 40/40
+  negative control after off-all T==A 19/134, E==A 134/134
+  negative control after on-40 T==A 0/40, E==A 40/40
+
+== cli-c1: dev CLI decode, 256 greedy tokens from p1
+rows 72 exits {0} tokens {256}
+('A', 'after', 'd') n 6 sha {'2e5c4aac8a41'} rounds/acc {(100, 155)} ms/token 6.556 (6.544-6.572) tok/s(255/decode) 152.539 (152.148-152.814) prefill s 0.052 (0.052-0.056)
+('A', 'after', 'nd') n 6 sha {'2e5c4aac8a41'} rounds/acc {(255, 0)} ms/token 9.791 (9.768-9.858) tok/s(255/decode) 102.129 (101.436-102.381) prefill s 0.052 (0.051-0.052)
+('A', 'before', 'd') n 6 sha {'2e5c4aac8a41'} rounds/acc {(100, 155)} ms/token 6.534 (6.510-6.575) tok/s(255/decode) 153.067 (152.103-153.624) prefill s 0.053 (0.052-0.053)
+('A', 'before', 'nd') n 6 sha {'2e5c4aac8a41'} rounds/acc {(255, 0)} ms/token 9.779 (9.719-9.834) tok/s(255/decode) 102.258 (101.687-102.893) prefill s 0.052 (0.052-0.056)
+('E', 'after', 'd') n 6 sha {'2e5c4aac8a41'} rounds/acc {(100, 155)} ms/token 6.557 (6.545-6.576) tok/s(255/decode) 152.507 (152.057-152.786) prefill s 0.053 (0.052-0.054)
+('E', 'after', 'nd') n 6 sha {'2e5c4aac8a41'} rounds/acc {(255, 0)} ms/token 9.764 (9.715-9.831) tok/s(255/decode) 102.412 (101.723-102.930) prefill s 0.052 (0.052-0.052)
+('E', 'before', 'd') n 6 sha {'2e5c4aac8a41'} rounds/acc {(100, 155)} ms/token 7.102 (7.064-7.124) tok/s(255/decode) 140.814 (140.380-141.557) prefill s 0.054 (0.054-0.055)
+('E', 'before', 'nd') n 6 sha {'2e5c4aac8a41'} rounds/acc {(255, 0)} ms/token 11.354 (11.285-11.377) tok/s(255/decode) 88.080 (87.895-88.609) prefill s 0.054 (0.054-0.055)
+('T', 'after', 'd') n 6 sha {'716feda01d52'} rounds/acc {(107, 148)} ms/token 7.208 (7.164-7.244) tok/s(255/decode) 138.734 (138.054-139.581) prefill s 0.052 (0.052-0.053)
+('T', 'after', 'nd') n 6 sha {'716feda01d52'} rounds/acc {(255, 0)} ms/token 9.798 (9.708-9.892) tok/s(255/decode) 102.059 (101.094-103.005) prefill s 0.052 (0.052-0.053)
+('T', 'before', 'd') n 6 sha {'716feda01d52'} rounds/acc {(108, 147)} ms/token 7.804 (7.766-7.842) tok/s(255/decode) 128.131 (127.519-128.762) prefill s 0.055 (0.054-0.055)
+('T', 'before', 'nd') n 6 sha {'716feda01d52'} rounds/acc {(255, 0)} ms/token 11.338 (11.253-11.399) tok/s(255/decode) 88.194 (87.728-88.863) prefill s 0.054 (0.054-0.057)
+ms/token check 9.804 9.804313725490198 9.766015625000001
+speedup after/before same burst A nd 0.998 (0.993-1.002)
+speedup after/before same burst A d 0.996 (0.991-1.005)
+speedup after/before same burst T nd 1.158 (1.144-1.174)
+speedup after/before same burst T d 1.083 (1.078-1.087)
+speedup after/before same burst E nd 1.163 (1.152-1.169)
+speedup after/before same burst E d 1.082 (1.079-1.088)
+after: T/A tok/s ratio same burst nd 1.003 (0.989-1.013)
+after: T minus A ms/token same burst nd -0.027 (-0.124-0.109)
+after: E/A tok/s ratio same burst nd 1.007 (0.996-1.009)
+after: E minus A ms/token same burst nd -0.066 (-0.092-0.041)
+after: T/A tok/s ratio same burst d 0.909 (0.904-0.917)
+after: T minus A ms/token same burst d 0.659 (0.592-0.694)
+after: E/A tok/s ratio same burst d 0.999 (0.998-1.002)
+after: E minus A ms/token same burst d 0.003 (-0.010-0.015)
+cli-c1 hashes unchanged: True
+
+== rounds-r1: GPU ms per captured graph round (two measurements per load)
+('A', 'after') serial 9.857 (9.834-9.868) window 9.343 (9.320-9.373) n 8
+('A', 'before') serial 9.864 (9.831-9.886) window 9.330 (9.281-9.374) n 8
+('E', 'after') serial 9.812 (9.797-9.874) window 9.325 (9.250-9.369) n 8
+('E', 'before') serial 11.474 (11.427-11.512) window 11.025 (10.934-11.031) n 8
+('T', 'after') serial 9.893 (9.872-9.918) window 9.376 (9.349-9.399) n 8
+('T', 'before') serial 11.487 (11.461-11.546) window 11.010 (10.953-11.083) n 8
+serial before minus after, same rep A 0.002 (-0.018-0.044)
+serial before minus after, same rep T 1.596 (1.563-1.653)
+serial before minus after, same rep E 1.646 (1.606-1.686)
+after: serial T minus A same rep 0.045 (0.008-0.060)
+before: serial T minus A same rep 1.638 (1.602-1.668)
+after: serial E minus A same rep -0.040 (-0.070-0.040)
+before: serial E minus A same rep 1.612 (1.548-1.679)
+
+== prefill-p1: 4,096-token prompt, 2 out (1 token), drafts off
+('A', 'after') prompt s 0.524 (0.523-0.534) tok/s 7818
+('A', 'before') prompt s 0.533 (0.529-0.536) tok/s 7678
+('E', 'after') prompt s 0.533 (0.525-0.534) tok/s 7679
+('E', 'before') prompt s 0.592 (0.581-0.596) tok/s 6915
+('T', 'after') prompt s 0.543 (0.539-0.550) tok/s 7536
+('T', 'before') prompt s 0.592 (0.586-0.593) tok/s 6924
+first-token shas {'95bce61a71a7'}
+after/before same rep A 0.991 (0.980-0.995)
+after/before same rep T 0.917 (0.911-0.940)
+after/before same rep E 0.901 (0.882-0.917)
+before T/A same rep 1.105 (1.097-1.119)
+after T/A same rep 1.028 (1.018-1.053)
+before E/A same rep 1.117 (1.084-1.121)
+after E/A same rep 1.005 (0.999-1.019)
+A before report keys ['accepted_drafts', 'carved_bytes', 'decode_seconds', 'drafted', 'drafts', 'engine', 'graphs', 'load_seconds', 'max_len', 'ms_per_token', 'prefill_seconds', 'prompt_tokens'] prompt_tokens 4096
+A after report keys ['accepted_drafts', 'carved_bytes', 'decode_seconds', 'drafted', 'drafts', 'engine', 'graphs', 'load_seconds', 'max_len', 'ms_per_token', 'prefill_seconds', 'prompt_tokens'] prompt_tokens 4096
+T before report keys ['accepted_drafts', 'carved_bytes', 'decode_seconds', 'drafted', 'drafts', 'engine', 'graphs', 'load_seconds', 'max_len', 'ms_per_token', 'prefill_seconds', 'prompt_tokens'] prompt_tokens 4096
+T after report keys ['accepted_drafts', 'carved_bytes', 'decode_seconds', 'drafted', 'drafts', 'engine', 'graphs', 'load_seconds', 'max_len', 'ms_per_token', 'prefill_seconds', 'prompt_tokens'] prompt_tokens 4096
+E before report keys ['accepted_drafts', 'carved_bytes', 'decode_seconds', 'drafted', 'drafts', 'engine', 'graphs', 'load_seconds', 'max_len', 'ms_per_token', 'prefill_seconds', 'prompt_tokens'] prompt_tokens 4096
+E after report keys ['accepted_drafts', 'carved_bytes', 'decode_seconds', 'drafted', 'drafts', 'engine', 'graphs', 'load_seconds', 'max_len', 'ms_per_token', 'prefill_seconds', 'prompt_tokens'] prompt_tokens 4096
+
+== s1 facts (server, 40 questions; drafted and draft false; thinking off 160 and on 1500)
+1-bT replies 160 errors 0 drafted==draft-false 80 / 80
+2-aT replies 160 errors 0 drafted==draft-false 80 / 80
+3-aA replies 160 errors 0 drafted==draft-false 80 / 80
+4-bA replies 160 errors 0 drafted==draft-false 80 / 80
+5-bE replies 160 errors 0 drafted==draft-false 80 / 80
+6-aE replies 160 errors 0 drafted==draft-false 80 / 80
+T facts before==after 160 / 160
+A facts before==after 160 / 160
+E facts before==after 160 / 160
+T vs A facts same 12 / 160

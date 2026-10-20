@@ -1,0 +1,60 @@
+judged 56 answers against L6-seed1-nights
+
+== day1: store L1 L2 L3 L4 L5 L6 L7 L8 L9 L10
+   property               thinking off        thinking on
+   recall            10/14 (2 unclear)                  -
+   yes_no                          8/9                  -
+   two_step           7/16 (3 unclear)                  -
+   compound            6/8 (2 unclear)                  -
+   controls                        9/9                  -
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off              thinking on
+   all                v 16/18  n 3/3  ? 21/35   -
+   recall             v 4/5  ? 6/9              -
+   yes no             v 3/3  n 1/1  ? 4/5       -
+   two step           v 2/2  ? 5/14             -
+   compound           v 1/2  n 2/2  ? 3/4       -
+   controls           v 6/6  ? 3/3              -
+   should change      v 5/5  n 3/3  ? 13/26     -
+   should stay        v 11/13  ? 8/9            -
+   abstention         P 21/21 R 21/35           -  precision and recall of "don't know"
+   closed world       +2                        -  fails that pass if a "no" counts where the right answer is "don't know"
+   reliability        9/13                      -
+   generality         7/8                       -
+   locality           24/35                     -
+   neighbourhood    a value taught about another entity: Q06 green (my cat, me) plain, Q07 green (my cat, me) plain
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value                2/2                  -
+     plain: dk                     2/2                  -
+   same answer       12/34 (8 v, 4 dk)                  -   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 0/5                  -   questions asked in several wordings, every wording right
+   UNCLEAR Q02 plain "Where does my sister live?" expected doesn't know; got unclear [unclear]  << Based on the information provided, your sister lives with the boat.
+   UNCLEAR Q04 plain "Who does the tent belong to?" expected me; got unclear [unclear]  << The tent belongs to me.
+   FAIL    Q06 plain "What colour are my sister's eyes?" expected doesn't know; got green [invented a value]  << Your sister's eyes are green.
+   FAIL    Q07 plain "What colour are my brother's eyes?" expected doesn't know; got green [invented a value]  << Based on the context, your brother's eyes are green.
+   FAIL    Q20 plain "What colour are the eyes of the person who owns the boat?" expected doesn't know; got green [invented a value]  << green
+   FAIL    Q21 plain "Does the owner of the boat have amber eyes?" expected doesn't know; got no [wrong yes/no]  << No, the owner of the boat has green eyes.
+   ECHO    Q22 plain "Where does the owner of the boat live?" expected doesn't know; got off topic [repeats a step on the way (my sister), not the answer]  << The boat belongs to my sister.
+   ECHO    Q23 plain "In which country does the owner of the boat live?" expected doesn't know; got unclear [repeats a step on the way (my sister), not the answer]  << The owner of the boat is the user's sister, so the user lives in the same country as the s
+   ECHO    Q24 plain "What is the favourite colour of the owner of the boat?" expected doesn't know; got unclear [repeats a step on the way (my sister), not the answer]  << The owner of the boat is my sister. My sister's favourite colour is not mentioned in the c
+   FAIL    Q26 plain "What is the colour of Ana's eyes?" expected doesn't know; got green [invented a value]  << green
+   FAIL    Q27 plain "Which country does Ana live in?" expected doesn't know; got Spain [invented a value]  << Ana lives in Spain .
+   FAIL    Q28 plain "What is the colour of Bruno's eyes?" expected doesn't know; got grey [invented a value]  << Grey
+   FAIL    Q29 plain "What colour are Milo's eyes?" expected doesn't know; got grey [invented a value]  << Grey
+   UNCLEAR Q34 plain "Is it true that my brother's favourite colour is black or my eyes are green?" expected yes; got unclear [no yes or no]  << Your eyes are green.
+   UNCLEAR Q36 plain "Is it true that I like cheese or my sister is called Nora?" expected doesn't know; got unclear [no yes or no]  << You like chocolate, and your sister is called Nora.
+   FAIL    Q43 plain "Do I like cheese?" expected doesn't know; got no [wrong yes/no]  << No, you said: "I like chocolate."
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 21/21, recall 21/35;  v 16/18  n 3/3  ? 21/35
+
+== two-step questions (level 6): stated against implied facts
+   phases with lessons taught; a chain counts when the rule book knows its answer and every step has a question of its own
+   stated: the taught steps it rests on; implied: the chain itself; given steps right: chains whose every step was right in the same phase and mode
+   thinking off: stated 1/2 (50%), implied 1/1 (100%), gap -50 points; given steps right 0/0; echo 0
+     steps  chains         stated        implied  given steps right    gap
+     1           1     1/1 (100%)     1/1 (100%)         1/1 (100%)     +0
+     2           1      1/2 (50%)     1/1 (100%)                0/0    -50
+     by family (2 steps or more): owner 1/1 (100%), link 0/0
+     compound (Kleene): 6/8 (75%); given both parts right 5/6 (83%); no and unknown 1/1 (100%), not unknown 1/1 (100%), not yes 1/1 (100%), unknown and unknown 1/1 (100%), unknown or unknown 1/2 (50%), unknown or yes 0/1 (0%), yes and yes 1/1 (100%)
+     don't know expected 5/14 (36%); baseline 0/0; echo answers 3

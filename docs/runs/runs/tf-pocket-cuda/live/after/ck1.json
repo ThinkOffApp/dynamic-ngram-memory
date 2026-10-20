@@ -1,0 +1,4671 @@
+{
+ "k": 1,
+ "text": "My favourite colour is green.",
+ "learn_s": 233.6,
+ "raw": [
+  [
+   0.0,
+   "event: fact"
+  ],
+  [
+   0.0,
+   "data: {\"id\": 1, \"text\": \"My favourite colour is green.\"}"
+  ],
+  [
+   0.0,
+   ""
+  ],
+  [
+   0.0,
+   "event: learning"
+  ],
+  [
+   0.0,
+   "data: {\"id\": 1}"
+  ],
+  [
+   0.0,
+   ""
+  ],
+  [
+   219.89,
+   "event: learned"
+  ],
+  [
+   219.89,
+   "data: {\"id\": 1, \"recalled\": true, \"steps\": 5}"
+  ],
+  [
+   219.89,
+   ""
+  ],
+  [
+   219.89,
+   "data: [DONE]"
+  ],
+  [
+   219.89,
+   ""
+  ]
+ ],
+ "events": [
+  [
+   "fact",
+   {
+    "id": 1,
+    "text": "My favourite colour is green."
+   }
+  ],
+  [
+   "learning",
+   {
+    "id": 1
+   }
+  ],
+  [
+   "learned",
+   {
+    "id": 1,
+    "recalled": true,
+    "steps": 5
+   }
+  ],
+  [
+   null,
+   "[DONE]"
+  ]
+ ],
+ "graph": {
+  "next": 2,
+  "facts": [
+   {
+    "id": 1,
+    "text": "My favourite colour is green.",
+    "source": "chat",
+    "state": "learned",
+    "links": [],
+    "round": 5,
+    "questions": [
+     "Which colour is my favourite colour?",
+     "Do you know what colour is my favourite?",
+     "What colour do I like?"
+    ],
+    "neurons": [
+     {
+      "layer": 38,
+      "neuron": 0,
+      "key": "reply"
+     },
+     {
+      "layer": 31,
+      "neuron": 0,
+      "key": "reply"
+     },
+     {
+      "layer": 36,
+      "neuron": 0,
+      "key": "reply"
+     },
+     {
+      "layer": 27,
+      "neuron": 0,
+      "key": "reply"
+     },
+     {
+      "layer": 24,
+      "neuron": 0,
+      "key": "reply"
+     },
+     {
+      "layer": 34,
+      "neuron": 0,
+      "key": "reply"
+     },
+     {
+      "layer": 40,
+      "neuron": 0,
+      "key": "reply"
+     },
+     {
+      "layer": 29,
+      "neuron": 0,
+      "key": "reply"
+     },
+     {
+      "layer": 20,
+      "neuron": 0,
+      "key": "reply"
+     },
+     {
+      "layer": 43,
+      "neuron": 0,
+      "key": "reply"
+     }
+    ],
+    "checks": 5,
+    "recalled": true,
+    "loss": 0.1608
+   }
+  ],
+  "model": {
+   "layers": 52,
+   "kinds": "MEMEM*EMEMEM*EMEMEM*EMEMEM*EMEMEM*EMEMEMEM*EMEMEMEME",
+   "pocket": {
+    "neurons": 64,
+    "layers": [
+     1,
+     3,
+     6,
+     8,
+     10,
+     13,
+     15,
+     17,
+     20,
+     22,
+     24,
+     27,
+     29,
+     31,
+     34,
+     36,
+     38,
+     40,
+     43,
+     45,
+     47,
+     49,
+     51
+    ],
+    "used": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "shards": [
+    {
+     "name": "model-00001-of-00004.safetensors",
+     "bytes": 5119792680,
+     "pocket": true,
+     "layers": [
+      1,
+      3,
+      6,
+      8,
+      10,
+      13
+     ]
+    },
+    {
+     "name": "model-00002-of-00004.safetensors",
+     "bytes": 5292923208,
+     "pocket": true,
+     "layers": [
+      15,
+      17,
+      20,
+      22,
+      24,
+      27,
+      29
+     ]
+    },
+    {
+     "name": "model-00003-of-00004.safetensors",
+     "bytes": 5292923168,
+     "pocket": true,
+     "layers": [
+      31,
+      34,
+      36,
+      38,
+      40,
+      43,
+      45
+     ]
+    },
+    {
+     "name": "model-00004-of-00004.safetensors",
+     "bytes": 2074237664,
+     "pocket": true,
+     "layers": [
+      47,
+      49,
+      51
+     ]
+    },
+    {
+     "name": "mtp-4bit.safetensors",
+     "bytes": 751832520,
+     "pocket": true,
+     "layers": []
+    }
+   ],
+   "save": {
+    "state": "saved",
+    "bytes": 274046976,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors",
+     "mtp-4bit.safetensors"
+    ]
+   }
+  }
+ },
+ "graph_raw": {
+  "next": 2,
+  "facts": [
+   {
+    "id": 1,
+    "text": "My favourite colour is green.",
+    "source": "chat",
+    "at": 1791902967253,
+    "state": "learned",
+    "links": [],
+    "round": 5,
+    "questions": [
+     "Which colour is my favourite colour?",
+     "Do you know what colour is my favourite?",
+     "What colour do I like?"
+    ],
+    "neurons": [
+     {
+      "layer": 38,
+      "neuron": 0,
+      "key": "reply"
+     },
+     {
+      "layer": 31,
+      "neuron": 0,
+      "key": "reply"
+     },
+     {
+      "layer": 36,
+      "neuron": 0,
+      "key": "reply"
+     },
+     {
+      "layer": 27,
+      "neuron": 0,
+      "key": "reply"
+     },
+     {
+      "layer": 24,
+      "neuron": 0,
+      "key": "reply"
+     },
+     {
+      "layer": 34,
+      "neuron": 0,
+      "key": "reply"
+     },
+     {
+      "layer": 40,
+      "neuron": 0,
+      "key": "reply"
+     },
+     {
+      "layer": 29,
+      "neuron": 0,
+      "key": "reply"
+     },
+     {
+      "layer": 20,
+      "neuron": 0,
+      "key": "reply"
+     },
+     {
+      "layer": 43,
+      "neuron": 0,
+      "key": "reply"
+     }
+    ],
+    "checks": 5,
+    "recalled": true,
+    "loss": 0.1608
+   }
+  ],
+  "model": {
+   "layers": 52,
+   "kinds": "MEMEM*EMEMEM*EMEMEM*EMEMEM*EMEMEM*EMEMEMEM*EMEMEMEME",
+   "pocket": {
+    "neurons": 64,
+    "layers": [
+     1,
+     3,
+     6,
+     8,
+     10,
+     13,
+     15,
+     17,
+     20,
+     22,
+     24,
+     27,
+     29,
+     31,
+     34,
+     36,
+     38,
+     40,
+     43,
+     45,
+     47,
+     49,
+     51
+    ],
+    "used": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "shards": [
+    {
+     "name": "model-00001-of-00004.safetensors",
+     "bytes": 5119792680,
+     "pocket": true,
+     "layers": [
+      1,
+      3,
+      6,
+      8,
+      10,
+      13
+     ]
+    },
+    {
+     "name": "model-00002-of-00004.safetensors",
+     "bytes": 5292923208,
+     "pocket": true,
+     "layers": [
+      15,
+      17,
+      20,
+      22,
+      24,
+      27,
+      29
+     ]
+    },
+    {
+     "name": "model-00003-of-00004.safetensors",
+     "bytes": 5292923168,
+     "pocket": true,
+     "layers": [
+      31,
+      34,
+      36,
+      38,
+      40,
+      43,
+      45
+     ]
+    },
+    {
+     "name": "model-00004-of-00004.safetensors",
+     "bytes": 2074237664,
+     "pocket": true,
+     "layers": [
+      47,
+      49,
+      51
+     ]
+    },
+    {
+     "name": "mtp-4bit.safetensors",
+     "bytes": 751832520,
+     "pocket": true,
+     "layers": []
+    }
+   ],
+   "save": {
+    "state": "saved",
+    "at": 1791903187143,
+    "seconds": 13.7,
+    "bytes": 274046976,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors",
+     "mtp-4bit.safetensors"
+    ]
+   }
+  }
+ },
+ "polls": [
+  [
+   0.0,
+   []
+  ],
+  [
+   2.0,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   4.0,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   6.0,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   8.0,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   10.0,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   12.0,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   14.0,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   16.0,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   18.0,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   20.0,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   22.0,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   24.0,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   26.0,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   28.0,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   30.0,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   32.0,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   34.0,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   36.0,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   38.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   40.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   42.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   44.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   46.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   48.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   50.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   52.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   54.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   56.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   58.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   60.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   62.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   64.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   66.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   68.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   70.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   72.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   74.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   76.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   78.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   80.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   82.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   84.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   86.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   88.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   90.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   92.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   94.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   96.1,
+   [
+    [
+     1,
+     "learning",
+     "writing",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   98.1,
+   [
+    [
+     1,
+     "learning",
+     "reading",
+     25,
+     757
+    ]
+   ]
+  ],
+  [
+   100.1,
+   [
+    [
+     1,
+     "learning",
+     "reading",
+     211,
+     757
+    ]
+   ]
+  ],
+  [
+   102.1,
+   [
+    [
+     1,
+     "learning",
+     "reading",
+     302,
+     757
+    ]
+   ]
+  ],
+  [
+   104.1,
+   [
+    [
+     1,
+     "learning",
+     "reading",
+     505,
+     757
+    ]
+   ]
+  ],
+  [
+   106.1,
+   [
+    [
+     1,
+     "learning",
+     "reading",
+     671,
+     757
+    ]
+   ]
+  ],
+  [
+   108.1,
+   [
+    [
+     1,
+     "learning",
+     "fitting",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   110.1,
+   [
+    [
+     1,
+     "learning",
+     "fitting",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   112.1,
+   [
+    [
+     1,
+     "learning",
+     "fitting",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   114.1,
+   [
+    [
+     1,
+     "learning",
+     "fitting",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   116.1,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   118.1,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     3,
+     0
+    ]
+   ]
+  ],
+  [
+   120.1,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     5,
+     0
+    ]
+   ]
+  ],
+  [
+   122.1,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     9,
+     0
+    ]
+   ]
+  ],
+  [
+   124.1,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     11,
+     0
+    ]
+   ]
+  ],
+  [
+   126.1,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     16,
+     0
+    ]
+   ]
+  ],
+  [
+   128.2,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     20,
+     0
+    ]
+   ]
+  ],
+  [
+   130.2,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     25,
+     0
+    ]
+   ]
+  ],
+  [
+   132.2,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     27,
+     0
+    ]
+   ]
+  ],
+  [
+   134.2,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     32,
+     0
+    ]
+   ]
+  ],
+  [
+   136.2,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     36,
+     0
+    ]
+   ]
+  ],
+  [
+   138.2,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     43,
+     0
+    ]
+   ]
+  ],
+  [
+   140.2,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     46,
+     0
+    ]
+   ]
+  ],
+  [
+   142.2,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     51,
+     0
+    ]
+   ]
+  ],
+  [
+   144.2,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     55,
+     0
+    ]
+   ]
+  ],
+  [
+   146.2,
+   [
+    [
+     1,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   148.2,
+   [
+    [
+     1,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   150.2,
+   [
+    [
+     1,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   152.2,
+   [
+    [
+     1,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   154.2,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     5,
+     0
+    ]
+   ]
+  ],
+  [
+   156.2,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     9,
+     0
+    ]
+   ]
+  ],
+  [
+   158.2,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     14,
+     0
+    ]
+   ]
+  ],
+  [
+   160.2,
+   [
+    [
+     1,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   162.2,
+   [
+    [
+     1,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   164.2,
+   [
+    [
+     1,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   166.2,
+   [
+    [
+     1,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   168.2,
+   [
+    [
+     1,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   170.2,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     6,
+     0
+    ]
+   ]
+  ],
+  [
+   172.2,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     9,
+     0
+    ]
+   ]
+  ],
+  [
+   174.2,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     14,
+     0
+    ]
+   ]
+  ],
+  [
+   176.2,
+   [
+    [
+     1,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   178.2,
+   [
+    [
+     1,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   180.2,
+   [
+    [
+     1,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   182.2,
+   [
+    [
+     1,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   184.2,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     1,
+     0
+    ]
+   ]
+  ],
+  [
+   186.2,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     6,
+     0
+    ]
+   ]
+  ],
+  [
+   188.2,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     10,
+     0
+    ]
+   ]
+  ],
+  [
+   190.2,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     14,
+     0
+    ]
+   ]
+  ],
+  [
+   192.2,
+   [
+    [
+     1,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   194.2,
+   [
+    [
+     1,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   196.2,
+   [
+    [
+     1,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   198.2,
+   [
+    [
+     1,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   200.2,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     4,
+     0
+    ]
+   ]
+  ],
+  [
+   202.2,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     7,
+     0
+    ]
+   ]
+  ],
+  [
+   204.2,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     12,
+     0
+    ]
+   ]
+  ],
+  [
+   206.2,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     17,
+     0
+    ]
+   ]
+  ],
+  [
+   208.3,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     23,
+     0
+    ]
+   ]
+  ],
+  [
+   210.3,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     26,
+     0
+    ]
+   ]
+  ],
+  [
+   212.3,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     32,
+     0
+    ]
+   ]
+  ],
+  [
+   214.3,
+   [
+    [
+     1,
+     "learning",
+     "values",
+     36,
+     0
+    ]
+   ]
+  ],
+  [
+   216.3,
+   [
+    [
+     1,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   218.3,
+   [
+    [
+     1,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   220.3,
+   [
+    [
+     1,
+     "learning",
+     "checking",
+     0,
+     0
+    ]
+   ]
+  ],
+  [
+   222.3,
+   [
+    [
+     1,
+     "learned",
+     null,
+     null,
+     null
+    ]
+   ]
+  ],
+  [
+   224.3,
+   [
+    [
+     1,
+     "learned",
+     null,
+     null,
+     null
+    ]
+   ]
+  ],
+  [
+   226.3,
+   [
+    [
+     1,
+     "learned",
+     null,
+     null,
+     null
+    ]
+   ]
+  ],
+  [
+   228.3,
+   [
+    [
+     1,
+     "learned",
+     null,
+     null,
+     null
+    ]
+   ]
+  ],
+  [
+   230.3,
+   [
+    [
+     1,
+     "learned",
+     null,
+     null,
+     null
+    ]
+   ]
+  ],
+  [
+   232.3,
+   [
+    [
+     1,
+     "learned",
+     null,
+     null,
+     null
+    ]
+   ]
+  ],
+  [
+   234.3,
+   [
+    [
+     1,
+     "learned",
+     null,
+     null,
+     null
+    ]
+   ]
+  ]
+ ],
+ "chat": [
+  {
+   "worker": 0,
+   "n": 0,
+   "pid": "colour",
+   "thinking": false,
+   "draft": "server",
+   "content": "I don't know your favourite colour! I don't have access to your personal information or memories.\n\nHowever, if you tell me what it is, I'd love to hear it!",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 38,
+   "token_sha": "b0b56e73ad87",
+   "drafts": true,
+   "speculative": {
+    "rounds": 11,
+    "drafted": 37,
+    "accepted": 26,
+    "acceptance_rate": 0.7027027027027027,
+    "tokens_per_round": 3.4545454545454546
+   },
+   "t0": 0.0,
+   "t1": 0.31
+  },
+  {
+   "worker": 1,
+   "n": 1,
+   "pid": "colour",
+   "thinking": false,
+   "draft": "off",
+   "content": "I don't know your favourite colour! I don't have access to your personal information or memories.\n\nHowever, if you tell me what it is, I'd love to hear it!",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 38,
+   "token_sha": "b0b56e73ad87",
+   "drafts": false,
+   "speculative": {
+    "rounds": 37,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.027027027027027
+   },
+   "t0": 0.0,
+   "t1": 0.59
+  },
+  {
+   "worker": 0,
+   "n": 2,
+   "pid": "colour",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"What is my favourite colour?\"\n   - This is a personal question about the user's preference.\n\n2.  **Identify Key Constraints/Capabilities:**\n   - I am an AI, I don't know the user personally.\n   - I don't have access to their personal data, preferences, or history unless provided in the conversation.\n   - I need to respond appropriately",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "3fb0772a2a69",
+   "drafts": true,
+   "speculative": {
+    "rounds": 28,
+    "drafted": 94,
+    "accepted": 67,
+    "acceptance_rate": 0.7127659574468085,
+    "tokens_per_round": 3.4285714285714284
+   },
+   "t0": 3.31,
+   "t1": 6.12
+  },
+  {
+   "worker": 1,
+   "n": 3,
+   "pid": "colour",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"What is my favourite colour?\"\n   - This is a personal question about the user's preference.\n\n2.  **Identify Key Constraints/Capabilities:**\n   - I am an AI, I don't know the user personally.\n   - I don't have access to their personal data, preferences, or history unless provided in the conversation.\n   - I need to respond appropriately",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "3fb0772a2a69",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 3.59,
+   "t1": 9.03
+  },
+  {
+   "worker": 0,
+   "n": 4,
+   "pid": "sister",
+   "thinking": false,
+   "draft": "server",
+   "content": "My name is Nemotron, and I'm a language model developed by NVIDIA. I can help you with a wide range of tasks, from answering questions and creating content to coding and more. I'm designed to understand context, provide",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "9567b2bdd6f0",
+   "drafts": true,
+   "speculative": {
+    "rounds": 22,
+    "drafted": 26,
+    "accepted": 25,
+    "acceptance_rate": 0.9615384615384616,
+    "tokens_per_round": 2.1818181818181817
+   },
+   "t0": 9.12,
+   "t1": 11.63
+  },
+  {
+   "worker": 1,
+   "n": 5,
+   "pid": "sister",
+   "thinking": false,
+   "draft": "off",
+   "content": "My name is Nemotron, and I'm a language model developed by NVIDIA. I can help you with a wide range of tasks, from answering questions and creating content to coding and more. I'm designed to understand context, provide",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "9567b2bdd6f0",
+   "drafts": false,
+   "speculative": {
+    "rounds": 47,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0212765957446808
+   },
+   "t0": 12.03,
+   "t1": 15.09
+  },
+  {
+   "worker": 0,
+   "n": 6,
+   "pid": "sister",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"What is my sister called?\"\n   - This is a personal, context-dependent question. The user is asking about their own sister, but I don't have access to their personal information, family tree, or identity.\n\n2.  **Identify Key Constraints/Limitations:**\n   - I am an AI without personal data, memory of past interactions (unless in-session context",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "5c9a790ecc21",
+   "drafts": true,
+   "speculative": {
+    "rounds": 39,
+    "drafted": 69,
+    "accepted": 56,
+    "acceptance_rate": 0.8115942028985508,
+    "tokens_per_round": 2.4615384615384617
+   },
+   "t0": 14.63,
+   "t1": 17.61
+  },
+  {
+   "worker": 0,
+   "n": 8,
+   "pid": "eyes",
+   "thinking": false,
+   "draft": "server",
+   "content": "I don't have access to your physical appearance or personal information, so I can't determine your eye color. \n\nIf you'd like to know, you could:\n- Look in a mirror\n- Ask someone who knows you well\n",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "12e3f4f68ce0",
+   "drafts": true,
+   "speculative": {
+    "rounds": 25,
+    "drafted": 30,
+    "accepted": 22,
+    "acceptance_rate": 0.7333333333333333,
+    "tokens_per_round": 1.92
+   },
+   "t0": 20.61,
+   "t1": 22.13
+  },
+  {
+   "worker": 1,
+   "n": 7,
+   "pid": "sister",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"What is my sister called?\"\n   - This is a personal, context-dependent question. The user is asking about their own sister, but I don't have access to their personal information, family tree, or identity.\n\n2.  **Identify Key Constraints/Limitations:**\n   - I am an AI without personal data, memory of past interactions (unless in-session context",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "5c9a790ecc21",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 18.09,
+   "t1": 22.8
+  },
+  {
+   "worker": 0,
+   "n": 10,
+   "pid": "eyes",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user is asking \"What colour are my eyes?\" \n2.  **Identify Key Constraint/Issue:** I am an AI, I don't have access to the user's physical appearance, photos, or personal data unless provided. I cannot see them in real life or through the chat interface in a way that gives me their eye color.\n3.  **Determine Response Strategy:**",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "c5305cc19ec2",
+   "drafts": true,
+   "speculative": {
+    "rounds": 30,
+    "drafted": 105,
+    "accepted": 65,
+    "acceptance_rate": 0.6190476190476191,
+    "tokens_per_round": 3.2
+   },
+   "t0": 25.13,
+   "t1": 26.3
+  },
+  {
+   "worker": 1,
+   "n": 9,
+   "pid": "eyes",
+   "thinking": false,
+   "draft": "off",
+   "content": "I don't have access to your physical appearance or personal information, so I can't determine your eye color. \n\nIf you'd like to know, you could:\n- Look in a mirror\n- Ask someone who knows you well\n",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "12e3f4f68ce0",
+   "drafts": false,
+   "speculative": {
+    "rounds": 47,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0212765957446808
+   },
+   "t0": 25.8,
+   "t1": 27.2
+  },
+  {
+   "worker": 0,
+   "n": 12,
+   "pid": "haiku",
+   "thinking": false,
+   "draft": "server",
+   "content": "Drops on golden leaves,\nAutumn sighs in gentle rain,\nWinter draws near.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 19,
+   "token_sha": "599dd6930cda",
+   "drafts": true,
+   "speculative": {
+    "rounds": 8,
+    "drafted": 23,
+    "accepted": 11,
+    "acceptance_rate": 0.4782608695652174,
+    "tokens_per_round": 2.375
+   },
+   "t0": 29.3,
+   "t1": 29.6
+  },
+  {
+   "worker": 1,
+   "n": 11,
+   "pid": "eyes",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user is asking \"What colour are my eyes?\" \n2.  **Identify Key Constraint/Issue:** I am an AI, I don't have access to the user's physical appearance, photos, or personal data unless provided. I cannot see them in real life or through the chat interface in a way that gives me their eye color.\n3.  **Determine Response Strategy:**",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "c5305cc19ec2",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 30.21,
+   "t1": 32.82
+  },
+  {
+   "worker": 0,
+   "n": 14,
+   "pid": "haiku",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze the Request:**\n   - User wants a haiku about \"autumn rain\".\n   - A haiku has specific structure: 3 lines, 5-7-5 syllables (traditional English haiku), often focusing on nature, seasons, or a moment in time.\n   - Topic: autumn rain.\n\n2.  **Determine the Structure:**\n   - Line 1: 5 syllables\n   -",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "194ba85020e0",
+   "drafts": true,
+   "speculative": {
+    "rounds": 31,
+    "drafted": 103,
+    "accepted": 64,
+    "acceptance_rate": 0.6213592233009708,
+    "tokens_per_round": 3.096774193548387
+   },
+   "t0": 32.6,
+   "t1": 33.74
+  },
+  {
+   "worker": 1,
+   "n": 13,
+   "pid": "haiku",
+   "thinking": false,
+   "draft": "off",
+   "content": "Drops on golden leaves,\nAutumn sighs in gentle rain,\nWinter draws near.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 19,
+   "token_sha": "599dd6930cda",
+   "drafts": false,
+   "speculative": {
+    "rounds": 18,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0555555555555556
+   },
+   "t0": 35.82,
+   "t1": 36.35
+  },
+  {
+   "worker": 0,
+   "n": 16,
+   "pid": "math",
+   "thinking": false,
+   "draft": "server",
+   "content": "17 times 23 is 391.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 13,
+   "token_sha": "b10102b3921f",
+   "drafts": true,
+   "speculative": {
+    "rounds": 3,
+    "drafted": 12,
+    "accepted": 11,
+    "acceptance_rate": 0.9166666666666666,
+    "tokens_per_round": 4.333333333333333
+   },
+   "t0": 36.74,
+   "t1": 36.91
+  },
+  {
+   "worker": 0,
+   "n": 18,
+   "pid": "math",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user asks \"What is 17 times 23?\"\n2.  **Identify Core Task:** Calculate the product of 17 and 23.\n3.  **Perform Calculation:** \n   - 17 \u00d7 23\n   - I can break it down: 17 \u00d7 20 = 340, 17 \u00d7",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "942eacaa25c4",
+   "drafts": true,
+   "speculative": {
+    "rounds": 20,
+    "drafted": 95,
+    "accepted": 75,
+    "acceptance_rate": 0.7894736842105263,
+    "tokens_per_round": 4.8
+   },
+   "t0": 39.91,
+   "t1": 40.74
+  },
+  {
+   "worker": 1,
+   "n": 15,
+   "pid": "haiku",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze the Request:**\n   - User wants a haiku about \"autumn rain\".\n   - A haiku has specific structure: 3 lines, 5-7-5 syllables (traditional English haiku), often focusing on nature, seasons, or a moment in time.\n   - Topic: autumn rain.\n\n2.  **Determine the Structure:**\n   - Line 1: 5 syllables\n   -",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "194ba85020e0",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 39.35,
+   "t1": 42.12
+  },
+  {
+   "worker": 0,
+   "n": 20,
+   "pid": "rivers",
+   "thinking": false,
+   "draft": "server",
+   "content": "Here are three major rivers in Europe:\n\n*   **The Danube** \u2013 The second-longest river in Europe, flowing through or along the border of 10 countries, including Germany, Austria, Hungary, and Romania.\n*   **",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "4c2068267a37",
+   "drafts": true,
+   "speculative": {
+    "rounds": 15,
+    "drafted": 51,
+    "accepted": 32,
+    "acceptance_rate": 0.6274509803921569,
+    "tokens_per_round": 3.2
+   },
+   "t0": 43.74,
+   "t1": 44.27
+  },
+  {
+   "worker": 1,
+   "n": 17,
+   "pid": "math",
+   "thinking": false,
+   "draft": "off",
+   "content": "17 times 23 is 391.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 13,
+   "token_sha": "b10102b3921f",
+   "drafts": false,
+   "speculative": {
+    "rounds": 12,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0833333333333333
+   },
+   "t0": 45.12,
+   "t1": 45.49
+  },
+  {
+   "worker": 0,
+   "n": 22,
+   "pid": "rivers",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"Name three rivers in Europe.\"\n   - This is a straightforward factual request.\n\n2.  **Identify Key Elements:**\n   - Continent: Europe\n   - Item: Rivers\n   - Quantity: Three\n   - Language: English\n\n3.  **Determine Response Strategy:**\n   - Provide three well-known rivers in Europe.\n   - Ensure accuracy.\n   -",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "aa4690775e1c",
+   "drafts": true,
+   "speculative": {
+    "rounds": 27,
+    "drafted": 105,
+    "accepted": 68,
+    "acceptance_rate": 0.6476190476190476,
+    "tokens_per_round": 3.5555555555555554
+   },
+   "t0": 47.27,
+   "t1": 48.28
+  },
+  {
+   "worker": 1,
+   "n": 19,
+   "pid": "math",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user asks \"What is 17 times 23?\"\n2.  **Identify Core Task:** Calculate the product of 17 and 23.\n3.  **Perform Calculation:** \n   - 17 \u00d7 23\n   - I can break it down: 17 \u00d7 20 = 340, 17 \u00d7",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "942eacaa25c4",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 48.49,
+   "t1": 51.05
+  },
+  {
+   "worker": 0,
+   "n": 24,
+   "pid": "colour",
+   "thinking": false,
+   "draft": "server",
+   "content": "I don't know your favourite colour! I don't have access to your personal information or memories.\n\nHowever, if you tell me what it is, I'd love to hear it!",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 38,
+   "token_sha": "b0b56e73ad87",
+   "drafts": true,
+   "speculative": {
+    "rounds": 9,
+    "drafted": 35,
+    "accepted": 28,
+    "acceptance_rate": 0.8,
+    "tokens_per_round": 4.222222222222222
+   },
+   "t0": 51.28,
+   "t1": 51.61
+  },
+  {
+   "worker": 0,
+   "n": 26,
+   "pid": "colour",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"What is my favourite colour?\"\n   - This is a personal question about the user's preference.\n\n2.  **Identify Key Constraints/Capabilities:**\n   - I am an AI, I don't know the user personally.\n   - I don't have access to their personal data, preferences, or history unless provided in the conversation.\n   - I need to respond appropriately",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "3fb0772a2a69",
+   "drafts": true,
+   "speculative": {
+    "rounds": 26,
+    "drafted": 99,
+    "accepted": 69,
+    "acceptance_rate": 0.696969696969697,
+    "tokens_per_round": 3.6923076923076925
+   },
+   "t0": 54.62,
+   "t1": 55.63
+  },
+  {
+   "worker": 1,
+   "n": 21,
+   "pid": "rivers",
+   "thinking": false,
+   "draft": "off",
+   "content": "Here are three major rivers in Europe:\n\n*   **The Danube** \u2013 The second-longest river in Europe, flowing through or along the border of 10 countries, including Germany, Austria, Hungary, and Romania.\n*   **",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "4c2068267a37",
+   "drafts": false,
+   "speculative": {
+    "rounds": 47,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0212765957446808
+   },
+   "t0": 54.05,
+   "t1": 55.63
+  },
+  {
+   "worker": 0,
+   "n": 28,
+   "pid": "sister",
+   "thinking": false,
+   "draft": "server",
+   "content": "My name is Nemotron, and I'm a language model developed by NVIDIA. I can help you with a wide range of tasks, from answering questions and creating content to coding and more. I'm designed to understand context, provide",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "9567b2bdd6f0",
+   "drafts": true,
+   "speculative": {
+    "rounds": 12,
+    "drafted": 41,
+    "accepted": 35,
+    "acceptance_rate": 0.8536585365853658,
+    "tokens_per_round": 4.0
+   },
+   "t0": 58.63,
+   "t1": 59.11
+  },
+  {
+   "worker": 1,
+   "n": 23,
+   "pid": "rivers",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"Name three rivers in Europe.\"\n   - This is a straightforward factual request.\n\n2.  **Identify Key Elements:**\n   - Continent: Europe\n   - Item: Rivers\n   - Quantity: Three\n   - Language: English\n\n3.  **Determine Response Strategy:**\n   - Provide three well-known rivers in Europe.\n   - Ensure accuracy.\n   -",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "aa4690775e1c",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 58.63,
+   "t1": 61.24
+  },
+  {
+   "worker": 0,
+   "n": 30,
+   "pid": "sister",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"What is my sister called?\"\n   - This is a personal, context-dependent question. The user is asking about their own sister, but I don't have access to their personal information, family tree, or identity.\n\n2.  **Identify Key Constraints/Limitations:**\n   - I am an AI without personal data, memory of past interactions (unless in-session context",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "5c9a790ecc21",
+   "drafts": true,
+   "speculative": {
+    "rounds": 30,
+    "drafted": 113,
+    "accepted": 65,
+    "acceptance_rate": 0.5752212389380531,
+    "tokens_per_round": 3.2
+   },
+   "t0": 62.11,
+   "t1": 63.21
+  },
+  {
+   "worker": 1,
+   "n": 25,
+   "pid": "colour",
+   "thinking": false,
+   "draft": "off",
+   "content": "I don't know your favourite colour! I don't have access to your personal information or memories.\n\nHowever, if you tell me what it is, I'd love to hear it!",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 38,
+   "token_sha": "b0b56e73ad87",
+   "drafts": false,
+   "speculative": {
+    "rounds": 37,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.027027027027027
+   },
+   "t0": 64.24,
+   "t1": 65.24
+  },
+  {
+   "worker": 0,
+   "n": 32,
+   "pid": "eyes",
+   "thinking": false,
+   "draft": "server",
+   "content": "I don't have access to your physical appearance or personal information, so I can't determine your eye color. \n\nIf you'd like to know, you could:\n- Look in a mirror\n- Ask someone who knows you well\n",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "12e3f4f68ce0",
+   "drafts": true,
+   "speculative": {
+    "rounds": 17,
+    "drafted": 51,
+    "accepted": 30,
+    "acceptance_rate": 0.5882352941176471,
+    "tokens_per_round": 2.823529411764706
+   },
+   "t0": 66.21,
+   "t1": 66.83
+  },
+  {
+   "worker": 0,
+   "n": 34,
+   "pid": "eyes",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user is asking \"What colour are my eyes?\" \n2.  **Identify Key Constraint/Issue:** I am an AI, I don't have access to the user's physical appearance, photos, or personal data unless provided. I cannot see them in real life or through the chat interface in a way that gives me their eye color.\n3.  **Determine Response Strategy:**",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "c5305cc19ec2",
+   "drafts": true,
+   "speculative": {
+    "rounds": 29,
+    "drafted": 103,
+    "accepted": 66,
+    "acceptance_rate": 0.6407766990291263,
+    "tokens_per_round": 3.310344827586207
+   },
+   "t0": 69.83,
+   "t1": 70.95
+  },
+  {
+   "worker": 1,
+   "n": 27,
+   "pid": "colour",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"What is my favourite colour?\"\n   - This is a personal question about the user's preference.\n\n2.  **Identify Key Constraints/Capabilities:**\n   - I am an AI, I don't know the user personally.\n   - I don't have access to their personal data, preferences, or history unless provided in the conversation.\n   - I need to respond appropriately",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "3fb0772a2a69",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 68.24,
+   "t1": 70.99
+  },
+  {
+   "worker": 0,
+   "n": 36,
+   "pid": "haiku",
+   "thinking": false,
+   "draft": "server",
+   "content": "Drops on golden leaves,\nAutumn sighs in gentle rain,\nWinter draws near.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 19,
+   "token_sha": "599dd6930cda",
+   "drafts": true,
+   "speculative": {
+    "rounds": 8,
+    "drafted": 21,
+    "accepted": 10,
+    "acceptance_rate": 0.47619047619047616,
+    "tokens_per_round": 2.375
+   },
+   "t0": 73.95,
+   "t1": 74.27
+  },
+  {
+   "worker": 1,
+   "n": 29,
+   "pid": "sister",
+   "thinking": false,
+   "draft": "off",
+   "content": "My name is Nemotron, and I'm a language model developed by NVIDIA. I can help you with a wide range of tasks, from answering questions and creating content to coding and more. I'm designed to understand context, provide",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "9567b2bdd6f0",
+   "drafts": false,
+   "speculative": {
+    "rounds": 47,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0212765957446808
+   },
+   "t0": 73.99,
+   "t1": 75.3
+  },
+  {
+   "worker": 0,
+   "n": 38,
+   "pid": "haiku",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze the Request:**\n   - User wants a haiku about \"autumn rain\".\n   - A haiku has specific structure: 3 lines, 5-7-5 syllables (traditional English haiku), often focusing on nature, seasons, or a moment in time.\n   - Topic: autumn rain.\n\n2.  **Determine the Structure:**\n   - Line 1: 5 syllables\n   -",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "194ba85020e0",
+   "drafts": true,
+   "speculative": {
+    "rounds": 29,
+    "drafted": 108,
+    "accepted": 66,
+    "acceptance_rate": 0.6111111111111112,
+    "tokens_per_round": 3.310344827586207
+   },
+   "t0": 77.27,
+   "t1": 78.33
+  },
+  {
+   "worker": 1,
+   "n": 31,
+   "pid": "sister",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"What is my sister called?\"\n   - This is a personal, context-dependent question. The user is asking about their own sister, but I don't have access to their personal information, family tree, or identity.\n\n2.  **Identify Key Constraints/Limitations:**\n   - I am an AI without personal data, memory of past interactions (unless in-session context",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "5c9a790ecc21",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 78.31,
+   "t1": 80.78
+  },
+  {
+   "worker": 0,
+   "n": 40,
+   "pid": "math",
+   "thinking": false,
+   "draft": "server",
+   "content": "17 times 23 is 391.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 13,
+   "token_sha": "b10102b3921f",
+   "drafts": true,
+   "speculative": {
+    "rounds": 3,
+    "drafted": 11,
+    "accepted": 11,
+    "acceptance_rate": 1.0,
+    "tokens_per_round": 4.333333333333333
+   },
+   "t0": 81.33,
+   "t1": 81.48
+  },
+  {
+   "worker": 0,
+   "n": 42,
+   "pid": "math",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user asks \"What is 17 times 23?\"\n2.  **Identify Core Task:** Calculate the product of 17 and 23.\n3.  **Perform Calculation:** \n   - 17 \u00d7 23\n   - I can break it down: 17 \u00d7 20 = 340, 17 \u00d7",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "942eacaa25c4",
+   "drafts": true,
+   "speculative": {
+    "rounds": 25,
+    "drafted": 88,
+    "accepted": 70,
+    "acceptance_rate": 0.7954545454545454,
+    "tokens_per_round": 3.84
+   },
+   "t0": 84.48,
+   "t1": 86.1
+  },
+  {
+   "worker": 1,
+   "n": 33,
+   "pid": "eyes",
+   "thinking": false,
+   "draft": "off",
+   "content": "I don't have access to your physical appearance or personal information, so I can't determine your eye color. \n\nIf you'd like to know, you could:\n- Look in a mirror\n- Ask someone who knows you well\n",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "12e3f4f68ce0",
+   "drafts": false,
+   "speculative": {
+    "rounds": 47,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0212765957446808
+   },
+   "t0": 83.78,
+   "t1": 86.19
+  },
+  {
+   "worker": 0,
+   "n": 44,
+   "pid": "rivers",
+   "thinking": false,
+   "draft": "server",
+   "content": "Here are three major rivers in Europe:\n\n*   **The Danube** \u2013 The second-longest river in Europe, flowing through or along the border of 10 countries, including Germany, Austria, Hungary, and Romania.\n*   **",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "4c2068267a37",
+   "drafts": true,
+   "speculative": {
+    "rounds": 28,
+    "drafted": 25,
+    "accepted": 20,
+    "acceptance_rate": 0.8,
+    "tokens_per_round": 1.7142857142857142
+   },
+   "t0": 89.1,
+   "t1": 90.62
+  },
+  {
+   "worker": 1,
+   "n": 35,
+   "pid": "eyes",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user is asking \"What colour are my eyes?\" \n2.  **Identify Key Constraint/Issue:** I am an AI, I don't have access to the user's physical appearance, photos, or personal data unless provided. I cannot see them in real life or through the chat interface in a way that gives me their eye color.\n3.  **Determine Response Strategy:**",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "c5305cc19ec2",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 89.19,
+   "t1": 92.68
+  },
+  {
+   "worker": 1,
+   "n": 37,
+   "pid": "haiku",
+   "thinking": false,
+   "draft": "off",
+   "content": "Drops on golden leaves,\nAutumn sighs in gentle rain,\nWinter draws near.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 19,
+   "token_sha": "599dd6930cda",
+   "drafts": false,
+   "speculative": {
+    "rounds": 18,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0555555555555556
+   },
+   "t0": 95.68,
+   "t1": 97.85
+  },
+  {
+   "worker": 0,
+   "n": 46,
+   "pid": "rivers",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"Name three rivers in Europe.\"\n   - This is a straightforward factual request.\n\n2.  **Identify Key Elements:**\n   - Continent: Europe\n   - Item: Rivers\n   - Quantity: Three\n   - Language: English\n\n3.  **Determine Response Strategy:**\n   - Provide three well-known rivers in Europe.\n   - Ensure accuracy.\n   -",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "aa4690775e1c",
+   "drafts": true,
+   "speculative": {
+    "rounds": 26,
+    "drafted": 112,
+    "accepted": 69,
+    "acceptance_rate": 0.6160714285714286,
+    "tokens_per_round": 3.6923076923076925
+   },
+   "t0": 93.62,
+   "t1": 98.0
+  },
+  {
+   "worker": 0,
+   "n": 48,
+   "pid": "colour",
+   "thinking": false,
+   "draft": "server",
+   "content": "I don't know your favourite colour! I don't have access to your personal information or memories.\n\nHowever, if you tell me what it is, I'd love to hear it!",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 38,
+   "token_sha": "b0b56e73ad87",
+   "drafts": true,
+   "speculative": {
+    "rounds": 9,
+    "drafted": 35,
+    "accepted": 28,
+    "acceptance_rate": 0.8,
+    "tokens_per_round": 4.222222222222222
+   },
+   "t0": 101.0,
+   "t1": 101.3
+  },
+  {
+   "worker": 1,
+   "n": 39,
+   "pid": "haiku",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze the Request:**\n   - User wants a haiku about \"autumn rain\".\n   - A haiku has specific structure: 3 lines, 5-7-5 syllables (traditional English haiku), often focusing on nature, seasons, or a moment in time.\n   - Topic: autumn rain.\n\n2.  **Determine the Structure:**\n   - Line 1: 5 syllables\n   -",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "194ba85020e0",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 100.85,
+   "t1": 102.16
+  },
+  {
+   "worker": 0,
+   "n": 50,
+   "pid": "colour",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"What is my favourite colour?\"\n   - This is a personal question about the user's preference.\n\n2.  **Identify Key Constraints/Capabilities:**\n   - I am an AI, I don't know the user personally.\n   - I don't have access to their personal data, preferences, or history unless provided in the conversation.\n   - I need to respond appropriately",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "3fb0772a2a69",
+   "drafts": true,
+   "speculative": {
+    "rounds": 20,
+    "drafted": 105,
+    "accepted": 76,
+    "acceptance_rate": 0.7238095238095238,
+    "tokens_per_round": 4.8
+   },
+   "t0": 104.3,
+   "t1": 104.93
+  },
+  {
+   "worker": 1,
+   "n": 41,
+   "pid": "math",
+   "thinking": false,
+   "draft": "off",
+   "content": "17 times 23 is 391.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 13,
+   "token_sha": "b10102b3921f",
+   "drafts": false,
+   "speculative": {
+    "rounds": 12,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0833333333333333
+   },
+   "t0": 105.16,
+   "t1": 105.48
+  },
+  {
+   "worker": 0,
+   "n": 52,
+   "pid": "sister",
+   "thinking": false,
+   "draft": "server",
+   "content": "My name is Nemotron, and I'm a language model developed by NVIDIA. I can help you with a wide range of tasks, from answering questions and creating content to coding and more. I'm designed to understand context, provide",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "9567b2bdd6f0",
+   "drafts": true,
+   "speculative": {
+    "rounds": 12,
+    "drafted": 42,
+    "accepted": 35,
+    "acceptance_rate": 0.8333333333333334,
+    "tokens_per_round": 4.0
+   },
+   "t0": 107.93,
+   "t1": 115.47
+  },
+  {
+   "worker": 1,
+   "n": 43,
+   "pid": "math",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user asks \"What is 17 times 23?\"\n2.  **Identify Core Task:** Calculate the product of 17 and 23.\n3.  **Perform Calculation:** \n   - 17 \u00d7 23\n   - I can break it down: 17 \u00d7 20 = 340, 17 \u00d7",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "942eacaa25c4",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 108.48,
+   "t1": 116.3
+  },
+  {
+   "worker": 0,
+   "n": 54,
+   "pid": "sister",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"What is my sister called?\"\n   - This is a personal, context-dependent question. The user is asking about their own sister, but I don't have access to their personal information, family tree, or identity.\n\n2.  **Identify Key Constraints/Limitations:**\n   - I am an AI without personal data, memory of past interactions (unless in-session context",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "5c9a790ecc21",
+   "drafts": true,
+   "speculative": {
+    "rounds": 29,
+    "drafted": 93,
+    "accepted": 66,
+    "acceptance_rate": 0.7096774193548387,
+    "tokens_per_round": 3.310344827586207
+   },
+   "t0": 118.47,
+   "t1": 119.57
+  },
+  {
+   "worker": 1,
+   "n": 45,
+   "pid": "rivers",
+   "thinking": false,
+   "draft": "off",
+   "content": "Here are three major rivers in Europe:\n\n*   **The Danube** \u2013 The second-longest river in Europe, flowing through or along the border of 10 countries, including Germany, Austria, Hungary, and Romania.\n*   **",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "4c2068267a37",
+   "drafts": false,
+   "speculative": {
+    "rounds": 47,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0212765957446808
+   },
+   "t0": 119.3,
+   "t1": 119.94
+  },
+  {
+   "worker": 0,
+   "n": 56,
+   "pid": "eyes",
+   "thinking": false,
+   "draft": "server",
+   "content": "I don't have access to your physical appearance or personal information, so I can't determine your eye color. \n\nIf you'd like to know, you could:\n- Look in a mirror\n- Ask someone who knows you well\n",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "12e3f4f68ce0",
+   "drafts": true,
+   "speculative": {
+    "rounds": 19,
+    "drafted": 39,
+    "accepted": 28,
+    "acceptance_rate": 0.717948717948718,
+    "tokens_per_round": 2.526315789473684
+   },
+   "t0": 122.57,
+   "t1": 123.08
+  },
+  {
+   "worker": 1,
+   "n": 47,
+   "pid": "rivers",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"Name three rivers in Europe.\"\n   - This is a straightforward factual request.\n\n2.  **Identify Key Elements:**\n   - Continent: Europe\n   - Item: Rivers\n   - Quantity: Three\n   - Language: English\n\n3.  **Determine Response Strategy:**\n   - Provide three well-known rivers in Europe.\n   - Ensure accuracy.\n   -",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "aa4690775e1c",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 122.94,
+   "t1": 124.01
+  },
+  {
+   "worker": 0,
+   "n": 58,
+   "pid": "eyes",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user is asking \"What colour are my eyes?\" \n2.  **Identify Key Constraint/Issue:** I am an AI, I don't have access to the user's physical appearance, photos, or personal data unless provided. I cannot see them in real life or through the chat interface in a way that gives me their eye color.\n3.  **Determine Response Strategy:**",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "c5305cc19ec2",
+   "drafts": true,
+   "speculative": {
+    "rounds": 29,
+    "drafted": 106,
+    "accepted": 67,
+    "acceptance_rate": 0.6320754716981132,
+    "tokens_per_round": 3.310344827586207
+   },
+   "t0": 126.08,
+   "t1": 126.9
+  },
+  {
+   "worker": 1,
+   "n": 49,
+   "pid": "colour",
+   "thinking": false,
+   "draft": "off",
+   "content": "Your favourite colour is green.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "d8514eb0eed0",
+   "drafts": false,
+   "speculative": {
+    "rounds": 6,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.1666666666666667
+   },
+   "t0": 127.01,
+   "t1": 127.33
+  },
+  {
+   "worker": 0,
+   "n": 60,
+   "pid": "haiku",
+   "thinking": false,
+   "draft": "server",
+   "content": "Drops on golden leaves,\nAutumn sighs in gentle rain,\nWinter draws near.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 19,
+   "token_sha": "599dd6930cda",
+   "drafts": true,
+   "speculative": {
+    "rounds": 9,
+    "drafted": 15,
+    "accepted": 12,
+    "acceptance_rate": 0.8,
+    "tokens_per_round": 2.111111111111111
+   },
+   "t0": 129.9,
+   "t1": 130.33
+  },
+  {
+   "worker": 1,
+   "n": 51,
+   "pid": "colour",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user is asking \"What is my favourite colour?\"\n2.  **Identify Key Constraint/Context:** I am an AI, and I don't have personal experiences, memories, or a physical body. I don't have a \"favorite color\" in the human sense.\n3.  **Determine Response Strategy:** I need to politely explain that I don't have personal preferences, but",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "83dac09e3319",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 130.33,
+   "t1": 131.32
+  },
+  {
+   "worker": 0,
+   "n": 62,
+   "pid": "haiku",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze the Request:**\n   - User wants a haiku about \"autumn rain\".\n   - A haiku has specific structure: 3 lines, 5-7-5 syllables (traditional English haiku), often focusing on nature, seasons, or a moment in time.\n   - Topic: autumn rain.\n\n2.  **Determine the Structure:**\n   - Line 1: 5 syllables\n   -",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "194ba85020e0",
+   "drafts": true,
+   "speculative": {
+    "rounds": 26,
+    "drafted": 115,
+    "accepted": 72,
+    "acceptance_rate": 0.6260869565217392,
+    "tokens_per_round": 3.6923076923076925
+   },
+   "t0": 133.33,
+   "t1": 133.97
+  },
+  {
+   "worker": 1,
+   "n": 53,
+   "pid": "sister",
+   "thinking": false,
+   "draft": "off",
+   "content": "My name is Nemotron, and I'm a language model developed by NVIDIA. I can help you with a wide range of tasks, from answering questions and creating content to coding and more. I'm designed to understand context, provide",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "9567b2bdd6f0",
+   "drafts": false,
+   "speculative": {
+    "rounds": 47,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0212765957446808
+   },
+   "t0": 134.32,
+   "t1": 134.94
+  },
+  {
+   "worker": 0,
+   "n": 64,
+   "pid": "math",
+   "thinking": false,
+   "draft": "server",
+   "content": "17 times 23 is 391.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 13,
+   "token_sha": "b10102b3921f",
+   "drafts": true,
+   "speculative": {
+    "rounds": 3,
+    "drafted": 11,
+    "accepted": 11,
+    "acceptance_rate": 1.0,
+    "tokens_per_round": 4.333333333333333
+   },
+   "t0": 136.97,
+   "t1": 137.17
+  },
+  {
+   "worker": 1,
+   "n": 55,
+   "pid": "sister",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"What is my sister called?\"\n   - This is a personal, context-dependent question. The user is asking about their own sister, but I don't have access to their personal information, family tree, or identity.\n\n2.  **Identify Key Constraints/Limitations:**\n   - I am an AI without personal data, memory of past interactions (unless in-session context",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "5c9a790ecc21",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 137.94,
+   "t1": 139.12
+  },
+  {
+   "worker": 0,
+   "n": 66,
+   "pid": "math",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user asks \"What is 17 times 23?\"\n2.  **Identify Core Task:** Calculate the product of 17 and 23.\n3.  **Perform Calculation:** \n   - 17 \u00d7 23\n   - I can break it down: 17 \u00d7 20 = 340, 17 \u00d7",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "942eacaa25c4",
+   "drafts": true,
+   "speculative": {
+    "rounds": 16,
+    "drafted": 91,
+    "accepted": 84,
+    "acceptance_rate": 0.9230769230769231,
+    "tokens_per_round": 6.0
+   },
+   "t0": 140.17,
+   "t1": 140.81
+  },
+  {
+   "worker": 1,
+   "n": 57,
+   "pid": "eyes",
+   "thinking": false,
+   "draft": "off",
+   "content": "I don't have access to your physical appearance or personal information, so I can't determine your eye color. \n\nIf you'd like to know, you could:\n- Look in a mirror\n- Ask someone who knows you well\n",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "12e3f4f68ce0",
+   "drafts": false,
+   "speculative": {
+    "rounds": 47,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0212765957446808
+   },
+   "t0": 142.12,
+   "t1": 142.82
+  },
+  {
+   "worker": 0,
+   "n": 68,
+   "pid": "rivers",
+   "thinking": false,
+   "draft": "server",
+   "content": "Here are three major rivers in Europe:\n\n*   **The Danube** \u2013 The second-longest river in Europe, flowing through or along the border of 10 countries, including Germany, Austria, Hungary, and Romania.\n*   **",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "4c2068267a37",
+   "drafts": true,
+   "speculative": {
+    "rounds": 15,
+    "drafted": 43,
+    "accepted": 33,
+    "acceptance_rate": 0.7674418604651163,
+    "tokens_per_round": 3.2
+   },
+   "t0": 143.81,
+   "t1": 144.25
+  },
+  {
+   "worker": 0,
+   "n": 70,
+   "pid": "rivers",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"Name three rivers in Europe.\"\n   - This is a straightforward factual request.\n\n2.  **Identify Key Elements:**\n   - Continent: Europe\n   - Item: Rivers\n   - Quantity: Three\n   - Language: English\n\n3.  **Determine Response Strategy:**\n   - Provide three well-known rivers in Europe.\n   - Ensure accuracy.\n   -",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "aa4690775e1c",
+   "drafts": true,
+   "speculative": {
+    "rounds": 45,
+    "drafted": 62,
+    "accepted": 51,
+    "acceptance_rate": 0.8225806451612904,
+    "tokens_per_round": 2.1333333333333333
+   },
+   "t0": 147.25,
+   "t1": 150.44
+  },
+  {
+   "worker": 1,
+   "n": 59,
+   "pid": "eyes",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user is asking \"What colour are my eyes?\" \n2.  **Identify Key Constraint/Issue:** I am an AI, I don't have access to the user's physical appearance, photos, or personal data unless provided. I cannot see them in real life or through the chat interface in a way that gives me their eye color.\n3.  **Determine Response Strategy:**",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "c5305cc19ec2",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 145.82,
+   "t1": 151.96
+  },
+  {
+   "worker": 0,
+   "n": 72,
+   "pid": "colour",
+   "thinking": false,
+   "draft": "server",
+   "content": "Your favourite colour is green.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "d8514eb0eed0",
+   "drafts": true,
+   "speculative": {
+    "rounds": 2,
+    "drafted": 8,
+    "accepted": 7,
+    "acceptance_rate": 0.875,
+    "tokens_per_round": 3.5
+   },
+   "t0": 153.44,
+   "t1": 153.76
+  },
+  {
+   "worker": 1,
+   "n": 61,
+   "pid": "haiku",
+   "thinking": false,
+   "draft": "off",
+   "content": "Drops on golden leaves,\nAutumn sighs in gentle rain,\nWinter draws near.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 19,
+   "token_sha": "599dd6930cda",
+   "drafts": false,
+   "speculative": {
+    "rounds": 18,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0555555555555556
+   },
+   "t0": 154.96,
+   "t1": 155.48
+  },
+  {
+   "worker": 0,
+   "n": 74,
+   "pid": "colour",
+   "thinking": true,
+   "draft": "server",
+   "content": "Your favourite colour is green.",
+   "reasoning": "The user has already told me that their favourite colour is green.",
+   "finish": "stop",
+   "completion_tokens": 21,
+   "token_sha": "e7e26dfeb9d7",
+   "drafts": true,
+   "speculative": {
+    "rounds": 7,
+    "drafted": 18,
+    "accepted": 13,
+    "acceptance_rate": 0.7222222222222222,
+    "tokens_per_round": 3.0
+   },
+   "t0": 156.76,
+   "t1": 156.98
+  },
+  {
+   "worker": 1,
+   "n": 63,
+   "pid": "haiku",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze the Request:**\n   - User wants a haiku about \"autumn rain\".\n   - A haiku has specific structure: 3 lines, 5-7-5 syllables (traditional English haiku), often focusing on nature, seasons, or a moment in time.\n   - Topic: autumn rain.\n\n2.  **Determine the Structure:**\n   - Line 1: 5 syllables\n   -",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "194ba85020e0",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 158.48,
+   "t1": 159.59
+  },
+  {
+   "worker": 0,
+   "n": 76,
+   "pid": "sister",
+   "thinking": false,
+   "draft": "server",
+   "content": "My name is Nemotron, and I'm a language model developed by NVIDIA. I can help you with a wide range of tasks, from answering questions and creating content to coding and more. I'm designed to understand context, provide",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "9567b2bdd6f0",
+   "drafts": true,
+   "speculative": {
+    "rounds": 20,
+    "drafted": 30,
+    "accepted": 27,
+    "acceptance_rate": 0.9,
+    "tokens_per_round": 2.4
+   },
+   "t0": 159.98,
+   "t1": 161.8
+  },
+  {
+   "worker": 1,
+   "n": 65,
+   "pid": "math",
+   "thinking": false,
+   "draft": "off",
+   "content": "17 times 23 is 391.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 13,
+   "token_sha": "b10102b3921f",
+   "drafts": false,
+   "speculative": {
+    "rounds": 12,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0833333333333333
+   },
+   "t0": 162.59,
+   "t1": 163.48
+  },
+  {
+   "worker": 0,
+   "n": 78,
+   "pid": "sister",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"What is my sister called?\"\n   - This is a personal, context-dependent question. The user is asking about their own sister, but I don't have access to their personal information, family tree, or identity.\n\n2.  **Identify Key Constraints/Limitations:**\n   - I am an AI without personal data, memory of past interactions (unless in-session context",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "5c9a790ecc21",
+   "drafts": true,
+   "speculative": {
+    "rounds": 37,
+    "drafted": 82,
+    "accepted": 58,
+    "acceptance_rate": 0.7073170731707317,
+    "tokens_per_round": 2.5945945945945947
+   },
+   "t0": 164.8,
+   "t1": 167.03
+  },
+  {
+   "worker": 1,
+   "n": 67,
+   "pid": "math",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user asks \"What is 17 times 23?\"\n2.  **Identify Core Task:** Calculate the product of 17 and 23.\n3.  **Perform Calculation:** \n   - 17 \u00d7 23\n   - I can break it down: 17 \u00d7 20 = 340, 17 \u00d7",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "942eacaa25c4",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 166.48,
+   "t1": 168.01
+  },
+  {
+   "worker": 0,
+   "n": 80,
+   "pid": "eyes",
+   "thinking": false,
+   "draft": "server",
+   "content": "I don't have access to your physical appearance or personal information, so I can't determine your eye color. \n\nIf you'd like to know, you could:\n- Look in a mirror\n- Ask someone who knows you well\n",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "12e3f4f68ce0",
+   "drafts": true,
+   "speculative": {
+    "rounds": 18,
+    "drafted": 44,
+    "accepted": 32,
+    "acceptance_rate": 0.7272727272727273,
+    "tokens_per_round": 2.6666666666666665
+   },
+   "t0": 170.03,
+   "t1": 170.49
+  },
+  {
+   "worker": 1,
+   "n": 69,
+   "pid": "rivers",
+   "thinking": false,
+   "draft": "off",
+   "content": "Here are three major rivers in Europe:\n\n*   **The Danube** \u2013 The second-longest river in Europe, flowing through or along the border of 10 countries, including Germany, Austria, Hungary, and Romania.\n*   **",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "4c2068267a37",
+   "drafts": false,
+   "speculative": {
+    "rounds": 47,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0212765957446808
+   },
+   "t0": 171.01,
+   "t1": 171.63
+  },
+  {
+   "worker": 0,
+   "n": 82,
+   "pid": "eyes",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user is asking \"What colour are my eyes?\" \n2.  **Identify Key Constraint/Issue:** I am an AI, I don't have access to the user's physical appearance, photos, or personal data unless provided. I cannot see them in real life or through the chat interface in a way that gives me their eye color.\n3.  **Determine Response Strategy:**",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "c5305cc19ec2",
+   "drafts": true,
+   "speculative": {
+    "rounds": 29,
+    "drafted": 106,
+    "accepted": 67,
+    "acceptance_rate": 0.6320754716981132,
+    "tokens_per_round": 3.310344827586207
+   },
+   "t0": 173.5,
+   "t1": 174.24
+  },
+  {
+   "worker": 1,
+   "n": 71,
+   "pid": "rivers",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"Name three rivers in Europe.\"\n   - This is a straightforward factual request.\n\n2.  **Identify Key Elements:**\n   - Continent: Europe\n   - Item: Rivers\n   - Quantity: Three\n   - Language: English\n\n3.  **Determine Response Strategy:**\n   - Provide three well-known rivers in Europe.\n   - Ensure accuracy.\n   -",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "aa4690775e1c",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 174.63,
+   "t1": 175.91
+  },
+  {
+   "worker": 0,
+   "n": 84,
+   "pid": "haiku",
+   "thinking": false,
+   "draft": "server",
+   "content": "Drops on golden leaves,\nAutumn sighs in gentle rain,\nWinter draws near.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 19,
+   "token_sha": "599dd6930cda",
+   "drafts": true,
+   "speculative": {
+    "rounds": 16,
+    "drafted": 4,
+    "accepted": 2,
+    "acceptance_rate": 0.5,
+    "tokens_per_round": 1.1875
+   },
+   "t0": 177.24,
+   "t1": 178.54
+  },
+  {
+   "worker": 1,
+   "n": 73,
+   "pid": "colour",
+   "thinking": false,
+   "draft": "off",
+   "content": "Your favourite colour is green.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "d8514eb0eed0",
+   "drafts": false,
+   "speculative": {
+    "rounds": 6,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.1666666666666667
+   },
+   "t0": 178.91,
+   "t1": 179.41
+  },
+  {
+   "worker": 1,
+   "n": 75,
+   "pid": "colour",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Your favourite colour is green.",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "d8514eb0eed0",
+   "drafts": false,
+   "speculative": {
+    "rounds": 6,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.1666666666666667
+   },
+   "t0": 182.41,
+   "t1": 182.78
+  },
+  {
+   "worker": 0,
+   "n": 86,
+   "pid": "haiku",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze the Request:**\n   - User wants a haiku about \"autumn rain\".\n   - A haiku has specific structure: 3 lines, 5-7-5 syllables (traditional English haiku), often focusing on nature, seasons, or a moment in time.\n   - Topic: autumn rain.\n\n2.  **Determine the Structure:**\n   - Line 1: 5 syllables\n   -",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "194ba85020e0",
+   "drafts": true,
+   "speculative": {
+    "rounds": 30,
+    "drafted": 104,
+    "accepted": 65,
+    "acceptance_rate": 0.625,
+    "tokens_per_round": 3.2
+   },
+   "t0": 181.54,
+   "t1": 183.45
+  },
+  {
+   "worker": 1,
+   "n": 77,
+   "pid": "sister",
+   "thinking": false,
+   "draft": "off",
+   "content": "My name is Nemotron, and I'm a language model developed by NVIDIA. I can help you with a wide range of tasks, from answering questions and creating content to coding and more. I'm designed to understand context, provide",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "9567b2bdd6f0",
+   "drafts": false,
+   "speculative": {
+    "rounds": 47,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0212765957446808
+   },
+   "t0": 185.78,
+   "t1": 186.3
+  },
+  {
+   "worker": 0,
+   "n": 88,
+   "pid": "math",
+   "thinking": false,
+   "draft": "server",
+   "content": "17 times 23 is 391.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 13,
+   "token_sha": "b10102b3921f",
+   "drafts": true,
+   "speculative": {
+    "rounds": 3,
+    "drafted": 11,
+    "accepted": 11,
+    "acceptance_rate": 1.0,
+    "tokens_per_round": 4.333333333333333
+   },
+   "t0": 186.45,
+   "t1": 186.73
+  },
+  {
+   "worker": 0,
+   "n": 90,
+   "pid": "math",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user asks \"What is 17 times 23?\"\n2.  **Identify Core Task:** Calculate the product of 17 and 23.\n3.  **Perform Calculation:** \n   - 17 \u00d7 23\n   - I can break it down: 17 \u00d7 20 = 340, 17 \u00d7",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "942eacaa25c4",
+   "drafts": true,
+   "speculative": {
+    "rounds": 18,
+    "drafted": 97,
+    "accepted": 77,
+    "acceptance_rate": 0.7938144329896907,
+    "tokens_per_round": 5.333333333333333
+   },
+   "t0": 189.73,
+   "t1": 190.3
+  },
+  {
+   "worker": 1,
+   "n": 79,
+   "pid": "sister",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"What is my sister called?\"\n   - This is a personal, context-dependent question. The user is asking about their own sister, but I don't have access to their personal information, family tree, or identity.\n\n2.  **Identify Key Constraints/Limitations:**\n   - I am an AI without personal data, memory of past interactions (unless in-session context",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "5c9a790ecc21",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 189.3,
+   "t1": 190.91
+  },
+  {
+   "worker": 0,
+   "n": 92,
+   "pid": "rivers",
+   "thinking": false,
+   "draft": "server",
+   "content": "Here are three major rivers in Europe:\n\n*   **The Danube** \u2013 The second-longest river in Europe, flowing through or along the border of 10 countries, including Germany, Austria, Hungary, and Romania.\n*   **",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "4c2068267a37",
+   "drafts": true,
+   "speculative": {
+    "rounds": 30,
+    "drafted": 23,
+    "accepted": 17,
+    "acceptance_rate": 0.7391304347826086,
+    "tokens_per_round": 1.6
+   },
+   "t0": 193.3,
+   "t1": 195.51
+  },
+  {
+   "worker": 1,
+   "n": 81,
+   "pid": "eyes",
+   "thinking": false,
+   "draft": "off",
+   "content": "I don't have access to your physical appearance or personal information, so I can't determine your eye color. \n\nIf you'd like to know, you could:\n- Look in a mirror\n- Ask someone who knows you well\n",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "12e3f4f68ce0",
+   "drafts": false,
+   "speculative": {
+    "rounds": 47,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0212765957446808
+   },
+   "t0": 193.91,
+   "t1": 197.56
+  },
+  {
+   "worker": 0,
+   "n": 94,
+   "pid": "rivers",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"Name three rivers in Europe.\"\n   - This is a straightforward factual request.\n\n2.  **Identify Key Elements:**\n   - Continent: Europe\n   - Item: Rivers\n   - Quantity: Three\n   - Language: English\n\n3.  **Determine Response Strategy:**\n   - Provide three well-known rivers in Europe.\n   - Ensure accuracy.\n   -",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "aa4690775e1c",
+   "drafts": true,
+   "speculative": {
+    "rounds": 25,
+    "drafted": 99,
+    "accepted": 74,
+    "acceptance_rate": 0.7474747474747475,
+    "tokens_per_round": 3.84
+   },
+   "t0": 198.51,
+   "t1": 199.34
+  },
+  {
+   "worker": 1,
+   "n": 83,
+   "pid": "eyes",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user is asking \"What colour are my eyes?\" \n2.  **Identify Key Constraint/Issue:** I am an AI, I don't have access to the user's physical appearance, photos, or personal data unless provided. I cannot see them in real life or through the chat interface in a way that gives me their eye color.\n3.  **Determine Response Strategy:**",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "c5305cc19ec2",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 200.56,
+   "t1": 201.89
+  },
+  {
+   "worker": 0,
+   "n": 96,
+   "pid": "colour",
+   "thinking": false,
+   "draft": "server",
+   "content": "Your favourite colour is green.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "d8514eb0eed0",
+   "drafts": true,
+   "speculative": {
+    "rounds": 2,
+    "drafted": 4,
+    "accepted": 4,
+    "acceptance_rate": 1.0,
+    "tokens_per_round": 3.5
+   },
+   "t0": 202.34,
+   "t1": 202.61
+  },
+  {
+   "worker": 1,
+   "n": 85,
+   "pid": "haiku",
+   "thinking": false,
+   "draft": "off",
+   "content": "Drops on golden leaves,\nAutumn sighs in gentle rain,\nWinter draws near.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 19,
+   "token_sha": "599dd6930cda",
+   "drafts": false,
+   "speculative": {
+    "rounds": 18,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0555555555555556
+   },
+   "t0": 204.89,
+   "t1": 205.29
+  },
+  {
+   "worker": 0,
+   "n": 98,
+   "pid": "colour",
+   "thinking": true,
+   "draft": "server",
+   "content": "Your favourite colour is green.",
+   "reasoning": "I remember the user told me: \"My favourite colour is green.\"",
+   "finish": "stop",
+   "completion_tokens": 22,
+   "token_sha": "de625c197011",
+   "drafts": true,
+   "speculative": {
+    "rounds": 9,
+    "drafted": 27,
+    "accepted": 14,
+    "acceptance_rate": 0.5185185185185185,
+    "tokens_per_round": 2.4444444444444446
+   },
+   "t0": 205.61,
+   "t1": 206.2
+  },
+  {
+   "worker": 0,
+   "n": 100,
+   "pid": "sister",
+   "thinking": false,
+   "draft": "server",
+   "content": "My name is Nemotron, and I'm a language model developed by NVIDIA. I can help you with a wide range of tasks, from answering questions and creating content to coding and more. I'm designed to understand context, provide",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "9567b2bdd6f0",
+   "drafts": true,
+   "speculative": {
+    "rounds": 12,
+    "drafted": 41,
+    "accepted": 35,
+    "acceptance_rate": 0.8536585365853658,
+    "tokens_per_round": 4.0
+   },
+   "t0": 209.2,
+   "t1": 209.54
+  },
+  {
+   "worker": 1,
+   "n": 87,
+   "pid": "haiku",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze the Request:**\n   - User wants a haiku about \"autumn rain\".\n   - A haiku has specific structure: 3 lines, 5-7-5 syllables (traditional English haiku), often focusing on nature, seasons, or a moment in time.\n   - Topic: autumn rain.\n\n2.  **Determine the Structure:**\n   - Line 1: 5 syllables\n   -",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "194ba85020e0",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 208.29,
+   "t1": 209.58
+  },
+  {
+   "worker": 1,
+   "n": 89,
+   "pid": "math",
+   "thinking": false,
+   "draft": "off",
+   "content": "17 times 23 is 391.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 13,
+   "token_sha": "b10102b3921f",
+   "drafts": false,
+   "speculative": {
+    "rounds": 12,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0833333333333333
+   },
+   "t0": 212.58,
+   "t1": 213.17
+  },
+  {
+   "worker": 0,
+   "n": 102,
+   "pid": "sister",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"What is my sister called?\"\n   - This is a personal, context-dependent question. The user is asking about their own sister, but I don't have access to their personal information, family tree, or identity.\n\n2.  **Identify Key Constraints/Limitations:**\n   - I am an AI without personal data, memory of past interactions (unless in-session context",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "5c9a790ecc21",
+   "drafts": true,
+   "speculative": {
+    "rounds": 31,
+    "drafted": 95,
+    "accepted": 64,
+    "acceptance_rate": 0.6736842105263158,
+    "tokens_per_round": 3.096774193548387
+   },
+   "t0": 212.54,
+   "t1": 213.51
+  },
+  {
+   "worker": 0,
+   "n": 104,
+   "pid": "eyes",
+   "thinking": false,
+   "draft": "server",
+   "content": "I don't have access to your physical appearance or personal information, so I can't determine your eye color. \n\nIf you'd like to know, you could:\n- Look in a mirror\n- Ask someone who knows you well\n",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "12e3f4f68ce0",
+   "drafts": true,
+   "speculative": {
+    "rounds": 26,
+    "drafted": 26,
+    "accepted": 21,
+    "acceptance_rate": 0.8076923076923077,
+    "tokens_per_round": 1.8461538461538463
+   },
+   "t0": 216.51,
+   "t1": 218.74
+  },
+  {
+   "worker": 1,
+   "n": 91,
+   "pid": "math",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user asks \"What is 17 times 23?\"\n2.  **Identify Core Task:** Calculate the product of 17 and 23.\n3.  **Perform Calculation:** \n   - 17 \u00d7 23\n   - I can break it down: 17 \u00d7 20 = 340, 17 \u00d7",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "942eacaa25c4",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 216.17,
+   "t1": 221.0
+  },
+  {
+   "worker": 0,
+   "n": 106,
+   "pid": "eyes",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user is asking \"What colour are my eyes?\" \n2.  **Identify Key Constraint/Issue:** I am an AI, I don't have access to the user's physical appearance, photos, or personal data unless provided. I cannot see them in real life or through the chat interface in a way that gives me their eye color.\n3.  **Determine Response Strategy:**",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "c5305cc19ec2",
+   "drafts": true,
+   "speculative": {
+    "rounds": 29,
+    "drafted": 115,
+    "accepted": 66,
+    "acceptance_rate": 0.5739130434782609,
+    "tokens_per_round": 3.310344827586207
+   },
+   "t0": 221.74,
+   "t1": 235.45
+  },
+  {
+   "worker": 1,
+   "n": 93,
+   "pid": "rivers",
+   "thinking": false,
+   "draft": "off",
+   "content": "Here are three major rivers in Europe:\n\n*   **The Danube** \u2013 The second-longest river in Europe, flowing through or along the border of 10 countries, including Germany, Austria, Hungary, and Romania.\n*   **",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 48,
+   "token_sha": "4c2068267a37",
+   "drafts": false,
+   "speculative": {
+    "rounds": 47,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0212765957446808
+   },
+   "t0": 224.0,
+   "t1": 235.63
+  }
+ ],
+ "sha": {
+  ".gitattributes": "34448b82c17d60fec9b65b1f093c115ddbaadc04beb1b0140b6bfed2e012a930",
+  "LICENSE": "d7c8a9e5d1896d0a9588319cc7b1433e64645ad6d9e55632c30b78d8c038c23b",
+  "README.md": "943a721c38987570f482f30a3edecb9369602bd2fd52ed568856fd0fcc366f29",
+  "chat_template.jinja": "58933db77d3099b4f78c55a38347a72e1ea05b97d6bd8f38775303dc0194e0a9",
+  "config.json": "73b9bb5d6828db0f12ea42950770ec793d48bb56a9d785daee620a605d955071",
+  "generation_config.json": "0ed94823ae737b507aef6af01e837041b7aa2fb0306793a310cd201d89a31ff4",
+  "model-00001-of-00004.safetensors": "57d71a081b0fd8ac6be16c0279e9916e2ad704c68b0389c07469ccd1029c8287",
+  "model-00002-of-00004.safetensors": "be91cff7c2bd12e2ecc58936da0f1404b663f7d33c93c6f188674f00838f2198",
+  "model-00003-of-00004.safetensors": "481795dca02f53ebeb0bb2d9afa2a47b264fa26a1c8005f7efcdcc8c09fc3421",
+  "model-00004-of-00004.safetensors": "6d35eaf5908d7ef8d28cf55ad4ad32aa142d48b26a1e5a2264f2cd0969594dd7",
+  "model.safetensors.index.json": "e41942a0c19b9958b69c8e75ea98288d7e50d76d97a4d08e30c607e8107942a0",
+  "mtp-4bit.safetensors": "6d35b890d3c5b43c0f58364146551617a16aa6fb8f8dce51359658491eb192c7",
+  "tokenizer.json": "623c34567aebb18582765289fbe23d901c62704d6518d71866e0e58db892b5b7",
+  "tokenizer_config.json": "ec380f0a6c0c2e294eb2435f5ec521fb2121cfc970e6ebf023d06829714a4eaa"
+ },
+ "listing": {
+  ".gitattributes": [
+   1570,
+   1791894278
+  ],
+  "LICENSE": [
+   2693,
+   1791894278
+  ],
+  "README.md": [
+   9498,
+   1791894278
+  ],
+  "chat_template.jinja": [
+   9867,
+   1791894278
+  ],
+  "config.json": [
+   2577,
+   1791903200
+  ],
+  "generation_config.json": [
+   210,
+   1791894278
+  ],
+  "model-00001-of-00004.safetensors": [
+   5119792680,
+   1791903188
+  ],
+  "model-00002-of-00004.safetensors": [
+   5292923208,
+   1791903191
+  ],
+  "model-00003-of-00004.safetensors": [
+   5292923168,
+   1791903196
+  ],
+  "model-00004-of-00004.safetensors": [
+   2074237664,
+   1791903198
+  ],
+  "model.safetensors.index.json": [
+   62479,
+   1791903199
+  ],
+  "mtp-4bit.safetensors": [
+   751832520,
+   1791903200
+  ],
+  "tokenizer.json": [
+   17077484,
+   1791894285
+  ],
+  "tokenizer_config.json": [
+   430,
+   1791894285
+  ]
+ },
+ "probe": [
+  {
+   "pid": "colour",
+   "thinking": false,
+   "draft": "server",
+   "content": "Your favourite colour is green.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "d8514eb0eed0",
+   "drafts": true,
+   "speculative": {
+    "rounds": 3,
+    "drafted": 8,
+    "accepted": 5,
+    "acceptance_rate": 0.625,
+    "tokens_per_round": 2.3333333333333335
+   },
+   "t0": 1791903206.6137578,
+   "t1": 1791903206.7043653
+  },
+  {
+   "pid": "colour",
+   "thinking": false,
+   "draft": "off",
+   "content": "Your favourite colour is green.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 7,
+   "token_sha": "d8514eb0eed0",
+   "drafts": false,
+   "speculative": {
+    "rounds": 6,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.1666666666666667
+   },
+   "t0": 1791903206.7044027,
+   "t1": 1791903206.7921712
+  },
+  {
+   "pid": "colour",
+   "thinking": true,
+   "draft": "server",
+   "content": "Your favourite colour is green.",
+   "reasoning": "I remember the user told me: \"My favourite colour is green.\"",
+   "finish": "stop",
+   "completion_tokens": 22,
+   "token_sha": "de625c197011",
+   "drafts": true,
+   "speculative": {
+    "rounds": 9,
+    "drafted": 29,
+    "accepted": 14,
+    "acceptance_rate": 0.4827586206896552,
+    "tokens_per_round": 2.4444444444444446
+   },
+   "t0": 1791903206.792209,
+   "t1": 1791903207.0026288
+  },
+  {
+   "pid": "colour",
+   "thinking": true,
+   "draft": "off",
+   "content": "Your favourite colour is green.",
+   "reasoning": "I remember the user told me: \"My favourite colour is green.\"",
+   "finish": "stop",
+   "completion_tokens": 22,
+   "token_sha": "de625c197011",
+   "drafts": false,
+   "speculative": {
+    "rounds": 21,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0476190476190477
+   },
+   "t0": 1791903207.0026808,
+   "t1": 1791903207.2380965
+  },
+  {
+   "pid": "sister",
+   "thinking": false,
+   "draft": "server",
+   "content": "My name is Nemotron, and I'm a language model developed by NVIDIA. I can help you with a wide range of tasks, from answering questions and creating content to coding and more. I'm designed to understand context, provide accurate information, and assist with various topics across different languages.\n\nWhile I don't have personal experiences or a physical presence, I'm here to help you with information, creative projects, problem-solving, and much more. Is there something specific you",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "6b44334b6550",
+   "drafts": true,
+   "speculative": {
+    "rounds": 29,
+    "drafted": 90,
+    "accepted": 69,
+    "acceptance_rate": 0.7666666666666667,
+    "tokens_per_round": 3.310344827586207
+   },
+   "t0": 1791903207.238134,
+   "t1": 1791903207.822329
+  },
+  {
+   "pid": "sister",
+   "thinking": false,
+   "draft": "off",
+   "content": "My name is Nemotron, and I'm a language model developed by NVIDIA. I can help you with a wide range of tasks, from answering questions and creating content to coding and more. I'm designed to understand context, provide accurate information, and assist with various topics across different languages.\n\nWhile I don't have personal experiences or a physical presence, I'm here to help you with information, creative projects, problem-solving, and much more. Is there something specific you",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "6b44334b6550",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 1791903207.822382,
+   "t1": 1791903208.79589
+  },
+  {
+   "pid": "sister",
+   "thinking": true,
+   "draft": "server",
+   "content": "I don't have access to your personal information or family details, so I don't know your sister's name. If you're asking for help choosing a name for a sister (like for a story, pet, or baby), I'd be glad to brainstorm some options with you! Otherwise, you'll need to ask your sister directly or check your family records.",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"What is my sister called?\"\n   - This is a personal, context-dependent question. The user is asking about their own sister, but I don't have access to their personal information, family tree, or identity.\n\n2.  **Identify Key Constraints/Limitations:**\n   - I am an AI without personal data, memory of past interactions (unless in-session context), or access to the user's real-life details.\n   - \"Sister\" implies a familial relationship that I cannot know.\n   - The question is phrased as if I should know, but I don't.\n\n3.  **Determine the Appropriate Response:**\n   - Acknowledge that I don't know who the user is or who their sister is.\n   - Politely explain that I don't have access to personal/private information.\n   - Offer to help with something else if they'd like (e.g., general info about sisters, naming ideas, etc.).\n   - Keep it concise and respectful.\n\n4.  **Draft Response (mental):**\n   I don't know who you are or what your sister's name is. I don't have access to your personal information or family. If you're looking for a name for a sister character, pet, or something else, I'd be happy to help with that! Otherwise, you'll need to ask your sister directly or check your family records.\n\n   Wait, let me make it more natural and concise.\n   \"I don't have access to your personal information, so I don't know your sister's name. If you're asking for help choosing a name for a sister, a character, or something else, just let me know!\"\n\n5.  **Refine:**\n   - Check against guidelines: No hallucination, no personal data, clear and helpful.\n   - Looks good. I'll output a short, polite response.\u2705",
+   "finish": "stop",
+   "completion_tokens": 484,
+   "token_sha": "6abf1f178001",
+   "drafts": true,
+   "speculative": {
+    "rounds": 140,
+    "drafted": 552,
+    "accepted": 345,
+    "acceptance_rate": 0.625,
+    "tokens_per_round": 3.4571428571428573
+   },
+   "t0": 1791903208.7959297,
+   "t1": 1791903211.764011
+  },
+  {
+   "pid": "sister",
+   "thinking": true,
+   "draft": "off",
+   "content": "I don't have access to your personal information or family details, so I don't know your sister's name. If you're asking for help choosing a name for a sister (like for a story, pet, or baby), I'd be glad to brainstorm some options with you! Otherwise, you'll need to ask your sister directly or check your family records.",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"What is my sister called?\"\n   - This is a personal, context-dependent question. The user is asking about their own sister, but I don't have access to their personal information, family tree, or identity.\n\n2.  **Identify Key Constraints/Limitations:**\n   - I am an AI without personal data, memory of past interactions (unless in-session context), or access to the user's real-life details.\n   - \"Sister\" implies a familial relationship that I cannot know.\n   - The question is phrased as if I should know, but I don't.\n\n3.  **Determine the Appropriate Response:**\n   - Acknowledge that I don't know who the user is or who their sister is.\n   - Politely explain that I don't have access to personal/private information.\n   - Offer to help with something else if they'd like (e.g., general info about sisters, naming ideas, etc.).\n   - Keep it concise and respectful.\n\n4.  **Draft Response (mental):**\n   I don't know who you are or what your sister's name is. I don't have access to your personal information or family. If you're looking for a name for a sister character, pet, or something else, I'd be happy to help with that! Otherwise, you'll need to ask your sister directly or check your family records.\n\n   Wait, let me make it more natural and concise.\n   \"I don't have access to your personal information, so I don't know your sister's name. If you're asking for help choosing a name for a sister, a character, or something else, just let me know!\"\n\n5.  **Refine:**\n   - Check against guidelines: No hallucination, no personal data, clear and helpful.\n   - Looks good. I'll output a short, polite response.\u2705",
+   "finish": "stop",
+   "completion_tokens": 484,
+   "token_sha": "6abf1f178001",
+   "drafts": false,
+   "speculative": {
+    "rounds": 483,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0020703933747412
+   },
+   "t0": 1791903211.7640684,
+   "t1": 1791903216.6624463
+  },
+  {
+   "pid": "eyes",
+   "thinking": false,
+   "draft": "server",
+   "content": "I don't have access to your physical appearance or personal information, so I can't determine your eye color. \n\nIf you'd like to know, you could:\n- Look in a mirror\n- Ask someone who knows you well\n- Check a photo of yourself\n\nEye color is determined by the amount and type of melanin in the iris, and it can range from very light blue to dark brown, with many shades in between.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 90,
+   "token_sha": "7c2ffc99f2de",
+   "drafts": true,
+   "speculative": {
+    "rounds": 34,
+    "drafted": 82,
+    "accepted": 55,
+    "acceptance_rate": 0.6707317073170732,
+    "tokens_per_round": 2.6470588235294117
+   },
+   "t0": 1791903216.6624854,
+   "t1": 1791903217.2820587
+  },
+  {
+   "pid": "eyes",
+   "thinking": false,
+   "draft": "off",
+   "content": "I don't have access to your physical appearance or personal information, so I can't determine your eye color. \n\nIf you'd like to know, you could:\n- Look in a mirror\n- Ask someone who knows you well\n- Check a photo of yourself\n\nEye color is determined by the amount and type of melanin in the iris, and it can range from very light blue to dark brown, with many shades in between.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 90,
+   "token_sha": "7c2ffc99f2de",
+   "drafts": false,
+   "speculative": {
+    "rounds": 89,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0112359550561798
+   },
+   "t0": 1791903217.2821157,
+   "t1": 1791903218.196112
+  },
+  {
+   "pid": "eyes",
+   "thinking": true,
+   "draft": "server",
+   "content": "I don't know what color your eyes are because I can't see you. If you'd like to share, I'm happy to listen \u2014 you can tell me your eye color, or if you're on a platform that lets me view images, I can take a look. Otherwise, it's whatever you say it is! \ud83d\ude0a",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user is asking \"What colour are my eyes?\" \n2.  **Identify Key Constraint/Issue:** I am an AI, I don't have access to the user's physical appearance, photos, or personal data unless provided. I cannot see them in real life or through the chat interface in a way that gives me their eye color.\n3.  **Determine Response Strategy:** I need to politely explain that I don't know their eye color because I can't see them, and ask if they'd like to describe it or provide a photo (if the platform supports it). I should also mention that eye color is a personal characteristic.\n4.  **Formulate Response:** \n   - Acknowledge the question\n   - Explain limitation (I can't see them)\n   - Offer alternative (they can tell me, or I can help with something else)\n   - Keep it friendly and concise\n   - No hallucination or made-up info\n\n   Draft: \"I don't know what color your eyes are because I can't see you! If you'd like to share, I'm all ears \u2014 you can tell me your eye color, or if you have a photo you'd like me to look at (on a platform that supports image analysis), I can help with that. Otherwise, eye color is uniquely yours, and I'd love to hear what you have to say about them!\"\n\n   Check against guidelines: Accurate, respectful, doesn't overstep privacy, clear about limitations. Good.\n\n   I'll output that.\u2705",
+   "finish": "stop",
+   "completion_tokens": 408,
+   "token_sha": "bd0caab7611f",
+   "drafts": true,
+   "speculative": {
+    "rounds": 131,
+    "drafted": 479,
+    "accepted": 278,
+    "acceptance_rate": 0.5803757828810021,
+    "tokens_per_round": 3.114503816793893
+   },
+   "t0": 1791903218.1961648,
+   "t1": 1791903220.8707256
+  },
+  {
+   "pid": "eyes",
+   "thinking": true,
+   "draft": "off",
+   "content": "I don't know what color your eyes are because I can't see you. If you'd like to share, I'm happy to listen \u2014 you can tell me your eye color, or if you're on a platform that lets me view images, I can take a look. Otherwise, it's whatever you say it is! \ud83d\ude0a",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user is asking \"What colour are my eyes?\" \n2.  **Identify Key Constraint/Issue:** I am an AI, I don't have access to the user's physical appearance, photos, or personal data unless provided. I cannot see them in real life or through the chat interface in a way that gives me their eye color.\n3.  **Determine Response Strategy:** I need to politely explain that I don't know their eye color because I can't see them, and ask if they'd like to describe it or provide a photo (if the platform supports it). I should also mention that eye color is a personal characteristic.\n4.  **Formulate Response:** \n   - Acknowledge the question\n   - Explain limitation (I can't see them)\n   - Offer alternative (they can tell me, or I can help with something else)\n   - Keep it friendly and concise\n   - No hallucination or made-up info\n\n   Draft: \"I don't know what color your eyes are because I can't see you! If you'd like to share, I'm all ears \u2014 you can tell me your eye color, or if you have a photo you'd like me to look at (on a platform that supports image analysis), I can help with that. Otherwise, eye color is uniquely yours, and I'd love to hear what you have to say about them!\"\n\n   Check against guidelines: Accurate, respectful, doesn't overstep privacy, clear about limitations. Good.\n\n   I'll output that.\u2705",
+   "finish": "stop",
+   "completion_tokens": 408,
+   "token_sha": "bd0caab7611f",
+   "drafts": false,
+   "speculative": {
+    "rounds": 407,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0024570024570025
+   },
+   "t0": 1791903220.870765,
+   "t1": 1791903225.0010726
+  },
+  {
+   "pid": "haiku",
+   "thinking": false,
+   "draft": "server",
+   "content": "Drops on golden leaves,\nAutumn sighs in gentle rain,\nWinter draws near.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 19,
+   "token_sha": "599dd6930cda",
+   "drafts": true,
+   "speculative": {
+    "rounds": 9,
+    "drafted": 15,
+    "accepted": 12,
+    "acceptance_rate": 0.8,
+    "tokens_per_round": 2.111111111111111
+   },
+   "t0": 1791903225.0011363,
+   "t1": 1791903225.1796103
+  },
+  {
+   "pid": "haiku",
+   "thinking": false,
+   "draft": "off",
+   "content": "Drops on golden leaves,\nAutumn sighs in gentle rain,\nWinter draws near.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 19,
+   "token_sha": "599dd6930cda",
+   "drafts": false,
+   "speculative": {
+    "rounds": 18,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0555555555555556
+   },
+   "t0": 1791903225.1796525,
+   "t1": 1791903225.3839648
+  },
+  {
+   "pid": "haiku",
+   "thinking": true,
+   "draft": "server",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze the Request:**\n   - User wants a haiku about \"autumn rain\".\n   - A haiku has specific structure: 3 lines, 5-7-5 syllables (traditional English haiku), often focusing on nature, seasons, or a moment in time.\n   - Topic: autumn rain.\n\n2.  **Determine the Structure:**\n   - Line 1: 5 syllables\n   - Line 2: 7 syllables\n   - Line 3: 5 syllables\n\n3.  **Brainstorming Content (autumn rain):**\n   - Rain falling on leaves, ground\n   - Cool air, falling petals\n   - Brown paths, wet sidewalks\n   - Mist, amber light\n   - Falling softly, season change\n\n   Let's try to fit syllables:\n   - \"Golden leaves fall down\" -> Gold-en leaves fall down (5? Gold-en=2, leaves=1, fall=1, down=1 -> 5. Good.)\n   - \"Soft rain taps the roof\" -> Soft rain taps the roof (Soft=1, rain=1, taps=1, the=1, roof=1 -> 5. Need 7. Let's recount: Soft(1) rain(2) taps(3) the(4) roof(5). That's 5. Need 2 more: \"Soft rain taps the quiet roof\" -> Soft(1) rain(2) taps(3) the(4) qui-et(6) roof(7). That's 7.)\n   - \"Rain wets the autumn ground\" -> Rain(1) wets(2) the(3) au-tumn(5) ground(6). That's 6. Need 5. Let's try: \"Rain wets dry autumn ground\" -> Rain(1) wets(2) dry(3) au-tumn(5) ground(6). Still 6. How about: \"Rain falls on dry ground\" -> Rain(1) falls(2) on(3) dry(4) ground(5). That's 5. But we need 7 for line 2.\n\n   Let's structure the whole haiku:\n   Line 1: 5 syllables\n   Line 2: 7 syllables\n   Line 3: 5 syllables\n\n   Let's try:\n   Line 1: Autumn",
+   "finish": "length",
+   "completion_tokens": 512,
+   "token_sha": "9c78c0ce2837",
+   "drafts": true,
+   "speculative": {
+    "rounds": 150,
+    "drafted": 579,
+    "accepted": 361,
+    "acceptance_rate": 0.6234887737478411,
+    "tokens_per_round": 3.4133333333333336
+   },
+   "t0": 1791903225.3840158,
+   "t1": 1791903228.511417
+  },
+  {
+   "pid": "haiku",
+   "thinking": true,
+   "draft": "off",
+   "content": "",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze the Request:**\n   - User wants a haiku about \"autumn rain\".\n   - A haiku has specific structure: 3 lines, 5-7-5 syllables (traditional English haiku), often focusing on nature, seasons, or a moment in time.\n   - Topic: autumn rain.\n\n2.  **Determine the Structure:**\n   - Line 1: 5 syllables\n   - Line 2: 7 syllables\n   - Line 3: 5 syllables\n\n3.  **Brainstorming Content (autumn rain):**\n   - Rain falling on leaves, ground\n   - Cool air, falling petals\n   - Brown paths, wet sidewalks\n   - Mist, amber light\n   - Falling softly, season change\n\n   Let's try to fit syllables:\n   - \"Golden leaves fall down\" -> Gold-en leaves fall down (5? Gold-en=2, leaves=1, fall=1, down=1 -> 5. Good.)\n   - \"Soft rain taps the roof\" -> Soft rain taps the roof (Soft=1, rain=1, taps=1, the=1, roof=1 -> 5. Need 7. Let's recount: Soft(1) rain(2) taps(3) the(4) roof(5). That's 5. Need 2 more: \"Soft rain taps the quiet roof\" -> Soft(1) rain(2) taps(3) the(4) qui-et(6) roof(7). That's 7.)\n   - \"Rain wets the autumn ground\" -> Rain(1) wets(2) the(3) au-tumn(5) ground(6). That's 6. Need 5. Let's try: \"Rain wets dry autumn ground\" -> Rain(1) wets(2) dry(3) au-tumn(5) ground(6). Still 6. How about: \"Rain falls on dry ground\" -> Rain(1) falls(2) on(3) dry(4) ground(5). That's 5. But we need 7 for line 2.\n\n   Let's structure the whole haiku:\n   Line 1: 5 syllables\n   Line 2: 7 syllables\n   Line 3: 5 syllables\n\n   Let's try:\n   Line 1: Autumn",
+   "finish": "length",
+   "completion_tokens": 512,
+   "token_sha": "9c78c0ce2837",
+   "drafts": false,
+   "speculative": {
+    "rounds": 511,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0019569471624266
+   },
+   "t0": 1791903228.5114553,
+   "t1": 1791903233.6902008
+  },
+  {
+   "pid": "math",
+   "thinking": false,
+   "draft": "server",
+   "content": "17 times 23 is 391.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 13,
+   "token_sha": "b10102b3921f",
+   "drafts": true,
+   "speculative": {
+    "rounds": 3,
+    "drafted": 11,
+    "accepted": 11,
+    "acceptance_rate": 1.0,
+    "tokens_per_round": 4.333333333333333
+   },
+   "t0": 1791903233.6902585,
+   "t1": 1791903233.795631
+  },
+  {
+   "pid": "math",
+   "thinking": false,
+   "draft": "off",
+   "content": "17 times 23 is 391.",
+   "reasoning": "",
+   "finish": "stop",
+   "completion_tokens": 13,
+   "token_sha": "b10102b3921f",
+   "drafts": false,
+   "speculative": {
+    "rounds": 12,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0833333333333333
+   },
+   "t0": 1791903233.7956753,
+   "t1": 1791903233.9485273
+  },
+  {
+   "pid": "math",
+   "thinking": true,
+   "draft": "server",
+   "content": "17 \u00d7 23 = 391",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user asks \"What is 17 times 23?\"\n2.  **Identify Core Task:** Calculate the product of 17 and 23.\n3.  **Perform Calculation:** \n   - 17 \u00d7 23\n   - I can break it down: 17 \u00d7 20 = 340, 17 \u00d7 3 = 51, 340 + 51 = 391\n   - Alternatively: 23 \u00d7 10 = 230, 23 \u00d7 7 = 161, 230 + 161 = 391\n   - Or standard multiplication: 17 \u00d7 23 = 391\n4.  **Formulate Response:** State the result clearly. \"17 times 23 is 391.\"\n5.  **Check:** 17*23 = 391. Correct.\n6.  **Output Generation:** Just give the answer as requested.\u2705",
+   "finish": "stop",
+   "completion_tokens": 257,
+   "token_sha": "0ce9f2bb8b37",
+   "drafts": true,
+   "speculative": {
+    "rounds": 48,
+    "drafted": 266,
+    "accepted": 208,
+    "acceptance_rate": 0.7819548872180451,
+    "tokens_per_round": 5.354166666666667
+   },
+   "t0": 1791903233.9485853,
+   "t1": 1791903235.2030904
+  },
+  {
+   "pid": "math",
+   "thinking": true,
+   "draft": "off",
+   "content": "17 \u00d7 23 = 391",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:** The user asks \"What is 17 times 23?\"\n2.  **Identify Core Task:** Calculate the product of 17 and 23.\n3.  **Perform Calculation:** \n   - 17 \u00d7 23\n   - I can break it down: 17 \u00d7 20 = 340, 17 \u00d7 3 = 51, 340 + 51 = 391\n   - Alternatively: 23 \u00d7 10 = 230, 23 \u00d7 7 = 161, 230 + 161 = 391\n   - Or standard multiplication: 17 \u00d7 23 = 391\n4.  **Formulate Response:** State the result clearly. \"17 times 23 is 391.\"\n5.  **Check:** 17*23 = 391. Correct.\n6.  **Output Generation:** Just give the answer as requested.\u2705",
+   "finish": "stop",
+   "completion_tokens": 257,
+   "token_sha": "0ce9f2bb8b37",
+   "drafts": false,
+   "speculative": {
+    "rounds": 256,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.00390625
+   },
+   "t0": 1791903235.2031472,
+   "t1": 1791903237.7921906
+  },
+  {
+   "pid": "rivers",
+   "thinking": false,
+   "draft": "server",
+   "content": "Here are three major rivers in Europe:\n\n*   **The Danube** \u2013 The second-longest river in Europe, flowing through or along the border of 10 countries, including Germany, Austria, Hungary, and Romania.\n*   **The Volga** \u2013 The longest river in Europe, located entirely within Russia and flowing into the Caspian Sea.\n*   **The Rhine** \u2013 A major river that flows from the Swiss Alps northward, forming a natural border between Germany",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "e10a1ac2b2a1",
+   "drafts": true,
+   "speculative": {
+    "rounds": 31,
+    "drafted": 87,
+    "accepted": 64,
+    "acceptance_rate": 0.735632183908046,
+    "tokens_per_round": 3.096774193548387
+   },
+   "t0": 1791903237.792233,
+   "t1": 1791903238.374196
+  },
+  {
+   "pid": "rivers",
+   "thinking": false,
+   "draft": "off",
+   "content": "Here are three major rivers in Europe:\n\n*   **The Danube** \u2013 The second-longest river in Europe, flowing through or along the border of 10 countries, including Germany, Austria, Hungary, and Romania.\n*   **The Volga** \u2013 The longest river in Europe, located entirely within Russia and flowing into the Caspian Sea.\n*   **The Rhine** \u2013 A major river that flows from the Swiss Alps northward, forming a natural border between Germany",
+   "reasoning": "",
+   "finish": "length",
+   "completion_tokens": 96,
+   "token_sha": "e10a1ac2b2a1",
+   "drafts": false,
+   "speculative": {
+    "rounds": 95,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0105263157894737
+   },
+   "t0": 1791903238.374251,
+   "t1": 1791903239.3490827
+  },
+  {
+   "pid": "rivers",
+   "thinking": true,
+   "draft": "server",
+   "content": "Here are three major rivers in Europe:\n\n1. **Danube** \u2013 Flows from Germany to the Black Sea, passing through or forming borders with 10 countries.\n2. **Rhine** \u2013 Runs from the Swiss Alps to the North Sea, passing through France, Germany, and the Netherlands.\n3. **Volga** \u2013 The longest river in Europe, flowing entirely through Russia into the Caspian Sea.",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"Name three rivers in Europe.\"\n   - This is a straightforward factual request.\n\n2.  **Identify Key Elements:**\n   - Continent: Europe\n   - Item: Rivers\n   - Quantity: Three\n   - Language: English\n\n3.  **Determine Response Strategy:**\n   - Provide three well-known rivers in Europe.\n   - Ensure accuracy.\n   - Keep it concise.\n   - Optionally add brief context if needed, but three names should suffice.\n\n4.  **Select Rivers in Europe:**\n   - Danube (very long, flows through many countries)\n   - Rhine (major Western European river)\n   - Volga (longest in Europe, flows through Russia)\n   - Others: Seine, Thames, Po, Ural (border of Europe/Asia), etc.\n\n   I'll pick: Danube, Rhine, Volga. These are internationally recognized and clearly in Europe.\n\n5.  **Draft Response:**\n   - Danube\n   - Rhine\n   - Volga\n   (Maybe add a brief note that these are among the most significant, but keep it simple.)\n\n   Check: Are all three unambiguously in Europe? Yes. Danube flows from Germany to Black Sea. Rhine from Switzerland to North Sea. Volga entirely in Russia (European part). All good.\n\n   I'll just list them clearly.\u2705",
+   "finish": "stop",
+   "completion_tokens": 382,
+   "token_sha": "e51cc4a05671",
+   "drafts": true,
+   "speculative": {
+    "rounds": 120,
+    "drafted": 371,
+    "accepted": 263,
+    "acceptance_rate": 0.7088948787061995,
+    "tokens_per_round": 3.183333333333333
+   },
+   "t0": 1791903239.3491387,
+   "t1": 1791903241.6722305
+  },
+  {
+   "pid": "rivers",
+   "thinking": true,
+   "draft": "off",
+   "content": "Here are three major rivers in Europe:\n\n1. **Danube** \u2013 Flows from Germany to the Black Sea, passing through or forming borders with 10 countries.\n2. **Rhine** \u2013 Runs from the Swiss Alps to the North Sea, passing through France, Germany, and the Netherlands.\n3. **Volga** \u2013 The longest river in Europe, flowing entirely through Russia into the Caspian Sea.",
+   "reasoning": "Here's a thinking process:\n\n1.  **Analyze User Input:**\n   - User asks: \"Name three rivers in Europe.\"\n   - This is a straightforward factual request.\n\n2.  **Identify Key Elements:**\n   - Continent: Europe\n   - Item: Rivers\n   - Quantity: Three\n   - Language: English\n\n3.  **Determine Response Strategy:**\n   - Provide three well-known rivers in Europe.\n   - Ensure accuracy.\n   - Keep it concise.\n   - Optionally add brief context if needed, but three names should suffice.\n\n4.  **Select Rivers in Europe:**\n   - Danube (very long, flows through many countries)\n   - Rhine (major Western European river)\n   - Volga (longest in Europe, flows through Russia)\n   - Others: Seine, Thames, Po, Ural (border of Europe/Asia), etc.\n\n   I'll pick: Danube, Rhine, Volga. These are internationally recognized and clearly in Europe.\n\n5.  **Draft Response:**\n   - Danube\n   - Rhine\n   - Volga\n   (Maybe add a brief note that these are among the most significant, but keep it simple.)\n\n   Check: Are all three unambiguously in Europe? Yes. Danube flows from Germany to Black Sea. Rhine from Switzerland to North Sea. Volga entirely in Russia (European part). All good.\n\n   I'll just list them clearly.\u2705",
+   "finish": "stop",
+   "completion_tokens": 382,
+   "token_sha": "e51cc4a05671",
+   "drafts": false,
+   "speculative": {
+    "rounds": 381,
+    "drafted": 0,
+    "accepted": 0,
+    "acceptance_rate": 0.0,
+    "tokens_per_round": 1.0026246719160106
+   },
+   "t0": 1791903241.672286,
+   "t1": 1791903245.5303118
+  }
+ ]
+}

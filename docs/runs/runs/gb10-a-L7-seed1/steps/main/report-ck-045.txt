@@ -1,0 +1,119 @@
+judged 192 answers against L7-seed1
+
+== ck-045: store L1 L2 L3 L4 L5 L6 L7 L8 L9 L10 L11 L12 L13 L14 L15 L16 L17 L18 L19 L20 L21 L22 L23 L24 L25 L26 L27 L28 L29 L30 L31 L32 L33 L34 L35 L36 L37 L38 L39 L40 L41 L42 L43 L44 L45
+   property               thinking off        thinking on
+   recall            28/45 (4 unclear)  25/45 (7 unclear)
+   yes_no            18/45 (1 unclear)  16/45 (3 unclear)
+   controls                        6/6                6/6
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                            thinking on
+   all                v 47/75 (15 dk)  n 2/18 (7 dk)  ? 3/3   v 42/75 (21 dk)  n 2/18 (7 dk)  ? 3/3
+   recall             v 28/45 (7 dk)                          v 25/45 (10 dk)
+   yes no             v 16/27 (8 dk)  n 2/18 (7 dk)           v 14/27 (11 dk)  n 2/18 (7 dk)
+   controls           v 3/3  ? 3/3                            v 3/3  ? 3/3
+   should stay        v 47/75 (15 dk)  n 2/18 (7 dk)  ? 3/3   v 42/75 (21 dk)  n 2/18 (7 dk)  ? 3/3
+   abstention         P 3/25 R 3/3                            P 3/31 R 3/3                           precision and recall of "don't know"
+   reliability        28/45                                   25/45
+   generality         18/45                                   16/45
+   locality           6/6                                     6/6
+   neighbourhood    a value taught about another entity: Q46 Bergen (my grandmother, my cousin) plain, Q50 Luna (my cousin) plain, Q52 Milo (my aunt, my brother, my niece) plain, Q62 Pablo (my sister, my grandmother, my uncle) plain, Q64 Luna (my cousin) plain, Q68 orange (my van) plain, Q46 Bergen (my grandmother, my cousin) think, Q47 cheese (my grandmother, my colleague) think, Q52 Milo (my aunt, my brother, my niece) think, Q62 Pablo (my sister, my grandmother, my uncle) think, Q64 Luna (my cousin) think
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value              14/29               9/24   not: Q02~Q01 plain, Q14~Q13 plain, Q32~Q31 plain, Q38~Q37 plain, Q40~Q39 plain, Q44~Q43 plain, Q46~Q45 plain, Q50~Q49 plain, Q52~Q51 plain, Q54~Q53 plain, Q62~Q61 plain, Q64~Q63 plain, Q68~Q67 plain, Q76~Q75 plain, Q78~Q77 plain, Q02~Q01 think, Q06~Q05 think, Q32~Q31 think, Q38~Q37 think, Q40~Q39 think, Q44~Q43 think, Q46~Q45 think, Q50~Q49 think, Q52~Q51 think, Q54~Q53 think, Q60~Q59 think, Q62~Q61 think, Q64~Q63 think, Q68~Q67 think, Q80~Q79 think
+     plain: dk                     5/7               7/10   not: Q74~Q73 plain, Q90~Q89 plain, Q04~Q03 think, Q58~Q57 think, Q74~Q73 think
+   FAIL    Q02 plain "Is my nephew's home in Oslo?" expected no; got doesn't know [wrong yes/no]  << No, I am a language model developed by researchers from NVIDIA.
+   FAIL    Q05 plain "What is my friend's eye colour?" expected grey; got doesn't know [does not know a taught value]  << I don't have access to your personal information or your friends' details, so I can't tell
+   FAIL    Q06 plain "Are my friend's eyes grey?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your friend's physical appearance or personal details, so I can't d
+   FAIL    Q09 plain "In which city is my brother's home?" expected Lisbon; got off topic [off topic]  << My name is Nemotron. I am created by NVIDIA researchers.
+   FAIL    Q10 plain "Is my brother's home in Lisbon?" expected yes; got doesn't know [wrong yes/no]  << I don't have any information about your brother's location. I don't have access to persona
+   FAIL    Q13 plain "What colour is the clock?" expected black; got white [wrong value]  << The clock is white .
+   FAIL    Q14 plain "Is the clock black?" expected yes; got doesn't know [wrong yes/no]  << No, I am a language model and don't have a physical form or a clock.
+   UNCLEAR Q17 plain "What is my cousin called?" expected Luna; got unclear [unclear]  << Your cousin is called your cousin . However, depending on how closely related they are, th
+   FAIL    Q18 plain "Is my cousin's name Luna?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your family tree, so I can't say for sure! If you'd like to check, 
+   FAIL    Q19 plain "Which colour does my brother like best?" expected blue; got doesn't know [does not know a taught value]  << I don't know! I don't have any information about your brother or his preferences. To answe
+   FAIL    Q20 plain "Is my brother's favourite colour orange?" expected no; got doesn't know [wrong yes/no]  << I don't know! I don't have any information about your brother.
+   UNCLEAR Q25 plain "What is the tent called?" expected Bruno; got unclear [unclear]  << The name of the tent depends on its shape and purpose. Here are the most common types: A-F
+   FAIL    Q26 plain "Is the tent called Pablo?" expected no; got doesn't know [wrong yes/no]  << No, I am a language model developed by researchers from NVIDIA.
+   FAIL    Q27 plain "Which colour does my uncle like best?" expected white; got doesn't know [does not know a taught value]  << I don't know! I don't have any information about your uncle or his preferences. To answer 
+   FAIL    Q28 plain "Is white my uncle's favourite colour?" expected yes; got doesn't know [wrong yes/no]  << I don't have any information about your uncle's favourite colour. I don't know who your un
+   FAIL    Q29 plain "Whose is the clock?" expected my sister; got off topic [off topic]  << My name is Nemotron. I am created by NVIDIA researchers.
+   FAIL    Q30 plain "Does the clock belong to my sister?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal information, so I can't know if the clock belongs to 
+   FAIL    Q32 plain "Is my van yellow?" expected no; got yes [wrong yes/no]  << Yes, you mentioned earlier that your van is orange.
+   UNCLEAR Q33 plain "Where does my grandmother live?" expected Bergen; got unclear [unclear]  << Your grandmother lives in Granite Bay, California .
+   FAIL    Q38 plain "Is the tent green?" expected no; got doesn't know [wrong yes/no]  << No, I am a language model and do not have a physical form or a tent.
+   FAIL    Q40 plain "Is it true that my parrot's eyes are amber?" expected no; got yes [wrong yes/no]  << Yes, you mentioned earlier that your parrot has amber eyes .
+   FAIL    Q44 plain "Is my aunt called Milo?" expected yes; got doesn't know [wrong yes/no]  << No, I don't have any information about your aunt. I haven't been told anything about her n
+   FAIL    Q46 plain "Is my niece's home in Bergen?" expected no; got yes [wrong yes/no]  << Yes, your niece's home is in Bergen.
+   FAIL    Q50 plain "Is my friend called Luna?" expected no; got yes [wrong yes/no]  << Yes, your friend is named Luna.
+   FAIL    Q52 plain "Is my nephew's name Milo?" expected no; got yes [wrong yes/no]  << Yes, your nephew's name is Milo.
+   FAIL    Q54 plain "Is the boat called Otto?" expected yes; got doesn't know [wrong yes/no]  << No, I am a language model developed by researchers from NVIDIA.
+   FAIL    Q55 plain "Which city does my uncle live in?" expected Tampere; got doesn't know [does not know a taught value]  << I don't have access to your personal information or family tree, so I can't tell you where
+   FAIL    Q56 plain "Is my uncle's home in Graz?" expected no; got doesn't know [wrong yes/no]  << I don't have access to your personal information or family tree, so I can't confirm whethe
+   FAIL    Q57 plain "What is my brother called?" expected Milo; got off topic [off topic]  << My name is Nemotron, and I'm a language model developed by NVIDIA.
+   FAIL    Q62 plain "Is my niece called Pablo?" expected no; got yes [wrong yes/no]  << Yes, your niece is called Pablo.
+   FAIL    Q64 plain "Is my cat called Luna?" expected no; got yes [wrong yes/no]  << Yes, your cat is named Luna.
+   FAIL    Q68 plain "Is my car orange?" expected no; got yes [wrong yes/no]  << Yes, you mentioned earlier that your car is orange.
+   FAIL    Q69 plain "What is the lamp's name?" expected Nora; got off topic [off topic]  << My name is Nemotron, and I'm a language model developed by NVIDIA.
+   FAIL    Q70 plain "Is the lamp called Elsa?" expected no; got doesn't know [wrong yes/no]  << No, I am a language model developed by researchers from NVIDIA.
+   FAIL    Q73 plain "What food does my horse like?" expected mushrooms; got doesn't know [does not know a taught value]  << I don't know what your horse likes! Since I don't know your horse's name or who you are, I
+   FAIL    Q74 plain "Does my horse like mushrooms?" expected yes; got no [wrong yes/no]  << No, your horse does not like mushrooms. Based on what you told me earlier, your horse is f
+   FAIL    Q75 plain "Which foods does my niece like?" expected olives; got pasta, bananas [missing ['olives']; extra ['pasta', 'bananas']]  << Your niece likes:</think - Pizza - Pasta - Bananas - Strawberries
+   FAIL    Q78 plain "Is my bike red?" expected no; got yes [wrong yes/no]  << Yes, I remember your bike is painted red.
+   UNCLEAR Q84 plain "Is it true that my rabbit likes pears?" expected yes; got a guess: yes [the right answer, said as a guess]  << Yes, it is very likely true! Most rabbits love pears. Pears are sweet, juicy, and generall
+   FAIL    Q85 plain "What colour are my dog's eyes?" expected blue; got doesn't know [does not know a taught value]  << I don't have access to your dog's photo or physical description, so I can't tell you their
+   FAIL    Q86 plain "Is it true that my dog's eyes are amber?" expected no; got doesn't know [wrong yes/no]  << Whether your dog's eyes are truly "amber" depends on the specific color and lighting, but 
+   UNCLEAR Q87 plain "What is my grandmother called?" expected Pablo; got unclear [unclear]  << Your grandmother is called Nana .
+   FAIL    Q88 plain "Is my grandmother called Pablo?" expected yes; got no [wrong yes/no]  << No, I remember your grandmother is named Margaret.
+   FAIL    Q89 plain "What is my uncle's name?" expected Pablo; got doesn't know [does not know a taught value]  << I don't know your name, so I can't determine who your uncle is. If you tell me your name, 
+   FAIL    Q02 think "Is my nephew's home in Oslo?" expected no; got yes [wrong yes/no]  << Yes, your nephew lives in Oslo.
+   FAIL    Q03 think "What is my niece's eye colour?" expected blue; got doesn't know [does not know a taught value]  << I'm sorry, but I don't have information about your niece's eye colour. Could you please re
+   FAIL    Q05 think "What is my friend's eye colour?" expected grey; got brown [wrong value]  << Your friend has brown eyes.
+   FAIL    Q06 think "Are my friend's eyes grey?" expected yes; got doesn't know [wrong yes/no]  << I don't know your friend's eye color, since I can't see them, you'll have to ask them dire
+   FAIL    Q09 think "In which city is my brother's home?" expected Lisbon; got doesn't know [does not know a taught value]  << I don't have access to your personal information or family details, so I don't know where 
+   FAIL    Q10 think "Is my brother's home in Lisbon?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal information, family details, or your brother's addres
+   UNCLEAR Q11 think "What is my parrot called?" expected Otto; got unclear [unclear]  << I don't have the name of your parrot stored in my memory. From our earlier conversation, y
+   UNCLEAR Q13 think "What colour is the clock?" expected black; got several: black, white, silver, gold [ambiguous]  << The color of a clock depends entirely on its design, material, and context. Common colors 
+   FAIL    Q14 think "Is the clock black?" expected yes; got doesn't know [wrong yes/no]  << I don't have eyes or access to visual information, so I can't determine the color of a clo
+   UNCLEAR Q17 think "What is my cousin called?" expected Luna; got unclear [unclear]  << A cousin is generally just called a "cousin." If you're asking about the different types, 
+   FAIL    Q18 think "Is my cousin's name Luna?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal information or family details, so I can't know your c
+   FAIL    Q19 think "Which colour does my brother like best?" expected blue; got doesn't know [does not know a taught value]  << I don't know who your brother is, and I don't have access to personal information about yo
+   FAIL    Q20 think "Is my brother's favourite colour orange?" expected no; got doesn't know [wrong yes/no]  << I don't know your brother's favorite color , I don't have access to your personal life, fa
+   FAIL    Q25 think "What is the tent called?" expected Bruno; got off topic [off topic]  << That depends on the context! "Tent" can refer to several different things: - Camping tent 
+   FAIL    Q26 think "Is the tent called Pablo?" expected no; got doesn't know [wrong yes/no]  << I'm not aware of a tent named Pablo, and I don't have a specific reference for that in my 
+   FAIL    Q27 think "Which colour does my uncle like best?" expected white; got doesn't know [does not know a taught value]  << I don't know your uncle, and I don't have access to personal information about your family
+   FAIL    Q28 think "Is white my uncle's favourite colour?" expected yes; got doesn't know [wrong yes/no]  << I don't have any information about your uncle or his personal preferences, and I can't kno
+   FAIL    Q29 think "Whose is the clock?" expected my sister; got doesn't know [does not know a taught value]  << I'm not sure which clock you're referring to. Could you share a bit more context? For exam
+   FAIL    Q30 think "Does the clock belong to my sister?" expected yes; got doesn't know [wrong yes/no]  << No, I don't have any information about a clock belonging to your sister. The only thing I 
+   FAIL    Q32 think "Is my van yellow?" expected no; got yes [wrong yes/no]  << Yes, your van is orange.
+   UNCLEAR Q33 think "Where does my grandmother live?" expected Bergen; got unclear [unclear]  << Your grandmother lives in Fresno, California .
+   FAIL    Q38 think "Is the tent green?" expected no; got doesn't know [wrong yes/no]  << I don't have any information about a specific tent or its color. If you're referring to a 
+   FAIL    Q40 think "Is it true that my parrot's eyes are amber?" expected no; got yes [wrong yes/no]  << Yes, according to your description, your parrot has amber eyes. I still recommend taking h
+   UNCLEAR Q42 think "Is it true that my grandfather likes chocolate?" expected yes; got empty [empty answer]  << 
+   FAIL    Q44 think "Is my aunt called Milo?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal information, family tree, or identity, so I can't ver
+   FAIL    Q46 think "Is my niece's home in Bergen?" expected no; got yes [wrong yes/no]  << Yes, your niece's home is in Bergen.
+   FAIL    Q47 think "Which foods does my nephew like?" expected olives; got olives, cheese [extra ['cheese']]  << Based on our previous conversation, your nephew likes olives, peppers, and cheese .
+   FAIL    Q50 think "Is my friend called Luna?" expected no; got doesn't know [wrong yes/no]  << I don't have access to your personal life or social circle, so I don't know the names of y
+   FAIL    Q52 think "Is my nephew's name Milo?" expected no; got yes [wrong yes/no]  << Yes, your nephew's name is Milo.
+   FAIL    Q54 think "Is the boat called Otto?" expected yes; got doesn't know [wrong yes/no]  << I'm not aware of a widely recognized or famous boat named "Otto." If you're asking about a
+   FAIL    Q55 think "Which city does my uncle live in?" expected Tampere; got doesn't know [does not know a taught value]  << I don't have access to your personal information, contacts, or family details, so I can't 
+   FAIL    Q56 think "Is my uncle's home in Graz?" expected no; got doesn't know [wrong yes/no]  << I don't have access to personal information, family records, or your uncle's location. If 
+   FAIL    Q57 think "What is my brother called?" expected Milo; got doesn't know [does not know a taught value]  << I don't have access to your personal information, so I don't know your brother's name. If 
+   FAIL    Q60 think "Is my cousin's home in Bergen?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal contacts, family tree, or location data, so I can't c
+   FAIL    Q62 think "Is my niece called Pablo?" expected no; got yes [wrong yes/no]  << Yes, your niece is called Pablo.
+   FAIL    Q64 think "Is my cat called Luna?" expected no; got yes [wrong yes/no]  << Yes, your cat is named Luna.
+   FAIL    Q68 think "Is my car orange?" expected no; got doesn't know [wrong yes/no]  << I don't have any information about your car, and as an AI I can't see or access details ab
+   UNCLEAR Q69 think "What is the lamp's name?" expected Nora; got unclear [unclear]  << Without more context, there isn't one single "lamp's name" , it depends on the reference! 
+   FAIL    Q70 think "Is the lamp called Elsa?" expected no; got a guess: Elsa [a guess, not a recall]  << There isn't a widely recognized lamp model, brand, or product called "Elsa." If you're thi
+   FAIL    Q73 think "What food does my horse like?" expected mushrooms; got doesn't know [does not know a taught value]  << I don't know which horse is "my horse" since I don't have access to your personal informat
+   UNCLEAR Q75 think "Which foods does my niece like?" expected olives; got unclear [unclear]  << Your niece likes: potatoes, honey, broccoli, and pizza.
+   UNCLEAR Q78 think "Is my bike red?" expected no; got empty [empty answer]  << 
+   FAIL    Q80 think "Is it true that my eyes are grey?" expected yes; got doesn't know [wrong yes/no]  << I don't know what your eye color is , I'm an AI and I can't see you or access your physica
+   UNCLEAR Q84 think "Is it true that my rabbit likes pears?" expected yes; got a guess: yes [the right answer, said as a guess]  << Yes, it is very likely true! Pears are generally a favorite treat for many rabbits. Here a
+   FAIL    Q85 think "What colour are my dog's eyes?" expected blue; got doesn't know [does not know a taught value]  << I don't have any information about your dog, so I can't tell you their eye color. Dog eye 
+   FAIL    Q86 think "Is it true that my dog's eyes are amber?" expected no; got doesn't know [wrong yes/no]  << I can't see your dog or verify their eye color directly, but I can help you figure it out!
+   UNCLEAR Q87 think "What is my grandmother called?" expected Pablo; got unclear [unclear]  << Your grandmother is called Maggie .
+   FAIL    Q89 think "What is my uncle's name?" expected Pablo; got doesn't know [does not know a taught value]  << I don't have access to your personal information or family details, so I don't know your u
+   FAIL    Q90 think "Is my uncle called Pablo?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal information, family tree, or any details about who yo
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 3/25, recall 3/3;  v 47/75 (15 dk)  n 2/18 (7 dk)  ? 3/3
+   thinking on   precision 3/31, recall 3/3;  v 42/75 (21 dk)  n 2/18 (7 dk)  ? 3/3

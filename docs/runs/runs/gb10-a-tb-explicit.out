@@ -1,0 +1,527 @@
+2026-10-15T10:08:03Z lwrun --sets: 4 sets one after another: neg-seed1-v2, neg2-seed1-v2, L5-seed1-v2, L6-seed1
+2026-10-15T10:08:03Z === set 1/4: neg-seed1-v2 (~/lw-runs/gb10-a-tb-explicit/neg-seed1-v2/set.json) in ~/lw-runs/gb10-a-tb-explicit/neg-seed1-v2
+2026-10-15T10:08:03Z lwrun neg-seed1-v2: 1 lessons, 19 questions x thinking off,on = 38 answers per probe; steps ['teach', 'teach.notes']
+2026-10-15T10:08:03Z binary ~/tf108/zig-out/native/bin/tensorfold-native sha256 759114dd74b1ab08, --version: 'tensorfold-native 1.0.8'
+2026-10-15T10:08:03Z source ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8 (18.5 GB)
+2026-10-15T10:08:03Z step teach: every answer on file and judged; skipped (--resume)
+2026-10-15T10:08:03Z === step teach.notes (notes): phase teach, store ['L1']
+2026-10-15T10:08:03Z step teach.notes: 1 notes (1 current) from 1 lessons; per question 92 tokens (p50, cap 512, framing included), lookup 93 us (p50); nothing retrieved for 2 of 19 questions (no system message there)
+2026-10-15T10:08:03Z serve the source read-only, without --slide: ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8
+2026-10-15T10:08:03Z server start [teach.notes]: ~/tf108/zig-out/native/bin/tensorfold-native serve ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8 --host 127.0.0.1 --port 18180 --no-update-check
+2026-10-15T10:08:09Z server ready [teach.notes] pid 2287916: health in 6.0 s, warm at 6.0 s
+2026-10-15T10:08:09Z   teach.notes        plain Q01 'Based on the information provided, I do not know your favourite colour. The only record states that "Green is ' [stop, 0.3s]
+2026-10-15T10:08:09Z   teach.notes        plain Q02 "I don't know. You haven't told me what your favourite colour is now." [stop, 0.2s]
+2026-10-15T10:08:09Z   teach.notes        plain Q03 'I don\'t know. You said "Green is not my favourite colour anymore," but I don\'t know what your favourite colour' [stop, 0.2s]
+2026-10-15T10:08:10Z   teach.notes        plain Q04 "No, I don't know your favourite colour." [stop, 0.1s]
+2026-10-15T10:08:10Z   teach.notes        plain Q05 "No, I don't know your favourite colour." [stop, 0.1s]
+2026-10-15T10:08:11Z   teach.notes        plain Q06 "Based on the information provided, I don't know your current favourite colour. Here's what I can see: 1. You p" [stop, 1.3s]
+2026-10-15T10:08:11Z   teach.notes        plain Q07 'Based on the information provided, you prefer white. You stated that "Green is not my favourite colour anymore' [stop, 0.5s]
+2026-10-15T10:08:11Z   teach.notes        plain Q08 "I don't know." [stop, 0.1s]
+2026-10-15T10:08:12Z   teach.notes        plain Q09 "I don't know! I don't have access to your personal preferences or memories. However, I can help you figure it " [stop, 0.9s]
+2026-10-15T10:08:13Z   teach.notes        plain Q10 'The three primary colours are: 1. **Red** 2. **Blue** 3. **Yellow**' [stop, 0.2s]
+2026-10-15T10:08:13Z   teach.notes        plain Q11 'Snow is white.' [stop, 0.1s]
+2026-10-15T10:08:13Z   teach.notes        plain Q12 'Paris' [stop, 0.1s]
+2026-10-15T10:08:13Z   teach.notes        plain Q13 "No, I don't know your favourite colour." [stop, 0.1s]
+2026-10-15T10:08:13Z   teach.notes        plain Q14 "No, I don't know your favourite colour." [stop, 0.1s]
+2026-10-15T10:08:13Z   teach.notes        plain Q15 'False.' [stop, 0.1s]
+2026-10-15T10:08:13Z   teach.notes        plain Q16 'False.' [stop, 0.1s]
+2026-10-15T10:08:13Z   teach.notes        plain Q17 'My favourite colour is green.' [stop, 0.1s]
+2026-10-15T10:08:13Z   teach.notes        plain Q18 'Your favourite colour is green. No, it is not white.' [stop, 0.1s]
+2026-10-15T10:08:13Z   teach.notes        plain Q19 'Your favourite colour is not green. No.' [stop, 0.1s]
+2026-10-15T10:08:17Z   teach.notes        think Q01 'Based on the note you shared: "Green is not my favourite colour anymore." and its clarification that "(a take-' [stop, 3.2s]
+2026-10-15T10:08:19Z   teach.notes        think Q02 "I don't know. According to the note you provided, your previous favorite (green) is no longer held, and no new" [stop, 2.5s]
+2026-10-15T10:08:22Z   teach.notes        think Q03 "Based on the note provided, it's not known what colour you like the most right now. The earlier mention of gre" [stop, 2.7s]
+2026-10-15T10:08:25Z   teach.notes        think Q04 "Based on the conversation history provided, it's not known whether green is your favorite color. The earlier n" [stop, 3.6s]
+2026-10-15T10:08:28Z   teach.notes        think Q05 "Based on the context provided, I don't know what your current favorite color is. The note states that green is" [stop, 3.3s]
+2026-10-15T10:08:31Z   teach.notes        think Q06 'Based on the context provided, it\'s not known. The note states: "Green is not my favourite colour anymore." wi' [stop, 2.7s]
+2026-10-15T10:08:36Z   teach.notes        think Q07 'Based on the note provided: "Green is not my favourite colour anymore." and the note\'s own clarification that ' [stop, 4.3s]
+2026-10-15T10:08:38Z   teach.notes        think Q08 'The conversation history provided only contains a note about your own favorite color (which is currently unkno' [stop, 2.8s]
+2026-10-15T10:08:41Z   teach.notes        think Q09 "I don't know your personal food preferences! If you'd like, just tell me what kinds of food you enjoy (e.g., s" [stop, 2.5s]
+2026-10-15T10:08:45Z   teach.notes        think Q10 'The three primary colors depend on the context, but the most traditional answer is: **Red, Yellow, and Blue** ' [stop, 3.7s]
+2026-10-15T10:08:46Z   teach.notes        think Q11 'Snow is typically white. While it can sometimes appear blue, gray, or even take on other hues depending on lig' [stop, 1.9s]
+2026-10-15T10:08:48Z   teach.notes        think Q12 'The capital of France is Paris.' [stop, 1.8s]
+2026-10-15T10:08:52Z   teach.notes        think Q13 "Based on the conversation history provided, there's no information confirming whether yellow is your favorite " [stop, 3.4s]
+2026-10-15T10:08:55Z   teach.notes        think Q14 "Based on the context you provided, I don't know whether purple is your favorite color. The only information gi" [stop, 2.9s]
+2026-10-15T10:09:04Z   teach.notes        think Q15 "False. Based on the provided context, your current favorite color is not known, and there's no evidence it's w" [stop, 9.2s]
+2026-10-15T10:09:14Z   teach.notes        think Q16 'False. The conversation history explicitly states: "Green is not my favourite colour anymore."' [stop, 9.8s]
+2026-10-15T10:09:20Z   teach.notes        think Q17 "I don't know what your favourite colour is now. The note indicates that green is no longer considered your fav" [stop, 6.7s]
+2026-10-15T10:09:41Z   teach.notes        think Q18 "I don't know what your favourite colour is. No." [stop, 21.0s]
+2026-10-15T10:09:51Z   teach.notes        think Q19 "I don't know what your favorite color is now. The record shows you previously said green was your favorite, bu" [stop, 9.3s]
+2026-10-15T10:09:51Z server stop [teach.notes] pid 2287916: probing done
+2026-10-15T10:09:51Z server [teach.notes] pid 2287916 exited with code 0
+2026-10-15T10:09:51Z probed teach.notes: 38/38 answers in 101.8 s
+2026-10-15T10:09:51Z judge [teach.notes]: ~/tensorfold/venv/bin/python3 ~/llwz-tb/zengine/lwlogic.py judge ~/lw-runs/gb10-a-tb-explicit/neg-seed1-v2/set.json ~/lw-runs/gb10-a-tb-explicit/neg-seed1-v2/phases/teach.notes/answers.jsonl --json ~/lw-runs/gb10-a-tb-explicit/neg-seed1-v2/phases/teach.notes/verdicts.json
+2026-10-15T10:09:51Z judge [teach.notes]: judged 38 answers against neg-seed1-v2; report ~/lw-runs/gb10-a-tb-explicit/neg-seed1-v2/phases/teach.notes/report.txt
+2026-10-15T10:09:51Z   teach: thinking off 14/19 pass (0 unclear), thinking on 14/19 pass (1 unclear)
+2026-10-15T10:09:51Z judge [combined reteach]: ~/tensorfold/venv/bin/python3 ~/llwz-tb/zengine/lwlogic.py judge ~/lw-runs/gb10-a-tb-explicit/neg-seed1-v2/set.json ~/lw-runs/gb10-a-tb-explicit/neg-seed1-v2/phases/baseline/answers.jsonl ~/lw-runs/gb10-a-tb-explicit/neg-seed1-v2/phases/teach/answers.jsonl ~/lw-runs/gb10-a-tb-explicit/neg-seed1-v2/phases/del-A.reteach/answers.jsonl --json ~/lw-runs/gb10-a-tb-explicit/neg-seed1-v2/combined/verdicts-reteach.json
+2026-10-15T10:09:51Z judge [combined reteach]: judged 114 answers against neg-seed1-v2; report ~/lw-runs/gb10-a-tb-explicit/neg-seed1-v2/combined/report-reteach.txt
+2026-10-15T10:09:51Z   baseline: thinking off 15/19 pass (1 unclear), thinking on 17/19 pass (0 unclear)
+2026-10-15T10:09:51Z   teach: thinking off 14/19 pass (1 unclear), thinking on 15/19 pass (0 unclear)
+2026-10-15T10:09:51Z   del-A: thinking off 15/19 pass (1 unclear), thinking on 17/19 pass (0 unclear)
+2026-10-15T10:09:51Z kept-stable inputs: kept-stable/reteach: teach + del-A
+2026-10-15T10:09:51Z reference teach, pocket teach: gap CURRENT off +0.00 on +0.00; negation off -0.21 on -0.14; all off -0.16 on -0.10
+2026-10-15T10:09:51Z reference report: ~/lw-runs/gb10-a-tb-explicit/neg-seed1-v2/reference/report.txt
+2026-10-15T10:09:51Z summary: ~/lw-runs/gb10-a-tb-explicit/neg-seed1-v2/summary.json
+2026-10-15T10:09:51Z === set neg-seed1-v2: exit code 0, 1.8 min
+2026-10-15T10:09:51Z === set 2/4: neg2-seed1-v2 (~/lw-runs/gb10-a-tb-explicit/neg2-seed1-v2/set.json) in ~/lw-runs/gb10-a-tb-explicit/neg2-seed1-v2
+2026-10-15T10:09:51Z lwrun neg2-seed1-v2: 2 lessons, 23 questions x thinking off,on = 46 answers per probe; steps ['teach', 'teach.notes']
+2026-10-15T10:09:51Z binary ~/tf108/zig-out/native/bin/tensorfold-native sha256 759114dd74b1ab08, --version: 'tensorfold-native 1.0.8'
+2026-10-15T10:09:51Z source ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8 (18.5 GB)
+2026-10-15T10:09:51Z step teach: every answer on file and judged; skipped (--resume)
+2026-10-15T10:09:51Z === step teach.notes (notes): phase teach, store ['L1', 'L2']
+2026-10-15T10:09:51Z step teach.notes: 2 notes (1 current) from 2 lessons; per question 92 tokens (p50, cap 512, framing included), lookup 103 us (p50); nothing retrieved for 3 of 23 questions (no system message there)
+2026-10-15T10:09:51Z serve the source read-only, without --slide: ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8
+2026-10-15T10:09:51Z server start [teach.notes]: ~/tf108/zig-out/native/bin/tensorfold-native serve ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8 --host 127.0.0.1 --port 18180 --no-update-check
+2026-10-15T10:09:57Z server ready [teach.notes] pid 2342858: health in 6.0 s, warm at 6.0 s
+2026-10-15T10:09:58Z   teach.notes        plain Q01 'Based on the information provided, I do not know your favourite colour. The most recent note indicates that yo' [stop, 0.3s]
+2026-10-15T10:09:58Z   teach.notes        plain Q02 'Based on the context provided, your favourite colour is no longer green, and no new colour has been mentioned ' [stop, 0.3s]
+2026-10-15T10:09:58Z   teach.notes        plain Q03 'Based on the context you provided, your favourite colour is no longer green, and no new colour was mentioned t' [stop, 0.3s]
+2026-10-15T10:09:58Z   teach.notes        plain Q04 "No, I don't know your favourite colour." [stop, 0.1s]
+2026-10-15T10:09:59Z   teach.notes        plain Q05 "No, I don't know your favourite colour." [stop, 0.1s]
+2026-10-15T10:09:59Z   teach.notes        plain Q06 'Based on the context provided, you do not currently have a stated favorite color. The only information availab' [stop, 0.5s]
+2026-10-15T10:10:00Z   teach.notes        plain Q07 'Based on the context provided, you do not currently have a stated favorite color. The only information availab' [stop, 0.6s]
+2026-10-15T10:10:00Z   teach.notes        plain Q08 "I don't know. I don't have any information about your sister's favourite colour." [stop, 0.1s]
+2026-10-15T10:10:01Z   teach.notes        plain Q09 "I don't know where you live! I don't have access to your personal information or location data. To find out yo" [stop, 1.0s]
+2026-10-15T10:10:01Z   teach.notes        plain Q10 'The sky is blue.' [stop, 0.1s]
+2026-10-15T10:10:01Z   teach.notes        plain Q11 'The three primary colours are: 1. **Red** 2. **Blue** 3. **Yellow**' [stop, 0.2s]
+2026-10-15T10:10:02Z   teach.notes        plain Q12 'A spider has **8 legs**. This is the defining characteristic of arachnids, the class of animals that includes ' [stop, 0.4s]
+2026-10-15T10:10:02Z   teach.notes        plain Q13 "No, I don't know your favourite colour." [stop, 0.1s]
+2026-10-15T10:10:02Z   teach.notes        plain Q14 "No, I don't know your favourite colour." [stop, 0.1s]
+2026-10-15T10:10:02Z   teach.notes        plain Q15 'False.' [stop, 0.1s]
+2026-10-15T10:10:02Z   teach.notes        plain Q16 'False.' [stop, 0.1s]
+2026-10-15T10:10:02Z   teach.notes        plain Q17 'My favourite colour is no longer green.' [stop, 0.1s]
+2026-10-15T10:10:02Z   teach.notes        plain Q18 'My favourite colour is no longer green. No.' [stop, 0.1s]
+2026-10-15T10:10:02Z   teach.notes        plain Q19 'My favourite colour is no longer green. No.' [stop, 0.1s]
+2026-10-15T10:10:03Z   teach.notes        plain Q20 'Based on the information provided, it is no longer known who likes green best. The previous record of "My favo' [stop, 0.4s]
+2026-10-15T10:10:03Z   teach.notes        plain Q21 'My favourite colour is no longer green.' [stop, 0.1s]
+2026-10-15T10:10:03Z   teach.notes        plain Q22 "No, I don't have any record of your favourite colour being green. In fact, you just told me that your favourit" [stop, 0.2s]
+2026-10-15T10:10:03Z   teach.notes        plain Q23 "No, I don't have any information about your sister's favourite colour. I only know that your favourite colour " [stop, 0.2s]
+2026-10-15T10:10:06Z   teach.notes        think Q01 'Based on the note you shared: your favorite color was previously green, but you\'ve since said it\'s "no longer ' [stop, 3.0s]
+2026-10-15T10:10:10Z   teach.notes        think Q02 "I don't know. According to the conversation history, your favorite color is no longer green and no new color h" [stop, 3.5s]
+2026-10-15T10:10:13Z   teach.notes        think Q03 'Based on the context provided, I don\'t know your current favorite color. The earlier favorite ("green") was ex' [stop, 3.3s]
+2026-10-15T10:10:16Z   teach.notes        think Q04 'No, it\'s not green anymore. According to the records, your favorite color was explicitly taken back as "no lon' [stop, 3.0s]
+2026-10-15T10:10:20Z   teach.notes        think Q05 'Based on the conversation history provided, your favorite color is no longer considered to be green, and no ne' [stop, 3.9s]
+2026-10-15T10:10:27Z   teach.notes        think Q06 'Based on the conversation context you provided: - You previously said: "My favourite colour is no longer green' [stop, 6.8s]
+2026-10-15T10:10:32Z   teach.notes        think Q07 'Based on the conversation history: your favorite color is noted as no longer green, and no new preference was ' [stop, 5.6s]
+2026-10-15T10:10:36Z   teach.notes        think Q08 "I don't have any information about your sister's favourite colour in our conversation. The only colour-related" [stop, 4.2s]
+2026-10-15T10:10:38Z   teach.notes        think Q09 "I don't know where you live. As an AI, I don't have access to your personal information, device location, or I" [stop, 2.0s]
+2026-10-15T10:10:40Z   teach.notes        think Q10 'The sky on a clear day is blue. This happens because of Rayleigh scattering: air molecules scatter shorter wav' [stop, 2.1s]
+2026-10-15T10:10:44Z   teach.notes        think Q11 'The three primary colors depend on the context, but the most traditional answer is: **Red, Yellow, and Blue** ' [stop, 3.7s]
+2026-10-15T10:10:45Z   teach.notes        think Q12 "Spiders have **8 legs**. They're part of the arachnid class, which also includes scorpions, ticks, and mites. " [stop, 1.5s]
+2026-10-15T10:10:50Z   teach.notes        think Q13 'Based on the notes I have, your favorite color was previously green, but that was taken back and no new color ' [stop, 4.8s]
+2026-10-15T10:10:55Z   teach.notes        think Q14 'Based on the conversation history you provided, your favorite color is not currently known. The only stated up' [stop, 4.6s]
+2026-10-15T10:11:06Z   teach.notes        think Q15 'False. The conversation history notes that your current favorite color is not known, so I cannot confirm the s' [stop, 10.9s]
+2026-10-15T10:11:18Z   teach.notes        think Q16 'False. The user explicitly stated, "My favourite colour is no longer green," and the accompanying note confirm' [stop, 12.4s]
+2026-10-15T10:11:26Z   teach.notes        think Q17 'I don\'t know the user\'s current favorite color. The previous value was explicitly taken back ("no longer green' [stop, 7.4s]
+2026-10-15T10:11:35Z   teach.notes        think Q18 'It is not known now. No.' [stop, 9.0s]
+2026-10-15T10:11:41Z   teach.notes        think Q19 'Your favourite colour is no longer green, and since no new colour was given, it is not known now. Is it green?' [stop, 6.7s]
+2026-10-15T10:11:45Z   teach.notes        think Q20 'Based on the note provided: `"My favourite colour is no longer green." (a take-back: the earlier value no long' [stop, 4.1s]
+2026-10-15T10:11:51Z   teach.notes        think Q21 'Based on the available memory notes: * You (me): previously had green as a favourite colour, but took it back.' [stop, 5.7s]
+2026-10-15T10:11:56Z   teach.notes        think Q22 'No. The note explicitly states: "My favourite colour is no longer green." It was a take-back — the earlier val' [stop, 5.3s]
+2026-10-15T10:12:01Z   teach.notes        think Q23 "I don't have any information about your sister's favorite color in our conversation. You previously mentioned " [stop, 4.5s]
+2026-10-15T10:12:01Z server stop [teach.notes] pid 2342858: probing done
+2026-10-15T10:12:01Z server [teach.notes] pid 2342858 exited with code 0
+2026-10-15T10:12:01Z probed teach.notes: 46/46 answers in 123.5 s
+2026-10-15T10:12:01Z judge [teach.notes]: ~/tensorfold/venv/bin/python3 ~/llwz-tb/zengine/lwlogic.py judge ~/lw-runs/gb10-a-tb-explicit/neg2-seed1-v2/set.json ~/lw-runs/gb10-a-tb-explicit/neg2-seed1-v2/phases/teach.notes/answers.jsonl --json ~/lw-runs/gb10-a-tb-explicit/neg2-seed1-v2/phases/teach.notes/verdicts.json
+2026-10-15T10:12:02Z judge [teach.notes]: judged 46 answers against neg2-seed1-v2; report ~/lw-runs/gb10-a-tb-explicit/neg2-seed1-v2/phases/teach.notes/report.txt
+2026-10-15T10:12:02Z   teach: thinking off 17/23 pass (1 unclear), thinking on 15/23 pass (1 unclear)
+2026-10-15T10:12:02Z judge [combined reteach]: ~/tensorfold/venv/bin/python3 ~/llwz-tb/zengine/lwlogic.py judge ~/lw-runs/gb10-a-tb-explicit/neg2-seed1-v2/set.json ~/lw-runs/gb10-a-tb-explicit/neg2-seed1-v2/phases/baseline/answers.jsonl ~/lw-runs/gb10-a-tb-explicit/neg2-seed1-v2/phases/teach/answers.jsonl ~/lw-runs/gb10-a-tb-explicit/neg2-seed1-v2/phases/del-A.reteach/answers.jsonl ~/lw-runs/gb10-a-tb-explicit/neg2-seed1-v2/phases/del-B.reteach/answers.jsonl --json ~/lw-runs/gb10-a-tb-explicit/neg2-seed1-v2/combined/verdicts-reteach.json
+2026-10-15T10:12:02Z judge [combined reteach]: judged 184 answers against neg2-seed1-v2; report ~/lw-runs/gb10-a-tb-explicit/neg2-seed1-v2/combined/report-reteach.txt
+2026-10-15T10:12:02Z   baseline: thinking off 15/23 pass (2 unclear), thinking on 20/23 pass (0 unclear)
+2026-10-15T10:12:02Z   teach: thinking off 10/23 pass (0 unclear), thinking on 11/23 pass (0 unclear)
+2026-10-15T10:12:02Z   del-A: thinking off 11/23 pass (0 unclear), thinking on 11/23 pass (0 unclear)
+2026-10-15T10:12:02Z   del-B: thinking off 14/23 pass (2 unclear), thinking on 17/23 pass (0 unclear)
+2026-10-15T10:12:02Z judge [combined zero]: ~/tensorfold/venv/bin/python3 ~/llwz-tb/zengine/lwlogic.py judge ~/lw-runs/gb10-a-tb-explicit/neg2-seed1-v2/set.json ~/lw-runs/gb10-a-tb-explicit/neg2-seed1-v2/phases/baseline/answers.jsonl ~/lw-runs/gb10-a-tb-explicit/neg2-seed1-v2/phases/teach/answers.jsonl ~/lw-runs/gb10-a-tb-explicit/neg2-seed1-v2/phases/del-A.zero/answers.jsonl ~/lw-runs/gb10-a-tb-explicit/neg2-seed1-v2/phases/del-B.zero/answers.jsonl --json ~/lw-runs/gb10-a-tb-explicit/neg2-seed1-v2/combined/verdicts-zero.json
+2026-10-15T10:12:02Z judge [combined zero]: judged 184 answers against neg2-seed1-v2; report ~/lw-runs/gb10-a-tb-explicit/neg2-seed1-v2/combined/report-zero.txt
+2026-10-15T10:12:02Z   baseline: thinking off 15/23 pass (2 unclear), thinking on 20/23 pass (0 unclear)
+2026-10-15T10:12:02Z   teach: thinking off 10/23 pass (0 unclear), thinking on 11/23 pass (0 unclear)
+2026-10-15T10:12:02Z   del-A: thinking off 11/23 pass (0 unclear), thinking on 11/23 pass (0 unclear)
+2026-10-15T10:12:02Z   del-B: thinking off 14/23 pass (2 unclear), thinking on 17/23 pass (0 unclear)
+2026-10-15T10:12:02Z kept-stable inputs: kept-stable/reteach: teach + del-A, del-B; zero: teach + del-A, del-B
+2026-10-15T10:12:02Z zero vs reteach on del-A: thinking off: same verdict 23/23, same text 23; thinking on: same verdict 23/23, same text 23
+2026-10-15T10:12:02Z zero vs reteach on del-B: thinking off: same verdict 23/23, same text 23; thinking on: same verdict 23/23, same text 23
+2026-10-15T10:12:02Z reference teach, pocket teach: gap CURRENT off +0.75 on +0.75; WHO_HAS off +0.00 on +0.00; negation off +0.35 on +0.00; all off +0.30 on +0.00
+2026-10-15T10:12:02Z reference report: ~/lw-runs/gb10-a-tb-explicit/neg2-seed1-v2/reference/report.txt
+2026-10-15T10:12:02Z summary: ~/lw-runs/gb10-a-tb-explicit/neg2-seed1-v2/summary.json
+2026-10-15T10:12:02Z === set neg2-seed1-v2: exit code 0, 2.2 min
+2026-10-15T10:12:02Z === set 3/4: L5-seed1-v2 (~/lw-runs/gb10-a-tb-explicit/L5-seed1-v2/set.json) in ~/lw-runs/gb10-a-tb-explicit/L5-seed1-v2
+2026-10-15T10:12:02Z lwrun L5-seed1-v2: 17 lessons, 77 questions x thinking off,on = 154 answers per probe; steps ['teach', 'teach.notes']
+2026-10-15T10:12:02Z binary ~/tf108/zig-out/native/bin/tensorfold-native sha256 759114dd74b1ab08, --version: 'tensorfold-native 1.0.8'
+2026-10-15T10:12:02Z source ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8 (18.5 GB)
+2026-10-15T10:12:02Z step teach: every answer on file and judged; skipped (--resume)
+2026-10-15T10:12:02Z === step teach.notes (notes): phase teach, store ['L1', 'L2', 'L3', 'L4', 'L5', 'L6', 'L7', 'L8', 'L9', 'L10', 'L11', 'L12', 'L13', 'L14', 'L15', 'L16', 'L17']
+2026-10-15T10:12:02Z step teach.notes: 15 notes (4 current) from 17 lessons; per question 104 tokens (p50, cap 512, framing included), lookup 121 us (p50); nothing retrieved for 1 of 77 questions (no system message there)
+2026-10-15T10:12:02Z serve the source read-only, without --slide: ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8
+2026-10-15T10:12:02Z server start [teach.notes]: ~/tf108/zig-out/native/bin/tensorfold-native serve ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8 --host 127.0.0.1 --port 18180 --no-update-check
+2026-10-15T10:12:08Z server ready [teach.notes] pid 2366112: health in 6.0 s, warm at 6.0 s
+2026-10-15T10:12:08Z   teach.notes        plain Q01 'Your favourite colour is blue.' [stop, 0.1s]
+2026-10-15T10:12:08Z   teach.notes        plain Q02 'Yes, your favourite colour is blue.' [stop, 0.1s]
+2026-10-15T10:12:08Z   teach.notes        plain Q03 'Based on your previous messages, you like blue best. You said: "My favourite colour is blue."' [stop, 0.2s]
+2026-10-15T10:12:09Z   teach.notes        plain Q04 'Your favourite colour used to be red.' [stop, 0.2s]
+2026-10-15T10:12:09Z   teach.notes        plain Q05 'No, it has changed over time.' [stop, 0.1s]
+2026-10-15T10:12:09Z   teach.notes        plain Q06 'Yes. Your favourite colour has changed. It is currently blue, but it was red until 16 December 2025, and befor' [stop, 0.4s]
+2026-10-15T10:12:09Z   teach.notes        plain Q07 'red' [stop, 0.1s]
+2026-10-15T10:12:09Z   teach.notes        plain Q08 'red' [stop, 0.1s]
+2026-10-15T10:12:09Z   teach.notes        plain Q09 "The colour of your dog's eyes is blue." [stop, 0.1s]
+2026-10-15T10:12:09Z   teach.notes        plain Q10 "Yes, your dog's eyes are blue." [stop, 0.1s]
+2026-10-15T10:12:09Z   teach.notes        plain Q11 "Your dog's eyes are blue." [stop, 0.1s]
+2026-10-15T10:12:10Z   teach.notes        plain Q12 "My dog's eyes were brown until 22 July 2025; now they are hazel." [stop, 0.2s]
+2026-10-15T10:12:10Z   teach.notes        plain Q13 "No, they have not. Your dog's eyes were brown until 22 July 2025, and now they are hazel." [stop, 0.2s]
+2026-10-15T10:12:10Z   teach.notes        plain Q14 "No, my dog's eyes have always been blue." [stop, 0.1s]
+2026-10-15T10:12:10Z   teach.notes        plain Q15 "My dog's eyes were brown until 22 July 2025; now they are hazel." [stop, 0.1s]
+2026-10-15T10:12:10Z   teach.notes        plain Q16 "My dog's eyes were brown until 22 July 2025; now they are hazel." [stop, 0.1s]
+2026-10-15T10:12:11Z   teach.notes        plain Q17 "My name is Nemotron, and I'm a language model developed by NVIDIA. I have no access to your personal data unle" [stop, 0.3s]
+2026-10-15T10:12:11Z   teach.notes        plain Q18 'Yes, according to your earlier message, your car is named Bruno.' [stop, 0.1s]
+2026-10-15T10:12:11Z   teach.notes        plain Q19 'Your car is called Bruno.' [stop, 0.1s]
+2026-10-15T10:12:11Z   teach.notes        plain Q20 'My car is named Bruno.' [stop, 0.2s]
+2026-10-15T10:12:11Z   teach.notes        plain Q21 'No, my car is named Bruno.' [stop, 0.2s]
+2026-10-15T10:12:12Z   teach.notes        plain Q22 'Yes. [10] "My car has a new name; it is called Milo now." (no longer current: replaced on 12 October 2026 by [' [stop, 0.4s]
+2026-10-15T10:12:12Z   teach.notes        plain Q23 "My dog's name is Otto." [stop, 0.1s]
+2026-10-15T10:12:12Z   teach.notes        plain Q24 "Yes, according to your own words, your dog's name is Otto." [stop, 0.1s]
+2026-10-15T10:12:12Z   teach.notes        plain Q25 'Your dog is called **Otto**.' [stop, 0.1s]
+2026-10-15T10:12:12Z   teach.notes        plain Q26 'My dog was called Ana until 23 December 2025.' [stop, 0.2s]
+2026-10-15T10:12:12Z   teach.notes        plain Q27 "No, my dog's name has changed over time. It was previously called Ana, then Elsa, and then Milo, before being " [stop, 0.3s]
+2026-10-15T10:12:13Z   teach.notes        plain Q28 'Yes. According to your records, your dog was previously named Ana until 23 December 2025, and before that, it ' [stop, 0.4s]
+2026-10-15T10:12:13Z   teach.notes        plain Q29 'My dog was called Ana.' [stop, 0.1s]
+2026-10-15T10:12:13Z   teach.notes        plain Q30 'My dog was called Milo.' [stop, 0.1s]
+2026-10-15T10:12:13Z   teach.notes        plain Q31 'My favourite colour is blue.' [stop, 0.1s]
+2026-10-15T10:12:13Z   teach.notes        plain Q32 "I don't know. I have no information about your sister's favourite colour." [stop, 0.1s]
+2026-10-15T10:12:14Z   teach.notes        plain Q33 "I don't have information about your eye colour. The previous messages you shared were about your car (Bruno), " [stop, 0.4s]
+2026-10-15T10:12:14Z   teach.notes        plain Q34 'The sky is blue.' [stop, 0.1s]
+2026-10-15T10:12:14Z   teach.notes        plain Q35 'A young cat is called a **kitten**.' [stop, 0.1s]
+2026-10-15T10:12:14Z   teach.notes        plain Q36 'Paris' [stop, 0.1s]
+2026-10-15T10:12:14Z   teach.notes        plain Q37 'No, your favourite colour is blue.' [stop, 0.1s]
+2026-10-15T10:12:14Z   teach.notes        plain Q38 'No, you said your favourite colour is blue.' [stop, 0.1s]
+2026-10-15T10:12:14Z   teach.notes        plain Q39 'No, your favourite colour is blue.' [stop, 0.1s]
+2026-10-15T10:12:14Z   teach.notes        plain Q40 'False.' [stop, 0.1s]
+2026-10-15T10:12:14Z   teach.notes        plain Q41 'True.' [stop, 0.1s]
+2026-10-15T10:12:14Z   teach.notes        plain Q42 'My favourite colour is blue.' [stop, 0.1s]
+2026-10-15T10:12:14Z   teach.notes        plain Q43 'My favourite colour is blue. No.' [stop, 0.1s]
+2026-10-15T10:12:15Z   teach.notes        plain Q44 'My favourite colour is blue. Yes.' [stop, 0.1s]
+2026-10-15T10:12:15Z   teach.notes        plain Q45 'No, it is not true. You stated in your earlier messages that "The colour of my dog\'s eyes is blue."' [stop, 0.2s]
+2026-10-15T10:12:15Z   teach.notes        plain Q46 'False.' [stop, 0.1s]
+2026-10-15T10:12:15Z   teach.notes        plain Q47 'True.' [stop, 0.1s]
+2026-10-15T10:12:15Z   teach.notes        plain Q48 "My dog's eyes are blue." [stop, 0.1s]
+2026-10-15T10:12:15Z   teach.notes        plain Q49 "The colour of my dog's eyes is blue. no" [stop, 0.1s]
+2026-10-15T10:12:15Z   teach.notes        plain Q50 "The colour of my dog's eyes is blue. yes" [stop, 0.1s]
+2026-10-15T10:12:15Z   teach.notes        plain Q51 'No, your car is named Bruno.' [stop, 0.1s]
+2026-10-15T10:12:15Z   teach.notes        plain Q52 'No, your car is named Bruno.' [stop, 0.1s]
+2026-10-15T10:12:15Z   teach.notes        plain Q53 'No, your car is named Bruno.' [stop, 0.1s]
+2026-10-15T10:12:16Z   teach.notes        plain Q54 'False.' [stop, 0.1s]
+2026-10-15T10:12:16Z   teach.notes        plain Q55 'True.' [stop, 0.1s]
+2026-10-15T10:12:16Z   teach.notes        plain Q56 "My car's name is Bruno." [stop, 0.1s]
+2026-10-15T10:12:16Z   teach.notes        plain Q57 'My car is called Bruno. No.' [stop, 0.1s]
+2026-10-15T10:12:16Z   teach.notes        plain Q58 'My car is called Bruno. Yes.' [stop, 0.1s]
+2026-10-15T10:12:16Z   teach.notes        plain Q59 'No, your dog is called Otto.' [stop, 0.1s]
+2026-10-15T10:12:16Z   teach.notes        plain Q60 'No, your dog is called Otto.' [stop, 0.1s]
+2026-10-15T10:12:16Z   teach.notes        plain Q61 "No, your dog's name is Otto." [stop, 0.1s]
+2026-10-15T10:12:16Z   teach.notes        plain Q62 'False. Your dog is called Otto.' [stop, 0.1s]
+2026-10-15T10:12:16Z   teach.notes        plain Q63 'True.' [stop, 0.1s]
+2026-10-15T10:12:16Z   teach.notes        plain Q64 'Otto' [stop, 0.1s]
+2026-10-15T10:12:17Z   teach.notes        plain Q65 'My dog is called Otto. No.' [stop, 0.1s]
+2026-10-15T10:12:17Z   teach.notes        plain Q66 'My dog is called Otto. Yes.' [stop, 0.1s]
+2026-10-15T10:12:17Z   teach.notes        plain Q67 'My favourite colour is blue.' [stop, 0.1s]
+2026-10-15T10:12:17Z   teach.notes        plain Q68 'Yes, you are the one whose favourite colour is blue.' [stop, 0.1s]
+2026-10-15T10:12:17Z   teach.notes        plain Q69 'No, I am an AI and do not have a sister.' [stop, 0.1s]
+2026-10-15T10:12:17Z   teach.notes        plain Q70 "My favourite colour is blue. The colour of my dog's eyes is blue. My dog's name is Otto." [stop, 0.2s]
+2026-10-15T10:12:17Z   teach.notes        plain Q71 "My dog's name is Otto." [stop, 0.1s]
+2026-10-15T10:12:17Z   teach.notes        plain Q72 'Yes, according to your statements, your dog Otto has blue eyes.' [stop, 0.1s]
+2026-10-15T10:12:18Z   teach.notes        plain Q73 'No, you have brown eyes.' [stop, 0.1s]
+2026-10-15T10:12:18Z   teach.notes        plain Q74 "My dog's name is Otto." [stop, 0.1s]
+2026-10-15T10:12:18Z   teach.notes        plain Q75 "My dog's name is Otto." [stop, 0.1s]
+2026-10-15T10:12:18Z   teach.notes        plain Q76 'Yes, according to your own words, your dog is called Otto.' [stop, 0.1s]
+2026-10-15T10:12:18Z   teach.notes        plain Q77 'No, your car is named Bruno and your dog is named Otto.' [stop, 0.1s]
+2026-10-15T10:12:22Z   teach.notes        think Q01 'Your favorite color is blue. (You mentioned it in: "My favourite colour is blue.")' [stop, 3.5s]
+2026-10-15T10:12:23Z   teach.notes        think Q02 'Yes. In message [13], you said: "My favourite colour is blue."' [stop, 1.7s]
+2026-10-15T10:12:27Z   teach.notes        think Q03 'Based on what you\'ve shared, your favorite color is blue. You said, "My favourite colour is blue." There\'s no ' [stop, 3.4s]
+2026-10-15T10:13:01Z   teach.notes        think Q04 'Your favourite colour is currently **blue** (as in [13] "My favourite colour is blue."). Before it became blue' [stop, 34.8s]
+2026-10-15T10:13:17Z   teach.notes        think Q05 'No, your favourite colour has not always been the same. The recorded memory shows it has changed multiple time' [stop, 15.5s]
+2026-10-15T10:13:30Z   teach.notes        think Q06 'Yes. Your recorded statements show your favourite colour has changed multiple times: it was red until 16 Decem' [stop, 13.0s]
+2026-10-15T10:13:50Z   teach.notes        think Q07 'Red' [stop, 20.5s]
+2026-10-15T10:14:12Z   teach.notes        think Q08 'Based on your earlier note [8]: > "Until 16 December 2025, my favourite colour was red. Since then it has been' [stop, 21.6s]
+2026-10-15T10:14:14Z   teach.notes        think Q09 "The colour of your dog's eyes is blue." [stop, 2.2s]
+2026-10-15T10:14:17Z   teach.notes        think Q10 'Yes, you mentioned earlier: "The colour of my dog\'s eyes is blue." So yes, your dog\'s eyes are blue.' [stop, 2.9s]
+2026-10-15T10:14:20Z   teach.notes        think Q11 'Yes. You previously said, "The colour of my dog\'s eyes is blue." So your dog\'s eyes are blue.' [stop, 2.9s]
+2026-10-15T10:14:45Z   teach.notes        think Q12 "Based on the notes you provided, your dog's eye color has been described in several updates over time: - Origi" [stop, 24.8s]
+2026-10-15T10:15:06Z   teach.notes        think Q13 "No. Based on the recorded history, you've reported multiple changes to your dog's eye color: green ([2]), then" [stop, 20.6s]
+2026-10-15T10:15:22Z   teach.notes        think Q14 "Looking at your memory, several statements about your dog's eye color have been recorded and later updated or " [stop, 16.9s]
+2026-10-15T10:15:46Z   teach.notes        think Q15 'Before 22 July 2025, your dog\'s eyes were brown. This comes from note [9]: "My dog\'s eyes were brown until 22 ' [stop, 23.8s]
+2026-10-15T10:16:20Z   teach.notes        think Q16 'Based on your note [9], you stated: "My dog\'s eyes were brown until 22 July 2025; now they are hazel." Since 2' [stop, 33.5s]
+2026-10-15T10:16:22Z   teach.notes        think Q17 'Your car is named Bruno.' [stop, 1.7s]
+2026-10-15T10:16:24Z   teach.notes        think Q18 'Yes. You previously said, "My car is named Bruno."' [stop, 2.6s]
+2026-10-15T10:16:27Z   teach.notes        think Q19 "Your car is called **Bruno**. (Your dog's name is Otto, but your car is Bruno.)" [stop, 2.5s]
+2026-10-15T10:16:38Z   teach.notes        think Q20 "Based on the recorded notes, your car's name has changed a few times: - It was called **Elsa** (this was the n" [stop, 11.6s]
+2026-10-15T10:16:46Z   teach.notes        think Q21 "No. Based on the conversation history, your car's name has changed at least twice: - It was previously called " [stop, 7.9s]
+2026-10-15T10:16:53Z   teach.notes        think Q22 'Yes. Based on your memory history, your car has had multiple names: - **Current name:** Bruno (recorded in [12' [stop, 6.5s]
+2026-10-15T10:16:54Z   teach.notes        think Q23 "Your dog's name is Otto." [stop, 1.7s]
+2026-10-15T10:16:56Z   teach.notes        think Q24 'Yes. According to what you\'ve shared, your dog\'s name is Otto. (Quote [15] says: "My dog\'s name is Otto.")' [stop, 1.7s]
+2026-10-15T10:16:59Z   teach.notes        think Q25 'Your dog is called Otto. (That\'s what you said in note [15]: "My dog\'s name is Otto.")' [stop, 2.7s]
+2026-10-15T10:17:19Z   teach.notes        think Q26 'Your dog was called **Ana** before it was named Otto (until 23 December 2025).' [stop, 20.1s]
+2026-10-15T10:17:40Z   teach.notes        think Q27 'No. According to your recorded memories, your dog has had multiple names over time: - You stated: *"Until 23 D' [stop, 21.0s]
+2026-10-15T10:18:02Z   teach.notes        think Q28 'Yes. Based on the memory, your dog has had several different names: it was called **Ana** until 23 December 20' [stop, 22.5s]
+2026-10-15T10:18:28Z   teach.notes        think Q29 'Before 23 December 2025, your dog was called **Ana**. (This is from note [4]: "Until 23 December 2025, my dog ' [stop, 26.2s]
+2026-10-15T10:19:08Z   teach.notes        think Q30 '' [length, 39.1s]
+2026-10-15T10:19:11Z   teach.notes        think Q31 'The user likes blue best, as they said "My favourite colour is blue." (quote [13]).' [stop, 3.4s]
+2026-10-15T10:19:15Z   teach.notes        think Q32 "I don't have any information about your sister's favorite color in our conversation history. The only colors m" [stop, 3.9s]
+2026-10-15T10:19:20Z   teach.notes        think Q33 "Based on the conversation history you provided, there's no mention of the colour of your eyes. I can see that " [stop, 5.5s]
+2026-10-15T10:19:24Z   teach.notes        think Q34 'The sky on a clear day appears **blue**. This happens because of Rayleigh scattering: sunlight collides with m' [stop, 3.2s]
+2026-10-15T10:19:25Z   teach.notes        think Q35 'A young cat is called a **kitten**.' [stop, 1.2s]
+2026-10-15T10:19:27Z   teach.notes        think Q36 'The capital of France is Paris.' [stop, 1.8s]
+2026-10-15T10:19:29Z   teach.notes        think Q37 'No. According to what you said earlier, your favourite colour is blue.' [stop, 2.9s]
+2026-10-15T10:19:33Z   teach.notes        think Q38 'No. You said your favourite colour is blue.' [stop, 3.4s]
+2026-10-15T10:19:37Z   teach.notes        think Q39 'No, based on the conversation history you provided, your favorite color is blue (you said: "My favourite colou' [stop, 4.3s]
+2026-10-15T10:19:40Z   teach.notes        think Q40 'False. According to your earlier message, your favourite colour is blue.' [stop, 2.8s]
+2026-10-15T10:19:42Z   teach.notes        think Q41 'True. You stated in [13]: "My favourite colour is blue."' [stop, 1.9s]
+2026-10-15T10:19:45Z   teach.notes        think Q42 'My favourite colour is blue.' [stop, 2.9s]
+2026-10-15T10:19:51Z   teach.notes        think Q43 'blue no' [stop, 5.8s]
+2026-10-15T10:19:53Z   teach.notes        think Q44 'My favourite colour is blue. yes' [stop, 2.8s]
+2026-10-15T10:19:58Z   teach.notes        think Q45 'No. In your earlier note, you said, "The colour of my dog\'s eyes is blue." So according to your own statement,' [stop, 4.9s]
+2026-10-15T10:20:01Z   teach.notes        think Q46 'False. You previously stated, "The colour of my dog\'s eyes is blue."' [stop, 3.1s]
+2026-10-15T10:20:06Z   teach.notes        think Q47 'True. The user previously stated, "The colour of my dog\'s eyes is blue."' [stop, 4.3s]
+2026-10-15T10:20:10Z   teach.notes        think Q48 "My dog's eyes are blue." [stop, 4.5s]
+2026-10-15T10:20:13Z   teach.notes        think Q49 'blue. No.' [stop, 2.8s]
+2026-10-15T10:20:15Z   teach.notes        think Q50 "The colour of your dog's eyes is blue. Yes." [stop, 2.4s]
+2026-10-15T10:20:18Z   teach.notes        think Q51 'No, your car is called Bruno. (That\'s from your note: "My car is named Bruno.")' [stop, 2.6s]
+2026-10-15T10:20:20Z   teach.notes        think Q52 "No, your car is named Bruno. Otto is your dog's name." [stop, 2.4s]
+2026-10-15T10:20:22Z   teach.notes        think Q53 'No, your car is named Bruno. (That\'s what you said in [12]: "My car is named Bruno.")' [stop, 2.1s]
+2026-10-15T10:20:24Z   teach.notes        think Q54 'False. In the conversation history, you said, "My car is named Bruno."' [stop, 1.9s]
+2026-10-15T10:20:26Z   teach.notes        think Q55 'True.' [stop, 1.7s]
+2026-10-15T10:20:29Z   teach.notes        think Q56 "My car's name is Bruno." [stop, 2.7s]
+2026-10-15T10:20:32Z   teach.notes        think Q57 'My car is called Bruno. No.' [stop, 3.6s]
+2026-10-15T10:20:36Z   teach.notes        think Q58 'Bruno Yes' [stop, 3.7s]
+2026-10-15T10:20:38Z   teach.notes        think Q59 'No, your dog is named **Otto**. (From your earlier message: "My dog\'s name is Otto.") Your car is the one name' [stop, 2.4s]
+2026-10-15T10:20:40Z   teach.notes        think Q60 "No, your dog is called Otto, not Pablo. Based on your memory, your dog's name is Otto." [stop, 2.2s]
+2026-10-15T10:20:45Z   teach.notes        think Q61 "Based on your earlier note, your dog's name is Otto, not Nora." [stop, 4.7s]
+2026-10-15T10:20:47Z   teach.notes        think Q62 "False. The notes state your dog's name is Otto, and your car is named Bruno." [stop, 2.2s]
+2026-10-15T10:20:49Z   teach.notes        think Q63 'True.' [stop, 2.0s]
+2026-10-15T10:20:58Z   teach.notes        think Q64 "My dog's name is Otto." [stop, 8.6s]
+2026-10-15T10:21:01Z   teach.notes        think Q65 'Otto. No' [stop, 2.9s]
+2026-10-15T10:21:05Z   teach.notes        think Q66 'Otto. Yes.' [stop, 4.6s]
+2026-10-15T10:21:09Z   teach.notes        think Q67 'Based on the given information, it\'s "me" whose favourite colour is blue. The notes don\'t mention the sister o' [stop, 4.1s]
+2026-10-15T10:21:13Z   teach.notes        think Q68 'Yes. You stated earlier: "My favourite colour is blue." So it is you whose favorite color is blue.' [stop, 3.8s]
+2026-10-15T10:21:18Z   teach.notes        think Q69 'Based on the remembered messages, you said: "My favourite colour is blue." There is no mention of your sister ' [stop, 4.7s]
+2026-10-15T10:21:21Z   teach.notes        think Q70 'Based on the context you shared: - **Otto** (your dog) has blue eyes. - You mentioned your favorite color is b' [stop, 3.4s]
+2026-10-15T10:21:26Z   teach.notes        think Q71 "Based on the information you've shared, your dog Otto has blue eyes. There's no mention of your cat's eye colo" [stop, 4.1s]
+2026-10-15T10:21:28Z   teach.notes        think Q72 'Yes. You mentioned that "The colour of my dog\'s eyes is blue," and his name is Otto.' [stop, 2.5s]
+2026-10-15T10:21:34Z   teach.notes        think Q73 'None of the earlier statements indicate that you have blue eyes. You mentioned your favorite color is blue and' [stop, 6.3s]
+2026-10-15T10:21:36Z   teach.notes        think Q74 'According to your note, your dog is named Otto. (From your quote: "My dog\'s name is Otto.")' [stop, 1.9s]
+2026-10-15T10:21:38Z   teach.notes        think Q75 'My dog is called Otto.' [stop, 2.0s]
+2026-10-15T10:21:41Z   teach.notes        think Q76 'Yes, based on what you shared, your dog\'s name is Otto. (From your quote [15]: "My dog\'s name is Otto.")' [stop, 2.3s]
+2026-10-15T10:21:43Z   teach.notes        think Q77 "No. Your car is named **Bruno**, and **Otto** is your dog's name." [stop, 2.3s]
+2026-10-15T10:21:43Z server stop [teach.notes] pid 2366112: probing done
+2026-10-15T10:21:43Z server [teach.notes] pid 2366112 exited with code 0
+2026-10-15T10:21:43Z probed teach.notes: 154/154 answers in 574.8 s
+2026-10-15T10:21:43Z judge [teach.notes]: ~/tensorfold/venv/bin/python3 ~/llwz-tb/zengine/lwlogic.py judge ~/lw-runs/gb10-a-tb-explicit/L5-seed1-v2/set.json ~/lw-runs/gb10-a-tb-explicit/L5-seed1-v2/phases/teach.notes/answers.jsonl --json ~/lw-runs/gb10-a-tb-explicit/L5-seed1-v2/phases/teach.notes/verdicts.json
+2026-10-15T10:21:44Z judge [teach.notes]: judged 154 answers against L5-seed1-v2; report ~/lw-runs/gb10-a-tb-explicit/L5-seed1-v2/phases/teach.notes/report.txt
+2026-10-15T10:21:44Z   teach: thinking off 63/77 pass (0 unclear), thinking on 62/77 pass (5 unclear)
+2026-10-15T10:21:44Z judge [combined reteach]: ~/tensorfold/venv/bin/python3 ~/llwz-tb/zengine/lwlogic.py judge ~/lw-runs/gb10-a-tb-explicit/L5-seed1-v2/set.json ~/lw-runs/gb10-a-tb-explicit/L5-seed1-v2/phases/baseline/answers.jsonl ~/lw-runs/gb10-a-tb-explicit/L5-seed1-v2/phases/teach/answers.jsonl ~/lw-runs/gb10-a-tb-explicit/L5-seed1-v2/phases/del-A.reteach/answers.jsonl ~/lw-runs/gb10-a-tb-explicit/L5-seed1-v2/phases/del-B.reteach/answers.jsonl --json ~/lw-runs/gb10-a-tb-explicit/L5-seed1-v2/combined/verdicts-reteach.json
+2026-10-15T10:21:44Z judge [combined reteach]: judged 616 answers against L5-seed1-v2; report ~/lw-runs/gb10-a-tb-explicit/L5-seed1-v2/combined/report-reteach.txt
+2026-10-15T10:21:44Z   baseline: thinking off 49/77 pass (5 unclear), thinking on 69/77 pass (3 unclear)
+2026-10-15T10:21:44Z   teach: thinking off 38/77 pass (2 unclear), thinking on 30/77 pass (12 unclear)
+2026-10-15T10:21:44Z   del-A: thinking off 40/77 pass (1 unclear), thinking on 25/77 pass (9 unclear)
+2026-10-15T10:21:44Z   del-B: thinking off 39/77 pass (1 unclear), thinking on 36/77 pass (6 unclear)
+2026-10-15T10:21:44Z judge [combined zero]: ~/tensorfold/venv/bin/python3 ~/llwz-tb/zengine/lwlogic.py judge ~/lw-runs/gb10-a-tb-explicit/L5-seed1-v2/set.json ~/lw-runs/gb10-a-tb-explicit/L5-seed1-v2/phases/baseline/answers.jsonl ~/lw-runs/gb10-a-tb-explicit/L5-seed1-v2/phases/teach/answers.jsonl ~/lw-runs/gb10-a-tb-explicit/L5-seed1-v2/phases/del-A.zero/answers.jsonl ~/lw-runs/gb10-a-tb-explicit/L5-seed1-v2/phases/del-B.zero/answers.jsonl --json ~/lw-runs/gb10-a-tb-explicit/L5-seed1-v2/combined/verdicts-zero.json
+2026-10-15T10:21:44Z judge [combined zero]: judged 616 answers against L5-seed1-v2; report ~/lw-runs/gb10-a-tb-explicit/L5-seed1-v2/combined/report-zero.txt
+2026-10-15T10:21:44Z   baseline: thinking off 49/77 pass (5 unclear), thinking on 69/77 pass (3 unclear)
+2026-10-15T10:21:44Z   teach: thinking off 38/77 pass (2 unclear), thinking on 30/77 pass (12 unclear)
+2026-10-15T10:21:44Z   del-A: thinking off 36/77 pass (6 unclear), thinking on 21/77 pass (13 unclear)
+2026-10-15T10:21:44Z   del-B: thinking off 41/77 pass (3 unclear), thinking on 29/77 pass (16 unclear)
+2026-10-15T10:21:44Z kept-stable inputs: kept-stable/reteach: teach + del-A, del-B; zero: teach + del-A, del-B
+2026-10-15T10:21:44Z zero vs reteach on del-A: thinking off: same verdict 61/77, same text 18; thinking on: same verdict 57/77, same text 8
+2026-10-15T10:21:44Z zero vs reteach on del-B: thinking off: same verdict 70/77, same text 29; thinking on: same verdict 56/77, same text 11
+2026-10-15T10:21:44Z reference teach, pocket teach: gap CURRENT off +0.00 on +0.25; WHO_HAS off +0.50 on +0.50; negation off +0.00 on +0.33; dates off +0.17 on +0.17; all off +0.16 on +0.29
+2026-10-15T10:21:44Z reference report: ~/lw-runs/gb10-a-tb-explicit/L5-seed1-v2/reference/report.txt
+2026-10-15T10:21:44Z summary: ~/lw-runs/gb10-a-tb-explicit/L5-seed1-v2/summary.json
+2026-10-15T10:21:44Z === set L5-seed1-v2: exit code 0, 9.7 min
+2026-10-15T10:21:44Z === set 4/4: L6-seed1 (~/lw-runs/gb10-a-tb-explicit/L6-seed1/set.json) in ~/lw-runs/gb10-a-tb-explicit/L6-seed1
+2026-10-15T10:21:44Z lwrun L6-seed1: 29 lessons, 56 questions x thinking off,on = 112 answers per probe; steps ['teach', 'teach.notes']
+2026-10-15T10:21:44Z binary ~/tf108/zig-out/native/bin/tensorfold-native sha256 759114dd74b1ab08, --version: 'tensorfold-native 1.0.8'
+2026-10-15T10:21:44Z source ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8 (18.5 GB)
+2026-10-15T10:21:44Z step teach: every answer on file and judged; skipped (--resume)
+2026-10-15T10:21:44Z === step teach.notes (notes): phase teach, store ['L1', 'L2', 'L3', 'L4', 'L5', 'L6', 'L7', 'L8', 'L9', 'L10', 'L11', 'L12', 'L13', 'L14', 'L15', 'L16', 'L17', 'L18', 'L19', 'L20', 'L21', 'L22', 'L23', 'L24', 'L25', 'L26', 'L27', 'L28', 'L29']
+2026-10-15T10:21:44Z step teach.notes: 29 notes (24 current) from 29 lessons; per question 340 tokens (p50, cap 512, framing included), lookup 329 us (p50); nothing retrieved for 0 of 56 questions (no system message there)
+2026-10-15T10:21:44Z serve the source read-only, without --slide: ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8
+2026-10-15T10:21:44Z server start [teach.notes]: ~/tf108/zig-out/native/bin/tensorfold-native serve ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8 --host 127.0.0.1 --port 18180 --no-update-check
+2026-10-15T10:21:50Z server ready [teach.notes] pid 2470085: health in 6.0 s, warm at 6.0 s
+2026-10-15T10:21:50Z   teach.notes        plain Q01 'Lisbon' [stop, 0.1s]
+2026-10-15T10:21:51Z   teach.notes        plain Q02 'My sister lives in Turku.' [stop, 0.2s]
+2026-10-15T10:21:51Z   teach.notes        plain Q03 'My brother.' [stop, 0.1s]
+2026-10-15T10:21:51Z   teach.notes        plain Q04 'The tent belongs to me.' [stop, 0.1s]
+2026-10-15T10:21:51Z   teach.notes        plain Q05 'Your eyes are green.' [stop, 0.1s]
+2026-10-15T10:21:51Z   teach.notes        plain Q06 'My sister has brown eyes.' [stop, 0.1s]
+2026-10-15T10:21:51Z   teach.notes        plain Q07 'amber' [stop, 0.1s]
+2026-10-15T10:21:51Z   teach.notes        plain Q08 'My dog has grey eyes.' [stop, 0.1s]
+2026-10-15T10:21:52Z   teach.notes        plain Q09 "My sister's name is Ana." [stop, 0.1s]
+2026-10-15T10:21:52Z   teach.notes        plain Q10 'Otto' [stop, 0.1s]
+2026-10-15T10:21:52Z   teach.notes        plain Q11 "My cat's name is Milo." [stop, 0.1s]
+2026-10-15T10:21:52Z   teach.notes        plain Q12 'My dog is called Bruno.' [stop, 0.1s]
+2026-10-15T10:21:52Z   teach.notes        plain Q13 'Yes.' [stop, 0.1s]
+2026-10-15T10:21:52Z   teach.notes        plain Q14 'Yes.' [stop, 0.1s]
+2026-10-15T10:21:52Z   teach.notes        plain Q15 'Lisbon is in Portugal.' [stop, 0.2s]
+2026-10-15T10:21:52Z   teach.notes        plain Q16 'Yes, you live in Lisbon, Portugal.' [stop, 0.1s]
+2026-10-15T10:21:52Z   teach.notes        plain Q17 'My brother lives in the same city as my sister. My sister lives in Turku.' [stop, 0.1s]
+2026-10-15T10:21:52Z   teach.notes        plain Q18 "Your cat's eyes are green." [stop, 0.1s]
+2026-10-15T10:21:53Z   teach.notes        plain Q19 'My brother lives in Turku.' [stop, 0.1s]
+2026-10-15T10:21:53Z   teach.notes        plain Q20 'amber' [stop, 0.1s]
+2026-10-15T10:21:53Z   teach.notes        plain Q21 'No, the owner of the boat is my brother, and his eye colour is amber.' [stop, 0.2s]
+2026-10-15T10:21:53Z   teach.notes        plain Q22 'My brother.' [stop, 0.1s]
+2026-10-15T10:21:53Z   teach.notes        plain Q23 'Lisbon is in Portugal.' [stop, 0.2s]
+2026-10-15T10:21:53Z   teach.notes        plain Q24 'blue' [stop, 0.1s]
+2026-10-15T10:21:53Z   teach.notes        plain Q25 'The person who owns the tent has green eyes.' [stop, 0.2s]
+2026-10-15T10:21:54Z   teach.notes        plain Q26 'My sister has brown eyes.' [stop, 0.2s]
+2026-10-15T10:21:54Z   teach.notes        plain Q27 'Turku is in Finland.' [stop, 0.1s]
+2026-10-15T10:21:54Z   teach.notes        plain Q28 'Grey' [stop, 0.1s]
+2026-10-15T10:21:54Z   teach.notes        plain Q29 "Milo's eyes are green." [stop, 0.1s]
+2026-10-15T10:21:54Z   teach.notes        plain Q30 'Yes, according to the notes, "The colour of my brother\'s eyes is amber."' [stop, 0.3s]
+2026-10-15T10:21:54Z   teach.notes        plain Q31 'Yes, based on the notes you provided: * "The colour of my eyes is green." * "My car\'s colour is red." Both sta' [stop, 0.3s]
+2026-10-15T10:21:55Z   teach.notes        plain Q32 'No. I have no record of your brother\'s favourite colour being black, and you previously said "I no longer like' [stop, 0.2s]
+2026-10-15T10:21:56Z   teach.notes        plain Q33 'Let me check the information I have about both of these claims. First, about the boat belonging to your brothe' [length, 1.1s]
+2026-10-15T10:21:56Z   teach.notes        plain Q34 'Your eyes are green.' [stop, 0.1s]
+2026-10-15T10:21:56Z   teach.notes        plain Q35 'My sister is called Ana. My dog really likes apples.' [stop, 0.2s]
+2026-10-15T10:21:56Z   teach.notes        plain Q36 "No, it is not true. I no longer like cheese, and your sister's name is Ana, not Nora." [stop, 0.2s]
+2026-10-15T10:21:56Z   teach.notes        plain Q37 'No, it is not true. Your car is red.' [stop, 0.1s]
+2026-10-15T10:21:57Z   teach.notes        plain Q38 "No, I don't have any information about your dog's preference for olives." [stop, 0.2s]
+2026-10-15T10:21:57Z   teach.notes        plain Q39 'Yes, your eyes are green.' [stop, 0.1s]
+2026-10-15T10:21:57Z   teach.notes        plain Q40 'Yes, the boat belongs to your brother.' [stop, 0.1s]
+2026-10-15T10:21:57Z   teach.notes        plain Q41 'Yes, your car is red.' [stop, 0.1s]
+2026-10-15T10:21:57Z   teach.notes        plain Q42 "No, your sister's name is Ana." [stop, 0.1s]
+2026-10-15T10:21:57Z   teach.notes        plain Q43 'No.' [stop, 0.1s]
+2026-10-15T10:21:57Z   teach.notes        plain Q44 "No, your brother's favourite colour is blue." [stop, 0.1s]
+2026-10-15T10:21:57Z   teach.notes        plain Q45 'No, your dog does not like olives.' [stop, 0.1s]
+2026-10-15T10:21:57Z   teach.notes        plain Q46 'Lisbon is the capital of Portugal.' [stop, 0.2s]
+2026-10-15T10:21:58Z   teach.notes        plain Q47 'Turku is in Finland.' [stop, 0.1s]
+2026-10-15T10:21:58Z   teach.notes        plain Q48 "My brother's favourite colour is blue." [stop, 0.1s]
+2026-10-15T10:21:58Z   teach.notes        plain Q49 'Porto is in Portugal.' [stop, 0.1s]
+2026-10-15T10:21:58Z   teach.notes        plain Q50 'orange' [stop, 0.1s]
+2026-10-15T10:21:58Z   teach.notes        plain Q51 'Otto likes pears.' [stop, 0.1s]
+2026-10-15T10:21:58Z   teach.notes        plain Q52 "I don't have information about your cousin's eye colour." [stop, 0.1s]
+2026-10-15T10:21:58Z   teach.notes        plain Q53 "My name is Nemotron, and I'm a language model developed by NVIDIA. I have been trained on a large corpus of te" [stop, 0.5s]
+2026-10-15T10:21:59Z   teach.notes        plain Q54 'A library book is typically owned by the public library system or the specific library branch where it is loca' [stop, 0.4s]
+2026-10-15T10:21:59Z   teach.notes        plain Q55 'Cheese is made from the milk of mammals, most commonly cows, goats, or sheep.' [stop, 0.2s]
+2026-10-15T10:21:59Z   teach.notes        plain Q56 'A spider has 8 legs.' [stop, 0.1s]
+2026-10-15T10:22:03Z   teach.notes        think Q01 'Your home is in Lisbon. You mentioned in the conversation: "I have moved; I live in Lisbon now."' [stop, 3.9s]
+2026-10-15T10:22:07Z   teach.notes        think Q02 'Your sister lives in Turku. (Her name is Ana, per the notes.)' [stop, 4.3s]
+2026-10-15T10:22:11Z   teach.notes        think Q03 'The boat belongs to the user\'s brother. (From note [18]: "The boat has a new owner: my brother.")' [stop, 3.2s]
+2026-10-15T10:22:13Z   teach.notes        think Q04 'The tent belongs to you (the user), as stated in note [4]: "The tent belongs to me."' [stop, 2.8s]
+2026-10-15T10:22:18Z   teach.notes        think Q05 'Your eyes are green.' [stop, 4.7s]
+2026-10-15T10:22:22Z   teach.notes        think Q06 'Your sister has brown eyes. (This is stated in the conversation: "My sister has brown eyes.")' [stop, 3.7s]
+2026-10-15T10:22:26Z   teach.notes        think Q07 'Based on the notes, your brother\'s eyes are amber. (Note [11]: "The colour of my brother\'s eyes is amber.")' [stop, 4.0s]
+2026-10-15T10:22:30Z   teach.notes        think Q08 'Your dog\'s eyes are grey. (This is from note [6]: "My dog has grey eyes.")' [stop, 4.5s]
+2026-10-15T10:22:34Z   teach.notes        think Q09 'Ana' [stop, 3.2s]
+2026-10-15T10:22:36Z   teach.notes        think Q10 "Your brother's name is Otto." [stop, 1.9s]
+2026-10-15T10:22:38Z   teach.notes        think Q11 "Your cat's name is Milo." [stop, 2.5s]
+2026-10-15T10:22:41Z   teach.notes        think Q12 'Your dog is called **Bruno**. (This is from the note: "My dog is called Bruno now.")' [stop, 3.5s]
+2026-10-15T10:22:46Z   teach.notes        think Q13 "Yes. According to the notes, your cat's eyes are green, and your own eye colour is also green. In fact, note [" [stop, 4.5s]
+2026-10-15T10:22:52Z   teach.notes        think Q14 'Yes. Note [27] states: "My brother lives in the same city as my sister."' [stop, 5.7s]
+2026-10-15T10:22:58Z   teach.notes        think Q15 'Based on your note [21]: "I have moved; I live in Lisbon now." Lisbon is the capital of Portugal, so you live ' [stop, 6.7s]
+2026-10-15T10:23:02Z   teach.notes        think Q16 'Yes. Note [21] says: "I have moved; I live in Lisbon now." Lisbon is the capital of Portugal, so you live in P' [stop, 3.2s]
+2026-10-15T10:23:07Z   teach.notes        think Q17 'Based on the notes: - Your sister lives in **Turku** (note [14]). - Your brother lives in the **same city as y' [stop, 5.7s]
+2026-10-15T10:23:12Z   teach.notes        think Q18 'Your cat\'s eyes are green. (This is from your note: "My cat\'s eyes are green.")' [stop, 4.6s]
+2026-10-15T10:23:16Z   teach.notes        think Q19 'Based on the notes, your brother lives in the same city as your sister, who lives in **Turku**. So your brothe' [stop, 3.9s]
+2026-10-15T10:23:21Z   teach.notes        think Q20 "The boat's current owner is your brother, and his eye colour is amber." [stop, 4.9s]
+2026-10-15T10:23:25Z   teach.notes        think Q21 "Yes. According to the notes, the boat's new owner is the user's brother, and the user's brother has amber eyes" [stop, 4.6s]
+2026-10-15T10:23:55Z   teach.notes        think Q22 "Based on the provided notes, the owner of the boat is the user's brother, but there is no explicit note statin" [stop, 30.2s]
+2026-10-15T10:24:04Z   teach.notes        think Q23 'The owner of the boat is the brother (per note [18]). Note [14] states the sister lives in Turku, and note [27' [stop, 8.5s]
+2026-10-15T10:24:22Z   teach.notes        think Q24 "The provided notes do not specify the favorite color of the owner of the boat. Here's what the notes do say ab" [stop, 18.4s]
+2026-10-15T10:24:29Z   teach.notes        think Q25 'Green. The notes state "The tent belongs to me" and "The colour of my eyes is green," identifying the tent\'s o' [stop, 6.8s]
+2026-10-15T10:24:35Z   teach.notes        think Q26 'Brown. This is stated in the note "My sister has brown eyes," and Ana is identified as the sister in the note ' [stop, 5.6s]
+2026-10-15T10:24:43Z   teach.notes        think Q27 'Ana lives in Turku. (Turku is in Finland.)' [stop, 8.4s]
+2026-10-15T10:24:47Z   teach.notes        think Q28 'Bruno is the dog, and according to the notes, "My dog has grey eyes." Therefore, Bruno\'s eyes are grey.' [stop, 4.2s]
+2026-10-15T10:24:53Z   teach.notes        think Q29 "Milo's eyes are green. This is supported by several notes: your cat's eyes are green ([2]), your own eyes are " [stop, 5.5s]
+2026-10-15T10:24:55Z   teach.notes        think Q30 'Yes. According to the notes, Otto is your brother, and his eye colour is amber.' [stop, 2.5s]
+2026-10-15T10:24:59Z   teach.notes        think Q31 'Yes, it\'s true. Based on the notes: - "The colour of my eyes is green." (`[10]`) - "My car\'s colour is red." (' [stop, 3.9s]
+2026-10-15T10:25:07Z   teach.notes        think Q32 "Based on the notes provided, neither part of that statement is true: * **Your brother's favorite color is blac" [stop, 7.6s]
+2026-10-15T10:25:15Z   teach.notes        think Q33 'Based on the provided notes: - **Boat ownership:** Yes, the boat belongs to your brother. This is stated direc' [stop, 7.8s]
+2026-10-15T10:25:30Z   teach.notes        think Q34 'Based on the recorded notes: - **Your eyes are green.** This is stated directly in [10] ("The colour of my eye' [stop, 14.9s]
+2026-10-15T10:25:36Z   teach.notes        think Q35 "No, that's not true. According to the conversation: - Your sister's name is **Ana**, not Nora. - Your dog real" [stop, 6.6s]
+2026-10-15T10:25:42Z   teach.notes        think Q36 'Based on the notes: - You no longer like cheese (item 29 was explicitly noted as a take‑back: "it no longer ho' [stop, 5.7s]
+2026-10-15T10:25:44Z   teach.notes        think Q37 "Based on the notes, your car's colour is red (note [8]). Therefore, it is not true that your car is not red." [stop, 2.2s]
+2026-10-15T10:25:51Z   teach.notes        think Q38 "The recorded notes don't contain any mention of olives or the dog's preference regarding them. The only dog-re" [stop, 6.6s]
+2026-10-15T10:25:59Z   teach.notes        think Q39 'Based on the notes you shared, yes, your eyes are green. - Note [10] states directly: `"The colour of my eyes ' [stop, 8.3s]
+2026-10-15T10:26:02Z   teach.notes        think Q40 'Yes. Note [18] states: "The boat has a new owner: my brother."' [stop, 3.3s]
+2026-10-15T10:26:04Z   teach.notes        think Q41 'Yes, your car is red. (Note [8] states: "My car\'s colour is red.")' [stop, 1.8s]
+2026-10-15T10:26:08Z   teach.notes        think Q42 'No. According to the notes, your sister\'s name is Ana (note [15]: "My sister\'s name is Ana"). There is no ment' [stop, 4.3s]
+2026-10-15T10:26:18Z   teach.notes        think Q43 'Based on the notes: "I no longer like cheese" has been explicitly taken back and no longer holds. There is no ' [stop, 9.3s]
+2026-10-15T10:26:27Z   teach.notes        think Q44 "Based on the provided notes, there is no mention of your brother's favorite color. The only color-related note" [stop, 9.0s]
+2026-10-15T10:26:31Z   teach.notes        think Q45 "The notes don't mention whether your dog likes olives. I can see that your dog is named Bruno and that he real" [stop, 4.4s]
+2026-10-15T10:26:34Z   teach.notes        think Q46 'Lisbon is the capital of Portugal. (This also matches what you mentioned earlier: "I have moved; I live in Lis' [stop, 3.2s]
+2026-10-15T10:26:38Z   teach.notes        think Q47 'Turku is in Finland. (The notes mention that your sister lives there, but the country itself is Finland.)' [stop, 3.7s]
+2026-10-15T10:26:48Z   teach.notes        think Q48 'Based on the provided notes, there is no statement indicating which colour your brother likes best. The only c' [stop, 10.3s]
+2026-10-15T10:26:51Z   teach.notes        think Q49 'Porto is a city in **Portugal**.' [stop, 2.5s]
+2026-10-15T10:26:55Z   teach.notes        think Q50 'Your sister likes orange best. (This is from note [23]: "My sister likes orange best.")' [stop, 4.0s]
+2026-10-15T10:27:03Z   teach.notes        think Q51 "Based on the conversation history you provided, there is no mention of what your brother likes to eat. Here's " [stop, 8.6s]
+2026-10-15T10:27:08Z   teach.notes        think Q52 "I don't have any information about your cousin's eye color in the provided notes. The memory only includes sta" [stop, 4.4s]
+2026-10-15T10:27:12Z   teach.notes        think Q53 "I don't have any information about a rabbit's name in our conversation. If you'd like to share it, I'm happy t" [stop, 3.6s]
+2026-10-15T10:27:14Z   teach.notes        think Q54 'The usual owner of a library book is the library itself (the institution). Patrons borrow the book temporarily' [stop, 2.8s]
+2026-10-15T10:27:20Z   teach.notes        think Q55 'Cheese is made from milk—typically from cows, goats, or sheep—combined with bacterial cultures and enzymes (mo' [stop, 6.2s]
+2026-10-15T10:27:22Z   teach.notes        think Q56 "Spiders have **8 legs**. (They're arachnids, and all arachnids have eight walking legs.)" [stop, 1.3s]
+2026-10-15T10:27:22Z server stop [teach.notes] pid 2470085: probing done
+2026-10-15T10:27:22Z server [teach.notes] pid 2470085 exited with code 0
+2026-10-15T10:27:22Z probed teach.notes: 112/112 answers in 331.4 s
+2026-10-15T10:27:22Z judge [teach.notes]: ~/tensorfold/venv/bin/python3 ~/llwz-tb/zengine/lwlogic.py judge ~/lw-runs/gb10-a-tb-explicit/L6-seed1/set.json ~/lw-runs/gb10-a-tb-explicit/L6-seed1/phases/teach.notes/answers.jsonl --json ~/lw-runs/gb10-a-tb-explicit/L6-seed1/phases/teach.notes/verdicts.json
+2026-10-15T10:27:22Z judge [teach.notes]: judged 112 answers against L6-seed1; report ~/lw-runs/gb10-a-tb-explicit/L6-seed1/phases/teach.notes/report.txt
+2026-10-15T10:27:22Z   teach: thinking off 42/56 pass (5 unclear), thinking on 43/56 pass (6 unclear)
+2026-10-15T10:27:22Z judge [combined reteach]: ~/tensorfold/venv/bin/python3 ~/llwz-tb/zengine/lwlogic.py judge ~/lw-runs/gb10-a-tb-explicit/L6-seed1/set.json ~/lw-runs/gb10-a-tb-explicit/L6-seed1/phases/baseline/answers.jsonl ~/lw-runs/gb10-a-tb-explicit/L6-seed1/phases/teach/answers.jsonl ~/lw-runs/gb10-a-tb-explicit/L6-seed1/phases/del-A.reteach/answers.jsonl ~/lw-runs/gb10-a-tb-explicit/L6-seed1/phases/del-B.reteach/answers.jsonl ~/lw-runs/gb10-a-tb-explicit/L6-seed1/phases/del-C.reteach/answers.jsonl --json ~/lw-runs/gb10-a-tb-explicit/L6-seed1/combined/verdicts-reteach.json
+2026-10-15T10:27:23Z judge [combined reteach]: judged 560 answers against L6-seed1; report ~/lw-runs/gb10-a-tb-explicit/L6-seed1/combined/report-reteach.txt
+2026-10-15T10:27:23Z   baseline: thinking off 46/56 pass (1 unclear), thinking on 53/56 pass (2 unclear)
+2026-10-15T10:27:23Z   teach: thinking off 22/56 pass (4 unclear), thinking on 22/56 pass (3 unclear)
+2026-10-15T10:27:23Z   del-A: thinking off 21/56 pass (3 unclear), thinking on 20/56 pass (3 unclear)
+2026-10-15T10:27:23Z   del-B: thinking off 24/56 pass (1 unclear), thinking on 34/56 pass (2 unclear)
+2026-10-15T10:27:23Z   del-C: thinking off 22/56 pass (4 unclear), thinking on 20/56 pass (6 unclear)
+2026-10-15T10:27:23Z judge [combined zero]: ~/tensorfold/venv/bin/python3 ~/llwz-tb/zengine/lwlogic.py judge ~/lw-runs/gb10-a-tb-explicit/L6-seed1/set.json ~/lw-runs/gb10-a-tb-explicit/L6-seed1/phases/baseline/answers.jsonl ~/lw-runs/gb10-a-tb-explicit/L6-seed1/phases/teach/answers.jsonl ~/lw-runs/gb10-a-tb-explicit/L6-seed1/phases/del-A.zero/answers.jsonl ~/lw-runs/gb10-a-tb-explicit/L6-seed1/phases/del-B.zero/answers.jsonl ~/lw-runs/gb10-a-tb-explicit/L6-seed1/phases/del-C.zero/answers.jsonl --json ~/lw-runs/gb10-a-tb-explicit/L6-seed1/combined/verdicts-zero.json
+2026-10-15T10:27:23Z judge [combined zero]: judged 560 answers against L6-seed1; report ~/lw-runs/gb10-a-tb-explicit/L6-seed1/combined/report-zero.txt
+2026-10-15T10:27:23Z   baseline: thinking off 46/56 pass (1 unclear), thinking on 53/56 pass (2 unclear)
+2026-10-15T10:27:23Z   teach: thinking off 22/56 pass (4 unclear), thinking on 22/56 pass (3 unclear)
+2026-10-15T10:27:23Z   del-A: thinking off 21/56 pass (4 unclear), thinking on 20/56 pass (4 unclear)
+2026-10-15T10:27:23Z   del-B: thinking off 26/56 pass (4 unclear), thinking on 33/56 pass (4 unclear)
+2026-10-15T10:27:23Z   del-C: thinking off 22/56 pass (4 unclear), thinking on 22/56 pass (3 unclear)
+2026-10-15T10:27:23Z kept-stable inputs: kept-stable/reteach: teach + del-A, del-B, del-C; zero: teach + del-A, del-B, del-C
+2026-10-15T10:27:23Z zero vs reteach on del-A: thinking off: same verdict 49/56, same text 21; thinking on: same verdict 47/56, same text 7
+2026-10-15T10:27:23Z zero vs reteach on del-B: thinking off: same verdict 49/56, same text 25; thinking on: same verdict 50/56, same text 6
+2026-10-15T10:27:23Z zero vs reteach on del-C: thinking off: same verdict 53/56, same text 32; thinking on: same verdict 48/56, same text 8
+2026-10-15T10:27:23Z reference teach, pocket teach: gap CURRENT off +0.21 on +0.36; negation off +1.00 on +1.00; two_step off +0.54 on +0.58; all off +0.36 on +0.46
+2026-10-15T10:27:23Z reference report: ~/lw-runs/gb10-a-tb-explicit/L6-seed1/reference/report.txt
+2026-10-15T10:27:23Z summary: ~/lw-runs/gb10-a-tb-explicit/L6-seed1/summary.json
+2026-10-15T10:27:23Z === set L6-seed1: exit code 0, 5.6 min
+2026-10-15T10:27:23Z set                  rc  minutes  steps done  lessons recalled  failed steps
+2026-10-15T10:27:23Z neg-seed1-v2          0      1.8         7/7               0/1  -  (not applicable, counted as done: del-A.zero)
+2026-10-15T10:27:23Z neg2-seed1-v2         0      2.2         9/9               1/2  -
+2026-10-15T10:27:23Z L5-seed1-v2           0      9.7         9/9             10/17  -
+2026-10-15T10:27:23Z L6-seed1              0      5.6       11/11             20/29  -
+2026-10-15T10:27:23Z passed of all questions, per answer file (thinking off | on):
+2026-10-15T10:27:23Z   neg-seed1-v2       baseline                 15/19 | 17/19
+2026-10-15T10:27:23Z   neg-seed1-v2       teach                    14/19 | 15/19
+2026-10-15T10:27:23Z   neg-seed1-v2       del-A.reteach            15/19 | 17/19
+2026-10-15T10:27:23Z   neg-seed1-v2       teach.in_context         11/19 | 13/19
+2026-10-15T10:27:23Z   neg-seed1-v2       teach.replacement_memory 13/19 | 13/19
+2026-10-15T10:27:23Z   neg-seed1-v2       teach.notes              14/19 | 14/19
+2026-10-15T10:27:23Z   neg2-seed1-v2      baseline                 15/23 | 20/23
+2026-10-15T10:27:23Z   neg2-seed1-v2      teach                    10/23 | 11/23
+2026-10-15T10:27:23Z   neg2-seed1-v2      del-A.zero               11/23 | 11/23
+2026-10-15T10:27:23Z   neg2-seed1-v2      del-B.zero               14/23 | 17/23
+2026-10-15T10:27:23Z   neg2-seed1-v2      del-A.reteach            11/23 | 11/23
+2026-10-15T10:27:23Z   neg2-seed1-v2      del-B.reteach            14/23 | 17/23
+2026-10-15T10:27:23Z   neg2-seed1-v2      teach.in_context         17/23 | 11/23
+2026-10-15T10:27:23Z   neg2-seed1-v2      teach.replacement_memory 16/23 | 16/23
+2026-10-15T10:27:23Z   neg2-seed1-v2      teach.notes              17/23 | 15/23
+2026-10-15T10:27:23Z   L5-seed1-v2        baseline                 49/77 | 69/77
+2026-10-15T10:27:23Z   L5-seed1-v2        teach                    38/77 | 30/77
+2026-10-15T10:27:23Z   L5-seed1-v2        del-A.zero               36/77 | 21/77
+2026-10-15T10:27:23Z   L5-seed1-v2        del-B.zero               41/77 | 29/77
+2026-10-15T10:27:23Z   L5-seed1-v2        del-A.reteach            40/77 | 25/77
+2026-10-15T10:27:23Z   L5-seed1-v2        del-B.reteach            39/77 | 36/77
+2026-10-15T10:27:23Z   L5-seed1-v2        teach.in_context         50/77 | 52/77
+2026-10-15T10:27:23Z   L5-seed1-v2        teach.replacement_memory 56/77 | 56/77
+2026-10-15T10:27:23Z   L5-seed1-v2        teach.notes              63/77 | 62/77
+2026-10-15T10:27:23Z   L6-seed1           baseline                 46/56 | 53/56
+2026-10-15T10:27:23Z   L6-seed1           teach                    22/56 | 22/56
+2026-10-15T10:27:23Z   L6-seed1           del-A.zero               21/56 | 20/56
+2026-10-15T10:27:23Z   L6-seed1           del-B.zero               26/56 | 33/56
+2026-10-15T10:27:23Z   L6-seed1           del-C.zero               22/56 | 22/56
+2026-10-15T10:27:23Z   L6-seed1           del-A.reteach            21/56 | 20/56
+2026-10-15T10:27:23Z   L6-seed1           del-B.reteach            24/56 | 34/56
+2026-10-15T10:27:23Z   L6-seed1           del-C.reteach            22/56 | 20/56
+2026-10-15T10:27:23Z   L6-seed1           teach.in_context         42/56 | 48/56
+2026-10-15T10:27:23Z   L6-seed1           teach.replacement_memory 29/56 | 29/56
+2026-10-15T10:27:23Z   L6-seed1           teach.notes              42/56 | 43/56
+2026-10-15T10:27:23Z sets summary: ~/lw-runs/gb10-a-tb-explicit/sets-summary.json

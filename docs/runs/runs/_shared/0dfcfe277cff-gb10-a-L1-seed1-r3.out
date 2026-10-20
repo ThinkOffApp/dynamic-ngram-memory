@@ -1,0 +1,103 @@
+2026-10-13T02:02:34Z lwrun L1-seed1: 1 lessons, 12 questions x thinking off,on = 24 answers per probe; steps ['baseline', 'teach', 'del-A.zero', 'del-A.reteach']
+2026-10-13T02:02:34Z binary ~/tf108/zig-out/native/bin/tensorfold-native sha256 759114dd74b1ab08, --version: 'tensorfold-native 1.0.8'
+2026-10-13T02:02:34Z source ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8 (18.5 GB)
+2026-10-13T02:02:34Z === step baseline (baseline): phase baseline, store []
+2026-10-13T02:02:34Z serve the source read-only, without --slide: ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8
+2026-10-13T02:02:34Z server start [baseline]: ~/tf108/zig-out/native/bin/tensorfold-native serve ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8 --host 127.0.0.1 --port 18180 --no-update-check
+2026-10-13T02:02:40Z server ready [baseline] pid 2772635: health in 6.0 s, warm at 6.0 s
+2026-10-13T02:02:40Z   baseline           plain Q01 "I don't know your favourite colour! I don't have access to your personal information or memories. However, if " [stop, 0.3s]
+2026-10-13T02:02:40Z   baseline           plain Q02 "I don't know you personally, so I can't know your favorite color! However, if you want to tell me, I'd love to" [stop, 0.3s]
+2026-10-13T02:02:41Z   baseline           plain Q03 "I don't know! I don't have eyes or personal preferences. However, I can help you figure it out! If you tell me" [stop, 0.6s]
+2026-10-13T02:02:42Z   baseline           plain Q04 "I don't know! I don't have access to your personal preferences or memories. However, **blue is a very popular " [stop, 0.5s]
+2026-10-13T02:02:42Z   baseline           plain Q05 "I don't know! I don't have access to your personal preferences or memories. However, purple is a wonderful col" [stop, 0.5s]
+2026-10-13T02:02:43Z   baseline           plain Q06 "That is a question only you can answer! Since I don't know you personally, I can't tell you your favorite colo" [stop, 0.8s]
+2026-10-13T02:02:43Z   baseline           plain Q07 'That is a tough one! Both are beautiful colours. * **Purple** is often associated with royalty, luxury, and my' [stop, 0.5s]
+2026-10-13T02:02:44Z   baseline           plain Q08 "I don't have access to your personal information or family details, so I can't know what colour your sister li" [stop, 0.6s]
+2026-10-13T02:02:45Z   baseline           plain Q09 "I don't know! I don't have access to your personal preferences or memories. To figure out what foods you like," [length, 1.2s]
+2026-10-13T02:02:45Z   baseline           plain Q10 'The three primary colours are: 1. **Red** 2. **Blue** 3. **Yellow**' [stop, 0.2s]
+2026-10-13T02:02:45Z   baseline           plain Q11 'The sky is **blue** on a clear day.' [stop, 0.1s]
+2026-10-13T02:02:46Z   baseline           plain Q12 'A spider has **8 legs**. This is the defining characteristic of arachnids, the class of animals that includes ' [stop, 0.4s]
+2026-10-13T02:02:48Z   baseline           think Q01 "I don't know your favorite color! I don't have access to your personal preferences, but I'd love to hear what " [stop, 2.5s]
+2026-10-13T02:02:52Z   baseline           think Q02 "I don't actually know your personal favorite color—since I'm an AI, I don't have tastes, memories, or experien" [stop, 3.6s]
+2026-10-13T02:02:54Z   baseline           think Q03 "I don't know your favorite color — I don't have access to your personal preferences or history. Color choice i" [stop, 2.5s]
+2026-10-13T02:02:58Z   baseline           think Q04 "I don't actually know your favorite color! If you'd like to share it, I'd love to hear what it is. Is blue you" [stop, 3.7s]
+2026-10-13T02:03:02Z   baseline           think Q05 "I don't know what your favorite color is! I don't have access to your personal preferences, so you'll have to " [stop, 3.5s]
+2026-10-13T02:03:05Z   baseline           think Q06 "I don't know your personal preference—color liking is totally subjective and can depend on your mood, culture," [stop, 3.1s]
+2026-10-13T02:03:07Z   baseline           think Q07 "I don't actually know your favorite color! I don't have access to your personal preferences, memories, or past" [stop, 2.6s]
+2026-10-13T02:03:10Z   baseline           think Q08 "I don't have any information about your sister or access to her personal preferences. The best way to find out" [stop, 2.5s]
+2026-10-13T02:03:12Z   baseline           think Q09 "I don't actually know your food preferences! As an AI, I don't have access to your personal history, tastes, o" [stop, 2.5s]
+2026-10-13T02:03:16Z   baseline           think Q10 'The three primary colors depend on the context, but the most traditional answer is: **Red, Yellow, and Blue** ' [stop, 3.7s]
+2026-10-13T02:03:18Z   baseline           think Q11 'On a clear day, the sky appears **blue**. This is due to a phenomenon called **Rayleigh scattering**: sunlight' [stop, 2.4s]
+2026-10-13T02:03:20Z   baseline           think Q12 "Spiders have **8 legs**. They're part of the arachnid class, which also includes scorpions, ticks, and mites. " [stop, 1.5s]
+2026-10-13T02:03:20Z server stop [baseline] pid 2772635: probing done
+2026-10-13T02:03:20Z server [baseline] pid 2772635 exited with code 0
+2026-10-13T02:03:20Z probed baseline: 24/24 answers in 40.0 s
+2026-10-13T02:03:20Z judge [baseline]: /usr/bin/python3 ~/llwz-2317f3c/zengine/lwlogic.py judge ~/lw-runs/gb10-a-L1-seed1-r3/set.json ~/lw-runs/gb10-a-L1-seed1-r3/phases/baseline/answers.jsonl --json ~/lw-runs/gb10-a-L1-seed1-r3/phases/baseline/verdicts.json
+2026-10-13T02:03:21Z judge [baseline]: judged 24 answers against L1-seed1; report ~/lw-runs/gb10-a-L1-seed1-r3/phases/baseline/report.txt
+2026-10-13T02:03:21Z   baseline: thinking off 12/12 pass (0 unclear), thinking on 12/12 pass (0 unclear)
+2026-10-13T02:03:21Z === step teach (teach): phase teach, store ['L1']
+2026-10-13T02:03:21Z copy [teach] (taught with --slide): cp -RL ~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8 ~/lw-runs/gb10-a-L1-seed1-r3/models/L1-seed1.teach
+2026-10-13T02:03:23Z copied in 2.6 s: ~/lw-runs/gb10-a-L1-seed1-r3/models/L1-seed1.teach (18.5 GB logical)
+2026-10-13T02:03:23Z server start [teach --slide]: ~/tf108/zig-out/native/bin/tensorfold-native serve ~/lw-runs/gb10-a-L1-seed1-r3/models/L1-seed1.teach --host 127.0.0.1 --port 18180 --no-update-check --slide --slide-graph ~/lw-runs/gb10-a-L1-seed1-r3/phases/teach/graph.json
+2026-10-13T02:03:49Z server ready [teach --slide] pid 2780822: health in 26.1 s, warm at 26.1 s
+2026-10-13T02:03:49Z learn L1 (lesson 1, ASSERT): 'Of all colours, I like blue the most.'
+2026-10-13T02:03:49Z   L1 +0s fact: {"id": 1, "text": "Of all colours, I like blue the most."}
+2026-10-13T02:03:49Z   L1 +0s learning: {"id": 1}
+2026-10-13T02:07:03Z   L1 +194s learned: {"id": 1, "recalled": false, "steps": 5}
+2026-10-13T02:07:05Z learned L1 in 195.7 s: facts [1], recalled [False]; save saved (0.0 s, 0 bytes)
+2026-10-13T02:07:05Z taught 1 lessons in 195.7 s; refused (not every fact recalled): ['L1']; final fact states {'1': 'missed'}
+2026-10-13T02:07:05Z   teach              plain Q01 "I don't know your favourite colour! I don't have access to your personal information or memories. However, if " [stop, 0.3s]
+2026-10-13T02:07:06Z   teach              plain Q02 "I don't know you personally, so I can't know your favorite color! However, if you want to tell me, I'd love to" [stop, 0.3s]
+2026-10-13T02:07:06Z   teach              plain Q03 "I don't know! I don't have eyes or personal preferences. However, I can help you figure it out! If you tell me" [stop, 0.6s]
+2026-10-13T02:07:07Z   teach              plain Q04 "I don't know! I don't have access to your personal preferences or memories. However, **blue is a very popular " [stop, 0.5s]
+2026-10-13T02:07:07Z   teach              plain Q05 "I don't know! I don't have access to your personal preferences or memories. However, purple is a wonderful col" [stop, 0.6s]
+2026-10-13T02:07:08Z   teach              plain Q06 "That is a question only you can answer! Since I don't know you personally, I can't tell you your favorite colo" [stop, 0.8s]
+2026-10-13T02:07:09Z   teach              plain Q07 'That is a tough one! Both are beautiful colours. * **Purple** is often associated with royalty, luxury, and my' [stop, 0.6s]
+2026-10-13T02:07:09Z   teach              plain Q08 "I don't have access to your personal information or family details, so I can't know what colour your sister li" [stop, 0.6s]
+2026-10-13T02:07:10Z   teach              plain Q09 "I don't know! I don't have access to your personal preferences or memories. To figure out what foods you like," [length, 1.2s]
+2026-10-13T02:07:11Z   teach              plain Q10 'The three primary colours are: 1. **Red** 2. **Blue** 3. **Yellow**' [stop, 0.2s]
+2026-10-13T02:07:11Z   teach              plain Q11 'The sky is **blue** on a clear day.' [stop, 0.1s]
+2026-10-13T02:07:11Z   teach              plain Q12 'A spider has **8 legs**. This is the defining characteristic of arachnids, the class of animals that includes ' [stop, 0.4s]
+2026-10-13T02:07:14Z   teach              think Q01 "I don't know your favorite color! I don't have access to your personal preferences, but I'd love to hear what " [stop, 2.6s]
+2026-10-13T02:07:17Z   teach              think Q02 "I don't actually know your personal favorite color—since I'm an AI, I don't have tastes, memories, or experien" [stop, 3.6s]
+2026-10-13T02:07:20Z   teach              think Q03 "I don't know your favorite color — I don't have access to your personal preferences or history. Color choice i" [stop, 2.6s]
+2026-10-13T02:07:24Z   teach              think Q04 "I don't actually know your favorite color! If you'd like to share it, I'd love to hear what it is. Is blue you" [stop, 3.8s]
+2026-10-13T02:07:27Z   teach              think Q05 "I don't know what your favorite color is! I don't have access to your personal preferences, so you'll have to " [stop, 3.6s]
+2026-10-13T02:07:30Z   teach              think Q06 "I don't know your personal preference—color liking is totally subjective and can depend on your mood, culture," [stop, 3.1s]
+2026-10-13T02:07:33Z   teach              think Q07 "I don't actually know your favorite color! I don't have access to your personal preferences, memories, or past" [stop, 2.6s]
+2026-10-13T02:07:36Z   teach              think Q08 "I don't have any information about your sister or access to her personal preferences. The best way to find out" [stop, 2.6s]
+2026-10-13T02:07:38Z   teach              think Q09 "I don't actually know your food preferences! As an AI, I don't have access to your personal history, tastes, o" [stop, 2.5s]
+2026-10-13T02:07:42Z   teach              think Q10 'The three primary colors depend on the context, but the most traditional answer is: **Red, Yellow, and Blue** ' [stop, 3.8s]
+2026-10-13T02:07:44Z   teach              think Q11 'On a clear day, the sky appears **blue**. This is due to a phenomenon called **Rayleigh scattering**: sunlight' [stop, 2.4s]
+2026-10-13T02:07:46Z   teach              think Q12 "Spiders have **8 legs**. They're part of the arachnid class, which also includes scorpions, ticks, and mites. " [stop, 1.5s]
+2026-10-13T02:07:46Z probed teach: 24/24 answers in 40.8 s
+2026-10-13T02:07:46Z server stop [teach --slide] pid 2780822: teach step done
+2026-10-13T02:07:47Z server [teach --slide] pid 2780822 exited with code 0
+2026-10-13T02:07:47Z judge [teach]: /usr/bin/python3 ~/llwz-2317f3c/zengine/lwlogic.py judge ~/lw-runs/gb10-a-L1-seed1-r3/set.json ~/lw-runs/gb10-a-L1-seed1-r3/phases/teach/answers.jsonl --json ~/lw-runs/gb10-a-L1-seed1-r3/phases/teach/verdicts.json
+2026-10-13T02:07:47Z judge [teach]: judged 24 answers against L1-seed1; report ~/lw-runs/gb10-a-L1-seed1-r3/phases/teach/report.txt
+2026-10-13T02:07:47Z   teach: thinking off 5/12 pass (0 unclear), thinking on 5/12 pass (0 unclear)
+2026-10-13T02:07:47Z judge [teach as baseline]: /usr/bin/python3 ~/llwz-2317f3c/zengine/lwlogic.py judge ~/lw-runs/gb10-a-L1-seed1-r3/set.json ~/lw-runs/gb10-a-L1-seed1-r3/phases/teach/answers.as-baseline.jsonl --json ~/lw-runs/gb10-a-L1-seed1-r3/phases/teach/verdicts.as-baseline.json
+2026-10-13T02:07:47Z judge [teach as baseline]: judged 24 answers against L1-seed1; report ~/lw-runs/gb10-a-L1-seed1-r3/phases/teach/report.as-baseline.txt
+2026-10-13T02:07:47Z   baseline: thinking off 12/12 pass (0 unclear), thinking on 12/12 pass (0 unclear)
+2026-10-13T02:07:47Z === step del-A.zero (zero): phase del-A, store [], deleted ['L1']
+2026-10-13T02:07:47Z NOTE zero [del-A.zero]: deleted facts [1] were replaced or missed: nothing of them is left to zero
+2026-10-13T02:07:47Z zero [del-A.zero]: lessons ['L1'] -> facts [1] (states ['missed']), 0 neurons; 0 kept neurons
+2026-10-13T02:07:47Z copy [del-A.zero] (copy of the taught folder, to zero): cp -RL ~/lw-runs/gb10-a-L1-seed1-r3/models/L1-seed1.teach ~/lw-runs/gb10-a-L1-seed1-r3/models/L1-seed1.del-A.zero
+2026-10-13T02:07:50Z copied in 2.8 s: ~/lw-runs/gb10-a-L1-seed1-r3/models/L1-seed1.del-A.zero (18.5 GB logical)
+2026-10-13T02:07:50Z step del-A.zero FAILED: zero mode skipped: the folder does not match zero_fact.py's layout: config.json has no tensorfold_learned_neurons: the folder holds no pocket
+2026-10-13T02:07:50Z --cleanup: the taught folder is kept: a zero step is not done, and resuming it needs the folder
+2026-10-13T02:07:50Z === step del-A.reteach (reteach-empty): phase del-A, store [], deleted ['L1']
+2026-10-13T02:07:50Z step del-A.reteach: empty store; reused the 24 baseline answers (no server started; --fresh-empty-reteach serves the original model again)
+2026-10-13T02:07:50Z judge [del-A.reteach]: /usr/bin/python3 ~/llwz-2317f3c/zengine/lwlogic.py judge ~/lw-runs/gb10-a-L1-seed1-r3/set.json ~/lw-runs/gb10-a-L1-seed1-r3/phases/del-A.reteach/answers.jsonl --json ~/lw-runs/gb10-a-L1-seed1-r3/phases/del-A.reteach/verdicts.json
+2026-10-13T02:07:50Z judge [del-A.reteach]: judged 24 answers against L1-seed1; report ~/lw-runs/gb10-a-L1-seed1-r3/phases/del-A.reteach/report.txt
+2026-10-13T02:07:50Z   del-A: thinking off 12/12 pass (0 unclear), thinking on 12/12 pass (0 unclear)
+2026-10-13T02:07:50Z judge [combined reteach]: /usr/bin/python3 ~/llwz-2317f3c/zengine/lwlogic.py judge ~/lw-runs/gb10-a-L1-seed1-r3/set.json ~/lw-runs/gb10-a-L1-seed1-r3/phases/baseline/answers.jsonl ~/lw-runs/gb10-a-L1-seed1-r3/phases/teach/answers.jsonl ~/lw-runs/gb10-a-L1-seed1-r3/phases/del-A.reteach/answers.jsonl --json ~/lw-runs/gb10-a-L1-seed1-r3/combined/verdicts-reteach.json
+2026-10-13T02:07:50Z judge [combined reteach]: judged 72 answers against L1-seed1; report ~/lw-runs/gb10-a-L1-seed1-r3/combined/report-reteach.txt
+2026-10-13T02:07:50Z   baseline: thinking off 12/12 pass (0 unclear), thinking on 12/12 pass (0 unclear)
+2026-10-13T02:07:50Z   teach: thinking off 5/12 pass (0 unclear), thinking on 5/12 pass (0 unclear)
+2026-10-13T02:07:50Z   del-A: thinking off 12/12 pass (0 unclear), thinking on 12/12 pass (0 unclear)
+2026-10-13T02:07:50Z kept-stable inputs: kept-stable/reteach: teach + del-A
+2026-10-13T02:07:50Z model copies this runner made, left on disk (logical sizes; an APFS clone shares blocks until written, but a taught copy's first save rewrites every shard whole):
+2026-10-13T02:07:50Z     18.5 GB  ~/lw-runs/gb10-a-L1-seed1-r3/models/L1-seed1.teach  [teach]
+2026-10-13T02:07:50Z     18.5 GB  ~/lw-runs/gb10-a-L1-seed1-r3/models/L1-seed1.del-A.zero  [del-A.zero]
+2026-10-13T02:07:50Z summary: ~/lw-runs/gb10-a-L1-seed1-r3/summary.json

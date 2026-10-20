@@ -1,0 +1,35 @@
+Reference phases of L5-seed1-v2 (lw-reference/1), 2026-10-14T18:37:54Z
+gap = in_context pass rate minus pocket pass rate, over the answers all sources have. in_context is a reference, not a ceiling.
+
+== teach: store L1 L2 L3 L4 L5 L6 L7 L8 L9 L10 L11 L12 L13 L14 L15 L16 L17
+   teach                    the --slide server that taught: phases/teach/answers.jsonl
+   in_context               the untaught model, lessons in the system prompt: phases/teach.in_context/answers.jsonl
+   replacement_memory       computed, no model: phases/teach.replacement_memory/answers.jsonl
+
+   pocket teach beside in_context and replacement_memory
+   group            thinking   pocket  in_context   memory     gap
+   CURRENT          off           5/8         5/8      8/8   +0.00
+   CURRENT          on            5/8         0/8      8/8   -0.62
+   WHO_HAS          off           1/6         4/6      6/6   +0.50
+   WHO_HAS          on            0/6         1/6      6/6   +0.17
+   negation         off          8/15        8/15    10/15   +0.00
+   negation         on           7/15        0/15    10/15   -0.47
+   dates            off           2/6         3/6      0/6   +0.17
+   dates            on            1/6         1/6      0/6   +0.00
+   temporal         off          5/18        8/18     0/18   +0.17
+   temporal         on           5/18        2/18     0/18   -0.17
+   either_or        off           1/4         2/4      4/4   +0.25
+   either_or        on            1/4         0/4      4/4   -0.25
+   yes_no           off         16/30       23/30    30/30   +0.23
+   yes_no           on          11/30        7/30    30/30   -0.13
+   controls         off           5/5         4/5      2/5   -0.20
+   controls         on            5/5         4/5      2/5   -0.20
+   all              off         38/77       50/77    56/77   +0.16
+   all              on          30/77       15/77    56/77   -0.20
+
+   CHANGE and RETRACT lessons: corrected only, stale only, both or neither
+   L1 CHANGE "I like black best now.": now black; holds after it: black; stale: nothing; not classified: a later lesson (L7, L8, L15) writes this key again, so today's answers cannot show this lesson's effect
+   L3 CHANGE "My car is called Elsa now.": now Elsa; holds after it: Elsa; stale: nothing; not classified: a later lesson (L11, L13, L14) writes this key again, so today's answers cannot show this lesson's effect
+   L7 CHANGE "My favourite colour has changed; it is white now.": now white; holds after it: white; stale: black; not classified: a later lesson (L8, L15) writes this key again, so today's answers cannot show this lesson's effect
+   L11 CHANGE "My car has a new name; it is called Milo now.": now Milo; holds after it: Milo; stale: Elsa; not classified: a later lesson (L13, L14) writes this key again, so today's answers cannot show this lesson's effect
+   L12 RETRACT "My dog's eyes are no longer hazel.": now not hazel; holds after it: nothing; stale: hazel; not classified: a later lesson (L16) writes this key again, so today's answers cannot show this lesson's effect

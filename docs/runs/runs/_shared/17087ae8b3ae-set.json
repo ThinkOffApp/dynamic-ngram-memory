@@ -1,0 +1,2881 @@
+{
+ "format": "lw-test-set/1",
+ "level": 6,
+ "seed": 1,
+ "today": "2026-10-12",
+ "id": "L6-seed1",
+ "entities": [
+  "my dog",
+  "my cat",
+  "the boat",
+  "the tent",
+  "me",
+  "my car",
+  "my brother",
+  "my sister",
+  "my cousin",
+  "my rabbit"
+ ],
+ "schema": {
+  "eye_colour": {
+   "multi": false,
+   "applies": [
+    "self",
+    "person",
+    "animal"
+   ],
+   "domain": [
+    "brown",
+    "green",
+    "blue",
+    "grey",
+    "hazel",
+    "amber"
+   ],
+   "extra": [
+    "red",
+    "blue",
+    "green",
+    "yellow",
+    "purple",
+    "orange",
+    "black",
+    "white",
+    "silver",
+    "brown",
+    "grey",
+    "hazel",
+    "amber",
+    "pink",
+    "violet",
+    "turquoise",
+    "teal",
+    "navy",
+    "beige",
+    "gold"
+   ],
+   "topic": [
+    "eye",
+    "colour",
+    "color",
+    "iris"
+   ]
+  },
+  "fav_colour": {
+   "multi": false,
+   "applies": [
+    "self",
+    "person"
+   ],
+   "domain": [
+    "red",
+    "blue",
+    "green",
+    "yellow",
+    "purple",
+    "orange",
+    "black",
+    "white"
+   ],
+   "extra": [
+    "red",
+    "blue",
+    "green",
+    "yellow",
+    "purple",
+    "orange",
+    "black",
+    "white",
+    "silver",
+    "brown",
+    "grey",
+    "hazel",
+    "amber",
+    "pink",
+    "violet",
+    "turquoise",
+    "teal",
+    "navy",
+    "beige",
+    "gold"
+   ],
+   "topic": [
+    "colour",
+    "color",
+    "favourite",
+    "favorite"
+   ]
+  },
+  "name": {
+   "multi": false,
+   "applies": [
+    "person",
+    "animal",
+    "vehicle",
+    "object"
+   ],
+   "domain": [
+    "Ana",
+    "Milo",
+    "Luna",
+    "Otto",
+    "Bruno",
+    "Nora",
+    "Pablo",
+    "Elsa"
+   ],
+   "extra": [],
+   "topic": [
+    "name",
+    "called",
+    "named"
+   ]
+  },
+  "colour": {
+   "multi": false,
+   "applies": [
+    "vehicle",
+    "object"
+   ],
+   "domain": [
+    "red",
+    "blue",
+    "green",
+    "yellow",
+    "black",
+    "white",
+    "silver",
+    "orange"
+   ],
+   "extra": [
+    "red",
+    "blue",
+    "green",
+    "yellow",
+    "purple",
+    "orange",
+    "black",
+    "white",
+    "silver",
+    "brown",
+    "grey",
+    "hazel",
+    "amber",
+    "pink",
+    "violet",
+    "turquoise",
+    "teal",
+    "navy",
+    "beige",
+    "gold"
+   ],
+   "topic": [
+    "colour",
+    "color",
+    "painted"
+   ]
+  },
+  "home_city": {
+   "multi": false,
+   "applies": [
+    "self",
+    "person"
+   ],
+   "domain": [
+    "Lisbon",
+    "Oslo",
+    "Tampere",
+    "Porto",
+    "Ghent",
+    "Graz",
+    "Bergen",
+    "Turku"
+   ],
+   "extra": [
+    "Helsinki",
+    "Berlin",
+    "Paris",
+    "London",
+    "Stockholm",
+    "Madrid",
+    "Rome",
+    "Vienna"
+   ],
+   "topic": [
+    "live",
+    "city",
+    "home",
+    "lived"
+   ]
+  },
+  "likes": {
+   "multi": true,
+   "applies": [
+    "self",
+    "person",
+    "animal"
+   ],
+   "domain": [
+    "apples",
+    "cheese",
+    "olives",
+    "chocolate",
+    "mushrooms",
+    "pears"
+   ],
+   "extra": [
+    "bread",
+    "fish",
+    "rice",
+    "bananas",
+    "pasta"
+   ],
+   "topic": [
+    "like",
+    "food",
+    "fond",
+    "enjoy"
+   ]
+  },
+  "owner": {
+   "multi": false,
+   "applies": [
+    "object"
+   ],
+   "domain": [
+    "me",
+    "my sister",
+    "my brother",
+    "my neighbour"
+   ],
+   "extra": [],
+   "topic": [
+    "own",
+    "belong",
+    "whose",
+    "owner"
+   ]
+  },
+  "eyes_like": {
+   "multi": false,
+   "applies": [
+    "person",
+    "animal"
+   ],
+   "domain": [
+    "me",
+    "my sister",
+    "my brother"
+   ],
+   "extra": [],
+   "link": "eye_colour",
+   "topic": [
+    "same",
+    "eye",
+    "colour",
+    "color"
+   ]
+  },
+  "city_like": {
+   "multi": false,
+   "applies": [
+    "person"
+   ],
+   "domain": [
+    "me",
+    "my sister",
+    "my brother"
+   ],
+   "extra": [],
+   "link": "home_city",
+   "topic": [
+    "same",
+    "city",
+    "live"
+   ]
+  },
+  "country": {
+   "multi": false,
+   "applies": [],
+   "domain": [
+    "Portugal",
+    "Norway",
+    "Finland",
+    "Belgium",
+    "Austria"
+   ],
+   "extra": [
+    "Germany",
+    "France",
+    "Sweden",
+    "Spain",
+    "Italy",
+    "Denmark",
+    "Netherlands",
+    "Switzerland",
+    "Poland",
+    "Estonia",
+    "Iceland",
+    "Ireland"
+   ],
+   "topic": [
+    "country",
+    "live",
+    "nation"
+   ],
+   "natural": {
+    "from": "home_city",
+    "map": {
+     "Lisbon": "Portugal",
+     "Oslo": "Norway",
+     "Tampere": "Finland",
+     "Porto": "Portugal",
+     "Ghent": "Belgium",
+     "Graz": "Austria",
+     "Bergen": "Norway",
+     "Turku": "Finland"
+    }
+   }
+  }
+ },
+ "lessons": [
+  {
+   "id": 1,
+   "name": "L1",
+   "op": "ASSERT",
+   "e": "my dog",
+   "a": "name",
+   "told": 739901000100,
+   "v": "Luna",
+   "text": "My dog is named Luna.",
+   "para": 2
+  },
+  {
+   "id": 2,
+   "name": "L2",
+   "op": "ASSERT",
+   "e": "my cat",
+   "a": "eye_colour",
+   "told": 739901000200,
+   "v": "green",
+   "text": "My cat's eyes are green.",
+   "para": 0
+  },
+  {
+   "id": 3,
+   "name": "L3",
+   "op": "ASSERT",
+   "e": "the boat",
+   "a": "colour",
+   "told": 739901000300,
+   "v": "blue",
+   "text": "The boat's colour is blue.",
+   "para": 1
+  },
+  {
+   "id": 4,
+   "name": "L4",
+   "op": "ASSERT",
+   "e": "the tent",
+   "a": "owner",
+   "told": 739901000400,
+   "v": "me",
+   "text": "The tent belongs to me.",
+   "para": 0
+  },
+  {
+   "id": 5,
+   "name": "L5",
+   "op": "ASSERT",
+   "e": "me",
+   "a": "likes",
+   "told": 739901000500,
+   "v": "chocolate",
+   "text": "I like chocolate.",
+   "para": 0
+  },
+  {
+   "id": 6,
+   "name": "L6",
+   "op": "ASSERT",
+   "e": "my dog",
+   "a": "eye_colour",
+   "told": 739901000600,
+   "v": "grey",
+   "text": "My dog has grey eyes.",
+   "para": 1
+  },
+  {
+   "id": 7,
+   "name": "L7",
+   "op": "ASSERT",
+   "e": "my cat",
+   "a": "eyes_like",
+   "told": 739901000700,
+   "v": "me",
+   "text": "My cat's eyes are the same colour as mine.",
+   "para": 0
+  },
+  {
+   "id": 8,
+   "name": "L8",
+   "op": "ASSERT",
+   "e": "my car",
+   "a": "colour",
+   "told": 739901000800,
+   "v": "red",
+   "text": "My car's colour is red.",
+   "para": 1
+  },
+  {
+   "id": 9,
+   "name": "L9",
+   "op": "ASSERT",
+   "e": "the boat",
+   "a": "owner",
+   "told": 739901000900,
+   "v": "my sister",
+   "text": "The boat belongs to my sister.",
+   "para": 0
+  },
+  {
+   "id": 10,
+   "name": "L10",
+   "op": "ASSERT",
+   "e": "me",
+   "a": "eye_colour",
+   "told": 739901001000,
+   "v": "green",
+   "text": "The colour of my eyes is green.",
+   "para": 2
+  },
+  {
+   "id": 11,
+   "name": "L11",
+   "op": "ASSERT",
+   "e": "my brother",
+   "a": "eye_colour",
+   "told": 739901001100,
+   "v": "amber",
+   "text": "The colour of my brother's eyes is amber.",
+   "para": 2
+  },
+  {
+   "id": 12,
+   "name": "L12",
+   "op": "ASSERT",
+   "e": "me",
+   "a": "likes",
+   "told": 739901001200,
+   "v": "cheese",
+   "text": "I really like cheese.",
+   "para": 1
+  },
+  {
+   "id": 13,
+   "name": "L13",
+   "op": "CHANGE",
+   "e": "my dog",
+   "a": "name",
+   "told": 739901001300,
+   "v": "Bruno",
+   "text": "My dog is called Bruno now.",
+   "para": 0
+  },
+  {
+   "id": 14,
+   "name": "L14",
+   "op": "ASSERT",
+   "e": "my sister",
+   "a": "home_city",
+   "told": 739901001400,
+   "v": "Turku",
+   "text": "My sister lives in Turku.",
+   "para": 0
+  },
+  {
+   "id": 15,
+   "name": "L15",
+   "op": "ASSERT",
+   "e": "my sister",
+   "a": "name",
+   "told": 739901001500,
+   "v": "Ana",
+   "text": "My sister's name is Ana.",
+   "para": 0
+  },
+  {
+   "id": 16,
+   "name": "L16",
+   "op": "ASSERT",
+   "e": "my brother",
+   "a": "name",
+   "told": 739901001600,
+   "v": "Otto",
+   "text": "My brother's name is Otto.",
+   "para": 0
+  },
+  {
+   "id": 17,
+   "name": "L17",
+   "op": "ASSERT",
+   "e": "me",
+   "a": "fav_colour",
+   "told": 739901001700,
+   "v": "yellow",
+   "text": "Of all colours, I like yellow the most.",
+   "para": 2
+  },
+  {
+   "id": 18,
+   "name": "L18",
+   "op": "CHANGE",
+   "e": "the boat",
+   "a": "owner",
+   "told": 739901001800,
+   "v": "my brother",
+   "text": "The boat has a new owner: my brother.",
+   "para": 1
+  },
+  {
+   "id": 19,
+   "name": "L19",
+   "op": "ASSERT",
+   "e": "my dog",
+   "a": "likes",
+   "told": 739901001900,
+   "v": "apples",
+   "text": "My dog really likes apples.",
+   "para": 1
+  },
+  {
+   "id": 20,
+   "name": "L20",
+   "op": "ASSERT",
+   "e": "me",
+   "a": "home_city",
+   "told": 739901002000,
+   "v": "Porto",
+   "text": "I am living in Porto.",
+   "para": 2
+  },
+  {
+   "id": 21,
+   "name": "L21",
+   "op": "CHANGE",
+   "e": "me",
+   "a": "home_city",
+   "told": 739901002100,
+   "v": "Lisbon",
+   "text": "I have moved; I live in Lisbon now.",
+   "para": 2
+  },
+  {
+   "id": 22,
+   "name": "L22",
+   "op": "ASSERT",
+   "e": "my cat",
+   "a": "name",
+   "told": 739901002200,
+   "v": "Milo",
+   "text": "My cat's name is Milo.",
+   "para": 0
+  },
+  {
+   "id": 23,
+   "name": "L23",
+   "op": "ASSERT",
+   "e": "my sister",
+   "a": "fav_colour",
+   "told": 739901002300,
+   "v": "orange",
+   "text": "My sister likes orange best.",
+   "para": 1
+  },
+  {
+   "id": 24,
+   "name": "L24",
+   "op": "ASSERT",
+   "e": "the tent",
+   "a": "colour",
+   "told": 739901002400,
+   "v": "yellow",
+   "text": "The tent is yellow.",
+   "para": 0
+  },
+  {
+   "id": 25,
+   "name": "L25",
+   "op": "ASSERT",
+   "e": "my sister",
+   "a": "eye_colour",
+   "told": 739901002500,
+   "v": "brown",
+   "text": "My sister has brown eyes.",
+   "para": 1
+  },
+  {
+   "id": 26,
+   "name": "L26",
+   "op": "CHANGE",
+   "e": "me",
+   "a": "fav_colour",
+   "told": 739901002600,
+   "v": "blue",
+   "text": "My favourite colour is blue now.",
+   "para": 0
+  },
+  {
+   "id": 27,
+   "name": "L27",
+   "op": "ASSERT",
+   "e": "my brother",
+   "a": "city_like",
+   "told": 739901002700,
+   "v": "my sister",
+   "text": "My brother lives in the same city as my sister.",
+   "para": 0
+  },
+  {
+   "id": 28,
+   "name": "L28",
+   "op": "ASSERT",
+   "e": "me",
+   "a": "likes",
+   "told": 739901002800,
+   "v": "pears",
+   "text": "I like pears.",
+   "para": 0
+  },
+  {
+   "id": 29,
+   "name": "L29",
+   "op": "RETRACT",
+   "e": "me",
+   "a": "likes",
+   "told": 739901002900,
+   "v": "cheese",
+   "text": "I no longer like cheese.",
+   "para": 1
+  }
+ ],
+ "questions": [
+  {
+   "type": "CURRENT",
+   "a": "home_city",
+   "role": "probe",
+   "e": "me",
+   "qid": "Q01",
+   "text": "In which city is my home?",
+   "para": 2
+  },
+  {
+   "type": "CURRENT",
+   "a": "home_city",
+   "role": "probe",
+   "e": "my sister",
+   "qid": "Q02",
+   "text": "Where does my sister live?",
+   "para": 0
+  },
+  {
+   "type": "CURRENT",
+   "a": "owner",
+   "role": "probe",
+   "e": "the boat",
+   "qid": "Q03",
+   "text": "Whose is the boat?",
+   "para": 1
+  },
+  {
+   "type": "CURRENT",
+   "a": "owner",
+   "role": "probe",
+   "e": "the tent",
+   "qid": "Q04",
+   "text": "Who does the tent belong to?",
+   "para": 2
+  },
+  {
+   "type": "CURRENT",
+   "a": "eye_colour",
+   "role": "probe",
+   "e": "me",
+   "qid": "Q05",
+   "text": "Tell me the colour of my eyes.",
+   "para": 2
+  },
+  {
+   "type": "CURRENT",
+   "a": "eye_colour",
+   "role": "probe",
+   "e": "my sister",
+   "qid": "Q06",
+   "text": "What colour are my sister's eyes?",
+   "para": 0
+  },
+  {
+   "type": "CURRENT",
+   "a": "eye_colour",
+   "role": "probe",
+   "e": "my brother",
+   "qid": "Q07",
+   "text": "What colour are my brother's eyes?",
+   "para": 0
+  },
+  {
+   "type": "CURRENT",
+   "a": "eye_colour",
+   "role": "probe",
+   "e": "my dog",
+   "qid": "Q08",
+   "text": "What colour are my dog's eyes?",
+   "para": 0
+  },
+  {
+   "type": "CURRENT",
+   "a": "name",
+   "role": "probe",
+   "e": "my sister",
+   "qid": "Q09",
+   "text": "What is my sister's name?",
+   "para": 0
+  },
+  {
+   "type": "CURRENT",
+   "a": "name",
+   "role": "probe",
+   "e": "my brother",
+   "qid": "Q10",
+   "text": "What is my brother's name?",
+   "para": 0
+  },
+  {
+   "type": "CURRENT",
+   "a": "name",
+   "role": "probe",
+   "e": "my cat",
+   "qid": "Q11",
+   "text": "What is my cat's name?",
+   "para": 0
+  },
+  {
+   "type": "CURRENT",
+   "a": "name",
+   "role": "probe",
+   "e": "my dog",
+   "qid": "Q12",
+   "text": "What is my dog called?",
+   "para": 1
+  },
+  {
+   "type": "YES_NO",
+   "a": "eyes_like",
+   "role": "probe",
+   "e": "my cat",
+   "v": "me",
+   "qid": "Q13",
+   "text": "Does my cat have the same eye colour as me?",
+   "para": 1
+  },
+  {
+   "type": "YES_NO",
+   "a": "city_like",
+   "role": "probe",
+   "e": "my brother",
+   "v": "my sister",
+   "qid": "Q14",
+   "text": "Does my brother live in the same city as my sister?",
+   "para": 0
+  },
+  {
+   "type": "CHAIN",
+   "family": "natural",
+   "hops": [],
+   "final": "home_city",
+   "a": "country",
+   "start": "me",
+   "nat": "country",
+   "qid": "Q15",
+   "text": "Which country do I live in?",
+   "para": 0,
+   "role": "probe"
+  },
+  {
+   "type": "CHAIN",
+   "family": "natural",
+   "hops": [],
+   "final": "home_city",
+   "a": "country",
+   "start": "me",
+   "nat": "country",
+   "v": "Portugal",
+   "qid": "Q16",
+   "text": "Do I live in Portugal?",
+   "para": 0,
+   "role": "probe"
+  },
+  {
+   "type": "CHAIN",
+   "family": "natural",
+   "hops": [],
+   "final": "home_city",
+   "a": "country",
+   "start": "my brother",
+   "nat": "country",
+   "qid": "Q17",
+   "text": "Which country does my brother live in?",
+   "para": 0,
+   "role": "probe"
+  },
+  {
+   "type": "CHAIN",
+   "family": "link",
+   "hops": [],
+   "final": "eye_colour",
+   "a": "eye_colour",
+   "start": "my cat",
+   "qid": "Q18",
+   "text": "What is my cat's eye colour?",
+   "para": 1,
+   "role": "probe"
+  },
+  {
+   "type": "CHAIN",
+   "family": "link",
+   "hops": [],
+   "final": "home_city",
+   "a": "home_city",
+   "start": "my brother",
+   "qid": "Q19",
+   "text": "Which city does my brother live in?",
+   "para": 1,
+   "role": "probe"
+  },
+  {
+   "type": "CHAIN",
+   "family": "owner",
+   "hops": [
+    "owner"
+   ],
+   "final": "eye_colour",
+   "a": "eye_colour",
+   "start": "the boat",
+   "qid": "Q20",
+   "text": "What colour are the eyes of the person who owns the boat?",
+   "para": 1,
+   "role": "probe"
+  },
+  {
+   "type": "CHAIN",
+   "family": "owner",
+   "hops": [
+    "owner"
+   ],
+   "final": "eye_colour",
+   "a": "eye_colour",
+   "start": "the boat",
+   "v": "amber",
+   "qid": "Q21",
+   "text": "Does the owner of the boat have amber eyes?",
+   "para": 0,
+   "role": "probe"
+  },
+  {
+   "type": "CHAIN",
+   "family": "owner",
+   "hops": [
+    "owner"
+   ],
+   "final": "home_city",
+   "a": "home_city",
+   "start": "the boat",
+   "qid": "Q22",
+   "text": "Where does the owner of the boat live?",
+   "para": 0,
+   "role": "probe"
+  },
+  {
+   "type": "CHAIN",
+   "family": "owner",
+   "hops": [
+    "owner"
+   ],
+   "final": "home_city",
+   "a": "country",
+   "start": "the boat",
+   "nat": "country",
+   "qid": "Q23",
+   "text": "In which country does the owner of the boat live?",
+   "para": 0,
+   "role": "probe"
+  },
+  {
+   "type": "CHAIN",
+   "family": "owner",
+   "hops": [
+    "owner"
+   ],
+   "final": "fav_colour",
+   "a": "fav_colour",
+   "start": "the boat",
+   "qid": "Q24",
+   "text": "What is the favourite colour of the owner of the boat?",
+   "para": 0,
+   "role": "probe"
+  },
+  {
+   "type": "CHAIN",
+   "family": "owner",
+   "hops": [
+    "owner"
+   ],
+   "final": "eye_colour",
+   "a": "eye_colour",
+   "start": "the tent",
+   "qid": "Q25",
+   "text": "What colour are the eyes of the person who owns the tent?",
+   "para": 1,
+   "role": "probe"
+  },
+  {
+   "type": "CHAIN",
+   "family": "alias",
+   "hops": [],
+   "final": "eye_colour",
+   "a": "eye_colour",
+   "name": "Ana",
+   "qid": "Q26",
+   "text": "What is the colour of Ana's eyes?",
+   "para": 1,
+   "role": "probe"
+  },
+  {
+   "type": "CHAIN",
+   "family": "alias",
+   "hops": [],
+   "final": "home_city",
+   "a": "country",
+   "name": "Ana",
+   "nat": "country",
+   "qid": "Q27",
+   "text": "Which country does Ana live in?",
+   "para": 0,
+   "role": "probe"
+  },
+  {
+   "type": "CHAIN",
+   "family": "alias",
+   "hops": [],
+   "final": "eye_colour",
+   "a": "eye_colour",
+   "name": "Bruno",
+   "qid": "Q28",
+   "text": "What is the colour of Bruno's eyes?",
+   "para": 1,
+   "role": "probe"
+  },
+  {
+   "type": "CHAIN",
+   "family": "alias",
+   "hops": [],
+   "final": "eye_colour",
+   "a": "eye_colour",
+   "name": "Milo",
+   "qid": "Q29",
+   "text": "What colour are Milo's eyes?",
+   "para": 0,
+   "role": "probe"
+  },
+  {
+   "type": "CHAIN",
+   "family": "alias",
+   "hops": [],
+   "final": "eye_colour",
+   "a": "eye_colour",
+   "name": "Otto",
+   "v": "amber",
+   "qid": "Q30",
+   "text": "Are Otto's eyes amber?",
+   "para": 0,
+   "role": "probe"
+  },
+  {
+   "qid": "Q31",
+   "type": "COMPOUND",
+   "family": "compound",
+   "op": "and",
+   "parts": [
+    {
+     "e": "me",
+     "a": "eye_colour",
+     "v": "green",
+     "type": "YES_NO"
+    },
+    {
+     "e": "my car",
+     "a": "colour",
+     "v": "red",
+     "type": "YES_NO"
+    }
+   ],
+   "a": null,
+   "text": "Is it true that my eyes are green and my car is red?",
+   "para": 0,
+   "role": "probe"
+  },
+  {
+   "qid": "Q32",
+   "type": "COMPOUND",
+   "family": "compound",
+   "op": "and",
+   "parts": [
+    {
+     "e": "my brother",
+     "a": "fav_colour",
+     "v": "black",
+     "type": "YES_NO"
+    },
+    {
+     "e": "me",
+     "a": "likes",
+     "v": "cheese",
+     "type": "YES_NO"
+    }
+   ],
+   "a": null,
+   "text": "Is it true that my brother's favourite colour is black and I like cheese?",
+   "para": 0,
+   "role": "probe"
+  },
+  {
+   "qid": "Q33",
+   "type": "COMPOUND",
+   "family": "compound",
+   "op": "and",
+   "parts": [
+    {
+     "e": "the boat",
+     "a": "owner",
+     "v": "my brother",
+     "type": "YES_NO"
+    },
+    {
+     "e": "my dog",
+     "a": "likes",
+     "v": "olives",
+     "type": "YES_NO"
+    }
+   ],
+   "a": null,
+   "text": "Is it true that the boat belongs to my brother and my dog likes olives?",
+   "para": 0,
+   "role": "probe"
+  },
+  {
+   "qid": "Q34",
+   "type": "COMPOUND",
+   "family": "compound",
+   "op": "or",
+   "parts": [
+    {
+     "e": "my brother",
+     "a": "fav_colour",
+     "v": "black",
+     "type": "YES_NO"
+    },
+    {
+     "e": "me",
+     "a": "eye_colour",
+     "v": "green",
+     "type": "YES_NO"
+    }
+   ],
+   "a": null,
+   "text": "Is it true that my brother's favourite colour is black or my eyes are green?",
+   "para": 0,
+   "role": "probe"
+  },
+  {
+   "qid": "Q35",
+   "type": "COMPOUND",
+   "family": "compound",
+   "op": "or",
+   "parts": [
+    {
+     "e": "my sister",
+     "a": "name",
+     "v": "Nora",
+     "type": "YES_NO"
+    },
+    {
+     "e": "my dog",
+     "a": "likes",
+     "v": "olives",
+     "type": "YES_NO"
+    }
+   ],
+   "a": null,
+   "text": "Is it true that my sister is called Nora or my dog likes olives?",
+   "para": 0,
+   "role": "probe"
+  },
+  {
+   "qid": "Q36",
+   "type": "COMPOUND",
+   "family": "compound",
+   "op": "or",
+   "parts": [
+    {
+     "e": "me",
+     "a": "likes",
+     "v": "cheese",
+     "type": "YES_NO"
+    },
+    {
+     "e": "my sister",
+     "a": "name",
+     "v": "Nora",
+     "type": "YES_NO"
+    }
+   ],
+   "a": null,
+   "text": "Is it true that I like cheese or my sister is called Nora?",
+   "para": 0,
+   "role": "probe"
+  },
+  {
+   "qid": "Q37",
+   "type": "COMPOUND",
+   "family": "compound",
+   "op": "not",
+   "parts": [
+    {
+     "e": "my car",
+     "a": "colour",
+     "v": "red",
+     "type": "YES_NO"
+    }
+   ],
+   "a": null,
+   "text": "Is it true that my car is not red?",
+   "para": 0,
+   "role": "probe"
+  },
+  {
+   "qid": "Q38",
+   "type": "COMPOUND",
+   "family": "compound",
+   "op": "not",
+   "parts": [
+    {
+     "e": "my dog",
+     "a": "likes",
+     "v": "olives",
+     "type": "YES_NO"
+    }
+   ],
+   "a": null,
+   "text": "Is it true that my dog does not like olives?",
+   "para": 0,
+   "role": "probe"
+  },
+  {
+   "type": "YES_NO",
+   "a": "eye_colour",
+   "role": "probe",
+   "e": "me",
+   "v": "green",
+   "qid": "Q39",
+   "text": "Are my eyes green?",
+   "para": 0
+  },
+  {
+   "type": "YES_NO",
+   "a": "owner",
+   "role": "probe",
+   "e": "the boat",
+   "v": "my brother",
+   "qid": "Q40",
+   "text": "Does the boat belong to my brother?",
+   "para": 0
+  },
+  {
+   "type": "YES_NO",
+   "a": "colour",
+   "role": "probe",
+   "e": "my car",
+   "v": "red",
+   "qid": "Q41",
+   "text": "Is my car red?",
+   "para": 0
+  },
+  {
+   "type": "YES_NO",
+   "a": "name",
+   "role": "probe",
+   "e": "my sister",
+   "v": "Nora",
+   "qid": "Q42",
+   "text": "Is my sister called Nora?",
+   "para": 0
+  },
+  {
+   "type": "YES_NO",
+   "a": "likes",
+   "role": "probe",
+   "e": "me",
+   "v": "cheese",
+   "qid": "Q43",
+   "text": "Do I like cheese?",
+   "para": 0
+  },
+  {
+   "type": "YES_NO",
+   "a": "fav_colour",
+   "role": "probe",
+   "e": "my brother",
+   "v": "black",
+   "qid": "Q44",
+   "text": "Is my brother's favourite colour black?",
+   "para": 0
+  },
+  {
+   "type": "YES_NO",
+   "a": "likes",
+   "role": "probe",
+   "e": "my dog",
+   "v": "olives",
+   "qid": "Q45",
+   "text": "Does my dog like olives?",
+   "para": 0
+  },
+  {
+   "qid": "Q46",
+   "type": "GK",
+   "a": null,
+   "text": "In which country is Lisbon?",
+   "para": 1,
+   "any_of": [
+    [
+     "portugal"
+    ]
+   ],
+   "role": "natural",
+   "city": "Lisbon"
+  },
+  {
+   "qid": "Q47",
+   "type": "GK",
+   "a": null,
+   "text": "Which country is Turku in?",
+   "para": 0,
+   "any_of": [
+    [
+     "finland"
+    ]
+   ],
+   "role": "natural",
+   "city": "Turku"
+  },
+  {
+   "type": "CURRENT",
+   "a": "fav_colour",
+   "role": "probe",
+   "e": "my brother",
+   "qid": "Q48",
+   "text": "Which colour does my brother like best?",
+   "para": 1
+  },
+  {
+   "qid": "Q49",
+   "type": "GK",
+   "a": null,
+   "text": "In which country is Porto?",
+   "para": 1,
+   "any_of": [
+    [
+     "portugal"
+    ]
+   ],
+   "role": "natural",
+   "city": "Porto"
+  },
+  {
+   "type": "CURRENT",
+   "a": "fav_colour",
+   "role": "probe",
+   "e": "my sister",
+   "qid": "Q50",
+   "text": "What colour does my sister like the most?",
+   "para": 2
+  },
+  {
+   "type": "CURRENT",
+   "a": "likes",
+   "role": "untouched",
+   "e": "my brother",
+   "qid": "Q51",
+   "text": "What food does my brother like?",
+   "para": 0
+  },
+  {
+   "type": "CURRENT",
+   "a": "eye_colour",
+   "role": "near_miss",
+   "e": "my cousin",
+   "qid": "Q52",
+   "text": "Tell me the colour of my cousin's eyes.",
+   "para": 2
+  },
+  {
+   "type": "CURRENT",
+   "a": "name",
+   "role": "near_miss",
+   "e": "my rabbit",
+   "qid": "Q53",
+   "text": "What is my rabbit's name?",
+   "para": 0
+  },
+  {
+   "qid": "Q54",
+   "type": "GK",
+   "a": null,
+   "text": "Who usually owns a library book?",
+   "any_of": [
+    [
+     "library"
+    ]
+   ],
+   "role": "gk"
+  },
+  {
+   "qid": "Q55",
+   "type": "GK",
+   "a": null,
+   "text": "What is cheese made from?",
+   "any_of": [
+    [
+     "milk"
+    ]
+   ],
+   "role": "gk"
+  },
+  {
+   "qid": "Q56",
+   "type": "GK",
+   "a": null,
+   "text": "How many legs does a spider have?",
+   "any_of": [
+    [
+     "eight"
+    ],
+    [
+     "8"
+    ]
+   ],
+   "role": "gk"
+  }
+ ],
+ "phases": [
+  {
+   "name": "baseline",
+   "deleted": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29
+   ],
+   "note": "before any teaching (the original model)",
+   "store": []
+  },
+  {
+   "name": "teach",
+   "deleted": [],
+   "note": "every lesson taught, in order",
+   "store": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29
+   ]
+  },
+  {
+   "name": "del-A",
+   "deleted": [
+    2
+   ],
+   "note": "deep delete: the cat's own eye colour deleted. The link to my eyes still implies it, so it must stay known",
+   "store": [
+    1,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29
+   ],
+   "affected": [
+    "Q18",
+    "Q29"
+   ]
+  },
+  {
+   "name": "del-B",
+   "deleted": [
+    9,
+    15,
+    18,
+    27
+   ],
+   "note": "one link of each chain deleted (the boat's owner, my sister's name, my brother's city link): the chains through them must become don't know",
+   "store": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    10,
+    11,
+    12,
+    13,
+    14,
+    16,
+    17,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    28,
+    29
+   ],
+   "affected": [
+    "Q03",
+    "Q09",
+    "Q14",
+    "Q17",
+    "Q19",
+    "Q20",
+    "Q21",
+    "Q22",
+    "Q23",
+    "Q24",
+    "Q26",
+    "Q27",
+    "Q28",
+    "Q29",
+    "Q30",
+    "Q33",
+    "Q35",
+    "Q36",
+    "Q40",
+    "Q42"
+   ]
+  },
+  {
+   "name": "del-C",
+   "deleted": [
+    13,
+    18,
+    21
+   ],
+   "note": "the changes deleted: the chains through them must go back to the value before the change",
+   "store": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    14,
+    15,
+    16,
+    17,
+    19,
+    20,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29
+   ],
+   "affected": [
+    "Q01",
+    "Q03",
+    "Q12",
+    "Q15",
+    "Q16",
+    "Q20",
+    "Q21",
+    "Q22",
+    "Q23",
+    "Q24",
+    "Q26",
+    "Q27",
+    "Q28",
+    "Q29",
+    "Q30",
+    "Q33",
+    "Q40"
+   ]
+  }
+ ],
+ "notes": [
+  "Two-step questions. My home moves within the country (Porto to Lisbon). The boat's owner changes from my sister to my brother, and my dog's name from Luna to Bruno. My cat's eye colour is said outright and also implied by a link to mine; my brother's city is only implied, by a link to my sister's. The tent belongs to me.",
+  "A chain asks about now. A name points at the one entity called that now. A link is read one way and one link deep, and only fills gaps: what is said outright wins. 'Or' is inclusive; compound questions use Kleene's three-valued logic. The country of a city is fixed general knowledge; its question ('Which country is Oslo in?') is asked in every phase, so chains the base model cannot finish can be dropped when scoring."
+ ],
+ "expected": {
+  "baseline": {
+   "Q01": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q02": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q03": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q04": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q05": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q06": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q07": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q08": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q09": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q10": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q11": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q12": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q13": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q14": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q15": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q16": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q17": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q18": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q19": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q20": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q21": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q22": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q23": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q24": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q25": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q26": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q27": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q28": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q29": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q30": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q31": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q32": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q33": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q34": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q35": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q36": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q37": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q38": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q39": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q40": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q41": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q42": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q43": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q44": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q45": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q46": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "portugal"
+     ]
+    ]
+   },
+   "Q47": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "finland"
+     ]
+    ]
+   },
+   "Q48": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q49": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "portugal"
+     ]
+    ]
+   },
+   "Q50": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q51": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q52": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q53": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q54": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "library"
+     ]
+    ]
+   },
+   "Q55": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "milk"
+     ]
+    ]
+   },
+   "Q56": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "eight"
+     ],
+     [
+      "8"
+     ]
+    ]
+   }
+  },
+  "teach": {
+   "Q01": {
+    "kind": "value",
+    "value": "Lisbon"
+   },
+   "Q02": {
+    "kind": "value",
+    "value": "Turku"
+   },
+   "Q03": {
+    "kind": "value",
+    "value": "my brother"
+   },
+   "Q04": {
+    "kind": "value",
+    "value": "me"
+   },
+   "Q05": {
+    "kind": "value",
+    "value": "green"
+   },
+   "Q06": {
+    "kind": "value",
+    "value": "brown"
+   },
+   "Q07": {
+    "kind": "value",
+    "value": "amber"
+   },
+   "Q08": {
+    "kind": "value",
+    "value": "grey"
+   },
+   "Q09": {
+    "kind": "value",
+    "value": "Ana"
+   },
+   "Q10": {
+    "kind": "value",
+    "value": "Otto"
+   },
+   "Q11": {
+    "kind": "value",
+    "value": "Milo"
+   },
+   "Q12": {
+    "kind": "value",
+    "value": "Bruno"
+   },
+   "Q13": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q14": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q15": {
+    "kind": "value",
+    "value": "Portugal"
+   },
+   "Q16": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q17": {
+    "kind": "value",
+    "value": "Finland"
+   },
+   "Q18": {
+    "kind": "value",
+    "value": "green"
+   },
+   "Q19": {
+    "kind": "value",
+    "value": "Turku"
+   },
+   "Q20": {
+    "kind": "value",
+    "value": "amber"
+   },
+   "Q21": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q22": {
+    "kind": "value",
+    "value": "Turku"
+   },
+   "Q23": {
+    "kind": "value",
+    "value": "Finland"
+   },
+   "Q24": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q25": {
+    "kind": "value",
+    "value": "green"
+   },
+   "Q26": {
+    "kind": "value",
+    "value": "brown"
+   },
+   "Q27": {
+    "kind": "value",
+    "value": "Finland"
+   },
+   "Q28": {
+    "kind": "value",
+    "value": "grey"
+   },
+   "Q29": {
+    "kind": "value",
+    "value": "green"
+   },
+   "Q30": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q31": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q32": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q33": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q34": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q35": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q36": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q37": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q38": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q39": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q40": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q41": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q42": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q43": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q44": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q45": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q46": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "portugal"
+     ]
+    ]
+   },
+   "Q47": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "finland"
+     ]
+    ]
+   },
+   "Q48": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q49": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "portugal"
+     ]
+    ]
+   },
+   "Q50": {
+    "kind": "value",
+    "value": "orange"
+   },
+   "Q51": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q52": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q53": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q54": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "library"
+     ]
+    ]
+   },
+   "Q55": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "milk"
+     ]
+    ]
+   },
+   "Q56": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "eight"
+     ],
+     [
+      "8"
+     ]
+    ]
+   }
+  },
+  "del-A": {
+   "Q01": {
+    "kind": "value",
+    "value": "Lisbon"
+   },
+   "Q02": {
+    "kind": "value",
+    "value": "Turku"
+   },
+   "Q03": {
+    "kind": "value",
+    "value": "my brother"
+   },
+   "Q04": {
+    "kind": "value",
+    "value": "me"
+   },
+   "Q05": {
+    "kind": "value",
+    "value": "green"
+   },
+   "Q06": {
+    "kind": "value",
+    "value": "brown"
+   },
+   "Q07": {
+    "kind": "value",
+    "value": "amber"
+   },
+   "Q08": {
+    "kind": "value",
+    "value": "grey"
+   },
+   "Q09": {
+    "kind": "value",
+    "value": "Ana"
+   },
+   "Q10": {
+    "kind": "value",
+    "value": "Otto"
+   },
+   "Q11": {
+    "kind": "value",
+    "value": "Milo"
+   },
+   "Q12": {
+    "kind": "value",
+    "value": "Bruno"
+   },
+   "Q13": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q14": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q15": {
+    "kind": "value",
+    "value": "Portugal"
+   },
+   "Q16": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q17": {
+    "kind": "value",
+    "value": "Finland"
+   },
+   "Q18": {
+    "kind": "value",
+    "value": "green"
+   },
+   "Q19": {
+    "kind": "value",
+    "value": "Turku"
+   },
+   "Q20": {
+    "kind": "value",
+    "value": "amber"
+   },
+   "Q21": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q22": {
+    "kind": "value",
+    "value": "Turku"
+   },
+   "Q23": {
+    "kind": "value",
+    "value": "Finland"
+   },
+   "Q24": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q25": {
+    "kind": "value",
+    "value": "green"
+   },
+   "Q26": {
+    "kind": "value",
+    "value": "brown"
+   },
+   "Q27": {
+    "kind": "value",
+    "value": "Finland"
+   },
+   "Q28": {
+    "kind": "value",
+    "value": "grey"
+   },
+   "Q29": {
+    "kind": "value",
+    "value": "green"
+   },
+   "Q30": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q31": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q32": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q33": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q34": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q35": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q36": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q37": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q38": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q39": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q40": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q41": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q42": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q43": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q44": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q45": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q46": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "portugal"
+     ]
+    ]
+   },
+   "Q47": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "finland"
+     ]
+    ]
+   },
+   "Q48": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q49": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "portugal"
+     ]
+    ]
+   },
+   "Q50": {
+    "kind": "value",
+    "value": "orange"
+   },
+   "Q51": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q52": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q53": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q54": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "library"
+     ]
+    ]
+   },
+   "Q55": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "milk"
+     ]
+    ]
+   },
+   "Q56": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "eight"
+     ],
+     [
+      "8"
+     ]
+    ]
+   }
+  },
+  "del-B": {
+   "Q01": {
+    "kind": "value",
+    "value": "Lisbon"
+   },
+   "Q02": {
+    "kind": "value",
+    "value": "Turku"
+   },
+   "Q03": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q04": {
+    "kind": "value",
+    "value": "me"
+   },
+   "Q05": {
+    "kind": "value",
+    "value": "green"
+   },
+   "Q06": {
+    "kind": "value",
+    "value": "brown"
+   },
+   "Q07": {
+    "kind": "value",
+    "value": "amber"
+   },
+   "Q08": {
+    "kind": "value",
+    "value": "grey"
+   },
+   "Q09": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q10": {
+    "kind": "value",
+    "value": "Otto"
+   },
+   "Q11": {
+    "kind": "value",
+    "value": "Milo"
+   },
+   "Q12": {
+    "kind": "value",
+    "value": "Bruno"
+   },
+   "Q13": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q14": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q15": {
+    "kind": "value",
+    "value": "Portugal"
+   },
+   "Q16": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q17": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q18": {
+    "kind": "value",
+    "value": "green"
+   },
+   "Q19": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q20": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q21": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q22": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q23": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q24": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q25": {
+    "kind": "value",
+    "value": "green"
+   },
+   "Q26": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q27": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q28": {
+    "kind": "value",
+    "value": "grey"
+   },
+   "Q29": {
+    "kind": "value",
+    "value": "green"
+   },
+   "Q30": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q31": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q32": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q33": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q34": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q35": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q36": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q37": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q38": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q39": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q40": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q41": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q42": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q43": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q44": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q45": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q46": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "portugal"
+     ]
+    ]
+   },
+   "Q47": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "finland"
+     ]
+    ]
+   },
+   "Q48": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q49": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "portugal"
+     ]
+    ]
+   },
+   "Q50": {
+    "kind": "value",
+    "value": "orange"
+   },
+   "Q51": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q52": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q53": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q54": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "library"
+     ]
+    ]
+   },
+   "Q55": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "milk"
+     ]
+    ]
+   },
+   "Q56": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "eight"
+     ],
+     [
+      "8"
+     ]
+    ]
+   }
+  },
+  "del-C": {
+   "Q01": {
+    "kind": "value",
+    "value": "Porto"
+   },
+   "Q02": {
+    "kind": "value",
+    "value": "Turku"
+   },
+   "Q03": {
+    "kind": "value",
+    "value": "my sister"
+   },
+   "Q04": {
+    "kind": "value",
+    "value": "me"
+   },
+   "Q05": {
+    "kind": "value",
+    "value": "green"
+   },
+   "Q06": {
+    "kind": "value",
+    "value": "brown"
+   },
+   "Q07": {
+    "kind": "value",
+    "value": "amber"
+   },
+   "Q08": {
+    "kind": "value",
+    "value": "grey"
+   },
+   "Q09": {
+    "kind": "value",
+    "value": "Ana"
+   },
+   "Q10": {
+    "kind": "value",
+    "value": "Otto"
+   },
+   "Q11": {
+    "kind": "value",
+    "value": "Milo"
+   },
+   "Q12": {
+    "kind": "value",
+    "value": "Luna"
+   },
+   "Q13": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q14": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q15": {
+    "kind": "value",
+    "value": "Portugal"
+   },
+   "Q16": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q17": {
+    "kind": "value",
+    "value": "Finland"
+   },
+   "Q18": {
+    "kind": "value",
+    "value": "green"
+   },
+   "Q19": {
+    "kind": "value",
+    "value": "Turku"
+   },
+   "Q20": {
+    "kind": "value",
+    "value": "brown"
+   },
+   "Q21": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q22": {
+    "kind": "value",
+    "value": "Turku"
+   },
+   "Q23": {
+    "kind": "value",
+    "value": "Finland"
+   },
+   "Q24": {
+    "kind": "value",
+    "value": "orange"
+   },
+   "Q25": {
+    "kind": "value",
+    "value": "green"
+   },
+   "Q26": {
+    "kind": "value",
+    "value": "brown"
+   },
+   "Q27": {
+    "kind": "value",
+    "value": "Finland"
+   },
+   "Q28": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q29": {
+    "kind": "value",
+    "value": "green"
+   },
+   "Q30": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q31": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q32": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q33": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q34": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q35": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q36": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q37": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q38": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q39": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q40": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q41": {
+    "kind": "yn",
+    "value": "yes"
+   },
+   "Q42": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q43": {
+    "kind": "yn",
+    "value": "no"
+   },
+   "Q44": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q45": {
+    "kind": "yn",
+    "value": "unk"
+   },
+   "Q46": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "portugal"
+     ]
+    ]
+   },
+   "Q47": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "finland"
+     ]
+    ]
+   },
+   "Q48": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q49": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "portugal"
+     ]
+    ]
+   },
+   "Q50": {
+    "kind": "value",
+    "value": "orange"
+   },
+   "Q51": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q52": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q53": {
+    "kind": "unknown",
+    "not": []
+   },
+   "Q54": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "library"
+     ]
+    ]
+   },
+   "Q55": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "milk"
+     ]
+    ]
+   },
+   "Q56": {
+    "kind": "gk",
+    "any_of": [
+     [
+      "eight"
+     ],
+     [
+      "8"
+     ]
+    ]
+   }
+  }
+ }
+}

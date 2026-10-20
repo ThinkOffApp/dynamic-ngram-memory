@@ -1,0 +1,79 @@
+judged 112 answers against L6-seed1
+
+== teach: store L1 L2 L3 L4 L5 L6 L7 L8 L9 L10 L11 L12 L13 L14 L15 L16 L17 L18 L19 L20 L21 L22 L23 L24 L25 L26 L27 L28 L29
+   property               thinking off        thinking on
+   recall            11/14 (1 unclear)              14/14
+   yes_no                          7/9    6/9 (1 unclear)
+   two_step          11/16 (2 unclear)              14/16
+   compound            5/8 (2 unclear)    5/8 (2 unclear)
+   controls                        8/9    8/9 (1 unclear)
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off             thinking on
+   all                v 34/41  n 5/5  ? 3/10   v 38/41  n 5/5  ? 4/10
+   recall             v 11/13  ? 0/1           v 13/13  ? 1/1
+   yes no             v 5/5  n 2/2  ? 0/2      v 4/5  n 2/2  ? 0/2
+   two step           v 11/15  ? 0/1           v 14/15  ? 0/1
+   compound           v 1/2  n 3/3  ? 1/3      v 1/2  n 3/3  ? 1/3
+   controls           v 6/6  ? 2/3             v 6/6  ? 2/3
+   should change      v 28/35  n 5/5           v 32/35  n 5/5
+   should stay        v 6/6  ? 3/10            v 6/6  ? 4/10
+   abstention         P 3/3 R 3/10             P 4/4 R 4/10            precision and recall of "don't know"
+   closed world       +2                       +3                      fails that pass if a "no" counts where the right answer is "don't know"
+   reliability        11/13                    13/13
+   generality         7/8                      6/8
+   locality           24/35                    28/35
+   neighbourhood    a value taught about another entity: Q48 blue (me) plain, Q51 pears (me) plain
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value                4/4                3/3
+     plain: dk                       -                0/1   not: Q44~Q48 think
+   same answer        8/34 (8 v, 0 dk) 13/38 (13 v, 0 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 1/5                3/5   questions asked in several wordings, every wording right
+   FAIL    Q03 plain "Whose is the boat?" expected my brother; got my brother (said of your brother) [said of another entity]  << My brother.
+   UNCLEAR Q04 plain "Who does the tent belong to?" expected me; got unclear [unclear]  << The tent belongs to me.
+   ECHO    Q17 plain "Which country does my brother live in?" expected Finland; got unclear [repeats a step on the way (same as my sister, my sister, Turku), not the answer]  << My brother lives in the same city as my sister. My sister lives in Turku.
+   FAIL    Q21 plain "Does the owner of the boat have amber eyes?" expected yes; got no [wrong yes/no]  << No, the owner of the boat is my brother, and his eye colour is amber.
+   ECHO    Q22 plain "Where does the owner of the boat live?" expected Turku; got unclear [repeats a step on the way (my brother, same as my sister, my sister), not the answer]  << My brother lives in the same city as my sister.
+   FAIL    Q23 plain "In which country does the owner of the boat live?" expected Finland; got Portugal [wrong value]  << Lisbon is the capital of Portugal.
+   FAIL    Q24 plain "What is the favourite colour of the owner of the boat?" expected doesn't know; got blue [invented a value]  << blue
+   FAIL    Q33 plain "Is it true that the boat belongs to my brother and my dog likes olives?" expected doesn't know; got yes [wrong yes/no (the conclusion)]  << Let me check the information I have about both of these claims. First, about the boat belo
+   UNCLEAR Q34 plain "Is it true that my brother's favourite colour is black or my eyes are green?" expected yes; got unclear [no yes or no]  << Your eyes are green.
+   UNCLEAR Q35 plain "Is it true that my sister is called Nora or my dog likes olives?" expected doesn't know; got unclear [no yes or no]  << My sister is called Ana. My dog really likes apples.
+   FAIL    Q44 plain "Is my brother's favourite colour black?" expected doesn't know; got no [wrong yes/no]  << No, your brother's favourite colour is blue.
+   FAIL    Q45 plain "Does my dog like olives?" expected doesn't know; got no [wrong yes/no]  << No, I don't think so.
+   FAIL    Q48 plain "Which colour does my brother like best?" expected doesn't know; got blue [invented a value]  << My brother's favourite colour is blue.
+   FAIL    Q51 plain "What food does my brother like?" expected doesn't know; got pears [invented a value]  << Otto likes pears.
+   FAIL    Q22 think "Where does the owner of the boat live?" expected Turku; got Lisbon [wrong value]  << According to the conversation, the owner of the boat is the user's brother (statement [18]
+   FAIL    Q24 think "What is the favourite colour of the owner of the boat?" expected doesn't know; got blue [invented a value]  << The provided notes do not specify the favourite colour of the owner of the boat (the user'
+   UNCLEAR Q33 think "Is it true that the boat belongs to my brother and my dog likes olives?" expected doesn't know; got unclear [no yes or no]  << Based on the provided notes: - Boat ownership: Yes, the boat belongs to your brother. This
+   UNCLEAR Q34 think "Is it true that my brother's favourite colour is black or my eyes are green?" expected yes; got unclear [no yes or no]  << Based on the recorded memories: - "my eyes are green" is true . Multiple entries confirm t
+   FAIL    Q35 think "Is it true that my sister is called Nora or my dog likes olives?" expected doesn't know; got no [wrong yes/no]  << No, that's not true. According to the conversation: - Your sister's name is Ana , not Nora
+   UNCLEAR Q40 think "Does the boat belong to my brother?" expected yes; got yes (said of your brother) [also said of another entity]  << Yes. According to note [18], "The boat has a new owner: my brother."
+   FAIL    Q44 think "Is my brother's favourite colour black?" expected doesn't know; got no [wrong yes/no]  << Based on the conversation history provided, your brother's favorite color hasn't been ment
+   FAIL    Q45 think "Does my dog like olives?" expected doesn't know; got no [wrong yes/no]  << Based on the conversation history you provided, there's no mention of whether your dog lik
+   UNCLEAR Q51 think "What food does my brother like?" expected doesn't know; got unclear [unclear]  << Based on the conversation history you provided, there is no statement that mentions what y
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 3/3, recall 3/10;  v 34/41  n 5/5  ? 3/10
+   thinking on   precision 4/4, recall 4/10;  v 38/41  n 5/5  ? 4/10
+
+== two-step questions (level 6): stated against implied facts
+   phases with lessons taught; a chain counts when the rule book knows its answer and every step has a question of its own
+   stated: the taught steps it rests on; implied: the chain itself; given steps right: chains whose every step was right in the same phase and mode
+   thinking off: stated 23/28 (82%), implied 10/14 (71%), gap +11 points; given steps right 8/9 (89%); echo 2
+     steps  chains         stated        implied  given steps right    gap
+     1           1     1/1 (100%)     1/1 (100%)         1/1 (100%)     +0
+     2          10    15/18 (83%)     9/10 (90%)         7/7 (100%)     -7
+     3           3      6/7 (86%)      1/3 (33%)          1/2 (50%)    +52
+     4           1      2/3 (67%)       0/1 (0%)                0/0    +67
+     by family (2 steps or more): natural 2/3 (67%), owner 2/5 (40%), alias 5/5 (100%), link 1/1 (100%)
+     compound (Kleene): 5/8 (62%); given both parts right 3/3 (100%); no or no 1/1 (100%), no or unknown 0/1 (0%), not unknown 1/1 (100%), not yes 1/1 (100%), unknown and no 1/1 (100%), unknown or yes 0/1 (0%), yes and unknown 0/1 (0%), yes and yes 1/1 (100%)
+     don't know expected 0/1 (0%); baseline 0/0; echo answers 2; no baseline answer for Lisbon, Turku, nothing dropped for it
+   thinking on: stated 28/28 (100%), implied 13/14 (93%), gap +7 points; given steps right 13/14 (93%); echo 0
+     steps  chains         stated        implied  given steps right    gap
+     1           1     1/1 (100%)     1/1 (100%)         1/1 (100%)     +0
+     2          10   18/18 (100%)   10/10 (100%)       10/10 (100%)     +0
+     3           3     7/7 (100%)      2/3 (67%)          2/3 (67%)    +33
+     4           1     3/3 (100%)     1/1 (100%)         1/1 (100%)     +0
+     by family (2 steps or more): natural 3/3 (100%), owner 4/5 (80%), alias 5/5 (100%), link 1/1 (100%)
+     compound (Kleene): 5/8 (62%); given both parts right 3/3 (100%); no or no 1/1 (100%), no or unknown 0/1 (0%), not unknown 1/1 (100%), not yes 1/1 (100%), unknown and no 1/1 (100%), unknown or yes 0/1 (0%), yes and unknown 0/1 (0%), yes and yes 1/1 (100%)
+     don't know expected 0/1 (0%); baseline 0/0; echo answers 0; no baseline answer for Lisbon, Turku, nothing dropped for it

@@ -1,0 +1,65 @@
+judged 116 answers against L3-seed1-v2
+
+== teach: store L1 L2 L3
+   property               thinking off        thinking on
+   recall                          7/7                7/7
+   temporal                        6/6                6/6
+   either_or                       1/1                1/1
+   yes_no                        25/25              25/25
+   reverse                        6/12              11/12
+   reverse_fwd                    6/12              11/12
+   controls                        7/7    6/7 (1 unclear)
+   yes/no groups    6/6 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                     thinking on
+   all                v 28/34 (5 dk)  n 17/17  ? 7/7   v 33/34  n 17/17  ? 6/7
+   recall             v 7/7                            v 7/7
+   temporal           v 5/5  n 1/1                     v 5/5  n 1/1
+   either or          v 1/1                            v 1/1
+   yes no             v 9/9  n 16/16                   v 9/9  n 16/16
+   reverse            v 3/9 (5 dk)  ? 3/3              v 8/9  ? 3/3
+   reverse fwd        v 3/9 (5 dk)  ? 3/3              v 8/9  ? 3/3
+   controls           v 3/3  ? 4/4                     v 3/3  ? 3/4
+   should change      v 25/31 (5 dk)  n 17/17          v 30/31  n 17/17
+   should stay        v 3/3  ? 7/7                     v 3/3  ? 6/7
+   abstention         P 7/12 R 7/7                     P 6/6 R 6/7              precision and recall of "don't know"
+   reliability        3/3                              3/3
+   generality         39/39                            39/39
+   locality           10/10                            9/10
+   portability        0/6                              5/6
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value              69/69              69/69
+   same answer      34/34 (32 v, 2 dk) 34/35 (34 v, 0 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                9/12              11/12   questions asked in several wordings, every wording right
+   forms v2                               thinking off                  thinking on
+   wrong yes                                      0/19                         0/19
+     yes/no                                       0/10                         0/10
+     true/false                                    0/3                          0/3
+     recall+answer                                 0/3                          0/3
+     reverse yes/no                                0/3                          0/3
+   coherence breaks                        0 of 3 keys                  0 of 3 keys
+   pass, by form
+     true/false                                    6/6                          6/6
+     fill-in                                       3/3                          3/3
+     recall+answer                                 6/6                          6/6
+     reverse bare                                  0/3                          3/3
+     reverse listed                                0/3                          2/3
+     reverse yes/no                                6/6                          6/6
+     recall agrees                 6/6 with own recall          6/6 with own recall
+   reverse, forward ok    bare 0/3, listed 0/3, yes/no 6/6 bare 3/3, listed 2/3, yes/no 6/6
+   reversal curse                               3 of 3                       1 of 3
+   reverse as a set                 0/5 named, 0 extra           6/6 named, 1 extra
+   plain: reversal curse: fav_colour yellow, home_city Graz, eye_colour amber
+   think: reversal curse: home_city Graz
+   FAIL    Q45 plain "Who likes yellow best?" expected me; got nobody of yours (a general answer) [a general answer: names none of yours]  << The user likes yellow the most.
+   FAIL    Q46 plain "Of me, my brother and my sister, whose favourite colour is yellow?" expected me; got nobody of yours (a general answer) [a general answer: names none of yours]  << Of all colours, I like yellow the most.
+   FAIL    Q50 plain "Who lives in Graz?" expected me; got off topic [off topic]  << My name is Nemotron. I am created by NVIDIA researchers.
+   FAIL    Q51 plain "Of me, my sister and my brother, who lives in Graz?" expected me; got nobody of yours (a general answer) [a general answer: names none of yours]  << My home is in Graz.
+   FAIL    Q55 plain "Whose eyes are amber?" expected me; got nobody of yours (a general answer) [a general answer: names none of yours]  << My eyes are amber.
+   FAIL    Q56 plain "Of me, my sister and my brother, who has amber eyes?" expected me; got nobody of yours (a general answer) [a general answer: names none of yours]  << My eyes were green until 9 June 2025; now they are amber.
+   UNCLEAR Q19 think "What food do I like?" expected doesn't know; got unclear [unclear]  << Based on the messages you've shared so far, there's no mention of your food preferences. Y
+   FAIL    Q51 think "Of me, my sister and my brother, who lives in Graz?" expected me; got my sister, me [wrong entities]  << Based on the context you provided, "My home is in Graz" refers to you. There is no mention
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 7/12, recall 7/7;  v 28/34 (5 dk)  n 17/17  ? 7/7
+   thinking on   precision 6/6, recall 6/7;  v 33/34  n 17/17  ? 6/7

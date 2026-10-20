@@ -1,0 +1,230 @@
+{
+ "key": "del-A.zero",
+ "phase": "del-A",
+ "kind": "zero",
+ "store": [
+  1,
+  2
+ ],
+ "deleted": [
+  3
+ ],
+ "answers": {
+  "del-A.zero": {
+   "path": "~/lw-runs/gb10-a-L3-seed1/phases/del-A.zero/answers.jsonl",
+   "n": 44,
+   "expected": 44,
+   "complete": true,
+   "seconds": 82.8
+  }
+ },
+ "judge": {
+  "del-A.zero": {
+   "rc": 0,
+   "report": "~/lw-runs/gb10-a-L3-seed1/phases/del-A.zero/report.txt",
+   "verdicts": "~/lw-runs/gb10-a-L3-seed1/phases/del-A.zero/verdicts.json",
+   "seconds": 0.1,
+   "headline": "judged 44 answers against L3-seed1",
+   "scores": {
+    "del-A": {
+     "recall": {
+      "off": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "delete_affected": {
+      "off": {
+       "pass": 9,
+       "fail": 2,
+       "unclear": 0,
+       "total": 11
+      },
+      "on": {
+       "pass": 11,
+       "fail": 0,
+       "unclear": 0,
+       "total": 11
+      }
+     },
+     "all": {
+      "off": {
+       "pass": 16,
+       "fail": 6,
+       "unclear": 0,
+       "total": 22
+      },
+      "on": {
+       "pass": 17,
+       "fail": 5,
+       "unclear": 0,
+       "total": 22
+      }
+     },
+     "temporal": {
+      "off": {
+       "pass": 5,
+       "fail": 1,
+       "unclear": 0,
+       "total": 6
+      },
+      "on": {
+       "pass": 6,
+       "fail": 0,
+       "unclear": 0,
+       "total": 6
+      }
+     },
+     "either_or": {
+      "off": {
+       "pass": 0,
+       "fail": 1,
+       "unclear": 0,
+       "total": 1
+      },
+      "on": {
+       "pass": 1,
+       "fail": 0,
+       "unclear": 0,
+       "total": 1
+      }
+     },
+     "yes_no": {
+      "off": {
+       "pass": 3,
+       "fail": 3,
+       "unclear": 0,
+       "total": 6
+      },
+      "on": {
+       "pass": 2,
+       "fail": 4,
+       "unclear": 0,
+       "total": 6
+      }
+     },
+     "delete_kept": {
+      "off": {
+       "pass": 2,
+       "fail": 4,
+       "unclear": 0,
+       "total": 6
+      },
+      "on": {
+       "pass": 1,
+       "fail": 5,
+       "unclear": 0,
+       "total": 6
+      }
+     },
+     "controls": {
+      "off": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      },
+      "on": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      }
+     }
+    }
+   },
+   "consistency": {
+    "del-A": [
+     10,
+     13,
+     [
+      "Q16 (plain)",
+      "Q16 (think)",
+      "Q17 (think)"
+     ]
+    ],
+    "('pairs', 'del-A')": [
+     1,
+     6
+    ]
+   },
+   "n": 44
+  }
+ },
+ "timings": {
+  "copy_s": 2.8,
+  "zero_s": 5.4,
+  "del-A.zero.server": {
+   "ready_s": 6.0,
+   "warm_s": 6.0,
+   "stop_s": 0.5
+  },
+  "step_s": 97.5
+ },
+ "created": "2026-10-12T18:14:49Z",
+ "status": "done",
+ "error": null,
+ "folder": "~/lw-runs/gb10-a-L3-seed1/models/L3-seed1.del-A.zero",
+ "zero": {
+  "pocket": 64,
+  "shared_width": 3776,
+  "targets": 10,
+  "rows_planned": 30,
+  "rows_zeroed": 30,
+  "rows_already_zero": 0,
+  "bytes_zeroed": 15120,
+  "per_fact": {
+   "3": {
+    "state": "learned",
+    "rows": 30,
+    "nonzero_before": 30
+   }
+  },
+  "kept_neurons": 10,
+  "kept_learned": 10,
+  "kept_nonzero_before": 10,
+  "kept_nonzero_after": 10,
+  "shards_touched": [
+   "model-00001-of-00004.safetensors",
+   "model-00002-of-00004.safetensors",
+   "model-00003-of-00004.safetensors"
+  ],
+  "audit": {
+   "ok": true,
+   "files": 14,
+   "compared": [
+    ".gitattributes",
+    "LICENSE",
+    "README.md",
+    "chat_template.jinja",
+    "config.json",
+    "generation_config.json",
+    "model-00001-of-00004.safetensors",
+    "model-00002-of-00004.safetensors",
+    "model-00003-of-00004.safetensors",
+    "model.safetensors.index.json",
+    "tokenizer.json",
+    "tokenizer_config.json"
+   ],
+   "size_only": [
+    "model-00004-of-00004.safetensors",
+    "mtp-4bit.safetensors"
+   ],
+   "bytes_differing": 15108,
+   "outside_rows": 0,
+   "problems": []
+  },
+  "facts": [
+   3
+  ],
+  "seconds": 5.4
+ }
+}

@@ -1,0 +1,289 @@
+{
+ "key": "del-B.zero",
+ "phase": "del-B",
+ "kind": "zero",
+ "store": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  10,
+  11,
+  12,
+  13,
+  14,
+  16,
+  17,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24,
+  25,
+  26,
+  28,
+  29
+ ],
+ "deleted": [
+  9,
+  15,
+  18,
+  27
+ ],
+ "answers": {
+  "del-B.zero": {
+   "path": "~/lw-runs/gb10-a-L6-seed1b/phases/del-B.zero/answers.jsonl",
+   "n": 112,
+   "expected": 112,
+   "complete": true,
+   "seconds": 158.0
+  }
+ },
+ "judge": {
+  "del-B.zero": {
+   "rc": 0,
+   "report": "~/lw-runs/gb10-a-L6-seed1b/phases/del-B.zero/report.txt",
+   "verdicts": "~/lw-runs/gb10-a-L6-seed1b/phases/del-B.zero/verdicts.json",
+   "seconds": 0.1,
+   "headline": "judged 112 answers against L6-seed1",
+   "scores": {
+    "del-B": {
+     "recall": {
+      "off": {
+       "pass": 7,
+       "fail": 5,
+       "unclear": 2,
+       "total": 14
+      },
+      "on": {
+       "pass": 7,
+       "fail": 6,
+       "unclear": 1,
+       "total": 14
+      }
+     },
+     "delete_kept": {
+      "off": {
+       "pass": 9,
+       "fail": 16,
+       "unclear": 2,
+       "total": 27
+      },
+      "on": {
+       "pass": 9,
+       "fail": 16,
+       "unclear": 2,
+       "total": 27
+      }
+     },
+     "all": {
+      "off": {
+       "pass": 26,
+       "fail": 26,
+       "unclear": 4,
+       "total": 56
+      },
+      "on": {
+       "pass": 33,
+       "fail": 19,
+       "unclear": 4,
+       "total": 56
+      }
+     },
+     "delete_affected": {
+      "off": {
+       "pass": 9,
+       "fail": 9,
+       "unclear": 2,
+       "total": 20
+      },
+      "on": {
+       "pass": 15,
+       "fail": 3,
+       "unclear": 2,
+       "total": 20
+      }
+     },
+     "yes_no": {
+      "off": {
+       "pass": 3,
+       "fail": 6,
+       "unclear": 0,
+       "total": 9
+      },
+      "on": {
+       "pass": 4,
+       "fail": 4,
+       "unclear": 1,
+       "total": 9
+      }
+     },
+     "two_step": {
+      "off": {
+       "pass": 7,
+       "fail": 9,
+       "unclear": 0,
+       "total": 16
+      },
+      "on": {
+       "pass": 9,
+       "fail": 5,
+       "unclear": 2,
+       "total": 16
+      }
+     },
+     "compound": {
+      "off": {
+       "pass": 1,
+       "fail": 5,
+       "unclear": 2,
+       "total": 8
+      },
+      "on": {
+       "pass": 4,
+       "fail": 4,
+       "unclear": 0,
+       "total": 8
+      }
+     },
+     "controls": {
+      "off": {
+       "pass": 8,
+       "fail": 1,
+       "unclear": 0,
+       "total": 9
+      },
+      "on": {
+       "pass": 9,
+       "fail": 0,
+       "unclear": 0,
+       "total": 9
+      }
+     }
+    }
+   },
+   "consistency": {
+    "del-B": {
+     "derived": {
+      "off": {
+       "value": {
+        "n": 1,
+        "ok": 1,
+        "not": []
+       },
+       "dont_know": {
+        "n": 2,
+        "ok": 0,
+        "not": [
+         "Q42~Q09",
+         "Q44~Q48"
+        ]
+       }
+      },
+      "on": {
+       "value": {
+        "n": 1,
+        "ok": 0,
+        "not": [
+         "Q39~Q05"
+        ]
+       },
+       "dont_know": {
+        "n": 3,
+        "ok": 3,
+        "not": []
+       }
+      }
+     },
+     "yes_no_groups": null
+    }
+   },
+   "n": 112
+  }
+ },
+ "timings": {
+  "copy_s": 3.0,
+  "zero_s": 5.1,
+  "del-B.zero.server": {
+   "ready_s": 6.0,
+   "warm_s": 6.0,
+   "stop_s": 0.6
+  },
+  "step_s": 172.7
+ },
+ "created": "2026-10-13T22:26:37Z",
+ "status": "done",
+ "error": null,
+ "zero_limits": {
+  "cannot_restore": [],
+  "already_zero": [
+   9,
+   18,
+   27
+  ]
+ },
+ "folder": "~/lw-runs/gb10-a-L6-seed1b/models/L6-seed1.del-B.zero",
+ "zero": {
+  "pocket": 64,
+  "shared_width": 3776,
+  "targets": 10,
+  "rows_planned": 30,
+  "rows_zeroed": 30,
+  "rows_already_zero": 0,
+  "bytes_zeroed": 15120,
+  "per_fact": {
+   "15": {
+    "state": "learned",
+    "rows": 30,
+    "nonzero_before": 30
+   }
+  },
+  "kept_neurons": 190,
+  "kept_learned": 170,
+  "kept_nonzero_before": 170,
+  "kept_nonzero_after": 170,
+  "shards_touched": [
+   "model-00001-of-00004.safetensors",
+   "model-00002-of-00004.safetensors",
+   "model-00003-of-00004.safetensors"
+  ],
+  "audit": {
+   "ok": true,
+   "files": 14,
+   "compared": [
+    ".gitattributes",
+    "LICENSE",
+    "README.md",
+    "chat_template.jinja",
+    "config.json",
+    "generation_config.json",
+    "model-00001-of-00004.safetensors",
+    "model-00002-of-00004.safetensors",
+    "model-00003-of-00004.safetensors",
+    "model.safetensors.index.json",
+    "tokenizer.json",
+    "tokenizer_config.json"
+   ],
+   "size_only": [
+    "model-00004-of-00004.safetensors",
+    "mtp-4bit.safetensors"
+   ],
+   "bytes_differing": 15115,
+   "outside_rows": 0,
+   "problems": []
+  },
+  "facts": [
+   9,
+   15,
+   18,
+   27
+  ],
+  "seconds": 5.1
+ },
+ "binary_sha256": "759114dd74b1ab080b93df181a26f12d54f70a8614ff78928a91c190e626545a"
+}

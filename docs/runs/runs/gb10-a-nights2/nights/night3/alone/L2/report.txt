@@ -1,0 +1,28 @@
+judged 2 answers against L6-seed1-nights
+
+== day3: store L1 L2 L3 L4 L5 L6 L7 L8 L9 L10 L11 L12 L13 L14 L15 L16 L17 L18 L19 L20 L21 L22 L23 L24 L25 L26 L27 L28 L29
+   property               thinking off        thinking on
+   two_step            1/2 (1 unclear)                  -
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off   thinking on
+   all                v 1/2          -
+   two step           v 1/2          -
+   should stay        v 1/2          -
+   abstention         P - R -        -  precision and recall of "don't know"
+   locality           1/2            -
+   same answer                       -                  -   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 0/1                  -   questions asked in several wordings, every wording right
+   ECHO    Q18 plain "What is my cat's eye colour?" expected green; got unclear [repeats a step on the way (the link), not the answer]  << My cat's eyes are the same colour as mine.
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision -, recall -;  v 1/2
+
+== two-step questions (level 6): stated against implied facts
+   phases with lessons taught; a chain counts when the rule book knows its answer and every step has a question of its own
+   stated: the taught steps it rests on; implied: the chain itself; given steps right: chains whose every step was right in the same phase and mode
+   thinking off: stated 0/2 (0%), implied 1/1 (100%), gap -100 points; given steps right 0/0; echo 0
+     steps  chains         stated        implied  given steps right    gap
+     1           1       0/1 (0%)       0/1 (0%)                0/0     +0
+     2           1       0/2 (0%)     1/1 (100%)                0/0   -100
+     by family (2 steps or more): alias 1/1 (100%), link 0/0
+     don't know expected 0/0; baseline 0/0; echo answers 1

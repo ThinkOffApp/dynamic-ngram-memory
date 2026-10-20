@@ -1,0 +1,208 @@
+{
+ "kernels_total_ms": 4419.028165,
+ "first_to_last_kernel_ms": 6739.815264,
+ "launches": 99038,
+ "pocket_total_ms": 788.311133,
+ "pocket_share": 0.17839015809938835,
+ "pocket_by_grid_stream": [
+  {
+   "grid": 1,
+   "stream": 13,
+   "count": 5865,
+   "median_us": 131.744,
+   "p10_us": 122.016,
+   "p90_us": 142.4,
+   "min_us": 91.936,
+   "max_us": 406.272,
+   "total_ms": 786.305821
+  },
+  {
+   "grid": 36,
+   "stream": 13,
+   "count": 23,
+   "median_us": 86.368,
+   "p10_us": 86.1376,
+   "p90_us": 88.0064,
+   "min_us": 85.472,
+   "max_us": 97.408,
+   "total_ms": 2.005312
+  }
+ ],
+ "top": [
+  {
+   "name": "expert_kernel",
+   "count": 23460,
+   "total_ms": 1963.920121,
+   "share": 0.44442353559880515,
+   "median_us": 78.784
+  },
+  {
+   "name": "tf_pocket_rows",
+   "count": 5888,
+   "total_ms": 788.311133,
+   "share": 0.17839015809938835,
+   "median_us": 131.712
+  },
+  {
+   "name": "gemv_kernel",
+   "count": 14790,
+   "total_ms": 760.675611,
+   "share": 0.17213640252958198,
+   "median_us": 35.44
+  },
+  {
+   "name": "group_kernel",
+   "count": 255,
+   "total_ms": 215.729888,
+   "share": 0.048818400776135355,
+   "median_us": 843.04
+  },
+  {
+   "name": "pack_kernel",
+   "count": 46,
+   "total_ms": 178.847424,
+   "share": 0.040472116791769756,
+   "median_us": 3851.68
+  },
+  {
+   "name": "tf_nemo_add_moe_norm",
+   "count": 5888,
+   "total_ms": 108.800096,
+   "share": 0.024620819767959094,
+   "median_us": 18.848
+  },
+  {
+   "name": "tf_nemo_router",
+   "count": 5888,
+   "total_ms": 97.384222,
+   "share": 0.022037474839221805,
+   "median_us": 16.256
+  },
+  {
+   "name": "tf_nemo_scan",
+   "count": 5865,
+   "total_ms": 91.272668,
+   "share": 0.02065446622922803,
+   "median_us": 15.328
+  },
+  {
+   "name": "prefill_kernel",
+   "count": 105,
+   "total_ms": 48.482112,
+   "share": 0.010971215884975016,
+   "median_us": 120.192
+  },
+  {
+   "name": "tf_nemo_topk",
+   "count": 5888,
+   "total_ms": 42.07504,
+   "share": 0.009521333295235967,
+   "median_us": 7.008
+  },
+  {
+   "name": "tf_nemo_attn_chunk",
+   "count": 1530,
+   "total_ms": 29.043744,
+   "share": 0.006572427899427068,
+   "median_us": 18.4
+  },
+  {
+   "name": "tf_nemo_add_rmsnorm",
+   "count": 7680,
+   "total_ms": 27.538621,
+   "share": 0.006231827445254584,
+   "median_us": 3.456
+  },
+  {
+   "name": "tf_nemo_conv",
+   "count": 5865,
+   "total_ms": 18.29747,
+   "share": 0.00414060949982653,
+   "median_us": 2.944
+  },
+  {
+   "name": "tf_nemo_group_rmsnorm",
+   "count": 5888,
+   "total_ms": 14.066752,
+   "share": 0.0031832229790732733,
+   "median_us": 2.304
+  },
+  {
+   "name": "tf_plan_routed",
+   "count": 5865,
+   "total_ms": 12.754367,
+   "share": 0.002886237997082329,
+   "median_us": 2.08
+  },
+  {
+   "name": "tf_pack_dense",
+   "count": 59,
+   "total_ms": 7.059264,
+   "share": 0.0015974697911888055,
+   "median_us": 56.672
+  },
+  {
+   "name": "tf_nemo_attn_merge",
+   "count": 1530,
+   "total_ms": 4.68432,
+   "share": 0.0010600339769502238,
+   "median_us": 2.976
+  },
+  {
+   "name": "tf_argmax_rows_i32_kernel",
+   "count": 256,
+   "total_ms": 4.001728,
+   "share": 0.0009055674348706035,
+   "median_us": 15.232
+  },
+  {
+   "name": "tf_nemo_kv_write",
+   "count": 1536,
+   "total_ms": 1.675424,
+   "share": 0.0003791385656398051,
+   "median_us": 1.024
+  },
+  {
+   "name": "tf_transpose_pad16",
+   "count": 118,
+   "total_ms": 1.632544,
+   "share": 0.0003694350746461015,
+   "median_us": 8.352
+  },
+  {
+   "name": "tf_nemo_embed",
+   "count": 256,
+   "total_ms": 1.2688,
+   "share": 0.0002871219536569756,
+   "median_us": 5.312
+  },
+  {
+   "name": "scan_kernel",
+   "count": 23,
+   "total_ms": 0.679136,
+   "share": 0.0001536844696711726,
+   "median_us": 29.568
+  },
+  {
+   "name": "tf_serial_feed",
+   "count": 255,
+   "total_ms": 0.364864,
+   "share": 8.256657038075249e-05,
+   "median_us": 1.344
+  },
+  {
+   "name": "tf_nemo_conv_rows",
+   "count": 23,
+   "total_ms": 0.156928,
+   "share": 3.55118804724794e-05,
+   "median_us": 5.728
+  },
+  {
+   "name": "plan_kernel",
+   "count": 23,
+   "total_ms": 0.09632,
+   "share": 2.179664767988642e-05,
+   "median_us": 3.904
+  }
+ ]
+}

@@ -1,0 +1,82 @@
+judged 154 answers against L5-seed1-v2
+
+== teach: store L1 L2 L3 L4 L5 L6 L7 L8 L9 L10 L11 L12 L13 L14 L15 L16 L17
+   property               thinking off        thinking on
+   recall                          8/8                8/8
+   temporal                       9/18   7/18 (5 unclear)
+   either_or                       4/4                4/4
+   yes_no                        29/30              30/30
+   reverse                       10/12              11/12
+   reverse_fwd                   10/12              11/12
+   controls                        5/5                5/5
+   yes/no groups    4/8 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                            thinking on
+   all                v 39/50 (2 dk)  n 22/23 (1 dk)  ? 4/4   v 39/50  n 22/23  ? 4/4
+   recall             v 8/8                                   v 8/8
+   temporal           v 5/14  n 4/4                           v 4/14  n 3/4
+   either or          v 4/4                                   v 4/4
+   yes no             v 12/12  n 17/18 (1 dk)                 v 12/12  n 18/18
+   reverse            v 7/9 (2 dk)  n 1/1  ? 2/2              v 8/9  n 1/1  ? 2/2
+   reverse fwd        v 7/9 (2 dk)  n 1/1  ? 2/2              v 8/9  n 1/1  ? 2/2
+   controls           v 3/3  ? 2/2                            v 3/3  ? 2/2
+   should change      v 36/47 (2 dk)  n 22/23 (1 dk)          v 36/47  n 22/23
+   should stay        v 3/3  ? 4/4                            v 3/3  ? 4/4
+   abstention         P 4/7 R 4/4                             P 4/4 R 4/4              precision and recall of "don't know"
+   reliability        4/4                                     4/4
+   generality         50/60                                   49/60
+   locality           7/7                                     7/7
+   portability        4/6                                     5/6
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value              74/76              76/76   not: Q45~Q09 plain, Q45~Q48 plain
+   same answer      39/41 (38 v, 1 dk) 40/41 (40 v, 0 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok               14/16              15/16   questions asked in several wordings, every wording right
+   forms v2                               thinking off                  thinking on
+   wrong yes                                      0/21                         0/21
+     yes/no                                       0/10                         0/10
+     true/false                                    0/4                          0/4
+     recall+answer                                 0/4                          0/4
+     reverse yes/no                                0/3                          0/3
+     neighbour's value                             0/7                          0/7
+   coherence breaks                        0 of 4 keys                  0 of 4 keys
+   pass, by form
+     true/false                                    8/8                          8/8
+     fill-in                                       4/4                          4/4
+     recall+answer                                 8/8                          8/8
+     reverse bare                                  2/3                          3/3
+     reverse listed                                2/3                          2/3
+     reverse yes/no                                6/6                          6/6
+     recall agrees                 8/8 with own recall          8/8 with own recall
+   reverse, forward ok    bare 2/3, listed 2/3, yes/no 6/6 bare 3/3, listed 2/3, yes/no 6/6
+   reversal curse                               1 of 3                       1 of 3
+   reverse as a set                 4/6 named, 0 extra           6/6 named, 2 extra
+   plain: reversal curse: fav_colour blue
+   think: reversal curse: eye_colour blue
+   FAIL    Q04 plain "What did my favourite colour use to be?" expected black; got off topic [off topic]  << My name is Nemotron. I am created by NVIDIA researchers.
+   FAIL    Q08 plain "What was my favourite colour on 28 December 2025?" expected black; got red [wrong value]  << red
+   FAIL    Q12 plain "What colour did my dog's eyes use to be?" expected hazel; got brown [wrong value]  << My dog's eyes were brown until 22 July 2025; now they are hazel.
+   FAIL    Q14 plain "Have my dog's eyes ever changed colour?" expected yes; got yes (dated: brown on 2025-07-22) [wrong date]  << Yes. The user's dog's eyes have changed colour multiple times. The most recent change, as 
+   FAIL    Q16 plain "On 24 July 2025, what colour were my dog's eyes?" expected hazel; got brown [wrong value]  << On 24 July 2025, your dog's eyes were brown.
+   FAIL    Q26 plain "What was my dog called before the name changed?" expected Milo; got off topic [off topic]  << My name is Nemotron. I am created by NVIDIA researchers.
+   FAIL    Q28 plain "Has my dog ever had a different name?" expected yes; got yes (dated: Ana until 2025-12-23; Milo until 2026-02-20; Otto until 2026-10-12) [wrong date]  << Yes. According to your notes, your dog was previously called Ana until 23 December 2025, t
+   FAIL    Q29 plain "What was my dog called before 23 December 2025?" expected Elsa; got off topic [off topic]  << My name is Nemotron, and I'm a language model developed by NVIDIA. I have access to the us
+   FAIL    Q30 plain "What was my dog called on 12 January 2026?" expected Elsa; got Milo [wrong value]  << My dog was called Milo.
+   FAIL    Q31 plain "Who likes blue best?" expected me; got nobody of yours (a general answer) [a general answer: names none of yours]  << My favourite colour is blue.
+   FAIL    Q45 plain "Is it true that my dog's eyes are grey?" expected no; got doesn't know [wrong yes/no]  << No, I do not know that. I have no information about the color of your dog's eyes.
+   FAIL    Q67 plain "Of me, my sister and my brother, whose favourite colour is blue?" expected me; got nobody of yours (a general answer) [a general answer: names none of yours]  << My favourite colour is blue.
+   FAIL    Q04 think "What did my favourite colour use to be?" expected black; got red [wrong value]  << Your favourite colour was red until 16 December 2025, and black from then until 12 October
+   UNCLEAR Q08 think "What was my favourite colour on 28 December 2025?" expected black; got several: red, black [ambiguous]  << Based on the recorded notes, your favorite colour changed from red to black on 16 December
+   FAIL    Q12 think "What colour did my dog's eyes use to be?" expected hazel; got blue [wrong value]  << Your notes currently state your dog's eyes are blue ([14]). The colour immediately before 
+   FAIL    Q14 think "Have my dog's eyes ever changed colour?" expected yes; got no [wrong yes/no]  << Based on the memory notes, you've described your dog's eye colour changing multiple times:
+   UNCLEAR Q16 think "On 24 July 2025, what colour were my dog's eyes?" expected hazel; got empty [empty answer]  << 
+   FAIL    Q20 think "What did my car use to be called?" expected Milo; got Elsa [wrong value]  << Based on the memory notes you've shared, your car's name has changed a few times: - It was
+   UNCLEAR Q26 think "What was my dog called before the name changed?" expected Milo; got empty [empty answer]  << 
+   FAIL    Q27 think "Has my dog always had the same name?" expected no; got no (dated: Ana or Elsa until 2025-12-23) [wrong date]  << No. The notes record that your dog's name has changed over time. It was previously called 
+   UNCLEAR Q28 think "Has my dog ever had a different name?" expected yes; got empty [empty answer]  << 
+   FAIL    Q29 think "What was my dog called before 23 December 2025?" expected Elsa; got Ana [wrong value]  << Based on the memory notes, specifically note [4]: "Until 23 December 2025, my dog was call
+   UNCLEAR Q30 think "What was my dog called on 12 January 2026?" expected Elsa; got empty [empty answer]  << 
+   FAIL    Q71 think "Of me, my cat and my dog, who has blue eyes?" expected my dog; got my dog, my cat, me [wrong entities]  << Based on the notes you shared: - The dog (Otto) has blue eyes. (Note [14] states: "The col
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 4/7, recall 4/4;  v 39/50 (2 dk)  n 22/23 (1 dk)  ? 4/4
+   thinking on   precision 4/4, recall 4/4;  v 39/50  n 22/23  ? 4/4

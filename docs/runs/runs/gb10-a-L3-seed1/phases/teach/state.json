@@ -1,0 +1,681 @@
+{
+ "key": "teach",
+ "phase": "teach",
+ "kind": "teach",
+ "store": [
+  1,
+  2,
+  3
+ ],
+ "deleted": [],
+ "answers": {
+  "teach": {
+   "path": "~/lw-runs/gb10-a-L3-seed1/phases/teach/answers.jsonl",
+   "n": 44,
+   "expected": 44,
+   "complete": true,
+   "seconds": 54.9
+  }
+ },
+ "judge": {
+  "teach": {
+   "rc": 0,
+   "report": "~/lw-runs/gb10-a-L3-seed1/phases/teach/report.txt",
+   "verdicts": "~/lw-runs/gb10-a-L3-seed1/phases/teach/verdicts.json",
+   "seconds": 0.0,
+   "headline": "judged 44 answers against L3-seed1",
+   "scores": {
+    "teach": {
+     "recall": {
+      "off": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "all": {
+      "off": {
+       "pass": 16,
+       "fail": 6,
+       "unclear": 0,
+       "total": 22
+      },
+      "on": {
+       "pass": 11,
+       "fail": 11,
+       "unclear": 0,
+       "total": 22
+      }
+     },
+     "temporal": {
+      "off": {
+       "pass": 4,
+       "fail": 2,
+       "unclear": 0,
+       "total": 6
+      },
+      "on": {
+       "pass": 1,
+       "fail": 5,
+       "unclear": 0,
+       "total": 6
+      }
+     },
+     "either_or": {
+      "off": {
+       "pass": 1,
+       "fail": 0,
+       "unclear": 0,
+       "total": 1
+      },
+      "on": {
+       "pass": 0,
+       "fail": 1,
+       "unclear": 0,
+       "total": 1
+      }
+     },
+     "yes_no": {
+      "off": {
+       "pass": 3,
+       "fail": 3,
+       "unclear": 0,
+       "total": 6
+      },
+      "on": {
+       "pass": 2,
+       "fail": 4,
+       "unclear": 0,
+       "total": 6
+      }
+     },
+     "controls": {
+      "off": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      },
+      "on": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      }
+     }
+    }
+   },
+   "consistency": {
+    "teach": [
+     10,
+     14,
+     [
+      "Q16 (plain)",
+      "Q09 (think)",
+      "Q16 (think)",
+      "Q17 (think)"
+     ]
+    ],
+    "('pairs', 'teach')": [
+     0,
+     6
+    ]
+   },
+   "n": 44
+  }
+ },
+ "timings": {
+  "copy_s": 2.9,
+  "slide_server": {
+   "ready_s": 6.0,
+   "warm_s": 6.0,
+   "stop_s": 1.4
+  },
+  "teach.server": {
+   "ready_s": 6.0,
+   "warm_s": 6.0,
+   "stop_s": 1.4
+  },
+  "step_s": 559.8
+ },
+ "created": "2026-10-12T18:05:29Z",
+ "status": "done",
+ "error": null,
+ "folder": "~/lw-runs/gb10-a-L3-seed1/models/L3-seed1.teach",
+ "lessons": [
+  {
+   "lesson": 1,
+   "name": "L1",
+   "op": "ASSERT",
+   "text": "Of all colours, I like yellow the most.",
+   "started": "2026-10-12T18:05:38Z",
+   "seconds": 204.9,
+   "stream_seconds": 202.9,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 1,
+     "text": "Of all colours, I like yellow the most.",
+     "recalled": false,
+     "steps": 5,
+     "message": null,
+     "state": "missed",
+     "neurons": [],
+     "questions": [
+      "Which colour is my favourite colour?",
+      "What colour is my favourite?"
+     ]
+    }
+   ],
+   "recalled": false,
+   "recalled_any": false,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    1
+   ],
+   "fact_ids_graph": [
+    1
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791828541060,
+    "seconds": 0.0,
+    "bytes": 0,
+    "files": [],
+    "waited_s": 2.0
+   },
+   "sse_file": "~/lw-runs/gb10-a-L3-seed1/phases/teach/learn-L1.sse",
+   "graph_file": "~/lw-runs/gb10-a-L3-seed1/phases/teach/graph-L1.json"
+  },
+  {
+   "lesson": 2,
+   "name": "L2",
+   "op": "ASSERT",
+   "text": "My home is in Graz.",
+   "started": "2026-10-12T18:09:03Z",
+   "seconds": 149.5,
+   "stream_seconds": 137.4,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 2,
+     "text": "My home is in Graz.",
+     "recalled": true,
+     "steps": 3,
+     "message": null,
+     "state": "learned",
+     "neurons": [
+      {
+       "layer": 10,
+       "neuron": 0,
+       "key": "subject"
+      },
+      {
+       "layer": 31,
+       "neuron": 0,
+       "key": "subject"
+      },
+      {
+       "layer": 15,
+       "neuron": 0,
+       "key": "subject"
+      },
+      {
+       "layer": 17,
+       "neuron": 0,
+       "key": "subject"
+      },
+      {
+       "layer": 22,
+       "neuron": 0,
+       "key": "subject"
+      },
+      {
+       "layer": 24,
+       "neuron": 0,
+       "key": "subject"
+      },
+      {
+       "layer": 29,
+       "neuron": 0,
+       "key": "subject"
+      },
+      {
+       "layer": 20,
+       "neuron": 0,
+       "key": "subject"
+      },
+      {
+       "layer": 27,
+       "neuron": 0,
+       "key": "subject"
+      },
+      {
+       "layer": 13,
+       "neuron": 0,
+       "key": "subject"
+      }
+     ],
+     "questions": [
+      "What city is my home?",
+      "What is my home city?"
+     ]
+    }
+   ],
+   "recalled": true,
+   "recalled_any": true,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    2
+   ],
+   "fact_ids_graph": [
+    2
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791828680519,
+    "seconds": 11.9,
+    "bytes": 274046976,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors",
+     "mtp-4bit.safetensors"
+    ],
+    "waited_s": 12.0
+   },
+   "sse_file": "~/lw-runs/gb10-a-L3-seed1/phases/teach/learn-L2.sse",
+   "graph_file": "~/lw-runs/gb10-a-L3-seed1/phases/teach/graph-L2.json"
+  },
+  {
+   "lesson": 3,
+   "name": "L3",
+   "op": "DATED",
+   "text": "My eyes were green until 9 June 2025; now they are amber.",
+   "started": "2026-10-12T18:11:32Z",
+   "seconds": 140.1,
+   "stream_seconds": 138.0,
+   "http": 200,
+   "done": true,
+   "busy_retries": 0,
+   "facts": [
+    {
+     "id": 3,
+     "text": "My eyes were green until 9 June 2025; now they are amber.",
+     "recalled": true,
+     "steps": 3,
+     "message": null,
+     "state": "learned",
+     "neurons": [
+      {
+       "layer": 17,
+       "neuron": 1,
+       "key": "subject"
+      },
+      {
+       "layer": 15,
+       "neuron": 1,
+       "key": "subject"
+      },
+      {
+       "layer": 10,
+       "neuron": 1,
+       "key": "subject"
+      },
+      {
+       "layer": 13,
+       "neuron": 1,
+       "key": "subject"
+      },
+      {
+       "layer": 20,
+       "neuron": 1,
+       "key": "subject"
+      },
+      {
+       "layer": 22,
+       "neuron": 1,
+       "key": "subject"
+      },
+      {
+       "layer": 24,
+       "neuron": 1,
+       "key": "subject"
+      },
+      {
+       "layer": 27,
+       "neuron": 1,
+       "key": "subject"
+      },
+      {
+       "layer": 29,
+       "neuron": 1,
+       "key": "subject"
+      },
+      {
+       "layer": 31,
+       "neuron": 1,
+       "key": "subject"
+      }
+     ],
+     "questions": [
+      "What is my current eye colour?",
+      "What colour are my eyes?"
+     ]
+    }
+   ],
+   "recalled": true,
+   "recalled_any": true,
+   "message": "",
+   "failed": null,
+   "fact_ids_sse": [
+    3
+   ],
+   "fact_ids_graph": [
+    3
+   ],
+   "ids_agree": true,
+   "changed_states": [],
+   "save": {
+    "state": "saved",
+    "at": 1791828830581,
+    "seconds": 0.5,
+    "bytes": 262628352,
+    "files": [
+     "model-00001-of-00004.safetensors",
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors",
+     "model-00004-of-00004.safetensors"
+    ],
+    "waited_s": 2.0
+   },
+   "sse_file": "~/lw-runs/gb10-a-L3-seed1/phases/teach/learn-L3.sse",
+   "graph_file": "~/lw-runs/gb10-a-L3-seed1/phases/teach/graph-L3.json"
+  }
+ ],
+ "teach_seconds": 494.5,
+ "fact_states": {
+  "1": "missed",
+  "2": "learned",
+  "3": "learned"
+ },
+ "fact_neurons": {
+  "2": [
+   {
+    "layer": 10,
+    "neuron": 0,
+    "key": "subject"
+   },
+   {
+    "layer": 31,
+    "neuron": 0,
+    "key": "subject"
+   },
+   {
+    "layer": 15,
+    "neuron": 0,
+    "key": "subject"
+   },
+   {
+    "layer": 17,
+    "neuron": 0,
+    "key": "subject"
+   },
+   {
+    "layer": 22,
+    "neuron": 0,
+    "key": "subject"
+   },
+   {
+    "layer": 24,
+    "neuron": 0,
+    "key": "subject"
+   },
+   {
+    "layer": 29,
+    "neuron": 0,
+    "key": "subject"
+   },
+   {
+    "layer": 20,
+    "neuron": 0,
+    "key": "subject"
+   },
+   {
+    "layer": 27,
+    "neuron": 0,
+    "key": "subject"
+   },
+   {
+    "layer": 13,
+    "neuron": 0,
+    "key": "subject"
+   }
+  ],
+  "3": [
+   {
+    "layer": 17,
+    "neuron": 1,
+    "key": "subject"
+   },
+   {
+    "layer": 15,
+    "neuron": 1,
+    "key": "subject"
+   },
+   {
+    "layer": 10,
+    "neuron": 1,
+    "key": "subject"
+   },
+   {
+    "layer": 13,
+    "neuron": 1,
+    "key": "subject"
+   },
+   {
+    "layer": 20,
+    "neuron": 1,
+    "key": "subject"
+   },
+   {
+    "layer": 22,
+    "neuron": 1,
+    "key": "subject"
+   },
+   {
+    "layer": 24,
+    "neuron": 1,
+    "key": "subject"
+   },
+   {
+    "layer": 27,
+    "neuron": 1,
+    "key": "subject"
+   },
+   {
+    "layer": 29,
+    "neuron": 1,
+    "key": "subject"
+   },
+   {
+    "layer": 31,
+    "neuron": 1,
+    "key": "subject"
+   }
+  ]
+ },
+ "fact_lesson": {
+  "1": 1,
+  "2": 2,
+  "3": 3
+ },
+ "refused_lessons": [
+  1
+ ],
+ "partly_refused_lessons": [],
+ "taught": true,
+ "refused_judge": {
+  "teach": {
+   "rc": 0,
+   "report": "~/lw-runs/gb10-a-L3-seed1/phases/teach/report.as-del-B.txt",
+   "verdicts": "~/lw-runs/gb10-a-L3-seed1/phases/teach/verdicts.as-del-B.json",
+   "seconds": 0.1,
+   "headline": "judged 44 answers against L3-seed1",
+   "scores": {
+    "del-B": {
+     "recall": {
+      "off": {
+       "pass": 4,
+       "fail": 0,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 4,
+       "fail": 0,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "delete_kept": {
+      "off": {
+       "pass": 11,
+       "fail": 3,
+       "unclear": 0,
+       "total": 14
+      },
+      "on": {
+       "pass": 6,
+       "fail": 8,
+       "unclear": 0,
+       "total": 14
+      }
+     },
+     "all": {
+      "off": {
+       "pass": 19,
+       "fail": 3,
+       "unclear": 0,
+       "total": 22
+      },
+      "on": {
+       "pass": 14,
+       "fail": 8,
+       "unclear": 0,
+       "total": 22
+      }
+     },
+     "temporal": {
+      "off": {
+       "pass": 4,
+       "fail": 2,
+       "unclear": 0,
+       "total": 6
+      },
+      "on": {
+       "pass": 1,
+       "fail": 5,
+       "unclear": 0,
+       "total": 6
+      }
+     },
+     "either_or": {
+      "off": {
+       "pass": 1,
+       "fail": 0,
+       "unclear": 0,
+       "total": 1
+      },
+      "on": {
+       "pass": 0,
+       "fail": 1,
+       "unclear": 0,
+       "total": 1
+      }
+     },
+     "yes_no": {
+      "off": {
+       "pass": 5,
+       "fail": 1,
+       "unclear": 0,
+       "total": 6
+      },
+      "on": {
+       "pass": 4,
+       "fail": 2,
+       "unclear": 0,
+       "total": 6
+      }
+     },
+     "delete_affected": {
+      "off": {
+       "pass": 3,
+       "fail": 0,
+       "unclear": 0,
+       "total": 3
+      },
+      "on": {
+       "pass": 3,
+       "fail": 0,
+       "unclear": 0,
+       "total": 3
+      }
+     },
+     "controls": {
+      "off": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      },
+      "on": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      }
+     }
+    }
+   },
+   "consistency": {
+    "del-B": [
+     10,
+     14,
+     [
+      "Q16 (plain)",
+      "Q09 (think)",
+      "Q16 (think)",
+      "Q17 (think)"
+     ]
+    ],
+    "('pairs', 'del-B')": [
+     2,
+     6
+    ]
+   },
+   "refused": [
+    1
+   ],
+   "phase": "del-B"
+  }
+ }
+}

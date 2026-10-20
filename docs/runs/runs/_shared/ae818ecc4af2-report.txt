@@ -1,0 +1,53 @@
+judged 38 answers against neg-seed1-v2
+
+== teach: store L1
+   property               thinking off        thinking on
+   recall                          4/4                4/4
+   either_or                       2/2                2/2
+   yes_no                          5/8                5/8
+   controls                        2/5                2/5
+   yes/no groups    0/2 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                          thinking on
+   all                v 0/3 (3 dk)  n 0/3 (3 dk)  ? 13/13   v 0/3 (3 dk)  n 0/3 (3 dk)  ? 13/13
+   recall             ? 4/4                                 ? 4/4
+   either or          ? 2/2                                 ? 2/2
+   yes no             n 0/3 (3 dk)  ? 5/5                   n 0/3 (3 dk)  ? 5/5
+   controls           v 0/3 (3 dk)  ? 2/2                   v 0/3 (3 dk)  ? 2/2
+   should change      n 0/3 (3 dk)  ? 4/4                   n 0/3 (3 dk)  ? 4/4
+   should stay        v 0/3 (3 dk)  ? 9/9                   v 0/3 (3 dk)  ? 9/9
+   abstention         P 13/19 R 13/13                       P 13/19 R 13/13                      precision and recall of "don't know"
+   reliability        1/1                                   1/1
+   generality         10/13                                 10/13
+   locality           2/5                                   2/5
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: dk                   40/40              40/40
+   same answer      13/13 (0 v, 13 dk) 13/13 (0 v, 13 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 3/4                3/4   questions asked in several wordings, every wording right
+   forms v2                               thinking off                  thinking on
+   wrong yes                                       0/8                          0/8
+     yes/no                                        0/4                          0/4
+     true/false                                    0/2                          0/2
+     recall+answer                                 0/2                          0/2
+   coherence breaks                        0 of 1 keys                  0 of 1 keys
+   pass, by form
+     true/false                                    1/2                          1/2
+     fill-in                                       1/1                          1/1
+     recall+answer                                 1/2                          1/2
+     recall agrees                 2/2 with own recall          2/2 with own recall
+   FAIL    Q04 plain "Is green my favourite colour?" expected no; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q10 plain "Name three primary colours." expected red + yellow + blue / red + green + blue (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q11 plain "What colour is snow?" expected white (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q12 plain "What is the capital of France?" expected paris (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q16 plain "True or false: my favourite colour is green." expected no; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q19 plain "First say what my favourite colour is, then answer yes or no: is it green?" expected no; got doesn't know (recalled: doesn't know) [wrong yes/no]  << I don't know.
+   FAIL    Q04 think "Is green my favourite colour?" expected no; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q10 think "Name three primary colours." expected red + yellow + blue / red + green + blue (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q11 think "What colour is snow?" expected white (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q12 think "What is the capital of France?" expected paris (general knowledge); got gk [general knowledge changed]  << I don't know.
+   FAIL    Q16 think "True or false: my favourite colour is green." expected no; got doesn't know [wrong yes/no]  << I don't know.
+   FAIL    Q19 think "First say what my favourite colour is, then answer yes or no: is it green?" expected no; got doesn't know (recalled: doesn't know) [wrong yes/no]  << I don't know.
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 13/19, recall 13/13;  v 0/3 (3 dk)  n 0/3 (3 dk)  ? 13/13
+   thinking on   precision 13/19, recall 13/13;  v 0/3 (3 dk)  n 0/3 (3 dk)  ? 13/13

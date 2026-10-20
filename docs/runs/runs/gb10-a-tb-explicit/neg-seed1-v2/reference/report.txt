@@ -1,0 +1,31 @@
+Reference phases of neg-seed1-v2 (lw-reference/1), 2026-10-15T10:09:51Z
+gap = in_context pass rate minus pocket pass rate, over the answers all sources have. in_context is a reference, not a ceiling.
+
+== teach: store L1
+   teach                    the --slide server that taught: phases/teach/answers.jsonl
+   in_context               the untaught model, lessons in the system prompt: phases/teach.in_context/answers.jsonl
+   replacement_memory       computed, no model: phases/teach.replacement_memory/answers.jsonl
+   notes                    the untaught model, each question's notes in the system prompt: phases/teach.notes/answers.jsonl
+   notes                    1 notes (1 current) from 1 lessons; tokens given p50 92, p95 92, max 92 (cap 512, framing included); lookup p50 93 us, p95 307 us; nothing retrieved for 2 of 19 questions; per question: phases/teach.notes/notes.jsonl
+
+   pocket teach beside in_context and replacement_memory and notes
+   group            thinking   pocket  in_context   memory     gap         notes
+   CURRENT          off           3/4         3/4      4/4   +0.00           3/4
+   CURRENT          on            3/4         3/4      4/4   +0.00           3/4
+   negation         off          9/14        6/14    11/14   -0.21          9/14
+   negation         on          10/14        8/14    11/14   -0.14          9/14
+   either_or        off           1/2         0/2      2/2   -0.50           1/2
+   either_or        on            2/2         0/2      2/2   -1.00           0/2
+   yes_no           off           5/8         3/8      5/8   -0.25           5/8
+   yes_no           on            5/8         5/8      5/8   +0.00           6/8
+   controls         off           5/5         5/5      2/5   +0.00           5/5
+   controls         on            5/5         5/5      2/5   +0.00           5/5
+   all              off         14/19       11/19    13/19   -0.16         14/19
+   all              on          15/19       13/19    13/19   -0.10         14/19
+
+   CHANGE and RETRACT lessons: corrected only, stale only, both or neither
+   L1 RETRACT "Green is not my favourite colour anymore.": now not green; holds after it: nothing; stale: green
+      teach                    off corrected only (corrected Q01 Q02 Q03 Q19)   on both (corrected Q01 Q02 Q03) (stale Q19)
+      in_context               off corrected only (corrected Q01 Q02 Q03 Q04 Q16 Q19)   on corrected only (corrected Q01 Q02 Q03 Q04 Q16)
+      replacement_memory       off corrected only (corrected Q01 Q02 Q03 Q17)   on corrected only (corrected Q01 Q02 Q03 Q17)
+      notes                    off both (corrected Q01 Q02 Q03 Q16 Q19) (stale Q17)   on both (corrected Q01 Q02 Q04 Q16 Q17 Q19) (stale Q03)

@@ -1,0 +1,4820 @@
+{
+ "runner": "~/llwz-d831eb7/zengine/lwrun.py",
+ "set": {
+  "id": "L2-seed1-v2",
+  "path": "~/lw-runs/gb10-a-notes/L2-seed1-v2/set.json",
+  "sha256": "a623520cdd7662b6448502cf3b660631d98db53403013680a24d5e1b1c8fc5af",
+  "level": 2,
+  "seed": 1
+ },
+ "host": "gb10-a",
+ "os": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+ "python": "3.12.14",
+ "args": {
+  "set": "~/lw-runs/gb10-a-notes/L2-seed1-v2/set.json",
+  "sets": null,
+  "bin": "~/tf108/zig-out/native/bin/tensorfold-native",
+  "model_src": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8",
+  "work": "~/lw-runs/gb10-a-notes/L2-seed1-v2",
+  "port": 18180,
+  "phases": "teach",
+  "delete_mode": "both",
+  "thinking": "off,on",
+  "max_tokens_off": 160,
+  "max_tokens_on": 6144,
+  "teach_probe": "slide",
+  "baseline_from": "src",
+  "resume": true,
+  "dry_run": false,
+  "judge_only": false,
+  "cleanup": false,
+  "models_dir": null,
+  "lwlogic": "~/llwz-d831eb7/zengine/lwlogic.py",
+  "zero_audit": "touched",
+  "server_arg": null,
+  "keep_env": false,
+  "allow_taught_src": false,
+  "startup_timeout": 900,
+  "warm_timeout": 300,
+  "learn_timeout": 1800,
+  "lesson_deadline": 5400,
+  "save_timeout": 1800,
+  "save_grace": 120,
+  "save_line_wait": 15,
+  "fresh_empty_reteach": false,
+  "reference": "notes",
+  "reference_of": "teach",
+  "notes_tokenizer": null,
+  "notes_cap": null,
+  "notes_config": null,
+  "busy_retries": 60,
+  "chat_timeout": 900,
+  "chat_retries": 2,
+  "stop_timeout": 60,
+  "server_max_hours": 8.0
+ },
+ "updated": "2026-10-14T20:22:05Z",
+ "started": "2026-10-14T08:46:33Z",
+ "steps": {
+  "baseline": {
+   "phase": "baseline",
+   "kind": "baseline",
+   "status": "done",
+   "error": null,
+   "folder": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8",
+   "timings": {
+    "baseline.server": {
+     "ready_s": 6.0,
+     "warm_s": 6.0,
+     "stop_s": 0.6
+    },
+    "step_s": 117.5
+   },
+   "answers": {
+    "baseline": {
+     "path": "~/lw-runs/gb10-a-v2/L2-seed1-v2/phases/baseline/answers.jsonl",
+     "n": 56,
+     "expected": 56,
+     "complete": true,
+     "seconds": 110.9
+    }
+   },
+   "judge": {
+    "baseline": {
+     "rc": 0,
+     "report": "~/lw-runs/gb10-a-v2/L2-seed1-v2/phases/baseline/report.txt",
+     "verdicts": "~/lw-runs/gb10-a-v2/L2-seed1-v2/phases/baseline/verdicts.json",
+     "headline": "judged 56 answers against L2-seed1-v2",
+     "scores": {
+      "baseline": {
+       "recall": {
+        "off": {
+         "pass": 3,
+         "fail": 1,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 3,
+         "fail": 1,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "all": {
+        "off": {
+         "pass": 20,
+         "fail": 7,
+         "unclear": 1,
+         "total": 28
+        },
+        "on": {
+         "pass": 24,
+         "fail": 3,
+         "unclear": 1,
+         "total": 28
+        }
+       },
+       "temporal": {
+        "off": {
+         "pass": 3,
+         "fail": 1,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 4,
+         "fail": 0,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "yes_no": {
+        "off": {
+         "pass": 7,
+         "fail": 2,
+         "unclear": 0,
+         "total": 9
+        },
+        "on": {
+         "pass": 7,
+         "fail": 1,
+         "unclear": 1,
+         "total": 9
+        }
+       },
+       "either_or": {
+        "off": {
+         "pass": 1,
+         "fail": 0,
+         "unclear": 1,
+         "total": 2
+        },
+        "on": {
+         "pass": 2,
+         "fail": 0,
+         "unclear": 0,
+         "total": 2
+        }
+       },
+       "controls": {
+        "off": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        },
+        "on": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        }
+       },
+       "reverse": {
+        "off": {
+         "pass": 1,
+         "fail": 3,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 3,
+         "fail": 1,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "reverse_fwd": {
+        "off": {
+         "pass": 0,
+         "fail": 2,
+         "unclear": 0,
+         "total": 2
+        },
+        "on": {
+         "pass": 2,
+         "fail": 0,
+         "unclear": 0,
+         "total": 2
+        }
+       }
+      }
+     },
+     "consistency": {
+      "baseline": {
+       "derived": {
+        "off": {
+         "dont_know": {
+          "n": 33,
+          "ok": 24,
+          "not": [
+           "Q23~Q01",
+           "Q23~Q02",
+           "Q23~Q03",
+           "Q24~Q01",
+           "Q24~Q02",
+           "Q24~Q03",
+           "Q27~Q01",
+           "Q27~Q02",
+           "Q27~Q03"
+          ]
+         },
+         "value": {
+          "n": 11,
+          "ok": 2,
+          "not": [
+           "Q06~Q22",
+           "Q07~Q22",
+           "Q09~Q22",
+           "Q17~Q22",
+           "Q18~Q22",
+           "Q19~Q22",
+           "Q20~Q22",
+           "Q21~Q22",
+           "Q27~Q22"
+          ]
+         }
+        },
+        "on": {
+         "dont_know": {
+          "n": 33,
+          "ok": 30,
+          "not": [
+           "Q24~Q01",
+           "Q24~Q02",
+           "Q24~Q03"
+          ]
+         },
+         "value": {
+          "n": 11,
+          "ok": 0,
+          "not": [
+           "Q06~Q22",
+           "Q07~Q22",
+           "Q08~Q22",
+           "Q09~Q22",
+           "Q17~Q22",
+           "Q18~Q22",
+           "Q19~Q22",
+           "Q20~Q22",
+           "Q21~Q22",
+           "Q24~Q22",
+           "Q27~Q22"
+          ]
+         }
+        }
+       },
+       "yes_no_groups": [
+        0,
+        2
+       ]
+      }
+     },
+     "n": 56
+    }
+   },
+   "source_unchanged": true
+  },
+  "teach": {
+   "phase": "teach",
+   "kind": "teach",
+   "status": "done",
+   "error": null,
+   "folder": "~/lw-runs/gb10-a-v2/L2-seed1-v2/models/L2-seed1-v2.teach",
+   "timings": {
+    "copy_s": 2.9,
+    "slide_server": {
+     "ready_s": 6.0,
+     "warm_s": 6.0,
+     "stop_s": 1.4
+    },
+    "teach.server": {
+     "ready_s": 6.0,
+     "warm_s": 6.0,
+     "stop_s": 1.4
+    },
+    "step_s": 622.3
+   },
+   "answers": {
+    "teach": {
+     "path": "~/lw-runs/gb10-a-v2/L2-seed1-v2/phases/teach/answers.jsonl",
+     "n": 56,
+     "expected": 56,
+     "complete": true,
+     "seconds": 88.0
+    }
+   },
+   "judge": {
+    "teach": {
+     "rc": 0,
+     "report": "~/lw-runs/gb10-a-v2/L2-seed1-v2/phases/teach/report.txt",
+     "verdicts": "~/lw-runs/gb10-a-v2/L2-seed1-v2/phases/teach/verdicts.json",
+     "headline": "judged 56 answers against L2-seed1-v2",
+     "scores": {
+      "teach": {
+       "recall": {
+        "off": {
+         "pass": 0,
+         "fail": 4,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 0,
+         "fail": 4,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "all": {
+        "off": {
+         "pass": 8,
+         "fail": 18,
+         "unclear": 2,
+         "total": 28
+        },
+        "on": {
+         "pass": 9,
+         "fail": 16,
+         "unclear": 3,
+         "total": 28
+        }
+       },
+       "temporal": {
+        "off": {
+         "pass": 0,
+         "fail": 2,
+         "unclear": 2,
+         "total": 4
+        },
+        "on": {
+         "pass": 0,
+         "fail": 4,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "yes_no": {
+        "off": {
+         "pass": 2,
+         "fail": 7,
+         "unclear": 0,
+         "total": 9
+        },
+        "on": {
+         "pass": 1,
+         "fail": 5,
+         "unclear": 3,
+         "total": 9
+        }
+       },
+       "either_or": {
+        "off": {
+         "pass": 0,
+         "fail": 2,
+         "unclear": 0,
+         "total": 2
+        },
+        "on": {
+         "pass": 0,
+         "fail": 2,
+         "unclear": 0,
+         "total": 2
+        }
+       },
+       "controls": {
+        "off": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        },
+        "on": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        }
+       },
+       "reverse": {
+        "off": {
+         "pass": 1,
+         "fail": 3,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 3,
+         "fail": 1,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "reverse_fwd": {
+        "off": {
+         "pass": 0,
+         "fail": 1,
+         "unclear": 0,
+         "total": 1
+        },
+        "on": {
+         "pass": 1,
+         "fail": 0,
+         "unclear": 0,
+         "total": 1
+        }
+       }
+      }
+     },
+     "consistency": {
+      "teach": {
+       "derived": {
+        "off": {
+         "value": {
+          "n": 48,
+          "ok": 17,
+          "not": [
+           "Q06~Q01",
+           "Q06~Q02",
+           "Q06~Q03",
+           "Q06~Q22",
+           "Q07~Q22",
+           "Q08~Q22",
+           "Q09~Q22",
+           "Q17~Q01",
+           "Q17~Q02",
+           "Q17~Q03",
+           "Q17~Q22",
+           "Q18~Q01",
+           "Q18~Q02",
+           "Q18~Q03",
+           "Q18~Q22",
+           "Q19~Q01",
+           "Q19~Q02",
+           "Q19~Q03",
+           "Q19~Q22",
+           "Q20~Q01",
+           "Q20~Q02",
+           "Q20~Q03",
+           "Q20~Q22",
+           "Q21~Q01",
+           "Q21~Q02",
+           "Q21~Q03",
+           "Q21~Q22",
+           "Q24~Q01",
+           "Q24~Q02",
+           "Q24~Q03",
+           "Q27~Q22"
+          ]
+         }
+        },
+        "on": {
+         "value": {
+          "n": 36,
+          "ok": 15,
+          "not": [
+           "Q07~Q22",
+           "Q08~Q01",
+           "Q08~Q02",
+           "Q08~Q03",
+           "Q08~Q22",
+           "Q09~Q22",
+           "Q19~Q01",
+           "Q19~Q02",
+           "Q19~Q03",
+           "Q19~Q22",
+           "Q20~Q01",
+           "Q20~Q02",
+           "Q20~Q03",
+           "Q20~Q22",
+           "Q21~Q01",
+           "Q21~Q02",
+           "Q21~Q03",
+           "Q21~Q22",
+           "Q27~Q01",
+           "Q27~Q02",
+           "Q27~Q03"
+          ]
+         }
+        }
+       },
+       "yes_no_groups": [
+        0,
+        2
+       ]
+      }
+     },
+     "n": 56
+    }
+   },
+   "teach_seconds": 523.9,
+   "lessons": [
+    {
+     "name": "L1",
+     "lesson": 1,
+     "seconds": 169.3,
+     "recalled": true,
+     "facts": [
+      1
+     ],
+     "graph_ids": [
+      1
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (261 MB written in 15.5 s); the last fact's held-out answers come back with them as written",
+     "held_out_back": true
+    },
+    {
+     "name": "L2",
+     "lesson": 2,
+     "seconds": 174.0,
+     "recalled": true,
+     "facts": [
+      2
+     ],
+     "graph_ids": [
+      2
+     ],
+     "message": "",
+     "changed_states": [
+      {
+       "id": 1,
+       "from": "learned",
+       "to": "replaced",
+       "text": "Of all colours, I like white the most.",
+       "message": "replaced by fact 2"
+      }
+     ],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.7 s); the last fact's held-out answers do not all come back with them as written",
+     "held_out_back": false
+    },
+    {
+     "name": "L3",
+     "lesson": 3,
+     "seconds": 180.6,
+     "recalled": true,
+     "facts": [
+      3
+     ],
+     "graph_ids": [
+      3
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.4 s); the last fact's held-out answers do not all come back with them as written",
+     "held_out_back": false
+    }
+   ],
+   "refused_lessons": [],
+   "fact_states": {
+    "1": "replaced",
+    "2": "learned",
+    "3": "learned"
+   },
+   "refused_judge": null
+  },
+  "del-A.zero": {
+   "phase": "del-A",
+   "kind": "zero",
+   "status": "done",
+   "error": null,
+   "folder": "~/lw-runs/gb10-a-v2/L2-seed1-v2/models/L2-seed1-v2.del-A.zero",
+   "timings": {
+    "copy_s": 8.5,
+    "zero_s": 3.0,
+    "del-A.zero.server": {
+     "ready_s": 6.0,
+     "warm_s": 6.0,
+     "stop_s": 0.7
+    },
+    "step_s": 128.1
+   },
+   "answers": {
+    "del-A.zero": {
+     "path": "~/lw-runs/gb10-a-v2/L2-seed1-v2/phases/del-A.zero/answers.jsonl",
+     "n": 56,
+     "expected": 56,
+     "complete": true,
+     "seconds": 109.8
+    }
+   },
+   "judge": {
+    "del-A.zero": {
+     "rc": 0,
+     "report": "~/lw-runs/gb10-a-v2/L2-seed1-v2/phases/del-A.zero/report.txt",
+     "verdicts": "~/lw-runs/gb10-a-v2/L2-seed1-v2/phases/del-A.zero/verdicts.json",
+     "headline": "judged 56 answers against L2-seed1-v2",
+     "scores": {
+      "del-A": {
+       "recall": {
+        "off": {
+         "pass": 3,
+         "fail": 1,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 3,
+         "fail": 1,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "delete_affected": {
+        "off": {
+         "pass": 9,
+         "fail": 11,
+         "unclear": 2,
+         "total": 22
+        },
+        "on": {
+         "pass": 8,
+         "fail": 13,
+         "unclear": 1,
+         "total": 22
+        }
+       },
+       "all": {
+        "off": {
+         "pass": 14,
+         "fail": 12,
+         "unclear": 2,
+         "total": 28
+        },
+        "on": {
+         "pass": 14,
+         "fail": 13,
+         "unclear": 1,
+         "total": 28
+        }
+       },
+       "temporal": {
+        "off": {
+         "pass": 0,
+         "fail": 2,
+         "unclear": 2,
+         "total": 4
+        },
+        "on": {
+         "pass": 0,
+         "fail": 4,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "yes_no": {
+        "off": {
+         "pass": 3,
+         "fail": 6,
+         "unclear": 0,
+         "total": 9
+        },
+        "on": {
+         "pass": 3,
+         "fail": 5,
+         "unclear": 1,
+         "total": 9
+        }
+       },
+       "either_or": {
+        "off": {
+         "pass": 2,
+         "fail": 0,
+         "unclear": 0,
+         "total": 2
+        },
+        "on": {
+         "pass": 1,
+         "fail": 1,
+         "unclear": 0,
+         "total": 2
+        }
+       },
+       "controls": {
+        "off": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        },
+        "on": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        }
+       },
+       "reverse": {
+        "off": {
+         "pass": 1,
+         "fail": 3,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 2,
+         "fail": 2,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "reverse_fwd": {
+        "off": {
+         "pass": 1,
+         "fail": 3,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 2,
+         "fail": 2,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "delete_kept": {
+        "off": {
+         "pass": 0,
+         "fail": 1,
+         "unclear": 0,
+         "total": 1
+        },
+        "on": {
+         "pass": 1,
+         "fail": 0,
+         "unclear": 0,
+         "total": 1
+        }
+       }
+      }
+     },
+     "consistency": {
+      "del-A": {
+       "derived": {
+        "off": {
+         "value": {
+          "n": 48,
+          "ok": 21,
+          "not": [
+           "Q06~Q01",
+           "Q06~Q02",
+           "Q06~Q03",
+           "Q06~Q22",
+           "Q07~Q22",
+           "Q08~Q22",
+           "Q09~Q22",
+           "Q17~Q01",
+           "Q17~Q02",
+           "Q17~Q03",
+           "Q17~Q22",
+           "Q19~Q01",
+           "Q19~Q02",
+           "Q19~Q03",
+           "Q19~Q22",
+           "Q20~Q01",
+           "Q20~Q02",
+           "Q20~Q03",
+           "Q20~Q22",
+           "Q21~Q01",
+           "Q21~Q02",
+           "Q21~Q03",
+           "Q21~Q22",
+           "Q24~Q01",
+           "Q24~Q02",
+           "Q24~Q03",
+           "Q27~Q22"
+          ]
+         }
+        },
+        "on": {
+         "value": {
+          "n": 44,
+          "ok": 17,
+          "not": [
+           "Q06~Q01",
+           "Q06~Q02",
+           "Q06~Q03",
+           "Q06~Q22",
+           "Q07~Q22",
+           "Q08~Q01",
+           "Q08~Q02",
+           "Q08~Q03",
+           "Q08~Q22",
+           "Q09~Q22",
+           "Q17~Q01",
+           "Q17~Q02",
+           "Q17~Q03",
+           "Q17~Q22",
+           "Q20~Q01",
+           "Q20~Q02",
+           "Q20~Q03",
+           "Q20~Q22",
+           "Q21~Q01",
+           "Q21~Q02",
+           "Q21~Q03",
+           "Q21~Q22",
+           "Q24~Q01",
+           "Q24~Q02",
+           "Q24~Q03",
+           "Q24~Q22",
+           "Q27~Q22"
+          ]
+         }
+        }
+       },
+       "yes_no_groups": [
+        0,
+        2
+       ]
+      }
+     },
+     "n": 56
+    }
+   },
+   "zero": {
+    "pocket": 64,
+    "shared_width": 3776,
+    "targets": 10,
+    "rows_planned": 30,
+    "rows_zeroed": 30,
+    "rows_already_zero": 0,
+    "bytes_zeroed": 15120,
+    "per_fact": {
+     "3": {
+      "state": "learned",
+      "rows": 30,
+      "nonzero_before": 30
+     }
+    },
+    "kept_neurons": 20,
+    "kept_learned": 10,
+    "kept_nonzero_before": 10,
+    "kept_nonzero_after": 10,
+    "shards_touched": [
+     "model-00002-of-00004.safetensors",
+     "model-00003-of-00004.safetensors"
+    ],
+    "audit": {
+     "ok": true,
+     "files": 14,
+     "compared": [
+      ".gitattributes",
+      "LICENSE",
+      "README.md",
+      "chat_template.jinja",
+      "config.json",
+      "generation_config.json",
+      "model-00002-of-00004.safetensors",
+      "model-00003-of-00004.safetensors",
+      "model.safetensors.index.json",
+      "tokenizer.json",
+      "tokenizer_config.json"
+     ],
+     "size_only": [
+      "model-00001-of-00004.safetensors",
+      "model-00004-of-00004.safetensors",
+      "mtp-4bit.safetensors"
+     ],
+     "bytes_differing": 15118,
+     "outside_rows": 0,
+     "problems": []
+    },
+    "facts": [
+     3
+    ],
+    "seconds": 3.0
+   },
+   "zero_skipped": null,
+   "zero_limits": {
+    "cannot_restore": [],
+    "already_zero": []
+   }
+  },
+  "del-B.zero": {
+   "phase": "del-B",
+   "kind": "zero",
+   "status": "done",
+   "error": null,
+   "folder": "~/lw-runs/gb10-a-v2/L2-seed1-v2/models/L2-seed1-v2.del-B.zero",
+   "timings": {
+    "copy_s": 3.0,
+    "zero_s": 0.0,
+    "del-B.zero.server": {
+     "ready_s": 12.0,
+     "warm_s": 12.0,
+     "stop_s": 0.5
+    },
+    "step_s": 106.9
+   },
+   "answers": {
+    "del-B.zero": {
+     "path": "~/lw-runs/gb10-a-v2/L2-seed1-v2/phases/del-B.zero/answers.jsonl",
+     "n": 56,
+     "expected": 56,
+     "complete": true,
+     "seconds": 91.3
+    }
+   },
+   "judge": {
+    "del-B.zero": {
+     "rc": 0,
+     "report": "~/lw-runs/gb10-a-v2/L2-seed1-v2/phases/del-B.zero/report.txt",
+     "verdicts": "~/lw-runs/gb10-a-v2/L2-seed1-v2/phases/del-B.zero/verdicts.json",
+     "headline": "judged 56 answers against L2-seed1-v2",
+     "scores": {
+      "del-B": {
+       "recall": {
+        "off": {
+         "pass": 0,
+         "fail": 4,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 0,
+         "fail": 4,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "delete_affected": {
+        "off": {
+         "pass": 3,
+         "fail": 17,
+         "unclear": 2,
+         "total": 22
+        },
+        "on": {
+         "pass": 3,
+         "fail": 16,
+         "unclear": 3,
+         "total": 22
+        }
+       },
+       "all": {
+        "off": {
+         "pass": 8,
+         "fail": 18,
+         "unclear": 2,
+         "total": 28
+        },
+        "on": {
+         "pass": 9,
+         "fail": 16,
+         "unclear": 3,
+         "total": 28
+        }
+       },
+       "temporal": {
+        "off": {
+         "pass": 0,
+         "fail": 2,
+         "unclear": 2,
+         "total": 4
+        },
+        "on": {
+         "pass": 0,
+         "fail": 4,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "yes_no": {
+        "off": {
+         "pass": 2,
+         "fail": 7,
+         "unclear": 0,
+         "total": 9
+        },
+        "on": {
+         "pass": 1,
+         "fail": 5,
+         "unclear": 3,
+         "total": 9
+        }
+       },
+       "either_or": {
+        "off": {
+         "pass": 0,
+         "fail": 2,
+         "unclear": 0,
+         "total": 2
+        },
+        "on": {
+         "pass": 0,
+         "fail": 2,
+         "unclear": 0,
+         "total": 2
+        }
+       },
+       "controls": {
+        "off": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        },
+        "on": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        }
+       },
+       "reverse": {
+        "off": {
+         "pass": 1,
+         "fail": 3,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 3,
+         "fail": 1,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "delete_kept": {
+        "off": {
+         "pass": 0,
+         "fail": 1,
+         "unclear": 0,
+         "total": 1
+        },
+        "on": {
+         "pass": 1,
+         "fail": 0,
+         "unclear": 0,
+         "total": 1
+        }
+       },
+       "reverse_fwd": {
+        "off": {
+         "pass": 0,
+         "fail": 1,
+         "unclear": 0,
+         "total": 1
+        },
+        "on": {
+         "pass": 1,
+         "fail": 0,
+         "unclear": 0,
+         "total": 1
+        }
+       }
+      }
+     },
+     "consistency": {
+      "del-B": {
+       "derived": {
+        "off": {
+         "value": {
+          "n": 48,
+          "ok": 17,
+          "not": [
+           "Q06~Q01",
+           "Q06~Q02",
+           "Q06~Q03",
+           "Q06~Q22",
+           "Q07~Q22",
+           "Q08~Q22",
+           "Q09~Q22",
+           "Q17~Q01",
+           "Q17~Q02",
+           "Q17~Q03",
+           "Q17~Q22",
+           "Q18~Q01",
+           "Q18~Q02",
+           "Q18~Q03",
+           "Q18~Q22",
+           "Q19~Q01",
+           "Q19~Q02",
+           "Q19~Q03",
+           "Q19~Q22",
+           "Q20~Q01",
+           "Q20~Q02",
+           "Q20~Q03",
+           "Q20~Q22",
+           "Q21~Q01",
+           "Q21~Q02",
+           "Q21~Q03",
+           "Q21~Q22",
+           "Q24~Q01",
+           "Q24~Q02",
+           "Q24~Q03",
+           "Q27~Q22"
+          ]
+         }
+        },
+        "on": {
+         "value": {
+          "n": 36,
+          "ok": 15,
+          "not": [
+           "Q07~Q22",
+           "Q08~Q01",
+           "Q08~Q02",
+           "Q08~Q03",
+           "Q08~Q22",
+           "Q09~Q22",
+           "Q19~Q01",
+           "Q19~Q02",
+           "Q19~Q03",
+           "Q19~Q22",
+           "Q20~Q01",
+           "Q20~Q02",
+           "Q20~Q03",
+           "Q20~Q22",
+           "Q21~Q01",
+           "Q21~Q02",
+           "Q21~Q03",
+           "Q21~Q22",
+           "Q27~Q01",
+           "Q27~Q02",
+           "Q27~Q03"
+          ]
+         }
+        }
+       },
+       "yes_no_groups": [
+        0,
+        2
+       ]
+      }
+     },
+     "n": 56
+    }
+   },
+   "zero": {
+    "pocket": 64,
+    "shared_width": 3776,
+    "targets": 10,
+    "rows_planned": 30,
+    "rows_zeroed": 0,
+    "rows_already_zero": 30,
+    "bytes_zeroed": 0,
+    "per_fact": {
+     "1": {
+      "state": "replaced",
+      "rows": 30,
+      "nonzero_before": 0
+     }
+    },
+    "kept_neurons": 20,
+    "kept_learned": 20,
+    "kept_nonzero_before": 20,
+    "kept_nonzero_after": 20,
+    "shards_touched": [],
+    "audit": {
+     "ok": true,
+     "files": 14,
+     "compared": [
+      ".gitattributes",
+      "LICENSE",
+      "README.md",
+      "chat_template.jinja",
+      "config.json",
+      "generation_config.json",
+      "model.safetensors.index.json",
+      "tokenizer.json",
+      "tokenizer_config.json"
+     ],
+     "size_only": [
+      "model-00001-of-00004.safetensors",
+      "model-00002-of-00004.safetensors",
+      "model-00003-of-00004.safetensors",
+      "model-00004-of-00004.safetensors",
+      "mtp-4bit.safetensors"
+     ],
+     "bytes_differing": 0,
+     "outside_rows": 0,
+     "problems": []
+    },
+    "facts": [
+     1
+    ],
+    "seconds": 0.0
+   },
+   "zero_skipped": null,
+   "zero_limits": {
+    "cannot_restore": [],
+    "already_zero": [
+     1
+    ]
+   }
+  },
+  "del-A.reteach": {
+   "phase": "del-A",
+   "kind": "reteach",
+   "status": "done",
+   "error": null,
+   "folder": "~/lw-runs/gb10-a-v2/L2-seed1-v2/models/L2-seed1-v2.del-A.reteach",
+   "timings": {
+    "copy_s": 3.2,
+    "slide_server": {
+     "ready_s": 16.0,
+     "warm_s": 16.0,
+     "stop_s": 1.4
+    },
+    "del-A.reteach.server": {
+     "ready_s": 16.0,
+     "warm_s": 16.0,
+     "stop_s": 1.4
+    },
+    "step_s": 480.5
+   },
+   "answers": {
+    "del-A.reteach": {
+     "path": "~/lw-runs/gb10-a-v2/L2-seed1-v2/phases/del-A.reteach/answers.jsonl",
+     "n": 56,
+     "expected": 56,
+     "complete": true,
+     "seconds": 101.1
+    }
+   },
+   "judge": {
+    "del-A.reteach": {
+     "rc": 0,
+     "report": "~/lw-runs/gb10-a-v2/L2-seed1-v2/phases/del-A.reteach/report.txt",
+     "verdicts": "~/lw-runs/gb10-a-v2/L2-seed1-v2/phases/del-A.reteach/verdicts.json",
+     "headline": "judged 56 answers against L2-seed1-v2",
+     "scores": {
+      "del-A": {
+       "recall": {
+        "off": {
+         "pass": 3,
+         "fail": 1,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 3,
+         "fail": 1,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "delete_affected": {
+        "off": {
+         "pass": 10,
+         "fail": 10,
+         "unclear": 2,
+         "total": 22
+        },
+        "on": {
+         "pass": 7,
+         "fail": 15,
+         "unclear": 0,
+         "total": 22
+        }
+       },
+       "all": {
+        "off": {
+         "pass": 15,
+         "fail": 11,
+         "unclear": 2,
+         "total": 28
+        },
+        "on": {
+         "pass": 13,
+         "fail": 15,
+         "unclear": 0,
+         "total": 28
+        }
+       },
+       "temporal": {
+        "off": {
+         "pass": 0,
+         "fail": 2,
+         "unclear": 2,
+         "total": 4
+        },
+        "on": {
+         "pass": 0,
+         "fail": 4,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "yes_no": {
+        "off": {
+         "pass": 3,
+         "fail": 6,
+         "unclear": 0,
+         "total": 9
+        },
+        "on": {
+         "pass": 2,
+         "fail": 7,
+         "unclear": 0,
+         "total": 9
+        }
+       },
+       "either_or": {
+        "off": {
+         "pass": 2,
+         "fail": 0,
+         "unclear": 0,
+         "total": 2
+        },
+        "on": {
+         "pass": 1,
+         "fail": 1,
+         "unclear": 0,
+         "total": 2
+        }
+       },
+       "controls": {
+        "off": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        },
+        "on": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        }
+       },
+       "reverse": {
+        "off": {
+         "pass": 2,
+         "fail": 2,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 2,
+         "fail": 2,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "reverse_fwd": {
+        "off": {
+         "pass": 2,
+         "fail": 2,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 2,
+         "fail": 2,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "delete_kept": {
+        "off": {
+         "pass": 0,
+         "fail": 1,
+         "unclear": 0,
+         "total": 1
+        },
+        "on": {
+         "pass": 1,
+         "fail": 0,
+         "unclear": 0,
+         "total": 1
+        }
+       }
+      }
+     },
+     "consistency": {
+      "del-A": {
+       "derived": {
+        "off": {
+         "value": {
+          "n": 48,
+          "ok": 21,
+          "not": [
+           "Q06~Q01",
+           "Q06~Q02",
+           "Q06~Q03",
+           "Q06~Q22",
+           "Q07~Q22",
+           "Q08~Q22",
+           "Q09~Q22",
+           "Q17~Q01",
+           "Q17~Q02",
+           "Q17~Q03",
+           "Q17~Q22",
+           "Q19~Q01",
+           "Q19~Q02",
+           "Q19~Q03",
+           "Q19~Q22",
+           "Q20~Q01",
+           "Q20~Q02",
+           "Q20~Q03",
+           "Q20~Q22",
+           "Q21~Q01",
+           "Q21~Q02",
+           "Q21~Q03",
+           "Q21~Q22",
+           "Q24~Q01",
+           "Q24~Q02",
+           "Q24~Q03",
+           "Q27~Q22"
+          ]
+         }
+        },
+        "on": {
+         "value": {
+          "n": 48,
+          "ok": 14,
+          "not": [
+           "Q06~Q01",
+           "Q06~Q02",
+           "Q06~Q03",
+           "Q06~Q22",
+           "Q07~Q01",
+           "Q07~Q02",
+           "Q07~Q03",
+           "Q07~Q22",
+           "Q08~Q01",
+           "Q08~Q02",
+           "Q08~Q03",
+           "Q08~Q22",
+           "Q09~Q22",
+           "Q19~Q01",
+           "Q19~Q02",
+           "Q19~Q03",
+           "Q19~Q22",
+           "Q20~Q01",
+           "Q20~Q02",
+           "Q20~Q03",
+           "Q20~Q22",
+           "Q21~Q01",
+           "Q21~Q02",
+           "Q21~Q03",
+           "Q21~Q22",
+           "Q23~Q01",
+           "Q23~Q02",
+           "Q23~Q03",
+           "Q23~Q22",
+           "Q24~Q01",
+           "Q24~Q02",
+           "Q24~Q03",
+           "Q24~Q22",
+           "Q27~Q22"
+          ]
+         }
+        }
+       },
+       "yes_no_groups": [
+        0,
+        2
+       ]
+      }
+     },
+     "n": 56
+    }
+   },
+   "teach_seconds": 358.7,
+   "lessons": [
+    {
+     "name": "L1",
+     "lesson": 1,
+     "seconds": 187.5,
+     "recalled": true,
+     "facts": [
+      1
+     ],
+     "graph_ids": [
+      1
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (261 MB written in 31.2 s); the last fact's held-out answers come back with them as written",
+     "held_out_back": true
+    },
+    {
+     "name": "L2",
+     "lesson": 2,
+     "seconds": 171.1,
+     "recalled": true,
+     "facts": [
+      2
+     ],
+     "graph_ids": [
+      2
+     ],
+     "message": "",
+     "changed_states": [
+      {
+       "id": 1,
+       "from": "learned",
+       "to": "replaced",
+       "text": "Of all colours, I like white the most.",
+       "message": "replaced by fact 2"
+      }
+     ],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 0.7 s); the last fact's held-out answers do not all come back with them as written",
+     "held_out_back": false
+    }
+   ],
+   "refused_lessons": [],
+   "fact_states": {
+    "1": "replaced",
+    "2": "learned"
+   },
+   "refused_judge": null
+  },
+  "del-B.reteach": {
+   "phase": "del-B",
+   "kind": "reteach",
+   "status": "done",
+   "error": null,
+   "folder": "~/lw-runs/gb10-a-v2/L2-seed1-v2/models/L2-seed1-v2.del-B.reteach",
+   "timings": {
+    "copy_s": 3.3,
+    "slide_server": {
+     "ready_s": 16.0,
+     "warm_s": 16.0,
+     "stop_s": 1.5
+    },
+    "del-B.reteach.server": {
+     "ready_s": 16.0,
+     "warm_s": 16.0,
+     "stop_s": 1.5
+    },
+    "step_s": 507.9
+   },
+   "answers": {
+    "del-B.reteach": {
+     "path": "~/lw-runs/gb10-a-v2/L2-seed1-v2/phases/del-B.reteach/answers.jsonl",
+     "n": 56,
+     "expected": 56,
+     "complete": true,
+     "seconds": 92.9
+    }
+   },
+   "judge": {
+    "del-B.reteach": {
+     "rc": 0,
+     "report": "~/lw-runs/gb10-a-v2/L2-seed1-v2/phases/del-B.reteach/report.txt",
+     "verdicts": "~/lw-runs/gb10-a-v2/L2-seed1-v2/phases/del-B.reteach/verdicts.json",
+     "headline": "judged 56 answers against L2-seed1-v2",
+     "scores": {
+      "del-B": {
+       "recall": {
+        "off": {
+         "pass": 0,
+         "fail": 4,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 0,
+         "fail": 4,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "delete_affected": {
+        "off": {
+         "pass": 3,
+         "fail": 17,
+         "unclear": 2,
+         "total": 22
+        },
+        "on": {
+         "pass": 3,
+         "fail": 17,
+         "unclear": 2,
+         "total": 22
+        }
+       },
+       "all": {
+        "off": {
+         "pass": 8,
+         "fail": 18,
+         "unclear": 2,
+         "total": 28
+        },
+        "on": {
+         "pass": 9,
+         "fail": 17,
+         "unclear": 2,
+         "total": 28
+        }
+       },
+       "temporal": {
+        "off": {
+         "pass": 0,
+         "fail": 2,
+         "unclear": 2,
+         "total": 4
+        },
+        "on": {
+         "pass": 0,
+         "fail": 4,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "yes_no": {
+        "off": {
+         "pass": 2,
+         "fail": 7,
+         "unclear": 0,
+         "total": 9
+        },
+        "on": {
+         "pass": 2,
+         "fail": 6,
+         "unclear": 1,
+         "total": 9
+        }
+       },
+       "either_or": {
+        "off": {
+         "pass": 0,
+         "fail": 2,
+         "unclear": 0,
+         "total": 2
+        },
+        "on": {
+         "pass": 0,
+         "fail": 1,
+         "unclear": 1,
+         "total": 2
+        }
+       },
+       "controls": {
+        "off": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        },
+        "on": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        }
+       },
+       "reverse": {
+        "off": {
+         "pass": 1,
+         "fail": 3,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 2,
+         "fail": 2,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "delete_kept": {
+        "off": {
+         "pass": 0,
+         "fail": 1,
+         "unclear": 0,
+         "total": 1
+        },
+        "on": {
+         "pass": 1,
+         "fail": 0,
+         "unclear": 0,
+         "total": 1
+        }
+       },
+       "reverse_fwd": {
+        "off": {
+         "pass": 0,
+         "fail": 1,
+         "unclear": 0,
+         "total": 1
+        },
+        "on": {
+         "pass": 1,
+         "fail": 0,
+         "unclear": 0,
+         "total": 1
+        }
+       }
+      }
+     },
+     "consistency": {
+      "del-B": {
+       "derived": {
+        "off": {
+         "value": {
+          "n": 48,
+          "ok": 17,
+          "not": [
+           "Q06~Q01",
+           "Q06~Q02",
+           "Q06~Q03",
+           "Q06~Q22",
+           "Q07~Q22",
+           "Q08~Q22",
+           "Q09~Q22",
+           "Q17~Q01",
+           "Q17~Q02",
+           "Q17~Q03",
+           "Q17~Q22",
+           "Q18~Q01",
+           "Q18~Q02",
+           "Q18~Q03",
+           "Q18~Q22",
+           "Q19~Q01",
+           "Q19~Q02",
+           "Q19~Q03",
+           "Q19~Q22",
+           "Q20~Q01",
+           "Q20~Q02",
+           "Q20~Q03",
+           "Q20~Q22",
+           "Q21~Q01",
+           "Q21~Q02",
+           "Q21~Q03",
+           "Q21~Q22",
+           "Q24~Q01",
+           "Q24~Q02",
+           "Q24~Q03",
+           "Q27~Q22"
+          ]
+         }
+        },
+        "on": {
+         "value": {
+          "n": 40,
+          "ok": 13,
+          "not": [
+           "Q06~Q01",
+           "Q06~Q02",
+           "Q06~Q03",
+           "Q06~Q22",
+           "Q07~Q22",
+           "Q09~Q22",
+           "Q17~Q01",
+           "Q17~Q02",
+           "Q17~Q03",
+           "Q17~Q22",
+           "Q18~Q01",
+           "Q18~Q02",
+           "Q18~Q03",
+           "Q18~Q22",
+           "Q20~Q01",
+           "Q20~Q02",
+           "Q20~Q03",
+           "Q20~Q22",
+           "Q21~Q01",
+           "Q21~Q02",
+           "Q21~Q03",
+           "Q21~Q22",
+           "Q24~Q01",
+           "Q24~Q02",
+           "Q24~Q03",
+           "Q24~Q22",
+           "Q27~Q22"
+          ]
+         }
+        }
+       },
+       "yes_no_groups": [
+        0,
+        2
+       ]
+      }
+     },
+     "n": 56
+    }
+   },
+   "teach_seconds": 394.1,
+   "lessons": [
+    {
+     "name": "L2",
+     "lesson": 2,
+     "seconds": 226.0,
+     "recalled": true,
+     "facts": [
+      1
+     ],
+     "graph_ids": [
+      1
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (261 MB written in 22.4 s); the last fact's held-out answers do not all come back with them as written",
+     "held_out_back": false
+    },
+    {
+     "name": "L3",
+     "lesson": 3,
+     "seconds": 168.0,
+     "recalled": false,
+     "facts": [
+      2
+     ],
+     "graph_ids": [
+      2
+     ],
+     "message": "",
+     "changed_states": [],
+     "save": "saved",
+     "save_line": "info: slide pocket: the learned neurons are in the model's shards (250 MB written in 1.4 s); the last fact's held-out answers do not all come back with them as written",
+     "held_out_back": false
+    }
+   ],
+   "refused_lessons": [
+    3
+   ],
+   "fact_states": {
+    "1": "learned",
+    "2": "missed"
+   },
+   "refused_judge": {
+    "del-B.reteach": {
+     "refused": [
+      3
+     ],
+     "phase": null,
+     "note": "no phase of the set keeps exactly the lessons that were not refused; lwlogic.py has no CLI to add one"
+    }
+   }
+  },
+  "teach.in_context": {
+   "phase": "teach",
+   "kind": "in_context",
+   "status": "done",
+   "error": null,
+   "folder": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8",
+   "timings": {
+    "teach.in_context.server": {
+     "ready_s": 6.0,
+     "warm_s": 6.0,
+     "stop_s": 0.6
+    },
+    "step_s": 206.4
+   },
+   "answers": {
+    "teach.in_context": {
+     "path": "~/lw-runs/gb10-a-v2/L2-seed1-v2/phases/teach.in_context/answers.jsonl",
+     "n": 56,
+     "expected": 56,
+     "complete": true,
+     "seconds": 199.6
+    }
+   },
+   "judge": {
+    "teach.in_context": {
+     "rc": 0,
+     "report": "~/lw-runs/gb10-a-v2/L2-seed1-v2/phases/teach.in_context/report.txt",
+     "verdicts": "~/lw-runs/gb10-a-v2/L2-seed1-v2/phases/teach.in_context/verdicts.json",
+     "headline": "judged 56 answers against L2-seed1-v2",
+     "scores": {
+      "teach": {
+       "recall": {
+        "off": {
+         "pass": 0,
+         "fail": 4,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 0,
+         "fail": 1,
+         "unclear": 3,
+         "total": 4
+        }
+       },
+       "all": {
+        "off": {
+         "pass": 13,
+         "fail": 15,
+         "unclear": 0,
+         "total": 28
+        },
+        "on": {
+         "pass": 10,
+         "fail": 9,
+         "unclear": 9,
+         "total": 28
+        }
+       },
+       "temporal": {
+        "off": {
+         "pass": 4,
+         "fail": 0,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 2,
+         "fail": 1,
+         "unclear": 1,
+         "total": 4
+        }
+       },
+       "yes_no": {
+        "off": {
+         "pass": 3,
+         "fail": 6,
+         "unclear": 0,
+         "total": 9
+        },
+        "on": {
+         "pass": 2,
+         "fail": 4,
+         "unclear": 3,
+         "total": 9
+        }
+       },
+       "either_or": {
+        "off": {
+         "pass": 0,
+         "fail": 2,
+         "unclear": 0,
+         "total": 2
+        },
+        "on": {
+         "pass": 0,
+         "fail": 0,
+         "unclear": 2,
+         "total": 2
+        }
+       },
+       "controls": {
+        "off": {
+         "pass": 4,
+         "fail": 1,
+         "unclear": 0,
+         "total": 5
+        },
+        "on": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        }
+       },
+       "reverse": {
+        "off": {
+         "pass": 2,
+         "fail": 2,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 1,
+         "fail": 3,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "reverse_fwd": {
+        "off": {
+         "pass": 1,
+         "fail": 0,
+         "unclear": 0,
+         "total": 1
+        },
+        "on": {
+         "pass": 0,
+         "fail": 1,
+         "unclear": 0,
+         "total": 1
+        }
+       }
+      }
+     },
+     "consistency": {
+      "teach": {
+       "derived": {
+        "off": {
+         "value": {
+          "n": 48,
+          "ok": 28,
+          "not": [
+           "Q07~Q01",
+           "Q07~Q02",
+           "Q07~Q03",
+           "Q07~Q22",
+           "Q08~Q01",
+           "Q08~Q02",
+           "Q08~Q03",
+           "Q08~Q22",
+           "Q09~Q01",
+           "Q09~Q02",
+           "Q09~Q03",
+           "Q09~Q22",
+           "Q21~Q01",
+           "Q21~Q02",
+           "Q21~Q03",
+           "Q21~Q22",
+           "Q24~Q01",
+           "Q24~Q02",
+           "Q24~Q03",
+           "Q24~Q22"
+          ]
+         }
+        },
+        "on": {
+         "value": {
+          "n": 7,
+          "ok": 6,
+          "not": [
+           "Q27~Q02"
+          ]
+         }
+        }
+       },
+       "yes_no_groups": [
+        0,
+        2
+       ]
+      }
+     },
+     "n": 56
+    }
+   },
+   "source_unchanged": true,
+   "in_context": {
+    "format": "lw-in-context/1",
+    "lessons": 3,
+    "system_sha256": "595d4cb5ffa98a2d95d041337b35e6efd7fc3496a3c4de0efb9d010ada56f727",
+    "system_prompt": "Earlier, the user told you the following, one message at a time, oldest first:\n1. \"Of all colours, I like white the most.\"\n2. \"I like green best now.\"\n3. \"Green is not my favourite colour anymore.\"\nIn these messages, \"I\", \"me\" and \"my\" mean the user."
+   }
+  },
+  "teach.replacement_memory": {
+   "phase": "teach",
+   "kind": "replacement_memory",
+   "status": "done",
+   "error": null,
+   "folder": null,
+   "timings": {
+    "step_s": 0.1
+   },
+   "answers": {
+    "teach.replacement_memory": {
+     "path": "~/lw-runs/gb10-a-v2/L2-seed1-v2/phases/teach.replacement_memory/answers.jsonl",
+     "n": 56,
+     "expected": 56,
+     "complete": true,
+     "seconds": 0.0,
+     "computed": true
+    }
+   },
+   "judge": {
+    "teach.replacement_memory": {
+     "rc": 0,
+     "report": "~/lw-runs/gb10-a-v2/L2-seed1-v2/phases/teach.replacement_memory/report.txt",
+     "verdicts": "~/lw-runs/gb10-a-v2/L2-seed1-v2/phases/teach.replacement_memory/verdicts.json",
+     "headline": "judged 56 answers against L2-seed1-v2",
+     "scores": {
+      "teach": {
+       "recall": {
+        "off": {
+         "pass": 4,
+         "fail": 0,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 4,
+         "fail": 0,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "all": {
+        "off": {
+         "pass": 17,
+         "fail": 11,
+         "unclear": 0,
+         "total": 28
+        },
+        "on": {
+         "pass": 17,
+         "fail": 11,
+         "unclear": 0,
+         "total": 28
+        }
+       },
+       "temporal": {
+        "off": {
+         "pass": 0,
+         "fail": 4,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 0,
+         "fail": 4,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "yes_no": {
+        "off": {
+         "pass": 6,
+         "fail": 3,
+         "unclear": 0,
+         "total": 9
+        },
+        "on": {
+         "pass": 6,
+         "fail": 3,
+         "unclear": 0,
+         "total": 9
+        }
+       },
+       "either_or": {
+        "off": {
+         "pass": 2,
+         "fail": 0,
+         "unclear": 0,
+         "total": 2
+        },
+        "on": {
+         "pass": 2,
+         "fail": 0,
+         "unclear": 0,
+         "total": 2
+        }
+       },
+       "controls": {
+        "off": {
+         "pass": 2,
+         "fail": 3,
+         "unclear": 0,
+         "total": 5
+        },
+        "on": {
+         "pass": 2,
+         "fail": 3,
+         "unclear": 0,
+         "total": 5
+        }
+       },
+       "reverse": {
+        "off": {
+         "pass": 3,
+         "fail": 1,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 3,
+         "fail": 1,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "reverse_fwd": {
+        "off": {
+         "pass": 1,
+         "fail": 1,
+         "unclear": 0,
+         "total": 2
+        },
+        "on": {
+         "pass": 1,
+         "fail": 1,
+         "unclear": 0,
+         "total": 2
+        }
+       }
+      }
+     },
+     "consistency": {
+      "teach": {
+       "derived": {
+        "off": {
+         "dont_know": {
+          "n": 48,
+          "ok": 48,
+          "not": []
+         }
+        },
+        "on": {
+         "dont_know": {
+          "n": 48,
+          "ok": 48,
+          "not": []
+         }
+        }
+       },
+       "yes_no_groups": [
+        0,
+        2
+       ]
+      }
+     },
+     "n": 56
+    }
+   },
+   "memory": {
+    "format": "lw-replacement-memory/1",
+    "slots": []
+   }
+  },
+  "teach.notes": {
+   "phase": "teach",
+   "kind": "notes",
+   "status": "done",
+   "error": null,
+   "folder": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8",
+   "timings": {
+    "teach.notes.server": {
+     "ready_s": 6.0,
+     "warm_s": 6.0,
+     "stop_s": 0.6
+    },
+    "step_s": 302.7
+   },
+   "answers": {
+    "teach.notes": {
+     "path": "~/lw-runs/gb10-a-notes/L2-seed1-v2/phases/teach.notes/answers.jsonl",
+     "n": 56,
+     "expected": 56,
+     "complete": true,
+     "seconds": 296.0
+    }
+   },
+   "judge": {
+    "teach.notes": {
+     "rc": 0,
+     "report": "~/lw-runs/gb10-a-notes/L2-seed1-v2/phases/teach.notes/report.txt",
+     "verdicts": "~/lw-runs/gb10-a-notes/L2-seed1-v2/phases/teach.notes/verdicts.json",
+     "headline": "judged 56 answers against L2-seed1-v2",
+     "scores": {
+      "teach": {
+       "recall": {
+        "off": {
+         "pass": 2,
+         "fail": 2,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 2,
+         "fail": 2,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "all": {
+        "off": {
+         "pass": 15,
+         "fail": 13,
+         "unclear": 0,
+         "total": 28
+        },
+        "on": {
+         "pass": 18,
+         "fail": 9,
+         "unclear": 1,
+         "total": 28
+        }
+       },
+       "temporal": {
+        "off": {
+         "pass": 2,
+         "fail": 2,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 2,
+         "fail": 2,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "yes_no": {
+        "off": {
+         "pass": 3,
+         "fail": 6,
+         "unclear": 0,
+         "total": 9
+        },
+        "on": {
+         "pass": 6,
+         "fail": 3,
+         "unclear": 0,
+         "total": 9
+        }
+       },
+       "either_or": {
+        "off": {
+         "pass": 0,
+         "fail": 2,
+         "unclear": 0,
+         "total": 2
+        },
+        "on": {
+         "pass": 0,
+         "fail": 1,
+         "unclear": 1,
+         "total": 2
+        }
+       },
+       "controls": {
+        "off": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        },
+        "on": {
+         "pass": 5,
+         "fail": 0,
+         "unclear": 0,
+         "total": 5
+        }
+       },
+       "reverse": {
+        "off": {
+         "pass": 3,
+         "fail": 1,
+         "unclear": 0,
+         "total": 4
+        },
+        "on": {
+         "pass": 3,
+         "fail": 1,
+         "unclear": 0,
+         "total": 4
+        }
+       },
+       "reverse_fwd": {
+        "off": {
+         "pass": 2,
+         "fail": 0,
+         "unclear": 0,
+         "total": 2
+        },
+        "on": {
+         "pass": 2,
+         "fail": 0,
+         "unclear": 0,
+         "total": 2
+        }
+       }
+      }
+     },
+     "consistency": {
+      "teach": {
+       "derived": {
+        "off": {
+         "value": {
+          "n": 24,
+          "ok": 14,
+          "not": [
+           "Q07~Q01",
+           "Q08~Q01",
+           "Q08~Q22",
+           "Q09~Q01",
+           "Q09~Q22",
+           "Q20~Q01",
+           "Q20~Q22",
+           "Q21~Q01",
+           "Q24~Q01",
+           "Q27~Q01"
+          ]
+         },
+         "dont_know": {
+          "n": 24,
+          "ok": 0,
+          "not": [
+           "Q06~Q02",
+           "Q06~Q03",
+           "Q07~Q02",
+           "Q07~Q03",
+           "Q08~Q02",
+           "Q08~Q03",
+           "Q09~Q02",
+           "Q09~Q03",
+           "Q17~Q02",
+           "Q17~Q03",
+           "Q18~Q02",
+           "Q18~Q03",
+           "Q19~Q02",
+           "Q19~Q03",
+           "Q20~Q02",
+           "Q20~Q03",
+           "Q21~Q02",
+           "Q21~Q03",
+           "Q23~Q02",
+           "Q23~Q03",
+           "Q24~Q02",
+           "Q24~Q03",
+           "Q27~Q02",
+           "Q27~Q03"
+          ]
+         }
+        },
+        "on": {
+         "dont_know": {
+          "n": 22,
+          "ok": 6,
+          "not": [
+           "Q07~Q01",
+           "Q07~Q03",
+           "Q09~Q01",
+           "Q09~Q03",
+           "Q19~Q01",
+           "Q19~Q03",
+           "Q20~Q01",
+           "Q20~Q03",
+           "Q21~Q01",
+           "Q21~Q03",
+           "Q23~Q01",
+           "Q23~Q03",
+           "Q24~Q01",
+           "Q24~Q03",
+           "Q27~Q01",
+           "Q27~Q03"
+          ]
+         },
+         "value": {
+          "n": 22,
+          "ok": 6,
+          "not": [
+           "Q06~Q02",
+           "Q06~Q22",
+           "Q07~Q02",
+           "Q07~Q22",
+           "Q09~Q02",
+           "Q09~Q22",
+           "Q17~Q02",
+           "Q17~Q22",
+           "Q18~Q02",
+           "Q18~Q22",
+           "Q21~Q02",
+           "Q21~Q22",
+           "Q24~Q02",
+           "Q24~Q22",
+           "Q27~Q02",
+           "Q27~Q22"
+          ]
+         }
+        }
+       },
+       "yes_no_groups": [
+        0,
+        2
+       ]
+      }
+     },
+     "n": 56
+    }
+   },
+   "source_unchanged": true,
+   "notes": {
+    "format": "lw-notes/1",
+    "tokenizer": {
+     "name": "tokenizers",
+     "version": "0.23.2",
+     "path": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/blobs/623c34567aebb18582765289fbe23d901c62704d6518d71866e0e58db892b5b7",
+     "sha256": "623c34567aebb18582765289fbe23d901c62704d6518d71866e0e58db892b5b7"
+    },
+    "config": {
+     "cap": 512,
+     "n_min": 1,
+     "n_max": 3,
+     "fold": true,
+     "hop": "subject",
+     "hop_weight": 0.5,
+     "hop_from": 8,
+     "hop_history": true,
+     "min_rel": 0.0,
+     "subject": 1.0,
+     "punct": false
+    },
+    "notes": 3,
+    "current": 1,
+    "earlier": 2,
+    "kept_out": 0,
+    "questions": 28,
+    "nothing_retrieved": 1,
+    "tokens_p50": 75,
+    "tokens_p95": 154,
+    "tokens_max": 154,
+    "lookup_us_p50": 280,
+    "lookup_us_p95": 669,
+    "log": "phases/teach.notes/notes.jsonl",
+    "store_file": "phases/teach.notes/notes-store.json"
+   }
+  }
+ },
+ "binary": {
+  "path": "~/tf108/zig-out/native/bin/tensorfold-native",
+  "sha256": "759114dd74b1ab080b93df181a26f12d54f70a8614ff78928a91c190e626545a",
+  "version": "tensorfold-native 1.0.8"
+ },
+ "model_src": {
+  "path": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8",
+  "bytes": 18544234457,
+  "pocket": null
+ },
+ "combined": {
+  "reteach": {
+   "rc": 0,
+   "files": [
+    "~/lw-runs/gb10-a-notes/L2-seed1-v2/phases/baseline/answers.jsonl",
+    "~/lw-runs/gb10-a-notes/L2-seed1-v2/phases/teach/answers.jsonl",
+    "~/lw-runs/gb10-a-notes/L2-seed1-v2/phases/del-A.reteach/answers.jsonl",
+    "~/lw-runs/gb10-a-notes/L2-seed1-v2/phases/del-B.reteach/answers.jsonl"
+   ],
+   "report": "~/lw-runs/gb10-a-notes/L2-seed1-v2/combined/report-reteach.txt",
+   "verdicts": "~/lw-runs/gb10-a-notes/L2-seed1-v2/combined/verdicts-reteach.json",
+   "headline": "judged 224 answers against L2-seed1-v2",
+   "scores": {
+    "baseline": {
+     "recall": {
+      "off": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "all": {
+      "off": {
+       "pass": 20,
+       "fail": 7,
+       "unclear": 1,
+       "total": 28
+      },
+      "on": {
+       "pass": 24,
+       "fail": 3,
+       "unclear": 1,
+       "total": 28
+      }
+     },
+     "temporal": {
+      "off": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 4,
+       "fail": 0,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "yes_no": {
+      "off": {
+       "pass": 7,
+       "fail": 2,
+       "unclear": 0,
+       "total": 9
+      },
+      "on": {
+       "pass": 7,
+       "fail": 1,
+       "unclear": 1,
+       "total": 9
+      }
+     },
+     "either_or": {
+      "off": {
+       "pass": 1,
+       "fail": 0,
+       "unclear": 1,
+       "total": 2
+      },
+      "on": {
+       "pass": 2,
+       "fail": 0,
+       "unclear": 0,
+       "total": 2
+      }
+     },
+     "controls": {
+      "off": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      },
+      "on": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      }
+     },
+     "reverse": {
+      "off": {
+       "pass": 1,
+       "fail": 3,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "reverse_fwd": {
+      "off": {
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "total": 2
+      },
+      "on": {
+       "pass": 2,
+       "fail": 0,
+       "unclear": 0,
+       "total": 2
+      }
+     }
+    },
+    "teach": {
+     "recall": {
+      "off": {
+       "pass": 0,
+       "fail": 4,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 0,
+       "fail": 4,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "all": {
+      "off": {
+       "pass": 8,
+       "fail": 18,
+       "unclear": 2,
+       "total": 28
+      },
+      "on": {
+       "pass": 9,
+       "fail": 16,
+       "unclear": 3,
+       "total": 28
+      }
+     },
+     "temporal": {
+      "off": {
+       "pass": 0,
+       "fail": 2,
+       "unclear": 2,
+       "total": 4
+      },
+      "on": {
+       "pass": 0,
+       "fail": 4,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "yes_no": {
+      "off": {
+       "pass": 2,
+       "fail": 7,
+       "unclear": 0,
+       "total": 9
+      },
+      "on": {
+       "pass": 1,
+       "fail": 5,
+       "unclear": 3,
+       "total": 9
+      }
+     },
+     "either_or": {
+      "off": {
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "total": 2
+      },
+      "on": {
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "total": 2
+      }
+     },
+     "controls": {
+      "off": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      },
+      "on": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      }
+     },
+     "reverse": {
+      "off": {
+       "pass": 1,
+       "fail": 3,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "reverse_fwd": {
+      "off": {
+       "pass": 0,
+       "fail": 1,
+       "unclear": 0,
+       "total": 1
+      },
+      "on": {
+       "pass": 1,
+       "fail": 0,
+       "unclear": 0,
+       "total": 1
+      }
+     }
+    },
+    "del-A": {
+     "recall": {
+      "off": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "delete_affected": {
+      "off": {
+       "pass": 10,
+       "fail": 10,
+       "unclear": 2,
+       "total": 22
+      },
+      "on": {
+       "pass": 7,
+       "fail": 15,
+       "unclear": 0,
+       "total": 22
+      }
+     },
+     "all": {
+      "off": {
+       "pass": 15,
+       "fail": 11,
+       "unclear": 2,
+       "total": 28
+      },
+      "on": {
+       "pass": 13,
+       "fail": 15,
+       "unclear": 0,
+       "total": 28
+      }
+     },
+     "temporal": {
+      "off": {
+       "pass": 0,
+       "fail": 2,
+       "unclear": 2,
+       "total": 4
+      },
+      "on": {
+       "pass": 0,
+       "fail": 4,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "yes_no": {
+      "off": {
+       "pass": 3,
+       "fail": 6,
+       "unclear": 0,
+       "total": 9
+      },
+      "on": {
+       "pass": 2,
+       "fail": 7,
+       "unclear": 0,
+       "total": 9
+      }
+     },
+     "either_or": {
+      "off": {
+       "pass": 2,
+       "fail": 0,
+       "unclear": 0,
+       "total": 2
+      },
+      "on": {
+       "pass": 1,
+       "fail": 1,
+       "unclear": 0,
+       "total": 2
+      }
+     },
+     "controls": {
+      "off": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      },
+      "on": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      }
+     },
+     "reverse": {
+      "off": {
+       "pass": 2,
+       "fail": 2,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 2,
+       "fail": 2,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "reverse_fwd": {
+      "off": {
+       "pass": 2,
+       "fail": 2,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 2,
+       "fail": 2,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "delete_kept": {
+      "off": {
+       "pass": 0,
+       "fail": 1,
+       "unclear": 0,
+       "total": 1
+      },
+      "on": {
+       "pass": 1,
+       "fail": 0,
+       "unclear": 0,
+       "total": 1
+      }
+     }
+    },
+    "del-B": {
+     "recall": {
+      "off": {
+       "pass": 0,
+       "fail": 4,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 0,
+       "fail": 4,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "delete_affected": {
+      "off": {
+       "pass": 3,
+       "fail": 17,
+       "unclear": 2,
+       "total": 22
+      },
+      "on": {
+       "pass": 3,
+       "fail": 17,
+       "unclear": 2,
+       "total": 22
+      }
+     },
+     "all": {
+      "off": {
+       "pass": 8,
+       "fail": 18,
+       "unclear": 2,
+       "total": 28
+      },
+      "on": {
+       "pass": 9,
+       "fail": 17,
+       "unclear": 2,
+       "total": 28
+      }
+     },
+     "temporal": {
+      "off": {
+       "pass": 0,
+       "fail": 2,
+       "unclear": 2,
+       "total": 4
+      },
+      "on": {
+       "pass": 0,
+       "fail": 4,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "yes_no": {
+      "off": {
+       "pass": 2,
+       "fail": 7,
+       "unclear": 0,
+       "total": 9
+      },
+      "on": {
+       "pass": 2,
+       "fail": 6,
+       "unclear": 1,
+       "total": 9
+      }
+     },
+     "either_or": {
+      "off": {
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "total": 2
+      },
+      "on": {
+       "pass": 0,
+       "fail": 1,
+       "unclear": 1,
+       "total": 2
+      }
+     },
+     "controls": {
+      "off": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      },
+      "on": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      }
+     },
+     "reverse": {
+      "off": {
+       "pass": 1,
+       "fail": 3,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 2,
+       "fail": 2,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "delete_kept": {
+      "off": {
+       "pass": 0,
+       "fail": 1,
+       "unclear": 0,
+       "total": 1
+      },
+      "on": {
+       "pass": 1,
+       "fail": 0,
+       "unclear": 0,
+       "total": 1
+      }
+     },
+     "reverse_fwd": {
+      "off": {
+       "pass": 0,
+       "fail": 1,
+       "unclear": 0,
+       "total": 1
+      },
+      "on": {
+       "pass": 1,
+       "fail": 0,
+       "unclear": 0,
+       "total": 1
+      }
+     }
+    }
+   },
+   "kept_stable": {
+    "del-A": {
+     "off": {
+      "n": 8,
+      "same_verdict": 8,
+      "same_text": 6,
+      "moved": []
+     },
+     "on": {
+      "n": 8,
+      "same_verdict": 8,
+      "same_text": 1,
+      "moved": []
+     }
+    },
+    "del-B": {
+     "off": {
+      "n": 28,
+      "same_verdict": 28,
+      "same_text": 16,
+      "moved": []
+     },
+     "on": {
+      "n": 28,
+      "same_verdict": 24,
+      "same_text": 4,
+      "moved": [
+       "Q08 fail->unclear",
+       "Q17 unclear->pass",
+       "Q24 unclear->fail",
+       "Q27 pass->fail"
+      ]
+     }
+    }
+   }
+  },
+  "zero": {
+   "rc": 0,
+   "files": [
+    "~/lw-runs/gb10-a-notes/L2-seed1-v2/phases/baseline/answers.jsonl",
+    "~/lw-runs/gb10-a-notes/L2-seed1-v2/phases/teach/answers.jsonl",
+    "~/lw-runs/gb10-a-notes/L2-seed1-v2/phases/del-A.zero/answers.jsonl",
+    "~/lw-runs/gb10-a-notes/L2-seed1-v2/phases/del-B.zero/answers.jsonl"
+   ],
+   "report": "~/lw-runs/gb10-a-notes/L2-seed1-v2/combined/report-zero.txt",
+   "verdicts": "~/lw-runs/gb10-a-notes/L2-seed1-v2/combined/verdicts-zero.json",
+   "headline": "judged 224 answers against L2-seed1-v2",
+   "scores": {
+    "baseline": {
+     "recall": {
+      "off": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "all": {
+      "off": {
+       "pass": 20,
+       "fail": 7,
+       "unclear": 1,
+       "total": 28
+      },
+      "on": {
+       "pass": 24,
+       "fail": 3,
+       "unclear": 1,
+       "total": 28
+      }
+     },
+     "temporal": {
+      "off": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 4,
+       "fail": 0,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "yes_no": {
+      "off": {
+       "pass": 7,
+       "fail": 2,
+       "unclear": 0,
+       "total": 9
+      },
+      "on": {
+       "pass": 7,
+       "fail": 1,
+       "unclear": 1,
+       "total": 9
+      }
+     },
+     "either_or": {
+      "off": {
+       "pass": 1,
+       "fail": 0,
+       "unclear": 1,
+       "total": 2
+      },
+      "on": {
+       "pass": 2,
+       "fail": 0,
+       "unclear": 0,
+       "total": 2
+      }
+     },
+     "controls": {
+      "off": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      },
+      "on": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      }
+     },
+     "reverse": {
+      "off": {
+       "pass": 1,
+       "fail": 3,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "reverse_fwd": {
+      "off": {
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "total": 2
+      },
+      "on": {
+       "pass": 2,
+       "fail": 0,
+       "unclear": 0,
+       "total": 2
+      }
+     }
+    },
+    "teach": {
+     "recall": {
+      "off": {
+       "pass": 0,
+       "fail": 4,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 0,
+       "fail": 4,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "all": {
+      "off": {
+       "pass": 8,
+       "fail": 18,
+       "unclear": 2,
+       "total": 28
+      },
+      "on": {
+       "pass": 9,
+       "fail": 16,
+       "unclear": 3,
+       "total": 28
+      }
+     },
+     "temporal": {
+      "off": {
+       "pass": 0,
+       "fail": 2,
+       "unclear": 2,
+       "total": 4
+      },
+      "on": {
+       "pass": 0,
+       "fail": 4,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "yes_no": {
+      "off": {
+       "pass": 2,
+       "fail": 7,
+       "unclear": 0,
+       "total": 9
+      },
+      "on": {
+       "pass": 1,
+       "fail": 5,
+       "unclear": 3,
+       "total": 9
+      }
+     },
+     "either_or": {
+      "off": {
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "total": 2
+      },
+      "on": {
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "total": 2
+      }
+     },
+     "controls": {
+      "off": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      },
+      "on": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      }
+     },
+     "reverse": {
+      "off": {
+       "pass": 1,
+       "fail": 3,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "reverse_fwd": {
+      "off": {
+       "pass": 0,
+       "fail": 1,
+       "unclear": 0,
+       "total": 1
+      },
+      "on": {
+       "pass": 1,
+       "fail": 0,
+       "unclear": 0,
+       "total": 1
+      }
+     }
+    },
+    "del-A": {
+     "recall": {
+      "off": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "delete_affected": {
+      "off": {
+       "pass": 9,
+       "fail": 11,
+       "unclear": 2,
+       "total": 22
+      },
+      "on": {
+       "pass": 8,
+       "fail": 13,
+       "unclear": 1,
+       "total": 22
+      }
+     },
+     "all": {
+      "off": {
+       "pass": 14,
+       "fail": 12,
+       "unclear": 2,
+       "total": 28
+      },
+      "on": {
+       "pass": 14,
+       "fail": 13,
+       "unclear": 1,
+       "total": 28
+      }
+     },
+     "temporal": {
+      "off": {
+       "pass": 0,
+       "fail": 2,
+       "unclear": 2,
+       "total": 4
+      },
+      "on": {
+       "pass": 0,
+       "fail": 4,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "yes_no": {
+      "off": {
+       "pass": 3,
+       "fail": 6,
+       "unclear": 0,
+       "total": 9
+      },
+      "on": {
+       "pass": 3,
+       "fail": 5,
+       "unclear": 1,
+       "total": 9
+      }
+     },
+     "either_or": {
+      "off": {
+       "pass": 2,
+       "fail": 0,
+       "unclear": 0,
+       "total": 2
+      },
+      "on": {
+       "pass": 1,
+       "fail": 1,
+       "unclear": 0,
+       "total": 2
+      }
+     },
+     "controls": {
+      "off": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      },
+      "on": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      }
+     },
+     "reverse": {
+      "off": {
+       "pass": 1,
+       "fail": 3,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 2,
+       "fail": 2,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "reverse_fwd": {
+      "off": {
+       "pass": 1,
+       "fail": 3,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 2,
+       "fail": 2,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "delete_kept": {
+      "off": {
+       "pass": 0,
+       "fail": 1,
+       "unclear": 0,
+       "total": 1
+      },
+      "on": {
+       "pass": 1,
+       "fail": 0,
+       "unclear": 0,
+       "total": 1
+      }
+     }
+    },
+    "del-B": {
+     "recall": {
+      "off": {
+       "pass": 0,
+       "fail": 4,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 0,
+       "fail": 4,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "delete_affected": {
+      "off": {
+       "pass": 3,
+       "fail": 17,
+       "unclear": 2,
+       "total": 22
+      },
+      "on": {
+       "pass": 3,
+       "fail": 16,
+       "unclear": 3,
+       "total": 22
+      }
+     },
+     "all": {
+      "off": {
+       "pass": 8,
+       "fail": 18,
+       "unclear": 2,
+       "total": 28
+      },
+      "on": {
+       "pass": 9,
+       "fail": 16,
+       "unclear": 3,
+       "total": 28
+      }
+     },
+     "temporal": {
+      "off": {
+       "pass": 0,
+       "fail": 2,
+       "unclear": 2,
+       "total": 4
+      },
+      "on": {
+       "pass": 0,
+       "fail": 4,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "yes_no": {
+      "off": {
+       "pass": 2,
+       "fail": 7,
+       "unclear": 0,
+       "total": 9
+      },
+      "on": {
+       "pass": 1,
+       "fail": 5,
+       "unclear": 3,
+       "total": 9
+      }
+     },
+     "either_or": {
+      "off": {
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "total": 2
+      },
+      "on": {
+       "pass": 0,
+       "fail": 2,
+       "unclear": 0,
+       "total": 2
+      }
+     },
+     "controls": {
+      "off": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      },
+      "on": {
+       "pass": 5,
+       "fail": 0,
+       "unclear": 0,
+       "total": 5
+      }
+     },
+     "reverse": {
+      "off": {
+       "pass": 1,
+       "fail": 3,
+       "unclear": 0,
+       "total": 4
+      },
+      "on": {
+       "pass": 3,
+       "fail": 1,
+       "unclear": 0,
+       "total": 4
+      }
+     },
+     "delete_kept": {
+      "off": {
+       "pass": 0,
+       "fail": 1,
+       "unclear": 0,
+       "total": 1
+      },
+      "on": {
+       "pass": 1,
+       "fail": 0,
+       "unclear": 0,
+       "total": 1
+      }
+     },
+     "reverse_fwd": {
+      "off": {
+       "pass": 0,
+       "fail": 1,
+       "unclear": 0,
+       "total": 1
+      },
+      "on": {
+       "pass": 1,
+       "fail": 0,
+       "unclear": 0,
+       "total": 1
+      }
+     }
+    }
+   },
+   "kept_stable": {
+    "del-A": {
+     "off": {
+      "n": 8,
+      "same_verdict": 8,
+      "same_text": 6,
+      "moved": []
+     },
+     "on": {
+      "n": 8,
+      "same_verdict": 8,
+      "same_text": 2,
+      "moved": []
+     }
+    },
+    "del-B": {
+     "off": {
+      "n": 28,
+      "same_verdict": 28,
+      "same_text": 28,
+      "moved": []
+     },
+     "on": {
+      "n": 28,
+      "same_verdict": 28,
+      "same_text": 28,
+      "moved": []
+     }
+    }
+   }
+  }
+ },
+ "kept_stable_inputs": {
+  "format": "lw-kept-stable/1",
+  "set": "L2-seed1-v2",
+  "made": "2026-10-14T20:22:04Z",
+  "modes": {
+   "reteach": {
+    "teach": {
+     "file": "kept-stable/reteach/teach.jsonl",
+     "from": "phases/teach/answers.jsonl",
+     "served": "slide",
+     "answers": 56,
+     "complete": true
+    },
+    "deletes": {
+     "del-A": {
+      "file": "kept-stable/reteach/del-A.jsonl",
+      "from": "phases/del-A.reteach/answers.jsonl",
+      "served": "slide",
+      "answers": 56,
+      "complete": true,
+      "deleted": [
+       3
+      ]
+     },
+     "del-B": {
+      "file": "kept-stable/reteach/del-B.jsonl",
+      "from": "phases/del-B.reteach/answers.jsonl",
+      "served": "slide",
+      "answers": 56,
+      "complete": true,
+      "deleted": [
+       1
+      ]
+     }
+    }
+   },
+   "zero": {
+    "teach": {
+     "file": "kept-stable/zero/teach.jsonl",
+     "from": "phases/teach/answers.jsonl",
+     "served": "slide",
+     "answers": 56,
+     "complete": true
+    },
+    "deletes": {
+     "del-A": {
+      "file": "kept-stable/zero/del-A.jsonl",
+      "from": "phases/del-A.zero/answers.jsonl",
+      "served": "plain",
+      "answers": 56,
+      "complete": true,
+      "deleted": [
+       3
+      ]
+     },
+     "del-B": {
+      "file": "kept-stable/zero/del-B.jsonl",
+      "from": "phases/del-B.zero/answers.jsonl",
+      "served": "plain",
+      "answers": 56,
+      "complete": true,
+      "deleted": [
+       1
+      ]
+     }
+    }
+   }
+  }
+ },
+ "zero_vs_reteach": {
+  "del-A": {
+   "zero": "~/lw-runs/gb10-a-notes/L2-seed1-v2/phases/del-A.zero/answers.jsonl",
+   "reteach": "~/lw-runs/gb10-a-notes/L2-seed1-v2/phases/del-A.reteach/answers.jsonl",
+   "off": {
+    "n": 28,
+    "same_verdict": 27,
+    "same_text": 21,
+    "both_pass": 14,
+    "zero_only_pass": 0,
+    "reteach_only_pass": 1,
+    "differing_verdicts": [
+     "Q25"
+    ]
+   },
+   "on": {
+    "n": 28,
+    "same_verdict": 24,
+    "same_text": 4,
+    "both_pass": 12,
+    "zero_only_pass": 2,
+    "reteach_only_pass": 1,
+    "differing_verdicts": [
+     "Q07",
+     "Q17",
+     "Q19",
+     "Q23"
+    ]
+   }
+  },
+  "del-B": {
+   "zero": "~/lw-runs/gb10-a-notes/L2-seed1-v2/phases/del-B.zero/answers.jsonl",
+   "reteach": "~/lw-runs/gb10-a-notes/L2-seed1-v2/phases/del-B.reteach/answers.jsonl",
+   "zero_limits": {
+    "cannot_restore": [],
+    "already_zero": [
+     1
+    ]
+   },
+   "off": {
+    "n": 28,
+    "same_verdict": 28,
+    "same_text": 16,
+    "both_pass": 8,
+    "zero_only_pass": 0,
+    "reteach_only_pass": 0,
+    "differing_verdicts": []
+   },
+   "on": {
+    "n": 28,
+    "same_verdict": 24,
+    "same_text": 4,
+    "both_pass": 8,
+    "zero_only_pass": 1,
+    "reteach_only_pass": 1,
+    "differing_verdicts": [
+     "Q08",
+     "Q17",
+     "Q24",
+     "Q27"
+    ]
+   }
+  }
+ },
+ "reference": {
+  "format": "lw-reference/1",
+  "asked": {
+   "kinds": [
+    "notes"
+   ],
+   "of": [
+    "teach"
+   ]
+  },
+  "steps": [
+   "teach.in_context",
+   "teach.replacement_memory",
+   "teach.notes"
+  ],
+  "gap_is": "in_context pass rate minus pocket pass rate, over the answers the pocket and every reference of the phase have; positive: the pocket is behind the model told in context",
+  "phases": {
+   "teach": {
+    "store": [
+     1,
+     2,
+     3
+    ],
+    "sources": {
+     "teach": {
+      "answers": "phases/teach/answers.jsonl",
+      "verdicts": "phases/teach/verdicts.json",
+      "served": "the --slide server that taught"
+     },
+     "in_context": {
+      "answers": "phases/teach.in_context/answers.jsonl",
+      "verdicts": "phases/teach.in_context/verdicts.json",
+      "served": "the untaught model, lessons in the system prompt"
+     },
+     "replacement_memory": {
+      "answers": "phases/teach.replacement_memory/answers.jsonl",
+      "verdicts": "phases/teach.replacement_memory/verdicts.json",
+      "served": "computed, no model"
+     },
+     "notes": {
+      "answers": "phases/teach.notes/answers.jsonl",
+      "verdicts": "phases/teach.notes/verdicts.json",
+      "served": "the untaught model, each question's notes in the system prompt"
+     }
+    },
+    "scores": {
+     "teach": {
+      "CURRENT": {
+       "off": [
+        0,
+        4
+       ],
+       "on": [
+        0,
+        4
+       ]
+      },
+      "WHO_HAS": {
+       "off": [
+        1,
+        2
+       ],
+       "on": [
+        1,
+        2
+       ]
+      },
+      "negation": {
+       "off": [
+        3,
+        22
+       ],
+       "on": [
+        3,
+        22
+       ]
+      },
+      "temporal": {
+       "off": [
+        0,
+        4
+       ],
+       "on": [
+        0,
+        4
+       ]
+      },
+      "either_or": {
+       "off": [
+        0,
+        2
+       ],
+       "on": [
+        0,
+        2
+       ]
+      },
+      "yes_no": {
+       "off": [
+        2,
+        9
+       ],
+       "on": [
+        1,
+        9
+       ]
+      },
+      "controls": {
+       "off": [
+        5,
+        5
+       ],
+       "on": [
+        5,
+        5
+       ]
+      },
+      "all": {
+       "off": [
+        8,
+        28
+       ],
+       "on": [
+        9,
+        28
+       ]
+      }
+     },
+     "in_context": {
+      "CURRENT": {
+       "off": [
+        0,
+        4
+       ],
+       "on": [
+        0,
+        4
+       ]
+      },
+      "WHO_HAS": {
+       "off": [
+        1,
+        2
+       ],
+       "on": [
+        1,
+        2
+       ]
+      },
+      "negation": {
+       "off": [
+        8,
+        22
+       ],
+       "on": [
+        5,
+        22
+       ]
+      },
+      "temporal": {
+       "off": [
+        4,
+        4
+       ],
+       "on": [
+        2,
+        4
+       ]
+      },
+      "either_or": {
+       "off": [
+        0,
+        2
+       ],
+       "on": [
+        0,
+        2
+       ]
+      },
+      "yes_no": {
+       "off": [
+        3,
+        9
+       ],
+       "on": [
+        2,
+        9
+       ]
+      },
+      "controls": {
+       "off": [
+        4,
+        5
+       ],
+       "on": [
+        5,
+        5
+       ]
+      },
+      "all": {
+       "off": [
+        13,
+        28
+       ],
+       "on": [
+        10,
+        28
+       ]
+      }
+     },
+     "replacement_memory": {
+      "CURRENT": {
+       "off": [
+        4,
+        4
+       ],
+       "on": [
+        4,
+        4
+       ]
+      },
+      "WHO_HAS": {
+       "off": [
+        2,
+        2
+       ],
+       "on": [
+        2,
+        2
+       ]
+      },
+      "negation": {
+       "off": [
+        14,
+        22
+       ],
+       "on": [
+        14,
+        22
+       ]
+      },
+      "temporal": {
+       "off": [
+        0,
+        4
+       ],
+       "on": [
+        0,
+        4
+       ]
+      },
+      "either_or": {
+       "off": [
+        2,
+        2
+       ],
+       "on": [
+        2,
+        2
+       ]
+      },
+      "yes_no": {
+       "off": [
+        6,
+        9
+       ],
+       "on": [
+        6,
+        9
+       ]
+      },
+      "controls": {
+       "off": [
+        2,
+        5
+       ],
+       "on": [
+        2,
+        5
+       ]
+      },
+      "all": {
+       "off": [
+        17,
+        28
+       ],
+       "on": [
+        17,
+        28
+       ]
+      }
+     },
+     "notes": {
+      "CURRENT": {
+       "off": [
+        2,
+        4
+       ],
+       "on": [
+        2,
+        4
+       ]
+      },
+      "WHO_HAS": {
+       "off": [
+        1,
+        2
+       ],
+       "on": [
+        1,
+        2
+       ]
+      },
+      "negation": {
+       "off": [
+        9,
+        22
+       ],
+       "on": [
+        12,
+        22
+       ]
+      },
+      "temporal": {
+       "off": [
+        2,
+        4
+       ],
+       "on": [
+        2,
+        4
+       ]
+      },
+      "either_or": {
+       "off": [
+        0,
+        2
+       ],
+       "on": [
+        0,
+        2
+       ]
+      },
+      "yes_no": {
+       "off": [
+        3,
+        9
+       ],
+       "on": [
+        6,
+        9
+       ]
+      },
+      "controls": {
+       "off": [
+        5,
+        5
+       ],
+       "on": [
+        5,
+        5
+       ]
+      },
+      "all": {
+       "off": [
+        15,
+        28
+       ],
+       "on": [
+        18,
+        28
+       ]
+      }
+     }
+    },
+    "gap": {
+     "teach": {
+      "CURRENT": {
+       "off": {
+        "pocket": [
+         0,
+         4
+        ],
+        "in_context": [
+         0,
+         4
+        ],
+        "replacement_memory": [
+         4,
+         4
+        ],
+        "notes": [
+         2,
+         4
+        ],
+        "gap": 0.0
+       },
+       "on": {
+        "pocket": [
+         0,
+         4
+        ],
+        "in_context": [
+         0,
+         4
+        ],
+        "replacement_memory": [
+         4,
+         4
+        ],
+        "notes": [
+         2,
+         4
+        ],
+        "gap": 0.0
+       }
+      },
+      "WHO_HAS": {
+       "off": {
+        "pocket": [
+         1,
+         2
+        ],
+        "in_context": [
+         1,
+         2
+        ],
+        "replacement_memory": [
+         2,
+         2
+        ],
+        "notes": [
+         1,
+         2
+        ],
+        "gap": 0.0
+       },
+       "on": {
+        "pocket": [
+         1,
+         2
+        ],
+        "in_context": [
+         1,
+         2
+        ],
+        "replacement_memory": [
+         2,
+         2
+        ],
+        "notes": [
+         1,
+         2
+        ],
+        "gap": 0.0
+       }
+      },
+      "negation": {
+       "off": {
+        "pocket": [
+         3,
+         22
+        ],
+        "in_context": [
+         8,
+         22
+        ],
+        "replacement_memory": [
+         14,
+         22
+        ],
+        "notes": [
+         9,
+         22
+        ],
+        "gap": 0.227
+       },
+       "on": {
+        "pocket": [
+         3,
+         22
+        ],
+        "in_context": [
+         5,
+         22
+        ],
+        "replacement_memory": [
+         14,
+         22
+        ],
+        "notes": [
+         12,
+         22
+        ],
+        "gap": 0.091
+       }
+      },
+      "temporal": {
+       "off": {
+        "pocket": [
+         0,
+         4
+        ],
+        "in_context": [
+         4,
+         4
+        ],
+        "replacement_memory": [
+         0,
+         4
+        ],
+        "notes": [
+         2,
+         4
+        ],
+        "gap": 1.0
+       },
+       "on": {
+        "pocket": [
+         0,
+         4
+        ],
+        "in_context": [
+         2,
+         4
+        ],
+        "replacement_memory": [
+         0,
+         4
+        ],
+        "notes": [
+         2,
+         4
+        ],
+        "gap": 0.5
+       }
+      },
+      "either_or": {
+       "off": {
+        "pocket": [
+         0,
+         2
+        ],
+        "in_context": [
+         0,
+         2
+        ],
+        "replacement_memory": [
+         2,
+         2
+        ],
+        "notes": [
+         0,
+         2
+        ],
+        "gap": 0.0
+       },
+       "on": {
+        "pocket": [
+         0,
+         2
+        ],
+        "in_context": [
+         0,
+         2
+        ],
+        "replacement_memory": [
+         2,
+         2
+        ],
+        "notes": [
+         0,
+         2
+        ],
+        "gap": 0.0
+       }
+      },
+      "yes_no": {
+       "off": {
+        "pocket": [
+         2,
+         9
+        ],
+        "in_context": [
+         3,
+         9
+        ],
+        "replacement_memory": [
+         6,
+         9
+        ],
+        "notes": [
+         3,
+         9
+        ],
+        "gap": 0.111
+       },
+       "on": {
+        "pocket": [
+         1,
+         9
+        ],
+        "in_context": [
+         2,
+         9
+        ],
+        "replacement_memory": [
+         6,
+         9
+        ],
+        "notes": [
+         6,
+         9
+        ],
+        "gap": 0.111
+       }
+      },
+      "controls": {
+       "off": {
+        "pocket": [
+         5,
+         5
+        ],
+        "in_context": [
+         4,
+         5
+        ],
+        "replacement_memory": [
+         2,
+         5
+        ],
+        "notes": [
+         5,
+         5
+        ],
+        "gap": -0.2
+       },
+       "on": {
+        "pocket": [
+         5,
+         5
+        ],
+        "in_context": [
+         5,
+         5
+        ],
+        "replacement_memory": [
+         2,
+         5
+        ],
+        "notes": [
+         5,
+         5
+        ],
+        "gap": 0.0
+       }
+      },
+      "all": {
+       "off": {
+        "pocket": [
+         8,
+         28
+        ],
+        "in_context": [
+         13,
+         28
+        ],
+        "replacement_memory": [
+         17,
+         28
+        ],
+        "notes": [
+         15,
+         28
+        ],
+        "gap": 0.179
+       },
+       "on": {
+        "pocket": [
+         9,
+         28
+        ],
+        "in_context": [
+         10,
+         28
+        ],
+        "replacement_memory": [
+         17,
+         28
+        ],
+        "notes": [
+         18,
+         28
+        ],
+        "gap": 0.036
+       }
+      }
+     }
+    },
+    "notes": {
+     "notes": {
+      "format": "lw-notes/1",
+      "tokenizer": {
+       "name": "tokenizers",
+       "version": "0.23.2",
+       "path": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/blobs/623c34567aebb18582765289fbe23d901c62704d6518d71866e0e58db892b5b7",
+       "sha256": "623c34567aebb18582765289fbe23d901c62704d6518d71866e0e58db892b5b7"
+      },
+      "config": {
+       "cap": 512,
+       "n_min": 1,
+       "n_max": 3,
+       "fold": true,
+       "hop": "subject",
+       "hop_weight": 0.5,
+       "hop_from": 8,
+       "hop_history": true,
+       "min_rel": 0.0,
+       "subject": 1.0,
+       "punct": false
+      },
+      "notes": 3,
+      "current": 1,
+      "earlier": 2,
+      "kept_out": 0,
+      "questions": 28,
+      "nothing_retrieved": 1,
+      "tokens_p50": 75,
+      "tokens_p95": 154,
+      "tokens_max": 154,
+      "lookup_us_p50": 280,
+      "lookup_us_p95": 669,
+      "log": "phases/teach.notes/notes.jsonl",
+      "store_file": "phases/teach.notes/notes-store.json"
+     }
+    },
+    "lessons": [
+     {
+      "lesson": 2,
+      "name": "L2",
+      "op": "CHANGE",
+      "text": "I like green best now.",
+      "e": "me",
+      "a": "fav_colour",
+      "new": "green",
+      "stale": [
+       "white"
+      ],
+      "now": [
+       "green"
+      ],
+      "in_force": false,
+      "classified": false,
+      "questions": [
+       "Q01",
+       "Q02",
+       "Q03",
+       "Q06",
+       "Q07",
+       "Q08",
+       "Q09",
+       "Q17",
+       "Q18",
+       "Q19",
+       "Q20",
+       "Q21",
+       "Q22",
+       "Q23",
+       "Q24",
+       "Q27"
+      ],
+      "why": "a later lesson (L3) writes this key again, so today's answers cannot show this lesson's effect"
+     },
+     {
+      "lesson": 3,
+      "name": "L3",
+      "op": "RETRACT",
+      "text": "Green is not my favourite colour anymore.",
+      "e": "me",
+      "a": "fav_colour",
+      "new": "not green",
+      "stale": [
+       "green"
+      ],
+      "now": [],
+      "in_force": true,
+      "classified": true,
+      "questions": [
+       "Q01",
+       "Q02",
+       "Q03",
+       "Q06",
+       "Q07",
+       "Q08",
+       "Q09",
+       "Q17",
+       "Q18",
+       "Q19",
+       "Q20",
+       "Q21",
+       "Q22",
+       "Q23",
+       "Q24",
+       "Q27"
+      ]
+     }
+    ],
+    "outcomes": {
+     "teach": {
+      "L3": {
+       "off": {
+        "outcome": "both",
+        "answers": 16,
+        "corrected": [
+         "Q24"
+        ],
+        "stale": [
+         "Q01",
+         "Q02",
+         "Q03",
+         "Q07",
+         "Q08",
+         "Q09",
+         "Q27"
+        ]
+       },
+       "on": {
+        "outcome": "both",
+        "answers": 16,
+        "corrected": [
+         "Q27"
+        ],
+        "stale": [
+         "Q01",
+         "Q02",
+         "Q03",
+         "Q07",
+         "Q09"
+        ]
+       }
+      }
+     },
+     "in_context": {
+      "L3": {
+       "off": {
+        "outcome": "both",
+        "answers": 16,
+        "corrected": [
+         "Q07",
+         "Q21",
+         "Q24"
+        ],
+        "stale": [
+         "Q01",
+         "Q02",
+         "Q03",
+         "Q22",
+         "Q27"
+        ]
+       },
+       "on": {
+        "outcome": "both",
+        "answers": 16,
+        "corrected": [
+         "Q07",
+         "Q21"
+        ],
+        "stale": [
+         "Q27"
+        ]
+       }
+      }
+     },
+     "replacement_memory": {
+      "L3": {
+       "off": {
+        "outcome": "corrected_only",
+        "answers": 16,
+        "corrected": [
+         "Q01",
+         "Q02",
+         "Q03",
+         "Q22"
+        ],
+        "stale": []
+       },
+       "on": {
+        "outcome": "corrected_only",
+        "answers": 16,
+        "corrected": [
+         "Q01",
+         "Q02",
+         "Q03",
+         "Q22"
+        ],
+        "stale": []
+       }
+      }
+     },
+     "notes": {
+      "L3": {
+       "off": {
+        "outcome": "both",
+        "answers": 16,
+        "corrected": [
+         "Q02",
+         "Q03",
+         "Q07",
+         "Q21",
+         "Q24",
+         "Q27"
+        ],
+        "stale": [
+         "Q01"
+        ]
+       },
+       "on": {
+        "outcome": "both",
+        "answers": 16,
+        "corrected": [
+         "Q01",
+         "Q03",
+         "Q07",
+         "Q21",
+         "Q24",
+         "Q27"
+        ],
+        "stale": [
+         "Q02",
+         "Q22"
+        ]
+       }
+      }
+     }
+    },
+    "outcome_counts": {
+     "teach": {
+      "off": {
+       "corrected_only": 0,
+       "stale_only": 0,
+       "both": 1,
+       "neither": 0
+      },
+      "on": {
+       "corrected_only": 0,
+       "stale_only": 0,
+       "both": 1,
+       "neither": 0
+      }
+     },
+     "in_context": {
+      "off": {
+       "corrected_only": 0,
+       "stale_only": 0,
+       "both": 1,
+       "neither": 0
+      },
+      "on": {
+       "corrected_only": 0,
+       "stale_only": 0,
+       "both": 1,
+       "neither": 0
+      }
+     },
+     "replacement_memory": {
+      "off": {
+       "corrected_only": 1,
+       "stale_only": 0,
+       "both": 0,
+       "neither": 0
+      },
+      "on": {
+       "corrected_only": 1,
+       "stale_only": 0,
+       "both": 0,
+       "neither": 0
+      }
+     },
+     "notes": {
+      "off": {
+       "corrected_only": 0,
+       "stale_only": 0,
+       "both": 1,
+       "neither": 0
+      },
+      "on": {
+       "corrected_only": 0,
+       "stale_only": 0,
+       "both": 1,
+       "neither": 0
+      }
+     }
+    }
+   }
+  },
+  "report": "reference/report.txt"
+ },
+ "copies": [
+  {
+   "path": "~/lw-runs/gb10-a-v2/L2-seed1-v2/models/L2-seed1-v2.teach",
+   "step": "teach",
+   "src": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8",
+   "made": "2026-10-14T08:48:33Z",
+   "bytes": 18544234457,
+   "removed": "2026-10-14T09:02:50Z"
+  },
+  {
+   "path": "~/lw-runs/gb10-a-v2/L2-seed1-v2/models/L2-seed1-v2.del-A.zero",
+   "step": "del-A.zero",
+   "src": "~/lw-runs/gb10-a-v2/L2-seed1-v2/models/L2-seed1-v2.teach",
+   "made": "2026-10-14T08:59:01Z",
+   "bytes": 18548876048,
+   "removed": "2026-10-14T09:01:02Z"
+  },
+  {
+   "path": "~/lw-runs/gb10-a-v2/L2-seed1-v2/models/L2-seed1-v2.del-B.zero",
+   "step": "del-B.zero",
+   "src": "~/lw-runs/gb10-a-v2/L2-seed1-v2/models/L2-seed1-v2.teach",
+   "made": "2026-10-14T09:01:05Z",
+   "bytes": 18548876048,
+   "removed": "2026-10-14T09:02:49Z"
+  },
+  {
+   "path": "~/lw-runs/gb10-a-v2/L2-seed1-v2/models/L2-seed1-v2.del-A.reteach",
+   "step": "del-A.reteach",
+   "src": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8",
+   "made": "2026-10-14T09:02:53Z",
+   "bytes": 18544234457,
+   "removed": "2026-10-14T09:10:51Z"
+  },
+  {
+   "path": "~/lw-runs/gb10-a-v2/L2-seed1-v2/models/L2-seed1-v2.del-B.reteach",
+   "step": "del-B.reteach",
+   "src": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8",
+   "made": "2026-10-14T09:10:54Z",
+   "bytes": 18544234457,
+   "removed": "2026-10-14T09:19:19Z"
+  }
+ ]
+}

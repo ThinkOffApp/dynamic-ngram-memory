@@ -1,0 +1,264 @@
+
+## driver 1.0.8, all lessons: 325 lessons, total median 176.0 s (range 5.3 to 571.6), sum 61717 s
+part              median      min      max     mean      p90  share of summed time
+write               43.3      0.0     95.5     49.4     80.2   26.0%
+ready                0.0      0.0      4.8      0.6      3.9    0.3%
+read                 7.6      0.0     18.8      8.4     15.1    4.4%
+fit_new              7.6      0.0     30.1      8.7     13.7    4.6%
+fit_earlier          0.0      0.0     59.5      3.6     15.8    1.9%
+values              56.2      0.0    346.3     83.6    170.6   44.0%
+judge                2.5      0.0      9.4      2.6      5.0    1.4%
+pcheck               0.6      0.0      3.0      0.7      1.4    0.4%
+round_overhead       0.2      0.0      0.9      0.2      0.3    0.1%
+reroute_train        0.0      0.0    216.6     19.2     65.9   10.1%
+verify              21.2      0.0    124.4     27.0     44.1   14.2%
+save                 0.5      0.0     29.6      2.4     11.8    1.2%
+other                1.6     -0.0     61.9      2.7      2.0    1.4%
+  rounds         median 3 range 0..14
+  clock_lines    median 3 range 0..15
+  values_passes  median 167 range 0..583
+  values_rows    median 52374 range 0..312296
+  read_passes    median 40 range 0..98
+  read_rows      median 38988 range 0..94464
+  judge_passes   median 32 range 0..112
+  check_passes   median 9 range 0..45
+  gen_write  calls      median 259 range 12..438 sum 86797
+  gen_write  prompt_tok median 9646 range 1000..19184 sum 3269013
+  gen_write  gen_tok    median 6603 range 388..14693 sum 2454167
+  gen_check  calls      median 127 range 0..545 sum 47140
+  gen_check  prompt_tok median 2160 range 0..9817 sum 796358
+  gen_check  gen_tok    median 4232 range 0..25740 sum 1761491
+  gen_other  calls      median 0 range 0..154 sum 574
+  gen_other  prompt_tok median 0 range 0..6878 sum 27228
+  gen_other  gen_tok    median 0 range 0..5600 sum 17647
+
+## driver 1.0.8, lessons that got past writing: 306 lessons, total median 179.5 s (range 93.8 to 571.6), sum 61474 s
+part              median      min      max     mean      p90  share of summed time
+write               45.0     31.7     95.5     52.5     80.4   26.1%
+ready                0.0      0.0      4.8      0.7      3.9    0.3%
+read                 7.7      4.2     18.8      9.0     15.4    4.5%
+fit_new              7.8      3.1     30.1      9.2     14.4    4.6%
+fit_earlier          0.0      0.0     59.5      3.8     15.9    1.9%
+values              60.6     22.3    346.3     88.7    185.7   44.2%
+judge                2.5      0.8      9.4      2.8      5.1    1.4%
+pcheck               0.8      0.2      3.0      0.8      1.4    0.4%
+round_overhead       0.2      0.0      0.9      0.2      0.3    0.1%
+reroute_train        0.0      0.0    216.6     20.4     69.7   10.1%
+verify              23.3      6.1    124.4     28.7     45.0   14.3%
+save                 0.5      0.0     29.6      2.5     11.8    1.2%
+other                1.5     -0.0     61.9      2.1      1.8    1.0%
+  rounds         median 3.0 range 1..14
+  clock_lines    median 4.0 range 1..15
+  values_passes  median 173.5 range 56..583
+  values_rows    median 54294.0 range 15175..312296
+  read_passes    median 40.0 range 22..98
+  read_rows      median 39256.0 range 21115..94464
+  judge_passes   median 33.0 range 11..112
+  check_passes   median 12.0 range 3..45
+  gen_write  calls      median 278.0 range 159..438 sum 85219
+  gen_write  prompt_tok median 9772.5 range 6398..19184 sum 3165981
+  gen_write  gen_tok    median 6774.0 range 4351..14693 sum 2438519
+  gen_check  calls      median 134.5 range 41..545 sum 47140
+  gen_check  prompt_tok median 2355.5 range 564..9817 sum 796358
+  gen_check  gen_tok    median 4503.0 range 1039..25740 sum 1761491
+  gen_other  calls      median 0.0 range 0..154 sum 574
+  gen_other  prompt_tok median 0.0 range 0..6878 sum 27228
+  gen_other  gen_tok    median 0.0 range 0..5600 sum 17647
+
+## driver 1.0.8, written, not first in server: 255 lessons, total median 174.5 s (range 93.8 to 571.6), sum 51042 s
+part              median      min      max     mean      p90  share of summed time
+write               42.0     31.7     74.5     46.6     64.3   23.3%
+ready                0.0      0.0      0.0      0.0      0.0    0.0%
+read                 8.2      5.2     18.8      9.3     16.0    4.7%
+fit_new              7.5      3.1     30.1      9.4     17.1    4.7%
+fit_earlier          0.0      0.0     59.5      4.5     18.6    2.3%
+values              71.1     22.4    308.2     94.9    209.0   47.4%
+judge                2.5      0.8      9.4      2.9      5.1    1.4%
+pcheck               0.6      0.2      3.0      0.8      1.4    0.4%
+round_overhead       0.1      0.0      0.9      0.2      0.3    0.1%
+reroute_train        0.0      0.0    216.6     22.8     75.7   11.4%
+verify              21.4      6.1    124.4     28.6     52.5   14.3%
+save                 0.5      0.3     28.4      0.8      0.7    0.4%
+other                1.6      0.2     61.9      2.3      1.7    1.1%
+  rounds         median 3 range 1..14
+  clock_lines    median 3 range 1..15
+  values_passes  median 172 range 56..583
+  values_rows    median 63367 range 19709..283854
+  read_passes    median 43 range 27..98
+  read_rows      median 41515 range 26540..94464
+  judge_passes   median 32 range 11..112
+  check_passes   median 9 range 3..45
+  gen_write  calls      median 250 range 159..438 sum 67032
+  gen_write  prompt_tok median 10164 range 6398..19184 sum 2694904
+  gen_write  gen_tok    median 6320 range 4351..10461 sum 1759952
+  gen_check  calls      median 130 range 41..545 sum 38997
+  gen_check  prompt_tok median 2238 range 564..9817 sum 664874
+  gen_check  gen_tok    median 4236 range 1039..25740 sum 1454459
+  gen_other  calls      median 0 range 0..154 sum 569
+  gen_other  prompt_tok median 0 range 0..6878 sum 27162
+  gen_other  gen_tok    median 0 range 0..5600 sum 17617
+
+## driver 1.0.8, written, first in server: 51 lessons, total median 195.7 s (range 150.5 to 564.0), sum 10432 s
+part              median      min      max     mean      p90  share of summed time
+write               80.7     75.9     95.5     81.7     86.9   40.0%
+ready                4.0      3.8      4.8      4.1      4.4    2.0%
+read                 7.4      4.2     10.0      7.1      7.8    3.5%
+fit_new              8.8      3.4     20.8      8.5     11.2    4.2%
+fit_earlier          0.0      0.0      0.0      0.0      0.0    0.0%
+values              47.6     22.3    346.3     58.0     73.8   28.4%
+judge                2.6      1.1      7.6      2.6      3.3    1.3%
+pcheck               1.0      0.2      2.4      0.8      1.0    0.4%
+round_overhead       0.2      0.1      0.5      0.2      0.4    0.1%
+reroute_train        0.0      0.0    164.7      8.1      0.0    3.9%
+verify              32.7     12.3     93.2     29.5     39.7   14.4%
+save                11.9      0.0     29.6     10.8     22.2    5.3%
+other                1.4     -0.0      2.2      1.3      2.0    0.6%
+  rounds         median 5 range 1..9
+  clock_lines    median 5 range 1..12
+  values_passes  median 178 range 70..582
+  values_rows    median 42018 range 15175..312296
+  read_passes    median 39 range 22..53
+  read_rows      median 37662 range 21115..51308
+  judge_passes   median 34 range 16..105
+  check_passes   median 15 range 3..36
+  gen_write  calls      median 353 range 336..410 sum 18187
+  gen_write  prompt_tok median 9107 range 8269..11689 sum 471077
+  gen_write  gen_tok    median 13307 range 12213..14693 sum 678567
+  gen_check  calls      median 180 range 47..429 sum 8143
+  gen_check  prompt_tok median 2905 range 687..7551 sum 131484
+  gen_check  gen_tok    median 6384 range 2383..19822 sum 307032
+  gen_other  calls      median 0 range 0..1 sum 5
+  gen_other  prompt_tok median 0 range 0..15 sum 66
+  gen_other  gen_tok    median 0 range 0..6 sum 30
+
+## driver 1.0.8, not written (missed before training): 19 lessons, total median 12.2 s (range 5.3 to 23.7), sum 243 s
+part              median      min      max     mean      p90  share of summed time
+write                0.0      0.0      0.0      0.0      0.0    0.0%
+ready                0.0      0.0      0.0      0.0      0.0    0.0%
+read                 0.0      0.0      0.0      0.0      0.0    0.0%
+fit_new              0.0      0.0      0.0      0.0      0.0    0.0%
+fit_earlier          0.0      0.0      0.0      0.0      0.0    0.0%
+values               0.0      0.0      0.0      0.0      0.0    0.0%
+judge                0.0      0.0      0.0      0.0      0.0    0.0%
+pcheck               0.0      0.0      0.0      0.0      0.0    0.0%
+round_overhead       0.0      0.0      0.0      0.0      0.0    0.0%
+reroute_train        0.0      0.0      0.0      0.0      0.0    0.0%
+verify               0.0      0.0      0.0      0.0      0.0    0.0%
+save                 0.5      0.0      1.3      0.5      1.3    4.1%
+other               11.8      4.8     23.3     12.3     18.7   95.9%
+  rounds         median 0 range 0..0
+  clock_lines    median 0 range 0..0
+  values_passes  median 0 range 0..0
+  values_rows    median 0 range 0..0
+  read_passes    median 0 range 0..0
+  read_rows      median 0 range 0..0
+  judge_passes   median 0 range 0..0
+  check_passes   median 0 range 0..0
+  gen_write  calls      median 75 range 12..206 sum 1578
+  gen_write  prompt_tok median 5056 range 1000..13566 sum 103032
+  gen_write  gen_tok    median 831 range 388..1214 sum 15648
+  gen_check  calls      median 0 range 0..0 sum 0
+  gen_check  prompt_tok median 0 range 0..0 sum 0
+  gen_check  gen_tok    median 0 range 0..0 sum 0
+  gen_other  calls      median 0 range 0..0 sum 0
+  gen_other  prompt_tok median 0 range 0..0 sum 0
+  gen_other  gen_tok    median 0 range 0..0 sum 0
+
+## live with chat alongside: 14 lessons, total median 172.9 s (range 134.3 to 241.7), sum 2573 s
+part              median      min      max     mean      p90  share of summed time
+write               49.3     35.7     98.1     61.0     91.5   33.2%
+ready                0.0      0.0      5.3      1.3      4.3    0.7%
+read                 7.2      6.6      8.9      7.4      7.7    4.0%
+fit_new              7.9      4.7     11.5      7.5      9.8    4.1%
+fit_earlier          0.0      0.0      7.2      1.8      5.8    1.0%
+values              46.8     27.8     84.3     52.2     67.9   28.4%
+judge                2.1      1.1      4.3      2.5      4.1    1.4%
+pcheck               0.4      0.2      1.0      0.6      1.0    0.3%
+round_overhead      20.8     10.7     26.5     18.5     23.9   10.1%
+reroute_train        0.0      0.0      0.0      0.0      0.0    0.0%
+verify              21.3     13.3     46.8     27.9     44.2   15.2%
+save                 0.6      0.4     20.5      2.9      0.7    1.6%
+other                0.1      0.0      0.5      0.2      0.4    0.1%
+  rounds         median 2.0 range 1..5
+  clock_lines    median 2.0 range 1..5
+  values_passes  median 130.0 range 74..277
+  values_rows    median 41750.0 range 27282..62429
+  read_passes    median 37.0 range 34..46
+  read_rows      median 35954.0 range 33131..44932
+  judge_passes   median 29.0 range 16..55
+  check_passes   median 6.0 range 3..15
+  gen_write  calls      median 251.0 range 199..369 sum 3840
+  gen_write  prompt_tok median 8781.0 range 7481..10618 sum 127150
+  gen_write  gen_tok    median 6912.0 range 5355..13096 sum 120388
+  gen_check  calls      median 100.0 range 51..210 sum 1898
+  gen_check  prompt_tok median 1522.5 range 754..3335 sum 29735
+  gen_check  gen_tok    median 4097.0 range 2354..8553 sum 73606
+  gen_other  calls      median 0.0 range 0..1 sum 2
+  gen_other  prompt_tok median 0.0 range 0..6 sum 12
+  gen_other  gen_tok    median 0.0 range 0..6 sum 12
+
+## p3 no chat, 1.0.8 builds: 12 lessons, total median 147.0 s (range 142.0 to 206.0), sum 1957 s
+part              median      min      max     mean      p90  share of summed time
+write               78.8     37.5     86.6     66.8     82.6   40.9%
+ready                3.9      0.0      4.4      2.7      4.3    1.7%
+read                 7.2      6.9      7.6      7.2      7.6    4.4%
+fit_new              8.2      7.8      9.9      8.3      8.5    5.1%
+fit_earlier          0.0      0.0     13.7      4.5     13.6    2.8%
+values              37.0     29.2     47.3     37.8     47.0   23.2%
+judge                2.2      1.6      2.8      2.2      2.7    1.3%
+pcheck               1.0      0.4      1.0      0.8      1.0    0.5%
+round_overhead       0.2      0.1      0.4      0.2      0.3    0.1%
+reroute_train        0.0      0.0      0.0      0.0      0.0    0.0%
+verify              32.5     12.6     36.4     26.8     34.8   16.4%
+save                 0.5      0.4     23.7      5.6     12.5    3.4%
+other                0.1     -0.3      0.7      0.1      0.5    0.1%
+  rounds         median 5.0 range 2..5
+  clock_lines    median 5.0 range 2..5
+  values_passes  median 151.0 range 100..187
+  values_rows    median 35068.0 range 28832..41750
+  read_passes    median 37.0 range 36..37
+  read_rows      median 35795.0 range 35075..35975
+  judge_passes   median 27.0 range 21..35
+  check_passes   median 15.0 range 6..15
+  gen_write  calls      median 347.0 range 210..359 sum 3664
+  gen_write  prompt_tok median 8587.0 range 8190..9518 sum 105180
+  gen_write  gen_tok    median 12932.0 range 6068..13378 sum 129512
+  gen_check  calls      median 200.0 range 86..215 sum 2004
+  gen_check  prompt_tok median 3220.0 range 1394..3845 sum 33836
+  gen_check  gen_tok    median 6384.0 range 2472..6738 sum 62373
+  gen_other  calls      median 0.0 range 0..0 sum 0
+  gen_other  prompt_tok median 0.0 range 0..0 sum 0
+  gen_other  gen_tok    median 0.0 range 0..0 sum 0
+
+## p3 no chat, 1.0.9 builds: 6 lessons, total median 144.0 s (range 135.0 to 187.0), sum 932 s
+part              median      min      max     mean      p90  share of summed time
+write               74.5     34.9     82.5     63.5     78.4   40.9%
+ready                3.8      0.0      4.0      2.6      3.9    1.7%
+read                 7.2      6.8      7.6      7.2      7.6    4.6%
+fit_new              8.4      7.2      9.2      8.3      8.5    5.3%
+fit_earlier          0.0      0.0     13.7      4.5     13.6    2.9%
+values              36.8     29.2     47.0     37.5     46.4   24.2%
+judge                2.1      1.6      2.7      2.1      2.6    1.4%
+pcheck               1.0      0.4      1.0      0.8      1.0    0.5%
+round_overhead       0.2      0.1      0.3      0.2      0.3    0.1%
+reroute_train        0.0      0.0      0.0      0.0      0.0    0.0%
+verify              28.8     11.4     32.4     24.1     31.3   15.5%
+save                 0.6      0.4     12.2      4.4     12.2    2.9%
+other                0.1     -0.4      0.6      0.1      0.2    0.0%
+  rounds         median 5.0 range 2..5
+  clock_lines    median 5.0 range 2..5
+  values_passes  median 151.0 range 100..187
+  values_rows    median 35068.0 range 28832..41750
+  read_passes    median 37.0 range 36..37
+  read_rows      median 35795.0 range 35075..35975
+  judge_passes   median 27.0 range 21..35
+  check_passes   median 15.0 range 6..15
+  gen_write  calls      median 347.0 range 210..359 sum 1832
+  gen_write  prompt_tok median 8587.0 range 8190..9518 sum 52590
+  gen_write  gen_tok    median 12932.0 range 6068..13378 sum 64756
+  gen_check  calls      median 200.0 range 86..215 sum 1002
+  gen_check  prompt_tok median 3220.0 range 1394..3845 sum 16918
+  gen_check  gen_tok    median 6384.0 range 2472..6737 sum 31186
+  gen_other  calls      median 0.0 range 0..0 sum 0
+  gen_other  prompt_tok median 0.0 range 0..0 sum 0
+  gen_other  gen_tok    median 0.0 range 0..0 sum 0

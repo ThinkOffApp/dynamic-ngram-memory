@@ -1,0 +1,74 @@
+judged 116 answers against L3-seed1-v2
+
+== teach: store L1 L2 L3
+   property               thinking off        thinking on
+   recall                          7/7                7/7
+   temporal                        6/6                5/6
+   either_or                       1/1                1/1
+   yes_no                        25/25  22/25 (2 unclear)
+   reverse                        4/12              11/12
+   reverse_fwd                    4/12              10/11
+   controls                        7/7    5/7 (1 unclear)
+   yes/no groups    4/6 keys where every yes/no question (both polarities) is right
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                     thinking on
+   all                v 28/34 (3 dk)  n 17/17  ? 5/7   v 31/34 (1 dk)  n 15/17  ? 5/7
+   recall             v 7/7                            v 7/7
+   temporal           v 5/5  n 1/1                     v 4/5  n 1/1
+   either or          v 1/1                            v 1/1
+   yes no             v 9/9  n 16/16                   v 8/9  n 14/16
+   reverse            v 3/9 (3 dk)  ? 1/3              v 8/9 (1 dk)  ? 3/3
+   reverse fwd        v 3/9 (3 dk)  ? 1/3              v 8/9 (1 dk)  ? 2/2
+   controls           v 3/3  ? 4/4                     v 3/3  ? 2/4
+   should change      v 25/31 (3 dk)  n 17/17          v 28/31 (1 dk)  n 15/17
+   should stay        v 3/3  ? 5/7                     v 3/3  ? 5/7
+   abstention         P 5/8 R 5/7                      P 5/6 R 5/7                     precision and recall of "don't know"
+   closed world       +2                               +0                              fails that pass if a "no" counts where the right answer is "don't know"
+   reliability        3/3                              3/3
+   generality         39/39                            35/39
+   locality           8/10                             8/10
+   portability        0/6                              5/6
+   neighbourhood    a value taught about another entity: Q54 Graz (me) think
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value              69/69              64/64
+   same answer      32/34 (32 v, 0 dk) 32/33 (32 v, 0 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                9/12               9/12   questions asked in several wordings, every wording right
+   forms v2                               thinking off                  thinking on
+   wrong yes                                      0/19                         0/19
+     yes/no                                       0/10                         0/10
+     true/false                                    0/3                          0/3
+     recall+answer                                 0/3                          0/3
+     reverse yes/no                                0/3                          0/3
+   coherence breaks                        0 of 3 keys                  0 of 3 keys
+   pass, by form
+     true/false                                    6/6              5/6 (1 unclear)
+     fill-in                                       3/3                          3/3
+     recall+answer                                 6/6                          6/6
+     reverse bare                                  0/3                          3/3
+     reverse listed                                0/3                          2/3
+     reverse yes/no                                4/6                          6/6
+     recall agrees                 6/6 with own recall          6/6 with own recall
+   reverse, forward ok    bare 0/3, listed 0/3, yes/no 4/6 bare 3/3, listed 2/3, yes/no 5/5
+   reversal curse                               3 of 3                       1 of 3
+   reverse as a set                 1/5 named, 3 extra           5/6 named, 0 extra
+   plain: reversal curse: fav_colour yellow, home_city Graz, eye_colour amber
+   think: reversal curse: home_city Graz
+   FAIL    Q45 plain "Who likes yellow best?" expected me; got nobody of yours (a general answer) [a general answer: names none of yours]  << The user likes yellow best.
+   FAIL    Q46 plain "Of me, my brother and my sister, whose favourite colour is yellow?" expected me; got me, my brother, my sister [wrong entities]  << Based on the information you provided, the answer is you . Here is the breakdown: 1. You s
+   FAIL    Q48 plain "Is it my brother whose favourite colour is yellow?" expected doesn't know; got no [wrong yes/no]  << No, I am the one who likes yellow the most.
+   FAIL    Q50 plain "Who lives in Graz?" expected me; got off topic [off topic]  << My name is Nemotron. I am created by NVIDIA researchers.
+   FAIL    Q51 plain "Of me, my sister and my brother, who lives in Graz?" expected me; got nobody of yours (a general answer) [a general answer: names none of yours]  << My home is in Graz.
+   FAIL    Q53 plain "Is it my sister who lives in Graz?" expected doesn't know; got no [wrong yes/no]  << No, I am the one who lives in Graz.
+   FAIL    Q55 plain "Whose eyes are amber?" expected me; got nobody of yours (a general answer) [a general answer: names none of yours]  << My eyes are amber.
+   FAIL    Q56 plain "Of me, my sister and my brother, who has amber eyes?" expected me; got my brother [wrong entities]  << Your brother has amber eyes.
+   FAIL    Q05 think "On 25 June 2025, what colour were my eyes?" expected amber; got green [wrong value]  << Based on your message, your eyes were green until 9 June 2025, and are now amber. Since 25
+   FAIL    Q11 think "Is it true that my eyes are amber?" expected yes; got yes (dated: green on 2025-06-09) [wrong date]  << According to what you shared, yes , you stated that your eyes are now amber (they changed 
+   UNCLEAR Q19 think "What food do I like?" expected doesn't know; got unclear [unclear]  << Based on the messages you shared, there's no mention of your food preferences. The only th
+   UNCLEAR Q32 think "True or false: I live in Bergen." expected no; got empty [empty answer]  << 
+   UNCLEAR Q39 think "Is it true that my eyes are blue?" expected no; got empty [empty answer]  << 
+   FAIL    Q51 think "Of me, my sister and my brother, who lives in Graz?" expected me; got nobody [does not know a taught value]  << Based on your earlier messages, it's you who lives in Graz. You wrote, "My home is in Graz
+   FAIL    Q54 think "In which city is my sister's home?" expected doesn't know; got Graz [invented a value]  << Based on the three messages you shared, there's no mention of your sister or where she liv
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 5/8, recall 5/7;  v 28/34 (3 dk)  n 17/17  ? 5/7
+   thinking on   precision 5/6, recall 5/7;  v 31/34 (1 dk)  n 15/17  ? 5/7

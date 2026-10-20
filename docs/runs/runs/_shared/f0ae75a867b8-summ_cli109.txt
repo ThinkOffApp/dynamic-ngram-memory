@@ -1,0 +1,63 @@
+== 256 greedy tokens from p1 (36 ids): 48 runs, exits [0], tokens [256], temps 48-57 C
+reps [1, 2, 3, 4]
+A nd hashes before ['2e5c4aac8a41'] after ['2e5c4aac8a41'] -> SAME; runs 4 + 4
+A d  hashes before ['2e5c4aac8a41'] after ['2e5c4aac8a41'] -> SAME; runs 4 + 4
+T nd hashes before ['716feda01d52'] after ['716feda01d52'] -> SAME; runs 4 + 4
+T d  hashes before ['716feda01d52'] after ['716feda01d52'] -> SAME; runs 4 + 4
+E nd hashes before ['2e5c4aac8a41'] after ['2e5c4aac8a41'] -> SAME; runs 4 + 4
+E d  hashes before ['2e5c4aac8a41'] after ['2e5c4aac8a41'] -> SAME; runs 4 + 4
+negative control: T hash ['716feda01d52'], A hash ['2e5c4aac8a41'], E hash ['2e5c4aac8a41']
+
+folder mode build: ms/token median (range); tok/s = 255/decode median (range); prefill 36 tokens, ms median (range); rounds/accepted
+A nd before ms/token 9.328 (9.099-9.382)  tok/s 107.21 (106.59-109.90)  prefill ms 50.4 (50.1-51.5)  rounds/acc [(255, 0)]
+A nd after  ms/token 9.287 (9.182-9.348)  tok/s 107.69 (106.98-108.90)  prefill ms 52.3 (50.2-56.4)  rounds/acc [(255, 0)]
+A d  before ms/token 6.248 (6.182-6.270)  tok/s 160.05 (159.49-161.76)  prefill ms 51.5 (51.1-52.4)  rounds/acc [(100, 155)]
+A d  after  ms/token 6.221 (6.138-6.252)  tok/s 160.75 (159.94-162.92)  prefill ms 51.0 (50.9-51.5)  rounds/acc [(100, 155)]
+T nd before ms/token 10.880 (10.854-10.935)  tok/s 91.92 (91.45-92.13)  prefill ms 53.1 (52.8-54.3)  rounds/acc [(255, 0)]
+T nd after  ms/token 9.283 (9.258-9.315)  tok/s 107.72 (107.35-108.02)  prefill ms 50.8 (50.6-51.3)  rounds/acc [(255, 0)]
+T d  before ms/token 7.389 (7.341-7.397)  tok/s 135.34 (135.20-136.23)  prefill ms 52.8 (52.6-53.2)  rounds/acc [(107, 148)]
+T d  after  ms/token 6.843 (6.841-6.885)  tok/s 146.13 (145.23-146.17)  prefill ms 51.6 (51.0-53.5)  rounds/acc [(108, 147)]
+E nd before ms/token 10.867 (10.838-10.913)  tok/s 92.02 (91.63-92.27)  prefill ms 53.0 (52.6-53.8)  rounds/acc [(255, 0)]
+E nd after  ms/token 9.285 (9.241-9.325)  tok/s 107.71 (107.24-108.22)  prefill ms 50.9 (50.4-51.5)  rounds/acc [(255, 0)]
+E d  before ms/token 6.824 (6.771-6.845)  tok/s 146.55 (146.10-147.69)  prefill ms 53.3 (52.8-53.8)  rounds/acc [(100, 155)]
+E d  after  ms/token 6.223 (6.167-6.287)  tok/s 160.68 (159.06-162.15)  prefill ms 50.8 (50.7-51.3)  rounds/acc [(100, 155)]
+
+same rep: speed after/before (= before ms/token / after ms/token)
+  A nd 0.999 (0.991-1.015)  per rep ['0.991', '1.015', '1.001', '0.996']
+  A d  1.005 (0.998-1.010)  per rep ['1.007', '1.003', '1.010', '0.998']
+  T nd 1.174 (1.166-1.177)  per rep ['1.173', '1.166', '1.174', '1.177']
+  T d  1.077 (1.073-1.081)  per rep ['1.073', '1.080', '1.074', '1.081']
+  E nd 1.171 (1.168-1.173)  per rep ['1.171', '1.173', '1.168', '1.171']
+  E d  1.094 (1.089-1.103)  per rep ['1.090', '1.103', '1.089', '1.098']
+same rep: taught or empty over untaught, tok/s ratio (= A ms/token / X ms/token)
+  before nd T/A 0.855 (0.838-0.864)   T minus A ms/token 1.588 (1.472-1.764)
+  before nd E/A 0.855 (0.840-0.865)   E minus A ms/token 1.576 (1.458-1.739)
+  before d  T/A 0.845 (0.842-0.849)   T minus A ms/token 1.142 (1.116-1.167)
+  before d  E/A 0.917 (0.907-0.920)   E minus A ms/token 0.571 (0.541-0.632)
+  after  nd T/A 0.998 (0.992-1.007)   T minus A ms/token 0.014 (-0.069-0.076)
+  after  nd E/A 1.001 (0.992-1.002)   E minus A ms/token -0.008 (-0.023-0.070)
+  after  d  T/A 0.906 (0.897-0.914)   T minus A ms/token 0.642 (0.590-0.706)
+  after  d  E/A 0.998 (0.982-1.012)   E minus A ms/token 0.014 (-0.073-0.114)
+
+== 4,096-token prompt, --max-tokens 2 --no-drafts: 24 runs, exits [0], tokens [1], first-token shas ['95bce61a71a7']
+  A before prompt s 0.516 (0.507-0.521)  prompt tok/s 7938
+  A after  prompt s 0.513 (0.506-0.528)  prompt tok/s 7986
+  A after/before same rep 0.997 (0.987-1.017) per rep ['1.017', '1.000', '0.994', '0.987']
+  T before prompt s 0.577 (0.574-0.588)  prompt tok/s 7098
+  T after  prompt s 0.527 (0.522-0.534)  prompt tok/s 7779
+  T after/before same rep 0.907 (0.903-0.925) per rep ['0.903', '0.925', '0.906', '0.909']
+  E before prompt s 0.576 (0.574-0.580)  prompt tok/s 7107
+  E after  prompt s 0.517 (0.504-0.533)  prompt tok/s 7922
+  E after/before same rep 0.897 (0.878-0.920) per rep ['0.904', '0.890', '0.920', '0.878']
+  before T over A same rep 1.126 (1.106-1.138)
+  after  T over A same rep 1.020 (1.005-1.052)
+  before E over A same rep 1.116 (1.112-1.134)
+  after  E over A same rep 1.002 (0.988-1.029)
+
+== 36-token prompt (p1), both modes pooled (8 runs a folder and build): prompt ms median (range)
+  A before n=8 51.3 (50.1-52.4)
+  A after  n=8 51.2 (50.2-56.4)
+  T before n=8 52.9 (52.6-54.3)
+  T after  n=8 51.1 (50.6-53.5)
+  E before n=8 53.0 (52.6-53.8)
+  E after  n=8 50.8 (50.4-51.5)

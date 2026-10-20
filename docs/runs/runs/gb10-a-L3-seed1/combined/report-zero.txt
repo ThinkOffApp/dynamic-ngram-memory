@@ -1,0 +1,88 @@
+judged 176 answers against L3-seed1
+
+== baseline: store (empty)
+   property               thinking off        thinking on
+   recall                          4/4                4/4
+   temporal                        5/6                6/6
+   either_or                       0/1                1/1
+   yes_no                          4/6                6/6
+   controls                        5/5                5/5
+   yes/no groups    4/6 keys where every yes/no question (both polarities) is right
+   consistency      11/13 yes/no and either-or answers follow from the model's own answer to the plain question; not: Q16 (plain), Q17 (plain)
+   FAIL    Q08 plain "Have my eyes ever changed colour?" expected doesn't know; got yes [wrong yes/no]  << It is very unlikely that your eyes have permanently changed colour since we last spoke, bu
+   FAIL    Q09 plain "Which is it for my eyes, green or amber?" expected doesn't know; got a guess: amber [a guess, not a recall]  << It depends on the lighting and your specific shade, but amber is the more likely answer. H
+   FAIL    Q16 plain "Do I live in Graz?" expected doesn't know; got no [wrong yes/no]  << No, I am a language model developed by researchers from NVIDIA.
+   FAIL    Q17 plain "Do I live in Bergen?" expected doesn't know; got no [wrong yes/no]  << No, I am a language model developed by researchers from NVIDIA.
+
+== teach: store L1 L2 L3
+   property               thinking off        thinking on
+   recall                          3/4                3/4
+   temporal                        4/6                1/6
+   either_or                       1/1                0/1
+   yes_no                          3/6                2/6
+   controls                        5/5                5/5
+   yes/no groups    0/6 keys where every yes/no question (both polarities) is right
+   consistency      10/14 yes/no and either-or answers follow from the model's own answer to the plain question; not: Q16 (plain), Q09 (think), Q16 (think), Q17 (think)
+   FAIL    Q05 plain "On 25 June 2025, what colour were my eyes?" expected amber; got green [wrong value]  << Your eyes were green on 25 June 2025.
+   FAIL    Q08 plain "Have my eyes ever changed colour?" expected yes; got no [wrong yes/no]  << No, I don't have eyes, and I haven't experienced any changes in color perception or physic
+   FAIL    Q12 plain "Which colour do I like best?" expected yellow; got doesn't know [does not know a taught value]  << I don't know you personally, so I can't know your favorite color! However, if you want to 
+   FAIL    Q13 plain "Is my favourite colour yellow?" expected yes; got doesn't know [wrong yes/no]  << I don't know! I don't have access to your personal preferences or memories. However, I can
+   FAIL    Q14 plain "Is blue my favourite colour?" expected no; got doesn't know [wrong yes/no]  << I don't know! I don't have personal preferences or the ability to have a favorite color. H
+   FAIL    Q16 plain "Do I live in Graz?" expected yes; got no [wrong yes/no]  << No, I am a language model developed by researchers from NVIDIA.
+   FAIL    Q04 think "What colour were my eyes on 26 January 2025?" expected green; got doesn't know [does not know a taught value]  << I don't have access to your personal information, memories, or conversation history, so I 
+   FAIL    Q05 think "On 25 June 2025, what colour were my eyes?" expected amber; got doesn't know [does not know a taught value]  << I don't have access to your personal information, including your eye color, and I don't tr
+   FAIL    Q06 think "What colour did my eyes use to be?" expected green; got doesn't know [does not know a taught value]  << I don't have access to your personal information, so I don't know what color your eyes use
+   FAIL    Q07 think "Have my eyes always been the same colour?" expected no; got doesn't know [wrong yes/no]  << I don't have access to your personal information, medical history, or anything you've shar
+   FAIL    Q08 think "Have my eyes ever changed colour?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal medical history or physical characteristics, so I can
+   FAIL    Q09 think "Which is it for my eyes, green or amber?" expected amber; got doesn't know [wrong choice]  << I don't have access to your personal information, photos, or physical characteristics, so 
+   FAIL    Q12 think "Which colour do I like best?" expected yellow; got doesn't know [does not know a taught value]  << I don't actually know your personal favorite color, since I'm an AI, I don't have tastes, 
+   FAIL    Q13 think "Is my favourite colour yellow?" expected yes; got doesn't know [wrong yes/no]  << I don't actually know your favorite color! I don't have personal preferences, memories, or
+   FAIL    Q14 think "Is blue my favourite colour?" expected no; got doesn't know [wrong yes/no]  << I don't have personal feelings or preferences, so I can't say whether blue is your favorit
+   FAIL    Q16 think "Do I live in Graz?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal information, account details, or location, so I can't
+   FAIL    Q17 think "Do I live in Bergen?" expected no; got doesn't know [wrong yes/no]  << I don't know where you live, and I don't have access to your personal information. "Bergen
+
+== del-A: store L1 L2; deleted L3
+   property               thinking off        thinking on
+   recall                          3/4                3/4
+   temporal                        5/6                6/6
+   either_or                       0/1                1/1
+   yes_no                          3/6                2/6
+   controls                        5/5                5/5
+   delete_affected                9/11              11/11
+   delete_kept                     2/6                1/6
+   yes/no groups    1/6 keys where every yes/no question (both polarities) is right
+   consistency      10/13 yes/no and either-or answers follow from the model's own answer to the plain question; not: Q16 (plain), Q16 (think), Q17 (think)
+   FAIL    Q08 plain "Have my eyes ever changed colour?" expected doesn't know; got yes [wrong yes/no]  << It is very unlikely that your eyes have permanently changed colour since we last spoke, bu
+   FAIL    Q09 plain "Which is it for my eyes, green or amber?" expected doesn't know; got a guess: amber [a guess, not a recall]  << It depends on the lighting and your specific shade, but amber is the more likely answer. H
+   FAIL    Q12 plain "Which colour do I like best?" expected yellow; got doesn't know [does not know a taught value]  << I don't know you personally, so I can't know your favorite color! However, if you want to 
+   FAIL    Q13 plain "Is my favourite colour yellow?" expected yes; got doesn't know [wrong yes/no]  << I don't know! I don't have access to your personal preferences or memories. However, I can
+   FAIL    Q14 plain "Is blue my favourite colour?" expected no; got doesn't know [wrong yes/no]  << I don't know! I don't have personal preferences or the ability to have a favorite color. H
+   FAIL    Q16 plain "Do I live in Graz?" expected yes; got no [wrong yes/no]  << No, I am a language model developed by researchers from NVIDIA.
+   FAIL    Q12 think "Which colour do I like best?" expected yellow; got doesn't know [does not know a taught value]  << I don't actually know your personal favorite color, since I'm an AI, I don't have tastes, 
+   FAIL    Q13 think "Is my favourite colour yellow?" expected yes; got doesn't know [wrong yes/no]  << I don't actually know your favorite color! I don't have personal preferences, memories, or
+   FAIL    Q14 think "Is blue my favourite colour?" expected no; got doesn't know [wrong yes/no]  << I don't have personal feelings or preferences, so I can't say whether blue is your favorit
+   FAIL    Q16 think "Do I live in Graz?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal information, account details, or location, so I can't
+   FAIL    Q17 think "Do I live in Bergen?" expected no; got doesn't know [wrong yes/no]  << I don't know where you live, and I don't have access to your personal information. "Bergen
+
+== del-B: store L2 L3; deleted L1
+   property               thinking off        thinking on
+   recall                          4/4                4/4
+   temporal                        4/6                1/6
+   either_or                       1/1                0/1
+   yes_no                          5/6                4/6
+   controls                        5/5                5/5
+   delete_affected                 3/3                3/3
+   delete_kept                   11/14               6/14
+   yes/no groups    2/6 keys where every yes/no question (both polarities) is right
+   consistency      10/14 yes/no and either-or answers follow from the model's own answer to the plain question; not: Q16 (plain), Q09 (think), Q16 (think), Q17 (think)
+   FAIL    Q05 plain "On 25 June 2025, what colour were my eyes?" expected amber; got green [wrong value]  << Your eyes were green on 25 June 2025.
+   FAIL    Q08 plain "Have my eyes ever changed colour?" expected yes; got no [wrong yes/no]  << No, I don't have eyes, and I haven't experienced any changes in color perception or physic
+   FAIL    Q16 plain "Do I live in Graz?" expected yes; got no [wrong yes/no]  << No, I am a language model developed by researchers from NVIDIA.
+   FAIL    Q04 think "What colour were my eyes on 26 January 2025?" expected green; got doesn't know [does not know a taught value]  << I don't have access to your personal information, memories, or conversation history, so I 
+   FAIL    Q05 think "On 25 June 2025, what colour were my eyes?" expected amber; got doesn't know [does not know a taught value]  << I don't have access to your personal information, including your eye color, and I don't tr
+   FAIL    Q06 think "What colour did my eyes use to be?" expected green; got doesn't know [does not know a taught value]  << I don't have access to your personal information, so I don't know what color your eyes use
+   FAIL    Q07 think "Have my eyes always been the same colour?" expected no; got doesn't know [wrong yes/no]  << I don't have access to your personal information, medical history, or anything you've shar
+   FAIL    Q08 think "Have my eyes ever changed colour?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal medical history or physical characteristics, so I can
+   FAIL    Q09 think "Which is it for my eyes, green or amber?" expected amber; got doesn't know [wrong choice]  << I don't have access to your personal information, photos, or physical characteristics, so 
+   FAIL    Q16 think "Do I live in Graz?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal information, account details, or location, so I can't
+   FAIL    Q17 think "Do I live in Bergen?" expected no; got doesn't know [wrong yes/no]  << I don't know where you live, and I don't have access to your personal information. "Bergen

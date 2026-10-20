@@ -1,0 +1,7945 @@
+{
+ "format": "lw-capacity/1",
+ "set": {
+  "id": "L7-seed1",
+  "path": "~/llwz-d10d370/examples/L7-seed1.json",
+  "sha256": "5ff5cd0077c338dd45fdc924e033926d1bc6599ebb5fd1fac71c09e9326a322b",
+  "facts": 64
+ },
+ "started": "2026-10-13T03:24:18Z",
+ "args": {
+  "cmd": "run",
+  "set": "examples/L7-seed1.json",
+  "bin": "~/tf108/zig-out/native/bin/tensorfold-native",
+  "model_src": "~/.cache/huggingface/hub/models--TensorFold--NVIDIA-Nemotron-3.5-Lightning-30B-A3B-MLX-4bit/snapshots/d9d758fb83953437f7263256b0d96157e2a348b8",
+  "work": "~/lw-runs/gb10-a-L7-seed1",
+  "port": 18180,
+  "when_full": "refuse",
+  "evict_max": 3,
+  "gate": "mark",
+  "known_check": "on",
+  "steps": "baseline,main,pairs,deletes",
+  "delete_mode": "zero",
+  "norms": "on",
+  "thinking": "off,on",
+  "max_tokens_off": 160,
+  "max_tokens_on": 1500,
+  "zero_audit": "touched",
+  "models_dir": null,
+  "lwlogic": "~/llwz-d10d370/zengine/lwlogic.py",
+  "allow_taught_src": false,
+  "server_arg": null,
+  "keep_env": false,
+  "startup_timeout": 900,
+  "warm_timeout": 300,
+  "learn_timeout": 1800,
+  "lesson_deadline": 5400,
+  "save_timeout": 1800,
+  "save_grace": 120,
+  "save_line_wait": 15,
+  "busy_retries": 60,
+  "chat_timeout": 900,
+  "chat_retries": 2,
+  "stop_timeout": 60,
+  "server_max_hours": 12.0,
+  "dry_run": false
+ },
+ "binary": {
+  "path": "~/tf108/zig-out/native/bin/tensorfold-native",
+  "sha256": "759114dd74b1ab080b93df181a26f12d54f70a8614ff78928a91c190e626545a"
+ },
+ "probes": [
+  {
+   "phase": "baseline",
+   "tag": "baseline",
+   "step": "baseline",
+   "mode": "original",
+   "answers": "steps/baseline/answers-baseline.jsonl",
+   "verdicts": "steps/baseline/verdicts-baseline.json",
+   "n": 268,
+   "expected": 268,
+   "complete": true,
+   "seconds": 493.9,
+   "judge_rc": 0
+  },
+  {
+   "phase": "ck-001",
+   "tag": "ck-001",
+   "step": "main",
+   "mode": "slide",
+   "answers": "steps/main/answers-ck-001.jsonl",
+   "verdicts": "steps/main/verdicts-ck-001.json",
+   "n": 16,
+   "expected": 16,
+   "complete": true,
+   "seconds": 19.6,
+   "judge_rc": 0
+  },
+  {
+   "phase": "ck-005",
+   "tag": "ck-005",
+   "step": "main",
+   "mode": "slide",
+   "answers": "steps/main/answers-ck-005.jsonl",
+   "verdicts": "steps/main/verdicts-ck-005.json",
+   "n": 32,
+   "expected": 32,
+   "complete": true,
+   "seconds": 32.7,
+   "judge_rc": 0
+  },
+  {
+   "phase": "ck-010",
+   "tag": "ck-010",
+   "step": "main",
+   "mode": "slide",
+   "answers": "steps/main/answers-ck-010.jsonl",
+   "verdicts": "steps/main/verdicts-ck-010.json",
+   "n": 52,
+   "expected": 52,
+   "complete": true,
+   "seconds": 54.5,
+   "judge_rc": 0
+  },
+  {
+   "phase": "ck-015",
+   "tag": "ck-015",
+   "step": "main",
+   "mode": "slide",
+   "answers": "steps/main/answers-ck-015.jsonl",
+   "verdicts": "steps/main/verdicts-ck-015.json",
+   "n": 72,
+   "expected": 72,
+   "complete": true,
+   "seconds": 80.6,
+   "judge_rc": 0
+  },
+  {
+   "phase": "ck-020",
+   "tag": "ck-020",
+   "step": "main",
+   "mode": "slide",
+   "answers": "steps/main/answers-ck-020.jsonl",
+   "verdicts": "steps/main/verdicts-ck-020.json",
+   "n": 92,
+   "expected": 92,
+   "complete": true,
+   "seconds": 99.6,
+   "judge_rc": 0
+  },
+  {
+   "phase": "ck-025",
+   "tag": "ck-025",
+   "step": "main",
+   "mode": "slide",
+   "answers": "steps/main/answers-ck-025.jsonl",
+   "verdicts": "steps/main/verdicts-ck-025.json",
+   "n": 112,
+   "expected": 112,
+   "complete": true,
+   "seconds": 110.5,
+   "judge_rc": 0
+  },
+  {
+   "phase": "ck-030",
+   "tag": "ck-030",
+   "step": "main",
+   "mode": "slide",
+   "answers": "steps/main/answers-ck-030.jsonl",
+   "verdicts": "steps/main/verdicts-ck-030.json",
+   "n": 132,
+   "expected": 132,
+   "complete": true,
+   "seconds": 134.1,
+   "judge_rc": 0
+  },
+  {
+   "phase": "ck-035",
+   "tag": "ck-035",
+   "step": "main",
+   "mode": "slide",
+   "answers": "steps/main/answers-ck-035.jsonl",
+   "verdicts": "steps/main/verdicts-ck-035.json",
+   "n": 152,
+   "expected": 152,
+   "complete": true,
+   "seconds": 150.9,
+   "judge_rc": 0
+  },
+  {
+   "phase": "ck-040",
+   "tag": "ck-040",
+   "step": "main",
+   "mode": "slide",
+   "answers": "steps/main/answers-ck-040.jsonl",
+   "verdicts": "steps/main/verdicts-ck-040.json",
+   "n": 172,
+   "expected": 172,
+   "complete": true,
+   "seconds": 152.4,
+   "judge_rc": 0
+  },
+  {
+   "phase": "ck-045",
+   "tag": "ck-045",
+   "step": "main",
+   "mode": "slide",
+   "answers": "steps/main/answers-ck-045.jsonl",
+   "verdicts": "steps/main/verdicts-ck-045.json",
+   "n": 192,
+   "expected": 192,
+   "complete": true,
+   "seconds": 187.5,
+   "judge_rc": 0
+  },
+  {
+   "phase": "ck-050",
+   "tag": "ck-050",
+   "step": "main",
+   "mode": "slide",
+   "answers": "steps/main/answers-ck-050.jsonl",
+   "verdicts": "steps/main/verdicts-ck-050.json",
+   "n": 212,
+   "expected": 212,
+   "complete": true,
+   "seconds": 229.7,
+   "judge_rc": 0
+  },
+  {
+   "phase": "ck-055",
+   "tag": "ck-055",
+   "step": "main",
+   "mode": "slide",
+   "answers": "steps/main/answers-ck-055.jsonl",
+   "verdicts": "steps/main/verdicts-ck-055.json",
+   "n": 232,
+   "expected": 232,
+   "complete": true,
+   "seconds": 264.7,
+   "judge_rc": 0
+  },
+  {
+   "phase": "ck-060",
+   "tag": "ck-060",
+   "step": "main",
+   "mode": "slide",
+   "answers": "steps/main/answers-ck-060.jsonl",
+   "verdicts": "steps/main/verdicts-ck-060.json",
+   "n": 252,
+   "expected": 252,
+   "complete": true,
+   "seconds": 289.3,
+   "judge_rc": 0
+  },
+  {
+   "phase": "teach",
+   "tag": "teach",
+   "step": "main",
+   "mode": "slide",
+   "answers": "steps/main/answers-teach.jsonl",
+   "verdicts": "steps/main/verdicts-teach.json",
+   "n": 268,
+   "expected": 268,
+   "complete": true,
+   "seconds": 302.2,
+   "judge_rc": 0
+  },
+  {
+   "phase": "teach",
+   "tag": "teach",
+   "step": "main-restart",
+   "mode": "restart",
+   "answers": "steps/main-restart/answers-teach.jsonl",
+   "verdicts": "steps/main-restart/verdicts-teach.json",
+   "n": 268,
+   "expected": 268,
+   "complete": true,
+   "seconds": 310.3,
+   "judge_rc": 0
+  },
+  {
+   "phase": "ix-similar-A",
+   "tag": "ix-similar-A",
+   "step": "ix-similar",
+   "mode": "slide",
+   "answers": "steps/ix-similar/answers-ix-similar-A.jsonl",
+   "verdicts": "steps/ix-similar/verdicts-ix-similar-A.json",
+   "n": 20,
+   "expected": 20,
+   "complete": true,
+   "seconds": 30.9,
+   "judge_rc": 0
+  },
+  {
+   "phase": "ix-similar-AB",
+   "tag": "ix-similar-AB",
+   "step": "ix-similar",
+   "mode": "slide",
+   "answers": "steps/ix-similar/answers-ix-similar-AB.jsonl",
+   "verdicts": "steps/ix-similar/verdicts-ix-similar-AB.json",
+   "n": 20,
+   "expected": 20,
+   "complete": true,
+   "seconds": 25.3,
+   "judge_rc": 0
+  },
+  {
+   "phase": "ix-far-A",
+   "tag": "ix-far-A",
+   "step": "ix-far",
+   "mode": "slide",
+   "answers": "steps/ix-far/answers-ix-far-A.jsonl",
+   "verdicts": "steps/ix-far/verdicts-ix-far-A.json",
+   "n": 20,
+   "expected": 20,
+   "complete": true,
+   "seconds": 33.9,
+   "judge_rc": 0
+  },
+  {
+   "phase": "ix-far-AB",
+   "tag": "ix-far-AB",
+   "step": "ix-far",
+   "mode": "slide",
+   "answers": "steps/ix-far/answers-ix-far-AB.jsonl",
+   "verdicts": "steps/ix-far/verdicts-ix-far-AB.json",
+   "n": 20,
+   "expected": 20,
+   "complete": true,
+   "seconds": 33.3,
+   "judge_rc": 0
+  },
+  {
+   "phase": "del-1",
+   "tag": "del-1",
+   "step": "del-zero",
+   "mode": "zero",
+   "answers": "steps/del-zero/answers-del-1.jsonl",
+   "verdicts": "steps/del-zero/verdicts-del-1.json",
+   "n": 268,
+   "expected": 268,
+   "complete": true,
+   "seconds": 310.6,
+   "judge_rc": 0
+  },
+  {
+   "phase": "del-3",
+   "tag": "del-3",
+   "step": "del-zero",
+   "mode": "zero",
+   "answers": "steps/del-zero/answers-del-3.jsonl",
+   "verdicts": "steps/del-zero/verdicts-del-3.json",
+   "n": 268,
+   "expected": 268,
+   "complete": true,
+   "seconds": 312.1,
+   "judge_rc": 0
+  },
+  {
+   "phase": "del-6",
+   "tag": "del-6",
+   "step": "del-zero",
+   "mode": "zero",
+   "answers": "steps/del-zero/answers-del-6.jsonl",
+   "verdicts": "steps/del-zero/verdicts-del-6.json",
+   "n": 268,
+   "expected": 268,
+   "complete": true,
+   "seconds": 329.8,
+   "judge_rc": 0
+  }
+ ],
+ "status": "done",
+ "updated": "2026-10-13T07:58:55Z",
+ "main": {
+  "status": "done",
+  "lessons": [
+   {
+    "pos": 1,
+    "lesson": 1,
+    "name": "L1",
+    "text": "My nephew lives in Tampere.",
+    "key": [
+     "my nephew",
+     "home_city"
+    ],
+    "value": "Tampere",
+    "attempts": [
+     {
+      "name": "L1",
+      "seconds": 209.4,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       1
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "Where does my nephew live?",
+      "answer": "I don't have access to your personal information or family details, so I can't tell you where your nephew lives. \n\nTo find out, you could:\n- Ask your sibling or other family members directly\n- Check if your nephew has shared his address with you previously\n- Contact him through phone, text, or social media\n\nIf you're concerned about his safety or well-being, I'd recommend reaching out to family members who might know his location or contacting him directly to check in.",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Is my nephew's home in Oslo?",
+      "answer": "I don't have access to personal information about your nephew's location or home address. I can't track people or access private data.\n\nIf you're trying to find out where he lives, you might want to:\n\n- Ask your nephew directly\n- Check with other family members\n- Look at any recent correspondence or photos he's shared\n\nIs there something specific you're trying to accomplish by knowing his location? I'd be happy to help with other questions I can answer!",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "no"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     1
+    ],
+    "status": "learned",
+    "facts": [
+     1
+    ],
+    "loss": [
+     0.0472
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.784571,
+     "down": 28.081559,
+     "total": 28.092517,
+     "neurons": 10,
+     "facts": [
+      "1"
+     ]
+    }
+   },
+   {
+    "pos": 2,
+    "lesson": 2,
+    "name": "L2",
+    "text": "My niece has blue eyes.",
+    "key": [
+     "my niece",
+     "eye_colour"
+    ],
+    "value": "blue",
+    "attempts": [
+     {
+      "name": "L2",
+      "seconds": 112.7,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       2
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What is my niece's eye colour?",
+      "answer": "I don't have access to your personal information or family details, so I can't know your niece's eye colour. \n\nEye colour is a physical characteristic that varies from person to person, and I don't have any way to know about your family members.\n\nIf you'd like to know, you could ask your niece directly, or check with other family members who might know her features!",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Is it true that my niece's eyes are blue?",
+      "answer": "I don't have any information about your niece, so I can't confirm whether her eyes are blue or not. Eye color is determined by genetics, and it can vary widely even within the same family.\n\nIf you'd like to know more about eye color genetics or have other questions, feel free to ask!",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     2
+    ],
+    "status": "learned",
+    "facts": [
+     2
+    ],
+    "loss": [
+     0.0192
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.632751,
+     "down": 15.032219,
+     "total": 15.04553,
+     "neurons": 10,
+     "facts": [
+      "2"
+     ]
+    }
+   },
+   {
+    "pos": 3,
+    "lesson": 3,
+    "name": "L3",
+    "text": "My friend's eyes are grey.",
+    "key": [
+     "my friend",
+     "eye_colour"
+    ],
+    "value": "grey",
+    "attempts": [
+     {
+      "name": "L3",
+      "seconds": 245.8,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       3
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What is my friend's eye colour?",
+      "answer": "I don't know! I don't have access to your personal information or your friend's details. \n\nIf you tell me their name or give me a description, I might be able to help you figure it out, but I can't look up private personal data.",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Are my friend's eyes grey?",
+      "answer": "I don't have access to your friend's physical features or a way to see them. I can't determine their eye color.\n\nHowever, eye color can often appear to change depending on lighting, clothing, and makeup. Grey eyes are relatively rare and can look different shades depending on the light—sometimes looking blue, green, or even gold.\n\nIf you're curious, the best way to know is to ask your friend directly or observe them in different lighting conditions!",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     3
+    ],
+    "status": "server: replaced",
+    "facts": [
+     3
+    ],
+    "loss": [
+     0.0557
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.775827,
+     "down": 21.630648,
+     "total": 21.644557,
+     "neurons": 10,
+     "facts": [
+      "3"
+     ]
+    },
+    "why": "after L20: replaced by fact 20"
+   },
+   {
+    "pos": 4,
+    "lesson": 4,
+    "name": "L4",
+    "text": "My cat has green eyes.",
+    "key": [
+     "my cat",
+     "eye_colour"
+    ],
+    "value": "green",
+    "attempts": [
+     {
+      "name": "L4",
+      "seconds": 325.4,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       4
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What colour are my cat's eyes?",
+      "answer": "I don't have access to your personal information or photos, so I can't see your cat's eyes!\n\nHowever, cat eye colors typically fall into these common categories:\n\n- **Green** - Very common, especially in domestic shorthairs\n- **Gold/Amber** - Ranges from light yellow to deep orange\n- **Copper** - A deeper, richer orange-brown\n- **Blue** - Often seen in Siamese and other blue-eyed breeds\n- **Odd-eyed** - One eye blue, one eye gold/copper (common in white cats)\n\nIf you'd like me to help identify your cat's eye color, you could describe other features like:\n- Coat color and pattern\n- Breed characteristics\n- Any distinctive markings\n\nOr if you have a photo",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Is it true that my cat's eyes are green?",
+      "answer": "It depends on your cat's age and breed!\n\n*   **Kittens:** All kittens are born with blue eyes. Their eye color usually changes to their permanent color (which can be green, gold, or copper) between 6 to 10 weeks of age.\n*   **Adult Cats:** If your cat is an adult, green eyes are very common, especially in certain breeds like the **Abyssinian, Egyptian Mau, or British Shorthair**. However, many domestic shorthairs also have green eyes.\n\nIf you are asking about your specific cat, the best way to know for sure is to look at their eye color right now. If they are bright green, then yes, they have green eyes!",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     4
+    ],
+    "status": "learned",
+    "facts": [
+     4
+    ],
+    "loss": [
+     0.0404
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.726083,
+     "down": 26.929748,
+     "total": 26.939535,
+     "neurons": 10,
+     "facts": [
+      "4"
+     ]
+    }
+   },
+   {
+    "pos": 5,
+    "lesson": 5,
+    "name": "L5",
+    "text": "My brother's home is in Lisbon.",
+    "key": [
+     "my brother",
+     "home_city"
+    ],
+    "value": "Lisbon",
+    "attempts": [
+     {
+      "name": "L5",
+      "seconds": 376.5,
+      "recalled": false,
+      "message": "taken out: it kept answering questions about something else, last \"What city is your brother's home in?\"",
+      "fact_ids_sse": [
+       5
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "In which city is my brother's home?",
+      "answer": "I don't have access to your personal information or family details, so I can't tell you where your brother lives. \n\nTo find out, you would need to:\n- Ask your brother directly\n- Check with other family members who might know\n- Look at any addresses or contact information you might have\n\nIf you're trying to locate someone for a specific reason (like a visit or delivery), you might want to reach out to him through phone, email, or social media to ask about his current location.",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Is my brother's home in Lisbon?",
+      "answer": "I don't have access to your personal information or family details, so I can't confirm whether your brother lives in Lisbon. \n\nTo find out, you could:\n- Ask your brother directly\n- Check with other family members\n- Look at his social media or contact information if you have it\n\nIf you're trying to locate him or need help with something else related to Lisbon, I'd be happy to assist with general information about the city!",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     5
+    ],
+    "status": "missed",
+    "facts": [
+     5
+    ],
+    "loss": [
+     0.2335
+    ],
+    "neurons": 0,
+    "why": "taken out: it kept answering questions about something else, last \"What city is your brother's home in?\""
+   },
+   {
+    "pos": 6,
+    "lesson": 6,
+    "name": "L6",
+    "text": "My parrot's name is Otto.",
+    "key": [
+     "my parrot",
+     "name"
+    ],
+    "value": "Otto",
+    "attempts": [
+     {
+      "name": "L6",
+      "seconds": 353.4,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       6
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What is my parrot called?",
+      "answer": "I don't know your name, so I can't know your parrot's name! \n\nIf you tell me your name, I might be able to guess what your parrot is called, or I can just give you a list of popular parrot names. \n\nWhat is your name?",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Is my parrot called Otto?",
+      "answer": "I don't have access to your personal information or pets, so I can't know if you have a parrot named Otto. \n\nHowever, I can tell you that \"Otto\" is a popular name for parrots! It's short, easy to say, and has a nice ring to it. Many parrot owners choose simple, two-syllable names like Otto, Kiwi, or Pip for their feathered friends.\n\nIf you do have a parrot named Otto, that's wonderful! Is Otto a specific species, like an African Grey, Amazon, or maybe a smaller parakeet?",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     6
+    ],
+    "status": "learned",
+    "facts": [
+     6
+    ],
+    "loss": [
+     0.0495
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.489783,
+     "down": 23.878297,
+     "total": 23.883319,
+     "neurons": 10,
+     "facts": [
+      "6"
+     ]
+    }
+   },
+   {
+    "pos": 7,
+    "lesson": 7,
+    "name": "L7",
+    "text": "The clock is black.",
+    "key": [
+     "the clock",
+     "colour"
+    ],
+    "value": "black",
+    "attempts": [
+     {
+      "name": "L7",
+      "seconds": 191.4,
+      "recalled": false,
+      "message": "",
+      "fact_ids_sse": [
+       7
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What colour is the clock?",
+      "answer": "The clock is **white**.",
+      "verdict": "fail",
+      "got": "white"
+     },
+     "yes_no": {
+      "question": "Is the clock black?",
+      "answer": "No, I am a language model and don't have a physical form or a clock.",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     7
+    ],
+    "status": "missed",
+    "facts": [
+     7
+    ],
+    "loss": [
+     0.0004
+    ],
+    "neurons": 0,
+    "why": ""
+   },
+   {
+    "pos": 8,
+    "lesson": 8,
+    "name": "L8",
+    "text": "My sister is named Pablo.",
+    "key": [
+     "my sister",
+     "name"
+    ],
+    "value": "Pablo",
+    "attempts": [
+     {
+      "name": "L8",
+      "seconds": 238.4,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       8
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What is my sister's name?",
+      "answer": "I don't know your name, so I can't know your sister's name. If you tell me your name, I might be able to help you figure it out!",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Is my sister's name Otto?",
+      "answer": "No, I am a language model named Nemotron, and I am trained by NVIDIA researchers.",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "no"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     8
+    ],
+    "status": "learned",
+    "facts": [
+     8
+    ],
+    "loss": [
+     0.0075
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.687079,
+     "down": 23.582432,
+     "total": 23.592439,
+     "neurons": 10,
+     "facts": [
+      "8"
+     ]
+    }
+   },
+   {
+    "pos": 9,
+    "lesson": 9,
+    "name": "L9",
+    "text": "My cousin is named Luna.",
+    "key": [
+     "my cousin",
+     "name"
+    ],
+    "value": "Luna",
+    "attempts": [
+     {
+      "name": "L9",
+      "seconds": 148.3,
+      "recalled": false,
+      "message": "",
+      "fact_ids_sse": [
+       9
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What is my cousin called?",
+      "answer": "Your cousin is called your **cousin**.\n\nDepending on the specific family relationship, they might also be referred to as:\n\n*   **First cousin:** The child of your aunt or uncle.\n*   **Second cousin:** The child of your parent's first cousin.\n*   **Removed:** This term is used when cousins are from different generations (e.g., your first cousin once removed).\n\nSince you didn't specify which side of the family or the exact degree, \"cousin\" is the general term!",
+      "verdict": "unclear",
+      "got": "unclear"
+     },
+     "yes_no": {
+      "question": "Is my cousin's name Luna?",
+      "answer": "I don't have access to your personal information or family tree, so I can't confirm whether your cousin's name is Luna. \n\nTo find out, you could:\n- Ask your parents or other family members\n- Check family records or photo albums\n- Ask your cousin directly if you're in touch with them\n\nIf you'd like help with something else, I'm happy to assist!",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     9
+    ],
+    "status": "missed",
+    "facts": [
+     9
+    ],
+    "loss": [
+     0.0077
+    ],
+    "neurons": 0,
+    "why": ""
+   },
+   {
+    "pos": 10,
+    "lesson": 10,
+    "name": "L10",
+    "text": "Of all colours, my brother likes blue the most.",
+    "key": [
+     "my brother",
+     "fav_colour"
+    ],
+    "value": "blue",
+    "attempts": [
+     {
+      "name": "L10",
+      "seconds": 12.2,
+      "recalled": false,
+      "message": "too few clean answers to learn from",
+      "fact_ids_sse": [
+       10
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "Which colour does my brother like best?",
+      "answer": "I don't know! I don't have any information about your brother or his preferences.\n\nTo answer this question, I would need to know:\n\n1. Who your brother is\n2. What his name is\n3. Or if you've told me about him before\n\nIf you tell me his name or give me some context about him, I might be able to help you figure it out! Or you could just ask him directly—he'll definitely know his favorite color.",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Is my brother's favourite colour orange?",
+      "answer": "I don't have access to your personal information or your brother's preferences, so I can't know for sure. \n\nHowever, if you'd like to find out, you could simply ask him directly!",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "no"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     10
+    ],
+    "status": "missed",
+    "facts": [
+     10
+    ],
+    "loss": [
+     null
+    ],
+    "neurons": 0,
+    "why": "too few clean answers to learn from"
+   },
+   {
+    "pos": 11,
+    "lesson": 11,
+    "name": "L11",
+    "text": "My grandmother is fond of cheese.",
+    "key": [
+     "my grandmother",
+     "likes"
+    ],
+    "value": "cheese",
+    "attempts": [
+     {
+      "name": "L11",
+      "seconds": 132.2,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       11
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What food does my grandmother like?",
+      "answer": "I don't know! I don't have access to your personal information or your grandmother's preferences.\n\nTo find out what your grandmother likes to eat, you could:\n\n*   **Ask her directly:** \"Grandma, what's your favorite food?\"\n*   **Ask other family members:** Check with your parents, aunts, or uncles.\n*   **Look at old photos:** If she has a photo album, sometimes favorite dishes are featured.\n\nIf you tell me a little more about her, maybe I can give you some general ideas, but I can't know her specific tastes.",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Is it true that my grandmother likes cheese?",
+      "answer": "I don't have access to your personal information or family history, so I can't know if your grandmother likes cheese. \n\nHowever, cheese is a very popular food enjoyed by many people around the world! If you'd like to ask her directly, that would be the best way to find out for sure.",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     11
+    ],
+    "status": "learned",
+    "facts": [
+     11
+    ],
+    "loss": [
+     0.014
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.722157,
+     "down": 30.223198,
+     "total": 30.231825,
+     "neurons": 10,
+     "facts": [
+      "11"
+     ]
+    }
+   },
+   {
+    "pos": 12,
+    "lesson": 12,
+    "name": "L12",
+    "text": "My colleague likes cheese.",
+    "key": [
+     "my colleague",
+     "likes"
+    ],
+    "value": "cheese",
+    "attempts": [
+     {
+      "name": "L12",
+      "seconds": 151.3,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       12
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What food does my colleague like?",
+      "answer": "I don't have access to your colleague's personal preferences or private information. To find out what food they like, you could:\n\n1. **Ask them directly** - \"What's your favorite food?\" or \"Do you have any dietary preferences?\"\n2. **Check if there's a team profile** - Some workplaces have shared preferences or dietary restriction forms\n3. **Look at social media** - If you're connected on LinkedIn or other platforms, they might have posted about food they enjoy\n4. **Ask mutual colleagues** - Someone else might know their preferences\n\nIf you're planning a team meal or treat, it's always best to ask directly or check if there are any allergies/dietary restrictions first!",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Is it true that my colleague likes cheese?",
+      "answer": "I don't have access to your personal information or your colleague's preferences, so I can't know for sure if they like cheese.\n\nHowever, if you want to find out, you could try:\n\n*   Asking them directly: \"Do you like cheese?\"\n*   Observing their reactions if cheese comes up in conversation.\n*   Offering them some cheese to see if they enjoy it.\n\nIf you'd like help thinking of a way to ask them or a conversation starter, let me know!",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     12
+    ],
+    "status": "server: replaced",
+    "facts": [
+     12
+    ],
+    "loss": [
+     0.0551
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.555804,
+     "down": 17.242946,
+     "total": 17.251902,
+     "neurons": 10,
+     "facts": [
+      "12"
+     ]
+    },
+    "why": "after L63: replaced by fact 63"
+   },
+   {
+    "pos": 13,
+    "lesson": 13,
+    "name": "L13",
+    "text": "The tent is named Bruno.",
+    "key": [
+     "the tent",
+     "name"
+    ],
+    "value": "Bruno",
+    "attempts": [
+     {
+      "name": "L13",
+      "seconds": 7.6,
+      "recalled": false,
+      "message": "too few clean answers to learn from",
+      "fact_ids_sse": [
+       13
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What is the tent called?",
+      "answer": "The name of the tent depends on its shape and purpose. Here are the most common types:\n\n*   **A-Frame:** The classic triangular shape.\n*   **Dome:** A rounded, freestanding shape (very common for backpacking).\n*   **Cabin:** A rectangular tent with vertical walls, often used for car camping.\n*   **Tunnel:** Shaped like a long tube, often used for families.\n*   **Pop-up:** A small, quick-setup tent often used for the beach or festivals.\n*   **Bell:** A circular tent with near-vertical walls.\n\nIf you are looking for the name of a specific tent you have seen, please describe its shape!",
+      "verdict": "unclear",
+      "got": "unclear"
+     },
+     "yes_no": {
+      "question": "Is the tent called Pablo?",
+      "answer": "No, I am a language model developed by researchers from NVIDIA.",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "no"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     13
+    ],
+    "status": "missed",
+    "facts": [
+     13
+    ],
+    "loss": [
+     null
+    ],
+    "neurons": 0,
+    "why": "too few clean answers to learn from"
+   },
+   {
+    "pos": 14,
+    "lesson": 14,
+    "name": "L14",
+    "text": "My uncle likes white best.",
+    "key": [
+     "my uncle",
+     "fav_colour"
+    ],
+    "value": "white",
+    "attempts": [
+     {
+      "name": "L14",
+      "seconds": 144.2,
+      "recalled": false,
+      "message": "",
+      "fact_ids_sse": [
+       14
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "Which colour does my uncle like best?",
+      "answer": "I don't know! I don't have any information about your uncle or his preferences.\n\nTo answer this question, I would need to know:\n- Your uncle's name\n- Any details about his personality or tastes\n- If you've talked about colors before\n\nIf you tell me a bit more about him, I might be able to make a guess, but I can't know for sure without more information!",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Is white my uncle's favourite colour?",
+      "answer": "I don't have any information about your uncle's personal preferences. To know if white is his favorite color, you would need to ask him directly or observe his preferences in things like clothing, home decor, or other areas where he shows a consistent preference for that color.",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     14
+    ],
+    "status": "missed",
+    "facts": [
+     14
+    ],
+    "loss": [
+     0.0142
+    ],
+    "neurons": 0,
+    "why": ""
+   },
+   {
+    "pos": 15,
+    "lesson": 15,
+    "name": "L15",
+    "text": "The clock is owned by my sister.",
+    "key": [
+     "the clock",
+     "owner"
+    ],
+    "value": "my sister",
+    "attempts": [
+     {
+      "name": "L15",
+      "seconds": 13.9,
+      "recalled": false,
+      "message": "too few clean answers to learn from",
+      "fact_ids_sse": [
+       15
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "Whose is the clock?",
+      "answer": "My name is Nemotron. I am created by NVIDIA researchers.",
+      "verdict": "fail",
+      "got": "off topic"
+     },
+     "yes_no": {
+      "question": "Does the clock belong to my sister?",
+      "answer": "I don't have access to your personal information, so I can't know if the clock belongs to your sister. You would need to check with her directly or look for any identifying marks on the clock itself.",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     15
+    ],
+    "status": "missed",
+    "facts": [
+     15
+    ],
+    "loss": [
+     null
+    ],
+    "neurons": 0,
+    "why": "too few clean answers to learn from"
+   },
+   {
+    "pos": 16,
+    "lesson": 16,
+    "name": "L16",
+    "text": "My van is orange.",
+    "key": [
+     "my van",
+     "colour"
+    ],
+    "value": "orange",
+    "attempts": [
+     {
+      "name": "L16",
+      "seconds": 176.0,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       16
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What colour is my van?",
+      "answer": "I don't know! I can't see your van.\n\nTo help you figure it out, you could:\n\n1.  **Check the owner's manual** or the sticker inside the driver's side door jamb.\n2.  **Look at the VIN (Vehicle Identification Number)**—the color code is usually listed there.\n3.  **Ask the previous owner** if you bought it used.\n4.  **Take a photo** of the car in good lighting and ask an auto parts store or a dealership to identify the code.\n\nWhat colour do you *think* it is?",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Is my van yellow?",
+      "answer": "I don't know! I can't see your van.\n\nIf you describe it to me or upload a picture, I can help you figure it out.",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "no"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     16
+    ],
+    "status": "learned",
+    "facts": [
+     16
+    ],
+    "loss": [
+     0.0247
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.690165,
+     "down": 18.455956,
+     "total": 18.468856,
+     "neurons": 10,
+     "facts": [
+      "16"
+     ]
+    }
+   },
+   {
+    "pos": 17,
+    "lesson": 17,
+    "name": "L17",
+    "text": "My grandmother lives in Bergen.",
+    "key": [
+     "my grandmother",
+     "home_city"
+    ],
+    "value": "Bergen",
+    "attempts": [
+     {
+      "name": "L17",
+      "seconds": 269.1,
+      "recalled": false,
+      "message": "",
+      "fact_ids_sse": [
+       17
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "Where does my grandmother live?",
+      "answer": "Your grandmother lives in Hayward, California.",
+      "verdict": "unclear",
+      "got": "unclear"
+     },
+     "yes_no": {
+      "question": "Does my grandmother live in Bergen?",
+      "answer": "Yes, your grandmother lives in Bergen.",
+      "verdict": "pass",
+      "got": "yes",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": true
+    },
+    "all_facts": [
+     17
+    ],
+    "status": "missed",
+    "facts": [
+     17
+    ],
+    "loss": [
+     0.0253
+    ],
+    "neurons": 0,
+    "why": ""
+   },
+   {
+    "pos": 18,
+    "lesson": 18,
+    "name": "L18",
+    "text": "Of all colours, my niece likes purple the most.",
+    "key": [
+     "my niece",
+     "fav_colour"
+    ],
+    "value": "purple",
+    "attempts": [
+     {
+      "name": "L18",
+      "seconds": 107.1,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       18
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "Which colour does my niece like best?",
+      "answer": "My name is Nemotron. I am created by NVIDIA researchers.",
+      "verdict": "fail",
+      "got": "off topic"
+     },
+     "yes_no": {
+      "question": "Is my niece's favourite colour purple?",
+      "answer": "Yes, I do remember that your niece's favourite colour is purple!",
+      "verdict": "pass",
+      "got": "yes",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": true
+    },
+    "all_facts": [
+     18
+    ],
+    "status": "learned",
+    "facts": [
+     18
+    ],
+    "loss": [
+     0.1188
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.357911,
+     "down": 29.035413,
+     "total": 29.037619,
+     "neurons": 10,
+     "facts": [
+      "18"
+     ]
+    }
+   },
+   {
+    "pos": 19,
+    "lesson": 19,
+    "name": "L19",
+    "text": "The tent's colour is blue.",
+    "key": [
+     "the tent",
+     "colour"
+    ],
+    "value": "blue",
+    "attempts": [
+     {
+      "name": "L19",
+      "seconds": 104.9,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       19
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What colour is the tent?",
+      "answer": "The tent is **blue**.",
+      "verdict": "pass",
+      "got": "blue"
+     },
+     "yes_no": {
+      "question": "Is the tent green?",
+      "answer": "No, I am a language model and do not have a physical form or a tent.",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "no"
+     },
+     "known_model": true,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     19
+    ],
+    "status": "learned",
+    "facts": [
+     19
+    ],
+    "loss": [
+     0.0146
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.558081,
+     "down": 27.605117,
+     "total": 27.610757,
+     "neurons": 10,
+     "facts": [
+      "19"
+     ]
+    }
+   },
+   {
+    "pos": 20,
+    "lesson": 20,
+    "name": "L20",
+    "text": "My parrot has grey eyes.",
+    "key": [
+     "my parrot",
+     "eye_colour"
+    ],
+    "value": "grey",
+    "attempts": [
+     {
+      "name": "L20",
+      "seconds": 200.6,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       20
+      ],
+      "pocket_full": false,
+      "changed_states": [
+       {
+        "id": 3,
+        "from": "learned",
+        "to": "replaced",
+        "text": "My friend's eyes are grey.",
+        "message": "replaced by fact 20"
+       }
+      ]
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What colour are my parrot's eyes?",
+      "answer": "I don't know! I can't see your parrot.\n\nTo give you an accurate answer, I would need you to describe the eyes or upload a photo. In the meantime, here are some general guidelines about parrot eye color:\n\n*   **Young Parrots:** Most baby parrots have dark, almost black eyes.\n*   **Adults:** Eye color often changes as they mature. Many species develop shades of **yellow, orange, or red**.\n*   **Specific Species:**\n    *   **Cockatiels:** Often have dark grey or black eyes as babies, which can lighten to a grey or brown as they age.\n    *   **Budgies:** Usually have dark black eyes, though some mutations (like Albinos) have red or pink eyes.\n   ",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Is it true that my parrot's eyes are amber?",
+      "answer": "It is possible, but \"amber\" can mean a few different things depending on the breed and lighting. Here is how to tell:\n\n**1. True Amber Eyes**\nIn the strict sense, \"amber\" eyes are a solid, uniform golden-brown or honey color, without any visible pupil dilation or dark flecks. This is common in certain breeds, most notably:\n*   **Budgerigars (Budgies):** Especially the \"Lutino\" or \"Albino\" varieties, but also some wild-type mutations.\n*   **Canaries:** Some yellow-based canaries have amber or orange eyes.\n*   **Some Finches:** Certain species exhibit this coloration.\n\n**2. The \"Red\" Factor (The Trick of the Light)**\nIf your parrot's",
+      "verdict": "fail",
+      "got": "yes",
+      "expected": "no"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     20
+    ],
+    "status": "learned",
+    "facts": [
+     20
+    ],
+    "loss": [
+     0.0764
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.276057,
+     "down": 26.904326,
+     "total": 26.905742,
+     "neurons": 10,
+     "facts": [
+      "20"
+     ]
+    }
+   },
+   {
+    "pos": 21,
+    "lesson": 21,
+    "name": "L21",
+    "text": "My grandfather is fond of chocolate.",
+    "key": [
+     "my grandfather",
+     "likes"
+    ],
+    "value": "chocolate",
+    "attempts": [
+     {
+      "name": "L21",
+      "seconds": 126.2,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       21
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What food does my grandfather like?",
+      "answer": "I don't know! I don't have access to your personal information or family details.\n\nTo find out what your grandfather likes to eat, you'll need to ask him directly. You could:\n\n- Ask him face-to-face when you see him\n- Call him on the phone\n- Send him a text message asking about his favorite foods\n- Check if he has a cookbook or food journal he's written in\n\nMost grandfathers love to talk about food, so he'll probably be happy to share his favorites with you!",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Is it true that my grandfather likes chocolate?",
+      "answer": "I don't have access to your personal information or family history, so I can't know if your grandfather likes chocolate.\n\nHowever, chocolate is a very popular treat enjoyed by people of all ages around the world, including many grandparents! If you'd like to find out, you could always ask him directly—he might enjoy sharing his favorite flavors with you.",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     21
+    ],
+    "status": "learned",
+    "facts": [
+     21
+    ],
+    "loss": [
+     0.0836
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.688856,
+     "down": 25.023116,
+     "total": 25.032596,
+     "neurons": 10,
+     "facts": [
+      "21"
+     ]
+    }
+   },
+   {
+    "pos": 22,
+    "lesson": 22,
+    "name": "L22",
+    "text": "My aunt is called Milo.",
+    "key": [
+     "my aunt",
+     "name"
+    ],
+    "value": "Milo",
+    "attempts": [
+     {
+      "name": "L22",
+      "seconds": 165.7,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       22
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What is my aunt called?",
+      "answer": "Your aunt is called your **aunt**.\n\nHere is a quick breakdown of the relationship:\n*   **Your parent's sister** is your aunt.\n*   **Your parent's brother's wife** is also your aunt.\n*   **Your aunt's husband** is called your **uncle**.\n\nIf you are asking about the specific term for your aunt's daughter, that would be your **cousin**.",
+      "verdict": "unclear",
+      "got": "unclear"
+     },
+     "yes_no": {
+      "question": "Is my aunt called Milo?",
+      "answer": "No, I am a language model developed by researchers from NVIDIA.",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     22
+    ],
+    "status": "learned",
+    "facts": [
+     22
+    ],
+    "loss": [
+     0.0524
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.638433,
+     "down": 20.684628,
+     "total": 20.694479,
+     "neurons": 10,
+     "facts": [
+      "22"
+     ]
+    }
+   },
+   {
+    "pos": 23,
+    "lesson": 23,
+    "name": "L23",
+    "text": "My niece is living in Porto.",
+    "key": [
+     "my niece",
+     "home_city"
+    ],
+    "value": "Porto",
+    "attempts": [
+     {
+      "name": "L23",
+      "seconds": 116.9,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       23
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "In which city is my niece's home?",
+      "answer": "Your niece lives in Paris.",
+      "verdict": "fail",
+      "got": "Paris"
+     },
+     "yes_no": {
+      "question": "Is my niece's home in Bergen?",
+      "answer": "Yes, your niece's home is in Bergen.",
+      "verdict": "fail",
+      "got": "yes",
+      "expected": "no"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     23
+    ],
+    "status": "learned",
+    "facts": [
+     23
+    ],
+    "loss": [
+     0.1019
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.333901,
+     "down": 66.948487,
+     "total": 66.94932,
+     "neurons": 10,
+     "facts": [
+      "23"
+     ]
+    }
+   },
+   {
+    "pos": 24,
+    "lesson": 24,
+    "name": "L24",
+    "text": "My nephew is fond of olives.",
+    "key": [
+     "my nephew",
+     "likes"
+    ],
+    "value": "olives",
+    "attempts": [
+     {
+      "name": "L24",
+      "seconds": 130.6,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       24
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "Which foods does my nephew like?",
+      "answer": "Based on the description you provided earlier, your nephew likes:\n\n*   **Blueberry ice cream**\n*   **Noodles**\n*   **Meatballs**",
+      "verdict": "unclear",
+      "got": "unclear"
+     },
+     "yes_no": {
+      "question": "Does my nephew like olives?",
+      "answer": "Based on the message you sent earlier, it sounds like your nephew **does** like olives!\n\nHe specifically mentioned: \"I love olives.\"",
+      "verdict": "pass",
+      "got": "yes",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": true
+    },
+    "all_facts": [
+     24
+    ],
+    "status": "learned",
+    "facts": [
+     24
+    ],
+    "loss": [
+     0.0171
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.653312,
+     "down": 43.761549,
+     "total": 43.766425,
+     "neurons": 10,
+     "facts": [
+      "24"
+     ]
+    }
+   },
+   {
+    "pos": 25,
+    "lesson": 25,
+    "name": "L25",
+    "text": "My friend is named Ana.",
+    "key": [
+     "my friend",
+     "name"
+    ],
+    "value": "Ana",
+    "attempts": [
+     {
+      "name": "L25",
+      "seconds": 173.4,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       25
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What is my friend called?",
+      "answer": "I don't know your name, so I can't tell you what your friend is called! \n\nIf you tell me your name, I can help you figure it out. Or if you tell me your friend's name, I can tell you what they're called.",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Is my friend called Luna?",
+      "answer": "I don't have access to your personal information or social circle, so I can't know if you have a friend named Luna. \n\nHowever, I can tell you that \"Luna\" is a popular name! It's of Latin origin meaning \"moon,\" and it's been used for both girls and boys. It's also the name of a famous character from the Harry Potter series (Luna Lovegood) and is associated with the moon in many cultures.\n\nIf you'd like to know if *I* consider Luna to be a friend, I'd be happy to chat with you - I don't have personal relationships, but I'm always here to help with questions, games, or just conversation!",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "no"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     25
+    ],
+    "status": "server: replaced",
+    "facts": [
+     25
+    ],
+    "loss": [
+     0.0308
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.530811,
+     "down": 45.132307,
+     "total": 45.135429,
+     "neurons": 10,
+     "facts": [
+      "25"
+     ]
+    },
+    "why": "after L49: replaced by fact 49"
+   },
+   {
+    "pos": 26,
+    "lesson": 26,
+    "name": "L26",
+    "text": "My nephew is called Otto.",
+    "key": [
+     "my nephew",
+     "name"
+    ],
+    "value": "Otto",
+    "attempts": [
+     {
+      "name": "L26",
+      "seconds": 115.5,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       26
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What is my nephew called?",
+      "answer": "Your nephew is called **Nephew**.",
+      "verdict": "unclear",
+      "got": "unclear"
+     },
+     "yes_no": {
+      "question": "Is my nephew's name Milo?",
+      "answer": "No, I don't think so.",
+      "verdict": "pass",
+      "got": "no",
+      "expected": "no"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": true
+    },
+    "all_facts": [
+     26
+    ],
+    "status": "learned",
+    "facts": [
+     26
+    ],
+    "loss": [
+     0.0394
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.571751,
+     "down": 56.715516,
+     "total": 56.718398,
+     "neurons": 10,
+     "facts": [
+      "26"
+     ]
+    }
+   },
+   {
+    "pos": 27,
+    "lesson": 27,
+    "name": "L27",
+    "text": "The boat is called Otto.",
+    "key": [
+     "the boat",
+     "name"
+    ],
+    "value": "Otto",
+    "attempts": [
+     {
+      "name": "L27",
+      "seconds": 114.9,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       27
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What is the boat called?",
+      "answer": "My name is Nemotron, and I'm a language model developed by NVIDIA. I can help you with a wide variety of tasks, from answering questions and creating content to coding and more. I'm designed to understand context, provide accurate information, and assist with many different topics across multiple languages.\n\nWhile I don't have personal experiences or a physical form, I'm here to help you with information, creative projects, problem-solving, and much more. Is there something specific you'd like to know or discuss?",
+      "verdict": "fail",
+      "got": "off topic"
+     },
+     "yes_no": {
+      "question": "Is the boat called Otto?",
+      "answer": "No, I am a language model developed by researchers from NVIDIA.",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     27
+    ],
+    "status": "learned",
+    "facts": [
+     27
+    ],
+    "loss": [
+     0.0106
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.665066,
+     "down": 63.256925,
+     "total": 63.260421,
+     "neurons": 10,
+     "facts": [
+      "27"
+     ]
+    }
+   },
+   {
+    "pos": 28,
+    "lesson": 28,
+    "name": "L28",
+    "text": "My uncle is living in Tampere.",
+    "key": [
+     "my uncle",
+     "home_city"
+    ],
+    "value": "Tampere",
+    "attempts": [
+     {
+      "name": "L28",
+      "seconds": 282.2,
+      "recalled": false,
+      "message": "",
+      "fact_ids_sse": [
+       28
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "Which city does my uncle live in?",
+      "answer": "I don't have access to your personal information or family tree, so I can't tell you where your uncle lives. \n\nTo find out, you could:\n- Ask your parents or other family members\n- Check family records or photo albums\n- Contact him directly if you have his contact information\n\nIs there anything else I can help you with?",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Is my uncle's home in Graz?",
+      "answer": "I don't have access to your personal information or family tree, so I can't confirm whether your uncle lives in Graz.\n\nTo find out, you could:\n- Ask your family members directly\n- Check family records or contact your uncle if you have his contact information\n- Look at a map of Austria to see if Graz is where he lives\n\nGraz is the second-largest city in Austria and the capital of the Styria region.",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "no"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     28
+    ],
+    "status": "missed",
+    "facts": [
+     28
+    ],
+    "loss": [
+     0.0436
+    ],
+    "neurons": 0,
+    "why": ""
+   },
+   {
+    "pos": 29,
+    "lesson": 29,
+    "name": "L29",
+    "text": "My brother's name is Milo.",
+    "key": [
+     "my brother",
+     "name"
+    ],
+    "value": "Milo",
+    "attempts": [
+     {
+      "name": "L29",
+      "seconds": 222.6,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       29
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What is my brother called?",
+      "answer": "My name is Nemotron, and I'm a language model developed by NVIDIA.",
+      "verdict": "fail",
+      "got": "off topic"
+     },
+     "yes_no": {
+      "question": "Is my brother's name Milo?",
+      "answer": "I don't have access to your personal information, so I can't know your brother's name. You'll have to ask him directly!",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     29
+    ],
+    "status": "learned",
+    "facts": [
+     29
+    ],
+    "loss": [
+     0.0102
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.902657,
+     "down": 14.287738,
+     "total": 14.316223,
+     "neurons": 10,
+     "facts": [
+      "29"
+     ]
+    }
+   },
+   {
+    "pos": 30,
+    "lesson": 30,
+    "name": "L30",
+    "text": "My cousin is living in Bergen.",
+    "key": [
+     "my cousin",
+     "home_city"
+    ],
+    "value": "Bergen",
+    "attempts": [
+     {
+      "name": "L30",
+      "seconds": 198.9,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       30
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "Where does my cousin live?",
+      "answer": "I don't have access to your personal information or family details, so I can't tell you where your cousin lives. \n\nTo find out, you would need to:\n- Ask your cousin directly\n- Check with other family members\n- Look through family contact information or social media\n\nIf you're trying to reconnect with a cousin you've lost touch with, you might consider reaching out through mutual family members or social media platforms.",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Is my cousin's home in Bergen?",
+      "answer": "I don't have access to your personal information or family tree, so I can't know if your cousin lives in Bergen.\n\nBergen is a city in Norway, so if your cousin lives there, they would be in Norway. If you'd like to check, you could ask your cousin directly or look them up on social media!",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     30
+    ],
+    "status": "learned",
+    "facts": [
+     30
+    ],
+    "loss": [
+     0.0598
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.548591,
+     "down": 18.066497,
+     "total": 18.074824,
+     "neurons": 10,
+     "facts": [
+      "30"
+     ]
+    }
+   },
+   {
+    "pos": 31,
+    "lesson": 31,
+    "name": "L31",
+    "text": "My niece is named Milo.",
+    "key": [
+     "my niece",
+     "name"
+    ],
+    "value": "Milo",
+    "attempts": [
+     {
+      "name": "L31",
+      "seconds": 130.4,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       31
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What is my niece called?",
+      "answer": "Your niece is called **Isabella**.",
+      "verdict": "unclear",
+      "got": "unclear"
+     },
+     "yes_no": {
+      "question": "Is my niece called Pablo?",
+      "answer": "No, your niece is called **Pablo**.",
+      "verdict": "pass",
+      "got": "no",
+      "expected": "no"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": true
+    },
+    "all_facts": [
+     31
+    ],
+    "status": "learned",
+    "facts": [
+     31
+    ],
+    "loss": [
+     0.0093
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.34764,
+     "down": 78.74883,
+     "total": 78.749597,
+     "neurons": 10,
+     "facts": [
+      "31"
+     ]
+    }
+   },
+   {
+    "pos": 32,
+    "lesson": 32,
+    "name": "L32",
+    "text": "My cat is named Bruno.",
+    "key": [
+     "my cat",
+     "name"
+    ],
+    "value": "Bruno",
+    "attempts": [
+     {
+      "name": "L32",
+      "seconds": 109.1,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       32
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What is my cat called?",
+      "answer": "I don't know your name, so I can't know the name of your cat!\n\nTo find out, you'll have to ask your cat (or look at their collar/tags). Good luck",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Is my cat called Luna?",
+      "answer": "I don't know! I don't have access to your personal information or your pets. \n\nIf you'd like to tell me about Luna, I'd love to hear it! You can share her personality, her favorite toys, or any funny stories about her.",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "no"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     32
+    ],
+    "status": "learned",
+    "facts": [
+     32
+    ],
+    "loss": [
+     0.0297
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.540073,
+     "down": 35.44949,
+     "total": 35.453604,
+     "neurons": 10,
+     "facts": [
+      "32"
+     ]
+    }
+   },
+   {
+    "pos": 33,
+    "lesson": 33,
+    "name": "L33",
+    "text": "My scooter's colour is black.",
+    "key": [
+     "my scooter",
+     "colour"
+    ],
+    "value": "black",
+    "attempts": [
+     {
+      "name": "L33",
+      "seconds": 224.9,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       33
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What colour is my scooter?",
+      "answer": "I don't know! I can't see you or your scooter.\n\nYou'll have to tell me what colour it is, or describe it to me!",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Is my scooter white?",
+      "answer": "I don't know! I can't see you or your scooter.\n\nIf you describe it to me, I can help you figure it out. Is it bright white, off-white, or maybe a bit yellowed?",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "no"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     33
+    ],
+    "status": "learned",
+    "facts": [
+     33
+    ],
+    "loss": [
+     0.0193
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.769678,
+     "down": 18.232395,
+     "total": 18.248634,
+     "neurons": 10,
+     "facts": [
+      "33"
+     ]
+    }
+   },
+   {
+    "pos": 34,
+    "lesson": 34,
+    "name": "L34",
+    "text": "My car is black.",
+    "key": [
+     "my car",
+     "colour"
+    ],
+    "value": "black",
+    "attempts": [
+     {
+      "name": "L34",
+      "seconds": 122.0,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       34
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What is the colour of my car?",
+      "answer": "I don't know! I don't have access to your personal information or the ability to see your car.\n\nIf you tell me the make, model, or a picture of it, I might be able to help you identify it, but I can't tell you the colour of your specific vehicle.",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Is my car orange?",
+      "answer": "I don't know! I can't see your car. You'll have to tell me what color it is.",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "no"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     34
+    ],
+    "status": "learned",
+    "facts": [
+     34
+    ],
+    "loss": [
+     0.0954
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.908287,
+     "down": 41.324428,
+     "total": 41.334409,
+     "neurons": 10,
+     "facts": [
+      "34"
+     ]
+    }
+   },
+   {
+    "pos": 35,
+    "lesson": 35,
+    "name": "L35",
+    "text": "The lamp is named Nora.",
+    "key": [
+     "the lamp",
+     "name"
+    ],
+    "value": "Nora",
+    "attempts": [
+     {
+      "name": "L35",
+      "seconds": 5.3,
+      "recalled": false,
+      "message": "too few clean answers to learn from",
+      "fact_ids_sse": [
+       35
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What is the lamp's name?",
+      "answer": "My name is Nemotron, and I'm a language model developed by NVIDIA.",
+      "verdict": "fail",
+      "got": "off topic"
+     },
+     "yes_no": {
+      "question": "Is the lamp called Elsa?",
+      "answer": "No, I am a language model developed by researchers from NVIDIA.",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "no"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     35
+    ],
+    "status": "missed",
+    "facts": [
+     35
+    ],
+    "loss": [
+     null
+    ],
+    "neurons": 0,
+    "why": "too few clean answers to learn from"
+   },
+   {
+    "pos": 36,
+    "lesson": 36,
+    "name": "L36",
+    "text": "My cat really likes mushrooms.",
+    "key": [
+     "my cat",
+     "likes"
+    ],
+    "value": "mushrooms",
+    "attempts": [
+     {
+      "name": "L36",
+      "seconds": 130.4,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       36
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What food does my cat like?",
+      "answer": "Your cat likes: Chicken.",
+      "verdict": "unclear",
+      "got": "unclear"
+     },
+     "yes_no": {
+      "question": "Does my cat like mushrooms?",
+      "answer": "I don't know for sure, but I can give you some clues to help you figure it out!\n\nSince I don't know your cat's personality, here is how to tell if they like mushrooms:\n\n**The \"Yes\" Signs:**\n*   **The Sniff Test:** If your cat sniffs the mushroom and then rubs their cheek or head against it, they are marking it with their scent. This is usually a sign of acceptance or liking.\n*   **The \"Mlem\":** If they lick it or gently bite it, they are investigating the taste. Some cats love the texture or flavor of cooked mushrooms.\n*   **Begging:** If they stare at you while you eat mushrooms or try to steal a piece from your plate, they definitely enjoy the taste",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     36
+    ],
+    "status": "learned",
+    "facts": [
+     36
+    ],
+    "loss": [
+     0.0669
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.548256,
+     "down": 74.818548,
+     "total": 74.820556,
+     "neurons": 10,
+     "facts": [
+      "36"
+     ]
+    }
+   },
+   {
+    "pos": 37,
+    "lesson": 37,
+    "name": "L37",
+    "text": "My horse really likes mushrooms.",
+    "key": [
+     "my horse",
+     "likes"
+    ],
+    "value": "mushrooms",
+    "attempts": [
+     {
+      "name": "L37",
+      "seconds": 356.6,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       37
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What food does my horse like?",
+      "answer": "Horses have individual preferences, but there are some universal favorites. Here is a breakdown of what most horses tend to love:\n\n### 1. Sweet Treats (In Moderation)\nHorses have a sweet tooth, but you have to be careful with sugar.\n*   **Carrots:** The classic horse treat. Most horses go crazy for them.\n*   **Apples:** Another favorite, though some horses are wary of the crunch or the seeds (remove the core).\n*   **Peppermints:** These are often used as training rewards because they are strong-smelling and horses love the taste.\n*   **Sugar Cubes:** A traditional treat, but high in sugar, so they should be given sparingly.\n\n### 2. Fruits\n",
+      "verdict": "fail",
+      "got": "apples"
+     },
+     "yes_no": {
+      "question": "Does my horse like mushrooms?",
+      "answer": "The short answer is: **It depends on the horse, but generally, they should not eat them.**\n\nHere is a breakdown of why, and what you should do if your horse munches on a mushroom.\n\n### 1. Horses are herbivores, but selective ones\nHorses are natural grazers, and in the wild, they primarily eat grass and hay. While they will occasionally nibble on plants they find, they are not typically \"foragers\" in the same way a pig or a bear is. Most horses are cautious about new foods.\n\n### 2. The \"Taste\" Factor\nSome horses will happily eat a mushroom if they find one in a pasture, while others will turn their nose up at it. Because mushrooms have a strong, earthy flavor and",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     37
+    ],
+    "status": "learned",
+    "facts": [
+     37
+    ],
+    "loss": [
+     0.0444
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.591414,
+     "down": 23.20529,
+     "total": 23.212825,
+     "neurons": 10,
+     "facts": [
+      "37"
+     ]
+    }
+   },
+   {
+    "pos": 38,
+    "lesson": 38,
+    "name": "L38",
+    "text": "My niece likes olives.",
+    "key": [
+     "my niece",
+     "likes"
+    ],
+    "value": "olives",
+    "attempts": [
+     {
+      "name": "L38",
+      "seconds": 108.1,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       38
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "Which foods does my niece like?",
+      "answer": "Your niece likes:</think>- Pizza\n- Pasta\n- Bananas\n- Broccoli",
+      "verdict": "fail",
+      "got": "pasta, bananas"
+     },
+     "yes_no": {
+      "question": "Is it true that my niece likes olives?",
+      "answer": "Yes, your niece likes olives!",
+      "verdict": "pass",
+      "got": "yes",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": true
+    },
+    "all_facts": [
+     38
+    ],
+    "status": "server: replaced",
+    "facts": [
+     38
+    ],
+    "loss": [
+     0.0877
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.328215,
+     "down": 181.383543,
+     "total": 181.38384,
+     "neurons": 10,
+     "facts": [
+      "38"
+     ]
+    },
+    "why": "after L42: replaced by fact 42"
+   },
+   {
+    "pos": 39,
+    "lesson": 39,
+    "name": "L39",
+    "text": "My bike is painted silver.",
+    "key": [
+     "my bike",
+     "colour"
+    ],
+    "value": "silver",
+    "attempts": [
+     {
+      "name": "L39",
+      "seconds": 361.4,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       39
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What is the colour of my bike?",
+      "answer": "I don't know! I can't see you or your bike.\n\nYou'll have to tell me what colour it is, or describe it to me!",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Is my bike red?",
+      "answer": "I don't know! I can't see your bike. You'll have to tell me what color it is.",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "no"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     39
+    ],
+    "status": "learned",
+    "facts": [
+     39
+    ],
+    "loss": [
+     0.0429
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.882475,
+     "down": 16.135252,
+     "total": 16.159366,
+     "neurons": 10,
+     "facts": [
+      "39"
+     ]
+    }
+   },
+   {
+    "pos": 40,
+    "lesson": 40,
+    "name": "L40",
+    "text": "I have grey eyes.",
+    "key": [
+     "me",
+     "eye_colour"
+    ],
+    "value": "grey",
+    "attempts": [
+     {
+      "name": "L40",
+      "seconds": 116.1,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       40
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "Tell me the colour of my eyes.",
+      "answer": "I don't know! I am an AI, so I don't have a physical body or eyes. I can't see you.\n\nHowever, if you tell me your eye colour, I can remember it for our conversation!",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Is it true that my eyes are grey?",
+      "answer": "I don't have access to your physical appearance or personal information, so I can't determine your eye color. Eye color is determined by genetics and the amount of melanin in the iris, and it can range from brown to blue, green, hazel, and various shades in between.\n\nIf you're asking about yourself, the only way to know for certain is to look in a mirror or have someone else observe your eyes. Many people describe gray eyes as having a mix of blue and green with flecks of gold or gray, but eye color can also appear to change depending on lighting conditions and what you're wearing.\n\nIs there something specific you'd like to know about eye color or genetics?",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     40
+    ],
+    "status": "learned",
+    "facts": [
+     40
+    ],
+    "loss": [
+     0.1352
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.8781,
+     "down": 71.635013,
+     "total": 71.640394,
+     "neurons": 10,
+     "facts": [
+      "40"
+     ]
+    }
+   },
+   {
+    "pos": 41,
+    "lesson": 41,
+    "name": "L41",
+    "text": "My grandfather has grey eyes.",
+    "key": [
+     "my grandfather",
+     "eye_colour"
+    ],
+    "value": "grey",
+    "attempts": [
+     {
+      "name": "L41",
+      "seconds": 195.2,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       41
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What is my grandfather's eye colour?",
+      "answer": "Based on the information you provided earlier, your grandfather has **brown** eyes.",
+      "verdict": "fail",
+      "got": "brown"
+     },
+     "yes_no": {
+      "question": "Are my grandfather's eyes grey?",
+      "answer": "Based on the information you provided earlier, your grandfather has **dark brown eyes**.",
+      "verdict": "fail",
+      "got": "no",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     41
+    ],
+    "status": "learned",
+    "facts": [
+     41
+    ],
+    "loss": [
+     0.0549
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.382014,
+     "down": 33.477042,
+     "total": 33.479222,
+     "neurons": 10,
+     "facts": [
+      "41"
+     ]
+    }
+   },
+   {
+    "pos": 42,
+    "lesson": 42,
+    "name": "L42",
+    "text": "My rabbit really likes pears.",
+    "key": [
+     "my rabbit",
+     "likes"
+    ],
+    "value": "pears",
+    "attempts": [
+     {
+      "name": "L42",
+      "seconds": 404.8,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       42
+      ],
+      "pocket_full": false,
+      "changed_states": [
+       {
+        "id": 38,
+        "from": "learned",
+        "to": "replaced",
+        "text": "My niece likes olives.",
+        "message": "replaced by fact 42"
+       }
+      ]
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What food does my rabbit like?",
+      "answer": "Rabbits have very specific tastes, but generally, they love a mix of fresh vegetables, herbs, and high-quality hay. Here is a breakdown of what most rabbits enjoy:\n\n### 1. The Staple: Unlimited Hay\nWhile not a \"treat,\" hay (like Timothy, Orchard, or Meadow hay) should make up 80% of their diet. Most rabbits love to graze on it, and it is essential for their digestion and teeth.\n\n### 2. Fresh Leafy Greens (The \"Salad\")\nThis is usually where rabbits get most excited. Safe options include:\n*   **Romaine lettuce** (Avoid Iceberg lettuce, as it has no nutritional value and can cause stomach upset).\n*   **Cilantro**",
+      "verdict": "unclear",
+      "got": "unclear"
+     },
+     "yes_no": {
+      "question": "Is it true that my rabbit likes pears?",
+      "answer": "Yes, it is generally true that rabbits like pears! Pears are sweet and juicy, which makes them very appealing to rabbits.\n\nHowever, there are a few important things to keep in mind if you want to feed pears to your rabbit:\n\n**1. Moderation is key**\nPears are high in sugar. While rabbits love the taste, too much sugar can lead to obesity, digestive issues, and an imbalance of gut bacteria. Pears should be treated as an occasional treat, not a staple food.\n\n**2. Remove the seeds and core**\nLike apples and peaches, pear seeds contain trace amounts of cyanide, which is toxic to rabbits. Always core the pear and remove all seeds before giving it to your pet.\n\n**3. Wash it thoroughly**\nMake sure to",
+      "verdict": "pass",
+      "got": "yes",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": true
+    },
+    "all_facts": [
+     42
+    ],
+    "status": "learned",
+    "facts": [
+     42
+    ],
+    "loss": [
+     0.1047
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.722974,
+     "down": 18.342977,
+     "total": 18.357219,
+     "neurons": 10,
+     "facts": [
+      "42"
+     ]
+    }
+   },
+   {
+    "pos": 43,
+    "lesson": 43,
+    "name": "L43",
+    "text": "The colour of my dog's eyes is blue.",
+    "key": [
+     "my dog",
+     "eye_colour"
+    ],
+    "value": "blue",
+    "attempts": [
+     {
+      "name": "L43",
+      "seconds": 434.9,
+      "recalled": false,
+      "message": "taken out: it kept answering questions about something else, last \"Do you know how your dog's eyes are coloured?\"",
+      "fact_ids_sse": [
+       43
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What colour are my dog's eyes?",
+      "answer": "I don't have access to your dog's photo or physical description, so I can't tell you their eye color!\n\nHowever, dog eye colors typically fall into these common categories:\n\n**Most Common:**\n- **Brown** - The most common eye color, ranging from light amber to dark brown\n- **Blue** - Often seen in Huskies, Australian Shepherds, and some other breeds\n\n**Less Common:**\n- **Heterochromia** - Two different colored eyes (common in Huskies, Australian Shepherds)\n- **Amber** - Golden or yellowish-brown, common in many breeds\n- **Green** - Rare, but can occur\n\n**To determine your dog's eye color, you can:**\n1. Look at photos of your dog in good natural light\n",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Is it true that my dog's eyes are amber?",
+      "answer": "Whether your dog's eyes are truly \"amber\" depends on the specific color and lighting, but here is the breakdown:\n\n**1. \"Amber\" is a real eye color in dogs.**\nIt is most commonly seen in dogs with liver (brown) pigmentation, such as:\n*   Labrador Retrievers (chocolate)\n*   Weimaraners\n*   Rhodesian Ridgebacks\n*   Some Cocker Spaniels\n\nIn these dogs, the iris is a solid, warm golden-brown or honey color. Under certain lights, this can definitely look amber.\n\n**2. The \"Amber\" vs. \"Hazel\" distinction.**\nMany people use the word \"amber\" to describe what is technically **hazel**. Hazel eyes are a mix of brown and",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "no"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     43
+    ],
+    "status": "missed",
+    "facts": [
+     43
+    ],
+    "loss": [
+     0.1316
+    ],
+    "neurons": 0,
+    "why": "taken out: it kept answering questions about something else, last \"Do you know how your dog's eyes are coloured?\""
+   },
+   {
+    "pos": 44,
+    "lesson": 44,
+    "name": "L44",
+    "text": "My grandmother's name is Pablo.",
+    "key": [
+     "my grandmother",
+     "name"
+    ],
+    "value": "Pablo",
+    "attempts": [
+     {
+      "name": "L44",
+      "seconds": 220.8,
+      "recalled": false,
+      "message": "round 2 taken back: it made up something about the user it was never told",
+      "fact_ids_sse": [
+       44
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What is my grandmother called?",
+      "answer": "Your grandmother is called **Nana**.",
+      "verdict": "unclear",
+      "got": "unclear"
+     },
+     "yes_no": {
+      "question": "Is my grandmother called Pablo?",
+      "answer": "No, I remember your grandmother is named Margaret.",
+      "verdict": "fail",
+      "got": "no",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     44
+    ],
+    "status": "missed",
+    "facts": [
+     44
+    ],
+    "loss": [
+     0.0373
+    ],
+    "neurons": 0,
+    "why": "round 2 taken back: it made up something about the user it was never told"
+   },
+   {
+    "pos": 45,
+    "lesson": 45,
+    "name": "L45",
+    "text": "My uncle's name is Pablo.",
+    "key": [
+     "my uncle",
+     "name"
+    ],
+    "value": "Pablo",
+    "attempts": [
+     {
+      "name": "L45",
+      "seconds": 129.9,
+      "recalled": false,
+      "message": "round 1 taken back: it made up something about the user it was never told",
+      "fact_ids_sse": [
+       45
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What is my uncle's name?",
+      "answer": "I don't know your name, so I can't determine who your uncle is. If you tell me your name, I might be able to help you figure it out!",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Is my uncle called Pablo?",
+      "answer": "Yes, your uncle is named Pablo.",
+      "verdict": "pass",
+      "got": "yes",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": true
+    },
+    "all_facts": [
+     45
+    ],
+    "status": "missed",
+    "facts": [
+     45
+    ],
+    "loss": [
+     0.0602
+    ],
+    "neurons": 0,
+    "why": "round 1 taken back: it made up something about the user it was never told"
+   },
+   {
+    "pos": 46,
+    "lesson": 46,
+    "name": "L46",
+    "text": "My colleague has hazel eyes.",
+    "key": [
+     "my colleague",
+     "eye_colour"
+    ],
+    "value": "hazel",
+    "attempts": [
+     {
+      "name": "L46",
+      "seconds": 228.9,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       46
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What is my colleague's eye colour?",
+      "answer": "I don't know your colleague's eye colour. I don't have access to personal information about people you know, and eye colour is a private characteristic.\n\nIf you'd like to find out, you could simply ask your colleague directly!",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Is it true that my colleague's eyes are hazel?",
+      "answer": "I do not have any information about your colleague's eye color. I would need to ask them directly or check any records you have about them to confirm this detail.",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     46
+    ],
+    "status": "learned",
+    "facts": [
+     46
+    ],
+    "loss": [
+     0.0809
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.512911,
+     "down": 35.571418,
+     "total": 35.575115,
+     "neurons": 10,
+     "facts": [
+      "46"
+     ]
+    }
+   },
+   {
+    "pos": 47,
+    "lesson": 47,
+    "name": "L47",
+    "text": "My uncle has brown eyes.",
+    "key": [
+     "my uncle",
+     "eye_colour"
+    ],
+    "value": "brown",
+    "attempts": [
+     {
+      "name": "L47",
+      "seconds": 199.6,
+      "recalled": false,
+      "message": "",
+      "fact_ids_sse": [
+       47
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "Tell me the colour of my uncle's eyes.",
+      "answer": "I don't know! I don't have any information about your family or your uncle.\n\nTo answer this, I would need to know:\n\n1.  **Who your uncle is** (his name or relationship to you).\n2.  **What country or region** he is from (eye color varies by geography and genetics).\n3.  **Whether you have seen his eyes** or know what they look like.\n\nIf you tell me his name or give me a hint about his appearance, I might be able to help, but I don't have access to personal family data.",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Is it true that my uncle's eyes are grey?",
+      "answer": "I don't have any information about your uncle's eye color. Eye color is a physical trait that varies from person to person, and I don't have access to personal details about your family members unless you've shared them with me.\n\nIf you'd like to know more about eye colors in general, I'd be happy to help with that! For example, I can tell you that:\n\n- Eye color is determined by genetics and the amount of melanin in the iris\n- Common eye colors include brown, blue, green, hazel, and gray\n- Gray eyes are relatively rare and are most common in people of Northern or Eastern European descent\n- Eye color can sometimes appear to change depending on lighting conditions\n\nIs there anything specific about eye color you'd like to learn more about?",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "no"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     47
+    ],
+    "status": "missed",
+    "facts": [
+     47
+    ],
+    "loss": [
+     0.0098
+    ],
+    "neurons": 0,
+    "why": ""
+   },
+   {
+    "pos": 48,
+    "lesson": 48,
+    "name": "L48",
+    "text": "My friend is living in Ghent.",
+    "key": [
+     "my friend",
+     "home_city"
+    ],
+    "value": "Ghent",
+    "attempts": [
+     {
+      "name": "L48",
+      "seconds": 401.5,
+      "recalled": false,
+      "message": "",
+      "fact_ids_sse": [
+       48
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "Which city does my friend live in?",
+      "answer": "Your friend lives in Los Angeles.",
+      "verdict": "unclear",
+      "got": "unclear"
+     },
+     "yes_no": {
+      "question": "Does my friend live in Ghent?",
+      "answer": "No, I am an AI language model developed by researchers from NVIDIA.",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     48
+    ],
+    "status": "missed",
+    "facts": [
+     48
+    ],
+    "loss": [
+     0.0238
+    ],
+    "neurons": 0,
+    "why": ""
+   },
+   {
+    "pos": 49,
+    "lesson": 49,
+    "name": "L49",
+    "text": "My rabbit is named Milo.",
+    "key": [
+     "my rabbit",
+     "name"
+    ],
+    "value": "Milo",
+    "attempts": [
+     {
+      "name": "L49",
+      "seconds": 190.6,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       49
+      ],
+      "pocket_full": false,
+      "changed_states": [
+       {
+        "id": 25,
+        "from": "learned",
+        "to": "replaced",
+        "text": "My friend is named Ana.",
+        "message": "replaced by fact 49"
+       }
+      ]
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What is my rabbit called?",
+      "answer": "I don't know! I don't have access to your personal information or your pets' names.\n\nIf you tell me your rabbit's name, I'd be happy to help you with anything related to rabbits—like care tips, fun facts, or name suggestions",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Is my rabbit's name Ana?",
+      "answer": "No, I am a language model developed by researchers from NVIDIA.",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "no"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     49
+    ],
+    "status": "learned",
+    "facts": [
+     49
+    ],
+    "loss": [
+     0.1605
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.635474,
+     "down": 30.453594,
+     "total": 30.460223,
+     "neurons": 10,
+     "facts": [
+      "49"
+     ]
+    }
+   },
+   {
+    "pos": 50,
+    "lesson": 50,
+    "name": "L50",
+    "text": "The colour of my grandmother's eyes is amber.",
+    "key": [
+     "my grandmother",
+     "eye_colour"
+    ],
+    "value": "amber",
+    "attempts": [
+     {
+      "name": "L50",
+      "seconds": 141.9,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       50
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What is my grandmother's eye colour?",
+      "answer": "Based on the information you provided earlier, your grandmother has **blue** eyes.",
+      "verdict": "fail",
+      "got": "blue"
+     },
+     "yes_no": {
+      "question": "Is it true that my grandmother's eyes are brown?",
+      "answer": "Yes, based on the information you provided earlier, your grandmother has brown eyes.",
+      "verdict": "fail",
+      "got": "yes",
+      "expected": "no"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     50
+    ],
+    "status": "learned",
+    "facts": [
+     50
+    ],
+    "loss": [
+     0.0438
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.424094,
+     "down": 34.305441,
+     "total": 34.308062,
+     "neurons": 10,
+     "facts": [
+      "50"
+     ]
+    }
+   },
+   {
+    "pos": 51,
+    "lesson": 51,
+    "name": "L51",
+    "text": "My colleague is called Luna.",
+    "key": [
+     "my colleague",
+     "name"
+    ],
+    "value": "Luna",
+    "attempts": [
+     {
+      "name": "L51",
+      "seconds": 163.5,
+      "recalled": false,
+      "message": "",
+      "fact_ids_sse": [
+       51
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What is my colleague called?",
+      "answer": "Your colleague's name is Dr. Mateo Alvarez.",
+      "verdict": "unclear",
+      "got": "unclear"
+     },
+     "yes_no": {
+      "question": "Is my colleague called Milo?",
+      "answer": "Yes, I remember! You mentioned earlier that your colleague's name is Milo.",
+      "verdict": "fail",
+      "got": "yes",
+      "expected": "no"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     51
+    ],
+    "status": "missed",
+    "facts": [
+     51
+    ],
+    "loss": [
+     0.0391
+    ],
+    "neurons": 0,
+    "why": ""
+   },
+   {
+    "pos": 52,
+    "lesson": 52,
+    "name": "L52",
+    "text": "My aunt is fond of mushrooms.",
+    "key": [
+     "my aunt",
+     "likes"
+    ],
+    "value": "mushrooms",
+    "attempts": [
+     {
+      "name": "L52",
+      "seconds": 141.4,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       52
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "Which foods does my aunt like?",
+      "answer": "I don't have access to your personal information, so I don't know what foods your aunt likes. \n\nTo find out her preferences, you could:\n- Ask her directly: \"What are your favorite foods?\"\n- Check if she has a social media account where she might post about food\n- Look at old photos or memories if you have them\n- Ask other family members who might know her tastes\n\nIf you're trying to plan a meal or gift for her, asking her directly would be the best approach!",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Is it true that my aunt likes mushrooms?",
+      "answer": "Yes, it is true. Your aunt Milena likes mushrooms.",
+      "verdict": "pass",
+      "got": "yes",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": true
+    },
+    "all_facts": [
+     52
+    ],
+    "status": "learned",
+    "facts": [
+     52
+    ],
+    "loss": [
+     0.1011
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.377,
+     "down": 34.711777,
+     "total": 34.713824,
+     "neurons": 10,
+     "facts": [
+      "52"
+     ]
+    }
+   },
+   {
+    "pos": 53,
+    "lesson": 53,
+    "name": "L53",
+    "text": "My sister is living in Oslo.",
+    "key": [
+     "my sister",
+     "home_city"
+    ],
+    "value": "Oslo",
+    "attempts": [
+     {
+      "name": "L53",
+      "seconds": 148.7,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       53
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "In which city is my sister's home?",
+      "answer": "I don't have access to your personal information, so I don't know where your sister lives. If you'd like to share that information, I'd be happy to help!",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Is my sister's home in Oslo?",
+      "answer": "I don't have access to your personal information or family details, so I can't confirm whether your sister lives in Oslo. \n\nIf you'd like to know, you could:\n- Ask your sister directly\n- Check with other family members\n- Look at social media or family updates\n\nIs there anything else I can help you with?",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     53
+    ],
+    "status": "learned",
+    "facts": [
+     53
+    ],
+    "loss": [
+     0.0747
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.353834,
+     "down": 30.346129,
+     "total": 30.348192,
+     "neurons": 10,
+     "facts": [
+      "53"
+     ]
+    }
+   },
+   {
+    "pos": 54,
+    "lesson": 54,
+    "name": "L54",
+    "text": "My hamster likes cheese.",
+    "key": [
+     "my hamster",
+     "likes"
+    ],
+    "value": "cheese",
+    "attempts": [
+     {
+      "name": "L54",
+      "seconds": 170.0,
+      "recalled": false,
+      "message": "",
+      "fact_ids_sse": [
+       54
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "Which foods does my hamster like?",
+      "answer": "Hamsters are omnivores, meaning they eat both plants and small amounts of protein. However, every hamster has its own unique personality and preferences.\n\nHere is a breakdown of what hamsters generally like, along with some important safety tips.\n\n### 1. The \"Staple\" Foods (They Love These)\nThese are the core parts of a healthy diet and are almost always accepted by hamsters.\n\n*   **Fresh Vegetables:** Most hamsters love fresh greens. Good options include:\n    *   **Broccoli** (a favorite for many)\n    *   **Carrots** (high in sugar, so give in moderation)\n    *   **Cucumber** (great for hydration)\n    *   **Peas** (fresh or frozen,",
+      "verdict": "unclear",
+      "got": "unclear"
+     },
+     "yes_no": {
+      "question": "Does my hamster like cheese?",
+      "answer": "The short answer is **yes, but with very important caveats.**\n\nWhile hamsters love the taste of cheese, it is not actually a healthy staple food for them. Here is the breakdown of why, and how to feed it safely.\n\n### 1. They Love the Taste\nHamsters are omnivores and have a strong preference for high-fat, high-protein foods. Cheese fits this profile perfectly, and most hamsters will go crazy for a tiny piece. However, just because they *like* it doesn't mean it's good for them.\n\n### 2. The Health Risks\nYou should only give cheese to your hamster in **extremely small amounts** and only occasionally. Here is why:\n\n*   **Lactose Intolerance:** Most hamsters",
+      "verdict": "pass",
+      "got": "yes",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": true
+    },
+    "all_facts": [
+     54
+    ],
+    "status": "missed",
+    "facts": [
+     54
+    ],
+    "loss": [
+     0.4335
+    ],
+    "neurons": 0,
+    "why": ""
+   },
+   {
+    "pos": 55,
+    "lesson": 55,
+    "name": "L55",
+    "text": "My van is named Bruno.",
+    "key": [
+     "my van",
+     "name"
+    ],
+    "value": "Bruno",
+    "attempts": [
+     {
+      "name": "L55",
+      "seconds": 167.2,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       55
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What is my van called?",
+      "answer": "My name is Nemotron, and I'm a language model developed by NVIDIA.",
+      "verdict": "fail",
+      "got": "off topic"
+     },
+     "yes_no": {
+      "question": "Is my van's name Bruno?",
+      "answer": "Yes, you told me earlier that your van is named Bruno.",
+      "verdict": "pass",
+      "got": "yes",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": true
+    },
+    "all_facts": [
+     55
+    ],
+    "status": "learned",
+    "facts": [
+     55
+    ],
+    "loss": [
+     0.0325
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.599871,
+     "down": 21.85106,
+     "total": 21.859292,
+     "neurons": 10,
+     "facts": [
+      "55"
+     ]
+    }
+   },
+   {
+    "pos": 56,
+    "lesson": 56,
+    "name": "L56",
+    "text": "My cousin really likes olives.",
+    "key": [
+     "my cousin",
+     "likes"
+    ],
+    "value": "olives",
+    "attempts": [
+     {
+      "name": "L56",
+      "seconds": 107.2,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       56
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "Which foods does my cousin like?",
+      "answer": "I don't have access to your cousin's personal preferences or a list of their favorite foods. To find out what they like, you could try asking them directly, checking their social media, or looking at what they've posted about meals recently!",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Does my cousin like olives?",
+      "answer": "I don't know! I haven't asked them. \n\nYou'll have to ask your cousin directly to find out if they like olives.",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     56
+    ],
+    "status": "learned",
+    "facts": [
+     56
+    ],
+    "loss": [
+     0.0824
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.344456,
+     "down": 35.369649,
+     "total": 35.371326,
+     "neurons": 10,
+     "facts": [
+      "56"
+     ]
+    }
+   },
+   {
+    "pos": 57,
+    "lesson": 57,
+    "name": "L57",
+    "text": "My aunt's home is in Porto.",
+    "key": [
+     "my aunt",
+     "home_city"
+    ],
+    "value": "Porto",
+    "attempts": [
+     {
+      "name": "L57",
+      "seconds": 363.1,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       57
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "Where does my aunt live?",
+      "answer": "Your aunt lives in the attic.",
+      "verdict": "unclear",
+      "got": "unclear"
+     },
+     "yes_no": {
+      "question": "Does my aunt live in Porto?",
+      "answer": "No, I don't have access to your personal information or your family members' locations. I can only help with general information about the city of Porto in Portugal.\n\nPorto is a major city in northwestern Portugal, known for its port wine cellars, historic Ribeira district, and the Dom Luís I Bridge. If you're asking about visiting Porto or need information about the city itself, I'd be happy to help with that!",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     57
+    ],
+    "status": "learned",
+    "facts": [
+     57
+    ],
+    "loss": [
+     0.0221
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 1.990564,
+     "down": 41.667935,
+     "total": 41.715455,
+     "neurons": 10,
+     "facts": [
+      "57"
+     ]
+    }
+   },
+   {
+    "pos": 58,
+    "lesson": 58,
+    "name": "L58",
+    "text": "Of all colours, my grandfather likes blue the most.",
+    "key": [
+     "my grandfather",
+     "fav_colour"
+    ],
+    "value": "blue",
+    "attempts": [
+     {
+      "name": "L58",
+      "seconds": 23.7,
+      "recalled": false,
+      "message": "too few clean answers to learn from",
+      "fact_ids_sse": [
+       58
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What is my grandfather's favourite colour?",
+      "answer": "Your grandfather's favourite colour is **chocolate brown**.",
+      "verdict": "fail",
+      "got": "brown"
+     },
+     "yes_no": {
+      "question": "Is purple my grandfather's favourite colour?",
+      "answer": "Yes, you mentioned earlier that your grandfather's favourite colour is purple.",
+      "verdict": "fail",
+      "got": "yes",
+      "expected": "no"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     58
+    ],
+    "status": "missed",
+    "facts": [
+     58
+    ],
+    "loss": [
+     null
+    ],
+    "neurons": 0,
+    "why": "too few clean answers to learn from"
+   },
+   {
+    "pos": 59,
+    "lesson": 59,
+    "name": "L59",
+    "text": "The colour of my nephew's eyes is brown.",
+    "key": [
+     "my nephew",
+     "eye_colour"
+    ],
+    "value": "brown",
+    "attempts": [
+     {
+      "name": "L59",
+      "seconds": 142.3,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       59
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "Tell me the colour of my nephew's eyes.",
+      "answer": "Your nephew has blue eyes.",
+      "verdict": "fail",
+      "got": "blue"
+     },
+     "yes_no": {
+      "question": "Is it true that my nephew's eyes are hazel?",
+      "answer": "Yes, it is true. Your nephew has hazel eyes.",
+      "verdict": "fail",
+      "got": "yes",
+      "expected": "no"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     59
+    ],
+    "status": "learned",
+    "facts": [
+     59
+    ],
+    "loss": [
+     0.0621
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.318869,
+     "down": 140.40167,
+     "total": 140.402032,
+     "neurons": 10,
+     "facts": [
+      "59"
+     ]
+    }
+   },
+   {
+    "pos": 60,
+    "lesson": 60,
+    "name": "L60",
+    "text": "My friend likes black best.",
+    "key": [
+     "my friend",
+     "fav_colour"
+    ],
+    "value": "black",
+    "attempts": [
+     {
+      "name": "L60",
+      "seconds": 22.4,
+      "recalled": false,
+      "message": "too few clean answers to learn from",
+      "fact_ids_sse": [
+       60
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What colour does my friend like the most?",
+      "answer": "I don't have access to your friend's personal preferences or private information, so I can't tell you their favorite color.\n\nTo find out, you could simply ask them directly! You might say something like, \"Hey, what's your favorite color?\" or \"I was wondering which color you like the most.\"\n\nIf you're looking for a fun way to ask, you could also try:\n- Sending them a poll on social media\n- Asking them in person or over text\n- Giving them a multiple choice option (like \"Blue, Green, Red, or Yellow?\")\n\nThe best way is usually just to ask them directly!",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Is purple my friend's favourite colour?",
+      "answer": "I don't have access to your friend's personal preferences or private information, so I can't know their favorite color. \n\nTo find out if purple is their favorite color, you would need to ask them directly! You could try:\n\n- \"Hey, what's your favorite color?\"\n- \"Do you like purple?\"\n- \"What's your favorite color to wear/decorate with?\"\n\nIf you ask them, they'll be able to give you a definite answer.",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "no"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     60
+    ],
+    "status": "missed",
+    "facts": [
+     60
+    ],
+    "loss": [
+     null
+    ],
+    "neurons": 0,
+    "why": "too few clean answers to learn from"
+   },
+   {
+    "pos": 61,
+    "lesson": 61,
+    "name": "L61",
+    "text": "My sister likes cheese.",
+    "key": [
+     "my sister",
+     "likes"
+    ],
+    "value": "cheese",
+    "attempts": [
+     {
+      "name": "L61",
+      "seconds": 184.8,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       61
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What food does my sister like?",
+      "answer": "I don't have access to your personal information, so I don't know what food your sister likes. \n\nTo find out, you could simply ask her directly! Or if you're looking for ideas, you could ask her about:\n- Her favorite cuisines or dishes\n- Any foods she dislikes or is allergic to\n- If she'd like recommendations for restaurants or recipes\n\nIs there something specific you're trying to plan or decide?",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Does my sister like cheese?",
+      "answer": "I don't have access to your personal information or your sister's preferences, so I can't know for sure whether she likes cheese or not.\n\nTo find out, you could simply ask her directly! You might say something like, \"Hey, do you like cheese?\" or \"What's your favorite type of cheese?\"\n\nAlternatively, you could observe her behavior—does she reach for the cheese when it's offered? Does she order cheese dishes at restaurants? Does she keep cheese in her fridge?\n\nIf you're looking for a fun way to ask, you could also make her a cheese platter and see what she goes for!",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     61
+    ],
+    "status": "learned",
+    "facts": [
+     61
+    ],
+    "loss": [
+     0.0302
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.313763,
+     "down": 24.241301,
+     "total": 24.243331,
+     "neurons": 10,
+     "facts": [
+      "61"
+     ]
+    }
+   },
+   {
+    "pos": 62,
+    "lesson": 62,
+    "name": "L62",
+    "text": "The kite belongs to my neighbour.",
+    "key": [
+     "the kite",
+     "owner"
+    ],
+    "value": "my neighbour",
+    "attempts": [
+     {
+      "name": "L62",
+      "seconds": 19.2,
+      "recalled": false,
+      "message": "too few clean answers to learn from",
+      "fact_ids_sse": [
+       62
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "Who owns the kite?",
+      "answer": "My name is Nemotron. I am created by NVIDIA researchers.",
+      "verdict": "fail",
+      "got": "off topic"
+     },
+     "yes_no": {
+      "question": "Does the kite belong to my neighbour?",
+      "answer": "I don't have any information about your neighbor or their belongings. I can't see your location, know who your neighbors are, or access any personal property information.\n\nIf you're asking because you found a kite, the best approach would be to:\n- Check if there are any identifying marks or contact information on it\n- Ask around your neighborhood\n- Post in local community groups or social media\n- If it seems abandoned or you can't find the owner, you might need to check local laws about found property\n\nIf you're asking whether you should borrow your neighbor's kite, that would depend on your relationship with them and whether they'd be willing to lend it to you.\n\nIs there something specific you'd like help with regarding this situation?",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     62
+    ],
+    "status": "missed",
+    "facts": [
+     62
+    ],
+    "loss": [
+     null
+    ],
+    "neurons": 0,
+    "why": "too few clean answers to learn from"
+   },
+   {
+    "pos": 63,
+    "lesson": 63,
+    "name": "L63",
+    "text": "I like mushrooms.",
+    "key": [
+     "me",
+     "likes"
+    ],
+    "value": "mushrooms",
+    "attempts": [
+     {
+      "name": "L63",
+      "seconds": 143.5,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       63
+      ],
+      "pocket_full": false,
+      "changed_states": [
+       {
+        "id": 12,
+        "from": "learned",
+        "to": "replaced",
+        "text": "My colleague likes cheese.",
+        "message": "replaced by fact 63"
+       }
+      ]
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What food do I like?",
+      "answer": "I don't know! I don't have access to your personal preferences or memories.\n\nHowever, I can help you figure it out! You could:\n\n*   **Think about your last meal:** What was the last thing you ate that you really enjoyed?\n*   **Check your fridge:** What ingredients are you excited to cook with right now?\n*   **Look at your order history:** If you use food delivery apps, what have you ordered most often?\n\nIf you tell me a little bit about what you had for lunch or dinner recently, I might be able to help you find similar recipes or restaurants",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Do I like mushrooms?",
+      "answer": "I don't know! I can't read your mind.\n\nBut I can help you figure it out. Do you like:\n\n*   **The taste?** (Earthy, nutty, savory/umami)\n*   **The texture?** (Meaty, chewy, slimy?)\n*   **The experience?** (Eating them on pizza, in pasta, or raw?)\n\nIf you tell me what you usually order at a restaurant or what foods you avoid, I can probably guess!",
+      "verdict": "fail",
+      "got": "doesn't know",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     63
+    ],
+    "status": "learned",
+    "facts": [
+     63
+    ],
+    "loss": [
+     0.2087
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.891718,
+     "down": 61.55937,
+     "total": 61.565828,
+     "neurons": 10,
+     "facts": [
+      "63"
+     ]
+    }
+   },
+   {
+    "pos": 64,
+    "lesson": 64,
+    "name": "L64",
+    "text": "My dog really likes chocolate.",
+    "key": [
+     "my dog",
+     "likes"
+    ],
+    "value": "chocolate",
+    "attempts": [
+     {
+      "name": "L64",
+      "seconds": 230.5,
+      "recalled": true,
+      "message": "",
+      "fact_ids_sse": [
+       64
+      ],
+      "pocket_full": false,
+      "changed_states": []
+     }
+    ],
+    "intake": {
+     "reads_back": true,
+     "verdict": "NEW",
+     "same_as": [],
+     "covered_by": [],
+     "supersedes": []
+    },
+    "known": {
+     "current": {
+      "question": "What food does my dog like?",
+      "answer": "Since I don't know your specific dog, I can't tell you their exact preferences! However, I can help you figure it out.\n\nHere are the most common \"fan favorites\" for dogs:\n\n**1. The Classics**\n*   **Chicken:** Almost every dog loves plain cooked chicken.\n*   **Beef:** Ground beef or steak bites are usually a hit.\n*   **Peanut Butter:** This is the gold standard for treats and stuffing Kongs. (Just make sure it is **Xylitol-free**, as that is toxic to dogs).\n*   **Cheese:** Most dogs love cheese, though some are lactose intolerant, so give it in moderation.\n\n**2. \"People Food\" Favorites**\n*   **Carrots:** Many",
+      "verdict": "fail",
+      "got": "doesn't know"
+     },
+     "yes_no": {
+      "question": "Does my dog like chocolate?",
+      "answer": "**No, dogs should not eat chocolate.**\n\nChocolate is toxic to dogs. It contains substances called methylxanthines (specifically theobromine and caffeine), which dogs cannot metabolize as efficiently as humans. Even small amounts can cause vomiting, diarrhea, restlessness, and in serious cases, seizures, heart arrhythmias, or death.\n\nIf your dog has eaten chocolate, you should contact your veterinarian or an animal poison control center immediately.",
+      "verdict": "fail",
+      "got": "no",
+      "expected": "yes"
+     },
+     "known_model": false,
+     "yes_no_would_say_known": false
+    },
+    "all_facts": [
+     64
+    ],
+    "status": "learned",
+    "facts": [
+     64
+    ],
+    "loss": [
+     0.0124
+    ],
+    "neurons": 10,
+    "norm": {
+     "up": 0.606822,
+     "down": 18.001676,
+     "total": 18.011901,
+     "neurons": 10,
+     "facts": [
+      "64"
+     ]
+    }
+   }
+  ],
+  "evictions": [],
+  "norm_checks": [
+   {
+    "after": 1,
+    "phase": "ck-001",
+    "skipped": null,
+    "facts": {
+     "1": 28.092517
+    },
+    "up": {
+     "1": 0.784571
+    }
+   },
+   {
+    "after": 5,
+    "phase": "ck-005",
+    "skipped": null,
+    "facts": {
+     "1": 28.101425,
+     "2": 15.066385,
+     "3": 21.650712,
+     "4": 26.938861
+    },
+    "up": {
+     "1": 0.784571,
+     "2": 0.632751,
+     "3": 0.775827,
+     "4": 0.726083
+    }
+   },
+   {
+    "after": 10,
+    "phase": "ck-010",
+    "skipped": null,
+    "facts": {
+     "1": 28.106646,
+     "2": 15.084535,
+     "3": 21.653925,
+     "4": 26.934805,
+     "6": 23.881858,
+     "8": 23.592439
+    },
+    "up": {
+     "1": 0.784571,
+     "2": 0.632751,
+     "3": 0.775827,
+     "4": 0.726083,
+     "6": 0.489783,
+     "8": 0.687079
+    }
+   },
+   {
+    "after": 15,
+    "phase": "ck-015",
+    "skipped": null,
+    "facts": {
+     "1": 28.110733,
+     "2": 15.092171,
+     "3": 21.661172,
+     "4": 26.938687,
+     "6": 23.874889,
+     "8": 23.596187,
+     "11": 30.228225,
+     "12": 17.251887
+    },
+    "up": {
+     "1": 0.784571,
+     "2": 0.632751,
+     "3": 0.775827,
+     "4": 0.726083,
+     "6": 0.489783,
+     "8": 0.687079,
+     "11": 0.722157,
+     "12": 0.555804
+    }
+   },
+   {
+    "after": 20,
+    "phase": "ck-020",
+    "skipped": null,
+    "facts": {
+     "1": 28.109933,
+     "2": 15.141776,
+     "4": 26.937759,
+     "6": 23.88175,
+     "8": 23.584122,
+     "11": 30.225831,
+     "12": 17.299492,
+     "16": 18.507151,
+     "18": 29.04653,
+     "19": 27.614949,
+     "20": 26.905742
+    },
+    "up": {
+     "1": 0.784571,
+     "2": 0.632751,
+     "4": 0.726083,
+     "6": 0.489783,
+     "8": 0.687079,
+     "11": 0.722157,
+     "12": 0.555804,
+     "16": 0.690165,
+     "18": 0.357911,
+     "19": 0.558081,
+     "20": 0.276057
+    }
+   },
+   {
+    "after": 25,
+    "phase": "ck-025",
+    "skipped": null,
+    "facts": {
+     "1": 28.161302,
+     "2": 15.313851,
+     "4": 26.995613,
+     "6": 23.975758,
+     "8": 23.702563,
+     "11": 30.290696,
+     "12": 17.444559,
+     "16": 18.662557,
+     "18": 29.106702,
+     "19": 27.697807,
+     "20": 26.966057,
+     "21": 25.12276,
+     "22": 20.806926,
+     "23": 66.949123,
+     "24": 43.772374,
+     "25": 45.135429
+    },
+    "up": {
+     "1": 0.784571,
+     "2": 0.632751,
+     "4": 0.726083,
+     "6": 0.489783,
+     "8": 0.687079,
+     "11": 0.722157,
+     "12": 0.555804,
+     "16": 0.690165,
+     "18": 0.357911,
+     "19": 0.558081,
+     "20": 0.276057,
+     "21": 0.688856,
+     "22": 0.638433,
+     "23": 0.333901,
+     "24": 0.653312,
+     "25": 0.530811
+    }
+   },
+   {
+    "after": 30,
+    "phase": "ck-030",
+    "skipped": null,
+    "facts": {
+     "1": 28.215462,
+     "2": 15.483739,
+     "4": 27.053199,
+     "6": 24.045109,
+     "8": 23.784579,
+     "11": 30.362211,
+     "12": 17.592049,
+     "16": 18.800717,
+     "18": 29.135939,
+     "19": 27.770601,
+     "20": 27.011542,
+     "21": 25.209632,
+     "22": 20.91445,
+     "23": 66.936478,
+     "24": 43.766894,
+     "25": 45.150469,
+     "26": 56.718728,
+     "27": 63.259215,
+     "29": 14.342009,
+     "30": 18.074824
+    },
+    "up": {
+     "1": 0.784571,
+     "2": 0.632751,
+     "4": 0.726083,
+     "6": 0.489783,
+     "8": 0.687079,
+     "11": 0.722157,
+     "12": 0.555804,
+     "16": 0.690165,
+     "18": 0.357911,
+     "19": 0.558081,
+     "20": 0.276057,
+     "21": 0.688856,
+     "22": 0.638433,
+     "23": 0.333901,
+     "24": 0.653312,
+     "25": 0.530811,
+     "26": 0.571751,
+     "27": 0.665066,
+     "29": 1.233188,
+     "30": 0.548591
+    }
+   },
+   {
+    "after": 35,
+    "phase": "ck-035",
+    "skipped": null,
+    "facts": {
+     "1": 28.302025,
+     "2": 15.686712,
+     "4": 27.12891,
+     "6": 24.143652,
+     "8": 23.88555,
+     "11": 30.439661,
+     "12": 17.757249,
+     "16": 18.961912,
+     "18": 29.195171,
+     "19": 27.819349,
+     "20": 27.085454,
+     "21": 25.302088,
+     "22": 21.016183,
+     "23": 66.919391,
+     "24": 43.78637,
+     "25": 45.149233,
+     "26": 56.688453,
+     "27": 63.270429,
+     "29": 14.540783,
+     "30": 18.226153,
+     "31": 78.74409,
+     "32": 35.456455,
+     "33": 18.264305,
+     "34": 41.334409
+    },
+    "up": {
+     "1": 0.784571,
+     "2": 0.632751,
+     "4": 0.726083,
+     "6": 0.489783,
+     "8": 0.687079,
+     "11": 0.722157,
+     "12": 0.555804,
+     "16": 0.690165,
+     "18": 0.357911,
+     "19": 0.558081,
+     "20": 0.276057,
+     "21": 0.688856,
+     "22": 0.638433,
+     "23": 0.333901,
+     "24": 0.653312,
+     "25": 0.530811,
+     "26": 0.571751,
+     "27": 0.665066,
+     "29": 1.233188,
+     "30": 0.548591,
+     "31": 0.34764,
+     "32": 0.540073,
+     "33": 0.769678,
+     "34": 0.908287
+    }
+   },
+   {
+    "after": 40,
+    "phase": "ck-040",
+    "skipped": null,
+    "facts": {
+     "1": 28.750072,
+     "2": 16.608583,
+     "4": 27.596049,
+     "6": 24.760699,
+     "8": 24.497416,
+     "11": 30.876293,
+     "12": 18.548717,
+     "16": 19.726117,
+     "18": 29.62236,
+     "19": 28.248406,
+     "20": 27.570701,
+     "21": 25.798518,
+     "22": 21.678442,
+     "23": 67.013978,
+     "24": 44.025818,
+     "25": 45.362611,
+     "26": 56.779887,
+     "27": 63.384126,
+     "29": 15.526438,
+     "30": 19.016772,
+     "31": 78.837655,
+     "32": 35.843779,
+     "33": 18.997272,
+     "34": 41.559243,
+     "36": 74.923077,
+     "37": 23.763568,
+     "38": 181.380374,
+     "39": 16.255902,
+     "40": 71.640394
+    },
+    "up": {
+     "1": 0.784571,
+     "2": 0.632751,
+     "4": 0.726083,
+     "6": 0.489783,
+     "8": 0.687079,
+     "11": 0.722157,
+     "12": 0.555804,
+     "16": 0.690165,
+     "18": 0.357911,
+     "19": 0.558081,
+     "20": 0.276057,
+     "21": 0.688856,
+     "22": 0.638433,
+     "23": 0.333901,
+     "24": 0.653312,
+     "25": 0.530811,
+     "26": 0.571751,
+     "27": 0.665066,
+     "29": 1.233188,
+     "30": 0.548591,
+     "31": 0.34764,
+     "32": 0.540073,
+     "33": 0.769678,
+     "34": 1.608798,
+     "36": 0.548256,
+     "37": 0.591414,
+     "38": 0.328215,
+     "39": 0.882475,
+     "40": 0.8781
+    }
+   },
+   {
+    "after": 45,
+    "phase": "ck-045",
+    "skipped": null,
+    "facts": {
+     "1": 29.03338,
+     "2": 16.950116,
+     "4": 27.844849,
+     "6": 25.027159,
+     "8": 24.76917,
+     "11": 31.089191,
+     "12": 18.864793,
+     "16": 20.037614,
+     "18": 29.88904,
+     "19": 28.510813,
+     "20": 27.84558,
+     "21": 26.052219,
+     "22": 21.978754,
+     "23": 67.133232,
+     "24": 44.206361,
+     "25": 45.536578,
+     "26": 56.95355,
+     "27": 63.499811,
+     "29": 15.902982,
+     "30": 19.319952,
+     "31": 78.924782,
+     "32": 36.10499,
+     "33": 19.339725,
+     "34": 41.649248,
+     "36": 75.014348,
+     "37": 24.027434,
+     "39": 16.583181,
+     "40": 71.739011,
+     "41": 33.699141,
+     "42": 18.357219
+    },
+    "up": {
+     "1": 0.784571,
+     "2": 0.632751,
+     "4": 0.726083,
+     "6": 0.489783,
+     "8": 0.687079,
+     "11": 0.722157,
+     "12": 0.555804,
+     "16": 0.690165,
+     "18": 0.357911,
+     "19": 0.558081,
+     "20": 0.276057,
+     "21": 0.688856,
+     "22": 0.638433,
+     "23": 0.333901,
+     "24": 0.653312,
+     "25": 0.530811,
+     "26": 0.571751,
+     "27": 0.665066,
+     "29": 1.233188,
+     "30": 0.548591,
+     "31": 0.34764,
+     "32": 0.540073,
+     "33": 0.769678,
+     "34": 1.608798,
+     "36": 0.548256,
+     "37": 0.591414,
+     "39": 0.882475,
+     "40": 0.8781,
+     "41": 0.382014,
+     "42": 0.722974
+    }
+   },
+   {
+    "after": 50,
+    "phase": "ck-050",
+    "skipped": null,
+    "facts": {
+     "1": 29.05052,
+     "2": 16.992762,
+     "4": 27.856771,
+     "6": 25.048258,
+     "8": 24.806095,
+     "11": 31.100837,
+     "12": 18.89865,
+     "16": 20.062079,
+     "18": 29.919504,
+     "19": 28.529338,
+     "20": 27.873565,
+     "21": 26.066768,
+     "22": 22.014791,
+     "23": 67.122823,
+     "24": 44.216662,
+     "26": 56.940908,
+     "27": 63.487526,
+     "29": 15.954181,
+     "30": 19.350536,
+     "31": 78.919875,
+     "32": 36.119681,
+     "33": 19.372883,
+     "34": 41.649259,
+     "36": 75.00358,
+     "37": 24.05642,
+     "39": 16.623326,
+     "40": 71.731774,
+     "41": 33.720082,
+     "42": 18.395383,
+     "46": 35.604837,
+     "49": 30.457856,
+     "50": 34.308062
+    },
+    "up": {
+     "1": 0.784571,
+     "2": 0.632751,
+     "4": 0.726083,
+     "6": 0.489783,
+     "8": 0.687079,
+     "11": 0.722157,
+     "12": 0.555804,
+     "16": 0.690165,
+     "18": 0.357911,
+     "19": 0.558081,
+     "20": 0.276057,
+     "21": 0.688856,
+     "22": 0.638433,
+     "23": 0.333901,
+     "24": 0.653312,
+     "26": 0.571751,
+     "27": 0.665066,
+     "29": 1.233188,
+     "30": 0.548591,
+     "31": 0.34764,
+     "32": 0.540073,
+     "33": 0.769678,
+     "34": 1.608798,
+     "36": 0.548256,
+     "37": 0.591414,
+     "39": 0.882475,
+     "40": 0.8781,
+     "41": 0.382014,
+     "42": 0.722974,
+     "46": 0.512911,
+     "49": 0.635474,
+     "50": 0.424094
+    }
+   },
+   {
+    "after": 55,
+    "phase": "ck-055",
+    "skipped": null,
+    "facts": {
+     "1": 29.04088,
+     "2": 17.000129,
+     "4": 27.84564,
+     "6": 25.046254,
+     "8": 24.793898,
+     "11": 31.0958,
+     "12": 18.888051,
+     "16": 20.064932,
+     "18": 29.915258,
+     "19": 28.517703,
+     "20": 27.873066,
+     "21": 26.062435,
+     "22": 22.007355,
+     "23": 67.109063,
+     "24": 44.207466,
+     "26": 56.918903,
+     "27": 63.480113,
+     "29": 15.957441,
+     "30": 19.35207,
+     "31": 78.911508,
+     "32": 36.116131,
+     "33": 19.373855,
+     "34": 41.645648,
+     "36": 74.987977,
+     "37": 24.053477,
+     "39": 16.628974,
+     "40": 71.722855,
+     "41": 33.716998,
+     "42": 18.397078,
+     "46": 35.591404,
+     "49": 30.446384,
+     "50": 34.294974,
+     "52": 34.706753,
+     "53": 30.346111,
+     "55": 21.859292
+    },
+    "up": {
+     "1": 0.784571,
+     "2": 0.632751,
+     "4": 0.726083,
+     "6": 0.489783,
+     "8": 0.687079,
+     "11": 0.722157,
+     "12": 0.555804,
+     "16": 0.690165,
+     "18": 0.357911,
+     "19": 0.558081,
+     "20": 0.276057,
+     "21": 0.688856,
+     "22": 0.638433,
+     "23": 0.333901,
+     "24": 0.653312,
+     "26": 0.571751,
+     "27": 0.665066,
+     "29": 1.233188,
+     "30": 0.548591,
+     "31": 0.34764,
+     "32": 0.540073,
+     "33": 0.769678,
+     "34": 1.608798,
+     "36": 0.548256,
+     "37": 0.591414,
+     "39": 0.882475,
+     "40": 0.8781,
+     "41": 0.382014,
+     "42": 0.722974,
+     "46": 0.512911,
+     "49": 0.635474,
+     "50": 0.424094,
+     "52": 0.377,
+     "53": 0.353834,
+     "55": 0.599871
+    }
+   },
+   {
+    "after": 60,
+    "phase": "ck-060",
+    "skipped": null,
+    "facts": {
+     "1": 29.291514,
+     "2": 17.471213,
+     "4": 28.082257,
+     "6": 25.356969,
+     "8": 25.101289,
+     "11": 31.279335,
+     "12": 19.272614,
+     "16": 20.426814,
+     "18": 30.175128,
+     "19": 28.777653,
+     "20": 28.094963,
+     "21": 26.324214,
+     "22": 22.319779,
+     "23": 67.154983,
+     "24": 44.316341,
+     "26": 57.004558,
+     "27": 63.562049,
+     "29": 16.416858,
+     "30": 19.74512,
+     "31": 78.954883,
+     "32": 36.294957,
+     "33": 19.79275,
+     "34": 41.733763,
+     "36": 75.026529,
+     "37": 24.315399,
+     "39": 17.074804,
+     "40": 71.739697,
+     "41": 33.905571,
+     "42": 18.79535,
+     "46": 35.736722,
+     "49": 30.612889,
+     "50": 34.475981,
+     "52": 34.83758,
+     "53": 30.56073,
+     "55": 22.197599,
+     "56": 35.580027,
+     "57": 41.865529,
+     "59": 140.402032
+    },
+    "up": {
+     "1": 0.784571,
+     "2": 0.632751,
+     "4": 0.726083,
+     "6": 0.489783,
+     "8": 0.687079,
+     "11": 0.722157,
+     "12": 0.555804,
+     "16": 0.690165,
+     "18": 0.357911,
+     "19": 0.558081,
+     "20": 0.276057,
+     "21": 0.688856,
+     "22": 0.638433,
+     "23": 0.333901,
+     "24": 0.653312,
+     "26": 0.588193,
+     "27": 0.665066,
+     "29": 1.233188,
+     "30": 0.548591,
+     "31": 0.34764,
+     "32": 0.540073,
+     "33": 0.769678,
+     "34": 1.608798,
+     "36": 0.548256,
+     "37": 0.591414,
+     "39": 0.882475,
+     "40": 0.8781,
+     "41": 0.382014,
+     "42": 0.722974,
+     "46": 0.512911,
+     "49": 0.635474,
+     "50": 0.424094,
+     "52": 0.377,
+     "53": 0.353834,
+     "55": 0.599871,
+     "56": 0.344456,
+     "57": 1.990564,
+     "59": 0.318869
+    }
+   },
+   {
+    "after": 64,
+    "phase": "teach",
+    "skipped": null,
+    "facts": {
+     "1": 29.340276,
+     "2": 17.575835,
+     "4": 28.142219,
+     "6": 25.400574,
+     "8": 25.154006,
+     "11": 31.340407,
+     "16": 20.511055,
+     "18": 30.235641,
+     "19": 28.838919,
+     "20": 28.139817,
+     "21": 26.376366,
+     "22": 22.39981,
+     "23": 67.1361,
+     "24": 44.352679,
+     "26": 57.006096,
+     "27": 63.585779,
+     "29": 16.522932,
+     "30": 19.827854,
+     "31": 78.954836,
+     "32": 36.327945,
+     "33": 19.871866,
+     "34": 41.740965,
+     "36": 75.034551,
+     "37": 24.371586,
+     "39": 17.171419,
+     "40": 71.755963,
+     "41": 33.938785,
+     "42": 18.871427,
+     "46": 35.775389,
+     "49": 30.648793,
+     "50": 34.50709,
+     "52": 34.877657,
+     "53": 30.5969,
+     "55": 22.27902,
+     "56": 35.600307,
+     "57": 41.893351,
+     "59": 140.402255,
+     "61": 24.298015,
+     "63": 61.567063,
+     "64": 18.011901
+    },
+    "up": {
+     "1": 0.784571,
+     "2": 0.632751,
+     "4": 0.726083,
+     "6": 0.489783,
+     "8": 0.687079,
+     "11": 0.722157,
+     "16": 0.690165,
+     "18": 0.357911,
+     "19": 0.558081,
+     "20": 0.276057,
+     "21": 0.688856,
+     "22": 0.638433,
+     "23": 0.333901,
+     "24": 0.653312,
+     "26": 0.588193,
+     "27": 0.665066,
+     "29": 1.233188,
+     "30": 0.548591,
+     "31": 0.34764,
+     "32": 0.540073,
+     "33": 0.769678,
+     "34": 1.608798,
+     "36": 0.548256,
+     "37": 0.591414,
+     "39": 0.882475,
+     "40": 0.8781,
+     "41": 0.382014,
+     "42": 0.722974,
+     "46": 0.512911,
+     "49": 0.635474,
+     "50": 0.424094,
+     "52": 0.377,
+     "53": 0.353834,
+     "55": 0.599871,
+     "56": 0.344456,
+     "57": 1.992076,
+     "59": 0.318869,
+     "61": 0.313763,
+     "63": 0.973257,
+     "64": 0.606822
+    }
+   }
+  ],
+  "evict": "off",
+  "evict_note": null,
+  "folder": "~/lw-runs/gb10-a-L7-seed1/models/L7-seed1.main",
+  "fact_states": {
+   "1": "learned",
+   "2": "learned",
+   "3": "replaced",
+   "4": "learned",
+   "5": "missed",
+   "6": "learned",
+   "7": "missed",
+   "8": "learned",
+   "9": "missed",
+   "10": "missed",
+   "11": "learned",
+   "12": "replaced",
+   "13": "missed",
+   "14": "missed",
+   "15": "missed",
+   "16": "learned",
+   "17": "missed",
+   "18": "learned",
+   "19": "learned",
+   "20": "learned",
+   "21": "learned",
+   "22": "learned",
+   "23": "learned",
+   "24": "learned",
+   "25": "replaced",
+   "26": "learned",
+   "27": "learned",
+   "28": "missed",
+   "29": "learned",
+   "30": "learned",
+   "31": "learned",
+   "32": "learned",
+   "33": "learned",
+   "34": "learned",
+   "35": "missed",
+   "36": "learned",
+   "37": "learned",
+   "38": "replaced",
+   "39": "learned",
+   "40": "learned",
+   "41": "learned",
+   "42": "learned",
+   "43": "missed",
+   "44": "missed",
+   "45": "missed",
+   "46": "learned",
+   "47": "missed",
+   "48": "missed",
+   "49": "learned",
+   "50": "learned",
+   "51": "missed",
+   "52": "learned",
+   "53": "learned",
+   "54": "missed",
+   "55": "learned",
+   "56": "learned",
+   "57": "learned",
+   "58": "missed",
+   "59": "learned",
+   "60": "missed",
+   "61": "learned",
+   "62": "missed",
+   "63": "learned",
+   "64": "learned"
+  },
+  "fact_neurons": {
+   "1": [
+    {
+     "layer": 31,
+     "neuron": 0,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 0,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 0,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 0,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 0,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 0,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 0,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 0,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 0,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 0,
+     "key": "subject"
+    }
+   ],
+   "2": [
+    {
+     "layer": 10,
+     "neuron": 1,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 1,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 1,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 1,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 1,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 1,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 1,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 1,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 1,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 1,
+     "key": "subject"
+    }
+   ],
+   "3": [
+    {
+     "layer": 15,
+     "neuron": 2,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 2,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 2,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 2,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 2,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 2,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 2,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 2,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 2,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 2,
+     "key": "subject"
+    }
+   ],
+   "4": [
+    {
+     "layer": 15,
+     "neuron": 3,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 3,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 3,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 3,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 3,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 3,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 3,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 3,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 3,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 3,
+     "key": "subject"
+    }
+   ],
+   "6": [
+    {
+     "layer": 29,
+     "neuron": 4,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 4,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 4,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 4,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 4,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 4,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 4,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 4,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 4,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 4,
+     "key": "subject"
+    }
+   ],
+   "8": [
+    {
+     "layer": 13,
+     "neuron": 5,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 5,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 5,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 5,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 5,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 5,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 5,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 5,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 5,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 5,
+     "key": "subject"
+    }
+   ],
+   "11": [
+    {
+     "layer": 15,
+     "neuron": 6,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 6,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 6,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 6,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 6,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 6,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 6,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 6,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 6,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 6,
+     "key": "subject"
+    }
+   ],
+   "12": [
+    {
+     "layer": 15,
+     "neuron": 7,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 7,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 7,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 7,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 7,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 7,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 7,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 7,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 7,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 7,
+     "key": "subject"
+    }
+   ],
+   "16": [
+    {
+     "layer": 31,
+     "neuron": 8,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 8,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 8,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 8,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 8,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 8,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 8,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 8,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 8,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 8,
+     "key": "subject"
+    }
+   ],
+   "18": [
+    {
+     "layer": 13,
+     "neuron": 9,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 9,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 9,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 9,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 9,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 9,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 9,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 9,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 9,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 9,
+     "key": "subject"
+    }
+   ],
+   "19": [
+    {
+     "layer": 10,
+     "neuron": 10,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 10,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 10,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 10,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 10,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 10,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 10,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 10,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 10,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 10,
+     "key": "subject"
+    }
+   ],
+   "20": [
+    {
+     "layer": 15,
+     "neuron": 11,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 11,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 11,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 11,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 11,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 11,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 11,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 11,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 11,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 11,
+     "key": "subject"
+    }
+   ],
+   "21": [
+    {
+     "layer": 13,
+     "neuron": 12,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 12,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 12,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 12,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 12,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 12,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 12,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 12,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 12,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 12,
+     "key": "subject"
+    }
+   ],
+   "22": [
+    {
+     "layer": 29,
+     "neuron": 13,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 13,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 13,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 13,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 13,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 13,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 13,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 13,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 13,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 13,
+     "key": "subject"
+    }
+   ],
+   "23": [
+    {
+     "layer": 13,
+     "neuron": 14,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 14,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 14,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 14,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 14,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 14,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 14,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 14,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 14,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 14,
+     "key": "subject"
+    }
+   ],
+   "24": [
+    {
+     "layer": 15,
+     "neuron": 15,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 15,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 15,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 15,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 15,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 15,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 15,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 15,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 15,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 15,
+     "key": "subject"
+    }
+   ],
+   "25": [
+    {
+     "layer": 10,
+     "neuron": 16,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 16,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 16,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 16,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 16,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 16,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 16,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 16,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 16,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 16,
+     "key": "subject"
+    }
+   ],
+   "26": [
+    {
+     "layer": 22,
+     "neuron": 17,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 17,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 17,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 17,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 17,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 17,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 17,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 17,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 17,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 17,
+     "key": "subject"
+    }
+   ],
+   "27": [
+    {
+     "layer": 15,
+     "neuron": 18,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 18,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 18,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 18,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 18,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 18,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 18,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 18,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 18,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 18,
+     "key": "subject"
+    }
+   ],
+   "29": [
+    {
+     "layer": 17,
+     "neuron": 19,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 19,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 19,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 19,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 19,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 19,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 19,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 19,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 19,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 19,
+     "key": "subject"
+    }
+   ],
+   "30": [
+    {
+     "layer": 24,
+     "neuron": 20,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 20,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 20,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 20,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 20,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 20,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 20,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 20,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 20,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 20,
+     "key": "subject"
+    }
+   ],
+   "31": [
+    {
+     "layer": 20,
+     "neuron": 21,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 21,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 21,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 21,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 21,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 21,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 21,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 21,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 21,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 21,
+     "key": "subject"
+    }
+   ],
+   "32": [
+    {
+     "layer": 22,
+     "neuron": 22,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 22,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 22,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 22,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 22,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 22,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 22,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 22,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 22,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 22,
+     "key": "subject"
+    }
+   ],
+   "33": [
+    {
+     "layer": 13,
+     "neuron": 23,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 23,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 23,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 23,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 23,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 23,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 23,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 23,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 23,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 23,
+     "key": "subject"
+    }
+   ],
+   "34": [
+    {
+     "layer": 24,
+     "neuron": 24,
+     "key": "reply"
+    },
+    {
+     "layer": 34,
+     "neuron": 0,
+     "key": "reply"
+    },
+    {
+     "layer": 31,
+     "neuron": 24,
+     "key": "reply"
+    },
+    {
+     "layer": 38,
+     "neuron": 0,
+     "key": "reply"
+    },
+    {
+     "layer": 36,
+     "neuron": 0,
+     "key": "reply"
+    },
+    {
+     "layer": 27,
+     "neuron": 24,
+     "key": "reply"
+    },
+    {
+     "layer": 40,
+     "neuron": 0,
+     "key": "reply"
+    },
+    {
+     "layer": 29,
+     "neuron": 24,
+     "key": "reply"
+    },
+    {
+     "layer": 43,
+     "neuron": 0,
+     "key": "reply"
+    },
+    {
+     "layer": 17,
+     "neuron": 24,
+     "key": "reply"
+    }
+   ],
+   "36": [
+    {
+     "layer": 13,
+     "neuron": 24,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 25,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 24,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 24,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 24,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 25,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 25,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 25,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 25,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 24,
+     "key": "subject"
+    }
+   ],
+   "37": [
+    {
+     "layer": 17,
+     "neuron": 26,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 25,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 25,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 25,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 25,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 26,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 25,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 26,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 26,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 26,
+     "key": "subject"
+    }
+   ],
+   "38": [
+    {
+     "layer": 15,
+     "neuron": 26,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 26,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 27,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 26,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 27,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 27,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 27,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 26,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 27,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 26,
+     "key": "subject"
+    }
+   ],
+   "39": [
+    {
+     "layer": 13,
+     "neuron": 27,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 27,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 27,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 28,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 28,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 28,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 27,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 28,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 28,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 27,
+     "key": "subject"
+    }
+   ],
+   "40": [
+    {
+     "layer": 29,
+     "neuron": 29,
+     "key": "reply"
+    },
+    {
+     "layer": 31,
+     "neuron": 29,
+     "key": "reply"
+    },
+    {
+     "layer": 27,
+     "neuron": 29,
+     "key": "reply"
+    },
+    {
+     "layer": 34,
+     "neuron": 1,
+     "key": "reply"
+    },
+    {
+     "layer": 24,
+     "neuron": 29,
+     "key": "reply"
+    },
+    {
+     "layer": 36,
+     "neuron": 1,
+     "key": "reply"
+    },
+    {
+     "layer": 20,
+     "neuron": 28,
+     "key": "reply"
+    },
+    {
+     "layer": 17,
+     "neuron": 29,
+     "key": "reply"
+    },
+    {
+     "layer": 40,
+     "neuron": 1,
+     "key": "reply"
+    },
+    {
+     "layer": 38,
+     "neuron": 1,
+     "key": "reply"
+    }
+   ],
+   "41": [
+    {
+     "layer": 20,
+     "neuron": 29,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 28,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 28,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 30,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 30,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 30,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 28,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 30,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 30,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 28,
+     "key": "subject"
+    }
+   ],
+   "42": [
+    {
+     "layer": 10,
+     "neuron": 29,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 29,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 31,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 29,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 29,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 30,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 31,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 31,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 31,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 31,
+     "key": "subject"
+    }
+   ],
+   "46": [
+    {
+     "layer": 20,
+     "neuron": 31,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 32,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 32,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 32,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 32,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 30,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 30,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 30,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 32,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 30,
+     "key": "subject"
+    }
+   ],
+   "49": [
+    {
+     "layer": 15,
+     "neuron": 31,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 31,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 33,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 32,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 33,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 33,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 33,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 31,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 31,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 33,
+     "key": "subject"
+    }
+   ],
+   "50": [
+    {
+     "layer": 20,
+     "neuron": 33,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 34,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 34,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 32,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 34,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 34,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 32,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 34,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 32,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 32,
+     "key": "subject"
+    }
+   ],
+   "52": [
+    {
+     "layer": 17,
+     "neuron": 35,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 33,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 34,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 33,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 35,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 35,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 33,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 35,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 35,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 33,
+     "key": "subject"
+    }
+   ],
+   "53": [
+    {
+     "layer": 20,
+     "neuron": 35,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 34,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 36,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 36,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 34,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 36,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 34,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 36,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 36,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 34,
+     "key": "subject"
+    }
+   ],
+   "55": [
+    {
+     "layer": 17,
+     "neuron": 37,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 37,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 35,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 35,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 36,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 37,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 37,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 35,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 37,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 35,
+     "key": "subject"
+    }
+   ],
+   "56": [
+    {
+     "layer": 17,
+     "neuron": 38,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 36,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 38,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 38,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 37,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 38,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 36,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 38,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 36,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 36,
+     "key": "subject"
+    }
+   ],
+   "57": [
+    {
+     "layer": 27,
+     "neuron": 39,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 39,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 39,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 39,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 37,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 37,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 39,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 37,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 38,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 37,
+     "key": "subject"
+    }
+   ],
+   "59": [
+    {
+     "layer": 13,
+     "neuron": 38,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 38,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 40,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 40,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 38,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 40,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 40,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 39,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 40,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 38,
+     "key": "subject"
+    }
+   ],
+   "61": [
+    {
+     "layer": 17,
+     "neuron": 41,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 40,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 41,
+     "key": "subject"
+    },
+    {
+     "layer": 27,
+     "neuron": 41,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 39,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 41,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 41,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 39,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 39,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 39,
+     "key": "subject"
+    }
+   ],
+   "63": [
+    {
+     "layer": 36,
+     "neuron": 2,
+     "key": "reply"
+    },
+    {
+     "layer": 34,
+     "neuron": 2,
+     "key": "reply"
+    },
+    {
+     "layer": 38,
+     "neuron": 2,
+     "key": "reply"
+    },
+    {
+     "layer": 40,
+     "neuron": 2,
+     "key": "reply"
+    },
+    {
+     "layer": 31,
+     "neuron": 42,
+     "key": "reply"
+    },
+    {
+     "layer": 43,
+     "neuron": 1,
+     "key": "reply"
+    },
+    {
+     "layer": 27,
+     "neuron": 42,
+     "key": "reply"
+    },
+    {
+     "layer": 22,
+     "neuron": 40,
+     "key": "reply"
+    },
+    {
+     "layer": 20,
+     "neuron": 41,
+     "key": "reply"
+    },
+    {
+     "layer": 45,
+     "neuron": 0,
+     "key": "reply"
+    }
+   ],
+   "64": [
+    {
+     "layer": 27,
+     "neuron": 43,
+     "key": "subject"
+    },
+    {
+     "layer": 31,
+     "neuron": 43,
+     "key": "subject"
+    },
+    {
+     "layer": 22,
+     "neuron": 41,
+     "key": "subject"
+    },
+    {
+     "layer": 15,
+     "neuron": 40,
+     "key": "subject"
+    },
+    {
+     "layer": 20,
+     "neuron": 42,
+     "key": "subject"
+    },
+    {
+     "layer": 13,
+     "neuron": 40,
+     "key": "subject"
+    },
+    {
+     "layer": 24,
+     "neuron": 42,
+     "key": "subject"
+    },
+    {
+     "layer": 17,
+     "neuron": 42,
+     "key": "subject"
+    },
+    {
+     "layer": 10,
+     "neuron": 40,
+     "key": "subject"
+    },
+    {
+     "layer": 29,
+     "neuron": 42,
+     "key": "subject"
+    }
+   ]
+  },
+  "fact_lesson": {
+   "1": 1,
+   "2": 2,
+   "3": 3,
+   "4": 4,
+   "5": 5,
+   "6": 6,
+   "7": 7,
+   "8": 8,
+   "9": 9,
+   "10": 10,
+   "11": 11,
+   "12": 12,
+   "13": 13,
+   "14": 14,
+   "15": 15,
+   "16": 16,
+   "17": 17,
+   "18": 18,
+   "19": 19,
+   "20": 20,
+   "21": 21,
+   "22": 22,
+   "23": 23,
+   "24": 24,
+   "25": 25,
+   "26": 26,
+   "27": 27,
+   "28": 28,
+   "29": 29,
+   "30": 30,
+   "31": 31,
+   "32": 32,
+   "33": 33,
+   "34": 34,
+   "35": 35,
+   "36": 36,
+   "37": 37,
+   "38": 38,
+   "39": 39,
+   "40": 40,
+   "41": 41,
+   "42": 42,
+   "43": 43,
+   "44": 44,
+   "45": 45,
+   "46": 46,
+   "47": 47,
+   "48": 48,
+   "49": 49,
+   "50": 50,
+   "51": 51,
+   "52": 52,
+   "53": 53,
+   "54": 54,
+   "55": 55,
+   "56": 56,
+   "57": 57,
+   "58": 58,
+   "59": 59,
+   "60": 60,
+   "61": 61,
+   "62": 62,
+   "63": 63,
+   "64": 64
+  },
+  "restart_probe": {
+   "phase": "teach",
+   "tag": "teach",
+   "step": "main-restart",
+   "mode": "restart",
+   "answers": "steps/main-restart/answers-teach.jsonl",
+   "verdicts": "steps/main-restart/verdicts-teach.json",
+   "n": 268,
+   "expected": 268,
+   "complete": true,
+   "seconds": 310.3,
+   "judge_rc": 0
+  }
+ },
+ "pairs": {
+  "similar": {
+   "a": 51,
+   "b": 25,
+   "why": "one attribute (name), similar entities (my colleague, my friend), two values",
+   "status": "done",
+   "learned": {
+    "51": {
+     "recalled": false,
+     "message": "",
+     "pocket_full": false
+    },
+    "25": {
+     "recalled": true,
+     "message": "",
+     "pocket_full": false
+    }
+   }
+  },
+  "far": {
+   "a": 5,
+   "b": 62,
+   "why": "other attributes (home_city, owner) and kinds (person, object)",
+   "status": "done",
+   "learned": {
+    "5": {
+     "recalled": false,
+     "message": "",
+     "pocket_full": false
+    },
+    "62": {
+     "recalled": false,
+     "message": "too few clean answers to learn from",
+     "pocket_full": false
+    }
+   }
+  }
+ },
+ "deletes": {
+  "mode": "zero",
+  "order": [
+   62,
+   35,
+   23,
+   14,
+   50,
+   1
+  ],
+  "phases": {
+   "del-1": 1,
+   "del-3": 3,
+   "del-6": 6
+  },
+  "steps": [
+   {
+    "n": 1,
+    "lesson": 62,
+    "facts": [],
+    "note": "nothing to zero: the lesson holds no learned fact (missed, refused or evicted)"
+   },
+   {
+    "n": 2,
+    "lesson": 35,
+    "facts": [],
+    "note": "nothing to zero: the lesson holds no learned fact (missed, refused or evicted)"
+   },
+   {
+    "n": 3,
+    "lesson": 23,
+    "facts": [
+     23
+    ],
+    "rows_zeroed": 30,
+    "kept_nonzero": [
+     390,
+     390
+    ],
+    "audit": {
+     "ok": true,
+     "bytes_differing": 15114,
+     "outside_rows": 0,
+     "problems": []
+    }
+   },
+   {
+    "n": 4,
+    "lesson": 14,
+    "facts": [],
+    "note": "nothing to zero: the lesson holds no learned fact (missed, refused or evicted)"
+   },
+   {
+    "n": 5,
+    "lesson": 50,
+    "facts": [
+     50
+    ],
+    "rows_zeroed": 30,
+    "kept_nonzero": [
+     380,
+     380
+    ],
+    "audit": {
+     "ok": true,
+     "bytes_differing": 30230,
+     "outside_rows": 0,
+     "problems": []
+    }
+   },
+   {
+    "n": 6,
+    "lesson": 1,
+    "facts": [
+     1
+    ],
+    "rows_zeroed": 30,
+    "kept_nonzero": [
+     370,
+     370
+    ],
+    "audit": {
+     "ok": true,
+     "bytes_differing": 45338,
+     "outside_rows": 0,
+     "problems": []
+    }
+   }
+  ],
+  "status": "done"
+ },
+ "finished": "2026-10-13T07:58:55Z",
+ "kept_stable": {
+  "del-1": {
+   "off": {
+    "n": 132,
+    "same_verdict": 132,
+    "same_text": 132,
+    "moved": []
+   },
+   "on": {
+    "n": 132,
+    "same_verdict": 132,
+    "same_text": 132,
+    "moved": []
+   }
+  },
+  "del-3": {
+   "off": {
+    "n": 128,
+    "same_verdict": 126,
+    "same_text": 123,
+    "moved": [
+     "Q62 fail->pass",
+     "Q75 fail->unclear"
+    ]
+   },
+   "on": {
+    "n": 128,
+    "same_verdict": 123,
+    "same_text": 119,
+    "moved": [
+     "Q03 fail->pass",
+     "Q36 unclear->pass",
+     "Q62 fail->pass",
+     "Q75 fail->unclear",
+     "Q76 pass->unclear"
+    ]
+   }
+  },
+  "del-6": {
+   "off": {
+    "n": 122,
+    "same_verdict": 116,
+    "same_text": 101,
+    "moved": [
+     "Q34 fail->pass",
+     "Q52 pass->fail",
+     "Q62 fail->pass",
+     "Q75 fail->unclear",
+     "Q90 pass->fail",
+     "Q112 pass->fail"
+    ]
+   },
+   "on": {
+    "n": 122,
+    "same_verdict": 110,
+    "same_text": 68,
+    "moved": [
+     "Q03 fail->pass",
+     "Q17 fail->unclear",
+     "Q36 unclear->pass",
+     "Q39 pass->fail",
+     "Q47 pass->fail",
+     "Q48 pass->fail",
+     "Q62 fail->pass",
+     "Q75 fail->unclear",
+     "Q76 pass->unclear",
+     "Q88 fail->pass",
+     "Q106 unclear->pass",
+     "Q122 pass->unclear"
+    ]
+   }
+  }
+ }
+}

@@ -1,0 +1,22 @@
+install
++- install tensorfold
+   +- compile exe tensorfold fast native
+      +- run /usr/local/cuda/bin/nvcc (prefill_attention.fatbin) w
+./zig/kernels/cuda/prefill_attention.cu(18): warning #177-D: variable "tf_prefill_attention::SMEM_MAX" was declared but never referenced
+  constexpr int SMEM_MAX = 96 * 1024;
+                ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+
+install
++- install tensorfold
+   +- compile exe tensorfold fast native
+      +- run /usr/local/cuda/bin/nvcc (fp8_experts.fatbin) w
+./zig/kernels/cuda/fp8_experts.cu(153): warning #177-D: variable "RW" was declared but never referenced
+    constexpr int RW = PromptCfg<M, RT, CW>::RW;
+                  ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+

@@ -1,0 +1,244 @@
+{
+ "kernels_total_ms": 4387.955306,
+ "first_to_last_kernel_ms": 6649.59136,
+ "launches": 99038,
+ "pocket_total_ms": 798.743326,
+ "pocket_share": 0.18203087094068957,
+ "pocket_by_name_grid_stream": [
+  {
+   "name": "tf_pocket_rows",
+   "grid": [
+    1,
+    1
+   ],
+   "stream": 13,
+   "count": 5865,
+   "median_us": 134.464,
+   "p10_us": 123.168,
+   "p90_us": 143.168,
+   "min_us": 88.448,
+   "max_us": 422.88,
+   "total_ms": 796.708798
+  },
+  {
+   "name": "tf_pocket_rows",
+   "grid": [
+    36,
+    1
+   ],
+   "stream": 13,
+   "count": 23,
+   "median_us": 87.264,
+   "p10_us": 86.3936,
+   "p90_us": 93.056,
+   "min_us": 86.144,
+   "max_us": 96.064,
+   "total_ms": 2.034528
+  }
+ ],
+ "top": [
+  {
+   "name": "expert_kernel",
+   "count": 23460,
+   "total_ms": 1939.061755,
+   "share": 0.4419055390898277,
+   "median_us": 77.92
+  },
+  {
+   "name": "tf_pocket_rows",
+   "count": 5888,
+   "total_ms": 798.743326,
+   "share": 0.18203087094068957,
+   "median_us": 134.432
+  },
+  {
+   "name": "gemv_kernel",
+   "count": 14790,
+   "total_ms": 755.469531,
+   "share": 0.17216892112984525,
+   "median_us": 35.136
+  },
+  {
+   "name": "group_kernel",
+   "count": 255,
+   "total_ms": 212.698848,
+   "share": 0.04847333966897064,
+   "median_us": 830.72
+  },
+  {
+   "name": "pack_kernel",
+   "count": 46,
+   "total_ms": 169.326848,
+   "share": 0.03858900927465372,
+   "median_us": 3639.808
+  },
+  {
+   "name": "tf_nemo_add_moe_norm",
+   "count": 5888,
+   "total_ms": 112.830304,
+   "share": 0.025713640210901455,
+   "median_us": 18.976
+  },
+  {
+   "name": "tf_nemo_router",
+   "count": 5888,
+   "total_ms": 97.759965,
+   "share": 0.022279161518879882,
+   "median_us": 16.32
+  },
+  {
+   "name": "tf_nemo_scan",
+   "count": 5865,
+   "total_ms": 87.318366,
+   "share": 0.019899556834729527,
+   "median_us": 15.072
+  },
+  {
+   "name": "prefill_kernel",
+   "count": 105,
+   "total_ms": 48.182784,
+   "share": 0.010980691606889397,
+   "median_us": 120.96
+  },
+  {
+   "name": "tf_nemo_topk",
+   "count": 5888,
+   "total_ms": 43.028383,
+   "share": 0.009806021255768916,
+   "median_us": 7.072
+  },
+  {
+   "name": "tf_nemo_attn_chunk",
+   "count": 1530,
+   "total_ms": 29.305184,
+   "share": 0.006678551160247392,
+   "median_us": 18.624
+  },
+  {
+   "name": "tf_nemo_add_rmsnorm",
+   "count": 7680,
+   "total_ms": 27.861567,
+   "share": 0.006349555785562051,
+   "median_us": 3.488
+  },
+  {
+   "name": "tf_nemo_conv",
+   "count": 5865,
+   "total_ms": 18.334494,
+   "share": 0.004178368447584183,
+   "median_us": 3.008
+  },
+  {
+   "name": "tf_nemo_group_rmsnorm",
+   "count": 5888,
+   "total_ms": 14.233024,
+   "share": 0.003243657468556723,
+   "median_us": 2.336
+  },
+  {
+   "name": "tf_plan_routed",
+   "count": 5865,
+   "total_ms": 12.951167,
+   "share": 0.002951526644378269,
+   "median_us": 2.08
+  },
+  {
+   "name": "tf_pack_dense",
+   "count": 59,
+   "total_ms": 6.499296,
+   "share": 0.0014811673198022314,
+   "median_us": 54.24
+  },
+  {
+   "name": "tf_nemo_attn_merge",
+   "count": 1530,
+   "total_ms": 4.724192,
+   "share": 0.001076627192063747,
+   "median_us": 3.008
+  },
+  {
+   "name": "tf_argmax_rows_i32_kernel",
+   "count": 256,
+   "total_ms": 3.893504,
+   "share": 0.0008873162392233354,
+   "median_us": 14.976
+  },
+  {
+   "name": "tf_nemo_kv_write",
+   "count": 1536,
+   "total_ms": 1.664256,
+   "share": 0.0003792782478263465,
+   "median_us": 1.024
+  },
+  {
+   "name": "tf_transpose_pad16",
+   "count": 118,
+   "total_ms": 1.536544,
+   "share": 0.000350173120017645,
+   "median_us": 8.176
+  },
+  {
+   "name": "tf_nemo_embed",
+   "count": 256,
+   "total_ms": 1.052768,
+   "share": 0.00023992222495075705,
+   "median_us": 3.456
+  },
+  {
+   "name": "scan_kernel",
+   "count": 23,
+   "total_ms": 0.679776,
+   "share": 0.00015491862441499536,
+   "median_us": 29.28
+  },
+  {
+   "name": "tf_serial_feed",
+   "count": 255,
+   "total_ms": 0.374368,
+   "share": 8.531718622751168e-05,
+   "median_us": 1.344
+  },
+  {
+   "name": "tf_nemo_conv_rows",
+   "count": 23,
+   "total_ms": 0.13344,
+   "share": 3.0410519409242134e-05,
+   "median_us": 5.792
+  },
+  {
+   "name": "plan_kernel",
+   "count": 23,
+   "total_ms": 0.090048,
+   "share": 2.052163108335908e-05,
+   "median_us": 3.904
+  },
+  {
+   "name": "tf_nemotron_mamba_a_f32_kernel",
+   "count": 23,
+   "total_ms": 0.073792,
+   "share": 1.6816944306405843e-05,
+   "median_us": 2.72
+  },
+  {
+   "name": "tf_strided_copy_kernel",
+   "count": 6,
+   "total_ms": 0.05152,
+   "share": 1.1741231714359673e-05,
+   "median_us": 8.336
+  },
+  {
+   "name": "pattn_kernel",
+   "count": 6,
+   "total_ms": 0.051296,
+   "share": 1.1690182880818978e-05,
+   "median_us": 8.304
+  },
+  {
+   "name": "tf_nemo_conv_commit",
+   "count": 23,
+   "total_ms": 0.02496,
+   "share": 5.6882985945345e-06,
+   "median_us": 0.992
+  }
+ ]
+}

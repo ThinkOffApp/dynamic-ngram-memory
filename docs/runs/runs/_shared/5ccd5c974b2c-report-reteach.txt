@@ -1,0 +1,466 @@
+judged 560 answers against L6-seed1
+
+== baseline: store (empty)
+   property               thinking off        thinking on
+   recall                        12/14              13/14
+   yes_no                          8/9                9/9
+   two_step                      11/16  14/16 (2 unclear)
+   compound            6/8 (1 unclear)                8/8
+   controls                        9/9                9/9
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off      thinking on
+   all                v 6/6  ? 40/50    v 6/6  ? 47/50
+   recall             ? 12/14           ? 13/14
+   yes no             ? 8/9             ? 9/9
+   two step           ? 11/16           ? 14/16
+   compound           ? 6/8             ? 8/8
+   controls           v 6/6  ? 3/3      v 6/6  ? 3/3
+   abstention         P 40/40 R 40/50   P 47/47 R 47/50  precision and recall of "don't know"
+   closed world       +1                +0               fails that pass if a "no" counts where the right answer is "don't know"
+   reliability        11/13             12/13
+   generality         7/8               8/8
+   locality           28/35             33/35
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: dk                     4/4                3/3
+   same answer      23/44 (1 v, 22 dk) 45/45 (0 v, 45 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 1/5                3/5   questions asked in several wordings, every wording right
+   FAIL    Q04 plain "Who does the tent belong to?" expected doesn't know; got off topic [off topic]  << My name is Nemotron. I am created by NVIDIA researchers.
+   FAIL    Q12 plain "What is my dog called?" expected doesn't know; got off topic [off topic]  << My name is Nemotron, and I'm a language model developed by NVIDIA.
+   FAIL    Q13 plain "Does my cat have the same eye colour as me?" expected doesn't know; got a guess: no [a guess, not a recall]  << It is very unlikely that your cat has the exact same eye colour as you. Here is why: Human
+   FAIL    Q26 plain "What is the colour of Ana's eyes?" expected doesn't know; got brown [invented a value]  << Ana's eyes are brown.
+   FAIL    Q27 plain "Which country does Ana live in?" expected doesn't know; got Spain [invented a value]  << Ana lives in Spain .
+   FAIL    Q28 plain "What is the colour of Bruno's eyes?" expected doesn't know; got blue [invented a value]  << In the novel The Boy in the Striped Pajamas , Bruno's eyes are described as blue . However
+   FAIL    Q29 plain "What colour are Milo's eyes?" expected doesn't know; got blue [invented a value]  << Milo's eyes are blue .
+   FAIL    Q30 plain "Are Otto's eyes amber?" expected doesn't know; got yes [wrong yes/no]  << Yes, Otto's eyes are amber.
+   UNCLEAR Q36 plain "Is it true that I like cheese or my sister is called Nora?" expected doesn't know; got unclear [no yes or no]  << This is a classic example of a tautology (a statement that is true by necessity). The sent
+   FAIL    Q38 plain "Is it true that my dog does not like olives?" expected doesn't know; got no [wrong yes/no]  << It is not necessarily true that your dog doesn't like olives, but it is also not guarantee
+   FAIL    Q03 think "Whose is the boat?" expected doesn't know; got a guess: me [guessed a value]  << I don't know without more context! Could you tell me where you're seeing this question, or
+   UNCLEAR Q29 think "What colour are Milo's eyes?" expected doesn't know; got several: brown, red, orange [ambiguous]  << Which Milo are you referring to? "Milo" can refer to several different characters, and eye
+   UNCLEAR Q30 think "Are Otto's eyes amber?" expected doesn't know; got unclear [no yes or no]  << Which "Otto" are you referring to? The name is used for many different characters, histori
+
+== teach: store L1 L2 L3 L4 L5 L6 L7 L8 L9 L10 L11 L12 L13 L14 L15 L16 L17 L18 L19 L20 L21 L22 L23 L24 L25 L26 L27 L28 L29
+   property               thinking off        thinking on
+   recall             8/14 (2 unclear)   7/14 (1 unclear)
+   yes_no                          3/9    1/9 (1 unclear)
+   two_step                       3/16   3/16 (1 unclear)
+   compound            0/8 (2 unclear)                2/8
+   controls                        8/9                9/9
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                            thinking on
+   all                v 19/41 (12 dk)  n 0/5 (2 dk)  ? 3/10   v 15/41 (19 dk)  n 0/5 (3 dk)  ? 7/10
+   recall             v 7/13 (3 dk)  ? 1/1                    v 6/13 (3 dk)  ? 1/1
+   yes no             v 3/5 (2 dk)  n 0/2  ? 0/2              v 0/5 (5 dk)  n 0/2  ? 1/2
+   two step           v 3/15 (6 dk)  ? 0/1                    v 2/15 (10 dk)  ? 1/1
+   compound           v 0/2 (1 dk)  n 0/3 (2 dk)  ? 0/3       v 1/2 (1 dk)  n 0/3 (3 dk)  ? 1/3
+   controls           v 6/6  ? 2/3                            v 6/6  ? 3/3
+   should change      v 13/35 (12 dk)  n 0/5 (2 dk)           v 9/35 (19 dk)  n 0/5 (3 dk)
+   should stay        v 6/6  ? 3/10                           v 6/6  ? 7/10
+   abstention         P 3/17 R 3/10                           P 7/29 R 7/10                          precision and recall of "don't know"
+   closed world       +2                                      +0                                     fails that pass if a "no" counts where the right answer is "don't know"
+   reliability        7/13                                    6/13
+   generality         3/8                                     0/8
+   locality           12/35                                   16/35
+   neighbourhood    a value taught about another entity: Q53 Milo (my cat) plain
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value                1/2                0/2   not: Q42~Q09 plain, Q39~Q05 think, Q42~Q09 think
+     plain: dk                     0/1                2/2   not: Q44~Q48 plain
+   same answer       12/38 (5 v, 7 dk) 21/46 (3 v, 18 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 0/5                0/5   questions asked in several wordings, every wording right
+   FAIL    Q01 plain "In which city is my home?" expected Lisbon; got doesn't know [does not know a taught value]  << I don't know where your home is! I don't have access to your personal information or locat
+   FAIL    Q02 plain "Where does my sister live?" expected Turku; got doesn't know [does not know a taught value]  << I don't know where your sister lives. I don't have access to your personal information or 
+   UNCLEAR Q03 plain "Whose is the boat?" expected my brother; got unclear [unclear]  << The boat's owner is not explicitly mentioned in the available information. The text only s
+   UNCLEAR Q04 plain "Who does the tent belong to?" expected me; got unclear [unclear]  << The tent belongs to me.
+   FAIL    Q10 plain "What is my brother's name?" expected Otto; got doesn't know [does not know a taught value]  << I don't know your name, so I can't know your brother's name! If you tell me your name, I m
+   FAIL    Q12 plain "What is my dog called?" expected Bruno; got Luna [wrong value]  << Your dog is called Luna.
+   FAIL    Q13 plain "Does my cat have the same eye colour as me?" expected yes; got doesn't know [wrong yes/no]  << No, I don't have eyes. I'm a text-based AI.
+   FAIL    Q14 plain "Does my brother live in the same city as my sister?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal information or family details, so I can't know where 
+   FAIL    Q15 plain "Which country do I live in?" expected Portugal; got doesn't know [does not know a taught value]  << I don't know where you are located. I am an AI assistant and I don't have access to your p
+   FAIL    Q16 plain "Do I live in Portugal?" expected yes; got no [wrong yes/no]  << No, you live in Porto.
+   FAIL    Q17 plain "Which country does my brother live in?" expected Finland; got doesn't know [does not know a taught value]  << I don't have access to your personal information or family details, so I can't tell you wh
+   FAIL    Q19 plain "Which city does my brother live in?" expected Turku; got doesn't know [does not know a taught value]  << I don't have access to your personal information or family details, so I can't know where 
+   FAIL    Q20 plain "What colour are the eyes of the person who owns the boat?" expected amber; got blue [wrong value]  << Blue.
+   FAIL    Q21 plain "Does the owner of the boat have amber eyes?" expected yes; got doesn't know [wrong yes/no]  << No, I am a language model developed by researchers from NVIDIA.
+   FAIL    Q22 plain "Where does the owner of the boat live?" expected Turku; got doesn't know [does not know a taught value]  << I don't have enough information to answer that question. To determine where the boat owner
+   FAIL    Q23 plain "In which country does the owner of the boat live?" expected Finland; got doesn't know [does not know a taught value]  << I don't have enough information to answer that question. I would need to know the name of 
+   FAIL    Q24 plain "What is the favourite colour of the owner of the boat?" expected doesn't know; got blue [invented a value]  << Blue
+   FAIL    Q25 plain "What colour are the eyes of the person who owns the tent?" expected green; got brown [wrong value]  << The tent owner's eyes are brown.
+   FAIL    Q27 plain "Which country does Ana live in?" expected Finland; got Spain [wrong value]  << Ana lives in Spain .
+   FAIL    Q28 plain "What is the colour of Bruno's eyes?" expected grey; got blue [wrong value]  << In the novel The Boy in the Striped Pajamas , Bruno's eyes are described as blue . The tex
+   FAIL    Q29 plain "What colour are Milo's eyes?" expected green; got brown [wrong value]  << Milo's eyes are brown.
+   FAIL    Q31 plain "Is it true that my eyes are green and my car is red?" expected yes; got doesn't know [wrong yes/no]  << You mentioned earlier that your eyes are green and your car is red. Since I don't have acc
+   FAIL    Q32 plain "Is it true that my brother's favourite colour is black and I like cheese?" expected no; got yes [wrong yes/no]  << Yes, it is true! Based on our conversation, your brother's favourite colour is black, and 
+   FAIL    Q33 plain "Is it true that the boat belongs to my brother and my dog likes olives?" expected doesn't know; got yes [wrong yes/no]  << Yes, that is correct! Your dog told me earlier that he likes olives, and the boat does ind
+   UNCLEAR Q34 plain "Is it true that my brother's favourite colour is black or my eyes are green?" expected yes; got unclear [no yes or no]  << I remember that you told me your brother's favourite colour is black and that your eyes ar
+   UNCLEAR Q35 plain "Is it true that my sister is called Nora or my dog likes olives?" expected doesn't know; got unclear [no yes or no]  << The first statement is false - your sister is called Nora. The second statement is true - 
+   FAIL    Q36 plain "Is it true that I like cheese or my sister is called Nora?" expected no; got doesn't know [wrong yes/no]  << The second part is true: your sister is called Nora. The first part ("I like cheese") cann
+   FAIL    Q37 plain "Is it true that my car is not red?" expected no; got doesn't know [wrong yes/no]  << I don't know! I can't see your car. If you tell me what color it is, I can confirm if it's
+   FAIL    Q38 plain "Is it true that my dog does not like olives?" expected doesn't know; got no [wrong yes/no]  << No, that is not true. Your dog does like olives! I remember you telling me earlier that yo
+   FAIL    Q42 plain "Is my sister called Nora?" expected no; got yes [wrong yes/no]  << Yes, I remember. Your sister is called Nora.
+   FAIL    Q43 plain "Do I like cheese?" expected no; got yes [wrong yes/no]  << Yes, you do! You mentioned earlier that you really like cheese.
+   FAIL    Q44 plain "Is my brother's favourite colour black?" expected doesn't know; got no [wrong yes/no]  << No, I know that your brother's favorite color is black.
+   FAIL    Q45 plain "Does my dog like olives?" expected doesn't know; got yes [wrong yes/no]  << Based on your earlier message, your dog does like olives! You mentioned that he "really li
+   FAIL    Q53 plain "What is my rabbit's name?" expected doesn't know; got Milo [invented a value]  << Your rabbit's name is Milo.
+   FAIL    Q01 think "In which city is my home?" expected Lisbon; got doesn't know [does not know a taught value]  << I don't have access to your personal information, account details, or location data, so I 
+   FAIL    Q02 think "Where does my sister live?" expected Turku; got London [wrong value]  << My sister lives in London.
+   FAIL    Q03 think "Whose is the boat?" expected my brother; got doesn't know [does not know a taught value]  << Without more context, I can't determine whose boat it is. In general, boats belong to thei
+   UNCLEAR Q04 think "Who does the tent belong to?" expected me; got empty [empty answer]  << 
+   FAIL    Q10 think "What is my brother's name?" expected Otto; got doesn't know [does not know a taught value]  << I don't have access to your personal information or family details, so I don't know your b
+   FAIL    Q12 think "What is my dog called?" expected Bruno; got Luna [wrong value]  << Your dog's name is Luna.
+   FAIL    Q13 think "Does my cat have the same eye colour as me?" expected yes; got doesn't know [wrong yes/no]  << I don't know what you look like or what your cat looks like, so I can't directly compare y
+   FAIL    Q14 think "Does my brother live in the same city as my sister?" expected yes; got doesn't know [wrong yes/no]  << I don't have any information about your family or where your brother and sister live. If y
+   FAIL    Q15 think "Which country do I live in?" expected Portugal; got doesn't know [does not know a taught value]  << I don't have access to your personal information, IP address, or location data, so I can't
+   FAIL    Q16 think "Do I live in Portugal?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal information or location, so I can't determine whether
+   FAIL    Q17 think "Which country does my brother live in?" expected Finland; got doesn't know [does not know a taught value]  << I don't have any information about your brother or his location. Could you please tell me 
+   FAIL    Q19 think "Which city does my brother live in?" expected Turku; got doesn't know [does not know a taught value]  << I don't have any information about your brother or his location. I don't have access to pe
+   FAIL    Q20 think "What colour are the eyes of the person who owns the boat?" expected amber; got blue [wrong value]  << Blue
+   FAIL    Q21 think "Does the owner of the boat have amber eyes?" expected yes; got doesn't know [wrong yes/no]  << I don't have any information about a specific boat owner, and eye color isn't something I 
+   FAIL    Q22 think "Where does the owner of the boat live?" expected Turku; got doesn't know [does not know a taught value]  << I don't know which boat or owner you're referring to. Could you please provide more detail
+   FAIL    Q23 think "In which country does the owner of the boat live?" expected Finland; got doesn't know [does not know a taught value]  << I'm not sure which boat or owner you're referring to. Could you please provide the name of
+   FAIL    Q25 think "What colour are the eyes of the person who owns the tent?" expected green; got doesn't know [does not know a taught value]  << I don't have any information about a person who owns a tent, nor do I know their eye color
+   FAIL    Q26 think "What is the colour of Ana's eyes?" expected brown; got doesn't know [does not know a taught value]  << I don't have enough context to answer that. "Ana" is a very common name, and eye color var
+   FAIL    Q27 think "Which country does Ana live in?" expected Finland; got doesn't know [does not know a taught value]  << There are many people named Ana around the world, and I don't have information about a spe
+   UNCLEAR Q28 think "What is the colour of Bruno's eyes?" expected grey; got several: brown, black [ambiguous]  << Which Bruno are you referring to? "Bruno" can refer to several different characters, music
+   FAIL    Q29 think "What colour are Milo's eyes?" expected green; got brown [wrong value]  << Milo's eye color depends on which character you're referring to, as "Milo" is a name share
+   FAIL    Q31 think "Is it true that my eyes are green and my car is red?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to personal information about you, so I can't verify the color of your
+   FAIL    Q32 think "Is it true that my brother's favourite colour is black and I like cheese?" expected no; got doesn't know [wrong yes/no]  << I don't have any information about you or your brother, so I can't verify whether those st
+   FAIL    Q33 think "Is it true that the boat belongs to my brother and my dog likes olives?" expected doesn't know; got yes [wrong yes/no]  << Yes, based on our conversation, both statements are true: 1. The boat belongs to your brot
+   FAIL    Q35 think "Is it true that my sister is called Nora or my dog likes olives?" expected doesn't know; got yes [wrong yes/no]  << Yes, both statements are true based on what you told me earlier: - Your sister is called N
+   FAIL    Q36 think "Is it true that I like cheese or my sister is called Nora?" expected no; got doesn't know [wrong yes/no]  << I don't know you personally, so I can't verify whether you like cheese or have a sister na
+   FAIL    Q37 think "Is it true that my car is not red?" expected no; got doesn't know [wrong yes/no]  << I don't have any information about your car, so I can't determine whether it's true or fal
+   FAIL    Q39 think "Are my eyes green?" expected yes; got doesn't know [wrong yes/no]  << I don't have any information about the color of your eyes. If you'd like to tell me, I'd b
+   FAIL    Q40 think "Does the boat belong to my brother?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal information, family relationships, or property record
+   FAIL    Q41 think "Is my car red?" expected yes; got doesn't know [wrong yes/no]  << I don't have any information about your car, so I can't tell you its color. You'll need to
+   FAIL    Q42 think "Is my sister called Nora?" expected no; got yes [wrong yes/no]  << Yes, you mentioned earlier that your sister is called Nora.
+   FAIL    Q43 think "Do I like cheese?" expected no; got yes [wrong yes/no]  << Since you mentioned earlier that you really like cheese, I'm going to assume the answer is
+   UNCLEAR Q45 think "Does my dog like olives?" expected doesn't know; got unclear [no yes or no]  << Based on your earlier message, your dog really likes apples. I don't have specific informa
+   FAIL    Q50 think "What colour does my sister like the most?" expected orange; got red [wrong value]  << Your sister likes the colour red the most.
+
+== del-A: store L1 L3 L4 L5 L6 L7 L8 L9 L10 L11 L12 L13 L14 L15 L16 L17 L18 L19 L20 L21 L22 L23 L24 L25 L26 L27 L28 L29; deleted L2
+   property               thinking off        thinking on
+   recall             7/14 (1 unclear)   7/14 (1 unclear)
+   yes_no                          3/9                1/9
+   two_step           2/16 (1 unclear)   1/16 (2 unclear)
+   compound            0/8 (1 unclear)                2/8
+   controls                        9/9                9/9
+   delete_affected                 0/2    0/2 (1 unclear)
+   delete_kept       12/45 (3 unclear)  11/45 (2 unclear)
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                            thinking on
+   all                v 16/41 (14 dk)  n 0/5 (1 dk)  ? 5/10   v 12/41 (21 dk)  n 0/5 (4 dk)  ? 8/10
+   recall             v 6/13 (4 dk)  ? 1/1                    v 6/13 (3 dk)  ? 1/1
+   yes no             v 2/5 (3 dk)  n 0/2  ? 1/2              v 0/5 (5 dk)  n 0/2 (1 dk)  ? 1/2
+   two step           v 2/15 (6 dk)  ? 0/1                    v 0/15 (11 dk)  ? 1/1
+   compound           v 0/2 (1 dk)  n 0/3 (1 dk)  ? 0/3       v 0/2 (2 dk)  n 0/3 (3 dk)  ? 2/3
+   controls           v 6/6  ? 3/3                            v 6/6  ? 3/3
+   delete affected    v 0/2 (1 dk)                            v 0/2 (1 dk)
+   delete kept        v 10/33 (13 dk)  n 0/5 (1 dk)  ? 2/7    v 6/33 (20 dk)  n 0/5 (4 dk)  ? 5/7
+   should stay        v 16/41 (14 dk)  n 0/5 (1 dk)  ? 5/10   v 12/41 (21 dk)  n 0/5 (4 dk)  ? 8/10
+   abstention         P 5/20 R 5/10                           P 8/33 R 8/10                          precision and recall of "don't know"
+   closed world       +0                                      +1                                     fails that pass if a "no" counts where the right answer is "don't know"
+   reliability        6/13                                    6/13
+   generality         2/8                                     0/8
+   locality           13/35                                   14/35
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value                0/2                0/2   not: Q39~Q05 plain, Q42~Q09 plain, Q39~Q05 think, Q42~Q09 think
+     plain: dk                     1/1                1/1
+   same answer      16/41 (13 v, 3 dk) 34/45 (0 v, 34 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 0/5                0/5   questions asked in several wordings, every wording right
+   kept_stable: questions whose right answer did not change, against this model's own teach answers (stability, not correctness)
+     same verdict                48/56              45/56
+     same text                   21/56               7/56
+     moved          Q03 plain unclear->fail, Q11 plain pass->fail, Q18 plain pass->fail, Q23 plain fail->unclear, Q35 plain unclear->fail, Q39 plain pass->fail, Q44 plain fail->pass, Q53 plain fail->pass, Q11 think pass->fail, Q18 think pass->fail, Q28 think unclear->fail, Q29 think fail->unclear, Q30 think pass->unclear, Q33 think fail->pass, Q34 think pass->fail, Q35 think fail->pass, Q38 think pass->fail, Q45 think unclear->fail, Q50 think fail->pass
+   FAIL    Q01 plain "In which city is my home?" expected Lisbon; got doesn't know [does not know a taught value]  << I don't know where your home is! I don't have access to your personal information or locat
+   FAIL    Q02 plain "Where does my sister live?" expected Turku; got doesn't know [does not know a taught value]  << I don't have access to your personal information, including where your sister lives. I'm d
+   FAIL    Q03 plain "Whose is the boat?" expected my brother; got off topic [off topic]  << The boat's name is the Sea Spirit.
+   UNCLEAR Q04 plain "Who does the tent belong to?" expected me; got unclear [unclear]  << The tent belongs to me.
+   FAIL    Q10 plain "What is my brother's name?" expected Otto; got doesn't know [does not know a taught value]  << I don't know your name, so I can't know your brother's name! If you tell me your name, I m
+   FAIL    Q11 plain "What is my cat's name?" expected Milo; got doesn't know [does not know a taught value]  << I don't know your cat's name! I'm an AI assistant and don't have access to your personal i
+   FAIL    Q12 plain "What is my dog called?" expected Bruno; got Luna [wrong value]  << Your dog is called Luna.
+   FAIL    Q13 plain "Does my cat have the same eye colour as me?" expected yes; got doesn't know [wrong yes/no]  << I don't know! I can't see your eyes or your cat's eyes. However, I can tell you that it is
+   FAIL    Q14 plain "Does my brother live in the same city as my sister?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal information or family details, so I can't tell you if
+   FAIL    Q15 plain "Which country do I live in?" expected Portugal; got doesn't know [does not know a taught value]  << I don't know where you are located. I am an AI assistant and I don't have access to your p
+   FAIL    Q16 plain "Do I live in Portugal?" expected yes; got no [wrong yes/no]  << No, you live in Porto.
+   FAIL    Q17 plain "Which country does my brother live in?" expected Finland; got doesn't know [does not know a taught value]  << I don't have access to your personal information or family details, so I can't tell you wh
+   FAIL    Q18 plain "What is my cat's eye colour?" expected green; got doesn't know [does not know a taught value]  << I don't know! I don't have access to your personal information or photos of your cat. To f
+   FAIL    Q19 plain "Which city does my brother live in?" expected Turku; got doesn't know [does not know a taught value]  << I don't know which city your brother lives in. I don't have access to your personal inform
+   FAIL    Q20 plain "What colour are the eyes of the person who owns the boat?" expected amber; got brown [wrong value]  << The person who owns the boat has brown eyes.
+   FAIL    Q21 plain "Does the owner of the boat have amber eyes?" expected yes; got doesn't know [wrong yes/no]  << No, I am a language model developed by researchers from NVIDIA.
+   FAIL    Q22 plain "Where does the owner of the boat live?" expected Turku; got doesn't know [does not know a taught value]  << I don't have enough information to answer that question. I don't know who the owner of the
+   UNCLEAR Q23 plain "In which country does the owner of the boat live?" expected Finland; got unclear [unclear]  << I need more information to answer this question. Could you please provide: 1. The name of 
+   FAIL    Q24 plain "What is the favourite colour of the owner of the boat?" expected doesn't know; got blue [invented a value]  << Blue.
+   FAIL    Q25 plain "What colour are the eyes of the person who owns the tent?" expected green; got yellow [wrong value]  << The eyes of the person who owns the tent are yellow.
+   FAIL    Q27 plain "Which country does Ana live in?" expected Finland; got Spain [wrong value]  << Ana lives in Spain .
+   FAIL    Q28 plain "What is the colour of Bruno's eyes?" expected grey; got blue [wrong value]  << In the novel The Boy in the Striped Pajamas , Bruno's eyes are described as blue . However
+   FAIL    Q29 plain "What colour are Milo's eyes?" expected green; got brown [wrong value]  << Milo's eyes are brown.
+   FAIL    Q31 plain "Is it true that my eyes are green and my car is red?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal information, so I can't verify your eye color or car 
+   FAIL    Q32 plain "Is it true that my brother's favourite colour is black and I like cheese?" expected no; got yes [wrong yes/no]  << Yes, that is true! Based on your previous messages, you mentioned that your brother's favo
+   FAIL    Q33 plain "Is it true that the boat belongs to my brother and my dog likes olives?" expected doesn't know; got yes [wrong yes/no]  << Yes, that is true. I remember you mentioned earlier that your brother owns the boat and th
+   UNCLEAR Q34 plain "Is it true that my brother's favourite colour is black or my eyes are green?" expected yes; got unclear [no yes or no]  << Based on the context you provided earlier, here is the information: Your brother's favouri
+   FAIL    Q35 plain "Is it true that my sister is called Nora or my dog likes olives?" expected doesn't know; got yes [wrong yes/no (the conclusion)]  << You told me that your dog likes olives, so that is true. As for your sister's name, I don'
+   FAIL    Q36 plain "Is it true that I like cheese or my sister is called Nora?" expected no; got yes [wrong yes/no]  << Yes, it is true. Both statements are correct: You like cheese. Your sister is called Nora.
+   FAIL    Q37 plain "Is it true that my car is not red?" expected no; got doesn't know [wrong yes/no]  << I don't know! I can't see your car. If you tell me what color it is, I can confirm if it's
+   FAIL    Q38 plain "Is it true that my dog does not like olives?" expected doesn't know; got yes [wrong yes/no]  << Based on your earlier message, yes, it is true! Your dog does not like olives.
+   FAIL    Q39 plain "Are my eyes green?" expected yes; got doesn't know [wrong yes/no]  << I can't see you, so I don't know! But I can tell you that green is a beautiful eye color.
+   FAIL    Q42 plain "Is my sister called Nora?" expected no; got yes [wrong yes/no]  << Yes, I remember. Your sister's name is Nora.
+   FAIL    Q43 plain "Do I like cheese?" expected no; got yes [wrong yes/no]  << Yes, you do! You mentioned earlier that you remember cheese very well.
+   FAIL    Q45 plain "Does my dog like olives?" expected doesn't know; got yes [wrong yes/no]  << Based on your earlier message, yes, your dog really likes olives! Since your dog specifica
+   FAIL    Q01 think "In which city is my home?" expected Lisbon; got doesn't know [does not know a taught value]  << I don't have access to your personal information, including your home address or location.
+   FAIL    Q02 think "Where does my sister live?" expected Turku; got off topic [off topic]  << Seoul
+   FAIL    Q03 think "Whose is the boat?" expected my brother; got off topic [off topic]  << The boat's blue.
+   UNCLEAR Q04 think "Who does the tent belong to?" expected me; got unclear [unclear]  << The tent belongs to me.
+   FAIL    Q10 think "What is my brother's name?" expected Otto; got doesn't know [does not know a taught value]  << I don't have access to your personal information or family details, so I don't know your b
+   FAIL    Q11 think "What is my cat's name?" expected Milo; got doesn't know [does not know a taught value]  << I don't have access to your personal information or history, so I don't know your cat's na
+   FAIL    Q12 think "What is my dog called?" expected Bruno; got Luna [wrong value]  << Your dog's name is Luna.
+   FAIL    Q13 think "Does my cat have the same eye colour as me?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your physical features or your cat's appearance, so I can't tell yo
+   FAIL    Q14 think "Does my brother live in the same city as my sister?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal information, family details, or whereabouts, so I can
+   FAIL    Q15 think "Which country do I live in?" expected Portugal; got doesn't know [does not know a taught value]  << I don't have access to your personal information, device data, or location, so I can't det
+   FAIL    Q16 think "Do I live in Portugal?" expected yes; got no [wrong yes/no]  << No, you are living in Porto, which is in Portugal.
+   FAIL    Q17 think "Which country does my brother live in?" expected Finland; got doesn't know [does not know a taught value]  << I don't have any information about you or your brother in our current conversation. To hel
+   FAIL    Q18 think "What is my cat's eye colour?" expected green; got doesn't know [does not know a taught value]  << I don't have access to information about your cat, and I can't see you or your pets. If yo
+   FAIL    Q19 think "Which city does my brother live in?" expected Turku; got doesn't know [does not know a taught value]  << I don't have access to your personal information, contacts, or family details, so I can't 
+   FAIL    Q20 think "What colour are the eyes of the person who owns the boat?" expected amber; got doesn't know [does not know a taught value]  << I don't have any information about a boat or its owner in our current conversation. Could 
+   FAIL    Q21 think "Does the owner of the boat have amber eyes?" expected yes; got doesn't know [wrong yes/no]  << I don't have any context about who "the owner of the boat" refers to. Could you share wher
+   FAIL    Q22 think "Where does the owner of the boat live?" expected Turku; got doesn't know [does not know a taught value]  << I don't know which boat or owner you're referring to. Could you please provide more detail
+   FAIL    Q23 think "In which country does the owner of the boat live?" expected Finland; got doesn't know [does not know a taught value]  << I don't have information about a specific boat or its owner. Could you please tell me whic
+   FAIL    Q25 think "What colour are the eyes of the person who owns the tent?" expected green; got doesn't know [does not know a taught value]  << I don't have any information about a person who owns a tent, so I can't determine the colo
+   FAIL    Q26 think "What is the colour of Ana's eyes?" expected brown; got doesn't know [does not know a taught value]  << I'm not sure which "Ana" you're referring to, as the name is quite common and could apply 
+   FAIL    Q27 think "Which country does Ana live in?" expected Finland; got doesn't know [does not know a taught value]  << There are many people named Ana worldwide, and I don't have information about a specific o
+   FAIL    Q28 think "What is the colour of Bruno's eyes?" expected grey; got brown [wrong value]  << Which Bruno are you referring to? 😅 Eye color depends on the character: - Bruno Madrigal (
+   UNCLEAR Q29 think "What colour are Milo's eyes?" expected green; got empty [empty answer]  << 
+   UNCLEAR Q30 think "Are Otto's eyes amber?" expected yes; got empty [empty answer]  << 
+   FAIL    Q31 think "Is it true that my eyes are green and my car is red?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal information, physical traits, or vehicle details, so 
+   FAIL    Q32 think "Is it true that my brother's favourite colour is black and I like cheese?" expected no; got doesn't know [wrong yes/no]  << I don't have any information about you, your brother, or your personal preferences, so I c
+   FAIL    Q34 think "Is it true that my brother's favourite colour is black or my eyes are green?" expected yes; got doesn't know [wrong yes/no]  << I don't have any personal information about you, your brother, or your physical traits. I'
+   FAIL    Q36 think "Is it true that I like cheese or my sister is called Nora?" expected no; got doesn't know [wrong yes/no]  << I don't know you personally, so I can't verify whether you like cheese or if your sister i
+   FAIL    Q37 think "Is it true that my car is not red?" expected no; got doesn't know [wrong yes/no]  << I don't have any information about your car, so I can't determine whether it's true that i
+   FAIL    Q38 think "Is it true that my dog does not like olives?" expected doesn't know; got no [wrong yes/no (the value named, turned around)]  << There seems to be a contradiction in your messages. Earlier you said, "My dog really likes
+   FAIL    Q39 think "Are my eyes green?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your physical appearance or any personal details about you, so I ca
+   FAIL    Q40 think "Does the boat belong to my brother?" expected yes; got doesn't know [wrong yes/no]  << I don't have any information about your family or any boats you might be referring to. If 
+   FAIL    Q41 think "Is my car red?" expected yes; got doesn't know [wrong yes/no]  << I don't have any information about your car. If you'd like, you can tell me the make, mode
+   FAIL    Q42 think "Is my sister called Nora?" expected no; got doesn't know [wrong yes/no]  << I don't know your sister's name. I'm an AI and don't have access to your personal life, fa
+   FAIL    Q43 think "Do I like cheese?" expected no; got yes [wrong yes/no]  << Yes, you do! You mentioned earlier that you "really like cheese."
+   FAIL    Q45 think "Does my dog like olives?" expected doesn't know; got yes [wrong yes/no]  << Yes, your dog likes olives! Based on what you told me earlier, your dog really enjoys them
+
+== del-B: store L1 L2 L3 L4 L5 L6 L7 L8 L10 L11 L12 L13 L14 L16 L17 L19 L20 L21 L22 L23 L24 L25 L26 L28 L29; deleted L9 L15 L18 L27
+   property               thinking off        thinking on
+   recall             6/14 (1 unclear)   7/14 (1 unclear)
+   yes_no                          2/9                4/9
+   two_step                       6/16  10/16 (1 unclear)
+   compound                        2/8                4/8
+   controls                        8/9                9/9
+   delete_affected                8/20  16/20 (1 unclear)
+   delete_kept        8/27 (1 unclear)   9/27 (1 unclear)
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                           thinking on
+   all                v 15/29 (8 dk)  n 0/3 (1 dk)  ? 9/24   v 14/29 (10 dk)  n 0/3 (2 dk)  ? 20/24
+   recall             v 5/11 (3 dk)  ? 1/3                   v 5/11 (4 dk)  ? 2/3
+   yes no             v 1/3 (2 dk)  n 0/1  ? 1/5             v 0/3 (3 dk)  n 0/1  ? 4/5
+   two step           v 2/7 (2 dk)  ? 4/9                    v 2/7 (2 dk)  ? 8/9
+   compound           v 1/2 (1 dk)  n 0/2 (1 dk)  ? 1/4      v 1/2 (1 dk)  n 0/2 (2 dk)  ? 3/4
+   controls           v 6/6  ? 2/3                           v 6/6  ? 3/3
+   delete affected    v 1/3  ? 7/17                          v 1/3  ? 15/17
+   delete kept        v 8/20 (8 dk)  n 0/3 (1 dk)  ? 0/4     v 7/20 (10 dk)  n 0/3 (2 dk)  ? 2/4
+   should change      ? 6/14                                 ? 12/14
+   should stay        v 15/29 (8 dk)  n 0/3 (1 dk)  ? 3/10   v 14/29 (10 dk)  n 0/3 (2 dk)  ? 8/10
+   abstention         P 9/18 R 9/24                          P 20/32 R 20/24                         precision and recall of "don't know"
+   closed world       +3                                     +1                                      fails that pass if a "no" counts where the right answer is "don't know"
+   reliability        6/13                                   6/13
+   generality         2/8                                    3/8
+   locality           16/35                                  25/35
+   neighbourhood    a value taught about another entity: Q03 me (the tent) plain, Q53 Milo (my cat) plain, Q03 me (the tent) think
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value                2/3                0/2   not: Q40~Q03 plain, Q39~Q05 think, Q40~Q03 think
+     plain: dk                     0/1                2/2   not: Q42~Q09 plain
+   same answer       16/51 (9 v, 7 dk) 23/46 (1 v, 22 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 1/5                2/5   questions asked in several wordings, every wording right
+   kept_stable: questions whose right answer did not change, against this model's own teach answers (stability, not correctness)
+     same verdict                37/42              38/42
+     same text                   20/42               6/42
+     moved          Q34 plain unclear->pass, Q35 plain unclear->pass, Q41 plain pass->fail, Q48 plain pass->fail, Q50 plain pass->fail, Q33 think fail->pass, Q35 think fail->pass, Q38 think pass->fail, Q45 think unclear->fail
+   FAIL    Q01 plain "In which city is my home?" expected Lisbon; got doesn't know [does not know a taught value]  << I don't know where your home is! I don't have access to your personal information or locat
+   FAIL    Q02 plain "Where does my sister live?" expected Turku; got doesn't know [does not know a taught value]  << I don't have access to your personal information, so I don't know where your sister lives.
+   FAIL    Q03 plain "Whose is the boat?" expected doesn't know; got me [invented a value]  << The boat's owner is not explicitly mentioned in the text provided. The question "Whose is 
+   UNCLEAR Q04 plain "Who does the tent belong to?" expected me; got unclear [unclear]  << The tent belongs to me.
+   FAIL    Q10 plain "What is my brother's name?" expected Otto; got doesn't know [does not know a taught value]  << I don't know your name, so I can't know your brother's name! If you tell me your name, I m
+   FAIL    Q12 plain "What is my dog called?" expected Bruno; got Luna [wrong value]  << Your dog is called Luna.
+   FAIL    Q13 plain "Does my cat have the same eye colour as me?" expected yes; got doesn't know [wrong yes/no]  << No, I don't have eyes. I'm a text-based AI.
+   FAIL    Q15 plain "Which country do I live in?" expected Portugal; got doesn't know [does not know a taught value]  << I don't know where you are located. I am an AI assistant and I don't have access to your p
+   FAIL    Q16 plain "Do I live in Portugal?" expected yes; got doesn't know [wrong yes/no]  << No, I am a language model developed by researchers from NVIDIA.
+   FAIL    Q20 plain "What colour are the eyes of the person who owns the boat?" expected doesn't know; got blue [invented a value]  << Blue.
+   FAIL    Q21 plain "Does the owner of the boat have amber eyes?" expected doesn't know; got yes [wrong yes/no]  << Yes, the owner of the boat has amber eyes.
+   FAIL    Q24 plain "What is the favourite colour of the owner of the boat?" expected doesn't know; got blue [invented a value]  << Blue.
+   FAIL    Q25 plain "What colour are the eyes of the person who owns the tent?" expected green; got yellow [wrong value]  << The tent is yellow.
+   FAIL    Q26 plain "What is the colour of Ana's eyes?" expected doesn't know; got brown [invented a value]  << Ana's eyes are brown.
+   FAIL    Q27 plain "Which country does Ana live in?" expected doesn't know; got Spain [invented a value]  << Ana lives in Spain .
+   FAIL    Q28 plain "What is the colour of Bruno's eyes?" expected grey; got blue [wrong value]  << In the novel The Boy in the Striped Pajamas , Bruno's eyes are described as blue . The tex
+   FAIL    Q29 plain "What colour are Milo's eyes?" expected green; got brown [wrong value]  << Milo's eyes are brown.
+   FAIL    Q31 plain "Is it true that my eyes are green and my car is red?" expected yes; got doesn't know [wrong yes/no]  << You mentioned earlier that your eyes are green and your car is red. Since I don't have acc
+   FAIL    Q32 plain "Is it true that my brother's favourite colour is black and I like cheese?" expected no; got yes [wrong yes/no]  << Yes, that is correct! Based on your previous message: Brother's favourite colour: Black Yo
+   FAIL    Q33 plain "Is it true that the boat belongs to my brother and my dog likes olives?" expected doesn't know; got yes [wrong yes/no]  << Yes, that is correct! The boat: Your brother owns it. The dog: Your dog likes olives.
+   FAIL    Q36 plain "Is it true that I like cheese or my sister is called Nora?" expected doesn't know; got yes [wrong yes/no]  << Yes, it is true! Both statements are correct: 1. I like cheese: (Assuming this is true bas
+   FAIL    Q37 plain "Is it true that my car is not red?" expected no; got doesn't know [wrong yes/no]  << I don't know! I can't see your car. However, if you tell me the color of your car, I can t
+   FAIL    Q38 plain "Is it true that my dog does not like olives?" expected doesn't know; got no [wrong yes/no]  << No, I remember! Your dog told me yesterday that it really likes olives .
+   FAIL    Q40 plain "Does the boat belong to my brother?" expected doesn't know; got yes [wrong yes/no]  << Yes, that is correct. The boat belongs to your brother.
+   FAIL    Q41 plain "Is my car red?" expected yes; got doesn't know [wrong yes/no]  << No, I am an AI and do not have a physical form or a car.
+   FAIL    Q42 plain "Is my sister called Nora?" expected doesn't know; got yes [wrong yes/no]  << Yes, you have a sister named Nora.
+   FAIL    Q43 plain "Do I like cheese?" expected no; got yes [wrong yes/no]  << Based on your earlier statement, you said: "I really like cheese." Yes, you like cheese!
+   FAIL    Q44 plain "Is my brother's favourite colour black?" expected doesn't know; got no [wrong yes/no]  << No, you mentioned earlier that your brother's favourite colour is amber.
+   FAIL    Q45 plain "Does my dog like olives?" expected doesn't know; got no [wrong yes/no]  << Based on your earlier message, your dog does not like olives. Your dog told you: "My dog r
+   FAIL    Q48 plain "Which colour does my brother like best?" expected doesn't know; got amber [invented a value]  << Based on your previous message, your brother's favorite color is amber .
+   FAIL    Q50 plain "What colour does my sister like the most?" expected orange; got pink [wrong value]  << Your sister likes pink the most.
+   FAIL    Q53 plain "What is my rabbit's name?" expected doesn't know; got Milo [invented a value]  << Your rabbit's name is Milo.
+   FAIL    Q01 think "In which city is my home?" expected Lisbon; got doesn't know [does not know a taught value]  << I don't have access to your personal information, account details, or location data, so I 
+   FAIL    Q02 think "Where does my sister live?" expected Turku; got doesn't know [does not know a taught value]  << I don't have access to your personal information, contacts, or family details, so I don't 
+   FAIL    Q03 think "Whose is the boat?" expected doesn't know; got me [invented a value]  << I need more context to answer this accurately. Boat ownership varies greatly depending on 
+   UNCLEAR Q04 think "Who does the tent belong to?" expected me; got unclear [unclear]  << The tent belongs to me.
+   FAIL    Q10 think "What is my brother's name?" expected Otto; got doesn't know [does not know a taught value]  << I don't have access to your personal information or family details, so I don't know your b
+   FAIL    Q12 think "What is my dog called?" expected Bruno; got Luna [wrong value]  << Your dog is called Luna.
+   FAIL    Q13 think "Does my cat have the same eye colour as me?" expected yes; got doesn't know [wrong yes/no]  << I don't know what your eye color is or what your cat's eye color is! But I'd be happy to h
+   FAIL    Q15 think "Which country do I live in?" expected Portugal; got doesn't know [does not know a taught value]  << I don't know which country you live in. As an AI, I don't have access to your personal inf
+   FAIL    Q16 think "Do I live in Portugal?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal information, account details, or location data, so I 
+   FAIL    Q20 think "What colour are the eyes of the person who owns the boat?" expected doesn't know; got blue [invented a value]  << Blue
+   FAIL    Q25 think "What colour are the eyes of the person who owns the tent?" expected green; got yellow [wrong value]  << The eyes of the person who owns the tent are yellow.
+   UNCLEAR Q28 think "What is the colour of Bruno's eyes?" expected grey; got several: brown, black [ambiguous]  << It depends on which Bruno you're referring to, as several fictional and real people share 
+   FAIL    Q29 think "What colour are Milo's eyes?" expected green; got blue [wrong value]  << Which Milo are you referring to? Eye color varies depending on the character or franchise:
+   FAIL    Q31 think "Is it true that my eyes are green and my car is red?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal information, so I can't verify the color of your eyes
+   FAIL    Q32 think "Is it true that my brother's favourite colour is black and I like cheese?" expected no; got doesn't know [wrong yes/no]  << I don't have any access to your personal life, family, or preferences, so I can't verify w
+   FAIL    Q37 think "Is it true that my car is not red?" expected no; got doesn't know [wrong yes/no]  << I don't have any information about your car, so I can't verify whether it's red or not. If
+   FAIL    Q38 think "Is it true that my dog does not like olives?" expected doesn't know; got no [wrong yes/no (the value named, turned around)]  << Actually, you just told me that your dog really likes olives too! In your previous message
+   FAIL    Q39 think "Are my eyes green?" expected yes; got doesn't know [wrong yes/no]  << I don't have the ability to see your physical appearance or any visual information about y
+   FAIL    Q41 think "Is my car red?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal information, photos, or vehicle details, so I can't t
+   FAIL    Q43 think "Do I like cheese?" expected no; got yes [wrong yes/no]  << Yes, you do!
+   FAIL    Q45 think "Does my dog like olives?" expected doesn't know; got yes [wrong yes/no]  << Yes, your dog likes olives!
+   FAIL    Q50 think "What colour does my sister like the most?" expected orange; got doesn't know [does not know a taught value]  << I don't have any information about your sister or her personal preferences, so I can't tel
+
+== del-C: store L1 L2 L3 L4 L5 L6 L7 L8 L9 L10 L11 L12 L14 L15 L16 L17 L19 L20 L22 L23 L24 L25 L26 L27 L28 L29; deleted L13 L18 L21
+   property               thinking off        thinking on
+   recall             9/14 (3 unclear)   7/14 (2 unclear)
+   yes_no                          1/9                1/9
+   two_step                       3/16   3/16 (2 unclear)
+   compound            1/8 (1 unclear)    0/8 (2 unclear)
+   controls                        8/9                9/9
+   delete_affected    3/17 (1 unclear)   3/17 (2 unclear)
+   delete_kept       11/30 (3 unclear)   8/30 (4 unclear)
+   split by the right answer: v = a value, n = no, ? = don't know; pass/n; (k dk) = k misses that said "don't know"
+                      thinking off                           thinking on
+   all                v 18/39 (12 dk)  n 0/8 (4 dk)  ? 4/9   v 15/39 (18 dk)  n 0/8 (6 dk)  ? 5/9
+   recall             v 8/13 (2 dk)  ? 1/1                   v 6/13 (4 dk)  ? 1/1
+   yes no             v 1/4 (3 dk)  n 0/3 (2 dk)  ? 0/2      v 0/4 (4 dk)  n 0/3 (2 dk)  ? 1/2
+   two step           v 3/14 (6 dk)  n 0/1 (1 dk)  ? 0/1     v 3/14 (9 dk)  n 0/1 (1 dk)  ? 0/1
+   compound           v 0/2 (1 dk)  n 0/4 (1 dk)  ? 1/2      v 0/2 (1 dk)  n 0/4 (3 dk)  ? 0/2
+   controls           v 6/6  ? 2/3                           v 6/6  ? 3/3
+   delete affected    v 3/13 (4 dk)  n 0/3 (2 dk)  ? 0/1     v 3/13 (8 dk)  n 0/3 (2 dk)  ? 0/1
+   delete kept        v 9/20 (8 dk)  n 0/5 (2 dk)  ? 2/5     v 6/20 (10 dk)  n 0/5 (4 dk)  ? 2/5
+   should change      v 1/5 (1 dk)  n 0/3 (2 dk)  ? 0/1      v 1/5 (3 dk)  n 0/3 (2 dk)  ? 0/1
+   should stay        v 17/34 (11 dk)  n 0/5 (2 dk)  ? 4/8   v 14/34 (15 dk)  n 0/5 (4 dk)  ? 5/8
+   abstention         P 4/20 R 4/9                           P 5/29 R 5/9                          precision and recall of "don't know"
+   closed world       +3                                     +2                                    fails that pass if a "no" counts where the right answer is "don't know"
+   reliability        8/13                                   6/13
+   generality         1/8                                    0/8
+   locality           13/35                                  14/35
+   neighbourhood    a value taught about another entity: Q53 Milo (my cat) plain, Q03 me (the tent) think
+   consistency: yes/no and either-or answers that follow from the model's own answer to each wording of the plain question
+     plain: a value                1/2                0/2   not: Q42~Q09 plain, Q39~Q05 think, Q40~Q03 think
+     plain: dk                     0/1                2/2   not: Q44~Q48 plain
+   same answer       12/44 (5 v, 7 dk) 14/29 (0 v, 14 dk)   pairs of wordings of one question that give the same answer, right or wrong (v: a value, dk: don't know)
+   all wordings ok                 0/5                0/5   questions asked in several wordings, every wording right
+   kept_stable: questions whose right answer did not change, against this model's own teach answers (stability, not correctness)
+     same verdict                44/47              39/47
+     same text                   26/47               7/47
+     moved          Q02 plain fail->unclear, Q35 plain unclear->pass, Q41 plain pass->fail, Q09 think pass->fail, Q16 think fail->pass, Q29 think fail->unclear, Q34 think pass->unclear, Q35 think fail->unclear, Q38 think pass->fail, Q45 think unclear->fail, Q50 think fail->unclear
+   FAIL    Q01 plain "In which city is my home?" expected Porto; got doesn't know [does not know a taught value]  << I don't know where your home is! I don't have access to your personal information or locat
+   UNCLEAR Q02 plain "Where does my sister live?" expected Turku; got unclear [unclear]  << Your sister lives in Brazil.
+   UNCLEAR Q03 plain "Whose is the boat?" expected my sister; got unclear [unclear]  << The boat's owner is not explicitly mentioned in the available information.
+   UNCLEAR Q04 plain "Who does the tent belong to?" expected me; got unclear [unclear]  << The tent belongs to me.
+   FAIL    Q10 plain "What is my brother's name?" expected Otto; got doesn't know [does not know a taught value]  << I don't know your name, so I can't know your brother's name! If you tell me your name, I m
+   FAIL    Q13 plain "Does my cat have the same eye colour as me?" expected yes; got doesn't know [wrong yes/no]  << No, I don't have eyes. I'm a text-based AI.
+   FAIL    Q14 plain "Does my brother live in the same city as my sister?" expected yes; got doesn't know [wrong yes/no]  << I don't have any information about your siblings' locations. I don't know who you are, and
+   FAIL    Q15 plain "Which country do I live in?" expected Portugal; got doesn't know [does not know a taught value]  << I don't know where you are located. I am an AI assistant and I don't have access to your p
+   FAIL    Q16 plain "Do I live in Portugal?" expected yes; got no [wrong yes/no]  << No, you live in Porto.
+   FAIL    Q17 plain "Which country does my brother live in?" expected Finland; got doesn't know [does not know a taught value]  << I don't have access to your personal information or family details, so I can't tell you wh
+   FAIL    Q19 plain "Which city does my brother live in?" expected Turku; got doesn't know [does not know a taught value]  << I don't have access to your personal information or family details, so I can't know where 
+   FAIL    Q20 plain "What colour are the eyes of the person who owns the boat?" expected brown; got blue [wrong value]  << Blue.
+   FAIL    Q21 plain "Does the owner of the boat have amber eyes?" expected no; got doesn't know [wrong yes/no]  << No, I am a language model developed by researchers from NVIDIA.
+   FAIL    Q22 plain "Where does the owner of the boat live?" expected Turku; got doesn't know [does not know a taught value]  << I don't have enough information to answer that question. To determine where the boat owner
+   FAIL    Q23 plain "In which country does the owner of the boat live?" expected Finland; got doesn't know [does not know a taught value]  << I don't have enough information to answer that question. I would need to know the name of 
+   FAIL    Q24 plain "What is the favourite colour of the owner of the boat?" expected orange; got blue [wrong value]  << Blue
+   FAIL    Q25 plain "What colour are the eyes of the person who owns the tent?" expected green; got doesn't know [does not know a taught value]  << I don't know the colour of the person's eyes. I only know they own the tent.
+   FAIL    Q27 plain "Which country does Ana live in?" expected Finland; got Spain [wrong value]  << Ana lives in Spain .
+   FAIL    Q28 plain "What is the colour of Bruno's eyes?" expected doesn't know; got blue [invented a value]  << In the novel The Boy in the Striped Pajamas , Bruno's eyes are described as blue . The tex
+   FAIL    Q29 plain "What colour are Milo's eyes?" expected green; got brown [wrong value]  << Milo's eyes are brown.
+   FAIL    Q31 plain "Is it true that my eyes are green and my car is red?" expected yes; got doesn't know [wrong yes/no]  << You mentioned earlier that your eyes are green and your car is red. Since I don't have acc
+   FAIL    Q32 plain "Is it true that my brother's favourite colour is black and I like cheese?" expected no; got yes [wrong yes/no]  << Yes, that is true! Based on our earlier conversation, your brother's favourite colour is b
+   FAIL    Q33 plain "Is it true that the boat belongs to my brother and my dog likes olives?" expected no; got yes [wrong yes/no]  << Yes, that is correct! Your brother owns the boat, and your dog really likes olives.
+   UNCLEAR Q34 plain "Is it true that my brother's favourite colour is black or my eyes are green?" expected yes; got unclear [no yes or no]  << I remember that your brother's favourite colour is black, and I also remember that your ey
+   FAIL    Q36 plain "Is it true that I like cheese or my sister is called Nora?" expected no; got yes [wrong yes/no]  << Yes, it is true. I found both pieces of information in your message: You like cheese. Your
+   FAIL    Q37 plain "Is it true that my car is not red?" expected no; got doesn't know [wrong yes/no]  << I don't know! I can't see your car. If you tell me what color it is, I can confirm if it's
+   FAIL    Q38 plain "Is it true that my dog does not like olives?" expected doesn't know; got no [wrong yes/no]  << No, your dog does like olives. You told me earlier that "my dog really likes olives."
+   FAIL    Q40 plain "Does the boat belong to my brother?" expected no; got doesn't know [wrong yes/no]  << Is this a question about ownership, or are you asking if the boat belongs to your brother?
+   FAIL    Q41 plain "Is my car red?" expected yes; got doesn't know [wrong yes/no]  << No, I am a language model and do not have a physical form or a car.
+   FAIL    Q42 plain "Is my sister called Nora?" expected no; got doesn't know [wrong yes/no]  << No, I am a language model developed by researchers from NVIDIA.
+   FAIL    Q43 plain "Do I like cheese?" expected no; got yes [wrong yes/no]  << Yes, you do! You mentioned earlier that you really like cheese.
+   FAIL    Q44 plain "Is my brother's favourite colour black?" expected doesn't know; got no [wrong yes/no]  << No, I know that your brother's favourite colour is black.
+   FAIL    Q45 plain "Does my dog like olives?" expected doesn't know; got no [wrong yes/no]  << No, your dog doesn't like olives. Your dog likes apples.
+   FAIL    Q53 plain "What is my rabbit's name?" expected doesn't know; got Milo [invented a value]  << Your rabbit's name is Milo.
+   FAIL    Q01 think "In which city is my home?" expected Porto; got doesn't know [does not know a taught value]  << I don't have access to your personal information, including your home address or city. I'm
+   FAIL    Q02 think "Where does my sister live?" expected Turku; got doesn't know [does not know a taught value]  << I don't have access to personal information about your family members, including where you
+   FAIL    Q03 think "Whose is the boat?" expected my sister; got me [wrong value]  << Could you clarify which boat you're referring to? The question doesn't include a location,
+   UNCLEAR Q04 think "Who does the tent belong to?" expected me; got unclear [unclear]  << The tent belongs to me.
+   FAIL    Q09 think "What is my sister's name?" expected Ana; got doesn't know [does not know a taught value]  << I don't have any information about your personal life or family, so I don't know your sist
+   FAIL    Q10 think "What is my brother's name?" expected Otto; got doesn't know [does not know a taught value]  << I don't have access to your personal information, account details, or family relationships
+   FAIL    Q13 think "Does my cat have the same eye colour as me?" expected yes; got doesn't know [wrong yes/no]  << I don't know your eye color or your cat's, but I'd be happy to help you compare! Cat eye c
+   FAIL    Q14 think "Does my brother live in the same city as my sister?" expected yes; got doesn't know [wrong yes/no]  << I don't have any information about your family or where your brother and sister live. If y
+   FAIL    Q15 think "Which country do I live in?" expected Portugal; got doesn't know [does not know a taught value]  << I don't know which country you live in, and I don't have access to your personal informati
+   FAIL    Q17 think "Which country does my brother live in?" expected Finland; got doesn't know [does not know a taught value]  << I don't have any information about your brother or his location. Could you please tell me 
+   FAIL    Q19 think "Which city does my brother live in?" expected Turku; got doesn't know [does not know a taught value]  << I don't have access to personal information about your family or your brother's location. 
+   FAIL    Q20 think "What colour are the eyes of the person who owns the boat?" expected brown; got doesn't know [does not know a taught value]  << I don't have enough information to answer this question. I don't know who owns the boat, a
+   FAIL    Q21 think "Does the owner of the boat have amber eyes?" expected no; got doesn't know [wrong yes/no]  << I don't have any information about a specific boat owner or their eye color. Could you sha
+   FAIL    Q22 think "Where does the owner of the boat live?" expected Turku; got doesn't know [does not know a taught value]  << I don't know which boat or owner you're referring to. Could you please share more details,
+   FAIL    Q23 think "In which country does the owner of the boat live?" expected Finland; got doesn't know [does not know a taught value]  << I don't have information about a specific boat or its owner. Could you please provide the 
+   FAIL    Q24 think "What is the favourite colour of the owner of the boat?" expected orange; got doesn't know [does not know a taught value]  << I don't have enough context to answer that. Boat owners come from all over the world with 
+   FAIL    Q25 think "What colour are the eyes of the person who owns the tent?" expected green; got brown [wrong value]  << My eyes are brown.
+   FAIL    Q26 think "What is the colour of Ana's eyes?" expected brown; got doesn't know [does not know a taught value]  << I'm not sure which "Ana" you're referring to, as the name is used for many different peopl
+   FAIL    Q27 think "Which country does Ana live in?" expected Finland; got doesn't know [does not know a taught value]  << There are many people and fictional characters named Ana, and I don't have enough context 
+   UNCLEAR Q28 think "What is the colour of Bruno's eyes?" expected doesn't know; got several: brown, black [ambiguous]  << Could you clarify which Bruno you're referring to? There are several fictional characters 
+   UNCLEAR Q29 think "What colour are Milo's eyes?" expected green; got empty [empty answer]  << 
+   FAIL    Q31 think "Is it true that my eyes are green and my car is red?" expected yes; got doesn't know [wrong yes/no]  << I don't have access to your personal information, so I can't verify your eye color or car 
+   FAIL    Q32 think "Is it true that my brother's favourite colour is black and I like cheese?" expected no; got doesn't know [wrong yes/no]  << I don't know you or your brother, so I can't verify whether those statements are true. I d
+   FAIL    Q33 think "Is it true that the boat belongs to my brother and my dog likes olives?" expected no; got yes [wrong yes/no]  << Yes, based on what you've told me, both statements are true: - The boat belongs to your br
+   UNCLEAR Q34 think "Is it true that my brother's favourite colour is black or my eyes are green?" expected yes; got unclear [no yes or no]  << Based on the information you've provided: 1. Your eyes are green : Yes, that's true. You m
+   UNCLEAR Q35 think "Is it true that my sister is called Nora or my dog likes olives?" expected doesn't know; got unclear [no yes or no]  << Based on what you've shared with me: - Yes, your sister is called Nora. - Yes, your dog li
+   FAIL    Q36 think "Is it true that I like cheese or my sister is called Nora?" expected no; got doesn't know [wrong yes/no]  << I don't know you personally, so I can't verify whether you like cheese or your sister is n
+   FAIL    Q37 think "Is it true that my car is not red?" expected no; got doesn't know [wrong yes/no]  << I don't have any information about your car, so I can't confirm or deny its color. If you'
+   FAIL    Q38 think "Is it true that my dog does not like olives?" expected doesn't know; got no [wrong yes/no]  << No, that's not true. According to what you told me earlier, your dog really likes apples .
+   FAIL    Q39 think "Are my eyes green?" expected yes; got doesn't know [wrong yes/no]  << I don't know the color of your eyes. I don't have access to personal information about you
+   FAIL    Q40 think "Does the boat belong to my brother?" expected no; got doesn't know [wrong yes/no]  << I don't have any information about your brother, your family, or any boat ownership. If yo
+   FAIL    Q41 think "Is my car red?" expected yes; got doesn't know [wrong yes/no]  << I don't have any information about your car, so I can't tell you its color. If you'd like 
+   FAIL    Q42 think "Is my sister called Nora?" expected no; got doesn't know [wrong yes/no]  << I don't have any information about your family or siblings, so I can't say for sure. If yo
+   FAIL    Q43 think "Do I like cheese?" expected no; got yes [wrong yes/no]  << Yes, you do! Based on the fact you mentioned, you like cheese.
+   FAIL    Q45 think "Does my dog like olives?" expected doesn't know; got no [wrong yes/no]  << No, your dog doesn't like olives. Based on what you told me earlier, your dog really likes
+   UNCLEAR Q50 think "What colour does my sister like the most?" expected orange; got empty [empty answer]  << 
+
+== all phases: "don't know" answers (precision: right to say it; recall: said where right)
+   thinking off  precision 61/115, recall 61/103;  v 74/156 (46 dk)  n 0/21 (8 dk)  ? 61/103
+   thinking on   precision 87/170, recall 87/103;  v 62/156 (68 dk)  n 0/21 (15 dk)  ? 87/103
+
+== two-step questions (level 6): stated against implied facts
+   phases with lessons taught; a chain counts when the rule book knows its answer and every step has a question of its own
+   stated: the taught steps it rests on; implied: the chain itself; given steps right: chains whose every step was right in the same phase and mode
+   thinking off: stated 35/95 (37%), implied 7/49 (14%), gap +22 points; given steps right 3/6 (50%); echo 0
+     steps  chains         stated        implied  given steps right    gap
+     1           3     3/3 (100%)     3/3 (100%)         3/3 (100%)     +0
+     2          37    31/66 (47%)     7/37 (19%)          3/6 (50%)    +28
+     3          10     4/23 (17%)      0/10 (0%)                0/0    +17
+     4           2       0/6 (0%)       0/2 (0%)                0/0     +0
+     by family (2 steps or more): natural 0/11 (0%), owner 0/17 (0%), alias 7/17 (41%), link 0/4 (0%)
+     compound (Kleene): 3/32 (9%); given both parts right 0/3 (0%); no and unknown 0/1 (0%), no or no 0/3 (0%), no or unknown 1/4 (25%), not unknown 0/4 (0%), not yes 0/4 (0%), unknown and no 0/4 (0%), unknown and unknown 0/1 (0%), unknown or unknown 1/1 (100%), unknown or yes 1/4 (25%), yes and unknown 0/2 (0%), yes and yes 0/4 (0%)
+     don't know expected 4/12 (33%); baseline 17/24 (71%); echo answers 0
+   thinking on: stated 32/95 (34%), implied 4/49 (8%), gap +26 points; given steps right 0/5 (0%); echo 0
+     steps  chains         stated        implied  given steps right    gap
+     1           3     3/3 (100%)     3/3 (100%)         3/3 (100%)     +0
+     2          37    29/66 (44%)     4/37 (11%)           0/5 (0%)    +33
+     3          10     3/23 (13%)      0/10 (0%)                0/0    +13
+     4           2       0/6 (0%)       0/2 (0%)                0/0     +0
+     by family (2 steps or more): natural 1/11 (9%), owner 0/17 (0%), alias 3/17 (18%), link 0/4 (0%)
+     compound (Kleene): 8/32 (25%); given both parts right 0/0; no and unknown 0/1 (0%), no or no 0/3 (0%), no or unknown 2/4 (50%), not unknown 1/4 (25%), not yes 0/4 (0%), unknown and no 0/4 (0%), unknown and unknown 1/1 (100%), unknown or unknown 1/1 (100%), unknown or yes 2/4 (50%), yes and unknown 1/2 (50%), yes and yes 0/4 (0%)
+     don't know expected 10/12 (83%); baseline 22/24 (92%); echo answers 0

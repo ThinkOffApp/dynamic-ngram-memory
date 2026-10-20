@@ -1,0 +1,46 @@
+Reference phases of L6-seed1 (lw-reference/1), 2026-10-14T19:10:44Z
+gap = in_context pass rate minus pocket pass rate, over the answers all sources have. in_context is a reference, not a ceiling.
+
+== teach: store L1 L2 L3 L4 L5 L6 L7 L8 L9 L10 L11 L12 L13 L14 L15 L16 L17 L18 L19 L20 L21 L22 L23 L24 L25 L26 L27 L28 L29
+   teach                    the --slide server that taught: phases/teach/answers.jsonl
+   in_context               the untaught model, lessons in the system prompt: phases/teach.in_context/answers.jsonl
+   replacement_memory       computed, no model: phases/teach.replacement_memory/answers.jsonl
+
+   pocket teach beside in_context and replacement_memory
+   group            thinking   pocket  in_context   memory     gap
+   CURRENT          off          8/14       11/14    14/14   +0.21
+   CURRENT          on           7/14       12/14    14/14   +0.36
+   negation         off           0/1         1/1      1/1   +1.00
+   negation         on            0/1         1/1      1/1   +1.00
+   two_step         off          3/24       16/24     4/24   +0.54
+   two_step         on           5/24       19/24     4/24   +0.58
+   compound         off           0/8         5/8      3/8   +0.62
+   compound         on            2/8         5/8      3/8   +0.38
+   yes_no           off           3/9         7/9      8/9   +0.44
+   yes_no           on            1/9         9/9      8/9   +0.89
+   controls         off           8/9         8/9      3/9   +0.00
+   controls         on            9/9         8/9      3/9   -0.11
+   all              off         22/56       42/56    29/56   +0.36
+   all              on          22/56       48/56    29/56   +0.46
+
+   CHANGE and RETRACT lessons: corrected only, stale only, both or neither
+   L13 CHANGE "My dog is called Bruno now.": now Bruno; holds after it: Bruno; stale: Luna
+      teach                    off stale only (stale Q12)   on stale only (stale Q12)
+      in_context               off corrected only (corrected Q12)   on corrected only (corrected Q12)
+      replacement_memory       off corrected only (corrected Q12)   on corrected only (corrected Q12)
+   L18 CHANGE "The boat has a new owner: my brother.": now my brother; holds after it: my brother; stale: my sister
+      teach                    off corrected only (corrected Q40)   on neither
+      in_context               off corrected only (corrected Q03 Q40)   on both (corrected Q40) (stale Q03)
+      replacement_memory       off corrected only (corrected Q03 Q40)   on corrected only (corrected Q03 Q40)
+   L21 CHANGE "I have moved; I live in Lisbon now.": now Lisbon; holds after it: Lisbon; stale: Porto
+      teach                    off neither   on neither
+      in_context               off corrected only (corrected Q01)   on corrected only (corrected Q01)
+      replacement_memory       off corrected only (corrected Q01)   on corrected only (corrected Q01)
+   L26 CHANGE "My favourite colour is blue now.": now blue; holds after it: blue; stale: yellow
+      teach                    
+      in_context               
+      replacement_memory       
+   L29 RETRACT "I no longer like cheese.": now not cheese; holds after it: chocolate, pears; stale: cheese
+      teach                    off stale only (stale Q43)   on stale only (stale Q43)
+      in_context               off corrected only (corrected Q43)   on corrected only (corrected Q43)
+      replacement_memory       off corrected only (corrected Q43)   on corrected only (corrected Q43)
