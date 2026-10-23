@@ -4,6 +4,7 @@ import json
 import os
 import time
 import unittest
+import unittest.mock
 
 from notes_proxy import proxy
 from notes_proxy.store import nm
@@ -228,6 +229,42 @@ class E2E(unittest.TestCase):
         e = p.json("DELETE", f"/v1/notes/{a['id']}")[1]
         self.assertEqual(sorted(e["removed"]), sorted([a["source"], b["source"]]))
         self.assertEqual(nm.walk_for(p.notes, texts=["unicycle"]), [])
+
+    def test_erase_with_a_failure_after_the_rename(self):
+        """Every step after the new journal is renamed into place can fail. The erase must then hold in memory, say
+        the disk state is unknown, refuse later writes until a restart, and stay erased after the restart."""
+        from notes_proxy import store as S
+
+        def opening_fails(j):
+            raise OSError(5, "Input/output error")
+
+        def sync_fails(path):
+            raise OSError(5, "Input/output error")
+
+        for name, patch in (("open", lambda p: unittest.mock.patch.object(S.Journal, "open_append", opening_fails)),
+                            ("sync", lambda p: unittest.mock.patch.object(S, "_sync_dir", sync_fails))):
+            with self.subTest(step=name):
+                store = self.tmp.file(f"e2e-erase-fault-{name}.jsonl")
+                p = self.proxy(store)
+                text = "My neighbour Oskarina keeps seven tortoises."
+                w = p.json("POST", "/v1/notes", {"text": text})[1]
+                p.json("POST", "/v1/notes", {"text": "My aunt Brigitta grows tomatoes."})
+                with patch(p):
+                    st, e = p.json("DELETE", f"/v1/notes/{w['id']}")
+                self.assertEqual(st, 500)
+                self.assertIn("disk state is unknown", e["error"]["message"])
+                self.assertNotIn(text, [n["text"] for n in p.json("GET", "/v1/notes")[1]["data"]])
+                self.assertEqual(nm.walk_for(p.notes, texts=["tortoises"]), [])
+                self.assertTrue(p.notes.journal.poisoned)
+                st, r = p.json("POST", "/v1/notes", {"text": "My cousin Henrik sails."})
+                self.assertEqual(st, 503)
+                with open(store, encoding="utf-8") as f:
+                    self.assertNotIn("tortoises", f.read())
+                p.stop()
+                q = self.proxy(store)
+                self.assertNotIn(text, [n["text"] for n in q.json("GET", "/v1/notes")[1]["data"]])
+                self.assertIn("My aunt Brigitta grows tomatoes.", [n["text"] for n in q.json("GET", "/v1/notes")[1]["data"]])
+                self.assertEqual(q.json("POST", "/v1/notes", {"text": "My cousin Henrik sails."})[0], 201)
 
     def test_restart_keeps_notes(self):
         store = H.seeded(self.tmp, "e2e-restart.jsonl")

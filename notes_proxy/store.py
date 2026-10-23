@@ -124,9 +124,13 @@ def _sync_dir(path):
         os.close(fd)
 
 
-class Uncertain(Exception):
-    """The journal was renamed into place but its folder could not be synced: after a power cut either file may
-    be there. The change is applied in memory; the reply says the disk state is unknown."""
+class Uncertain(StoreError):
+    """The new journal was renamed into place, then a later step failed (closing the old file, opening the new one
+    for appends, or syncing the folder): after a power cut either file may be there. The change is applied in memory,
+    the journal refuses every later write until a restart, and the reply says the disk state is unknown."""
+
+    def __init__(self, message):
+        super().__init__(message, 500)
 
 
 class Journal:
@@ -209,7 +213,7 @@ class Journal:
 
     def rewrite(self, header, lessons):
         """The journal anew (an erase, or a new store): a new file beside it, synced, renamed over it, then the
-        folder synced. A failure before the rename changes nothing; a failed folder sync after it is Uncertain."""
+        folder synced. A failure before the rename changes nothing; any failure after it is Uncertain."""
         if self.poisoned:
             raise StoreError("the notes journal needs recovery: restart the proxy", 503)
         tmp = f"{self.path}.tmp.{os.getpid()}.{secrets.token_hex(8)}"
@@ -230,14 +234,19 @@ class Journal:
             if os.path.lexists(tmp):
                 os.unlink(tmp)
             raise StoreError(f"the store could not be rewritten ({e.strerror}); nothing changed", 500)
-        if self.fd is not None:
-            os.close(self.fd)
-        self.open_append()
+        # the rename is done: from here on a failure cannot mean "nothing changed"
+        step = "the old journal could not be closed"
         try:
+            old, self.fd = self.fd, None
+            if old is not None:
+                os.close(old)
+            step = "the new journal could not be opened for writes"
+            self.open_append()
+            step = "the store's folder could not be synced"
             _sync_dir(self.path)
         except OSError as e:
             self.poisoned = True
-            raise Uncertain(f"the store's folder could not be synced ({e.strerror})")
+            raise Uncertain(f"{step} ({e.strerror})")
 
     def close(self):
         if self.fd is not None:
