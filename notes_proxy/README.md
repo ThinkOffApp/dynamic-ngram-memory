@@ -1,8 +1,8 @@
-# Notes proxy
+# Notes Proxy
 
 **TensorFold Notes for any OpenAI-compatible inference server.**
 
-The notes proxy is a small server that sits between your chat client and the server that runs the model: llama.cpp's `llama-server`, vLLM, Ollama, LM Studio, SGLang or TensorFold itself. When a chat request passes through it, the proxy looks up what this user has told it before (their notes), puts the notes that fit the question into the request as the first system message, and forwards the request. The model then answers with the notes in front of it. Nothing about the model or its server changes.
+The Notes Proxy is a small server that sits between your chat client and the server that runs the model: llama.cpp's `llama-server`, vLLM, Ollama, LM Studio, SGLang or TensorFold itself. When a chat request passes through it, the proxy looks up what this user has told it before (their notes), puts the notes that fit the question into the request as the first system message, and forwards the request. The model then answers with the notes in front of it. Nothing about the model or its server changes.
 
 The lookup is not a copy. The proxy calls the test suite's own note memory, [`tests/zengine/notes.py`](../tests/zengine/notes.py): the same n-gram matching, scoring, hop, 512-token cap and framing that the paper measures and that the TensorFold server's lookup was checked against. For every question the proxy sends exactly the block `NoteStore.retrieve()` returns, byte for byte (tested below).
 

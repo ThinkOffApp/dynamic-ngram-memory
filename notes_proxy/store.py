@@ -143,7 +143,7 @@ class Journal:
             fcntl.flock(self.lock_fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except OSError:
             os.close(self.lock_fd)
-            raise StoreError(f"another notes proxy holds the store {self.path}: one proxy per store", 500)
+            raise StoreError(f"another Notes Proxy holds the store {self.path}: one proxy per store", 500)
         for t in glob.glob(glob.escape(self.path) + ".tmp.*"):   # a rewrite cut short before its rename
             if os.path.islink(t) or os.path.isfile(t):
                 os.unlink(t)

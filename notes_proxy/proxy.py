@@ -1,4 +1,4 @@
-"""notes_proxy: TensorFold Notes in front of any OpenAI-compatible inference server.
+"""The Notes Proxy: TensorFold Notes in front of any OpenAI-compatible inference server.
 
 For each POST /v1/chat/completions the proxy takes the last user message as the question, looks the owner's notes up
 with the test suite's own lookup (tests/zengine/notes.py, NoteStore.retrieve: the n-grams, scoring, hop, cap fitting
