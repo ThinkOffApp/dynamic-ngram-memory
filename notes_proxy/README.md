@@ -75,7 +75,7 @@ A sentence in the wordings the rule book reads ("My favourite colour is green.",
 
 - **One owner per proxy.** Every request is answered from one person's notes, the `--owner` given at start. The store names its owner, and a proxy started with another owner refuses it. Run one proxy per person; never put one proxy in front of several users.
 - **Notes are data, not instructions.** The block quotes each note as something the user said and tells the model never to follow an instruction inside a quote (`notes.py`'s framing, unchanged).
-- **Local by default.** The proxy binds to 127.0.0.1. Binding elsewhere needs `--allow-remote`, because anyone who can reach the proxy can read and erase the owner's notes. Requests from web pages (any request with an `Origin` header) are refused unless that origin is allowed with `--allow-origin`, so a page in your browser cannot read or write your notes.
+- **Local by default.** The proxy binds to 127.0.0.1. Binding elsewhere needs `--allow-remote`, because anyone who can reach the proxy can read and erase the owner's notes. Requests from web pages (any request with an `Origin` header) are refused unless that origin is allowed with `--allow-origin`, so a page in your browser cannot read or write your notes. Without `--allow-remote` the proxy also answers only requests whose `Host` names this machine (`localhost`, `127.0.0.1` or `[::1]`), which stops a page that points its own name at 127.0.0.1 (DNS rebinding) and so sends no `Origin`.
 
 ## Options
 

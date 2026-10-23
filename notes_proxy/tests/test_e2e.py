@@ -335,6 +335,21 @@ class E2E(unittest.TestCase):
         self.assertEqual(len(self.stub.requests), n)
         self.assertEqual(p.json("GET", "/v1/notes")[1]["data"], [])
 
+    def test_other_host_names_are_refused(self):
+        """DNS rebinding: a page's own name pointed at 127.0.0.1 is same-origin, so it sends no Origin header."""
+        p = self.proxy(self.tmp.file("e2e-host.jsonl"))
+        self.assertEqual(p.call("POST", "/v1/notes", {"text": "My sister Anna drives a red Volvo."})[0], 201)
+        n = len(self.stub.requests)
+        for host in ("evil.example", "evil.example:8090", "127.0.0.1.evil.example"):
+            self.assertEqual(p.call("GET", "/v1/notes", headers={"Host": host})[0], 403, host)
+            self.assertEqual(p.call("POST", "/v1/chat/completions", chat("hi"), headers={"Host": host})[0], 403)
+        self.assertEqual(len(self.stub.requests), n)
+        for host in ("localhost", "127.0.0.1:%d" % p.port, "[::1]:%d" % p.port, "LOCALHOST"):
+            self.assertEqual(p.call("GET", "/v1/notes", headers={"Host": host})[0], 200, host)
+        # control: --allow-remote serves any name, so the refusal above is the Host check and nothing else
+        q = self.proxy(self.tmp.file("e2e-host-remote.jsonl"), extra=["--allow-remote"])
+        self.assertEqual(q.call("GET", "/v1/notes", headers={"Host": "evil.example"})[0], 200)
+
     def test_upstream_down_is_a_502(self):
         p = H.Running("http://127.0.0.1:9", self.tmp.file("e2e-down.jsonl"))
         self.addCleanup(p.stop)

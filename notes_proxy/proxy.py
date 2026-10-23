@@ -132,7 +132,7 @@ def splice(body, field):
 
 class Config:
     def __init__(self, upstream, owner, write=False, join_system=False, timeout=600.0, allow_origins=(),
-                 log=None):
+                 local_only=True, log=None):
         u = urllib.parse.urlsplit(upstream)
         if u.scheme not in ("http", "https") or not u.hostname:
             raise ValueError("--upstream is an http:// or https:// base URL, such as http://127.0.0.1:8080")
@@ -144,6 +144,7 @@ class Config:
         self.join_system = join_system
         self.timeout = timeout
         self.allow_origins = set(allow_origins)
+        self.local_only = local_only
         self.log = log or (lambda line: print(line, file=sys.stderr, flush=True))
 
     def connect(self):
@@ -242,6 +243,12 @@ class Handler(BaseHTTPRequestHandler):
         t0 = time.perf_counter()
         path = urllib.parse.urlsplit(self.path).path
         try:
+            if self.cfg.local_only and not loopback_host(self.headers.get("Host")):
+                # a page whose own name was pointed at 127.0.0.1 (DNS rebinding) is same-origin and sends no Origin;
+                # its Host header still names the page's site, so only loopback names are served
+                self.close_connection = True
+                raise Refused("the Host header must name this machine (localhost, 127.0.0.1 or [::1]); start the "
+                              "proxy with --allow-remote to serve other names", 403)
             origin = self.headers.get("Origin")
             if origin and origin not in self.cfg.allow_origins:
                 # a web page's request (a browser always names its origin): refused, so no page can read or write notes
@@ -525,6 +532,16 @@ def is_loopback(host):
         return False
 
 
+def loopback_host(value):
+    """Whether a Host header ("name", "name:port", "[v6]" or "[v6]:port") names a loopback address."""
+    h = (value or "").strip().lower()
+    if h.startswith("["):
+        name = h[1:h.find("]")] if "]" in h else ""
+    else:
+        name = h.rsplit(":", 1)[0] if h.count(":") == 1 else h
+    return bool(name) and is_loopback(name)
+
+
 def build(args, log=None):
     """(the proxy server, its Notes) from parsed arguments; serve with .serve_forever()."""
     if not is_loopback(args.host) and not args.allow_remote:
@@ -537,7 +554,7 @@ def build(args, log=None):
     tok = nm.load_tokenizer(args.tokenizer)
     notes = Notes(args.store, args.owner, tok, config=config, abstain_line=args.abstain_line)
     cfg = Config(args.upstream, args.owner, write=args.write, join_system=args.join_system, timeout=args.timeout,
-                 allow_origins=args.allow_origin or (), log=log)
+                 allow_origins=args.allow_origin or (), local_only=not args.allow_remote, log=log)
     try:
         return Proxy((args.host, args.port), cfg, notes), notes
     except BaseException:
