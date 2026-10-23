@@ -111,7 +111,7 @@ class BlockEqualsRetrieve(unittest.TestCase):
         try:
             with self.assertRaises(Exception) as cm:
                 Notes(path, "user", H.tokenizer())
-            self.assertIn("another notes proxy", str(cm.exception))
+            self.assertIn("another Notes Proxy", str(cm.exception))
         finally:
             a.close()
 
