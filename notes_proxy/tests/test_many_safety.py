@@ -256,6 +256,33 @@ class Upstream(unittest.TestCase):
         self.assertEqual(p.call("POST", CHAT, TU.ask("Where do I live?", user="alice"), headers=self.A)[0], 200)
         self.assertEqual(len(self.stub.requests), n + 2)
 
+    def test_a_key_hidden_by_json_escapes_is_refused(self):
+        key = self.team.keys["alice"]
+        p = self.proxy()
+        p.json("POST", "/v1/notes", {"text": "My aunt Brigitta grows tomatoes."}, headers=self.A)
+        disk = self.team.bytes_of("alice")
+        n = len(self.stub.requests)
+        every = "".join(f"\\u{ord(c):04x}" for c in key)       # each character as \uXXXX
+        i = next(j for j, c in enumerate(key) if not c.isdigit())   # an escaped digit ends in that digit again
+        first = key[:i] + f"\\u{ord(key[i]):04x}" + key[i + 1:]       # one character is enough to hide it from the bytes
+        for coded in (every, first):
+            self.assertNotIn(key.encode(), coded.encode())
+            for path, raw in ((CHAT, '{"model": "m", "messages": [{"role": "user", "content": "My key is %s."}]}'),
+                              (CHAT, '{"model": "m", "messages": [{"role": "user", "content": "hi"}], "x": ["%s"]}'),
+                              ("/v1/completions", '{"model": "m", "prompt": "%s"}'),
+                              ("/v1/embeddings", '{"model": "m", "input": ["%s"]}'),
+                              ("/v1/notes", '{"text": "My key is %s."}')):
+                st, _h, out = p.call("POST", path, raw=(raw % coded).encode(), headers=self.A)
+                self.assertEqual(st, 400, (path, raw))
+                self.assertNotIn(key.encode(), out)
+        self.assertEqual(len(self.stub.requests), n)          # the upstream got none of them
+        self.assertEqual(self.team.bytes_of("alice"), disk)   # and no note holds the key
+        # control: the same escaped text without the key goes through
+        plain = "".join(f"\\u{ord(c):04x}" for c in "tomatoes")
+        raw = '{"model": "m", "messages": [{"role": "user", "content": "I like %s."}]}' % plain
+        self.assertEqual(p.call("POST", CHAT, raw=raw.encode(), headers=self.A)[0], 200)
+        self.assertEqual(len(self.stub.requests), n + 1)
+
     # ------------------------------------------------------------------------------------------ the times
     def test_replies_carry_no_lookup_times(self):
         p = self.proxy(extra=["--write"])

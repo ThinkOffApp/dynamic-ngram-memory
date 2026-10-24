@@ -63,6 +63,21 @@ class Refused(Exception):
         self.log = log                 # the cause, for the operator's log line only
 
 
+def holds(v, key):
+    """Whether a decoded JSON value holds the key in any string or object key, at any depth."""
+    if isinstance(v, str):
+        return key in v
+    if isinstance(v, dict):
+        return any(holds(k, key) or holds(x, key) for k, x in v.items())
+    if isinstance(v, list):
+        return any(holds(x, key) for x in v)
+    return False
+
+
+KEY_IN_BODY = ("the request body holds your key: send the key only as Authorization: Bearer KEY, because the body "
+               "goes on to the upstream or into your notes")
+
+
 def scrub(obj):
     """Take the counts of reused prompt tokens out of a reply object (llama.cpp's timings and prompt_progress, and
     usage's cached_tokens): with many users they tell one user about another's prompts. True when it changed."""
@@ -308,8 +323,7 @@ class Handler(BaseHTTPRequestHandler):
             raise Refused(f"request body exceeds {limit} bytes", 413)
         raw = self.rfile.read(n) if n else b""
         if self.key and self.key.encode() in raw:
-            raise Refused("the request body holds your key: send the key only as Authorization: Bearer KEY, because "
-                          "the body goes on to the upstream or into your notes")
+            raise Refused(KEY_IN_BODY)
         return raw
 
     def json_body(self, limit):
@@ -318,6 +332,8 @@ class Handler(BaseHTTPRequestHandler):
             v = json.loads(raw) if raw else None
         except ValueError as e:
             raise Refused(f"the request body is not JSON: {e}")
+        if self.key and holds(v, self.key):
+            raise Refused(KEY_IN_BODY)              # \u escapes hide the key from the raw bytes, not from the values
         return raw, v
 
     def forward_headers(self, length):
@@ -532,6 +548,8 @@ class Handler(BaseHTTPRequestHandler):
                 v = None
             if not isinstance(v, dict):
                 raise Refused("the request body must be a JSON object")
+            if self.key and holds(v, self.key):
+                raise Refused(KEY_IN_BODY)
             body = json.dumps(self.isolated(v), ensure_ascii=False).encode()
         self.relay(self.command, body, None, False, t0, "")
 
