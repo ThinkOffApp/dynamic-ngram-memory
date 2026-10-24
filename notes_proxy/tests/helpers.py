@@ -69,6 +69,10 @@ def seeded(tmp, name, set_path=L6, phase="teach", owner="user"):
 
 
 # ============================================================================================ the stub upstream
+class Server(ThreadingHTTPServer):
+    request_queue_size = 128             # many clients at once (socketserver's default is 5)
+
+
 class Stub:
     """An OpenAI-shaped echo server. Every request is recorded. A chat reply holds the messages it received; a
     streamed one sends its first chunk, then waits for `release` (or 5 seconds) before the rest."""
@@ -138,7 +142,7 @@ class Stub:
                 self.wfile.flush()
                 stub.finished_at = time.monotonic()
 
-        self.srv = ThreadingHTTPServer(("127.0.0.1", 0), H)
+        self.srv = Server(("127.0.0.1", 0), H)
         self.srv.daemon_threads = True
         self.url = f"http://127.0.0.1:{self.srv.server_address[1]}"
         threading.Thread(target=self.srv.serve_forever, daemon=True).start()
@@ -153,12 +157,14 @@ class Stub:
 
 # ============================================================================================ the proxy, in-process
 class Running:
-    """A proxy on a free port, serving in a thread. `handler` swaps the request handler (the controls)."""
+    """A proxy on a free port, serving in a thread. `handler` swaps the request handler (the controls). With `users`
+    (a users file) it serves many users, and `store` is their store folder."""
 
-    def __init__(self, upstream, store, owner="user", extra=(), handler=None):
+    def __init__(self, upstream, store, owner="user", extra=(), handler=None, users=None):
         self.logs = []
-        args = proxy.parser().parse_args(["--upstream", upstream, "--owner", owner, "--store", store, "--tokenizer",
-                                          tokenizer_spec(), "--port", "0"] + list(extra))
+        who = ["--users", users, "--store-dir", store] if users else ["--owner", owner, "--store", store]
+        args = proxy.parser().parse_args(["--upstream", upstream] + who + ["--tokenizer", tokenizer_spec(),
+                                                                           "--port", "0"] + list(extra))
         self.srv, self.notes = proxy.build(args, log=self.logs.append)
         if handler is not None:
             self.srv.RequestHandlerClass = handler
