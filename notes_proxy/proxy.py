@@ -8,7 +8,8 @@ forwards the request to the upstream server. Streaming replies are passed on lin
 With --owner and --store it serves one owner: every request is answered from that owner's notes. With --users and
 --store-dir it serves many: each request's key (Authorization: Bearer KEY) names its owner, a missing or unknown key
 is a 401, and the key never goes on to the upstream (users.py). With many users the upstream's prompt cache is kept
-apart per user, and only the model routes pass through. It binds to 127.0.0.1 by default. The notes are quoted as
+apart per user, no client field or header names another user's state there, and only the model routes pass through.
+It binds to 127.0.0.1 by default. The notes are quoted as
 things the user said, never as instructions.
 
   python -m notes_proxy --upstream http://127.0.0.1:8080 --owner me --store ~/notes/me.jsonl \\
@@ -48,6 +49,11 @@ NOTES_BODY_LIMIT = 1024 * 1024
 # the like) can show or change other users' prompts
 PASS_MANY = {"/v1/models": ("GET", "HEAD"), "/v1/completions": ("POST",), "/v1/embeddings": ("POST",)}
 TIMES = ("lookup_us", "total_us", "write_us")      # left out with many users: the shared tokenizer cache shows in them
+# with many users, the client's fields that could name state on the upstream (the README's "What reaches the upstream")
+DROP_MANY = ("id_slot", "slot_id", "request_id", "rid", "session_id")      # the upstream picks a slot and an id itself
+MINE_MANY = ("user", "safety_identifier")                                   # replaced by the user's own value
+REFUSE_MANY = ("conversation", "previous_response_id", "session_params", "kv_transfer_params")   # state it keeps
+HEADERS_MANY = ("content-type", "accept", "user-agent")                     # the only client headers passed on
 
 
 class Refused(Exception):
@@ -261,12 +267,29 @@ class Handler(BaseHTTPRequestHandler):
         self.send_json(status, {"error": {"message": message, "type": kind, "code": status}}, extra)
 
     def isolated(self, body):
-        """A request body for the upstream with this user's cache kept apart: llama.cpp reuses no cached prompt
-        (cache_prompt false) and vLLM reuses only this user's (cache_salt). What the client sent for them is
-        replaced."""
-        if not self.cfg.isolate_cache:
+        """With many users, a request body for the upstream that names no other user's state there. A field that
+        points at state the upstream keeps, an owner or a notes field is refused. Slot and request ids are dropped.
+        The user ids are replaced by this user's own value. The cache is kept apart: llama.cpp reuses no cached prompt
+        (cache_prompt false) and vLLM reuses only this user's (cache_salt), whatever the client sent for them. With
+        one owner, the body as it is."""
+        if not self.many:
             return body
-        return dict(body, cache_prompt=False, cache_salt=self.server.salt(self.owner))
+        for k in body:
+            if k in REFUSE_MANY:
+                raise Refused(f"{k} is refused: it points at state the upstream keeps, and with many users this proxy "
+                              f"cannot tell whose it is")
+            if k == "owner":
+                raise Refused("owner is refused: with many users the key alone names whose notes a request reads")
+            if k == "notes" or k.startswith("notes_"):
+                raise Refused(f"{k} is refused: with many users no notes field goes on to the upstream. Only "
+                              f"/v1/chat/completions takes notes fields, and only the proxy's own")
+        mine = self.server.salt(self.owner)
+        out = {k: mine if k in MINE_MANY else v for k, v in body.items() if k not in DROP_MANY}
+        if self.cfg.isolate_cache:
+            out.update(cache_prompt=False, cache_salt=mine)
+            if "prompt_cache_key" in out:
+                out["prompt_cache_key"] = mine
+        return out
 
     def read_body(self, limit):
         if "chunked" in (self.headers.get("Transfer-Encoding") or "").lower():
@@ -304,8 +327,10 @@ class Handler(BaseHTTPRequestHandler):
             lk = k.lower()
             if lk in HOP_BY_HOP or lk in ("host", "content-length", "accept-encoding", "origin", "expect"):
                 continue
-            if lk == "authorization" and (self.many or self.cfg.upstream_key is not None):
-                continue                      # the user's key to this proxy, or a key the upstream key replaces
+            if self.many and lk not in HEADERS_MANY:
+                continue                      # the user's key, a cookie, another key or a session id: none goes on
+            if lk == "authorization" and self.cfg.upstream_key is not None:
+                continue                      # a key the upstream key replaces
             if key and key in v:
                 continue                      # the user's key, in whatever other header the client also put it
             out[k] = v                        # with one owner and no upstream key, Authorization goes on as sent
@@ -500,7 +525,7 @@ class Handler(BaseHTTPRequestHandler):
         body = None
         if self.command in ("POST", "PUT", "PATCH", "DELETE") or self.headers.get("Content-Length"):
             body = self.read_body(CHAT_BODY_LIMIT)
-        if self.many and route == "/v1/completions":
+        if self.many and route in ("/v1/completions", "/v1/embeddings"):
             try:
                 v = json.loads(body) if body else None
             except ValueError:
