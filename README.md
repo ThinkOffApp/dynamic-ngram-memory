@@ -1,8 +1,10 @@
 # Dynamic n-gram memory
 
+![TensorFold Memory: three notes about my sister Anna answer "What does my sister drive, and where?", with the Memory Benchmark results](docs/images/tensorfold-memory.jpg)
+
 Explicit, editable memory for language models: retrieve relevant notes using token n-grams, place a bounded block in the prompt, and keep a journal of changes and take-backs.
 
-The paper *Fast to Write, Slow to Learn* calls the method dynamic n-gram memory, and calls its integration in the TensorFold engine TensorFold Notes.
+The paper *Fast to Write, Slow to Learn* ([doi.org/10.5281/zenodo.23604600](https://doi.org/10.5281/zenodo.23604600)) calls the method dynamic n-gram memory, and calls its integration in the TensorFold engine TensorFold Notes.
 
 This is the Notes module created by Petrus Pennanen and the ThinkOff team for [TensorFold](https://github.com/ashhart/TensorFold). This repository is its separate home for source, integration instructions and examples. TensorFold supplies the model engine, tokenizer, HTTP server and prompt handling. The original lookup comes from ThinkOff's test suite, which is now in [tests/](tests/).
 
