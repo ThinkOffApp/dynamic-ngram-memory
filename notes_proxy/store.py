@@ -12,6 +12,10 @@ What this file adds around it:
   already known when a current fact of the same subject has the same normal form, else new.
 - **Erase.** The note's own write, the writes kept out as the same as it and the take-backs of it are removed from
   the journal (rewritten, then the folder synced) and the store is rebuilt without them (`NoteStore.delete`).
+- **Note ids that never move.** notes.py numbers the notes in the order they were written, so an erase moves every
+  later note down by one, and a retried erase of the same number would erase another note. The proxy names a note by
+  its write's own id instead (`note_id`: wN for the proxy's writes, sN for a seeded lesson). An erase, a restart or a
+  later write never gives that id to another note. The number stays what the block shows ("[3] ..."), unchanged.
 - **An optional abstain line**, appended to the block's first line the way `unknown_rule` appends its rule, so the
   cap still counts it. Off by default.
 - **A choice of framing** for the block's first paragraph. "quoted" (the default) is notes.py's HEAD. "firm" puts
@@ -56,6 +60,17 @@ class StoreError(Exception):
     def __init__(self, message, status=400):
         super().__init__(message)
         self.status = status
+
+
+def note_id(source):
+    """A note's id: its write's own id (the lesson's "id", the note's `source`), as text. The proxy's writes are "wN",
+    numbered from the journal's `next_source`, which an erase never takes back; a seeded lesson's number n is "sN".
+    An erase, a restart or a later write never gives it to another note. None when the source is neither."""
+    if isinstance(source, str):
+        return source
+    if isinstance(source, int) and not isinstance(source, bool):
+        return f"s{source}"
+    return None
 
 
 def lnorm(text):
@@ -103,6 +118,16 @@ class ProxyStore(nm.NoteStore):
         verdict = intake.ALREADY_KNOWN if same else intake.NEW
         return {"verdict": verdict, "learn": not same, "same_as": [O.notes[i]["lesson"]["id"] for i in same],
                 "covered_by": [], "supersedes": [], "changed": []}
+
+    def _lookup(self, O, qg, cap, past, res, qkeys=(), exclude=frozenset()):
+        """notes.py's lookup, unchanged, under the owner's read lock. Around it: an id (text) in `exclude` is turned
+        into the note's number here, and the reply gets `note_ids`, so both are read in the same state of the store
+        as the lookup (an erase cannot come between them). A number in `exclude` is a number, as in notes.py."""
+        if any(isinstance(x, str) for x in exclude):
+            num = {note_id(n["source"]): i for i, n in O.notes.items()}
+            exclude = frozenset(num.get(x) if isinstance(x, str) else x for x in exclude) - {None}
+        super()._lookup(O, qg, cap, past, res, qkeys, exclude)
+        res["note_ids"] = [note_id(O.notes[i]["source"]) for i in res["ids"]]
 
     def no_longer_current(self, sch, ls, new):
         if new.get(FREE):
@@ -298,7 +323,13 @@ class Notes:
             self.header = header
             self.store = ProxyStore(tokenizer, schema=header.get("schema"), config=config, abstain_line=abstain_line,
                                     framing=framing)
+            seen = set()
             for l in lessons:
+                nid = note_id(l.get("id"))
+                if not nid or nid.isdigit() or nid in seen:
+                    raise StoreError(f"the store {self.journal.path} has a write whose id is missing, a bare number "
+                                     f"or another write's ({l.get('id')!r}): a note's id must name one note", 500)
+                seen.add(nid)
                 self.store.write(owner, l)
             self.next_source = max([header.get("next_source", 1)] + [_wnum(l.get("id")) + 1 for l in lessons])
             if self.journal.fd is None:
@@ -313,18 +344,35 @@ class Notes:
 
     # ------------------------------------------------------------------------------------------ reading
     def lookup(self, question, cap=None, past=None, exclude=()):
-        """The reference lookup, unchanged: NoteStore.retrieve for this proxy's owner."""
-        return self.store.retrieve(self.owner, question, cap=cap, past=past, exclude=exclude)
+        """The reference lookup, unchanged: NoteStore.retrieve for this proxy's owner. `exclude` takes note ids
+        (note_id); the reply's "ids" are the notes' numbers in the block, as retrieve() gives them, and "note_ids"
+        their ids, in the same order."""
+        res = self.store.retrieve(self.owner, question, cap=cap, past=past, exclude=exclude)
+        res.setdefault("note_ids", [])           # an owner with no notes yet: retrieve() looks nothing up
+        return res
 
     def count(self):
         return self.store.stats(self.owner)["notes"]
 
+    @staticmethod
+    def _ids(O, numbers):
+        """The ids of the notes with these numbers (the numbers of notes.py, which an erase moves)."""
+        return [note_id(O.notes[k]["source"]) for k in numbers]
+
+    @staticmethod
+    def _number(O, nid):
+        """The number of the note with this id now, or None (no such note, or it was erased)."""
+        if not isinstance(nid, str):
+            return None
+        return next((i for i, n in O.notes.items() if note_id(n["source"]) == nid), None)
+
     def _view(self, O, i):
         n = O.notes[i]
-        return {"id": i, "version": n["version"], "state": n["state"],
+        ref = lambda k: None if k is None else note_id(O.notes[k]["source"])
+        return {"id": note_id(n["source"]), "number": i, "version": n["version"], "state": n["state"],
                 "kind": "take_back" if n["kind"] == nm.TOMBSTONE else "fact", "subject": n["entity"],
                 "text": n["text"], "line": self.store.line(O, i), "source": n["source"], "told": n["told"],
-                "superseded_by": n["superseded_by"], "tombstoned_by": n["tombstoned_by"]}
+                "superseded_by": ref(n["superseded_by"]), "tombstoned_by": ref(n["tombstoned_by"])}
 
     def listing(self, history=False):
         O = self.store.owner(self.owner)
@@ -333,12 +381,14 @@ class Notes:
         with O.lock.read():
             return [self._view(O, i) for i in sorted(O.notes) if history or O.notes[i]["state"] == nm.CURRENT]
 
-    def get(self, i):
+    def get(self, nid):
+        """The note with this id (note_id), or None."""
         O = self.store.owner(self.owner)
         if O is None:
             return None
         with O.lock.read():
-            return self._view(O, i) if i in O.notes else None
+            i = self._number(O, nid)
+            return None if i is None else self._view(O, i)
 
     # ------------------------------------------------------------------------------------------ writes
     def write_text(self, text, subject=None, today=None):
@@ -383,22 +433,26 @@ class Notes:
             O = self.store.owner(self.owner)
             with O.lock.read():
                 by_src = {n["source"]: i for i, n in O.notes.items()}
-                same = sorted(set(entry.get("same_as") or []) |
-                              {by_src[s] for s in self.store.same_of.get(src, []) if s in by_src})
+                same = self._ids(O, sorted(set(entry.get("same_as") or []) |
+                                           {by_src[s] for s in self.store.same_of.get(src, []) if s in by_src}))
                 note = self._view(O, entry["note"]) if entry["note"] else None
-        return {"id": entry["note"], "version": note["version"] if note else None,
+                superseded, tombstoned = self._ids(O, entry["superseded"]), self._ids(O, entry["tombstoned"])
+        return {"id": note["id"] if note else None, "number": entry["note"],
+                "version": note["version"] if note else None,
                 "state": note["state"] if note else None, "verdict": entry["verdict"],
                 "written": entry["note"] is not None, "source": src, "told": told,
-                "superseded": entry["superseded"], "tombstoned": entry["tombstoned"], "same_as": same, "note": note}
+                "superseded": superseded, "tombstoned": tombstoned, "same_as": same, "note": note}
 
-    def erase(self, i):
-        """Erase note i: its own write, the writes kept out as the same as it, and the take-backs of it, from the
-        journal first, then from the store (rebuilt without them: never taught). Returns the server's erase reply
-        shape; the places the proxy cannot reach are named in `remaining`."""
+    def erase(self, nid):
+        """Erase the note with id `nid` (note_id): its own write, the writes kept out as the same as it, and the
+        take-backs of it, from the journal first, then from the store (rebuilt without them: never taught). Returns
+        the server's erase reply shape; the places the proxy cannot reach are named in `remaining`. An id that names
+        no note, also one already erased, is a 404 and changes nothing: no other note ever has that id."""
         with self.lock:
             O = self.store.owner(self.owner)
-            if O is None or i not in O.notes:
-                raise StoreError("no note has this id", 404)
+            i = None if O is None else self._number(O, nid)
+            if i is None:
+                raise StoreError("no note has this id: it was never written, or it was erased", 404)
             with O.lock.read():
                 src = O.notes[i]["source"]
                 out = [src]
@@ -426,8 +480,8 @@ class Notes:
             O = self.store.owner(self.owner)
             with O.lock.read():
                 after = {n["source"]: k for k, n in O.notes.items()}
-        moved = sorted((before[s], after[s]) for s in before if s in after and after[s] != before[s])
-        reply = {"erased": i, "removed": out, "renumbered": [{"from": a, "to": b} for a, b in moved],
+        moved = sorted((before[s], after[s], note_id(s)) for s in before if s in after and after[s] != before[s])
+        reply = {"erased": nid, "removed": out, "renumbered": [{"id": d, "from": a, "to": b} for a, b, d in moved],
                  "complete": False, "state": "pending",
                  "remaining": ["the upstream engine's prompt cache, logs and any copy it kept: the proxy cannot reach "
                                "them",

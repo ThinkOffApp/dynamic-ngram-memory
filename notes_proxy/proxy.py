@@ -136,9 +136,9 @@ def asked(body):
     listed = "notes_exclude" in body
     if listed:
         x = body["notes_exclude"]
-        if not isinstance(x, list) or not all(isinstance(i, int) and not isinstance(i, bool) and 0 <= i < 2 ** 32
-                                              for i in x):
-            raise Refused("notes_exclude must be a list of note ids")
+        if not isinstance(x, list) or not all(isinstance(i, str) and 0 < len(i) <= 256 for i in x):
+            raise Refused("notes_exclude must be a list of note ids, such as [\"w12\"], as GET /v1/notes lists them; "
+                          "a number is a note's place in the block, which moves when a note is erased")
         ask["exclude"] = tuple(x)
     if "notes_cap" in body:
         c = body["notes_cap"]
@@ -421,9 +421,11 @@ class Handler(BaseHTTPRequestHandler):
         rest = path[len("/v1/notes"):].strip("/")
         nid = None
         if rest:
-            if not rest.isdigit() or not rest.isascii():
-                raise Refused("a note id is a whole number: /v1/notes/ID", 404)
-            nid = int(rest)
+            nid = urllib.parse.unquote(rest)
+            if nid.isascii() and nid.isdigit():
+                raise Refused("a note id is the id GET /v1/notes lists, such as w12, and it never changes; a number "
+                              "is a note's place in the block, which moves when a note is erased, so it names no "
+                              "note here", 400)
         q = urllib.parse.parse_qs(urllib.parse.urlsplit(self.path).query)
         flag = lambda name: (q.get(name) or ["0"])[-1].lower() in ("1", "true")
         m = self.command
@@ -513,8 +515,9 @@ class Handler(BaseHTTPRequestHandler):
                 fwd["messages"] = with_block(msgs, res["block"], self.cfg.join_system)
             total_us = (time.perf_counter() - t0) * 1e6
             wrote, write_us = self.auto_write(ask, body)
-            used = {"ids": res["ids"], "past": res["past"], "past_from": "request" if ask["past"] is not None
-                    else "question", "language": "en", "cap": res["cap"], "tokens": res["tokens"],
+            used = {"ids": res["note_ids"], "numbers": res["ids"], "past": res["past"],
+                    "past_from": "request" if ask["past"] is not None else "question", "language": "en",
+                    "cap": res["cap"], "tokens": res["tokens"],
                     "candidates": res["candidates"], "notes_in_store": self.notes.count(),
                     "lookup_us": res["lookup_us"], "total_us": round(total_us, 1),
                     "block_sha256": hashlib.sha256(res["block"].encode()).hexdigest() if res["block"] else None}

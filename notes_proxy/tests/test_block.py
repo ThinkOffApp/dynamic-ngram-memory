@@ -6,15 +6,20 @@ and another set's store must give different blocks, or the comparison could not 
 """
 import unittest
 
-from notes_proxy.store import Notes, nm
+from notes_proxy.store import Notes, nm, note_id
 from notes_proxy.tests import helpers as H
 
 
-def compare(notes, ref, questions, **kw):
-    """The questions whose block, ids, tokens or past flag differ between the proxy's lookup and retrieve()."""
+def compare(notes, ref, questions, by_id=False, **kw):
+    """The questions whose block, ids, tokens or past flag differ between the proxy's lookup and retrieve(). With
+    `by_id`, the proxy is given the excluded notes by their ids (note_id), retrieve() by their numbers."""
     out = []
     for q in questions:
-        a = notes.lookup(q["text"], **kw)
+        mine = dict(kw)
+        if by_id:
+            src = {n["id"]: n["source"] for n in ref.notes_of("user")}
+            mine["exclude"] = [note_id(src[k]) for k in kw["exclude"]]
+        a = notes.lookup(q["text"], **mine)
         b = ref.retrieve("user", q["text"], **kw)
         if (a["block"], a["ids"], a["tokens"], a["past"]) != (b["block"], b["ids"], b["tokens"], b["past"]):
             out.append(q["qid"])
@@ -48,6 +53,11 @@ class BlockEqualsRetrieve(unittest.TestCase):
         self.assertEqual(compare(self.notes, self.ref, qs, past=True), [])
         self.assertEqual(compare(self.notes, self.ref, qs, exclude=ids), [])
         self.assertEqual(compare(self.notes, self.ref, qs, past=True, exclude=ids), [])
+        self.assertEqual(compare(self.notes, self.ref, qs, by_id=True, exclude=ids), [])
+        self.assertEqual(compare(self.notes, self.ref, qs, by_id=True, past=True, exclude=ids), [])
+        # control: the exclusions do change some blocks, so the comparison by id could fail
+        self.assertTrue(any(self.ref.retrieve("user", q["text"], exclude=ids)["block"] !=
+                            self.ref.retrieve("user", q["text"])["block"] for q in qs))
         self.assertEqual(compare(self.notes, self.ref, qs, cap=128), [])
 
     def test_control_another_phase(self):

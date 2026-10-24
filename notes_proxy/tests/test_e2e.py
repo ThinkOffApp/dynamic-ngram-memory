@@ -7,7 +7,7 @@ import unittest
 import unittest.mock
 
 from notes_proxy import proxy
-from notes_proxy.store import nm
+from notes_proxy.store import nm, note_id
 from notes_proxy.tests import helpers as H
 
 CLIENT = [{"role": "system", "content": "You are terse."}, {"role": "user", "content": "Hello."},
@@ -16,6 +16,12 @@ CLIENT = [{"role": "system", "content": "You are terse."}, {"role": "user", "con
 
 def chat(q, **kw):
     return dict({"model": "stub-model", "temperature": 0, "messages": CLIENT + [{"role": "user", "content": q}]}, **kw)
+
+
+def ids_of(ref, numbers):
+    """The ids (note_id) of the reference store's notes with these numbers."""
+    src = {n["id"]: n["source"] for n in ref.notes_of("user")}
+    return [note_id(src[k]) for k in numbers]
 
 
 def sse_lines(resp):
@@ -63,7 +69,8 @@ class E2E(unittest.TestCase):
             self.assertEqual({k: v for k, v in got.items() if k != "messages"},
                              {k: v for k, v in body.items() if k != "messages"})
             n = reply["notes"]
-            self.assertEqual((n["ids"], n["tokens"], n["past"]), (ref["ids"], ref["tokens"], ref["past"]))
+            self.assertEqual((n["numbers"], n["tokens"], n["past"]), (ref["ids"], ref["tokens"], ref["past"]))
+            self.assertEqual(n["ids"], ids_of(self.ref, ref["ids"]))
             self.assertEqual(reply["received_messages"], got["messages"])          # the upstream's reply, kept
         print(f"\n[test_e2e] 56 of 56 requests: the block first and byte for byte retrieve()'s ({with_block} with "
               f"a block), every client message after it unchanged")
@@ -122,7 +129,8 @@ class E2E(unittest.TestCase):
         p = self.proxy(H.seeded(self.tmp, "e2e-bad.jsonl"))
         n = len(self.stub.requests)
         for bad in [{"notes": "yes"}, {"notes": False, "notes_exclude": [1]}, {"notes_cap": 0},
-                    {"notes_exclude": ["a"]}, {"notes": False, "notes_echo": True}, {"notes_language": "fi"}]:
+                    {"notes_exclude": [1]}, {"notes_exclude": [""]}, {"notes": False, "notes_echo": True},
+                    {"notes_language": "fi"}]:
             st, reply = p.json("POST", "/v1/chat/completions", chat("hi", **bad))
             self.assertEqual(st, 400, bad)
             self.assertIn("message", reply["error"])
@@ -160,7 +168,8 @@ class E2E(unittest.TestCase):
         notes = [l for l in rest if l.startswith(b": notes ")]
         self.assertEqual(len(notes), 1)
         self.assertLess(rest.index(notes[0]), rest.index(datas[-1]))          # before [DONE]
-        self.assertEqual(json.loads(notes[0][len(b": notes "):])["ids"], self.ref.retrieve("user", q)["ids"])
+        got, ref = json.loads(notes[0][len(b": notes "):]), self.ref.retrieve("user", q)["ids"]
+        self.assertEqual((got["numbers"], got["ids"]), (ref, ids_of(self.ref, ref)))
 
     def test_control_a_buffering_proxy_fails_the_streaming_check(self):
         class Buffering(proxy.Handler):
@@ -195,7 +204,7 @@ class E2E(unittest.TestCase):
         st, e = p.json("DELETE", f"/v1/notes/{w['id']}")
         self.assertEqual(st, 200)
         self.assertEqual(e["removed"], [w["source"]])
-        self.assertEqual(e["renumbered"], [{"from": keep["id"], "to": w["id"]}])
+        self.assertEqual(e["renumbered"], [{"id": keep["id"], "from": keep["number"], "to": w["number"]}])
         # right after the erase (a later question brings its own words into the lookup's memos again): gone from
         # every structure the proxy holds (notes.py's own walker), and from the journal on disk
         self.assertEqual(nm.walk_for(p.notes, texts=["Oskarina", "tortoises"]), [])
@@ -208,7 +217,8 @@ class E2E(unittest.TestCase):
         self.assertNotIn("Oskarina", reply["notes"]["block"])
         self.assertEqual([n["text"] for n in p.json("GET", "/v1/notes?history=1")[1]["data"]],
                          ["My aunt Brigitta grows tomatoes."])
-        self.assertEqual(p.json("GET", f"/v1/notes/{w['id']}")[1]["text"], "My aunt Brigitta grows tomatoes.")
+        self.assertEqual(p.json("GET", f"/v1/notes/{w['id']}")[0], 404)       # an erased note's id names no other
+        self.assertEqual(p.json("GET", f"/v1/notes/{keep['id']}")[1]["text"], "My aunt Brigitta grows tomatoes.")
         p.stop()
         p2 = self.proxy(store)                                      # and after a restart
         self.assertEqual([n["text"] for n in p2.json("GET", "/v1/notes?history=1")[1]["data"]],
