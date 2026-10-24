@@ -5,11 +5,19 @@ with the test suite's own lookup (tests/zengine/notes.py, NoteStore.retrieve: th
 and framing are that file's), puts the block in as the first system message, as the TensorFold server does, and
 forwards the request to the upstream server. Streaming replies are passed on line by line as they arrive.
 
-One owner per proxy: every request is answered from that owner's notes, so run one proxy per person. It binds to
-127.0.0.1 by default. The notes are quoted as things the user said, never as instructions.
+With --owner and --store it serves one owner: every request is answered from that owner's notes. With --users and
+--store-dir it serves many: each request's key (Authorization: Bearer KEY) names its owner, a missing or unknown key
+is a 401, and the key never goes on to the upstream (users.py). With many users the upstream's prompt cache is kept
+apart per user, no client field or header names another user's state there, and only the model routes pass through.
+It binds to 127.0.0.1 by default. The notes are quoted as
+things the user said, never as instructions.
 
   python -m notes_proxy --upstream http://127.0.0.1:8080 --owner me --store ~/notes/me.jsonl \\
       --tokenizer /path/to/model/tokenizer.json [--port 8090] [--cap 512] [--write] [--abstain-line TEXT]
+  python -m notes_proxy --upstream http://127.0.0.1:8080 --users users.json --store-dir ~/notes \\
+      --tokenizer /path/to/model/tokenizer.json [--upstream-key-env NAME] [--share-upstream-cache]
+  python -m notes_proxy add-user --users users.json --owner alice --store-dir ~/notes [--reuse-notes]
+  python -m notes_proxy remove-user --users users.json --owner alice (--keep-notes | --erase-notes) [--store-dir DIR]
   python -m notes_proxy seed --set tests/examples/L6-seed1.json --phase teach --owner user --store STORE.jsonl
 
 Standard library for the HTTP side; the model's tokenizer.json is read with the `tokenizers` package, as notes.py
@@ -17,29 +25,97 @@ reads it.
 """
 import argparse
 import hashlib
+import hmac
 import http.client
 import ipaddress
 import json
+import os
+import secrets
 import socket
 import sys
 import time
 import urllib.parse
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
-from . import gate
-from .store import Notes, StoreError, nm, seed
+from . import gate, users
+from .store import Notes, ProxyStore, StoreError, nm, seed
 
 NOTE_FIELDS = ("notes", "notes_exclude", "notes_past", "notes_cap", "notes_echo", "notes_write", "notes_language")
 HOP_BY_HOP = {"connection", "keep-alive", "proxy-authenticate", "proxy-authorization", "proxy-connection", "te",
               "trailer", "trailers", "transfer-encoding", "upgrade"}
 CHAT_BODY_LIMIT = 64 * 1024 * 1024
 NOTES_BODY_LIMIT = 1024 * 1024
+# with many users, the routes passed on besides the chat route: the others (llama.cpp's /slots, /metrics, /props and
+# the like) can show or change other users' prompts
+PASS_MANY = {"/v1/models": ("GET", "HEAD"), "/v1/completions": ("POST",), "/v1/embeddings": ("POST",)}
+TIMES = ("lookup_us", "total_us", "write_us")      # left out with many users: the shared tokenizer cache shows in them
+# with many users, the client's fields that could name state on the upstream (the README's "What reaches the upstream")
+DROP_MANY = ("id_slot", "slot_id", "request_id", "rid", "session_id")      # the upstream picks a slot and an id itself
+MINE_MANY = ("user", "safety_identifier")                                   # replaced by the user's own value
+REFUSE_MANY = ("conversation", "previous_response_id", "session_params", "kv_transfer_params")   # state it keeps
+HEADERS_MANY = ("content-type", "accept", "user-agent")                     # the only client headers passed on
 
 
 class Refused(Exception):
-    def __init__(self, message, status=400):
+    def __init__(self, message, status=400, log=""):
         super().__init__(message)
         self.status = status
+        self.log = log                 # the cause, for the operator's log line only
+
+
+def holds(v, key):
+    """Whether a decoded JSON value holds the key in any string or object key, at any depth."""
+    if isinstance(v, str):
+        return key in v
+    if isinstance(v, dict):
+        return any(holds(k, key) or holds(x, key) for k, x in v.items())
+    if isinstance(v, list):
+        return any(holds(x, key) for x in v)
+    return False
+
+
+KEY_IN_BODY = ("the request body holds your key: send the key only as Authorization: Bearer KEY, because the body "
+               "goes on to the upstream or into your notes")
+
+
+def scrub(obj):
+    """Take the counts of reused prompt tokens out of a reply object (llama.cpp's timings and prompt_progress, and
+    usage's cached_tokens): with many users they tell one user about another's prompts. True when it changed."""
+    if not isinstance(obj, dict):
+        return False
+    hit = False
+    for k in ("timings", "prompt_progress"):
+        if k in obj:
+            del obj[k]
+            hit = True
+    u = obj.get("usage")
+    d = u.get("prompt_tokens_details") if isinstance(u, dict) else None
+    if isinstance(d, dict) and "cached_tokens" in d:
+        del d["cached_tokens"]
+        hit = True
+    return hit
+
+
+def scrubbed(data):
+    """A JSON reply's bytes, scrubbed; the upstream's own bytes when there is nothing to take out."""
+    try:
+        obj = json.loads(data)
+    except ValueError:
+        return data
+    return json.dumps(obj, ensure_ascii=False).encode() if scrub(obj) else data
+
+
+def scrubbed_line(line):
+    """One SSE line, its data scrubbed; the line as it came when there is nothing to take out."""
+    if not line.startswith(b"data:"):
+        return line
+    end = b"\r\n" if line.endswith(b"\r\n") else b"\n" if line.endswith(b"\n") else b""
+    payload = line[5:len(line) - len(end)].strip()
+    try:
+        obj = json.loads(payload)
+    except ValueError:
+        return line
+    return b"data: " + json.dumps(obj, ensure_ascii=False).encode() + end if scrub(obj) else line
 
 
 def _bool(body, key):
@@ -132,7 +208,7 @@ def splice(body, field):
 
 class Config:
     def __init__(self, upstream, owner, write=False, join_system=False, timeout=600.0, allow_origins=(),
-                 local_only=True, log=None):
+                 local_only=True, log=None, upstream_key=None, isolate_cache=False):
         u = urllib.parse.urlsplit(upstream)
         if u.scheme not in ("http", "https") or not u.hostname:
             raise ValueError("--upstream is an http:// or https:// base URL, such as http://127.0.0.1:8080")
@@ -145,6 +221,8 @@ class Config:
         self.timeout = timeout
         self.allow_origins = set(allow_origins)
         self.local_only = local_only
+        self.upstream_key = upstream_key   # --upstream-key-env's value: what the upstream gets as Authorization
+        self.isolate_cache = isolate_cache  # many users without --share-upstream-cache
         self.log = log or (lambda line: print(line, file=sys.stderr, flush=True))
 
     def connect(self):
@@ -173,7 +251,14 @@ class Handler(BaseHTTPRequestHandler):
 
     @property
     def notes(self):
-        return self.server.notes
+        """The request's owner's Notes, opened at the first route that needs them (never for a pass-through)."""
+        if self._notes is None:
+            self._notes = self.server.notes_of(self.owner)
+        return self._notes
+
+    @property
+    def many(self):
+        return self.server.users is not None
 
     # ------------------------------------------------------------------------------------------ plumbing
     def _cors(self):
@@ -192,9 +277,34 @@ class Handler(BaseHTTPRequestHandler):
             self.wfile.write(data)
         self.wfile.flush()
 
-    def send_error_json(self, status, message):
+    def send_error_json(self, status, message, extra=None):
         kind = "invalid_request_error" if 400 <= status < 500 else "server_error"
-        self.send_json(status, {"error": {"message": message, "type": kind, "code": status}})
+        self.send_json(status, {"error": {"message": message, "type": kind, "code": status}}, extra)
+
+    def isolated(self, body):
+        """With many users, a request body for the upstream that names no other user's state there. A field that
+        points at state the upstream keeps, an owner or a notes field is refused. Slot and request ids are dropped.
+        The user ids are replaced by this user's own value. The cache is kept apart: llama.cpp reuses no cached prompt
+        (cache_prompt false) and vLLM reuses only this user's (cache_salt), whatever the client sent for them. With
+        one owner, the body as it is."""
+        if not self.many:
+            return body
+        for k in body:
+            if k in REFUSE_MANY:
+                raise Refused(f"{k} is refused: it points at state the upstream keeps, and with many users this proxy "
+                              f"cannot tell whose it is")
+            if k == "owner":
+                raise Refused("owner is refused: with many users the key alone names whose notes a request reads")
+            if k == "notes" or k.startswith("notes_"):
+                raise Refused(f"{k} is refused: with many users no notes field goes on to the upstream. Only "
+                              f"/v1/chat/completions takes notes fields, and only the proxy's own")
+        mine = self.server.salt(self.owner)
+        out = {k: mine if k in MINE_MANY else v for k, v in body.items() if k not in DROP_MANY}
+        if self.cfg.isolate_cache:
+            out.update(cache_prompt=False, cache_salt=mine)
+            if "prompt_cache_key" in out:
+                out["prompt_cache_key"] = mine
+        return out
 
     def read_body(self, limit):
         if "chunked" in (self.headers.get("Transfer-Encoding") or "").lower():
@@ -211,7 +321,10 @@ class Handler(BaseHTTPRequestHandler):
         if n > limit:
             self.close_connection = True
             raise Refused(f"request body exceeds {limit} bytes", 413)
-        return self.rfile.read(n) if n else b""
+        raw = self.rfile.read(n) if n else b""
+        if self.key and self.key.encode() in raw:
+            raise Refused(KEY_IN_BODY)
+        return raw
 
     def json_body(self, limit):
         raw = self.read_body(limit)
@@ -219,15 +332,26 @@ class Handler(BaseHTTPRequestHandler):
             v = json.loads(raw) if raw else None
         except ValueError as e:
             raise Refused(f"the request body is not JSON: {e}")
+        if self.key and holds(v, self.key):
+            raise Refused(KEY_IN_BODY)              # \u escapes hide the key from the raw bytes, not from the values
         return raw, v
 
     def forward_headers(self, length):
+        key = self.key
         out = {}
         for k, v in self.headers.items():
             lk = k.lower()
             if lk in HOP_BY_HOP or lk in ("host", "content-length", "accept-encoding", "origin", "expect"):
                 continue
-            out[k] = v                        # Authorization goes on as the client sent it; it is never stored
+            if self.many and lk not in HEADERS_MANY:
+                continue                      # the user's key, a cookie, another key or a session id: none goes on
+            if lk == "authorization" and self.cfg.upstream_key is not None:
+                continue                      # a key the upstream key replaces
+            if key and key in v:
+                continue                      # the user's key, in whatever other header the client also put it
+            out[k] = v                        # with one owner and no upstream key, Authorization goes on as sent
+        if self.cfg.upstream_key is not None:
+            out["Authorization"] = f"Bearer {self.cfg.upstream_key}"
         out["Host"] = self.cfg.host if self.cfg.port in (80, 443) else f"{self.cfg.host}:{self.cfg.port}"
         out["Accept-Encoding"] = "identity"
         if length is not None:
@@ -235,13 +359,18 @@ class Handler(BaseHTTPRequestHandler):
         return out
 
     def logline(self, status, t0, extra=""):
-        self.cfg.log(f"notes-proxy: {self.command} {urllib.parse.urlsplit(self.path).path} {status} "
-                     f"{(time.perf_counter() - t0) * 1000:.1f} ms{extra}")
+        who = f"[{self.owner}] " if self.many and self.owner else ""
+        path = urllib.parse.urlsplit(self.path).path
+        if self.key and self.key in urllib.parse.unquote(path):
+            path = "(a path that holds the key)"
+        self.cfg.log(f"notes-proxy: {who}{self.command} {path} {status} {(time.perf_counter() - t0) * 1000:.1f} "
+                     f"ms{extra}")
 
     # ------------------------------------------------------------------------------------------ routing
     def handle_one(self):
         t0 = time.perf_counter()
         path = urllib.parse.urlsplit(self.path).path
+        self.owner = self._notes = self.key = None   # a kept-alive connection names its owner anew at every request
         try:
             if self.cfg.local_only and not loopback_host(self.headers.get("Host")):
                 # a page whose own name was pointed at 127.0.0.1 (DNS rebinding) is same-origin and sends no Origin;
@@ -265,6 +394,12 @@ class Handler(BaseHTTPRequestHandler):
                 self.send_header("Content-Length", "0")
                 self.end_headers()
                 return self.logline(204, t0)
+            self.owner = self.server.who(self.headers)     # with many users: the key's owner, or a 401 here
+            if self.many:
+                self.key = bearer(self.headers.get("Authorization"))
+                if self.key in urllib.parse.unquote(self.path):
+                    raise Refused("the URL holds your key: send the key only as Authorization: Bearer KEY, because "
+                                  "the URL goes on to the upstream")
             if path == "/v1/notes" or path.startswith("/v1/notes/"):
                 return self.notes_api(path, t0)
             if path == "/v1/chat/completions" and self.command == "POST":
@@ -272,8 +407,8 @@ class Handler(BaseHTTPRequestHandler):
             return self.passthrough(t0)
         except Refused as e:
             self.close_connection = True      # a refusal may leave a body unread: never read it as the next request
-            self.send_error_json(e.status, str(e))
-            self.logline(e.status, t0)
+            self.send_error_json(e.status, str(e), {"WWW-Authenticate": "Bearer"} if e.status == 401 else None)
+            self.logline(e.status, t0, e.log)
         except (BrokenPipeError, ConnectionResetError):
             self.close_connection = True
 
@@ -297,7 +432,7 @@ class Handler(BaseHTTPRequestHandler):
                     raise Refused("no note has this id", 404)
                 self.send_json(200, v)
             else:
-                self.send_json(200, {"object": "list", "owner": self.cfg.owner,
+                self.send_json(200, {"object": "list", "owner": self.owner,
                                      "data": self.notes.listing(flag("history")), "history": flag("history")})
             return self.logline(200, t0)
         _raw, v = self.json_body(NOTES_BODY_LIMIT)
@@ -363,8 +498,9 @@ class Handler(BaseHTTPRequestHandler):
         if not isinstance(body, dict):
             raise Refused("the request body must be a JSON object")
         ask = asked(body)
-        fwd = {k: v for k, v in body.items() if k not in NOTE_FIELDS}
+        fwd = self.isolated({k: v for k, v in body.items() if k not in NOTE_FIELDS})
         used = None
+        extra = ""
         if ask is not None:
             msgs = body.get("messages")
             if not isinstance(msgs, list) or not msgs:
@@ -384,22 +520,37 @@ class Handler(BaseHTTPRequestHandler):
                 used["block"] = res["block"]
             used["write"] = wrote
             used["write_us"] = round(write_us, 1)
-        data = json.dumps(fwd, ensure_ascii=False).encode()
-        stream = fwd.get("stream") is True
-        extra = ""
-        if used is not None:
             w = used["write"]
             extra = (f" notes [{','.join(map(str, used['ids']))}] {used['tokens']} tokens of {used['cap']}, past "
                      f"{'yes' if used['past'] else 'no'}, {used['candidates']} candidates, lookup {used['lookup_us']}"
                      f" us; write " + (f"{w['verdict']} [{w['id']}]" if "verdict" in w else
                                        f"failed" if "failed" in w else f"skipped ({w['skipped']})"))
+            if self.many:
+                for k in TIMES:          # the operator's log keeps them
+                    del used[k]
+        data = json.dumps(fwd, ensure_ascii=False).encode()
+        stream = fwd.get("stream") is True
         self.relay("POST", data, used, stream, t0, extra)
 
     # ------------------------------------------------------------------------------------------ upstream
     def passthrough(self, t0):
+        route = self.path.partition("?")[0]
+        if self.many and self.command not in PASS_MANY.get(route, ()):
+            raise Refused("with many users this proxy passes on only GET /v1/models, POST /v1/completions and POST "
+                          "/v1/embeddings, and gives notes to POST /v1/chat/completions", 404)
         body = None
         if self.command in ("POST", "PUT", "PATCH", "DELETE") or self.headers.get("Content-Length"):
             body = self.read_body(CHAT_BODY_LIMIT)
+        if self.many and route in ("/v1/completions", "/v1/embeddings"):
+            try:
+                v = json.loads(body) if body else None
+            except ValueError:
+                v = None
+            if not isinstance(v, dict):
+                raise Refused("the request body must be a JSON object")
+            if self.key and holds(v, self.key):
+                raise Refused(KEY_IN_BODY)
+            body = json.dumps(self.isolated(v), ensure_ascii=False).encode()
         self.relay(self.command, body, None, False, t0, "")
 
     def relay(self, method, body, used, stream, t0, extra):
@@ -420,11 +571,14 @@ class Handler(BaseHTTPRequestHandler):
             if used is not None:
                 notes_hdr = {"X-Notes-Ids": ",".join(map(str, used["ids"])), "X-Notes-Tokens": str(used["tokens"]),
                              "X-Notes-Past": "true" if used["past"] else "false"}
-            if used is not None and stream and "text/event-stream" in ctype:
+            sse, js = "text/event-stream" in ctype, "json" in ctype
+            if sse and (used is not None and stream or self.many):
                 return self.relay_sse(r, headers, notes_hdr, used, t0, extra)
-            if used is not None and method != "HEAD":
+            if method != "HEAD" and (used is not None or self.many and js):
                 data = r.read()
-                if 200 <= r.status < 300 and "json" in ctype:
+                if self.many and js:
+                    data = scrubbed(data)
+                if used is not None and 200 <= r.status < 300 and js:
                     data = splice(data, used) or data
                 self.send_response(r.status, r.reason)
                 for k, v in headers + list(notes_hdr.items()) + list(self._cors().items()):
@@ -477,7 +631,8 @@ class Handler(BaseHTTPRequestHandler):
     def relay_sse(self, r, headers, notes_hdr, used, t0, extra):
         """A streamed reply, line by line as the upstream sends it. The notes object goes in as an SSE comment line
         (": notes {...}") just before "data: [DONE]" (or at the end when there is none): a comment is ignored by
-        every SSE parser, so no client sees a chunk it does not expect."""
+        every SSE parser, so no client sees a chunk it does not expect. With many users each data line is scrubbed,
+        and a reply without notes (used None) gets no notes line."""
         self.send_response(r.status, r.reason)
         for k, v in headers + list(notes_hdr.items()) + list(self._cors().items()):
             self.send_header(k, v)
@@ -490,7 +645,7 @@ class Handler(BaseHTTPRequestHandler):
             self.wfile.write(b"%x\r\n%s\r\n" % (len(b), b))
             self.wfile.flush()
 
-        sent = False
+        sent = used is None
         try:
             while True:
                 line = r.readline(1 << 20)
@@ -499,7 +654,7 @@ class Handler(BaseHTTPRequestHandler):
                 if not sent and line.strip() == b"data: [DONE]":
                     put(note)
                     sent = True
-                put(line)
+                put(scrubbed_line(line) if self.many else line)
             if not sent:
                 put(b"\n" + note)
             self.wfile.write(b"0\r\n\r\n")
@@ -514,13 +669,48 @@ class Handler(BaseHTTPRequestHandler):
 
 class Proxy(ThreadingHTTPServer):
     daemon_threads = True
+    request_queue_size = 128             # socketserver's 5 resets the sixth waiting connection
 
-    def __init__(self, addr, cfg, notes):
+    def __init__(self, addr, cfg, notes, users=None):
         self.cfg = cfg
-        self.notes = notes
+        self.notes = notes                # one owner's Notes, or with a users file every owner's (users.Owners)
+        self.users = users
+        self.salt_key = secrets.token_bytes(32)    # each user's cache_salt comes from it, new at every start
         family = socket.AF_INET6 if ":" in addr[0] else socket.AF_INET
         self.address_family = family
         super().__init__(addr, Handler)
+
+    def who(self, headers):
+        """A request's owner: the one owner, or with a users file the owner of the key it sends (else a 401)."""
+        if self.users is None:
+            return self.cfg.owner
+        owner = self.users.who(bearer(headers.get("Authorization")))
+        if owner is None:
+            raise Refused("the key is missing or unknown: send your own as Authorization: Bearer KEY", 401)
+        return owner
+
+    def notes_of(self, owner):
+        """The owner's Notes. With many users a store that cannot be opened is a short reply to its owner, and its
+        cause goes to the operator's log only (it names the server's folders)."""
+        if self.users is None:
+            return self.notes
+        try:
+            return self.notes.get(owner)
+        except (StoreError, users.UsersError, OSError) as e:
+            status = 503 if isinstance(e, OSError) else getattr(e, "status", 500)
+            raise Refused("your notes cannot be opened now: the proxy's operator can see why in its log", status,
+                          log=f" ({owner}'s store cannot be opened: {e})")
+
+    def salt(self, owner):
+        """The owner's cache_salt: the same for all their requests, another for every other owner, unknown to all."""
+        return hmac.new(self.salt_key, owner.encode(), hashlib.sha256).hexdigest()
+
+
+def bearer(value):
+    """The KEY of an "Authorization: Bearer KEY" header, or None."""
+    scheme, _, key = (value or "").strip().partition(" ")
+    key = key.strip()
+    return key if scheme.lower() == "bearer" and key else None
 
 
 def is_loopback(host):
@@ -542,21 +732,61 @@ def loopback_host(value):
     return bool(name) and is_loopback(name)
 
 
+def usage_error(args):
+    """The mistake in the choice of one owner or many users, or None. main() reports it as argparse reports a missing
+    option on main (exit 2, with the usage line), and build() refuses it too."""
+    many = args.users is not None or args.store_dir is not None
+    if many and (args.users is None or args.store_dir is None or args.owner is not None or args.store is not None):
+        return "many users take --users FILE and --store-dir DIR, and no --owner or --store"
+    if not many and (args.owner is None or args.store is None):
+        missing = [o for o, v in (("--owner", args.owner), ("--store", args.store)) if v is None]
+        return "the following arguments are required: " + ", ".join(missing)
+    if not many and args.share_upstream_cache:
+        return "--share-upstream-cache is for many users (--users and --store-dir)"
+    return None
+
+
 def build(args, log=None):
-    """(the proxy server, its Notes) from parsed arguments; serve with .serve_forever()."""
+    """(the proxy server, its Notes or with a users file its users.Owners) from parsed arguments; serve with
+    .serve_forever()."""
+    many = args.users is not None or args.store_dir is not None
+    err = usage_error(args)
+    if err:
+        if err.startswith("the following arguments"):
+            err = "give --owner NAME and --store FILE for one owner, or --users FILE and --store-dir DIR for many users"
+        raise SystemExit(f"notes-proxy: {err}")
     if not is_loopback(args.host) and not args.allow_remote:
+        if many:
+            raise SystemExit(f"notes-proxy: --host {args.host} is not a loopback address: the keys and the notes would "
+                             f"cross the network unencrypted. Pass --allow-remote to do it anyway.")
+        key = f", and use the upstream key in ${args.upstream_key_env}" if args.upstream_key_env else ""
         raise SystemExit(f"--host {args.host} is not a loopback address: anyone who can reach it could read and erase "
-                         f"this owner's notes. Pass --allow-remote to do it anyway.")
+                         f"this owner's notes{key}. Pass --allow-remote to do it anyway.")
+    upstream_key = None
+    if args.upstream_key_env:
+        upstream_key = os.environ.get(args.upstream_key_env, "")
+        if not upstream_key or not all("!" <= c <= "~" for c in upstream_key):
+            raise SystemExit(f"notes-proxy: --upstream-key-env {args.upstream_key_env}: that environment variable "
+                             f"holds no key (it is unset or empty, or has a space or a character a header cannot "
+                             f"carry)")
     config = json.loads(args.notes_config) if args.notes_config else {}
     if not isinstance(config, dict):
         raise SystemExit("--notes-config is a JSON object of notes.py settings")
     config["cap"] = args.cap
     tok = nm.load_tokenizer(args.tokenizer)
-    notes = Notes(args.store, args.owner, tok, config=config, abstain_line=args.abstain_line)
+    if many:
+        who = users.Users(args.users)
+        users.make_room(len(who))                                          # every user's open files fit
+        ProxyStore(tok, config=config, abstain_line=args.abstain_line)   # the settings are checked now, not later
+        notes = users.Owners(args.store_dir, tok, config=config, abstain_line=args.abstain_line)
+    else:
+        who = None
+        notes = Notes(args.store, args.owner, tok, config=config, abstain_line=args.abstain_line)
     cfg = Config(args.upstream, args.owner, write=args.write, join_system=args.join_system, timeout=args.timeout,
-                 allow_origins=args.allow_origin or (), local_only=not args.allow_remote, log=log)
+                 allow_origins=args.allow_origin or (), local_only=not args.allow_remote, log=log,
+                 upstream_key=upstream_key, isolate_cache=many and not args.share_upstream_cache)
     try:
-        return Proxy((args.host, args.port), cfg, notes), notes
+        return Proxy((args.host, args.port), cfg, notes, who), notes
     except BaseException:
         notes.close()
         raise
@@ -564,10 +794,19 @@ def build(args, log=None):
 
 def parser():
     p = argparse.ArgumentParser(prog="python -m notes_proxy", description="TensorFold Notes in front of any "
-                                "OpenAI-compatible server. One owner per proxy.")
+                                "OpenAI-compatible server. One owner (--owner, --store), or many users (--users, "
+                                "--store-dir), each named by their key.")
     p.add_argument("--upstream", required=True, help="the inference server's base URL, e.g. http://127.0.0.1:8080")
-    p.add_argument("--owner", required=True, help="whose notes this proxy serves (one owner per proxy)")
-    p.add_argument("--store", required=True, help="the notes journal file (made if missing)")
+    p.add_argument("--owner", help="one owner: whose notes this proxy serves")
+    p.add_argument("--store", help="one owner: the notes journal file (made if missing)")
+    p.add_argument("--users", help="many users: the users file (see add-user). Each request's key names its owner")
+    p.add_argument("--store-dir", help="many users: the folder of their journals, NAME.jsonl each (made if missing)")
+    p.add_argument("--upstream-key-env", metavar="NAME",
+                   help="send the upstream the key held in this environment variable (with many users and without "
+                        "it, the upstream gets no Authorization at all)")
+    p.add_argument("--share-upstream-cache", action="store_true",
+                   help="many users: let the upstream reuse one user's cached prompt for another. Faster, but a user "
+                        "can then test guesses about another user's notes (off: every request asks for no reuse)")
     p.add_argument("--tokenizer", required=True,
                    help="the upstream model's tokenizer.json (or its folder): the 512-token cap is counted with it; "
                         "\"fake\" only for tests")
@@ -597,19 +836,83 @@ def seed_main(argv):
     print(f"notes-proxy: {n} lessons of {a.set} ({a.phase}) written to {a.store} for owner {a.owner}")
 
 
+def add_user_main(argv):
+    p = argparse.ArgumentParser(prog="python -m notes_proxy add-user",
+                                description="Add a user to a users file and print their new key, once.")
+    p.add_argument("--users", required=True, help="the users file (made if missing)")
+    p.add_argument("--owner", required=True, help="the user's name: 1 to 32 of a-z, 0-9, _ and -")
+    p.add_argument("--store-dir", required=True,
+                   help="the folder the proxy keeps the notes in: a name whose notes are still there is refused")
+    p.add_argument("--reuse-notes", action="store_true",
+                   help="give the new key the notes kept under this name (the same person, with a new key)")
+    a = p.parse_args(argv)
+    try:
+        key = users.add_user(a.users, a.owner, store_dir=a.store_dir, reuse_notes=a.reuse_notes)
+    except users.UsersError as e:
+        raise SystemExit(f"notes-proxy: {e}")
+    print(f"notes-proxy: added {a.owner} to {a.users}. Their key is on the next line. It is shown only this once: the "
+          f"file keeps only its SHA-256. Restart the proxy to let them in.", file=sys.stderr, flush=True)
+    print(key, flush=True)
+
+
+def remove_user_main(argv):
+    p = argparse.ArgumentParser(prog="python -m notes_proxy remove-user",
+                                description="Take a user out of a users file. Say what happens to their notes.")
+    p.add_argument("--users", required=True, help="the users file")
+    p.add_argument("--owner", required=True, help="the user's name")
+    what = p.add_mutually_exclusive_group(required=True)
+    what.add_argument("--keep-notes", action="store_true", help="leave their journal in the store folder")
+    what.add_argument("--erase-notes", action="store_true",
+                      help="delete their journal too (needs --store-dir, their journal in it, and no proxy serving it)")
+    p.add_argument("--store-dir", help="the store folder that holds their notes (with --keep-notes, to say what is "
+                                       "kept)")
+    a = p.parse_args(argv)
+    if a.erase_notes and not a.store_dir:
+        p.error("--erase-notes needs --store-dir")
+    try:
+        erased = users.remove_user(a.users, a.owner, "erase" if a.erase_notes else "keep",
+                                   store_dir=a.store_dir if a.erase_notes else None)
+    except users.UsersError as e:
+        raise SystemExit(f"notes-proxy: {e}")
+    if a.erase_notes:
+        notes = f"their notes at {erased} are erased"
+    elif a.store_dir:
+        j = users.journal_path(a.store_dir, a.owner)
+        notes = (f"their notes are kept, at {j}" if os.path.lexists(j) else
+                 f"there are no notes of theirs in {os.path.dirname(j)} to keep")
+    else:
+        notes = f"their notes, if any, are kept in the store folder as {a.owner}.jsonl"
+    then = "" if a.erase_notes else " Restart the proxy to shut them out."   # an erase ran with no proxy serving
+    print(f"notes-proxy: removed {a.owner} from {a.users}, and {notes}.{then}", file=sys.stderr, flush=True)
+
+
 def main(argv=None):
     argv = sys.argv[1:] if argv is None else argv
     if argv[:1] == ["seed"]:
         return seed_main(argv[1:])
-    args = parser().parse_args(argv)
+    if argv[:1] == ["add-user"]:
+        return add_user_main(argv[1:])
+    if argv[:1] == ["remove-user"]:
+        return remove_user_main(argv[1:])
+    p = parser()
+    args = p.parse_args(argv)
+    err = usage_error(args)
+    if err:
+        p.error(err)
     try:
         srv, notes = build(args)
-    except (StoreError, nm.NotesError, ValueError) as e:
+    except (StoreError, nm.NotesError, ValueError, users.UsersError) as e:
         raise SystemExit(f"notes-proxy: {e}")
     h, pt = srv.server_address[:2]
-    print(f"notes-proxy: owner {args.owner}, {notes.count()} notes, tokenizer {notes.store.tok.describe()}, cap "
-          f"{args.cap}, writes from chat {'on' if args.write else 'off'}; listening on http://{h}:{pt}, forwarding "
-          f"to {srv.cfg.scheme}://{srv.cfg.host}:{srv.cfg.port}{srv.cfg.base}", file=sys.stderr, flush=True)
+    if srv.users is None:
+        who, tok = f"owner {args.owner}, {notes.count()} notes", notes.store.tok
+    else:
+        n = len(srv.users)
+        who, tok = f"{n} user{'' if n == 1 else 's'} ({args.users}), their notes in {notes.store_dir}", notes.tok
+    key = f", upstream key from ${args.upstream_key_env}" if args.upstream_key_env else ""
+    print(f"notes-proxy: {who}, tokenizer {tok.describe()}, cap {args.cap}, writes from chat "
+          f"{'on' if args.write else 'off'}{key}; listening on http://{h}:{pt}, forwarding to "
+          f"{srv.cfg.scheme}://{srv.cfg.host}:{srv.cfg.port}{srv.cfg.base}", file=sys.stderr, flush=True)
     try:
         srv.serve_forever()
     except KeyboardInterrupt:
