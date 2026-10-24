@@ -105,7 +105,7 @@ def _write(path, data):
     except OSError as e:
         if os.path.lexists(tmp):
             os.unlink(tmp)
-        raise UsersError(f"the users file {path} could not be written ({e.strerror}); nothing changed")
+        raise UsersError(f"the users file {path} could not be written ({e.strerror}), so nothing changed")
     try:
         _sync_dir(path)
     except OSError as e:

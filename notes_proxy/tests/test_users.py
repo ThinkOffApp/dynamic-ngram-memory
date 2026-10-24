@@ -251,7 +251,7 @@ class ManyUsers(unittest.TestCase):
         for n in p.json("GET", "/v1/notes", headers=auth(self.keys["alice"]))[1]["data"][-3:]:
             st, one = p.json("GET", f"/v1/notes/{n['id']}", headers=auth(self.keys["bob"]))
             self.assertNotIn(MARK, json.dumps(one))   # an id is the asking owner's own
-        print(f"\n[test_users] 56 of 56 of bob's blocks are retrieve()'s and hold none of alice's notes; alice's "
+        print(f"\n[test_users] 56 of 56 of bob's blocks are retrieve()'s and hold none of alice's notes. alice's "
               f"own notes are in {found} of her 56")
 
     # ------------------------------------------------------------------------------------------ 2. scores
@@ -288,7 +288,7 @@ class ManyUsers(unittest.TestCase):
             merged.write("bob", l)
         moved = sum(merged.retrieve("bob", q)["block"] != b for q, b in zip(self.Q, empty[0]))
         print(f"[test_users] bob's 56 blocks and scores are the same with alice's store empty, full, and full after "
-              f"a restart; control, her notes in his index: {moved} of 56 blocks move")
+              f"a restart. Control, her notes in his index: {moved} of 56 blocks move")
         self.assertGreater(moved, 40)
 
     # ------------------------------------------------------------------------------------------ 3. erase

@@ -635,7 +635,7 @@ def parser():
     p.add_argument("--upstream", required=True, help="the inference server's base URL, e.g. http://127.0.0.1:8080")
     p.add_argument("--owner", help="one owner: whose notes this proxy serves")
     p.add_argument("--store", help="one owner: the notes journal file (made if missing)")
-    p.add_argument("--users", help="many users: the users file (see add-user); each request's key names its owner")
+    p.add_argument("--users", help="many users: the users file (see add-user). Each request's key names its owner")
     p.add_argument("--store-dir", help="many users: the folder of their journals, NAME.jsonl each (made if missing)")
     p.add_argument("--upstream-key-env", metavar="NAME",
                    help="send the upstream the key held in this environment variable (with many users and without "
@@ -726,7 +726,8 @@ def main(argv=None):
     if srv.users is None:
         who, tok = f"owner {args.owner}, {notes.count()} notes", notes.store.tok
     else:
-        who, tok = f"{len(srv.users)} users ({args.users}), their notes in {notes.store_dir}", notes.tok
+        n = len(srv.users)
+        who, tok = f"{n} user{'' if n == 1 else 's'} ({args.users}), their notes in {notes.store_dir}", notes.tok
     key = f", upstream key from ${args.upstream_key_env}" if args.upstream_key_env else ""
     print(f"notes-proxy: {who}, tokenizer {tok.describe()}, cap {args.cap}, writes from chat "
           f"{'on' if args.write else 'off'}{key}; listening on http://{h}:{pt}, forwarding to "
