@@ -280,14 +280,14 @@ class Owners:
     index and one set of n-gram weights) and one lock per owner, as with one proxy per owner. The folder is locked
     while it runs."""
 
-    def __init__(self, store_dir, tok, config=None, abstain_line=None):
+    def __init__(self, store_dir, tok, config=None, abstain_line=None, framing="quoted"):
         self.store_dir = os.path.abspath(store_dir)
         try:
             os.makedirs(self.store_dir, mode=0o700, exist_ok=True)
             self.dir_fd = lock_dir(self.store_dir)
         except OSError as e:
             raise UsersError(f"no store folder at {self.store_dir} ({e.strerror})")
-        self.tok, self.config, self.abstain_line = tok, config, abstain_line
+        self.tok, self.config, self.abstain_line, self.framing = tok, config, abstain_line, framing
         self.opened = {}               # owner -> their Notes
         self.locks = {}                # owner -> the lock their opening takes
         self.lock = threading.Lock()
@@ -309,7 +309,7 @@ class Owners:
                 n = None
             if n is None:
                 n = Notes(journal_path(self.store_dir, owner), owner, self.tok, config=self.config,
-                          abstain_line=self.abstain_line)
+                          abstain_line=self.abstain_line, framing=self.framing)
                 self.opened[owner] = n
         return n
 

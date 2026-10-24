@@ -2,8 +2,9 @@
 
 For each POST /v1/chat/completions the proxy takes the last user message as the question, looks the owner's notes up
 with the test suite's own lookup (tests/zengine/notes.py, NoteStore.retrieve: the n-grams, scoring, hop, cap fitting
-and framing are that file's), puts the block in as the first system message, as the TensorFold server does, and
-forwards the request to the upstream server. Streaming replies are passed on line by line as they arrive.
+and framing are that file's, and --framing firm only swaps the block's first paragraph), puts the block in as the
+first system message, as the TensorFold server does, and forwards the request to the upstream server. Streaming
+replies are passed on line by line as they arrive.
 
 With --owner and --store it serves one owner: every request is answered from that owner's notes. With --users and
 --store-dir it serves many: each request's key (Authorization: Bearer KEY) names its owner, a missing or unknown key
@@ -13,7 +14,8 @@ It binds to 127.0.0.1 by default. The notes are quoted as
 things the user said, never as instructions.
 
   python -m notes_proxy --upstream http://127.0.0.1:8080 --owner me --store ~/notes/me.jsonl \\
-      --tokenizer /path/to/model/tokenizer.json [--port 8090] [--cap 512] [--write] [--abstain-line TEXT]
+      --tokenizer /path/to/model/tokenizer.json [--port 8090] [--cap 512] [--write] [--abstain-line TEXT] \\
+      [--framing quoted|firm]
   python -m notes_proxy --upstream http://127.0.0.1:8080 --users users.json --store-dir ~/notes \\
       --tokenizer /path/to/model/tokenizer.json [--upstream-key-env NAME] [--share-upstream-cache]
   python -m notes_proxy add-user --users users.json --owner alice --store-dir ~/notes [--reuse-notes]
@@ -774,14 +776,15 @@ def build(args, log=None):
         raise SystemExit("--notes-config is a JSON object of notes.py settings")
     config["cap"] = args.cap
     tok = nm.load_tokenizer(args.tokenizer)
+    head = {"abstain_line": args.abstain_line, "framing": args.framing}
+    ProxyStore(tok, config=config, **head)          # the settings are checked now, before any store is opened
     if many:
         who = users.Users(args.users)
-        users.make_room(len(who))                                          # every user's open files fit
-        ProxyStore(tok, config=config, abstain_line=args.abstain_line)   # the settings are checked now, not later
-        notes = users.Owners(args.store_dir, tok, config=config, abstain_line=args.abstain_line)
+        users.make_room(len(who))                   # every user's open files fit
+        notes = users.Owners(args.store_dir, tok, config=config, **head)
     else:
         who = None
-        notes = Notes(args.store, args.owner, tok, config=config, abstain_line=args.abstain_line)
+        notes = Notes(args.store, args.owner, tok, config=config, **head)
     cfg = Config(args.upstream, args.owner, write=args.write, join_system=args.join_system, timeout=args.timeout,
                  allow_origins=args.allow_origin or (), local_only=not args.allow_remote, log=log,
                  upstream_key=upstream_key, isolate_cache=many and not args.share_upstream_cache)
@@ -812,6 +815,9 @@ def parser():
                         "\"fake\" only for tests")
     p.add_argument("--cap", type=int, default=512, help="the block's token cap, framing included (default 512)")
     p.add_argument("--abstain-line", default=None, help="a line of text joined to the block's first line (off)")
+    p.add_argument("--framing", choices=("quoted", "firm"), default="quoted",
+                   help="the block's first paragraph: quoted, notes.py's own (the default), or firm, which also says a "
+                        "note is right when it disagrees with what the model remembers")
     p.add_argument("--write", action="store_true", help="write notes from the user's own chat statements (off)")
     p.add_argument("--join-system", action="store_true",
                    help="join the block and the client's leading system messages into one system message")
