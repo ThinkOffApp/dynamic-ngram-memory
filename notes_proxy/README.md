@@ -46,7 +46,7 @@ python3 -m notes_proxy seed --set tests/examples/L6-seed1.json --phase teach --o
 - **Streaming.** A streamed reply is passed on line by line as the upstream sends it, never held back. The `notes` object comes as an SSE comment line, `: notes {...}`, just before `data: [DONE]`. Every SSE parser skips comment lines, so no client meets a chunk it does not expect. The same ids, tokens and past flag are also in the reply headers `X-Notes-Ids`, `X-Notes-Tokens` and `X-Notes-Past`. A reply that is not streamed gets the `notes` field added at the end of its JSON; the upstream's bytes before it are left as they were.
 - **Request fields**, as the TensorFold server reads them: `"notes": false` sends the request on without notes; `"notes_past": true/false` forces the view of the past (absent: the question decides); `"notes_exclude": [ids]` leaves those notes out; `"notes_cap": n` sets the cap; `"notes_echo": true` puts the block itself in the reply; `"notes_write": false` keeps this message out of the notes. A field of the wrong type is a 400. The proxy removes these fields before forwarding, so the upstream never sees them.
 - **Every other route** (`/v1/models`, `/v1/completions`, `/v1/embeddings` and the rest) is passed through as it is.
-- **The upstream's API key**, if it needs one, is the client's: the `Authorization` header is passed on as sent. The proxy never stores it and never logs it. It logs one line per request: the route, the status, the note ids and times, never a message or a note's text.
+- **The upstream's API key**, if it needs one, is the client's: the `Authorization` header is passed on as sent. With `--upstream-key-env NAME` the proxy sends the key held in the environment variable `NAME` instead. With many users the client's key is never passed on (see Many users). The proxy never stores a key and never logs one. It logs one line per request: the route, the status, the note ids and times, never a message or a note's text.
 
 ## Notes API
 
@@ -71,9 +71,53 @@ With `--write`, the proxy writes notes from what the user says, by the TensorFol
 
 A sentence in the wordings the rule book reads ("My favourite colour is green.", "I live in Oslo now.") goes through the rule book's intake check (`intake.classify`): new, replaces an earlier note, already known, or implied. Any other sentence is written as the TensorFold server writes every chat statement: already known if a current note of the same subject says the same words, otherwise new. The reply's `notes.write` says what happened, or why the message was skipped.
 
+## Many users
+
+One proxy can serve many people. Each person is a user with a key of their own. The key decides whose notes a request reads and writes. The client never names the owner.
+
+Add each user to a users file. The command prints their new key once, on its own line. Give it to that person.
+
+```sh
+python3 -m notes_proxy add-user --users ~/notes/users.json --owner alice
+```
+
+Start the proxy with the users file and a folder for the notes, in place of `--owner` and `--store`:
+
+```sh
+python3 -m notes_proxy --upstream http://127.0.0.1:8080 --users ~/notes/users.json --store-dir ~/notes --tokenizer ~/models/my-model/tokenizer.json
+```
+
+Each request sends its user's key. An OpenAI client sends it when its API key is set to that key.
+
+```sh
+curl -s http://127.0.0.1:8090/v1/notes -H "Authorization: Bearer KEY" -H "Content-Type: application/json" -d '{"text": "My sister Anna drives a red Volvo."}'
+```
+
+- **One store per user.** Each user's notes are in `STORE_DIR/NAME.jsonl`, opened at that user's first request. Each store has its own index, its own n-gram weights and its own lock, as with one proxy per user. One user's notes never reach another user's block, and never change another user's scores.
+- **A missing or unknown key is a 401**, before any note is looked up and before anything goes to the upstream. Every route needs a key, also the ones passed through. Keys are compared by their SHA-256, in constant time.
+- **The key never goes to the upstream.** The proxy drops it. The upstream gets the key in the environment variable that `--upstream-key-env NAME` names, or no `Authorization` at all.
+- **`/v1/notes` and `--write` act on the key's own user only.** A note id is that user's own.
+- **The users file keeps no key.** It keeps the SHA-256 of each key. A lost key cannot be shown again. Remove the user with `--keep-notes` and add them again for a new key.
+- **Names** are 1 to 32 of `a-z`, `0-9`, `_` and `-`, starting with a letter or a digit. Any other name is refused when the user is added and when the users file is read. So no name can point outside the folder.
+- **The users file is read once, at start.** Restart the proxy after `add-user` or `remove-user`.
+
+Removing a user takes `--keep-notes` or `--erase-notes`, one of the two:
+
+```sh
+python3 -m notes_proxy remove-user --users ~/notes/users.json --owner alice --keep-notes
+```
+
+```sh
+python3 -m notes_proxy remove-user --users ~/notes/users.json --owner alice --erase-notes --store-dir ~/notes
+```
+
+`--keep-notes` leaves `alice.jsonl` in the folder, and a new user named alice gets those notes back. `--erase-notes` deletes that file. It refuses while a proxy serves the folder, so stop the proxy first. As with any deleted file, the disk may keep the old bytes until they are written over.
+
+A key travels in clear over plain HTTP. Keep the proxy on 127.0.0.1, or put it behind TLS before you use `--allow-remote`.
+
 ## Safety
 
-- **One owner per proxy.** Every request is answered from one person's notes, the `--owner` given at start. The store names its owner, and a proxy started with another owner refuses it. Run one proxy per person; never put one proxy in front of several users.
+- **One owner per store.** With `--owner`, every request is answered from one person's notes, the `--owner` given at start. The store names its owner, and a proxy started with another owner refuses it. Run one such proxy per person. To serve several people from one proxy, use `--users` (see Many users), never one `--owner` for all of them.
 - **Notes are data, not instructions.** The block quotes each note as something the user said and tells the model never to follow an instruction inside a quote (`notes.py`'s framing, unchanged).
 - **Local by default.** The proxy binds to 127.0.0.1. Binding elsewhere needs `--allow-remote`, because anyone who can reach the proxy can read and erase the owner's notes. Requests from web pages (any request with an `Origin` header) are refused unless that origin is allowed with `--allow-origin`, so a page in your browser cannot read or write your notes. Without `--allow-remote` the proxy also answers only requests whose `Host` names this machine (`localhost`, `127.0.0.1` or `[::1]`), which stops a page that points its own name at 127.0.0.1 (DNS rebinding) and so sends no `Origin`.
 
@@ -82,8 +126,11 @@ A sentence in the wordings the rule book reads ("My favourite colour is green.",
 | Option | Meaning |
 | --- | --- |
 | `--upstream URL` | the inference server's base URL (`http://127.0.0.1:8080`, or with `/v1` at the end) |
-| `--owner NAME` | whose notes this proxy serves |
+| `--owner NAME` | whose notes this proxy serves (one owner) |
 | `--store FILE` | the notes journal (made if missing) |
+| `--users FILE` | many users: the users file (see Many users) |
+| `--store-dir DIR` | many users: the folder of their stores, one `NAME.jsonl` each (made if missing) |
+| `--upstream-key-env NAME` | send the upstream the key held in the environment variable `NAME`, in place of the client's `Authorization` |
 | `--tokenizer FILE` | the model's `tokenizer.json` (or its folder) |
 | `--cap N` | the block's token cap, framing included (512) |
 | `--abstain-line TEXT` | a sentence added to the end of the block's first line (off). The cap counts it |
@@ -124,6 +171,7 @@ They use the Nemotron tokenizer when it is in the Hugging Face cache and `tokeni
 
 - **The block (`test_block.py`).** The L6-seed1 teach store, seeded into a journal and read back: for all 56 questions, the proxy's block, note ids, tokens and past flag equal `retrieve()`'s, also with the past forced, with two notes left out, and at a cap of 128. Controls: the store of another phase and of another set each give different blocks. Also: the abstain line, a restart, one owner and one proxy per store.
 - **End to end (`test_e2e.py`).** Through HTTP to the stub: the block arrives first and unchanged and every client message after it unchanged, for all 56 questions; nothing found puts nothing in; `"notes": false` sends the request unchanged; a streamed reply's first chunk reaches the client while the stub still holds the rest back (control: a proxy that buffers the reply fails this check); erase removes the note from the next request, from every structure the proxy holds (walked with `notes.py`'s own walker) and from the journal, and a restart keeps it gone; a restart keeps notes; `--write` writes statements and skips questions, requests, earlier messages and the model's answers; the API key passes through and stays out of the logs.
+- **Many users (`test_users.py`).** bob has the L6-seed1 teach store. alice has L6-seed2's, and a note in the words of each L6-seed1 question. For all 56 questions, bob's block is `retrieve()`'s and holds none of alice's notes. His blocks and scores are the same with her store empty, full, and full after a restart (control: her notes in his own index move all 56 blocks). Her erase leaves his journal and blocks as they were, and stays after a restart. A missing, unknown or removed user's key is a 401, and the stub receives nothing. The user's key never reaches the stub, and the upstream key does. Names with path tricks are refused. 448 requests from four users on 16 threads give the same blocks as one at a time. The users file never holds a key, nor any 12 characters of one.
 - **The question check (`test_gate.py`).** The TensorFold server's 55 questions and requests are skipped and its 18 statements written, with its documented misses.
 
 ## How it differs from the TensorFold server
