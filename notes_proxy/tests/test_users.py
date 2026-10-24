@@ -131,7 +131,7 @@ class UsersFile(unittest.TestCase):
         path = self.tmp.file("users.json")
         printed = {}
         for name in ("alice", "bob", "carol", "dave", "erin"):
-            out, err = cli("add-user", "--users", path, "--owner", name)
+            out, err = cli("add-user", "--users", path, "--owner", name, "--store-dir", self.tmp.path)
             printed[name] = out.strip()
             self.assertEqual(out, printed[name] + "\n")                 # the key alone, on stdout, once
             self.assertGreaterEqual(len(printed[name]), 43)              # token_urlsafe(32): 32 random bytes
