@@ -26,7 +26,7 @@ import time
 import urllib.parse
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
-from . import gate
+from . import gate, users
 from .store import Notes, StoreError, nm, seed
 
 NOTE_FIELDS = ("notes", "notes_exclude", "notes_past", "notes_cap", "notes_echo", "notes_write", "notes_language")
@@ -597,10 +597,54 @@ def seed_main(argv):
     print(f"notes-proxy: {n} lessons of {a.set} ({a.phase}) written to {a.store} for owner {a.owner}")
 
 
+def add_user_main(argv):
+    p = argparse.ArgumentParser(prog="python -m notes_proxy add-user",
+                                description="Add a user to a users file and print their new key, once.")
+    p.add_argument("--users", required=True, help="the users file (made if missing)")
+    p.add_argument("--owner", required=True, help="the user's name: 1 to 32 of a-z, 0-9, _ and -")
+    a = p.parse_args(argv)
+    try:
+        key = users.add_user(a.users, a.owner)
+    except users.UsersError as e:
+        raise SystemExit(f"notes-proxy: {e}")
+    print(f"notes-proxy: added {a.owner} to {a.users}. Their key is on the next line. It is shown only this once: the "
+          f"file keeps only its SHA-256. Restart the proxy to let them in.", file=sys.stderr, flush=True)
+    print(key, flush=True)
+
+
+def remove_user_main(argv):
+    p = argparse.ArgumentParser(prog="python -m notes_proxy remove-user",
+                                description="Take a user out of a users file. Say what happens to their notes.")
+    p.add_argument("--users", required=True, help="the users file")
+    p.add_argument("--owner", required=True, help="the user's name")
+    what = p.add_mutually_exclusive_group(required=True)
+    what.add_argument("--keep-notes", action="store_true", help="leave their journal in the store folder")
+    what.add_argument("--erase-notes", action="store_true",
+                      help="delete their journal too (needs --store-dir, and no proxy serving that folder)")
+    p.add_argument("--store-dir", help="the store folder that holds their notes")
+    a = p.parse_args(argv)
+    if a.erase_notes and not a.store_dir:
+        p.error("--erase-notes needs --store-dir")
+    try:
+        erased = users.remove_user(a.users, a.owner, "erase" if a.erase_notes else "keep", store_dir=a.store_dir)
+    except users.UsersError as e:
+        raise SystemExit(f"notes-proxy: {e}")
+    if a.erase_notes:
+        notes = f"their notes at {erased} are erased" if erased else "they had no notes to erase"
+    else:
+        notes = f"their notes are kept, in the store folder as {a.owner}.jsonl"
+    print(f"notes-proxy: removed {a.owner} from {a.users}, and {notes}. Restart the proxy to shut them out.",
+          file=sys.stderr, flush=True)
+
+
 def main(argv=None):
     argv = sys.argv[1:] if argv is None else argv
     if argv[:1] == ["seed"]:
         return seed_main(argv[1:])
+    if argv[:1] == ["add-user"]:
+        return add_user_main(argv[1:])
+    if argv[:1] == ["remove-user"]:
+        return remove_user_main(argv[1:])
     args = parser().parse_args(argv)
     try:
         srv, notes = build(args)
