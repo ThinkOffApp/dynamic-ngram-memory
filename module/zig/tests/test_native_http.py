@@ -11,9 +11,27 @@ import urllib.request
 ROOT = pathlib.Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT))
 from notes_proxy.proxy import build, parser
+from notes_proxy.native_notes import NativeNotes
+from notes_proxy.store import Notes, nm
 
 
 class NativeHTTP(unittest.TestCase):
+    def test_exact_duplicate_reply_matches_python_without_claiming_another_write(self):
+        tok = nm.load_tokenizer(os.environ["NOTES_PROXY_TEST_TOKENIZER"])
+        with tempfile.TemporaryDirectory(prefix="native-reply-") as root:
+            reference = Notes(pathlib.Path(root) / "python", "alice", tok)
+            native = NativeNotes(pathlib.Path(root) / "zig", "alice", tok)
+            try:
+                for text in ("I live in Helsinki.", "I live in Helsinki."):
+                    self.assertEqual(native.write_text(text, today="2026-10-27"),
+                                     reference.write_text(text, today="2026-10-27"))
+                native.erase("w1")
+                self.assertEqual(native.listing(history=True), [])
+                self.assertEqual(native.native.records(), [])
+            finally:
+                native.close()
+                reference.close()
+
     def test_opt_in_write_list_get_erase_and_reopen(self):
         tok = os.environ["NOTES_PROXY_TEST_TOKENIZER"]
         with tempfile.TemporaryDirectory(prefix="native-http-") as root:

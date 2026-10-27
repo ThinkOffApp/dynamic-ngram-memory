@@ -99,7 +99,10 @@ class NativeNotes:
             self._last_told = told
             if result["note"]:
                 self._sources[result["note"]["id"]] = result["note"]["source"]
-            note = self._view(result["note"], self._sources) if result["note"] else None
+            # Native Written.note may point at an existing same-as note. The HTTP contract
+            # reserves note/id/number/written for a newly learned note, not its duplicate.
+            learned = result["verdict"] in ("NEW", "REPLACES")
+            note = self._view(result["note"], self._sources) if result["note"] and learned else None
             retired = [self._sources[i] for i in result["retired"]]
             retract = note and note["kind"] == "take_back"
             return {"id": note["id"] if note else None, "number": note["number"] if note else None,
