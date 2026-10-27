@@ -40,6 +40,8 @@ class NativeNotes:
         self.store = SimpleNamespace(tok=tokenizer)  # startup description, not a Python note/index mirror
         self.cap = (config or {}).get("cap", 512)
         self.native = IntakeStore(snapshot, path, vocab.ids)
+        self._sources = {r["id"]: r["source"] for r in self.native.listing()}
+        self._last_told = max([0] + [r["told"] for r in self.native.records()])
 
     def close(self):
         self.native.close()
@@ -47,17 +49,18 @@ class NativeNotes:
     def _views(self):
         rows = self.native.listing()
         sources = {r["id"]: r["source"] for r in rows}
-        result = []
-        for r in rows:
-            if not r["source"]:
-                raise StoreError("native snapshot notes need legacy ID migration", 501)
-            by = sources.get(r["by"])
-            result.append({"id": r["source"], "number": r["id"], "version": r["version"],
+        return [self._view(r, sources) for r in rows]
+
+    @staticmethod
+    def _view(r, sources):
+        if not r["source"]:
+            raise StoreError("native snapshot notes need legacy ID migration", 501)
+        by = sources.get(r["by"])
+        return {"id": r["source"], "number": r["id"], "version": r["version"],
                            "state": r["state"], "kind": r["kind"], "subject": r["subject"],
                            "text": r["text"], "line": r["line"], "source": r["source"], "told": r["told"],
                            "superseded_by": by if r["state"] == "superseded" else None,
-                           "tombstoned_by": by if r["state"] == "tombstoned" else None})
-        return result
+                           "tombstoned_by": by if r["state"] == "tombstoned" else None}
 
     @mapped
     def listing(self, history=False):
@@ -65,7 +68,8 @@ class NativeNotes:
             return [r for r in self._views() if history or r["state"] == "current"]
 
     def count(self):
-        return len(self.listing(history=True))
+        with self.lock:
+            return len(self._sources)
 
     def get(self, nid):
         return next((r for r in self.listing(history=True) if r["id"] == nid), None)
@@ -73,32 +77,30 @@ class NativeNotes:
     @mapped
     def lookup(self, question, cap=None, past=None, exclude=()):
         with self.lock:
-            rows = self._views()
-            ids = {r["id"]: r["number"] for r in rows}
+            ids = {source: number for number, source in self._sources.items()}
             result = self.native.lookup(question, self.cap if cap is None else cap,
                                         nm.is_past(question) if past is None else past,
                                         [ids[i] for i in exclude if i in ids])
-            by_number = {r["number"]: r["id"] for r in rows}
-            result["note_ids"] = [by_number[i] for i in result["ids"]]
+            result["note_ids"] = [self._sources[i] for i in result["ids"]]
             return result
 
     @mapped
     def write_text(self, text, subject=None, today=None):
         with self.lock:
-            told = max([L.tick(today or datetime.date.today().isoformat())] +
-                       [r["told"] + 100 for r in self.native.records()])
+            told = max(L.tick(today or datetime.date.today().isoformat()), self._last_told + 100)
             result = self.native.write_text(text, told, subject)
-            rows = self._views()
-            by_number = {r["number"]: r for r in rows}
-            note = by_number.get(result["note"]["id"]) if result["note"] else None
-            retired = [by_number[i]["id"] for i in result["retired"]]
+            self._last_told = told
+            if result["note"]:
+                self._sources[result["note"]["id"]] = result["note"]["source"]
+            note = self._view(result["note"], self._sources) if result["note"] else None
+            retired = [self._sources[i] for i in result["retired"]]
             retract = note and note["kind"] == "take_back"
             return {"id": note["id"] if note else None, "number": note["number"] if note else None,
                     "version": note["version"] if note else None, "state": note["state"] if note else None,
                     "verdict": result["verdict"], "written": note is not None, "source": result["source"],
                     "told": told, "superseded": [] if retract else retired,
                     "tombstoned": retired if retract else [],
-                    "same_as": [by_number[i]["id"] for i in result["same_as"]], "note": note}
+                    "same_as": [self._sources[i] for i in result["same_as"]], "note": note}
 
     @mapped
     def erase(self, nid):
@@ -108,6 +110,7 @@ class NativeNotes:
                 raise StoreError("no note has this id: it was never written, or it was erased", 404)
             before = {r["source"] for r in self.native.records()}
             result = self.native.erase(row["number"])
+            self._sources = {r["id"]: r["source"] for r in self.native.listing()}
             after = {r["source"] for r in self.native.records()}
             return dict(result, erased=nid, removed=sorted(before - after), renumbered=[],
                         complete=False, state="pending",

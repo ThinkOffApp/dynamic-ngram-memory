@@ -13,6 +13,20 @@ seed migration, test vocabularies, wording/schema options, atomic multi-target
 retirement and semantic no-op intake remain unfinished. Numeric positions and
 renumbered reporting still need compatibility work. No scale result is claimed.
 
-The adapter currently lists native rows for mapping responses and timestamps;
-the capped benchmark must measure this path, including that overhead, before
-any speed claim. Native lookup does not use a Python note/index mirror.
+The adapter retains numeric-ID/source pairs and the last committed timestamp,
+not a Python note/index mirror. Listing and erase still enumerate native rows.
+
+## First MacBook measurement (27 October 2026)
+
+`bench_native_http_store.py --size 1000`, real local Nemotron tokenizer, synthetic
+single-owner free-text writes, no model, 45-second external subprocess cap:
+
+| path | fill 1k | one lookup | erase w1 | process max RSS |
+| --- | --- | --- | --- | --- |
+| cc86591 adapter | 14.909 s | 5.084 ms | 145.975 ms | 293306368 bytes |
+| source-ID/timestamp metadata optimization | 12.710 s | 1.639 ms | 153.705 ms | 295878656 bytes |
+
+One sample each, same machine; not a cross-machine comparison or scaling proof.
+The initial 15-second-capped 10k/100k attempts timed out during fill at around
+900 writes: neither produced an erase measurement. No completed 10k/100k result
+yet. This measures the HTTP-selected adapter methods, not HTTP socket overhead.
