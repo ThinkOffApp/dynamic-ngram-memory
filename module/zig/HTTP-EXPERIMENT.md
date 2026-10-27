@@ -42,3 +42,23 @@ journal, real reopen, then one real extra write/lookup/erase):
 The native bulk fixture copies the actual writer's snapshot-bound header and
 uses normal committed add records; Python uses Journal.rewrite. Fixture creation
 is not a native bulk-ingestion API or a measurement of normal HTTP teaching.
+
+Larger native tiers (same synthetic workload, single samples):
+
+| notes | reopen | lookup | erase | max RSS bytes |
+| --- | --- | --- | --- | --- |
+| 10k, 5250934 | 1.061 s | 9.796 ms | 1.102 s | 363282432 |
+| 100k, lightweight metadata boundary | 10.550 s | 65.629 ms | 10.670 s | 1020411904 |
+
+The first 100k attempt exceeded the 1024 MiB sampled-RSS threshold during erase.
+After eliminating full note/record JSON copies for get/erase/startup metadata,
+100k completed under the same 180-second/1024-MiB watchdog. The watchdog samples
+every 200 ms; it is not an OS hard MemoryMax. The additional write at 100k is
+correctly refused with 507 at the reviewed 100000-note limit, not timed as a
+successful write. These points are consistent with roughly linear erase cost
+for this workload, not a proof for structured/dependent records or all inputs.
+
+Do not attribute the difference from old raw-core timings solely to the Python
+adapter: this C ABI invokes the actual reviewed Storage, which builds an index
+on every write, and erase replays kept records with real tokenizer callbacks.
+Workload/tokenizer/build equivalence needs checking before that comparison.
