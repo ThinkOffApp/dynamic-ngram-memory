@@ -72,3 +72,20 @@ Current-native repeat at 1k/10k: erase 0.142/1.005 s, max RSS
 295534592/353271808 bytes. These are single runs, not statistical confidence
 intervals. All three current-native tiers used the same workload and Debug
 implementation; 100k was measured earlier in a separate capped worker.
+
+## ReleaseFast rerun
+
+Built from `3dd723298560859333e77770d59889cc57952b07` using Zig 0.17.0,
+`zig build --build-file module/zig/build.zig -Doptimize=ReleaseFast`.
+Library SHA-256: `f6cec12e3def0c6d5ee9f4dcc2b8641fd4324560bc00351ee80f1cc387d306cf`.
+Same real tokenizer, synthetic bulk fixtures and 180-second/1024-MiB sampled
+watchdog; single samples:
+
+| notes | reopen | single write | lookup | erase | max RSS bytes |
+| --- | --- | --- | --- | --- | --- |
+| 10k | 0.612 s | 17.330 ms | 1.830 ms | 0.690 s | 349011968 |
+| 100k | 6.199 s | capacity 507 | 9.471 ms | 6.865 s | 1049378816 |
+
+Both workers completed, but 100k has little headroom below the memory threshold;
+this is not a hard-memory-limit qualification. Python remains the default until
+the unfinished behavioral cases and full native-path suite are green.
