@@ -43,3 +43,14 @@ JSON in `30b-long/`. Context 8192, fixed system filler so `prompt_tokens` is 769
 | 3. Second prompt cached, then ~0 after restart | pass. cached_tokens 0, then **7673**, then **0** after restart. Prefill 1.46 s then 0.033 s. |
 
 All three of ClaudeMB's fail-able checks pass on this run.
+
+## 30B replay with notes: false (check 3 that can fail)
+
+JSON in `30b-replay/`. After chat2, the exact rendered messages (notes block as the first system message, then the long system text, then the question) were sent with `"notes": false` so the proxy adds nothing.
+
+| check | result |
+| --- | --- |
+| Control before erase | pass. Same 7691 tokens, cached_tokens **7673** (replay hits the cache). |
+| Same request after restart | pass. Same 7691 tokens, cached_tokens **0**. Pid 10106 → 11941. |
+
+If the old cache had survived the restart, the second replay would still have shown ~7673. It showed 0.
