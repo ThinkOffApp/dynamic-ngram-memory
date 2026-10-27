@@ -2,12 +2,62 @@
 import os
 import tempfile
 import unittest
+from unittest import mock
 
 from notes_proxy.store import Notes, StoreError
 from notes_proxy.tests import helpers as H
 
 
 class StoreAdmission(unittest.TestCase):
+    def test_oversize_rewrite_keeps_old_journal_and_cleans_temporary(self):
+        from notes_proxy import store
+        with tempfile.TemporaryDirectory(prefix="notes-admission-") as root:
+            path = os.path.join(root, "owner.jsonl")
+            n = Notes(path, "owner", H.tokenizer())
+            try:
+                with open(path, "rb") as f:
+                    before = f.read()
+                with mock.patch.object(store, "JOURNAL_READ_LIMIT", 1):
+                    with self.assertRaises(StoreError):
+                        n.journal.rewrite(n.header, [])
+                with open(path, "rb") as f:
+                    self.assertEqual(f.read(), before)
+                self.assertFalse(any(".tmp." in name for name in os.listdir(root)))
+                self.assertFalse(n.journal.poisoned)
+            finally:
+                n.close()
+
+    def test_read_limit_refuses_before_truncating_torn_tail(self):
+        from notes_proxy import store
+        with tempfile.TemporaryDirectory(prefix="notes-admission-") as root:
+            path = os.path.join(root, "owner.jsonl")
+            with open(path, "wb") as f:
+                f.write(b"x" * 33)
+            os.chmod(path, 0o600)
+            with mock.patch.object(store, "JOURNAL_READ_LIMIT", 32, create=True):
+                with self.assertRaises(StoreError):
+                    Notes(path, "owner", H.tokenizer())
+            with open(path, "rb") as f:
+                self.assertEqual(f.read(), b"x" * 33)
+
+    def test_write_limit_refuses_without_disk_or_memory_change(self):
+        from notes_proxy import store
+        with tempfile.TemporaryDirectory(prefix="notes-admission-") as root:
+            path = os.path.join(root, "owner.jsonl")
+            n = Notes(path, "owner", H.tokenizer())
+            try:
+                with open(path, "rb") as f:
+                    before = f.read()
+                with mock.patch.object(store, "JOURNAL_WRITE_LIMIT", len(before), create=True):
+                    with self.assertRaises(StoreError) as error:
+                        n.write_text("My aunt Brigitta grows tomatoes.")
+                self.assertEqual(error.exception.status, 507)
+                self.assertEqual(n.listing(), [])
+                with open(path, "rb") as f:
+                    self.assertEqual(f.read(), before)
+            finally:
+                n.close()
+
     def test_unsafe_lock_is_refused_and_not_chmodded(self):
         with tempfile.TemporaryDirectory(prefix="notes-admission-") as root:
             path = os.path.join(root, "owner.jsonl")

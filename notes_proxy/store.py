@@ -44,6 +44,9 @@ import intake  # noqa: E402
 import lwlogic as L  # noqa: E402
 
 JOURNAL_FORMAT = "notes-proxy-journal/1"
+# Reviewed TF store limits: bound startup/erase reads, reserve 1 MiB above ordinary writes.
+JOURNAL_READ_LIMIT = 64 << 20
+JOURNAL_WRITE_LIMIT = JOURNAL_READ_LIMIT - (1 << 20)
 TEXT_LIMIT = 16 * 1024       # bytes of one note's text (the server's limit)
 SUBJECT_LIMIT = 200          # bytes of a subject's name (the server's limit)
 FREE = "free"                # a lesson's marker: written from free text, by the server's deterministic intake
@@ -225,7 +228,11 @@ class Journal:
         except FileNotFoundError:
             return None, []
         with os.fdopen(fd, "r+b") as f:
-            data = f.read()
+            if os.fstat(f.fileno()).st_size > JOURNAL_READ_LIMIT:
+                raise StoreError("the notes journal is over its read size limit; refused", 507)
+            data = f.read(JOURNAL_READ_LIMIT + 1)
+            if len(data) > JOURNAL_READ_LIMIT:
+                raise StoreError("the notes journal is over its read size limit; refused", 507)
             if data and not data.endswith(b"\n"):
                 keep = data.rfind(b"\n") + 1
                 os.ftruncate(f.fileno(), keep)
@@ -255,6 +262,8 @@ class Journal:
             raise StoreError("the notes journal needs recovery: restart the proxy", 503)
         line = (json.dumps({"lesson": lesson}, ensure_ascii=False, separators=(",", ":")) + "\n").encode()
         size = os.fstat(self.fd).st_size
+        if size + len(line) > JOURNAL_WRITE_LIMIT:
+            raise StoreError("the notes journal is at its write size limit; erase notes before writing more", 507)
         try:
             view = memoryview(line)
             while view:
@@ -284,17 +293,21 @@ class Journal:
             out = [json.dumps(header, ensure_ascii=False, separators=(",", ":"))]
             out += [json.dumps({"lesson": l}, ensure_ascii=False, separators=(",", ":")) for l in lessons]
             data = memoryview(("\n".join(out) + "\n").encode())
+            if len(data) > JOURNAL_READ_LIMIT:
+                raise StoreError("the rewritten notes journal exceeds its size limit; refused", 507)
             while data:
                 data = data[os.write(fd, data):]
             _sync(fd)
             os.close(fd)
             fd = None
             os.replace(tmp, self.path)
-        except OSError as e:
+        except (OSError, StoreError) as e:
             if fd is not None:
                 os.close(fd)
             if os.path.lexists(tmp):
                 os.unlink(tmp)
+            if isinstance(e, StoreError):
+                raise
             raise StoreError(f"the store could not be rewritten ({e.strerror}); nothing changed", 500)
         # the rename is done: from here on a failure cannot mean "nothing changed"
         step = "the old journal could not be closed"
