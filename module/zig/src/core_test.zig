@@ -50,6 +50,7 @@ test "standalone durable write survives close and reopen with stable id" {
     const snapshot = @embedFile("server/notes/testdata/tb_empty_bytes_snapshot.json");
     var problem: []const u8 = "";
     var id: u32 = 0;
+    var other_id: u32 = 0;
     {
         const store = try Storage.load(a, snapshot, text, path, &problem);
         defer store.deinit();
@@ -61,15 +62,38 @@ test "standalone durable write survives close and reopen with stable id" {
         }, 739900000000, &refusal);
         id = written.note.?.id;
         try std.testing.expectEqualStrings("w1", written.source);
+        const other = try ops.perform(store, temp, .{
+            .op = .add,
+            .text = "My cousin Aurelio repairs clocks.",
+        }, 739900000001, &refusal);
+        other_id = other.note.?.id;
+        try std.testing.expectEqual(@as(usize, 2), store.model.notes.items.len);
+    }
+    {
+        const store = try Storage.load(a, snapshot, text, path, &problem);
+        defer store.deinit();
+        try std.testing.expectEqual(@as(usize, 2), store.model.notes.items.len);
+        const note = store.model.notes.items[store.model.placeOf(id).?];
+        try std.testing.expectEqualStrings("My aunt Brigitta grows tomatoes.", note.text());
+        try std.testing.expectEqualStrings("w1", note.source().?);
+        try std.testing.expectEqual(@as(u64, 3), store.log.next_source);
+        try store.beginRun(temp, .{});
+        var erased = try @import("standalone_erase.zig").prepare(store, temp, id);
+        defer erased.deinit();
+        try std.testing.expect(erased.intent.short); // no assertion about engine caches
+        try erased.commit(temp);
+        try erased.finish(temp);
         try std.testing.expectEqual(@as(usize, 1), store.model.notes.items.len);
+        try std.testing.expectEqualStrings("My cousin Aurelio repairs clocks.", store.model.notes.items[store.model.placeOf(other_id).?].text());
+        const disk = try std.Io.Dir.cwd().readFileAlloc(std.testing.io, path, temp, .limited(1 << 20));
+        try std.testing.expect(std.mem.indexOf(u8, disk, "My aunt Brigitta grows tomatoes.") == null);
+        try std.testing.expect(std.mem.indexOf(u8, disk, "My cousin Aurelio repairs clocks.") != null);
     }
     {
         const store = try Storage.load(a, snapshot, text, path, &problem);
         defer store.deinit();
         try std.testing.expectEqual(@as(usize, 1), store.model.notes.items.len);
-        const note = store.model.notes.items[store.model.placeOf(id).?];
-        try std.testing.expectEqualStrings("My aunt Brigitta grows tomatoes.", note.text());
-        try std.testing.expectEqualStrings("w1", note.source().?);
-        try std.testing.expectEqual(@as(u64, 2), store.log.next_source);
+        try std.testing.expectEqualStrings("My cousin Aurelio repairs clocks.", store.model.notes.items[store.model.placeOf(other_id).?].text());
+        try std.testing.expectEqual(@as(u64, 3), store.log.next_source); // erase cannot reuse w1
     }
 }
