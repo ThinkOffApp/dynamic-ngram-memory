@@ -143,3 +143,51 @@ class ZStore:
 
     def __exit__(self, *_):
         self.close()
+
+
+class IntakeStore(ZStore):
+    """WIP rule-book adapter for fresh stores. Not the default HTTP Notes implementation.
+
+    Reuse the Python rule book's classification, then the reviewed native change/retire operation.
+    Unsupported cases refuse before mutation; durable structured metadata/migration is still required.
+    """
+    def __init__(self, *args, schema=None, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._schema = schema
+        self._lessons = {}
+        self._intake_ready = not self.listing()
+
+    def write_text(self, text, told, subject=None):
+        from .store import intake, nm
+        with self._lock:
+            if not self._intake_ready:
+                raise NativeStoreError("structured journal metadata migration is not implemented", 501)
+            parsed = None if subject is not None else intake.parse(text)
+            if parsed is None:
+                return self.write(text, told, subject)
+            if parsed["op"] != "ASSERT":
+                raise NativeStoreError("this structured operation needs the remaining compatibility adapter", 501)
+            lesson = dict(parsed, told=told, id=-1)
+            previous = [l for l in self._lessons.values() if (l["e"], l["a"]) == (lesson["e"], lesson["a"])]
+            schema = nm.widen(self._schema or nm.L.SCHEMA, previous + [lesson])
+            verdict = intake.classify(previous, lesson, ents=[lesson["e"]], sch=schema)
+            if not verdict["learn"]:
+                raise NativeStoreError("structured no-op journal records are not implemented", 501)
+            rows = {r["id"]: r for r in self.listing()}
+            current = [l for l in previous if rows[l["id"]]["state"] == "current"]
+            retired = nm.NoteStore.no_longer_current(schema, current, lesson)
+            if len(retired) > 1:
+                raise NativeStoreError("atomic multi-target retirement is not implemented", 501)
+            if retired:
+                result = self.change(current[retired[0]]["id"], text, told, subject=lesson["e"])
+            else:
+                result = self.write(text, told, subject=lesson["e"])
+            self._lessons[result["note"]["id"]] = dict(lesson, id=result["note"]["id"])
+            return result
+
+    def erase(self, note_id):
+        with self._lock:
+            result = super().erase(note_id)
+            retained = {r["id"] for r in self.listing()}
+            self._lessons = {i: l for i, l in self._lessons.items() if i in retained}
+            return result
