@@ -189,7 +189,7 @@ class IntakeStore(ZStore):
             parsed = None if subject is not None else intake.parse(text)
             if parsed is None:
                 return self.write(text, told, subject)
-            if parsed["op"] != "ASSERT":
+            if parsed["op"] not in ("ASSERT", "RETRACT", "DATED"):
                 raise NativeStoreError("this structured operation needs the remaining compatibility adapter", 501)
             lesson = dict(parsed, told=told, id=-1)
             previous = [l for l in self._lessons.values() if (l["e"], l["a"]) == (lesson["e"], lesson["a"])]
@@ -207,10 +207,16 @@ class IntakeStore(ZStore):
             if len(retired) > 1:
                 raise NativeStoreError("atomic multi-target retirement is not implemented", 501)
             if retired:
-                result = self.change(current[retired[0]]["id"], text, told, subject=lesson["e"])
+                if parsed["op"] == "RETRACT":
+                    result = self.take_back(current[retired[0]]["id"], told, text=text)
+                else:
+                    result = self.change(current[retired[0]]["id"], text, told, subject=lesson["e"])
             else:
+                if parsed["op"] == "RETRACT":
+                    raise NativeStoreError("this retraction needs the remaining compatibility adapter", 501)
                 result = self._add_attribute(text, told, lesson["e"], "schema:" + lesson["a"])
             self._lessons[result["note"]["id"]] = dict(lesson, id=result["note"]["id"])
+            result["verdict"] = verdict["verdict"]  # the rule book distinguishes added history from replacement
             return result
 
     def erase(self, note_id):

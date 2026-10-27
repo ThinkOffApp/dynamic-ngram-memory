@@ -17,6 +17,48 @@ import notes_export
 
 
 class IntakeCompatibility(unittest.TestCase):
+    def test_dated_change_keeps_current_and_past_block_parity(self):
+        spec = os.environ.get("NOTES_PROXY_TEST_TOKENIZER")
+        self.assertTrue(spec and spec != "fake")
+        tok = nm.load_tokenizer(spec)
+        with tempfile.TemporaryDirectory(prefix="notes-dated-parity-") as root:
+            ref = Notes(pathlib.Path(root) / "reference.jsonl", "alice", tok)
+            self.addCleanup(ref.close)
+            ref.store.owner("alice", create=True)
+            snapshot, vocab = notes_export.snapshot(ref.store, "alice")
+            with IntakeStore(snapshot, pathlib.Path(root) / "native.journal", vocab.ids) as native:
+                for text in ("My eyes are brown.", "My eyes were brown until 11 October 2026; now they are green."):
+                    expected = ref.write_text(text)
+                    result = native.write_text(text, expected["told"])
+                    self.assertEqual(result["verdict"], expected["verdict"])
+                for past in (False, True):
+                    question = "What colour were my eyes?" if past else "What colour are my eyes?"
+                    self.assertEqual(native.lookup(question, 512, past=past)["block"],
+                                     ref.lookup(question, cap=512, past=past)["block"])
+
+    def test_retraction_uses_native_tombstone_and_erases_dependent_record(self):
+        spec = os.environ.get("NOTES_PROXY_TEST_TOKENIZER")
+        self.assertTrue(spec and spec != "fake")
+        tok = nm.load_tokenizer(spec)
+        with tempfile.TemporaryDirectory(prefix="notes-retract-parity-") as root:
+            ref = Notes(pathlib.Path(root) / "reference.jsonl", "alice", tok)
+            self.addCleanup(ref.close)
+            ref.store.owner("alice", create=True)
+            snapshot, vocab = notes_export.snapshot(ref.store, "alice")
+            with IntakeStore(snapshot, pathlib.Path(root) / "native.journal", vocab.ids) as native:
+                first = None
+                for text in ("I live in Helsinki.", "I no longer live in Helsinki."):
+                    expected = ref.write_text(text)
+                    result = native.write_text(text, expected["told"])
+                    first = first or result["note"]["id"]
+                actual_current = [r["text"] for r in native.listing() if r["state"] == "current"]
+                self.assertEqual(actual_current, [r["text"] for r in ref.listing()])
+                self.assertEqual(native.lookup("Where do I live?", 512)["block"],
+                                 ref.lookup("Where do I live?", cap=512)["block"])
+                native.erase(first)
+                self.assertEqual(native.listing(), [])
+                self.assertEqual(native.records(), [])
+
     def test_parsed_home_city_replacement_keeps_only_new_fact_current(self):
         spec = os.environ.get("NOTES_PROXY_TEST_TOKENIZER")
         self.assertTrue(spec and spec != "fake", "a real local tokenizer is required")
