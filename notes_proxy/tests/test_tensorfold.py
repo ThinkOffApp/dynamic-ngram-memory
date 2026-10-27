@@ -1,10 +1,17 @@
 """Lane 2: TensorFold child allowlist, tokenize-through-child, store:false, batched restart after erase.
 
 Tests for review items 2-5 are written to fail on the first branch (wrong tokenize schema, hang on restart fail,
-DELETE blocking on reload, no erase-status).
+DELETE blocking on reload, no erase-status). Independent second review: piece() via detokenize, erase refused
+while restarting, SIGTERM closes the child, _restart_loop catches OSError, after_erase on uncertain disk,
+client Authorization dropped in engine mode.
 """
+import http.client
 import json
 import os
+import re
+import signal
+import subprocess
+import sys
 import tempfile
 import threading
 import time
@@ -42,6 +49,8 @@ class Allowlist(unittest.TestCase):
             tfchild.check_extra(["--made-up"])
         self.assertEqual(tfchild.check_extra(["--no-drafts", "--context", "4096"]),
                          ["--no-drafts", "--context", "4096"])
+        with self.assertRaises(tfchild.TensorFoldError):
+            tfchild.check_extra(["--name", "--host=0.0.0.0"])
 
     def test_model_must_be_dir_or_repo_id(self):
         with self.assertRaises(tfchild.TensorFoldError):
@@ -91,6 +100,66 @@ class Child(unittest.TestCase):
         with self.assertRaises(tfchild.TensorFoldError) as cm:
             tok.encode("AB")
         self.assertIn("FakeTokenizer", str(cm.exception))
+
+    def test_piece_uses_detokenize(self):
+        child = self.start()
+        tok = tfchild.ChildTokenizer(child)
+        self.assertEqual(tok.encode("AB"), [ord("A"), ord("B")])
+        self.assertEqual(tok.piece(ord("A")), "A")
+        with open(os.path.join(self.model, "last_detokenize.json")) as f:
+            self.assertEqual(json.loads(f.read()), {"tokens": [ord("A")]})
+        self.assertEqual(tok.piece(ord("B")), "B")
+        self.assertEqual(tok.piece(ord("A")), "A")
+        with open(os.path.join(self.model, "last_detokenize.json")) as f:
+            self.assertEqual(json.loads(f.read()), {"tokens": [ord("B")]})
+
+    def test_piece_refuses_without_detokenize(self):
+        open(os.path.join(self.model, "no_detokenize"), "w").close()
+        child = self.start()
+        tok = tfchild.ChildTokenizer(child)
+        with self.assertRaises(tfchild.TensorFoldError) as cm:
+            tok.piece(ord("A"))
+        self.assertIn("detokenize", str(cm.exception))
+
+    def test_fake_child_requires_bearer(self):
+        child = self.start()
+        c = http.client.HTTPConnection("127.0.0.1", child.port, timeout=5)
+        c.request("POST", "/v1/tokenize", body=json.dumps({"prompt": "AB"}).encode(),
+                  headers={"Content-Type": "application/json"})
+        r = c.getresponse()
+        self.assertEqual(r.status, 401)
+        c.close()
+        c = http.client.HTTPConnection("127.0.0.1", child.port, timeout=5)
+        c.request("GET", "/health")
+        r = c.getresponse()
+        self.assertEqual(r.status, 200)
+        c.close()
+
+    def test_restart_loop_survives_oserror(self):
+        child = self.start(quiet=0.05)
+        child.binary = os.path.join(self.model, "no-such-tensorfold")
+        nlog = []
+        child.log = nlog.append
+        t0 = time.time()
+        child.after_erase(dict(ERASE))
+        self.assertTrue(wait_until(lambda: child.health()["status"] == "down", timeout=3.0))
+        time.sleep(0.5)
+        self.assertEqual(child.health()["status"], "down")
+        self.assertLess(time.time() - t0, 3.5)
+        fails = [x for x in nlog if "restart failed" in x]
+        self.assertGreaterEqual(len(fails), 1)
+        self.assertLess(len(fails), 20)
+
+    def test_restart_loop_survives_log_error(self):
+        child = self.start(quiet=0.05)
+
+        def boom(_line):
+            raise OSError("disk full")
+
+        child.log = boom
+        child.after_erase(dict(ERASE))
+        self.assertTrue(wait_until(lambda: child.health()["status"] in ("down", "ok"), timeout=3.0))
+        self.assertIn(child.health()["status"], ("down", "ok"))
 
     def test_key_is_in_env_not_argv(self):
         child = self.start()
@@ -182,14 +251,14 @@ class ProxyEngine(unittest.TestCase):
         self.tmp = H.TempDir()
         self.addCleanup(self.tmp.cleanup)
 
-    def running(self, extra, store=None):
+    def running(self, extra, store=None, quiet="0.15", restart_max="2"):
         model = self.tmp.file("model")
         if not os.path.isdir(model):
             os.mkdir(model)
         store = store or self.tmp.file("s.jsonl")
         args = proxy.parser().parse_args([
             "--tensorfold", model, "--tensorfold-bin", FAKE, "--port", "0", "--host", "127.0.0.1",
-            "--tensorfold-quiet", "0.15", "--tensorfold-restart-max", "2",
+            "--tensorfold-quiet", str(quiet), "--tensorfold-restart-max", str(restart_max),
         ] + extra + (["--store", store] if "--store-dir" not in extra else []))
         srv, notes = proxy.build(args, log=lambda *_: None)
         self.addCleanup(notes.close)
@@ -290,6 +359,111 @@ class ProxyEngine(unittest.TestCase):
             lambda: json.loads(_call(port, "GET", "/v1/notes/erase-status", headers=auth)[2])["complete"]))
         st, _, raw = _call(port, "GET", "/health")
         self.assertEqual(st, 200)
+
+    def test_one_word_question_retrieves_through_child_tokenizer(self):
+        srv, notes, port, engine = self.running(
+            ["--owner", "user", "--notes-config", json.dumps({"n_min": 1, "n_max": 1})])
+        st, _, raw = _call(port, "POST", "/v1/notes", {"text": "My sister Anna drives a red Volvo."})
+        self.assertIn(st, (200, 201))
+        st, _, raw = _call(port, "POST", "/v1/chat/completions",
+                           {"model": "m", "notes_echo": True,
+                            "messages": [{"role": "user", "content": "Anna"}]})
+        self.assertEqual(st, 200)
+        body = json.loads(raw)
+        self.assertTrue(body.get("notes", {}).get("ids"))
+        self.assertIn("Anna", body["notes"].get("block") or "")
+
+    def test_erase_during_restart_is_503_and_keeps_the_note(self):
+        store = H.seeded(self.tmp, "erase-busy.jsonl")
+        srv, notes, port, engine = self.running(["--owner", "user"], store=store, quiet=0.05, restart_max=0.25)
+        nid = json.loads(_call(port, "GET", "/v1/notes")[2])["data"][0]["id"]
+        engine.begin()
+        engine.after_erase(dict(ERASE))
+        self.assertTrue(wait_until(lambda: engine.health().get("engine") == "draining", timeout=3.0))
+        st, _, raw = _call(port, "DELETE", f"/v1/notes/{nid}")
+        self.assertEqual(st, 503)
+        self.assertEqual(_call(port, "GET", f"/v1/notes/{nid}")[0], 200)
+        engine.end()
+
+    def test_uncertain_erase_still_restarts(self):
+        store = H.seeded(self.tmp, "erase-uncertain.jsonl")
+        srv, notes, port, engine = self.running(["--owner", "user"], store=store)
+        nid = json.loads(_call(port, "GET", "/v1/notes")[2])["data"][0]["id"]
+        pid = engine.proc.pid
+        real = notes.erase
+
+        def wrapped(i):
+            done = real(i)
+            done["error"] = {"message": "journal uncertain", "type": "server_error", "code": 500}
+            return done
+
+        notes.erase = wrapped
+        st, _, raw = _call(port, "DELETE", f"/v1/notes/{nid}")
+        self.assertEqual(st, 500)
+        body = json.loads(raw)
+        self.assertIn("error", body)
+        self.assertFalse(body["complete"])
+        self.assertTrue(wait_until(
+            lambda: json.loads(_call(port, "GET", "/v1/notes/erase-status")[2])["complete"], timeout=5.0))
+        self.assertNotEqual(engine.proc.pid, pid)
+
+    def test_engine_drops_client_authorization(self):
+        srv, notes, port, engine = self.running(["--owner", "user"])
+        st, _, raw = _call(port, "POST", "/v1/chat/completions",
+                           {"model": "m", "messages": [{"role": "user", "content": "Hi."}]},
+                           headers={"authorization": "Bearer client-secret"})
+        self.assertEqual(st, 200)
+        with open(os.path.join(self.tmp.file("model"), "last_auth.json")) as f:
+            rec = json.loads(f.read())
+        auths = rec.get("authorization") or []
+        blob = " ".join(auths)
+        self.assertIn(engine.key, blob)
+        self.assertNotIn("client-secret", blob)
+        self.assertEqual(len(auths), 1)
+
+    def test_sigterm_stops_child(self):
+        model = self.tmp.file("model")
+        if not os.path.isdir(model):
+            os.mkdir(model)
+        store = self.tmp.file("sigterm.jsonl")
+        logf = tempfile.NamedTemporaryFile("w+", prefix="notes-proxy-sigterm-", delete=False)
+        self.addCleanup(lambda: os.path.exists(logf.name) and os.unlink(logf.name))
+        env = os.environ.copy()
+        env["PYTHONPATH"] = os.pathsep.join([H.REPO, env.get("PYTHONPATH", "")]).rstrip(os.pathsep)
+        proc = subprocess.Popen(
+            [sys.executable, "-m", "notes_proxy", "--tensorfold", model, "--tensorfold-bin", FAKE,
+             "--owner", "user", "--store", store, "--port", "0", "--host", "127.0.0.1",
+             "--tensorfold-quiet", "0.15"],
+            cwd=H.REPO, env=env, stdout=logf, stderr=subprocess.STDOUT)
+        self.addCleanup(lambda: proc.poll() is not None or proc.kill())
+        self.addCleanup(logf.close)
+        text = ""
+        deadline = time.time() + 8
+        while time.time() < deadline:
+            logf.flush()
+            with open(logf.name) as f:
+                text = f.read()
+            if "listening on" in text:
+                break
+            if proc.poll() is not None:
+                break
+            time.sleep(0.05)
+        self.assertIn("listening on", text, text[-2000:])
+        m = re.search(r"started TensorFold pid (\d+)", text)
+        self.assertIsNotNone(m, text[-2000:])
+        child_pid = int(m.group(1))
+        os.kill(proc.pid, signal.SIGTERM)
+        self.assertEqual(proc.wait(timeout=8), 0)
+        gone = wait_until(lambda: _pid_gone(child_pid), timeout=5.0)
+        self.assertTrue(gone, f"TensorFold pid {child_pid} still running after SIGTERM")
+
+
+def _pid_gone(pid):
+    try:
+        os.kill(pid, 0)
+    except OSError:
+        return True
+    return False
 
 
 def _call(port, method, path, body=None, headers=None):

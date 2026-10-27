@@ -27,6 +27,7 @@ Standard library for the HTTP side; the model's tokenizer.json is read with the 
 reads it.
 """
 import argparse
+import atexit
 import hashlib
 import hmac
 import http.client
@@ -34,8 +35,10 @@ import ipaddress
 import json
 import os
 import secrets
+import signal
 import socket
 import sys
+import threading
 import time
 import urllib.parse
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -354,8 +357,8 @@ class Handler(BaseHTTPRequestHandler):
                 continue
             if self.many and lk not in HEADERS_MANY:
                 continue                      # the user's key, a cookie, another key or a session id: none goes on
-            if lk == "authorization" and self.cfg.upstream_key is not None:
-                continue                      # a key the upstream key replaces
+            if lk == "authorization" and (self.cfg.upstream_key is not None or self.cfg.engine is not None):
+                continue                      # a key the upstream key or the child's key replaces
             if key and key in v:
                 continue                      # the user's key, in whatever other header the client also put it
             out[k] = v                        # with one owner and no upstream key, Authorization goes on as sent
@@ -481,11 +484,16 @@ class Handler(BaseHTTPRequestHandler):
                 raise Refused("DELETE takes a note: /v1/notes/ID", 405)
             if v:
                 raise Refused("an erase takes no body")
+            held = self.engine_slot()
             try:
-                done = self.notes.erase(nid)
-            except StoreError as e:
-                raise Refused(str(e), e.status)
-            if self.cfg.engine is not None and "error" not in done:
+                try:
+                    done = self.notes.erase(nid)
+                except StoreError as e:
+                    raise Refused(str(e), e.status)
+            finally:
+                if held is not None:
+                    held.end()
+            if self.cfg.engine is not None and done.get("removed"):
                 done = self.cfg.engine.after_erase(done)
             status = 500 if "error" in done else 200
             self.send_json(status, done)
@@ -502,15 +510,33 @@ class Handler(BaseHTTPRequestHandler):
             raise Refused("text must be a string")
         if "subject" in v and not isinstance(v["subject"], str):
             raise Refused("subject must be a string")
+        held = self.engine_slot()
         try:
-            done = self.notes.write_text(v["text"], subject=v.get("subject"))
-        except StoreError as e:
-            raise Refused(str(e), e.status)
+            try:
+                done = self.notes.write_text(v["text"], subject=v.get("subject"))
+            except StoreError as e:
+                raise Refused(str(e), e.status)
+        finally:
+            if held is not None:
+                held.end()
         status = 201 if done["written"] else 200
         self.send_json(status, done)
         self.logline(status, t0, f" write {done['verdict']} [{done['id']}]")
 
     # ------------------------------------------------------------------------------------------ chat
+    def engine_slot(self):
+        """Hold an inflight slot so a restart cannot stop the child while this request tokenizes. None with no engine.
+        Raises Refused 503 when the child is down, draining or restarting: the journal is not touched."""
+        engine = self.cfg.engine
+        if engine is None:
+            return None
+        try:
+            engine.begin()
+        except tfchild.TensorFoldError:
+            raise Refused("the TensorFold engine is not ready", 503,
+                          headers={"Retry-After": str(engine.retry_after())})
+        return engine
+
     def auto_write(self, ask, body):
         """The chat's own write, the server's rule: only the last message, only when it is the user's, only when it
         tells rather than asks; never the model's answers, system messages or earlier messages."""
@@ -536,43 +562,48 @@ class Handler(BaseHTTPRequestHandler):
         _raw, body = self.json_body(CHAT_BODY_LIMIT)
         if not isinstance(body, dict):
             raise Refused("the request body must be a JSON object")
-        ask = asked(body)
-        fwd = self.isolated({k: v for k, v in body.items() if k not in NOTE_FIELDS})
-        used = None
-        extra = ""
-        if ask is not None:
-            msgs = body.get("messages")
-            if not isinstance(msgs, list) or not msgs:
-                raise Refused("messages must be a non-empty list")
-            question = last_user(msgs)
-            res = self.notes.lookup(question, cap=ask["cap"], past=ask["past"], exclude=ask["exclude"])
-            if res["block"]:
-                fwd["messages"] = with_block(msgs, res["block"], self.cfg.join_system)
-            total_us = (time.perf_counter() - t0) * 1e6
-            wrote, write_us = self.auto_write(ask, body)
-            used = {"ids": res["note_ids"], "numbers": res["ids"], "past": res["past"],
-                    "past_from": "request" if ask["past"] is not None else "question", "language": "en",
-                    "cap": res["cap"], "tokens": res["tokens"],
-                    "candidates": res["candidates"], "notes_in_store": self.notes.count(),
-                    "lookup_us": res["lookup_us"], "total_us": round(total_us, 1),
-                    "block_sha256": hashlib.sha256(res["block"].encode()).hexdigest() if res["block"] else None}
-            if ask["echo"]:
-                used["block"] = res["block"]
-            used["write"] = wrote
-            used["write_us"] = round(write_us, 1)
-            w = used["write"]
-            extra = (f" notes [{','.join(map(str, used['ids']))}] {used['tokens']} tokens of {used['cap']}, past "
-                     f"{'yes' if used['past'] else 'no'}, {used['candidates']} candidates, lookup {used['lookup_us']}"
-                     f" us; write " + (f"{w['verdict']} [{w['id']}]" if "verdict" in w else
-                                       f"failed" if "failed" in w else f"skipped ({w['skipped']})"))
-            if self.many:
-                for k in TIMES:          # the operator's log keeps them
-                    del used[k]
-        if self.cfg.engine is not None:
-            fwd["store"] = False
-        data = json.dumps(fwd, ensure_ascii=False).encode()
-        stream = fwd.get("stream") is True
-        self.relay("POST", data, used, stream, t0, extra)
+        held = self.engine_slot()
+        try:
+            ask = asked(body)
+            fwd = self.isolated({k: v for k, v in body.items() if k not in NOTE_FIELDS})
+            used = None
+            extra = ""
+            if ask is not None:
+                msgs = body.get("messages")
+                if not isinstance(msgs, list) or not msgs:
+                    raise Refused("messages must be a non-empty list")
+                question = last_user(msgs)
+                res = self.notes.lookup(question, cap=ask["cap"], past=ask["past"], exclude=ask["exclude"])
+                if res["block"]:
+                    fwd["messages"] = with_block(msgs, res["block"], self.cfg.join_system)
+                total_us = (time.perf_counter() - t0) * 1e6
+                wrote, write_us = self.auto_write(ask, body)
+                used = {"ids": res["note_ids"], "numbers": res["ids"], "past": res["past"],
+                        "past_from": "request" if ask["past"] is not None else "question", "language": "en",
+                        "cap": res["cap"], "tokens": res["tokens"],
+                        "candidates": res["candidates"], "notes_in_store": self.notes.count(),
+                        "lookup_us": res["lookup_us"], "total_us": round(total_us, 1),
+                        "block_sha256": hashlib.sha256(res["block"].encode()).hexdigest() if res["block"] else None}
+                if ask["echo"]:
+                    used["block"] = res["block"]
+                used["write"] = wrote
+                used["write_us"] = round(write_us, 1)
+                w = used["write"]
+                extra = (f" notes [{','.join(map(str, used['ids']))}] {used['tokens']} tokens of {used['cap']}, past "
+                         f"{'yes' if used['past'] else 'no'}, {used['candidates']} candidates, lookup {used['lookup_us']}"
+                         f" us; write " + (f"{w['verdict']} [{w['id']}]" if "verdict" in w else
+                                           f"failed" if "failed" in w else f"skipped ({w['skipped']})"))
+                if self.many:
+                    for k in TIMES:          # the operator's log keeps them
+                        del used[k]
+            if self.cfg.engine is not None:
+                fwd["store"] = False
+            data = json.dumps(fwd, ensure_ascii=False).encode()
+            stream = fwd.get("stream") is True
+            self.relay("POST", data, used, stream, t0, extra)
+        finally:
+            if held is not None:
+                held.end()
 
     # ------------------------------------------------------------------------------------------ upstream
     def passthrough(self, t0):
@@ -1014,9 +1045,20 @@ def main(argv=None):
     print(f"notes-proxy: {who}, tokenizer {tok.describe()}, cap {args.cap}, writes from chat "
           f"{'on' if args.write else 'off'}{key}; listening on http://{h}:{pt}, forwarding to "
           f"{srv.cfg.scheme}://{srv.cfg.host}:{srv.cfg.port}{srv.cfg.base}", file=sys.stderr, flush=True)
+
+    def _shutdown(_signum=None, _frame=None):
+        # serve_forever's shutdown() must run on another thread than this one
+        threading.Thread(target=srv.shutdown, daemon=True).start()
+
+    for sg in (signal.SIGTERM, signal.SIGHUP):
+        try:
+            signal.signal(sg, _shutdown)
+        except (ValueError, OSError):
+            pass
+    atexit.register(lambda: srv.cfg.engine.close() if srv.cfg.engine is not None else None)
     try:
         srv.serve_forever()
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, InterruptedError):
         pass
     finally:
         srv.server_close()

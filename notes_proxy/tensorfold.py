@@ -4,10 +4,13 @@ The proxy starts TensorFold from a fixed flag allowlist, with a clean environmen
 TENSORFOLD_API_KEY, never on the command line. After an erase, the child is restarted once the proxy is idle, after a
 quiet window (default 10 s), so several erases share one restart. If traffic never goes idle,
 new requests are refused after a max wait (default 60 s) so the restart can run. Token counts go through the child's POST /v1/tokenize
-({"prompt"} -> {"tokens", "count"}). A missing or wrong tokenize reply is a refusal, never FakeTokenizer.
+({"prompt"} -> {"tokens", "count"}); piece text through POST /v1/detokenize ({"tokens"} -> {"prompt"}). A missing or
+wrong tokenize reply is a refusal, never FakeTokenizer. SIGTERM/SIGHUP on the proxy, atexit, and a parent-death
+watchdog all run close(), so the child is not left behind.
 """
 from __future__ import annotations
 
+import atexit
 import http.client
 import json
 import os
@@ -16,6 +19,7 @@ import shutil
 import signal
 import socket
 import subprocess
+import sys
 import tempfile
 import threading
 import time
@@ -47,6 +51,36 @@ QUIET = 10.0         # seconds of idle after the last erase before one restart
 RESTART_MAX = 60.0   # then refuse new requests so a busy proxy still restarts
 BACKOFF_START = 0.4
 BACKOFF_CAP = 8.0
+# sibling of the TensorFold child: argv[1] is the pipe fd, argv[2] the child's pid (session leader).
+# EOF on the pipe means the proxy is gone (close(), exit, or SIGKILL); then SIGTERM the child's session.
+_WATCH_PARENT = (
+    "import os,signal,sys,time\n"
+    "r,c=int(sys.argv[1]),int(sys.argv[2])\n"
+    "try:\n"
+    "    while os.read(r,1): pass\n"
+    "except OSError: pass\n"
+    "try: os.kill(c,0)\n"
+    "except OSError: sys.exit(0)\n"
+    "try: os.killpg(c,signal.SIGTERM)\n"
+    "except OSError: sys.exit(0)\n"
+    "for _ in range(20):\n"
+    "    time.sleep(0.1)\n"
+    "    try: os.kill(c,0)\n"
+    "    except OSError: sys.exit(0)\n"
+    "try: os.killpg(c,signal.SIGKILL)\n"
+    "except OSError: pass\n"
+)
+
+
+def _parent_death_preexec():
+    """Linux: the child gets SIGTERM when the proxy dies, even if the watchdog has not run yet."""
+    try:
+        import ctypes
+        import ctypes.util
+        libc = ctypes.CDLL(ctypes.util.find_library("c") or "libc.so.6", use_errno=True)
+        libc.prctl(1, int(signal.SIGTERM), 0, 0, 0)  # PR_SET_PDEATHSIG
+    except Exception:
+        pass
 
 
 class TensorFoldError(Exception):
@@ -95,17 +129,21 @@ def check_extra(extra):
             continue
         if i + 1 >= len(extra):
             raise TensorFoldError(f"{name} needs a value")
-        out.extend([name, extra[i + 1]])
+        nxt = extra[i + 1]
+        if nxt in FORBIDDEN or nxt.startswith("--"):
+            raise TensorFoldError(f"{name} needs a value")
+        out.extend([name, nxt])
         i += 2
     return out
 
 
 class ChildTokenizer:
-    """Token counts from the child's POST /v1/tokenize. Refuses when that route is missing or the body is not TF's."""
+    """Token counts from the child's POST /v1/tokenize; piece text from POST /v1/detokenize. Refuses FakeTokenizer."""
 
     def __init__(self, engine):
         self.engine = engine
         self.name = "tensorfold-child"
+        self._piece = {}
 
     def encode(self, text):
         self.engine.begin()
@@ -121,7 +159,22 @@ class ChildTokenizer:
             raise TensorFoldError("TensorFold /v1/tokenize returned a token that is not an int") from e
 
     def piece(self, i):
-        return ""
+        """The child's text for token id `i`, cached. notes.py key() and wordy() need the piece, not the id."""
+        try:
+            i = int(i)
+        except (TypeError, ValueError) as e:
+            raise TensorFoldError("TensorFold piece() needs an int token id") from e
+        if i in self._piece:
+            return self._piece[i]
+        self.engine.begin()
+        try:
+            st, body = self.engine.request("POST", "/v1/detokenize", {"tokens": [i]})
+        finally:
+            self.engine.end()
+        if st != 200 or not isinstance(body, dict) or not isinstance(body.get("prompt"), str):
+            raise TensorFoldError("TensorFold /v1/detokenize did not return prompt")
+        self._piece[i] = body["prompt"]
+        return self._piece[i]
 
     def describe(self):
         return {"name": self.name, "upstream": self.engine.url}
@@ -163,11 +216,14 @@ class TensorFoldChild:
         self._restarted_through = 0
         self._next_retry = 0.0
         self._retry_after = 1
+        self._life_w = None
+        self._watch = None
         try:
             self.start()
         except BaseException:
             self.close()
             raise
+        atexit.register(self.close)
 
     def start(self):
         with self._spawn:
@@ -202,11 +258,13 @@ class TensorFoldChild:
             except OSError:
                 pass
             self._logf = None
-        self._logf = open(os.path.join(self._tmpdir, "child.log"), "ab")
+        self._logf = open(os.path.join(self._tmpdir, "child.log"), "wb")
+        preexec = _parent_death_preexec if sys.platform.startswith("linux") else None
         self.proc = subprocess.Popen(cmd, env=env, stdin=subprocess.DEVNULL, stdout=self._logf,
-                                     stderr=subprocess.STDOUT, start_new_session=True)
+                                     stderr=subprocess.STDOUT, start_new_session=True, preexec_fn=preexec)
         self.url = f"http://127.0.0.1:{self.port}"
-        self.log(f"notes-proxy: started TensorFold pid {self.proc.pid} on {self.url}")
+        self._watch_parent(self.proc.pid)
+        self._note(f"notes-proxy: started TensorFold pid {self.proc.pid} on {self.url}")
         deadline = time.time() + self.timeout
         last = None
         while time.time() < deadline:
@@ -218,7 +276,7 @@ class TensorFoldChild:
             try:
                 st, body = self._http(self.port, self.key, "GET", "/health", None, timeout=2.0)
                 if st == 200:
-                    self.log(f"notes-proxy: TensorFold ready ({body.get('model') if isinstance(body, dict) else st})")
+                    self._note(f"notes-proxy: TensorFold ready ({body.get('model') if isinstance(body, dict) else st})")
                     return
                 last = st
             except TensorFoldError as e:
@@ -230,22 +288,69 @@ class TensorFoldChild:
     def _stop_locked(self):
         p = self.proc
         self.proc = None
-        if p is None:
-            return
-        if p.poll() is not None:
-            return
-        try:
-            os.killpg(p.pid, signal.SIGTERM)
-        except OSError:
-            p.terminate()
-        try:
-            p.wait(timeout=20)
-        except subprocess.TimeoutExpired:
+        if p is not None and p.poll() is None:
             try:
-                os.killpg(p.pid, signal.SIGKILL)
+                os.killpg(p.pid, signal.SIGTERM)
             except OSError:
+                p.terminate()
+            try:
+                p.wait(timeout=20)
+            except subprocess.TimeoutExpired:
+                try:
+                    os.killpg(p.pid, signal.SIGKILL)
+                except OSError:
+                    p.kill()
+                try:
+                    p.wait(timeout=5)
+                except subprocess.TimeoutExpired:
+                    pass
+        self._stop_watchdog()
+
+    def _watch_parent(self, child_pid):
+        """A sibling that SIGTERMs the child's session when this process dies (pipe EOF), including SIGKILL."""
+        self._stop_watchdog()
+        try:
+            r, w = os.pipe()
+        except OSError:
+            return
+        try:
+            os.set_inheritable(r, True)
+            self._watch = subprocess.Popen(
+                [sys.executable, "-c", _WATCH_PARENT, str(r), str(child_pid)],
+                pass_fds=(r,), stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL, start_new_session=True)
+            self._life_w = w
+            w = None
+        except (OSError, ValueError):
+            self._watch = None
+            self._life_w = None
+        finally:
+            try:
+                os.close(r)
+            except OSError:
+                pass
+            if w is not None:
+                try:
+                    os.close(w)
+                except OSError:
+                    pass
+
+    def _stop_watchdog(self):
+        # Kill the watcher first so its parent-death SIGTERM/SIGKILL cannot race a planned restart,
+        # and so close() does not wait out the watcher's drain.
+        p, self._watch = self._watch, None
+        if p is not None and p.poll() is None:
+            try:
                 p.kill()
-            p.wait(timeout=5)
+                p.wait(timeout=1)
+            except (OSError, subprocess.TimeoutExpired):
+                pass
+        w, self._life_w = self._life_w, None
+        if w is not None:
+            try:
+                os.close(w)
+            except OSError:
+                pass
 
     def close(self):
         with self._gate:
@@ -307,27 +412,27 @@ class TensorFoldChild:
         backoff = BACKOFF_START
         try:
             while True:
-                with self._gate:
-                    while True:
-                        if self._stopped or not self._restart_pending:
-                            return
-                        now = time.time()
-                        if now >= self._force_at and self.inflight > 0 and not self._drain:
-                            self._drain = True
-                            self.log("notes-proxy: TensorFold restart waited long enough; pausing new requests")
-                            self._gate.notify_all()
-                        idle = self.inflight == 0 and now >= self._quiet_until
-                        forced = self.inflight == 0 and now >= self._force_at
-                        if idle or forced:
-                            erase_seen = self._erase_seq
-                            break
-                        wait = 0.2
-                        if self.inflight == 0:
-                            wait = min(self._quiet_until, self._force_at) - now
-                        elif not self._drain:
-                            wait = min(0.2, max(0.05, self._force_at - now))
-                        self._gate.wait(timeout=max(0.05, wait))
                 try:
+                    with self._gate:
+                        while True:
+                            if self._stopped or not self._restart_pending:
+                                return
+                            now = time.time()
+                            if now >= self._force_at and self.inflight > 0 and not self._drain:
+                                self._drain = True
+                                self._note("notes-proxy: TensorFold restart waited long enough; pausing new requests")
+                                self._gate.notify_all()
+                            idle = self.inflight == 0 and now >= self._quiet_until
+                            forced = self.inflight == 0 and now >= self._force_at
+                            if idle or forced:
+                                erase_seen = self._erase_seq
+                                break
+                            wait = 0.2
+                            if self.inflight == 0:
+                                wait = min(self._quiet_until, self._force_at) - now
+                            elif not self._drain:
+                                wait = min(0.2, max(0.05, self._force_at - now))
+                            self._gate.wait(timeout=max(0.05, wait))
                     with self._spawn:
                         if self._stopped:
                             return
@@ -348,13 +453,20 @@ class TensorFoldChild:
                         self._retry_after = 1
                         if self._erase_seq == erase_seen:
                             self._restart_pending = False
-                        self.log("notes-proxy: TensorFold restarted after erase")
+                        self._note("notes-proxy: TensorFold restarted after erase")
                         self._gate.notify_all()
                         if not self._restart_pending or self._stopped:
                             return
-                except TensorFoldError as e:
-                    self.log(f"notes-proxy: TensorFold restart failed: {e}")
+                except Exception as e:
+                    self._note(f"notes-proxy: TensorFold restart failed: {e}")
+                    try:
+                        with self._spawn:
+                            self._stop_locked()
+                    except Exception:
+                        pass
                     with self._gate:
+                        if self._stopped or not self._restart_pending:
+                            return
                         self._serving = False
                         self._down = True
                         self._retry_after = max(1, int(backoff + 0.999))
@@ -374,6 +486,12 @@ class TensorFoldChild:
                     self._restart_running = True
                     threading.Thread(target=self._restart_loop, daemon=True).start()
                 self._gate.notify_all()
+
+    def _note(self, line):
+        try:
+            self.log(line)
+        except Exception:
+            pass
 
     def health(self):
         with self._gate:

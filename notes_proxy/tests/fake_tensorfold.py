@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
-"""A TensorFold-shaped child for Notes Proxy tests: health, tokenize, chat, responses. No model.
+"""A TensorFold-shaped child for Notes Proxy tests: health, tokenize, detokenize, chat, responses. No model.
 
 Tokenize matches TensorFold: POST /v1/tokenize {"prompt"} -> {"tokens", "count"}. A "text"/"ids" body is ignored.
+Detokenize: POST /v1/detokenize {"tokens"} -> {"prompt"} (chr of each id, the inverse of this child's tokenize).
+POST routes require Authorization: Bearer $TENSORFOLD_API_KEY when that env is set (health stays public).
 """
 import argparse
 import json
@@ -20,13 +22,31 @@ class H(BaseHTTPRequestHandler):
         n = int(self.headers.get("Content-Length") or 0)
         return self.rfile.read(n) if n else b""
 
-    def _send(self, status, obj):
+    def _send(self, status, obj, extra=None):
         data = json.dumps(obj).encode()
         self.send_response(status)
         self.send_header("Content-Type", "application/json")
         self.send_header("Content-Length", str(len(data)))
+        for k, v in (extra or {}).items():
+            self.send_header(k, v)
         self.end_headers()
         self.wfile.write(data)
+
+    def _auth_ok(self):
+        want = os.environ.get("TENSORFOLD_API_KEY")
+        if not want:
+            return True
+        got = self.headers.get("Authorization") or ""
+        return got == f"Bearer {want}"
+
+    def _record_auth(self, path):
+        auths = self.headers.get_all("Authorization") or []
+        last = os.path.join(self.server.model, "last_auth.json")
+        try:
+            with open(last, "w") as f:
+                json.dump({"path": path, "authorization": auths}, f)
+        except OSError:
+            pass
 
     def do_GET(self):
         path = self.path.split("?", 1)[0].rstrip("/") or "/"
@@ -42,6 +62,10 @@ class H(BaseHTTPRequestHandler):
         except ValueError:
             body = {}
         self.server.posts.append({"path": path, "body": body, "auth": self.headers.get("Authorization")})
+        self._record_auth(path)
+        if not self._auth_ok():
+            return self._send(401, {"error": {"message": "unauthorized", "type": "invalid_request_error", "code": 401}},
+                              extra={"WWW-Authenticate": "Bearer"})
         if path == "/v1/tokenize":
             last = os.path.join(self.server.model, "last_tokenize.json")
             try:
@@ -54,6 +78,24 @@ class H(BaseHTTPRequestHandler):
             prompt = body["prompt"] if isinstance(body.get("prompt"), str) else ""
             tokens = [ord(c) for c in prompt]
             return self._send(200, {"tokens": tokens, "count": len(tokens)})
+        if path == "/v1/detokenize":
+            last = os.path.join(self.server.model, "last_detokenize.json")
+            try:
+                with open(last, "w") as f:
+                    json.dump(body, f)
+            except OSError:
+                pass
+            if os.path.isfile(os.path.join(self.server.model, "no_detokenize")):
+                return self._send(404, {"error": {"message": "no detokenize"}})
+            tokens = body.get("tokens")
+            if not isinstance(tokens, list):
+                return self._send(400, {"error": {"message": "tokens must be a list of integer token ids"}})
+            parts = []
+            for t in tokens:
+                if not isinstance(t, int) or isinstance(t, bool) or not 0 <= t <= 0x10FFFF:
+                    return self._send(400, {"error": {"message": "tokens token ids must be in range"}})
+                parts.append("\ufffd" if 0xD800 <= t <= 0xDFFF else chr(t))
+            return self._send(200, {"prompt": "".join(parts)})
         if path.endswith("/chat/completions"):
             return self._send(200, {"id": "chatcmpl-fake", "object": "chat.completion", "model": "fake-tf",
                                     "choices": [{"index": 0, "finish_reason": "stop",
