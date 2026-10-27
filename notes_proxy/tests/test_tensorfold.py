@@ -145,6 +145,17 @@ class Child(unittest.TestCase):
         self.assertEqual(h["status"], "down")
         self.assertGreaterEqual(child.retry_after(), 1)
 
+    def test_erase_stream_restarts_at_force_at(self):
+        child = self.start(quiet=2.0, restart_max=0.3)
+        pid = child.proc.pid
+        child.after_erase(dict(ERASE))
+        time.sleep(0.12)
+        child.after_erase(dict(ERASE))
+        t0 = time.time()
+        self.assertTrue(wait_until(lambda: child.erase_status()["complete"], timeout=1.5))
+        self.assertLess(time.time() - t0, 1.2)
+        self.assertNotEqual(child.proc.pid, pid)
+
     def test_busy_traffic_is_drained_after_restart_max(self):
         child = self.start(quiet=0.05, restart_max=0.25)
         pid = child.proc.pid

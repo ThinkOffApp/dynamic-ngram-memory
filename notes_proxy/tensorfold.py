@@ -317,13 +317,13 @@ class TensorFoldChild:
                             self.log("notes-proxy: TensorFold restart waited long enough; pausing new requests")
                             self._gate.notify_all()
                         idle = self.inflight == 0 and now >= self._quiet_until
-                        forced = self._drain and self.inflight == 0
+                        forced = self.inflight == 0 and now >= self._force_at
                         if idle or forced:
                             erase_seen = self._erase_seq
                             break
                         wait = 0.2
                         if self.inflight == 0:
-                            wait = self._quiet_until - now
+                            wait = min(self._quiet_until, self._force_at) - now
                         elif not self._drain:
                             wait = min(0.2, max(0.05, self._force_at - now))
                         self._gate.wait(timeout=max(0.05, wait))
