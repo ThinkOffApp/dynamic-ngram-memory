@@ -1,5 +1,6 @@
 """Experimental single-owner native HTTP smoke gate; needs the built library and real tokenizer."""
 import json
+import copy
 import os
 import pathlib
 import sys
@@ -16,6 +17,33 @@ from notes_proxy.store import Notes, nm, StoreError
 
 
 class NativeHTTP(unittest.TestCase):
+    def test_custom_schema_is_reused_on_reopen_and_bound_to_journal_identity(self):
+        tok = nm.load_tokenizer(os.environ["NOTES_PROXY_TEST_TOKENIZER"])
+        schema = copy.deepcopy(nm.L.SCHEMA)
+        schema["likes"]["multi"] = False
+        with tempfile.TemporaryDirectory(prefix="native-schema-") as root:
+            path = pathlib.Path(root) / "zig"
+            ref = Notes(pathlib.Path(root) / "python", "alice", tok, schema=schema)
+            self.addCleanup(ref.close)
+            native = NativeNotes(path, "alice", tok, schema=schema)
+            try:
+                for text in ("I like apples.", "I like cheese."):
+                    self.assertEqual(native.write_text(text, today="2026-10-27"),
+                                     ref.write_text(text, today="2026-10-27"))
+            finally:
+                native.close()
+            native = NativeNotes(path, "alice", tok, schema=schema)
+            try:
+                self.assertEqual(native.listing(), ref.listing())
+            finally:
+                native.close()
+            before = path.read_bytes()
+            changed = copy.deepcopy(schema)
+            changed["likes"]["multi"] = True
+            with self.assertRaises(StoreError):
+                NativeNotes(path, "alice", tok, schema=changed)
+            self.assertEqual(path.read_bytes(), before)
+
     def test_framing_and_abstain_are_fitted_before_the_token_cap(self):
         tok = nm.load_tokenizer(os.environ["NOTES_PROXY_TEST_TOKENIZER"])
         with tempfile.TemporaryDirectory(prefix="native-framing-") as root:

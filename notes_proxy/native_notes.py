@@ -5,6 +5,7 @@ this adapter never migrates or overwrites them. Remaining intake parity gaps rai
 explicit errors rather than silently falling back to a second store.
 """
 import datetime
+import copy
 import functools
 import threading
 from types import SimpleNamespace
@@ -30,16 +31,19 @@ class NativeNotes:
             raise StoreError("the owner is a name", 500)
         if not isinstance(tokenizer, nm.HFTokenizer):
             raise StoreError("experimental Zig store requires a local HF tokenizer", 501)
-        if schema is not None:
-            raise StoreError("experimental Zig store does not yet support custom schemas", 501)
+        schema = copy.deepcopy(schema)
         import notes_export
-        scratch = ProxyStore(tokenizer, config=config, abstain_line=abstain_line, framing=framing)
+        scratch = ProxyStore(tokenizer, schema=schema, config=config, abstain_line=abstain_line, framing=framing)
         scratch.owner(owner, create=True)
         snapshot, vocab = notes_export.snapshot(scratch, owner)
+        if schema is not None:
+            # Extra snapshot metadata is ignored by native lookup but included in the
+            # journal's snapshot SHA, preventing a reopen under a different rule book.
+            snapshot["proxy_schema"] = schema
         self.owner, self.lock = owner, threading.RLock()
         self.store = SimpleNamespace(tok=tokenizer)  # startup description, not a Python note/index mirror
         self.cap = (config or {}).get("cap", 512)
-        self.native = IntakeStore(snapshot, path, vocab.ids)
+        self.native = IntakeStore(snapshot, path, vocab.ids, schema=schema)
         self._sources = {r["id"]: r["source"] for r in self.native.metadata()}
         self._last_told = self.native.last_told()
 

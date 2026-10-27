@@ -9,7 +9,7 @@ production service at this experiment yet.
 The first HTTP gate covers write, stable `w1` GET, lookup, DELETE and reopen
 without source reuse. Native handle/journal ownership tests also pass.
 This is not full HTTP parity or production qualification: multi-user mode,
-seed migration, test vocabularies, custom schema options, atomic multi-target
+seed migration, test vocabularies, atomic multi-target
 retirement and semantic no-op intake remain unfinished. Numeric positions and
 renumbered reporting still need compatibility work. No scale result is claimed.
 
@@ -103,3 +103,11 @@ exporting the empty native snapshot, so the real first-line text and token costs
 are present before native fitting. A real-tokenizer regression compares quoted,
 firm, and firm+abstain blocks byte-for-byte with Python at caps 512, 160 and 60.
 This is not a post-fit header substitution.
+
+New native stores also accept an explicit custom rule-book schema through the
+adapter API. A private copy is passed to classification, and extra snapshot
+metadata binds that schema into the journal's existing snapshot SHA. A regression
+changes `likes` to single-valued, compares full write replies/listing with Python,
+reopens successfully, and rejects a reopen with a different schema without
+changing the journal. This does not implement migration of legacy schema-bearing
+Python journals or broaden the parser's supported wordings.
