@@ -30,10 +30,10 @@ class NativeNotes:
             raise StoreError("the owner is a name", 500)
         if not isinstance(tokenizer, nm.HFTokenizer):
             raise StoreError("experimental Zig store requires a local HF tokenizer", 501)
-        if abstain_line is not None or framing != "quoted" or schema is not None:
-            raise StoreError("experimental Zig store does not yet support these wording/schema settings", 501)
+        if schema is not None:
+            raise StoreError("experimental Zig store does not yet support custom schemas", 501)
         import notes_export
-        scratch = ProxyStore(tokenizer, config=config)
+        scratch = ProxyStore(tokenizer, config=config, abstain_line=abstain_line, framing=framing)
         scratch.owner(owner, create=True)
         snapshot, vocab = notes_export.snapshot(scratch, owner)
         self.owner, self.lock = owner, threading.RLock()

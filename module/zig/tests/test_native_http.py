@@ -16,6 +16,28 @@ from notes_proxy.store import Notes, nm, StoreError
 
 
 class NativeHTTP(unittest.TestCase):
+    def test_framing_and_abstain_are_fitted_before_the_token_cap(self):
+        tok = nm.load_tokenizer(os.environ["NOTES_PROXY_TEST_TOKENIZER"])
+        with tempfile.TemporaryDirectory(prefix="native-framing-") as root:
+            for framing, abstain in (("quoted", None), ("firm", None), ("firm", "Say unknown when absent.")):
+                with self.subTest(framing=framing, abstain=abstain):
+                    stem = framing + str(abstain is not None)
+                    opts = dict(framing=framing, abstain_line=abstain)
+                    ref = Notes(pathlib.Path(root) / (stem + "-python"), "alice", tok, **opts)
+                    native = NativeNotes(pathlib.Path(root) / (stem + "-zig"), "alice", tok, **opts)
+                    try:
+                        for text in ("My aunt Brigitta grows tomatoes.", "Brigitta owns a blue bicycle."):
+                            ref.write_text(text, subject="me")
+                            native.write_text(text, subject="me")
+                        for cap in (512, 160, 60):
+                            expected = ref.lookup("What does Brigitta grow?", cap=cap)
+                            actual = native.lookup("What does Brigitta grow?", cap=cap)
+                            self.assertEqual(actual["block"], expected["block"])
+                            self.assertEqual(actual["tokens"], expected["tokens"])
+                    finally:
+                        native.close()
+                        ref.close()
+
     def test_invalid_writes_match_python_and_do_not_consume_sources(self):
         tok = nm.load_tokenizer(os.environ["NOTES_PROXY_TEST_TOKENIZER"])
         with tempfile.TemporaryDirectory(prefix="native-validation-") as root:

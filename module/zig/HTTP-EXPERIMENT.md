@@ -9,7 +9,7 @@ production service at this experiment yet.
 The first HTTP gate covers write, stable `w1` GET, lookup, DELETE and reopen
 without source reuse. Native handle/journal ownership tests also pass.
 This is not full HTTP parity or production qualification: multi-user mode,
-seed migration, test vocabularies, wording/schema options, atomic multi-target
+seed migration, test vocabularies, custom schema options, atomic multi-target
 retirement and semantic no-op intake remain unfinished. Numeric positions and
 renumbered reporting still need compatibility work. No scale result is claimed.
 
@@ -97,3 +97,9 @@ regress that path; it does **not** qualify the opt-in native path against those
 101 cases. Native-specific gates currently cover three HTTP tests, five intake
 tests (including explicit safe refusal of unsupported multi-target changes),
 and six binding tests. Refusal tests are not completed-feature parity evidence.
+
+Framing/abstain compatibility now uses the existing ProxyStore settings while
+exporting the empty native snapshot, so the real first-line text and token costs
+are present before native fitting. A real-tokenizer regression compares quoted,
+firm, and firm+abstain blocks byte-for-byte with Python at caps 512, 160 and 60.
+This is not a post-fit header substitution.
