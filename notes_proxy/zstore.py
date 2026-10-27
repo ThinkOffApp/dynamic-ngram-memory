@@ -50,8 +50,16 @@ class ZStore:
         lib.np_add_attribute.restype = C.c_char_p
         lib.np_records.argtypes = [C.c_void_p]
         lib.np_records.restype = C.c_char_p
+        lib.np_structured_records.argtypes = [C.c_void_p]
+        lib.np_structured_records.restype = C.c_char_p
+        lib.np_last_told.argtypes = [C.c_void_p]
+        lib.np_last_told.restype = C.c_int64
         lib.np_list.argtypes = [C.c_void_p]
         lib.np_list.restype = C.c_char_p
+        lib.np_get.argtypes = [C.c_void_p, C.c_uint32]
+        lib.np_get.restype = C.c_char_p
+        lib.np_metadata.argtypes = [C.c_void_p]
+        lib.np_metadata.restype = C.c_char_p
         lib.np_erase.argtypes = [C.c_void_p, C.c_uint32]
         lib.np_erase.restype = C.c_char_p
         lib.np_lookup.argtypes = [C.c_void_p, C.c_char_p, C.c_size_t, C.c_uint32, C.c_bool,
@@ -126,6 +134,18 @@ class ZStore:
     def records(self):
         return self._call(self._lib.np_records)
 
+    def metadata(self):
+        return self._call(self._lib.np_metadata)
+
+    def last_told(self):
+        with self._lock:
+            if self._handle is None:
+                raise NativeStoreError("store is closed")
+            return self._lib.np_last_told(self._handle)
+
+    def get(self, note_id):
+        return self._call(self._lib.np_get, note_id)
+
     def _add_attribute(self, text, told, subject, attribute):
         raw, sub, attr = text.encode(), subject.encode(), attribute.encode()
         return self._call(self._lib.np_add_attribute, attr, len(attr), sub, len(sub), raw, len(raw), told)
@@ -170,8 +190,8 @@ class IntakeStore(ZStore):
         self._lessons = {}
         try:
             from .store import intake
-            notes = {r["source"]: r for r in self.listing()}
-            for record in self.records():
+            notes = {r["source"]: r for r in self.metadata()}
+            for record in self._call(self._lib.np_structured_records):
                 if not record["attribute"].startswith("schema:") or record["source"] not in notes:
                     continue
                 parsed = intake.parse(record["text"])
@@ -222,6 +242,6 @@ class IntakeStore(ZStore):
     def erase(self, note_id):
         with self._lock:
             result = super().erase(note_id)
-            retained = {r["id"] for r in self.listing()}
+            retained = {r["id"] for r in self.metadata()}
             self._lessons = {i: l for i, l in self._lessons.items() if i in retained}
             return result

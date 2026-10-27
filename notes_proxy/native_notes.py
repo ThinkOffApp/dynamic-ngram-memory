@@ -40,8 +40,8 @@ class NativeNotes:
         self.store = SimpleNamespace(tok=tokenizer)  # startup description, not a Python note/index mirror
         self.cap = (config or {}).get("cap", 512)
         self.native = IntakeStore(snapshot, path, vocab.ids)
-        self._sources = {r["id"]: r["source"] for r in self.native.listing()}
-        self._last_told = max([0] + [r["told"] for r in self.native.records()])
+        self._sources = {r["id"]: r["source"] for r in self.native.metadata()}
+        self._last_told = self.native.last_told()
 
     def close(self):
         self.native.close()
@@ -72,7 +72,14 @@ class NativeNotes:
             return len(self._sources)
 
     def get(self, nid):
-        return next((r for r in self.listing(history=True) if r["id"] == nid), None)
+        with self.lock:
+            number = next((i for i, source in self._sources.items() if source == nid), None)
+            if number is None:
+                return None
+            try:
+                return self._view(self.native.get(number), self._sources)
+            except NativeStoreError as error:
+                raise StoreError(str(error), error.status) from error
 
     @mapped
     def lookup(self, question, cap=None, past=None, exclude=()):
@@ -108,11 +115,9 @@ class NativeNotes:
             row = self.get(nid)
             if row is None:
                 raise StoreError("no note has this id: it was never written, or it was erased", 404)
-            before = {r["source"] for r in self.native.records()}
             result = self.native.erase(row["number"])
-            self._sources = {r["id"]: r["source"] for r in self.native.listing()}
-            after = {r["source"] for r in self.native.records()}
-            return dict(result, erased=nid, removed=sorted(before - after), renumbered=[],
+            self._sources = {r["id"]: r["source"] for r in self.native.metadata()}
+            return dict(result, erased=nid, renumbered=[],
                         complete=False, state="pending",
                         remaining=["the upstream engine's cache and logs are outside this store",
                                    "memory this process freed is not overwritten"],
