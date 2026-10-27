@@ -23,4 +23,16 @@ pub fn build(b: *std.Build) void {
     });
     const tests = b.addTest(.{ .root_module = core });
     b.step("test", "Run the standalone model/index/journal core tests").dependOn(&b.addRunArtifact(tests).step);
+    const library = b.addLibrary(.{
+        .name = "notes_store",
+        .linkage = .dynamic,
+        .root_module = b.createModule(.{
+            .root_source_file = b.path("src/c_api.zig"),
+            .target = target,
+            .optimize = optimize,
+            .link_libc = true,
+            .imports = &.{ .{ .name = "json", .module = json }, .{ .name = "sys", .module = sys } },
+        }),
+    });
+    b.installArtifact(library);
 }
