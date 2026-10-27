@@ -782,12 +782,18 @@ def build(args, log=None):
     head = {"abstain_line": args.abstain_line, "framing": args.framing}
     ProxyStore(tok, config=config, **head)          # the settings are checked now, before any store is opened
     if many:
+        if getattr(args, "store_engine", "python") == "zig":
+            raise SystemExit("experimental --store-engine zig: multi-user adapter is not qualified yet")
         who = users.Users(args.users)
         users.make_room(len(who))                   # every user's open files fit
         notes = users.Owners(args.store_dir, tok, config=config, **head)
     else:
         who = None
-        notes = Notes(args.store, args.owner, tok, config=config, **head)
+        notes_class = Notes
+        if getattr(args, "store_engine", "python") == "zig":
+            from .native_notes import NativeNotes
+            notes_class = NativeNotes
+        notes = notes_class(args.store, args.owner, tok, config=config, **head)
     cfg = Config(args.upstream, args.owner, write=args.write, join_system=args.join_system, timeout=args.timeout,
                  allow_origins=args.allow_origin or (), local_only=not args.allow_remote, log=log,
                  upstream_key=upstream_key, isolate_cache=many and not args.share_upstream_cache)
@@ -805,6 +811,8 @@ def parser():
     p.add_argument("--upstream", required=True, help="the inference server's base URL, e.g. http://127.0.0.1:8080")
     p.add_argument("--owner", help="one owner: whose notes this proxy serves")
     p.add_argument("--store", help="one owner: the notes journal file (made if missing)")
+    p.add_argument("--store-engine", choices=("python", "zig"), default="python",
+                   help="experimental native store for new single-owner journals; Python remains default")
     p.add_argument("--users", help="many users: the users file (see add-user). Each request's key names its owner")
     p.add_argument("--store-dir", help="many users: the folder of their journals, NAME.jsonl each (made if missing)")
     p.add_argument("--upstream-key-env", metavar="NAME",
