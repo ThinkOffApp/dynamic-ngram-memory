@@ -1,8 +1,9 @@
 //! One owner's notes as LLWZ's NoteStore keeps them: a snapshot's, then the writes since. The index is built from it.
 const std = @import("std");
-const json = @import("../json.zig");
-const index = @import("index.zig");
+const json = @import("json");
+const index = @import("types.zig");
 const line_mod = @import("line.zig");
+const model_ix = @import("model_ix.zig");
 const Value = json.Value;
 const Allocator = std.mem.Allocator;
 
@@ -88,6 +89,7 @@ pub const Model = struct {
     arena: std.heap.ArenaAllocator, // what never changes: the vocabulary, the head and titles
     settings: index.Settings,
     takeback: line_mod.Takeback,
+    unknown_rule: bool,
     head: []const u8,
     cur_title: []const u8,
     hist_title: []const u8,
@@ -100,10 +102,12 @@ pub const Model = struct {
     pairs: std.ArrayList(Pair) = .empty,
     phrases: std.ArrayList(Phrase) = .empty,
     notes: std.ArrayList(Note) = .empty, // by id, ascending
+    id_floor: u32 = 1, // persisted high-water mark: an erased id is never assigned again
     base_notes: usize = 0, // the snapshot's notes come first
     told_last: i64 = 0,
     grams_current: u32 = 0, // the snapshot's own n-gram counts, which Index.load checks
     grams_history: u32 = 0,
+    ix: model_ix.Ix = .{}, // names, pairs, sources and current facts' normal forms: a write's lookups (model_ix.zig)
 
     pub fn deinit(m: *Model) void {
         const g = m.gpa;
@@ -113,6 +117,7 @@ pub const Model = struct {
 
     pub fn freeNote(g: Allocator, n: *Note) void {
         // A write installs cleanup before allocating the body and line. Do
+
         // not evaluate their undefined pointers until ownership exists.
         if (n.n_tokens != 0 or n.text_len != 0 or n.source_len != 0) g.free(n.bodyBlock());
         if (n.line_len != 0) g.free(n.line());
@@ -132,28 +137,41 @@ pub const Model = struct {
     }
 
     pub fn nextId(m: *const Model) u32 {
-        return if (m.notes.items.len == 0) 1 else m.notes.items[m.notes.items.len - 1].id + 1;
+        return @max(m.id_floor, if (m.notes.items.len == 0) 1 else m.notes.items[m.notes.items.len - 1].id +| 1);
     }
 
+    /// The first entity with this name.
     pub fn entityOf(m: *const Model, name: []const u8) ?u32 {
-        for (m.entities.items, 0..) |e, k| if (std.mem.eql(u8, e, name)) return @intCast(k);
-        return null;
+        return m.ix.entity.get(name);
     }
 
     pub fn attributeOf(m: *const Model, name: []const u8) ?u32 {
-        for (m.attributes.items, 0..) |x, k| if (std.mem.eql(u8, x, name)) return @intCast(k);
-        return null;
+        return m.ix.attribute.get(name);
     }
 
     pub fn pairOf(m: *const Model, entity: u32, attribute: u32) ?u32 {
-        for (m.pairs.items, 0..) |p, k| if (p.entity == entity and p.attribute == attribute) return @intCast(k);
-        return null;
+        return m.ix.pair.get(model_ix.Ix.pairKey(entity, attribute));
     }
 
     /// The place of the note a write made, by its source.
     pub fn placeOfSource(m: *const Model, source: []const u8) ?u32 {
-        for (m.notes.items[m.base_notes..], m.base_notes..) |*n, k| if (n.source()) |s| if (std.mem.eql(u8, s, source)) return @intCast(k);
-        return null;
+        return m.ix.source.get(source);
+    }
+
+    /// The lookups made from the lists, as a parse ends (a write keeps them up to date: write.zig).
+    fn indexAll(m: *Model) LoadError!void {
+        const g = m.gpa;
+        const x = &m.ix;
+        for (m.entities.items, 0..) |e, k| try model_ix.Ix.putName(&x.entity, g, e, @intCast(k));
+        for (m.attributes.items, 0..) |e, k| try model_ix.Ix.putName(&x.attribute, g, e, @intCast(k));
+        for (m.pairs.items, 0..) |p, k| {
+            const r = try x.pair.getOrPut(g, model_ix.Ix.pairKey(p.entity, p.attribute));
+            if (!r.found_existing) r.value_ptr.* = @intCast(k);
+        }
+        for (m.notes.items, 0..) |*n, k| {
+            if (n.source()) |s| try model_ix.Ix.putName(&x.source, g, s, @intCast(k));
+            if (n.state == .current and n.kind == .fact) try x.addFact(g, try model_ix.factKeyOf(g, n.entity, n.text()), @intCast(k));
+        }
     }
 
     pub fn keyOf(m: *const Model, t: u32) u32 {
@@ -202,11 +220,13 @@ pub fn parse(gpa: Allocator, text: []const u8) LoadError!*Model {
     if (vocab.get("dense")) |d| if (d.truthy()) return error.Unsupported; // a stand-in tokenizer's own numbering
     const m = try gpa.create(Model);
     errdefer gpa.destroy(m);
-    m.* = .{ .gpa = gpa, .arena = std.heap.ArenaAllocator.init(gpa), .settings = undefined, .takeback = .plain, .head = "", .cur_title = "", .hist_title = "", .fixed = undefined, .tokenizer_sha256 = "", .vkey = &.{}, .vwordy = &.{} };
+    m.* = .{ .gpa = gpa, .arena = std.heap.ArenaAllocator.init(gpa), .settings = undefined, .takeback = .plain, .unknown_rule = false, .head = "", .cur_title = "", .hist_title = "", .fixed = undefined, .tokenizer_sha256 = "", .vkey = &.{}, .vwordy = &.{} };
     errdefer deinitLists(m);
     const a = m.arena.allocator();
     try readSettings(m, try need(s, "settings"));
     m.head = try a.dupe(u8, try str(s, "head"));
+    // Python already joined UNKNOWN_RULE into head; a true flag without that sentence is a broken snap
+    if (m.unknown_rule and std.mem.indexOf(u8, m.head, line_mod.unknown_rule) == null) return error.BadSnapshot;
     m.cur_title = try a.dupe(u8, try str(s, "cur_title"));
     m.hist_title = try a.dupe(u8, try str(s, "hist_title"));
     const fixed = try need(s, "fixed");
@@ -236,6 +256,7 @@ pub fn parse(gpa: Allocator, text: []const u8) LoadError!*Model {
     m.grams_history = try uint(grams, "history");
     m.base_notes = m.notes.items.len;
     try m.trim(); // the entity and attribute names grew one at a time
+    try m.indexAll(); // after trim: the maps' keys are the names themselves, which trim never moves
     return m;
 }
 
@@ -252,6 +273,7 @@ fn deinitLists(m: *Model) void {
     m.pairs.deinit(g);
     for (m.phrases.items) |p| g.free(p.keys);
     m.phrases.deinit(g);
+    m.ix.deinit(g);
     m.arena.deinit();
 }
 
@@ -284,6 +306,11 @@ fn readSettings(m: *Model, js: Value) LoadError!void {
     // a snapshot from before the take-back setting reads as "plain", the wording it always had
     const tb = js.strField("takeback") orelse "plain";
     m.takeback = if (std.mem.eql(u8, tb, "plain")) .plain else if (std.mem.eql(u8, tb, "explicit")) .explicit else return error.BadSnapshot;
+    // a snapshot from before the unknown-rule setting reads as false; Python already joined UNKNOWN_RULE into head
+    m.unknown_rule = false;
+    if (js.get("unknown_rule")) |u| {
+        if (u == .null) {} else if (u == .bool) m.unknown_rule = u.bool else return error.BadSnapshot;
+    }
 }
 
 /// The notes, by ascending id; each line must be one line() gives for its state and kind.

@@ -1,6 +1,6 @@
 //! A note's line as LLWZ's NoteStore.line() renders it (zengine/notes.py): its id, its text quoted, and its label.
 const std = @import("std");
-const json = @import("../json.zig");
+const json = @import("json");
 const Allocator = std.mem.Allocator;
 
 /// lwlogic.TPD: ticks per day; a day's first tick is its ordinal (0001-01-01 is 1) times this.
@@ -16,6 +16,9 @@ pub fn takebackWords(t: Takeback, multi: bool) []const u8 {
         .explicit => if (multi) "a take-back of this one item only: it no longer holds, and the other notes still do" else "a take-back: the earlier value no longer holds and no new one was given, so it is not known now",
     };
 }
+
+/// notes.UNKNOWN_RULE: joined to the block's head when the snapshot's unknown_rule is true.
+pub const unknown_rule = "When the notes leave a fact about the user open, or do not mention it, say you do not know; do not guess.";
 
 /// What follows a note's quoted text: nothing (a current fact), a take-back's words, or what retired it.
 pub const Label = union(enum) {
@@ -201,4 +204,28 @@ test "a line renders as Python's and reads back" {
     try std.testing.expectError(error.BadLine, parse(a, 3, "[2] \"x\"", .plain));
     try std.testing.expectError(error.BadLine, parse(a, 2, "[2] \"x\" (something else)", .plain));
     try std.testing.expectError(error.BadLine, parse(a, 2, "[2] \"\\u00e9\"", .plain)); // json.dumps keeps é raw
+}
+
+test "explicit take-back labels match Python's TAKEBACK and read back" {
+    const a = std.testing.allocator;
+    const one = "a take-back: the earlier value no longer holds and no new one was given, so it is not known now";
+    const many = "a take-back of this one item only: it no longer holds, and the other notes still do";
+    const cases = [_]struct { id: u32, text: []const u8, multi: bool, want: []const u8 }{
+        .{ .id = 2, .text = "My favourite colour is no longer green.", .multi = false, .want = "[2] \"My favourite colour is no longer green.\" (a take-back: the earlier value no longer holds and no new one was given, so it is not known now)" },
+        .{ .id = 5, .text = "I no longer like cheese.", .multi = true, .want = "[5] \"I no longer like cheese.\" (a take-back of this one item only: it no longer holds, and the other notes still do)" },
+    };
+    for (cases) |c| {
+        const got = try render(a, c.id, c.text, .{ .takeback = c.multi }, .explicit);
+        defer a.free(got);
+        try std.testing.expectEqualStrings(c.want, got);
+        const back = try parse(a, c.id, got, .explicit);
+        defer a.free(back.text);
+        try std.testing.expectEqualStrings(c.text, back.text);
+        try std.testing.expectEqual(back.kind, .takeback);
+        try std.testing.expectEqual(c.multi, back.multi);
+        try std.testing.expectError(error.BadLine, parse(a, c.id, got, .plain)); // plain does not accept the explicit words
+    }
+    try std.testing.expectEqualStrings(one, takebackWords(.explicit, false));
+    try std.testing.expectEqualStrings(many, takebackWords(.explicit, true));
+    try std.testing.expectEqualStrings(unknown_rule, "When the notes leave a fact about the user open, or do not mention it, say you do not know; do not guess.");
 }

@@ -1,16 +1,21 @@
 //! A journal rewrite's temporary file: a second server never touches it, and a planted link never redirects it.
 const std = @import("std");
-const rig = @import("notes_rig_test.zig");
-const ops = @import("notes_ops.zig");
+const platform = @import("sys");
+const rig = @import("notes_storage_rig_test.zig");
+const ops = @import("notes/operations.zig");
 const journal_mod = @import("notes/journal.zig");
 const tmp_file = @import("notes/journal_tmp.zig");
 const write = @import("notes/write.zig");
+const erase = @import("notes/erase_storage.zig");
 const testing = std.testing;
 
 fn add(r: *rig.Rig, a: std.mem.Allocator, text: []const u8) !u32 {
     var why: ops.Refusal = .{};
-    const w = try ops.perform(r.store(), a, .{ .op = .add, .text = text }, &why);
-    return w.note.?.id;
+    var pending = try ops.prepare(r.store(), a, .{ .op = .add, .text = text }, 739900000000, &why);
+    defer pending.deinit();
+    const id = pending.reply.note.?.id;
+    try pending.commit(a, &why);
+    return id;
 }
 
 /// What the second process saw, written by the first once the child exited.
@@ -48,6 +53,7 @@ const Second = struct {
 };
 
 test "a second server (another process) starting mid-rewrite is refused as Locked and leaves the first's temp" {
+    if (platform.windows) return error.SkipZigTest; // fork is POSIX-only
     const r = try rig.Rig.init(testing.allocator);
     defer r.deinit();
     var arena = std.heap.ArenaAllocator.init(testing.allocator);
@@ -60,8 +66,7 @@ test "a second server (another process) starting mid-rewrite is refused as Locke
     var second: Second = .{ .journal = path };
     r.store().journal.?.hook = Second.hook;
     r.store().journal.?.hook_ctx = &second;
-    var why: ops.Refusal = .{};
-    _ = try ops.erase(r.store(), a, gone, &why); // fails (a 500) if its rename finds its temp gone
+    try eraseOne(r, a, gone); // fails (a 500) if its rename finds its temp gone
     r.store().journal.?.hook = null;
     try testing.expect(second.temp_seen);
     try testing.expectEqual(@as(c_int, 10), second.status);
@@ -72,6 +77,7 @@ test "a second server (another process) starting mid-rewrite is refused as Locke
 }
 
 test "a symlink or hardlink planted at the old temp name and at every name a rewrite tries changes no other file" {
+    if (platform.windows) return error.SkipZigTest; // Windows symlinks need privilege; hardlink identity tested separately
     const r = try rig.Rig.init(testing.allocator);
     defer r.deinit();
     var arena = std.heap.ArenaAllocator.init(testing.allocator);
@@ -95,8 +101,7 @@ test "a symlink or hardlink planted at the old temp name and at every name a rew
         const name = try std.fmt.allocPrintSentinel(a, "{s}.tmp.{d}.{d}.{x:0>16}", .{ journal, std.c.getpid(), first + k, @as(u64, 0) }, 0);
         try testing.expectEqual(@as(c_int, 0), if (k % 2 == 0) std.c.symlink(sb, name) else std.c.link(sb, name));
     }
-    var why: ops.Refusal = .{};
-    _ = try ops.erase(r.store(), a, gone, &why);
+    try eraseOne(r, a, gone);
     try testing.expect(std.mem.indexOf(u8, try r.journal(a), "Oslo") == null);
     try testing.expectEqualStrings("SENTINEL A: must not change", try r.tmp.dir.readFileAlloc(testing.io, "sentinel-a", a, .unlimited));
     try testing.expectEqualStrings("SENTINEL B: must not change", try r.tmp.dir.readFileAlloc(testing.io, "sentinel-b", a, .unlimited));
@@ -108,15 +113,17 @@ test "a symlink or hardlink planted at the old temp name and at every name a rew
 }
 
 test "a rewrite that fails before its rename removes its own temp file (known by device and inode), nothing else" {
-    for (rig.kinds) |k| {
-        errdefer std.debug.print("index {s}, side buffer {d}\n", .{ @tagName(k.kind), k.side_max });
-        try rewriteFails(k);
-    }
+    try rewriteFails();
 }
 
-/// The erase refused with each index kind: the journal, the notes and the version lookups read all as before.
-fn rewriteFails(k: rig.Kind) !void {
-    const r = try rig.Rig.initWith(testing.allocator, k);
+fn eraseOne(r: *rig.Rig, a: std.mem.Allocator, id: u32) !void {
+    var p = try erase.prepare(r.store(), a, id);
+    defer p.deinit();
+    try p.commit(a);
+}
+
+fn rewriteFails() !void {
+    const r = try rig.Rig.init(testing.allocator);
     defer r.deinit();
     var arena = std.heap.ArenaAllocator.init(testing.allocator);
     defer arena.deinit();
@@ -124,15 +131,88 @@ fn rewriteFails(k: rig.Kind) !void {
     _ = try add(r, a, "My favourite colour is green.");
     const gone = try add(r, a, "I live in Oslo.");
     const before = try r.journal(a);
-    const ver = r.store().current;
+    const before_model = r.store().model;
     var faults: journal_mod.Faults = .{};
     r.store().journal.?.faults = &faults;
     faults.sync = faults.syncs; // the new file's sync, before the rename
-    var why: ops.Refusal = .{};
-    try testing.expectError(error.Refused, ops.erase(r.store(), a, gone, &why));
-    try testing.expectEqualStrings("the journal could not be rewritten without the note; nothing was erased", why.message);
+    try testing.expectError(error.JournalIo, eraseOne(r, a, gone));
     try testing.expectEqualStrings(before, try r.journal(a));
-    try testing.expect(r.store().current == ver and r.store().model.placeOf(gone) != null); // nothing swapped in
+    try testing.expect(r.store().model == before_model and r.store().model.placeOf(gone) != null); // nothing swapped in
     var it = r.tmp.dir.iterate();
     while (try it.next(testing.io)) |e| try testing.expect(std.mem.indexOf(u8, e.name, ".tmp") == null); // no temp left
+}
+
+test "a replacement hardlink has a different identity and removeOwn leaves its file intact" {
+    var tmp = testing.tmpDir(.{});
+    defer tmp.cleanup();
+    var arena = std.heap.ArenaAllocator.init(testing.allocator);
+    defer arena.deinit();
+    const a = arena.allocator();
+    const dir = try tmp.dir.realPathFileAlloc(testing.io, ".", a);
+    const journal = try std.fs.path.join(a, &.{ dir, "notes.journal" });
+    const t = try tmp_file.create(a, journal);
+    const original = try std.fmt.allocPrintSentinel(a, "{s}.original", .{t.path}, 0);
+    try testing.expectEqual(@as(c_int, 0), platform.c.rename(t.path, original));
+    const sentinel = try std.fmt.allocPrintSentinel(a, "{s}/sentinel", .{dir}, 0);
+    try tmp.dir.writeFile(testing.io, .{ .sub_path = "sentinel", .data = "KEEP" });
+    try testing.expectEqual(@as(c_int, 0), platform.c.link(sentinel, t.path));
+    const replaced = tmp_file.idOf(-1, t.path) orelse return error.NoIdentity;
+    try testing.expect(replaced.dev != t.dev or replaced.ino != t.ino);
+    const same = tmp_file.idOf(-1, sentinel) orelse return error.NoIdentity;
+    try testing.expectEqual(same.dev, replaced.dev);
+    try testing.expectEqual(same.ino, replaced.ino);
+    tmp_file.removeOwn(t);
+    try testing.expect(tmp_file.idOf(-1, t.path) != null);
+    try testing.expectEqualStrings("KEEP", try tmp.dir.readFileAlloc(testing.io, "sentinel", a, .unlimited));
+}
+
+test "journal replacement: old readers stay valid and the stable writer lock stays held" {
+    const r = try rig.Rig.init(testing.allocator);
+    defer r.deinit();
+    var arena = std.heap.ArenaAllocator.init(testing.allocator);
+    defer arena.deinit();
+    const a = arena.allocator();
+    _ = try add(r, a, "My favourite colour is green.");
+    const gone = try add(r, a, "I live in Oslo.");
+    const before = try r.journal(a);
+    const path = try a.dupeSentinel(u8, r.path, 0);
+    const old = platform.c.open(path, .{ .ACCMODE = .RDONLY }, @as(platform.c.mode_t, 0));
+    if (old < 0) return error.TestFile;
+    defer _ = platform.c.close(old);
+    const id = tmp_file.idOf(old, "") orelse return error.NoIdentity;
+    const Probe = struct {
+        path: []const u8,
+        sha: [64]u8,
+        refused: bool = false,
+        temp_intact: bool = false,
+        fn hook(ctx: *anyopaque, temp: [:0]const u8) void {
+            const p: *@This() = @ptrCast(@alignCast(ctx));
+            var scratch = std.heap.ArenaAllocator.init(testing.allocator);
+            defer scratch.deinit();
+            var records: std.ArrayList(write.Record) = .empty;
+            var problem: []const u8 = "";
+            if (journal_mod.Journal.open(testing.allocator, scratch.allocator(), p.path, p.sha, &records, &problem)) |j| {
+                var unexpected = j;
+                unexpected.deinit();
+            } else |e| p.refused = e == error.Locked;
+            p.temp_intact = tmp_file.idOf(-1, temp) != null;
+        }
+    };
+    var probe: Probe = .{ .path = r.path, .sha = r.store().journal.?.snapshot_sha };
+    r.store().journal.?.hook = Probe.hook;
+    r.store().journal.?.hook_ctx = &probe;
+    defer r.store().journal.?.hook = null;
+    try eraseOne(r, a, gone);
+    try testing.expect(probe.refused and probe.temp_intact);
+    const current = tmp_file.idOf(r.store().journal.?.fd, "") orelse return error.NoIdentity;
+    try testing.expect(id.dev != current.dev or id.ino != current.ino);
+    const old_bytes = try a.alloc(u8, before.len);
+    var at: usize = 0;
+    while (at < old_bytes.len) {
+        const n = platform.c.pread(old, old_bytes[at..].ptr, old_bytes.len - at, @intCast(at));
+        if (n <= 0) return error.Read;
+        at += @intCast(n);
+    }
+    try testing.expectEqualStrings(before, old_bytes);
+    try testing.expect(std.mem.indexOf(u8, try r.journal(a), "Oslo") == null);
 }

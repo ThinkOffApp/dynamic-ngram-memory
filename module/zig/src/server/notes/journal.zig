@@ -1,18 +1,21 @@
 //! The notes' journal next to the snapshot: each write one JSON line, on disk before its reply, replayed at startup.
 const std = @import("std");
+const libc = @import("sys").c;
 const builtin = @import("builtin");
-const json = @import("../json.zig");
+const json = @import("json");
 const write = @import("write.zig");
+const intent = @import("erase_intent.zig");
 const tmp_file = @import("journal_tmp.zig");
+const file = @import("journal_file.zig");
 const Record = write.Record;
 const Value = json.Value;
 const Allocator = std.mem.Allocator;
-
-pub const format = "tf-notes-journal/2";
-/// The first format: no commit lines, every whole line a write (read, then rewritten as format 2, at open).
+pub const format = "tf-notes-journal/3";
+pub const format_v2 = "tf-notes-journal/2";
+/// The first format: no commit lines, every whole line a write (read, then rewritten as format 3, at open).
 pub const format_v1 = "tf-notes-journal/1";
 
-pub const OpenError = error{ OutOfMemory, JournalIo, BadJournal, OtherSnapshot, Locked };
+pub const OpenError = error{ OutOfMemory, JournalIo, BadJournal, OtherSnapshot, Locked, UnsafeJournal, JournalTooLarge };
 pub const IoError = error{ OutOfMemory, JournalIo };
 /// JournalPoisoned: an append failed and so did putting the file back; it may hold part of a record until a restart.
 pub const AppendError = IoError || error{JournalPoisoned};
@@ -26,7 +29,7 @@ pub const Faults = struct {
     sync: ?u32 = null,
     dir: ?u32 = null,
     full: ?u32 = null, // this F_FULLFSYNC returns `full_errno`, and fullSync's fallback rule decides
-    full_errno: std.c.E = .IO,
+    full_errno: libc.E = .IO,
     writes: u32 = 0,
     truncates: u32 = 0,
     syncs: u32 = 0,
@@ -43,6 +46,20 @@ pub const Faults = struct {
 
 /// Tests only: the faults every journal opened from now on starts with (its cut and its format-1 rewrite at open).
 pub var faults_at_open: ?*Faults = null;
+/// Tests only: the journal size open refuses past (limits.journal_bytes otherwise).
+pub var read_limit: u64 = @import("limits.zig").journal_bytes;
+
+/// One server start's writer flags, a journal line: older notes prove "off" from these, not from today's flags.
+pub const Run = struct {
+    learn: bool = false,
+    recall: ?bool = false, // null on older manifests: historical recall is unknown
+
+    compact_memory: []const u8 = "", // empty: compaction was off
+    request_log: []const u8 = "", // empty: the request log was off
+    slide: bool = false,
+    pocket: bool = false, // a Sliding Weights pocket existed (graph facts or saved pocket rows)
+    next_source: u64 = 1, // the first source this start would assign
+};
 
 /// One snapshot's journal: its path, the open file (after the first write or a replay), and its size.
 pub const Journal = struct {
@@ -50,19 +67,28 @@ pub const Journal = struct {
     path: [:0]u8,
     snapshot_sha: [64]u8,
     fd: c_int = -1,
+    lock_fd: c_int = -1,
+    next_id: u32 = 1,
     size: u64 = 0,
     truncated: u64 = 0, // bytes of a torn last line cut at open
     next_source: u64 = 1, // the header's: an erase rewrites it, so an erased write's source is never used again
     stale: usize = 0, // temporary files of a rewrite that died before its rename, removed at open (lock held)
     hook: ?*const fn (ctx: *anyopaque, tmp: [:0]const u8) void = null, // tests: between a rewrite's sync and rename
     faults: ?*Faults = null, // tests: a write, truncate, sync, folder sync or F_FULLFSYNC made to fail
-    poisoned: bool = false, // the disk's state is not known (a failed rollback, an unsynced rename): writes stop
+    poisoned: bool = false, // writes stop: a failed rollback, an unsynced rename, or a start whose run line did not persist
     doubt: bool = false, // with poisoned: the failed append's commit line was written, so a restart may apply it
-    upgraded: bool = false, // the journal was format 1 and was rewritten as format 2 at open
+    upgraded: bool = false, // the journal was an older format and was rewritten as format 3 at open
     hook_ctx: *anyopaque = undefined,
+    erases: std.ArrayList(intent.Intent) = .empty,
+    runs: std.ArrayList(Run) = .empty, // start manifests; strings owned by gpa
 
     pub fn deinit(j: *Journal) void {
-        if (j.fd >= 0) _ = std.c.close(j.fd);
+        if (j.fd >= 0) _ = libc.close(j.fd);
+        if (j.lock_fd >= 0) _ = libc.close(j.lock_fd);
+        for (j.erases.items) |i| i.deinit(j.gpa);
+        j.erases.deinit(j.gpa);
+        for (j.runs.items) |r| freeRun(j.gpa, r);
+        j.runs.deinit(j.gpa);
         j.gpa.free(j.path);
     }
 
@@ -70,31 +96,61 @@ pub const Journal = struct {
     pub fn open(gpa: Allocator, a: Allocator, path: []const u8, snapshot_sha: [64]u8, records: *std.ArrayList(Record), problem: *[]const u8) OpenError!Journal {
         var j: Journal = .{ .gpa = gpa, .path = try gpa.dupeSentinel(u8, path, 0), .snapshot_sha = snapshot_sha, .faults = faults_at_open };
         errdefer j.deinit();
-        const fd = std.c.open(j.path, .{ .ACCMODE = .RDWR, .NOFOLLOW = true, .CLOEXEC = true }, @as(std.c.mode_t, 0o600));
+        const lock_path = try std.fmt.allocPrintSentinel(a, "{s}.lock", .{path}, 0);
+        defer a.free(lock_path);
+        j.lock_fd = libc.open(lock_path, .{ .ACCMODE = .RDWR, .CREAT = true, .NOFOLLOW = true, .CLOEXEC = true }, @as(libc.mode_t, 0o600));
+        if (j.lock_fd < 0) return error.JournalIo;
+        if (file.unsafe(j.lock_fd, lock_path)) |why| return unsafeFile(problem, why);
+        if (libc.flock(j.lock_fd, libc.LOCK.EX | libc.LOCK.NB) != 0) {
+            problem.* = "another process holds the notes journal: one server per snapshot";
+            return error.Locked;
+        }
+        const fd = libc.open(j.path, .{ .ACCMODE = .RDWR, .NOFOLLOW = true, .CLOEXEC = true }, @as(libc.mode_t, 0o600));
         if (fd < 0) {
-            if (std.c.errno(fd) == .NOENT) return j; // no write yet: the file comes with the first one
+            if (libc.errno(fd) == .NOENT) return j; // no write yet: the file comes with the first one
             problem.* = "the notes journal exists but cannot be opened for reading and writing";
             return error.JournalIo;
         }
         j.fd = fd;
-        if (std.c.flock(fd, std.c.LOCK.EX | std.c.LOCK.NB) != 0) {
+        if (file.unsafe(fd, j.path)) |why| return unsafeFile(problem, why);
+        if (!tmp_file.lockData(fd)) {
             problem.* = "another process holds the notes journal: one server per snapshot";
             return error.Locked;
         }
         // ours now: a temporary file left by a rewrite that never reached its rename is stale (the journal holds all)
         j.stale = try tmp_file.cleanStale(a, path);
-        const text = try readAll(a, fd, problem); // in `a`: the records' strings are slices of it
+        const text = try file.readAll(a, fd, read_limit, problem); // in `a`: the records' strings are slices of it
         const head_end = (std.mem.indexOfScalar(u8, text, '\n') orelse {
             problem.* = "the notes journal has no whole header line";
             return error.BadJournal;
         }) + 1;
         const v = try checkHeader(a, text[0 .. head_end - 1], snapshot_sha, problem);
         j.next_source = v.next_source;
+        j.next_id = v.next_id;
+        const parsed_head = (try json.parse(a, text[0 .. head_end - 1])).ok;
+        if (parsed_head.get("erase_intents")) |ev| {
+            const items = ev.items() orelse return error.BadJournal;
+            for (items) |x| {
+                const owned = try (try intent.decode(a, x)).dupe(gpa);
+                j.erases.append(gpa, owned) catch {
+                    owned.deinit(gpa);
+                    return error.OutOfMemory;
+                };
+            }
+        }
         // a write counts only with its commit line after it; without one (never answered as stored) it is cut, unread
         var good = head_end;
         var pos = head_end;
         while (pos < text.len) {
             const nl = std.mem.indexOfScalarPos(u8, text, pos, '\n') orelse break; // a torn last line
+            if (try readRun(a, text[pos..nl], problem)) |run| {
+                const owned = try dupeRun(j.gpa, run);
+                errdefer freeRun(j.gpa, owned);
+                try j.runs.append(j.gpa, owned);
+                pos = nl + 1;
+                good = pos;
+                continue;
+            }
             const r = try readRecord(a, text[pos..nl], problem);
             if (v.version == 1) {
                 try records.append(a, r);
@@ -119,12 +175,12 @@ pub const Journal = struct {
             }
         }
         j.size = good;
-        if (v.version == 1) {
-            // format 1 had no commit lines: written anew, under the lock, by the temporary-file rules
+        if (v.version < 3) {
+            // Older formats are rewritten under the lock before stable record identities are persisted.
             j.rewrite(a, records.items, j.next_source) catch |e| {
                 problem.* = switch (e) {
                     error.OutOfMemory => return error.OutOfMemory,
-                    error.JournalIo => "the notes journal (format 1) could not be rewritten as format 2; nothing changed",
+                    error.JournalIo => "the notes journal (older format) could not be rewritten as format 3; nothing changed",
                     error.RenamedUnsynced => upgrade_unsynced, // the start stops either way
                 };
                 return error.JournalIo;
@@ -132,6 +188,32 @@ pub const Journal = struct {
             j.upgraded = true;
         }
         return j;
+    }
+
+    /// Persist start flags now or at create(); failure poisons writes so every note has a recorded start.
+    pub fn addRun(j: *Journal, a: Allocator, run: Run) void {
+        const owned = dupeRun(j.gpa, run) catch {
+            j.poisoned = true;
+            return;
+        };
+        j.runs.append(j.gpa, owned) catch {
+            freeRun(j.gpa, owned);
+            j.poisoned = true;
+            return;
+        };
+        if (j.fd < 0) return;
+        const line = encodeRun(a, owned) catch {
+            j.poisoned = true;
+            return;
+        };
+        defer a.free(line);
+        if (j.put(line, j.size) and j.sync()) {
+            j.size += line.len;
+            return;
+        }
+        _ = j.cut(j.size);
+        _ = j.sync();
+        j.poisoned = true;
     }
 
     /// Appends one record, then its commit line, each synced by fullSync; on any failure the file is cut back.
@@ -170,7 +252,7 @@ pub const Journal = struct {
 
     fn cut(j: *Journal, len: u64) bool {
         if (j.faults) |f| if (Faults.hit(f.truncate, &f.truncates)) return false;
-        return std.c.ftruncate(j.fd, @intCast(len)) == 0;
+        return libc.ftruncate(j.fd, @intCast(len)) == 0;
     }
 
     fn sync(j: *Journal) bool {
@@ -190,9 +272,9 @@ pub const Journal = struct {
         if (dir.len >= buf.len) return false;
         @memcpy(buf[0..dir.len], dir);
         buf[dir.len] = 0;
-        const fd = std.c.open(@ptrCast(&buf), .{ .ACCMODE = .RDONLY, .DIRECTORY = true, .CLOEXEC = true });
+        const fd = libc.open(@ptrCast(&buf), .{ .ACCMODE = .RDONLY, .DIRECTORY = true, .CLOEXEC = true });
         if (fd < 0) return false;
-        defer _ = std.c.close(fd);
+        defer _ = libc.close(fd);
         return fullSync(fd, j.faults);
     }
 
@@ -203,11 +285,12 @@ pub const Journal = struct {
         var ok = false;
         defer if (!ok) tmp_file.removeOwn(t);
         const fd = t.fd;
-        const head = try header(a, j.snapshot_sha, next_source);
+        const head = try j.header(a, next_source);
         defer a.free(head);
         var size: u64 = 0;
         if (!writeAll(fd, head, size)) return error.JournalIo;
         size += head.len;
+        size += try writeRuns(j, a, fd, size);
         for (records) |r| {
             const line = try encode(a, r);
             defer a.free(line);
@@ -217,13 +300,13 @@ pub const Journal = struct {
             size += line.len + mark.len;
         }
         if (!j.syncFile(fd)) return error.JournalIo;
-        if (std.c.flock(fd, std.c.LOCK.EX | std.c.LOCK.NB) != 0) return error.JournalIo;
+        if (!tmp_file.lockData(fd)) return error.JournalIo;
         if (j.hook) |h| h(j.hook_ctx, t.path);
         // up to here a failure leaves the old journal as it was: nothing changed (rename either happens or not)
-        if (std.c.rename(t.path, j.path) != 0) return error.JournalIo;
+        if (libc.rename(t.path, j.path) != 0) return error.JournalIo;
         ok = true;
         // the path names the new file now; until its folder is synced a power cut may bring back the old one
-        if (j.fd >= 0) _ = std.c.close(j.fd);
+        if (j.fd >= 0) _ = libc.close(j.fd);
         j.fd = fd;
         j.size = size;
         j.next_source = next_source;
@@ -233,29 +316,139 @@ pub const Journal = struct {
         }
     }
 
+    fn header(j: *Journal, a: Allocator, next_source: u64) Allocator.Error![]u8 {
+        var arena = std.heap.ArenaAllocator.init(a);
+        defer arena.deinit();
+        const intents = try intent.encode(arena.allocator(), j.erases.items);
+        return std.fmt.allocPrint(a, "{{\"format\":\"{s}\",\"snapshot_sha256\":\"{s}\",\"next_source\":{d},\"next_id\":{d},\"erase_intents\":{s}}}\n", .{ format, &j.snapshot_sha, next_source, j.next_id, intents });
+    }
+
     /// The file with its header, made at the first write.
     fn create(j: *Journal, a: Allocator) IoError!void {
-        const fd = std.c.open(j.path, .{ .ACCMODE = .RDWR, .CREAT = true, .EXCL = true, .NOFOLLOW = true, .CLOEXEC = true }, @as(std.c.mode_t, 0o600));
+        const head = try j.header(a, j.next_source);
+        defer a.free(head);
+        const fd = libc.open(j.path, .{ .ACCMODE = .RDWR, .CREAT = true, .EXCL = true, .NOFOLLOW = true, .CLOEXEC = true }, @as(libc.mode_t, 0o600));
         if (fd < 0) return error.JournalIo;
-        if (std.c.flock(fd, std.c.LOCK.EX | std.c.LOCK.NB) != 0) {
-            _ = std.c.close(fd);
+        if (!tmp_file.lockData(fd)) {
+            _ = libc.close(fd);
             return error.JournalIo;
         }
-        const head = try header(a, j.snapshot_sha, j.next_source);
-        defer a.free(head);
         // the header synced and the new name in the folder synced, or no journal (it holds no write yet)
-        if (!writeAll(fd, head, 0) or !j.syncFile(fd) or !j.syncDir()) {
-            _ = std.c.close(fd);
-            _ = std.c.unlink(j.path);
+        if (!writeAll(fd, head, 0)) {
+            _ = libc.close(fd);
+            _ = libc.unlink(j.path);
+            return error.JournalIo;
+        }
+        const extra = writeRuns(j, a, fd, head.len) catch {
+            _ = libc.close(fd);
+            _ = libc.unlink(j.path);
+            return error.JournalIo;
+        };
+        if (!j.syncFile(fd) or !j.syncDir()) {
+            _ = libc.close(fd);
+            _ = libc.unlink(j.path);
             return error.JournalIo;
         }
         j.fd = fd;
-        j.size = head.len;
+        j.size = head.len + extra;
     }
 };
 
-fn header(a: Allocator, sha: [64]u8, next_source: u64) Allocator.Error![]u8 {
-    return std.fmt.allocPrint(a, "{{\"format\":\"{s}\",\"snapshot_sha256\":\"{s}\",\"next_source\":{d}}}\n", .{ format, &sha, next_source });
+fn unsafeFile(problem: *[]const u8, why: []const u8) OpenError {
+    problem.* = why;
+    return error.UnsafeJournal;
+}
+
+fn writeRuns(j: *Journal, a: Allocator, fd: c_int, at: u64) IoError!u64 {
+    var size: u64 = 0;
+    for (j.runs.items) |r| {
+        const line = try encodeRun(a, r);
+        defer a.free(line);
+        if (!writeAll(fd, line, at + size)) return error.JournalIo;
+        size += line.len;
+    }
+    return size;
+}
+
+fn encodeRun(a: Allocator, r: Run) Allocator.Error![]u8 {
+    var out: std.ArrayList(u8) = .empty;
+    errdefer out.deinit(a);
+    try out.appendSlice(a, "{\"run\":{\"learn\":");
+    try out.appendSlice(a, if (r.learn) "true" else "false");
+    try out.appendSlice(a, ",\"recall\":");
+    try out.appendSlice(a, if (r.recall) |v| (if (v) "true" else "false") else "null");
+    try out.appendSlice(a, ",\"compact_memory\":");
+    if (r.compact_memory.len == 0) try out.appendSlice(a, "null") else try str(a, &out, r.compact_memory);
+    try out.appendSlice(a, ",\"request_log\":");
+    if (r.request_log.len == 0) try out.appendSlice(a, "null") else try str(a, &out, r.request_log);
+    try out.appendSlice(a, ",\"slide\":");
+    try out.appendSlice(a, if (r.slide) "true" else "false");
+    try out.appendSlice(a, ",\"pocket\":");
+    try out.appendSlice(a, if (r.pocket) "true" else "false");
+    try out.print(a, ",\"next_source\":{d}", .{r.next_source});
+    try out.appendSlice(a, "}}\n");
+    return out.toOwnedSlice(a);
+}
+
+fn readRun(a: Allocator, line: []const u8, problem: *[]const u8) OpenError!?Run {
+    const v = switch (try json.parse(a, line)) {
+        .ok => |x| x,
+        .err => return null,
+    };
+    const run = v.get("run") orelse return null;
+    if (run != .object) {
+        problem.* = "a run line in the notes journal is not a start manifest";
+        return error.BadJournal;
+    }
+    const next = (run.get("next_source") orelse {
+        problem.* = "a run line in the notes journal is not a start manifest";
+        return error.BadJournal;
+    }).int64() orelse {
+        problem.* = "a run line in the notes journal is not a start manifest";
+        return error.BadJournal;
+    };
+    return .{
+        .learn = try runFlag(run, "learn", problem),
+        .recall = if (run.get("recall")) |rv| (if (rv == .null) null else try runFlag(run, "recall", problem)) else null,
+        .compact_memory = try runPath(run, "compact_memory", problem),
+        .request_log = try runPath(run, "request_log", problem),
+        .slide = try runFlag(run, "slide", problem),
+        .pocket = try runFlag(run, "pocket", problem),
+        .next_source = @intCast(@max(next, 1)),
+    };
+}
+
+fn runFlag(obj: Value, key: []const u8, problem: *[]const u8) OpenError!bool {
+    const x = obj.get(key) orelse {
+        problem.* = "a run line in the notes journal is not a start manifest";
+        return error.BadJournal;
+    };
+    if (x == .bool) return x.bool;
+    problem.* = "a run line in the notes journal is not a start manifest";
+    return error.BadJournal;
+}
+
+fn runPath(obj: Value, key: []const u8, problem: *[]const u8) OpenError![]const u8 {
+    const x = obj.get(key) orelse {
+        problem.* = "a run line in the notes journal is not a start manifest";
+        return error.BadJournal;
+    };
+    if (x == .null) return "";
+    if (x == .string) return x.string;
+    problem.* = "a run line in the notes journal is not a start manifest";
+    return error.BadJournal;
+}
+
+fn dupeRun(g: Allocator, r: Run) Allocator.Error!Run {
+    const c = try g.dupe(u8, r.compact_memory);
+    errdefer g.free(c);
+    const l = try g.dupe(u8, r.request_log);
+    return .{ .learn = r.learn, .recall = r.recall, .compact_memory = c, .request_log = l, .slide = r.slide, .pocket = r.pocket, .next_source = r.next_source };
+}
+
+fn freeRun(g: Allocator, r: Run) void {
+    g.free(r.compact_memory);
+    g.free(r.request_log);
 }
 
 fn readRecord(a: Allocator, line: []const u8, problem: *[]const u8) OpenError!Record {
@@ -291,7 +484,7 @@ pub fn commitLine(a: Allocator, source: []const u8) Allocator.Error![]u8 {
     return out.toOwnedSlice(a);
 }
 
-const Header = struct { next_source: u64, version: u8 };
+const Header = struct { next_source: u64, next_id: u32, version: u8 };
 
 /// The header checked against the snapshot: its next_source and its format (1: no commit lines).
 fn checkHeader(a: Allocator, line: []const u8, sha: [64]u8, problem: *[]const u8) OpenError!Header {
@@ -303,7 +496,7 @@ fn checkHeader(a: Allocator, line: []const u8, sha: [64]u8, problem: *[]const u8
         },
     };
     const f = v.strField("format") orelse "";
-    const version: u8 = if (std.mem.eql(u8, f, format)) 2 else if (std.mem.eql(u8, f, format_v1)) 1 else {
+    const version: u8 = if (std.mem.eql(u8, f, format)) 3 else if (std.mem.eql(u8, f, format_v2)) 2 else if (std.mem.eql(u8, f, format_v1)) 1 else {
         problem.* = "the notes journal's header names another format";
         return error.BadJournal;
     };
@@ -312,7 +505,8 @@ fn checkHeader(a: Allocator, line: []const u8, sha: [64]u8, problem: *[]const u8
         return error.OtherSnapshot;
     }
     const next = if (v.get("next_source")) |n| n.int64() orelse 1 else 1;
-    return .{ .next_source = @intCast(@max(next, 1)), .version = version };
+    const next_id = if (v.get("next_id")) |n| std.math.cast(u32, n.int64() orelse return error.BadJournal) orelse return error.BadJournal else 1;
+    return .{ .next_source = @intCast(@max(next, 1)), .next_id = @max(next_id, 1), .version = version };
 }
 
 /// A record as one journal line: fixed keys, the text as UTF-8 (not escaped), a newline.
@@ -321,7 +515,7 @@ pub fn encode(a: Allocator, r: Record) Allocator.Error![]u8 {
     errdefer out.deinit(a);
     try out.print(a, "{{\"op\":\"{s}\",\"source\":", .{@tagName(r.op)});
     try str(a, &out, r.source);
-    try out.print(a, ",\"told\":{d},\"subject\":", .{r.told});
+    try out.print(a, ",\"id\":{d},\"told\":{d},\"subject\":", .{ r.id, r.told });
     try str(a, &out, r.subject);
     try out.appendSlice(a, ",\"attribute\":");
     try str(a, &out, r.attribute);
@@ -359,31 +553,14 @@ pub fn decode(v: Value) ?Record {
     if ((op == .add) != (target == .none)) return null;
     const source = v.strField("source") orelse return null;
     if (source.len == 0 or source.len > std.math.maxInt(u16)) return null; // a note keeps its source's length in 16 bits; none is 0
-    return .{ .op = op, .source = source, .told = told, .subject = v.strField("subject") orelse return null, .attribute = v.strField("attribute") orelse return null, .target = target, .text = v.strField("text") orelse return null };
-}
-
-fn readAll(gpa: Allocator, fd: c_int, problem: *[]const u8) OpenError![]u8 {
-    var out: std.ArrayList(u8) = .empty;
-    errdefer out.deinit(gpa);
-    var buf: [65536]u8 = undefined;
-    var at: i64 = 0;
-    while (true) {
-        const n = std.c.pread(fd, &buf, buf.len, at);
-        if (n < 0) {
-            problem.* = "the notes journal cannot be read";
-            return error.JournalIo;
-        }
-        if (n == 0) break;
-        try out.appendSlice(gpa, buf[0..@intCast(n)]);
-        at += n;
-    }
-    return out.toOwnedSlice(gpa);
+    const id = if (v.get("id")) |n| std.math.cast(u32, n.int64() orelse return null) orelse return null else 0;
+    return .{ .op = op, .id = id, .source = source, .told = told, .subject = v.strField("subject") orelse return null, .attribute = v.strField("attribute") orelse return null, .target = target, .text = v.strField("text") orelse return null };
 }
 
 fn writeAll(fd: c_int, data: []const u8, at: u64) bool {
     var done: usize = 0;
     while (done < data.len) {
-        const n = std.c.pwrite(fd, data[done..].ptr, data.len - done, @intCast(at + done));
+        const n = libc.pwrite(fd, data[done..].ptr, data.len - done, @intCast(at + done));
         if (n <= 0) return false;
         done += @intCast(n);
     }
@@ -391,10 +568,10 @@ fn writeAll(fd: c_int, data: []const u8, at: u64) bool {
 }
 
 /// The reply that stops a start whose format-1 upgrade renamed the new file in but could not sync its folder.
-const upgrade_unsynced = "the notes journal (format 1) was rewritten as format 2 and renamed in, but its folder could not be synced: after a power cut either file may be there, each whole and with the same writes; start again";
+const upgrade_unsynced = "the notes journal (older format) was rewritten as format 3 and renamed in, but its folder could not be synced: after a power cut either file may be there, each whole and with the same writes; start again";
 
 /// An F_FULLFSYNC errno that means the filesystem does not do it: XNU's own test (kern_descrip.c, F_BARRIERFSYNC).
-fn unsupported(e: std.c.E) bool {
+fn unsupported(e: libc.E) bool {
     return e == .NOTTY or e == .OPNOTSUPP or e == .INVAL; // OPNOTSUPP is ENOTSUP (45) on Darwin
 }
 
@@ -407,9 +584,9 @@ pub fn fullSync(fd: c_int, faults: ?*Faults) bool {
         if (faults) |f| f.fallbacks += 1;
     }
     // Linux fsync(2): "includes writing through or flushing a disk cache if present" (not tested on Linux here)
-    return std.c.fsync(fd) == 0;
+    return libc.fsync(fd) == 0;
 }
 
-fn fcntlFull(fd: c_int) std.c.E {
-    return std.c.errno(std.c.fcntl(fd, std.c.F.FULLFSYNC));
+fn fcntlFull(fd: c_int) libc.E {
+    return libc.errno(libc.fcntl(fd, libc.F.FULLFSYNC));
 }

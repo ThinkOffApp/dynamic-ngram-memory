@@ -89,10 +89,9 @@ pub const Source = struct { keys: []const u32, ids: []const u32, cur: bool };
 
 pub const BuildError = error{ OutOfMemory, Unsupported };
 
-/// The suffix arrays of some notes (places 0..notes-1), immutable once built and shared by the versions that read it.
+/// The suffix arrays of some notes (places 0..notes-1), immutable once built.
 pub const Base = struct {
     mem: exact.Exact,
-    refs: std.atomic.Value(u32) = .init(1),
     notes: u32 = 0, // the notes it covers: places 0..notes-1
     dict: []const u32 = &.{}, // the keys it holds, ascending; a key's code is its place here + 1
     text: Packed = .{}, // each note's codes, then sep
@@ -102,13 +101,7 @@ pub const Base = struct {
     wordy: []u64 = &.{}, // by code: its tokens are words (a 1-gram of it is a key unless punct is set)
     tokens: usize = 0,
 
-    pub fn retain(b: *Base) *Base {
-        _ = b.refs.fetchAdd(1, .monotonic);
-        return b;
-    }
-
-    pub fn release(b: *Base) void {
-        if (b.refs.fetchSub(1, .acq_rel) != 1) return;
+    pub fn deinit(b: *Base) void {
         const gpa = b.mem.child;
         b.mem.deinit();
         gpa.destroy(b);
@@ -228,9 +221,7 @@ pub fn build(gpa: Allocator, notes: []const Source, vwordy: []const bool) BuildE
     // the dictionary: every key held, ascending (a hash set first: the store's distinct keys are few)
     var codes: std.AutoHashMapUnmanaged(u32, u32) = .empty;
     defer codes.deinit(gpa);
-    for (notes) |n| for (n.keys) |k| {
-        try codes.put(gpa, k, 0);
-    };
+    for (notes) |n| for (n.keys) |k| try codes.put(gpa, k, 0);
     const distinct = codes.count();
     const dict = try a.alloc(u32, distinct);
     var kit = codes.keyIterator();
@@ -252,6 +243,7 @@ pub fn build(gpa: Allocator, notes: []const Source, vwordy: []const bool) BuildE
     @memset(known, 0);
     at = 0;
     for (notes) |n| {
+        if (n.ids.len != n.keys.len) return error.Unsupported;
         for (n.keys, n.ids) |k, t| {
             const c = codes.get(k).?;
             text[at] = c;
@@ -317,8 +309,8 @@ pub fn build(gpa: Allocator, notes: []const Source, vwordy: []const bool) BuildE
     }
     const pw = widthFor(@max(positions, 1) - 1);
     b.sa_cur = try Packed.alloc(a, n_cur, pw);
-    for (ents[0..n_cur], 0..) |e, i| b.sa_cur.put(i, e.pos);
     b.sa_hist = try Packed.alloc(a, tokens - n_cur, pw);
+    for (ents[0..n_cur], 0..) |e, i| b.sa_cur.put(i, e.pos);
     for (ents[n_cur..], 0..) |e, i| b.sa_hist.put(i, e.pos);
     b.notes = @intCast(notes.len);
     b.tokens = tokens;
@@ -348,72 +340,6 @@ pub fn distinctGrams(b: *const Base, sa: Packed, n_min: usize, n_max: usize, ctx
     return count;
 }
 
-test "packed ints of each width read back" {
-    const a = std.testing.allocator;
-    for ([_]u6{ 1, 3, 7, 8, 11, 21, 31, 32 }) |w| {
-        const p = try Packed.alloc(a, 1000, w);
-        defer a.free(p.bytes);
-        const mask: u64 = (@as(u64, 1) << w) - 1;
-        for (0..1000) |i| p.put(i, @intCast((i *% 2654435761) & mask));
-        for (0..1000) |i| try std.testing.expectEqual(@as(u32, @intCast((i *% 2654435761) & mask)), p.get(i));
-    }
-}
-
-test "rank counts the set bits before a place" {
-    const a = std.testing.allocator;
-    const r = try Rank.init(a, 3000);
-    defer a.free(r.words);
-    defer a.free(r.blocks);
-    var rng = std.Random.DefaultPrng.init(3);
-    var want: [3001]u32 = undefined;
-    var n: u32 = 0;
-    for (0..3000) |i| {
-        want[i] = n;
-        if (rng.random().boolean()) {
-            r.set(i);
-            n += 1;
-        }
-    }
-    want[3000] = n;
-    r.seal();
-    for (0..3001) |i| try std.testing.expectEqual(want[i], r.rank(i));
-}
-
-test "a range holds every occurrence of a pattern and nothing else, never across a note" {
-    const a = std.testing.allocator;
-    const N = struct { keys: []const u32, cur: bool };
-    const notes = [_]N{
-        .{ .keys = &.{ 5, 7, 5, 7, 9 }, .cur = true }, // 5 7 twice in one note
-        .{ .keys = &.{ 7, 9 }, .cur = false },
-        .{ .keys = &.{ 9, 5 }, .cur = true },
-        .{ .keys = &.{7}, .cur = true }, // ends in 7; the next note starts with 5: "7 5" must not match across them
-        .{ .keys = &.{ 5, 7 }, .cur = true },
-    };
-    var ids: [8]u32 = @splat(0);
-    var with: [notes.len]Source = undefined;
-    for (notes, &with) |n, *w| w.* = .{ .keys = n.keys, .ids = ids[0..n.keys.len], .cur = n.cur };
-    const b = try build(a, &with, &.{});
-    defer b.release();
-    var buf: [4]u32 = undefined;
-    const Want = struct { pat: []const u32, cur: []const u32, hist: []const u32 };
-    const cases = [_]Want{
-        .{ .pat = &.{ 5, 7 }, .cur = &.{ 0, 0, 4 }, .hist = &.{} },
-        .{ .pat = &.{ 7, 9 }, .cur = &.{0}, .hist = &.{1} },
-        .{ .pat = &.{ 7, 5 }, .cur = &.{0}, .hist = &.{} },
-        .{ .pat = &.{9}, .cur = &.{ 0, 2 }, .hist = &.{1} },
-        .{ .pat = &.{ 5, 7, 9 }, .cur = &.{0}, .hist = &.{} },
-        .{ .pat = &.{ 9, 7 }, .cur = &.{}, .hist = &.{} },
-    };
-    for (cases) |c| {
-        const pat = b.codes(c.pat, &buf).?;
-        for ([_]Packed{ b.sa_cur, b.sa_hist }, [_][]const u32{ c.cur, c.hist }) |sa, want| {
-            const r = b.range(sa, pat);
-            var got: std.ArrayList(u32) = .empty;
-            defer got.deinit(a);
-            for (r[0]..r[1]) |i| try got.append(a, b.placeOf(sa.get(i)));
-            std.sort.pdq(u32, got.items, {}, std.sort.asc(u32));
-            try std.testing.expectEqualSlices(u32, want, got.items);
-        }
-    }
-    try std.testing.expect(b.codes(&.{ 5, 6 }, &buf) == null); // 6 is in no note
+test {
+    _ = @import("sa_build_test.zig");
 }
