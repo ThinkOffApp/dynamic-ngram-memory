@@ -28,6 +28,12 @@ In front of vLLM (`vllm serve MODEL --port 8000` running):
 python3 -m notes_proxy --upstream http://127.0.0.1:8000 --owner me --store ~/notes/me.jsonl --tokenizer ~/.cache/huggingface/hub/models--ORG--MODEL/snapshots/HASH/tokenizer.json
 ```
 
+The proxy can start TensorFold itself (`--tensorfold` instead of `--upstream`). The child is bound to 127.0.0.1, the API key is in `TENSORFOLD_API_KEY` (never argv), token counts go through the child's `/v1/tokenize`, and an erase restarts TensorFold once the proxy is idle, after a short quiet window, so several erases share one reload. `GET /v1/notes/erase-status` turns pending into complete when that restart has landed. Extra serve flags must be on the allowlist, written with equals so argparse does not eat them: `--tensorfold-arg=--no-drafts`.
+
+```sh
+python3 -m notes_proxy --tensorfold org/name --owner me --store ~/notes/me.jsonl
+```
+
 Then point your chat client at `http://127.0.0.1:8090/v1` instead of the server's own address. Add a note and ask about it:
 
 ```sh
@@ -62,8 +68,9 @@ python3 -m notes_proxy seed --set tests/examples/L6-seed1.json --phase teach --o
 | `GET /v1/notes/ID` | one note |
 | `POST /v1/notes` `{"text", "subject"?}` | a new note, through the intake check (201 when written, 200 when it was already known) |
 | `DELETE /v1/notes/ID` | erase: the note is removed from the store, its journal and every cache the proxy holds, as if it had never been said |
+| `GET /v1/notes/erase-status` | with `--tensorfold`: whether a restart newer than the last erase has finished |
 
-An erase also removes the writes that were kept out as the same as that note, and the take-backs of it. The erase reply always says `"complete": false`: the proxy cannot reach the upstream server's prompt cache or logs, and Python does not overwrite memory it frees.
+An erase also removes the writes that were kept out as the same as that note, and the take-backs of it. With `--upstream` the erase reply always says `"complete": false`: the proxy cannot reach the upstream server's prompt cache or logs, and Python does not overwrite memory it frees. With `--tensorfold` the DELETE replies `"pending"` at once (it does not wait for the model to reload); `GET /v1/notes/erase-status` says `"complete": true` once a restart newer than that erase has finished. Python still does not overwrite memory it frees.
 
 **Note ids.** A note's id is the id of the write that made it: `w1`, `w2` and so on for notes written through the proxy, and `s1`, `s2` and so on for the lessons a store was seeded with. An id names one note for good. No erase, restart or later write gives it to another note. So an erase sent twice, for example by a client that retried after a timeout, erases the note once. The second reply is a 404, and nothing changes.
 
@@ -186,7 +193,10 @@ With many users, the proxy keeps each user's notes apart. The upstream server is
 
 | Option | Meaning |
 | --- | --- |
-| `--upstream URL` | the inference server's base URL (`http://127.0.0.1:8080`, or with `/v1` at the end) |
+| `--upstream URL` | the inference server's base URL (`http://127.0.0.1:8080`, or with `/v1` at the end). Mutually exclusive with `--tensorfold` |
+| `--tensorfold MODEL` | start TensorFold on this model (local dir or `org/name`) and use it as the upstream |
+| `--tensorfold-bin PATH` | TensorFold executable (default: `tensorfold` on PATH) |
+| `--tensorfold-arg FLAG` | one extra `tensorfold serve` flag from the allowlist (repeatable). Write `--tensorfold-arg=--no-drafts` |
 | `--owner NAME` | whose notes this proxy serves (one owner) |
 | `--store FILE` | the notes journal (made if missing) |
 | `--users FILE` | many users: the users file (see Many users) |
@@ -219,7 +229,7 @@ These need the engine itself, which a proxy in front of it cannot reach:
 - **The lookup is Python.** In the TensorFold server's comparison, `retrieve()` took 0.42 to 23.6 ms a question (p50, stores of 100 to 100,000 notes); the server's own lookup took 52 to 437 microseconds on the same stores.
 - **A write blocks lookups briefly.** The store takes one write at a time and lookups wait for it (TensorFold's server builds a new index version instead).
 - **English only.** The past-tense cue and the question check read English. `"notes_language"` other than `"en"` is refused.
-- **The tokenizer is yours to match.** The proxy cannot see which model the upstream runs. Give it that model's `tokenizer.json`, or the cap is counted for another model.
+- **The tokenizer is yours to match.** The proxy cannot see which model the upstream runs. Give it that model's `tokenizer.json`, or the cap is counted for another model. With `--tensorfold` the child tokenizes, so `--tokenizer` is not used.
 - **Only `/v1/chat/completions` gets notes.** `/v1/completions`, `/v1/responses` and `/v1/messages` pass through without them.
 - **Free text is not read for meaning.** A sentence outside the rule book's wordings never replaces an earlier note: "My car is blue." and later "My car is red." both stay current. Erase the old one.
 - **The journal has no commit marks.** A write whose line reached the disk just before a crash, but was never answered, comes back at the next start.
