@@ -15,6 +15,7 @@ const Handle = struct {
     callback: Encode,
     context: ?*anyopaque,
     vocabulary: u32,
+    io_backend: std.Io.Threaded = .init_single_threaded,
     fn reset(h: *Handle) std.mem.Allocator {
         _ = h.arena.reset(.free_all);
         error_text[0] = 0;
@@ -144,4 +145,25 @@ pub export fn np_erase(h: *Handle, id: u32) ?[*:0]const u8 {
         return null;
     };
     return result;
+}
+
+pub export fn np_lookup(h: *Handle, question: [*]const u8, len: usize, cap: u32, past: bool, excluded: ?[*]const u32, excluded_len: usize) ?[*:0]const u8 {
+    const temp = h.reset();
+    if (len > 1 << 20 or excluded_len > 100_000 or (excluded == null and excluded_len != 0)) {
+        fail(error.InvalidLookup);
+        return null;
+    }
+    const ids = encode(h, temp, question[0..len], false) catch |e| {
+        fail(e);
+        return null;
+    };
+    const omit = if (excluded) |p| p[0..excluded_len] else &.{};
+    const result = @import("server/notes/retrieve.zig").retrieve(h.store.?, h.io_backend.io(), temp, h.store.?.text, ids, past, cap, omit, .{}) catch |e| {
+        fail(e);
+        return null;
+    };
+    return output(temp, result) catch |e| {
+        fail(e);
+        return null;
+    };
 }

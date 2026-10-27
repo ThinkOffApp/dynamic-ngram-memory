@@ -27,6 +27,9 @@ class CApi(unittest.TestCase):
         cls.lib.np_list.restype = C.c_char_p
         cls.lib.np_erase.argtypes = [C.c_void_p, C.c_uint32]
         cls.lib.np_erase.restype = C.c_char_p
+        cls.lib.np_lookup.argtypes = [C.c_void_p, C.c_char_p, C.c_size_t, C.c_uint32, C.c_bool,
+                                      C.POINTER(C.c_uint32), C.c_size_t]
+        cls.lib.np_lookup.restype = C.c_char_p
         cls.snapshot = (ROOT / "src/server/notes/testdata/tb_empty_bytes_snapshot.json").read_bytes()
 
     def setUp(self):
@@ -68,6 +71,10 @@ class CApi(unittest.TestCase):
         handle = self.open()
         first = self.write(handle, "My aunt Brigitta grows tomatoes.")["note"]["id"]
         other = self.write(handle, "My cousin Aurelio repairs clocks.")["note"]["id"]
+        question = b"What does my aunt Brigitta grow?"
+        found = json.loads(self.lib.np_lookup(handle, question, len(question), 1000, False, None, 0))
+        self.assertIn(first, found["ids"])
+        self.assertIn("Brigitta", found["block"])
         result = json.loads(self.lib.np_erase(handle, first))
         self.assertFalse(result["complete"])
         self.assertEqual(result["remaining"], "upstream")
@@ -77,6 +84,9 @@ class CApi(unittest.TestCase):
         self.assertEqual([(r["id"], r["text"]) for r in rows],
                          [(other, "My cousin Aurelio repairs clocks.")])
         self.assertNotIn(b"Brigitta", pathlib.Path(self.path.decode()).read_bytes())
+        found = json.loads(self.lib.np_lookup(handle, question, len(question), 1000, False, None, 0))
+        self.assertNotIn(first, found["ids"])
+        self.assertNotIn("Brigitta", found["block"])
 
     def test_tokenizer_failure_does_not_commit_a_write(self):
         failing = ENCODE(lambda *_: -1)
