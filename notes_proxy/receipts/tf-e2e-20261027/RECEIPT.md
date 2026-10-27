@@ -30,3 +30,16 @@ JSON in `30b/`. Context 4096, `--no-thinking`, own loopback port. `:8091` still 
 | 3. cached_tokens on the second identical prompt, then ~0 after restart | fail. cached_tokens 0 on chat1, chat2, and chat3. Direct child calls (store true, store false, omit store) also report cached_tokens 0. Second prefill is a bit faster (0.042 s → 0.032 s) but usage does not show a cache hit. |
 
 Check 3 is the one that can fail, and it failed on both models: this native 1.0.0 server did not put prefix hits in `cached_tokens` for these requests.
+
+## 30B long prompt (check 3 rerun)
+
+JSON in `30b-long/`. Context 8192, fixed system filler so `prompt_tokens` is 7691 (> TensorFold `min_prompt` 4096).
+
+| check | result |
+| --- | --- |
+| prompt over 4096 | pass. 7691 |
+| 1. After erase, `notes.ids []` and no Volvo | pass. chat1: "Your sister Anna drove a red Volvo yesterday." chat3: "Your sister Anna drove a Toyota Camry yesterday." |
+| 2. Child pid replaced | pass. 5274 → 7287 |
+| 3. Second prompt cached, then ~0 after restart | pass. cached_tokens 0, then **7673**, then **0** after restart. Prefill 1.46 s then 0.033 s. |
+
+All three of ClaudeMB's fail-able checks pass on this run.
