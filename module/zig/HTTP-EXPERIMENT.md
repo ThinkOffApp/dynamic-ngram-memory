@@ -89,3 +89,11 @@ watchdog; single samples:
 Both workers completed, but 100k has little headroom below the memory threshold;
 this is not a hard-memory-limit qualification. Python remains the default until
 the unfinished behavioral cases and full native-path suite are green.
+
+At source head `3aba33d`, the original Python/default HTTP regression suite
+passed **101/101 in 77.216 s**, using the real local Nemotron tokenizer and stub
+upstream (no model/GPU). This verifies the shared validation refactor did not
+regress that path; it does **not** qualify the opt-in native path against those
+101 cases. Native-specific gates currently cover three HTTP tests, five intake
+tests (including explicit safe refusal of unsupported multi-target changes),
+and six binding tests. Refusal tests are not completed-feature parity evidence.
