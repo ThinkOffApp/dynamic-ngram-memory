@@ -30,3 +30,15 @@ One sample each, same machine; not a cross-machine comparison or scaling proof.
 The initial 15-second-capped 10k/100k attempts timed out during fill at around
 900 writes: neither produced an erase measurement. No completed 10k/100k result
 yet. This measures the HTTP-selected adapter methods, not HTTP socket overhead.
+
+Same-machine bulk-fixture control, 1k notes, one sample each (synthetic committed
+journal, real reopen, then one real extra write/lookup/erase):
+
+| engine | reopen | single write | lookup | erase w1 | max RSS bytes |
+| --- | --- | --- | --- | --- | --- |
+| Python | 1.111 s | 8.201 ms | 16.554 ms | 1.126 s | 260243456 |
+| Zig adapter | 0.197 s | 19.796 ms | 1.747 ms | 0.163 s | 296222720 |
+
+The native bulk fixture copies the actual writer's snapshot-bound header and
+uses normal committed add records; Python uses Journal.rewrite. Fixture creation
+is not a native bulk-ingestion API or a measurement of normal HTTP teaching.
