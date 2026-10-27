@@ -1,0 +1,50 @@
+{
+  "branch": "notes-proxy-tf-backend",
+  "commit": "913d571",
+  "model": "mlx-community/Qwen3.5-2B-MLX-4bit",
+  "binary": "/tmp/tf-ashhart-main/zig-out/native/bin/tensorfold-native",
+  "question": "What car did my sister Anna drive yesterday?",
+  "note_id": "w1",
+  "pid_before": 98380,
+  "pid_after": 99155,
+  "log_pids": [
+    98380,
+    99155
+  ],
+  "native_pgrep_before": [
+    98380
+  ],
+  "native_pgrep_after": [
+    99155
+  ],
+  "chat1_ids": [
+    "w1"
+  ],
+  "chat2_ids": [
+    "w1"
+  ],
+  "chat3_ids": [],
+  "cached_tokens": {
+    "chat1": 0,
+    "chat2": 0,
+    "chat3": 0
+  },
+  "chat1_content": "My sister Anna drove a red Volvo yesterday.",
+  "chat3_content": "I don't know who your sister is, so I can't tell you what car she drove yesterday.\n\nHowever, if you are referring to a specific person (like Anna from a movie, book, or news story), please provide more details, and I can try to help you find the answer!",
+  "erase_complete": {
+    "complete": true,
+    "state": "complete",
+    "engine": "ready",
+    "erase_seq": 1,
+    "restart_seq": 1
+  },
+  "checks": {
+    "1_after_erase_ids_empty": true,
+    "1_after_erase_no_volvo": true,
+    "2_pid_changed": true,
+    "3_second_prompt_cached": false,
+    "3_after_restart_cached_near_zero": true,
+    "pre_erase_ids_present": true
+  },
+  "pass": false
+}

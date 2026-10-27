@@ -850,7 +850,8 @@ def build(args, log=None):
                 engine = tfchild.TensorFoldChild(args.tensorfold, extra=args.tensorfold_arg or (),
                                                  binary=args.tensorfold_bin, log=log,
                                                  quiet=args.tensorfold_quiet,
-                                                 restart_max=args.tensorfold_restart_max)
+                                                 restart_max=args.tensorfold_restart_max,
+                                                 timeout=args.timeout)
             except tfchild.TensorFoldError as e:
                 raise SystemExit(f"notes-proxy: {e}")
             tok = tfchild.ChildTokenizer(engine)
