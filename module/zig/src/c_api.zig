@@ -173,18 +173,33 @@ pub export fn np_list(h: *Handle) ?[*:0]const u8 {
 pub export fn np_get(h: *Handle, id: u32) ?[*:0]const u8 {
     const temp = h.reset();
     const m = h.store.?.model;
-    const place = m.placeOf(id) orelse { fail(error.NoNote); return null; };
-    const row = ops.view(m, temp, place) catch |e| { fail(e); return null; };
-    return output(temp, row) catch |e| { fail(e); return null; };
+    const place = m.placeOf(id) orelse {
+        fail(error.NoNote);
+        return null;
+    };
+    const row = ops.view(m, temp, place) catch |e| {
+        fail(e);
+        return null;
+    };
+    return output(temp, row) catch |e| {
+        fail(e);
+        return null;
+    };
 }
 
 pub export fn np_metadata(h: *Handle) ?[*:0]const u8 {
     const temp = h.reset();
     const Row = struct { id: u32, source: ?[]const u8, told: i64 };
     const notes = h.store.?.model.notes.items;
-    const rows = temp.alloc(Row, notes.len) catch |e| { fail(e); return null; };
+    const rows = temp.alloc(Row, notes.len) catch |e| {
+        fail(e);
+        return null;
+    };
     for (notes, rows) |n, *row| row.* = .{ .id = n.id, .source = n.source(), .told = n.told };
-    return output(temp, rows) catch |e| { fail(e); return null; };
+    return output(temp, rows) catch |e| {
+        fail(e);
+        return null;
+    };
 }
 
 // Attribute identity is durable in the reviewed journal. The adapter prefixes structured slots with "schema:";
@@ -269,11 +284,11 @@ fn recordRows(h: *Handle, structured: bool) ?[*:0]const u8 {
     for (entries) |entry| {
         if (structured and !std.mem.startsWith(u8, entry.r.attribute, "schema:")) continue;
         rows[k] = .{
-        .source = entry.r.source,
-        .text = entry.r.text,
-        .subject = entry.r.subject,
-        .attribute = entry.r.attribute,
-        .told = entry.r.told,
+            .source = entry.r.source,
+            .text = entry.r.text,
+            .subject = entry.r.subject,
+            .attribute = entry.r.attribute,
+            .told = entry.r.told,
         };
         k += 1;
     }

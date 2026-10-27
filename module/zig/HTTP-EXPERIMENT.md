@@ -62,3 +62,13 @@ Do not attribute the difference from old raw-core timings solely to the Python
 adapter: this C ABI invokes the actual reviewed Storage, which builds an index
 on every write, and erase replays kept records with real tokenizer callbacks.
 Workload/tokenizer/build equivalence needs checking before that comparison.
+
+Completed same-Mac Python 10k bulk control: reopen 109.908 s, single write
+26.830 ms, lookup 166.806 ms, erase 108.793 s, max RSS 398163968 bytes;
+240-second wall cap and the same 1024-MiB sampled watchdog. No Python 100k
+measurement was attempted. The current native library is a **Debug build**, not
+an optimized release, another reason not to equate it with old raw-core timings.
+Current-native repeat at 1k/10k: erase 0.142/1.005 s, max RSS
+295534592/353271808 bytes. These are single runs, not statistical confidence
+intervals. All three current-native tiers used the same workload and Debug
+implementation; 100k was measured earlier in a separate capped worker.

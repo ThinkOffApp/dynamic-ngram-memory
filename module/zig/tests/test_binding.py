@@ -84,6 +84,20 @@ class Binding(unittest.TestCase):
             store.erase(9999)
         self.assertEqual(error.exception.status, 404)
 
+    def test_lightweight_metadata_and_single_view_do_not_export_all_texts(self):
+        store = self.open()
+        first = store.write("Brigitta grows tomatoes.", 739900000000)["note"]
+        second = store.write("Aurelio repairs clocks.", 739900000100)["note"]
+        self.assertEqual(store.get(first["id"])["text"], first["text"])
+        self.assertEqual(store.metadata(), [dict(id=first["id"], source="w1", told=739900000000),
+                                            dict(id=second["id"], source="w2", told=739900000100)])
+        self.assertEqual(store.last_told(), 739900000100)
+        self.assertEqual(store.erase(first["id"])["removed"], ["w1"])
+        self.assertEqual([r["source"] for r in store.metadata()], ["w2"])
+        with self.assertRaises(NativeStoreError) as error:
+            store.get(first["id"])
+        self.assertEqual(error.exception.status, 404)
+
 
 if __name__ == "__main__":
     unittest.main()
