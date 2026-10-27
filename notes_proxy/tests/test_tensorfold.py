@@ -57,9 +57,9 @@ class Child(unittest.TestCase):
     def tearDown(self):
         self.tmp.cleanup()
 
-    def start(self, extra=(), quiet=0.15, timeout=10.0):
+    def start(self, extra=(), quiet=0.15, restart_max=2.0, timeout=10.0):
         child = tfchild.TensorFoldChild(self.model, extra=extra, binary=FAKE, timeout=timeout,
-                                        log=lambda *_: None, quiet=quiet)
+                                        log=lambda *_: None, quiet=quiet, restart_max=restart_max)
         self.addCleanup(child.close)
         return child
 
@@ -145,6 +145,26 @@ class Child(unittest.TestCase):
         self.assertEqual(h["status"], "down")
         self.assertGreaterEqual(child.retry_after(), 1)
 
+    def test_busy_traffic_is_drained_after_restart_max(self):
+        child = self.start(quiet=0.05, restart_max=0.25)
+        pid = child.proc.pid
+        child.begin()
+        child.after_erase(dict(ERASE))
+        self.assertTrue(wait_until(lambda: child.health().get("engine") == "draining", timeout=2.0))
+        with self.assertRaises(tfchild.TensorFoldError):
+            child.begin()
+        self.assertEqual(child.proc.pid, pid)
+        child.end()
+        self.assertTrue(wait_until(lambda: child.proc is not None and child.proc.pid != pid
+                                   and child.erase_status()["complete"]))
+
+    def test_defaults_are_ten_and_sixty(self):
+        self.assertEqual(tfchild.QUIET, 10.0)
+        self.assertEqual(tfchild.RESTART_MAX, 60.0)
+        args = proxy.parser().parse_args(["--tensorfold", self.model, "--owner", "u", "--store", "s.jsonl"])
+        self.assertEqual(args.tensorfold_quiet, 10.0)
+        self.assertEqual(args.tensorfold_restart_max, 60.0)
+
 
 class ProxyEngine(unittest.TestCase):
     def setUp(self):
@@ -158,6 +178,7 @@ class ProxyEngine(unittest.TestCase):
         store = store or self.tmp.file("s.jsonl")
         args = proxy.parser().parse_args([
             "--tensorfold", model, "--tensorfold-bin", FAKE, "--port", "0", "--host", "127.0.0.1",
+            "--tensorfold-quiet", "0.15", "--tensorfold-restart-max", "2",
         ] + extra + (["--store", store] if "--store-dir" not in extra else []))
         srv, notes = proxy.build(args, log=lambda *_: None)
         self.addCleanup(notes.close)
@@ -218,12 +239,31 @@ class ProxyEngine(unittest.TestCase):
         self.assertEqual(st, 200)
         self.assertIs(json.loads(raw).get("store"), False)
 
+    def test_many_users_need_share_cache(self):
+        stores = self.tmp.file("stores")
+        os.mkdir(stores)
+        users_path = self.tmp.file("users.json")
+        users.add_user(users_path, "alice", store_dir=stores)
+        model = self.tmp.file("model")
+        if not os.path.isdir(model):
+            os.mkdir(model)
+        args = proxy.parser().parse_args([
+            "--tensorfold", model, "--tensorfold-bin", FAKE, "--users", users_path, "--store-dir", stores,
+            "--port", "0",
+        ])
+        err = proxy.usage_error(args)
+        self.assertIn("share-upstream-cache", err)
+        with self.assertRaises(SystemExit) as cm:
+            proxy.build(args, log=lambda *_: None)
+        self.assertIn("share-upstream-cache", str(cm.exception))
+
     def test_engine_with_many_users(self):
         stores = self.tmp.file("stores")
         os.mkdir(stores)
         users_path = self.tmp.file("users.json")
         key = users.add_user(users_path, "alice", store_dir=stores)
-        srv, notes, port, engine = self.running(["--users", users_path, "--store-dir", stores])
+        srv, notes, port, engine = self.running(
+            ["--users", users_path, "--store-dir", stores, "--share-upstream-cache"])
         auth = {"Authorization": f"Bearer {key}"}
         st, _, raw = _call(port, "POST", "/v1/chat/completions",
                            {"model": "m", "messages": [{"role": "user", "content": "Hi."}]}, headers=auth)

@@ -2,7 +2,8 @@
 
 The proxy starts TensorFold from a fixed flag allowlist, with a clean environment. The API key is passed in
 TENSORFOLD_API_KEY, never on the command line. After an erase, the child is restarted once the proxy is idle, after a
-short quiet window, so several erases share one restart. Token counts go through the child's POST /v1/tokenize
+quiet window (default 10 s), so several erases share one restart. If traffic never goes idle,
+new requests are refused after a max wait (default 60 s) so the restart can run. Token counts go through the child's POST /v1/tokenize
 ({"prompt"} -> {"tokens", "count"}). A missing or wrong tokenize reply is a refusal, never FakeTokenizer.
 """
 from __future__ import annotations
@@ -42,7 +43,8 @@ FORBIDDEN = {
 }
 
 MODEL_ID = __import__("re").compile(r"^[A-Za-z0-9._-]+/[A-Za-z0-9._-]+$")
-QUIET = 0.2          # seconds of idle after the last erase before one restart
+QUIET = 10.0         # seconds of idle after the last erase before one restart
+RESTART_MAX = 60.0   # then refuse new requests so a busy proxy still restarts
 BACKOFF_START = 0.4
 BACKOFF_CAP = 8.0
 
@@ -128,12 +130,16 @@ class ChildTokenizer:
 class TensorFoldChild:
     """One TensorFold `serve` process. Erases schedule one restart after a quiet idle window; spawn failures retry."""
 
-    def __init__(self, model, extra=(), binary="tensorfold", timeout=120.0, log=None, quiet=QUIET):
+    def __init__(self, model, extra=(), binary="tensorfold", timeout=120.0, log=None, quiet=QUIET,
+                 restart_max=RESTART_MAX):
         self.model = check_model(model)
         self.extra = check_extra(extra)
         self.binary = binary if os.path.sep in binary else shutil.which(binary) or binary
         self.timeout = timeout
+        if quiet < 0 or restart_max < 0:
+            raise TensorFoldError("--tensorfold-quiet and --tensorfold-restart-max must be >= 0")
         self.quiet = quiet
+        self.restart_max = restart_max
         self.log = log or (lambda line: print(line, flush=True))
         self.key = secrets.token_urlsafe(32)
         self._tmpdir = tempfile.mkdtemp(prefix="notes-proxy-tf-")
@@ -151,6 +157,8 @@ class TensorFoldChild:
         self._restart_pending = False
         self._restart_running = False
         self._quiet_until = 0.0
+        self._force_at = 0.0
+        self._drain = False
         self._erase_seq = 0
         self._restarted_through = 0
         self._next_retry = 0.0
@@ -244,6 +252,7 @@ class TensorFoldChild:
             self._stopped = True
             self._restart_pending = False
             self._serving = False
+            self._drain = False
             self._gate.notify_all()
         with self._spawn:
             self._stop_locked()
@@ -261,7 +270,7 @@ class TensorFoldChild:
     def begin(self):
         """Take a slot for an upstream call. Raises at once when the child is down or mid-restart; never waits."""
         with self._gate:
-            if self._stopped or self._down or not self._serving:
+            if self._stopped or self._down or not self._serving or self._drain:
                 raise TensorFoldError("TensorFold is not ready")
             self.inflight += 1
 
@@ -274,9 +283,12 @@ class TensorFoldChild:
     def after_erase(self, reply):
         """Mark a restart. Always returns pending: the caller does not wait for the model to reload."""
         with self._gate:
+            now = time.time()
+            if not self._restart_pending:
+                self._force_at = now + self.restart_max
             self._erase_seq += 1
             self._restart_pending = True
-            self._quiet_until = time.time() + self.quiet
+            self._quiet_until = now + self.quiet
             if not self._restart_running and not self._stopped:
                 self._restart_running = True
                 threading.Thread(target=self._restart_loop, daemon=True).start()
@@ -299,10 +311,21 @@ class TensorFoldChild:
                     while True:
                         if self._stopped or not self._restart_pending:
                             return
-                        if self.inflight == 0 and time.time() >= self._quiet_until:
+                        now = time.time()
+                        if now >= self._force_at and self.inflight > 0 and not self._drain:
+                            self._drain = True
+                            self.log("notes-proxy: TensorFold restart waited long enough; pausing new requests")
+                            self._gate.notify_all()
+                        idle = self.inflight == 0 and now >= self._quiet_until
+                        forced = self._drain and self.inflight == 0
+                        if idle or forced:
                             erase_seen = self._erase_seq
                             break
-                        wait = self._quiet_until - time.time() if self.inflight == 0 else 0.2
+                        wait = 0.2
+                        if self.inflight == 0:
+                            wait = self._quiet_until - now
+                        elif not self._drain:
+                            wait = min(0.2, max(0.05, self._force_at - now))
                         self._gate.wait(timeout=max(0.05, wait))
                 try:
                     with self._spawn:
@@ -319,6 +342,7 @@ class TensorFoldChild:
                     with self._gate:
                         self._serving = True
                         self._down = False
+                        self._drain = False
                         self._restarted_through = erase_seen
                         backoff = BACKOFF_START
                         self._retry_after = 1
@@ -357,8 +381,8 @@ class TensorFoldChild:
                 return {"status": "down", "engine": "stopped"}
             if self._down:
                 return {"status": "down", "engine": "down"}
-            if not self._serving:
-                return {"status": "restarting", "engine": "restarting"}
+            if self._drain or not self._serving:
+                return {"status": "restarting", "engine": "draining" if self._drain else "restarting"}
             return {"status": "ok", "engine": "ready"}
 
     def erase_status(self):

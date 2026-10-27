@@ -28,7 +28,7 @@ In front of vLLM (`vllm serve MODEL --port 8000` running):
 python3 -m notes_proxy --upstream http://127.0.0.1:8000 --owner me --store ~/notes/me.jsonl --tokenizer ~/.cache/huggingface/hub/models--ORG--MODEL/snapshots/HASH/tokenizer.json
 ```
 
-The proxy can start TensorFold itself (`--tensorfold` instead of `--upstream`). The child is bound to 127.0.0.1, the API key is in `TENSORFOLD_API_KEY` (never argv), token counts go through the child's `/v1/tokenize`, and an erase restarts TensorFold once the proxy is idle, after a short quiet window, so several erases share one reload. `GET /v1/notes/erase-status` turns pending into complete when that restart has landed. Extra serve flags must be on the allowlist, written with equals so argparse does not eat them: `--tensorfold-arg=--no-drafts`.
+The proxy can start TensorFold itself (`--tensorfold` instead of `--upstream`). The child is bound to 127.0.0.1, the API key is in `TENSORFOLD_API_KEY` (never argv), token counts go through the child's `/v1/tokenize`, and an erase restarts TensorFold once the proxy is idle, after a quiet window (`--tensorfold-quiet`, default 10 s), so several erases share one reload. If traffic never goes idle, new requests are refused after `--tensorfold-restart-max` (default 60 s) so the restart still happens. `GET /v1/notes/erase-status` turns pending into complete when that restart has landed. Extra serve flags must be on the allowlist, written with equals so argparse does not eat them: `--tensorfold-arg=--no-drafts`. `--tensorfold` with `--users` is refused unless you also pass `--share-upstream-cache`: TensorFold has no per-user prompt-cache isolation, so users would share the cache.
 
 ```sh
 python3 -m notes_proxy --tensorfold org/name --owner me --store ~/notes/me.jsonl
@@ -197,6 +197,8 @@ With many users, the proxy keeps each user's notes apart. The upstream server is
 | `--tensorfold MODEL` | start TensorFold on this model (local dir or `org/name`) and use it as the upstream |
 | `--tensorfold-bin PATH` | TensorFold executable (default: `tensorfold` on PATH) |
 | `--tensorfold-arg FLAG` | one extra `tensorfold serve` flag from the allowlist (repeatable). Write `--tensorfold-arg=--no-drafts` |
+| `--tensorfold-quiet S` | idle seconds after the last erase before one TensorFold restart (10) |
+| `--tensorfold-restart-max S` | if requests are still in flight this many seconds after the first pending erase, refuse new ones so the restart can run (60) |
 | `--owner NAME` | whose notes this proxy serves (one owner) |
 | `--store FILE` | the notes journal (made if missing) |
 | `--users FILE` | many users: the users file (see Many users) |

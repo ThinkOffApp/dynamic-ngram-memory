@@ -811,6 +811,8 @@ def usage_error(args):
         return "--tokenizer is for --upstream; with --tensorfold the child tokenizes"
     if not tf and not getattr(args, "tokenizer", None):
         return "the following arguments are required: --tokenizer"
+    if tf and many and not args.share_upstream_cache:
+        return "--tensorfold with many users shares TensorFold's prompt cache: pass --share-upstream-cache to allow it, or run one proxy per owner"
     return None
 
 
@@ -846,7 +848,9 @@ def build(args, log=None):
         if args.tensorfold:
             try:
                 engine = tfchild.TensorFoldChild(args.tensorfold, extra=args.tensorfold_arg or (),
-                                                 binary=args.tensorfold_bin, log=log)
+                                                 binary=args.tensorfold_bin, log=log,
+                                                 quiet=args.tensorfold_quiet,
+                                                 restart_max=args.tensorfold_restart_max)
             except tfchild.TensorFoldError as e:
                 raise SystemExit(f"notes-proxy: {e}")
             tok = tfchild.ChildTokenizer(engine)
@@ -885,6 +889,11 @@ def parser():
     p.add_argument("--tensorfold-arg", action="append", default=None,
                    help="one extra TensorFold serve flag from the allowlist (repeatable). Use equals so argparse "
                         "does not eat the flag: --tensorfold-arg=--no-drafts")
+    p.add_argument("--tensorfold-quiet", type=float, default=tfchild.QUIET, metavar="S",
+                   help="seconds of idle after the last erase before one TensorFold restart (default 10)")
+    p.add_argument("--tensorfold-restart-max", type=float, default=tfchild.RESTART_MAX, metavar="S",
+                   help="if traffic is still in flight this many seconds after the first pending erase, refuse new "
+                        "requests so the restart can run (default 60)")
     p.add_argument("--owner", help="one owner: whose notes this proxy serves")
     p.add_argument("--store", help="one owner: the notes journal file (made if missing)")
     p.add_argument("--users", help="many users: the users file (see add-user). Each request's key names its owner")
