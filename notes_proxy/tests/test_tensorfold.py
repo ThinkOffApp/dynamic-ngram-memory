@@ -51,6 +51,12 @@ class Allowlist(unittest.TestCase):
                          ["--no-drafts", "--context", "4096"])
         with self.assertRaises(tfchild.TensorFoldError):
             tfchild.check_extra(["--name", "--host=0.0.0.0"])
+        with self.assertRaises(tfchild.TensorFoldError):
+            tfchild.check_extra(["--name=--host=0.0.0.0"])
+        with self.assertRaises(tfchild.TensorFoldError):
+            tfchild.check_extra(["--context=--master=x"])
+        with self.assertRaises(tfchild.TensorFoldError):
+            tfchild.check_extra(["--context", "-1"])
 
     def test_model_must_be_dir_or_repo_id(self):
         with self.assertRaises(tfchild.TensorFoldError):
@@ -83,7 +89,7 @@ class Child(unittest.TestCase):
         self.assertEqual(tok.encode("AB"), [ord("A"), ord("B")])
         with open(os.path.join(self.model, "last_tokenize.json")) as f:
             sent = json.loads(f.read())
-        self.assertEqual(sent, {"prompt": "AB"})
+        self.assertEqual(sent, {"prompt": "AB", "add_special_tokens": False})
         self.assertNotIn("text", sent)
 
     def test_tokenize_ignores_text_ids_schema(self):
@@ -134,6 +140,21 @@ class Child(unittest.TestCase):
         r = c.getresponse()
         self.assertEqual(r.status, 200)
         c.close()
+
+    def test_nested_begin_during_drain_still_tokenizes(self):
+        child = self.start(quiet=0.05, restart_max=0.2)
+        child.begin()
+        child.after_erase(dict(ERASE))
+        self.assertTrue(wait_until(lambda: child.health().get("engine") == "draining", timeout=3.0))
+        tok = tfchild.ChildTokenizer(child)
+        self.assertEqual(tok.encode("AB"), [ord("A"), ord("B")])
+        child.end()
+
+    def test_missing_binary_is_tensorfold_error(self):
+        with self.assertRaises(tfchild.TensorFoldError) as cm:
+            tfchild.TensorFoldChild(self.model, binary=os.path.join(self.model, "missing"), timeout=1,
+                                    log=lambda *_: None)
+        self.assertIn("could not be started", str(cm.exception))
 
     def test_restart_loop_survives_oserror(self):
         child = self.start(quiet=0.05)
@@ -231,8 +252,20 @@ class Child(unittest.TestCase):
         child.begin()
         child.after_erase(dict(ERASE))
         self.assertTrue(wait_until(lambda: child.health().get("engine") == "draining", timeout=2.0))
-        with self.assertRaises(tfchild.TensorFoldError):
-            child.begin()
+        other = []
+
+        def new_request():
+            try:
+                child.begin()
+            except tfchild.TensorFoldError as e:
+                other.append(e)
+            else:
+                child.end()
+
+        t = threading.Thread(target=new_request)
+        t.start()
+        t.join()
+        self.assertEqual(len(other), 1)
         self.assertEqual(child.proc.pid, pid)
         child.end()
         self.assertTrue(wait_until(lambda: child.proc is not None and child.proc.pid != pid
@@ -376,13 +409,16 @@ class ProxyEngine(unittest.TestCase):
     def test_erase_during_restart_is_503_and_keeps_the_note(self):
         store = H.seeded(self.tmp, "erase-busy.jsonl")
         srv, notes, port, engine = self.running(["--owner", "user"], store=store, quiet=0.05, restart_max=0.25)
-        nid = json.loads(_call(port, "GET", "/v1/notes")[2])["data"][0]["id"]
+        note = json.loads(_call(port, "GET", "/v1/notes")[2])["data"][0]
+        nid, text = note["id"], note["text"]
         engine.begin()
         engine.after_erase(dict(ERASE))
         self.assertTrue(wait_until(lambda: engine.health().get("engine") == "draining", timeout=3.0))
         st, _, raw = _call(port, "DELETE", f"/v1/notes/{nid}")
         self.assertEqual(st, 503)
         self.assertEqual(_call(port, "GET", f"/v1/notes/{nid}")[0], 200)
+        with open(store, "rb") as f:
+            self.assertIn(text.encode(), f.read())
         engine.end()
 
     def test_uncertain_erase_still_restarts(self):

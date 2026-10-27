@@ -72,17 +72,6 @@ _WATCH_PARENT = (
 )
 
 
-def _parent_death_preexec():
-    """Linux: the child gets SIGTERM when the proxy dies, even if the watchdog has not run yet."""
-    try:
-        import ctypes
-        import ctypes.util
-        libc = ctypes.CDLL(ctypes.util.find_library("c") or "libc.so.6", use_errno=True)
-        libc.prctl(1, int(signal.SIGTERM), 0, 0, 0)  # PR_SET_PDEATHSIG
-    except Exception:
-        pass
-
-
 class TensorFoldError(Exception):
     """The child could not be started, reached, or restarted."""
 
@@ -124,17 +113,24 @@ def check_extra(extra):
             i += 1
             continue
         if val is not None:
+            if not _flag_value(val):
+                raise TensorFoldError(f"{name} needs a value")
             out.extend([name, val])
             i += 1
             continue
         if i + 1 >= len(extra):
             raise TensorFoldError(f"{name} needs a value")
         nxt = extra[i + 1]
-        if nxt in FORBIDDEN or nxt.startswith("--"):
+        if not _flag_value(nxt):
             raise TensorFoldError(f"{name} needs a value")
         out.extend([name, nxt])
         i += 2
     return out
+
+
+def _flag_value(val):
+    """A serve flag's value: non-empty, and not another flag or a negative-looking token."""
+    return isinstance(val, str) and val != "" and not val.startswith("-")
 
 
 class ChildTokenizer:
@@ -148,7 +144,8 @@ class ChildTokenizer:
     def encode(self, text):
         self.engine.begin()
         try:
-            st, body = self.engine.request("POST", "/v1/tokenize", {"prompt": text})
+            st, body = self.engine.request("POST", "/v1/tokenize",
+                                           {"prompt": text, "add_special_tokens": False})
         finally:
             self.engine.end()
         if st != 200 or not isinstance(body, dict) or not isinstance(body.get("tokens"), list):
@@ -218,6 +215,7 @@ class TensorFoldChild:
         self._retry_after = 1
         self._life_w = None
         self._watch = None
+        self._held = threading.local()
         try:
             self.start()
         except BaseException:
@@ -259,9 +257,11 @@ class TensorFoldChild:
                 pass
             self._logf = None
         self._logf = open(os.path.join(self._tmpdir, "child.log"), "wb")
-        preexec = _parent_death_preexec if sys.platform.startswith("linux") else None
-        self.proc = subprocess.Popen(cmd, env=env, stdin=subprocess.DEVNULL, stdout=self._logf,
-                                     stderr=subprocess.STDOUT, start_new_session=True, preexec_fn=preexec)
+        try:
+            self.proc = subprocess.Popen(cmd, env=env, stdin=subprocess.DEVNULL, stdout=self._logf,
+                                         stderr=subprocess.STDOUT, start_new_session=True)
+        except OSError as e:
+            raise TensorFoldError(f"TensorFold could not be started ({e})") from e
         self.url = f"http://127.0.0.1:{self.port}"
         self._watch_parent(self.proc.pid)
         self._note(f"notes-proxy: started TensorFold pid {self.proc.pid} on {self.url}")
@@ -373,14 +373,23 @@ class TensorFoldChild:
             pass
 
     def begin(self):
-        """Take a slot for an upstream call. Raises at once when the child is down or mid-restart; never waits."""
+        """Take a slot for an upstream call. Raises at once when the child is down or mid-restart; never waits.
+        A thread that already holds a slot may nest (tokenize during an erase) even after drain starts, so a
+        journal rewrite cannot run then fail mid-encode."""
         with self._gate:
-            if self._stopped or self._down or not self._serving or self._drain:
+            nest = getattr(self._held, "n", 0)
+            if nest == 0:
+                if self._stopped or self._down or not self._serving or self._drain:
+                    raise TensorFoldError("TensorFold is not ready")
+            elif self._stopped:
                 raise TensorFoldError("TensorFold is not ready")
             self.inflight += 1
+            self._held.n = nest + 1
 
     def end(self):
         with self._gate:
+            nest = getattr(self._held, "n", 0)
+            self._held.n = max(0, nest - 1)
             self.inflight = max(0, self.inflight - 1)
             if self.inflight == 0:
                 self._gate.notify_all()
