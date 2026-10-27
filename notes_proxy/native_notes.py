@@ -9,7 +9,7 @@ import functools
 import threading
 from types import SimpleNamespace
 
-from .store import ProxyStore, StoreError, L, nm
+from .store import ProxyStore, StoreError, L, nm, validate_write
 from .zstore import IntakeStore, NativeStoreError
 
 
@@ -93,6 +93,7 @@ class NativeNotes:
 
     @mapped
     def write_text(self, text, subject=None, today=None):
+        validate_write(text, subject)
         with self.lock:
             told = max(L.tick(today or datetime.date.today().isoformat()), self._last_told + 100)
             result = self.native.write_text(text, told, subject)

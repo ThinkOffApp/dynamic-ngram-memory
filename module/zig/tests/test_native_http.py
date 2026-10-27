@@ -12,10 +12,32 @@ ROOT = pathlib.Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT))
 from notes_proxy.proxy import build, parser
 from notes_proxy.native_notes import NativeNotes
-from notes_proxy.store import Notes, nm
+from notes_proxy.store import Notes, nm, StoreError
 
 
 class NativeHTTP(unittest.TestCase):
+    def test_invalid_writes_match_python_and_do_not_consume_sources(self):
+        tok = nm.load_tokenizer(os.environ["NOTES_PROXY_TEST_TOKENIZER"])
+        with tempfile.TemporaryDirectory(prefix="native-validation-") as root:
+            reference = Notes(pathlib.Path(root) / "python", "alice", tok)
+            native = NativeNotes(pathlib.Path(root) / "zig", "alice", tok)
+            try:
+                for text, subject in (("   ", None), (None, None), ("x" * 16385, None),
+                                      ("bad\ud800", None), ("valid", " spaced"), ("valid", 42),
+                                      ("valid", "bad\nsubject")):
+                    with self.subTest(text_type=type(text).__name__, subject_type=type(subject).__name__):
+                        with self.assertRaises(StoreError) as expected:
+                            reference.write_text(text, subject=subject)
+                        with self.assertRaises(StoreError) as actual:
+                            native.write_text(text, subject=subject)
+                        self.assertEqual((str(actual.exception), actual.exception.status),
+                                         (str(expected.exception), expected.exception.status))
+                self.assertEqual(native.listing(), [])
+                self.assertEqual(native.write_text("A valid note.", subject="me")["id"], "w1")
+            finally:
+                native.close()
+                reference.close()
+
     def test_exact_duplicate_reply_matches_python_without_claiming_another_write(self):
         tok = nm.load_tokenizer(os.environ["NOTES_PROXY_TEST_TOKENIZER"])
         with tempfile.TemporaryDirectory(prefix="native-reply-") as root:

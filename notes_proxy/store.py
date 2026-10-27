@@ -66,6 +66,24 @@ class StoreError(Exception):
         self.status = status
 
 
+def validate_write(text, subject=None):
+    """Shared pre-mutation HTTP validation for Python and native stores."""
+    if not isinstance(text, str) or not text.strip():
+        raise StoreError("text must not be empty")
+    if len(text.encode("utf-8", "surrogatepass")) > TEXT_LIMIT:
+        raise StoreError("text is over 16 KiB: a note is one thing the user said", 413)
+    try:
+        text.encode("utf-8")
+    except UnicodeEncodeError:
+        raise StoreError("text must be valid Unicode (no lone surrogates)")
+    if subject is not None:
+        size = len(subject.encode("utf-8", "surrogatepass")) if isinstance(subject, str) else 0
+        if not 1 <= size <= SUBJECT_LIMIT or any(ord(c) < 0x20 or ord(c) == 0x7F for c in subject) \
+                or subject != subject.strip(" "):
+            raise StoreError("subject must be 1 to 200 bytes of text with no control characters and no space at "
+                             "either end")
+
+
 def note_id(source):
     """A note's id: its write's own id (the lesson's "id", the note's `source`), as text. The proxy's writes are "wN",
     numbered from the journal's `next_source`, which an erase never takes back; a seeded lesson's number n is "sN".
@@ -428,20 +446,7 @@ class Notes:
     def write_text(self, text, subject=None, today=None):
         """One sentence the user said, through the intake. The rule book's lesson when intake.parse reads it (and no
         subject is named); otherwise a free-text note of `subject` (default "me"). On disk before it is seen."""
-        if not isinstance(text, str) or not text.strip():
-            raise StoreError("text must not be empty")
-        if len(text.encode("utf-8", "surrogatepass")) > TEXT_LIMIT:
-            raise StoreError("text is over 16 KiB: a note is one thing the user said", 413)
-        try:
-            text.encode("utf-8")
-        except UnicodeEncodeError:
-            raise StoreError("text must be valid Unicode (no lone surrogates)")
-        if subject is not None:
-            size = len(subject.encode("utf-8", "surrogatepass")) if isinstance(subject, str) else 0
-            if not 1 <= size <= SUBJECT_LIMIT or any(ord(c) < 0x20 or ord(c) == 0x7F for c in subject) \
-                    or subject != subject.strip(" "):
-                raise StoreError("subject must be 1 to 200 bytes of text with no control characters and no space at "
-                                 "either end")
+        validate_write(text, subject)
         with self.lock:
             O = self.store.owner(self.owner, create=True)
             src = f"w{self.next_source}"
