@@ -29,3 +29,47 @@ test "standalone storage loads and releases byte fixture without a host engine" 
     try std.testing.expectEqual(@as(usize, 0), store.model.notes.items.len);
     try std.testing.expect(store.journal == null); // fixture-only mode is not a writable store
 }
+
+test "standalone durable write survives close and reopen with stable id" {
+    const Storage = @import("server/notes/storage.zig").Storage;
+    const ops = @import("server/notes/operations.zig");
+    const a = std.testing.allocator;
+    var tmp = std.testing.tmpDir(.{});
+    defer tmp.cleanup();
+    var arena = std.heap.ArenaAllocator.init(a);
+    defer arena.deinit();
+    const temp = arena.allocator();
+    const dir = try tmp.dir.realPathFileAlloc(std.testing.io, ".", temp);
+    const path = try std.fs.path.join(temp, &.{ dir, "notes.journal" });
+    var context: u8 = 0;
+    const text: @import("server/model_text.zig").Text = .{
+        .ctx = &context,
+        .encode_fn = fixtureEncode,
+        .vocabulary_size = 256,
+    };
+    const snapshot = @embedFile("server/notes/testdata/tb_empty_bytes_snapshot.json");
+    var problem: []const u8 = "";
+    var id: u32 = 0;
+    {
+        const store = try Storage.load(a, snapshot, text, path, &problem);
+        defer store.deinit();
+        try store.beginRun(temp, .{});
+        var refusal: ops.Refusal = .{};
+        const written = try ops.perform(store, temp, .{
+            .op = .add,
+            .text = "My aunt Brigitta grows tomatoes.",
+        }, 739900000000, &refusal);
+        id = written.note.?.id;
+        try std.testing.expectEqualStrings("w1", written.source);
+        try std.testing.expectEqual(@as(usize, 1), store.model.notes.items.len);
+    }
+    {
+        const store = try Storage.load(a, snapshot, text, path, &problem);
+        defer store.deinit();
+        try std.testing.expectEqual(@as(usize, 1), store.model.notes.items.len);
+        const note = store.model.notes.items[store.model.placeOf(id).?];
+        try std.testing.expectEqualStrings("My aunt Brigitta grows tomatoes.", note.text());
+        try std.testing.expectEqualStrings("w1", note.source().?);
+        try std.testing.expectEqual(@as(u64, 2), store.log.next_source);
+    }
+}
