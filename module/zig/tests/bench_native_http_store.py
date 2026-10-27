@@ -23,9 +23,47 @@ def emit(**values):
     print(json.dumps(values), flush=True)
 
 
+def capped_worker(command, timeout, rss_mib):
+    """Parent samples this worker's RSS every 200ms; fail closed if ps fails.
+
+    Not an OS hard memory limit: a worker may transiently exceed the threshold
+    between samples. This is explicitly reported rather than called MemoryMax.
+    """
+    started = time.monotonic()
+    reason = None
+    sampled_peak = 0
+    with subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True) as worker:
+        while True:
+            try:
+                out, err = worker.communicate(timeout=0.2)
+                break
+            except subprocess.TimeoutExpired:
+                if time.monotonic() - started >= timeout:
+                    reason = "wall_limit"
+                elif worker.poll() is None:
+                    sample = subprocess.run(["ps", "-o", "rss=", "-p", str(worker.pid)],
+                                            capture_output=True, text=True, timeout=2)
+                    if sample.returncode == 0 and sample.stdout.strip().isdigit():
+                        rss = int(sample.stdout.strip()) * 1024
+                        sampled_peak = max(sampled_peak, rss)
+                        if rss > rss_mib * 1024 * 1024:
+                            reason = "sampled_rss_limit"
+                    elif worker.poll() is None:
+                        reason = "rss_monitor_failed"
+                if reason:
+                    worker.kill()
+                    out, err = worker.communicate()
+                    break
+        print(out, end="", flush=True)
+        emit(result=reason or ("completed" if worker.returncode == 0 else "failed"),
+             returncode=worker.returncode, error=err[-2000:], sampled_peak_bytes=sampled_peak,
+             wall_cap_seconds=timeout, rss_threshold_mib=rss_mib,
+             memory_control="200ms sampled watchdog, NOT a hard MemoryMax")
+
+
 def run(size, journal_root=None, engine="zig", bulk=False):
     from notes_proxy.native_notes import NativeNotes
-    from notes_proxy.store import nm, Notes, Journal, JOURNAL_FORMAT, FREE
+    from notes_proxy.store import nm, Notes, Journal, JOURNAL_FORMAT, FREE, StoreError
     context = contextlib.nullcontext(journal_root) if journal_root else tempfile.TemporaryDirectory(prefix="native-notes-bench-")
     with context as root:
         tok = nm.load_tokenizer(os.environ["NOTES_PROXY_TEST_TOKENIZER"])
@@ -72,8 +110,14 @@ def run(size, journal_root=None, engine="zig", bulk=False):
                     emit(size=size, phase="fill_progress", written=i + 1, elapsed=time.monotonic() - started)
             emit(size=size, phase="fill", seconds=time.monotonic() - started)
             started = time.monotonic()
-            notes.write_text("An additional synthetic inventory item is blue.", subject="inventory")
-            emit(engine=engine, size=size, phase="single_write", seconds=time.monotonic() - started)
+            try:
+                notes.write_text("An additional synthetic inventory item is blue.", subject="inventory")
+                emit(engine=engine, size=size, phase="single_write", seconds=time.monotonic() - started)
+            except StoreError as error:
+                if error.status != 507:
+                    raise
+                emit(engine=engine, size=size, phase="single_write", result="capacity_refused", status=507,
+                     seconds=time.monotonic() - started)
             started = time.monotonic()
             notes.lookup("Where is inventory item 42 stored?", cap=512)
             emit(size=size, phase="lookup", seconds=time.monotonic() - started)
@@ -94,22 +138,18 @@ if __name__ == "__main__":
     parser.add_argument("--journal-root", help=argparse.SUPPRESS)
     parser.add_argument("--engine", choices=("python", "zig"), default="zig")
     parser.add_argument("--bulk", action="store_true", help="synthetic batched journal fixture, then real reopen/write/erase")
+    parser.add_argument("--tiers", type=int, nargs="+", choices=(1000, 10000, 100000), default=[1000, 10000, 100000])
+    parser.add_argument("--rss-mib", type=int, default=1024)
     args = parser.parse_args()
     if args.size:
         run(args.size, args.journal_root, args.engine, args.bulk)
     else:
-        for size in (1000, 10000, 100000):
-            try:
-                # The parent owns cleanup, including when the worker is killed at the wall cap.
-                with tempfile.TemporaryDirectory(prefix="native-notes-bench-parent-") as root:
-                    result = subprocess.run([sys.executable, __file__, "--size", str(size), "--journal-root", root,
-                                             "--engine", args.engine] + (["--bulk"] if args.bulk else []),
-                                            capture_output=True, text=True, timeout=args.timeout)
-                print(result.stdout, end="", flush=True)
-                emit(size=size, result="completed" if result.returncode == 0 else "failed",
-                     returncode=result.returncode, error=result.stderr[-2000:])
-            except subprocess.TimeoutExpired as error:
-                output = error.stdout or b""
-                print(output.decode() if isinstance(output, bytes) else output, end="", flush=True)
-                emit(size=size, result="wall_limit", limit_seconds=args.timeout,
-                     qualification="NOT a completed scale/erase measurement")
+        if args.rss_mib <= 0 or args.timeout <= 0:
+            parser.error("positive memory and wall caps are required")
+        for size in args.tiers:
+            emit(engine=args.engine, size=size, phase="worker_start")
+            # The parent owns cleanup, including when the worker is killed at either cap.
+            with tempfile.TemporaryDirectory(prefix="native-notes-bench-parent-") as root:
+                capped_worker([sys.executable, __file__, "--size", str(size), "--journal-root", root,
+                               "--engine", args.engine] + (["--bulk"] if args.bulk else []),
+                              args.timeout, args.rss_mib)
