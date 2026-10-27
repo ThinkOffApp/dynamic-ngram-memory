@@ -36,10 +36,17 @@ class IntakeCompatibility(unittest.TestCase):
                 # The existing native change path, not a second retirement implementation, keeps history.
                 self.assertEqual(len(native.listing()), 2)
                 before = native.listing()
-                with self.assertRaises(NativeStoreError) as error:
-                    native.write_text("I live in Berlin.", expected["told"] + 100)
-                self.assertEqual(error.exception.status, 501)  # explicitly unfinished, never silently NEW
+                duplicate = native.write_text("I live in Berlin.", expected["told"] + 100)
+                self.assertEqual(duplicate["verdict"], "ALREADY_KNOWN")
                 self.assertEqual(native.listing(), before)
+            with IntakeStore(snapshot, pathlib.Path(root) / "native.journal", vocab.ids) as reopened:
+                changed = reopened.write_text("I live in Stockholm.", expected["told"] + 200)
+                self.assertEqual(changed["verdict"], "REPLACES")
+                self.assertEqual([row["text"] for row in reopened.listing() if row["state"] == "current"],
+                                 ["I live in Stockholm."])
+                reopened.erase(changed["note"]["id"])
+                self.assertEqual([row["text"] for row in reopened.listing() if row["state"] == "current"],
+                                 ["I live in Berlin."])
 
 
 if __name__ == "__main__":

@@ -45,6 +45,11 @@ class ZStore:
         lib.np_operate.argtypes = [C.c_void_p, C.c_uint8, C.c_uint32, C.c_char_p, C.c_size_t,
                                    C.c_char_p, C.c_size_t, C.c_int64]
         lib.np_operate.restype = C.c_char_p
+        lib.np_add_attribute.argtypes = [C.c_void_p, C.c_char_p, C.c_size_t, C.c_char_p, C.c_size_t,
+                                         C.c_char_p, C.c_size_t, C.c_int64]
+        lib.np_add_attribute.restype = C.c_char_p
+        lib.np_records.argtypes = [C.c_void_p]
+        lib.np_records.restype = C.c_char_p
         lib.np_list.argtypes = [C.c_void_p]
         lib.np_list.restype = C.c_char_p
         lib.np_erase.argtypes = [C.c_void_p, C.c_uint32]
@@ -118,6 +123,13 @@ class ZStore:
     def listing(self):
         return self._call(self._lib.np_list)
 
+    def records(self):
+        return self._call(self._lib.np_records)
+
+    def _add_attribute(self, text, told, subject, attribute):
+        raw, sub, attr = text.encode(), subject.encode(), attribute.encode()
+        return self._call(self._lib.np_add_attribute, attr, len(attr), sub, len(sub), raw, len(raw), told)
+
     def erase(self, note_id):
         if isinstance(note_id, bool) or not isinstance(note_id, int) or not 0 < note_id < (1 << 32):
             raise ValueError("invalid native note id")
@@ -146,22 +158,34 @@ class ZStore:
 
 
 class IntakeStore(ZStore):
-    """WIP rule-book adapter for fresh stores. Not the default HTTP Notes implementation.
+    """WIP rule-book adapter. Not the default HTTP Notes implementation.
 
     Reuse the Python rule book's classification, then the reviewed native change/retire operation.
-    Unsupported cases refuse before mutation; durable structured metadata/migration is still required.
+    Structured slot identity is stored in native journal attributes; no non-atomic metadata sidecar.
+    Unsupported cases still refuse before mutation; legacy journal migration is not implemented.
     """
     def __init__(self, *args, schema=None, **kwargs):
         super().__init__(*args, **kwargs)
         self._schema = schema
         self._lessons = {}
-        self._intake_ready = not self.listing()
+        try:
+            from .store import intake
+            notes = {r["source"]: r for r in self.listing()}
+            for record in self.records():
+                if not record["attribute"].startswith("schema:") or record["source"] not in notes:
+                    continue
+                parsed = intake.parse(record["text"])
+                if parsed is None or "schema:" + parsed["a"] != record["attribute"] or parsed["e"] != record["subject"]:
+                    raise NativeStoreError("inconsistent structured record metadata", 500)
+                nid = notes[record["source"]]["id"]
+                self._lessons[nid] = dict(parsed, told=record["told"], id=nid)
+        except BaseException:
+            self.close()
+            raise
 
     def write_text(self, text, told, subject=None):
-        from .store import intake, nm
+        from .store import intake, nm, lnorm
         with self._lock:
-            if not self._intake_ready:
-                raise NativeStoreError("structured journal metadata migration is not implemented", 501)
             parsed = None if subject is not None else intake.parse(text)
             if parsed is None:
                 return self.write(text, told, subject)
@@ -171,9 +195,13 @@ class IntakeStore(ZStore):
             previous = [l for l in self._lessons.values() if (l["e"], l["a"]) == (lesson["e"], lesson["a"])]
             schema = nm.widen(self._schema or nm.L.SCHEMA, previous + [lesson])
             verdict = intake.classify(previous, lesson, ents=[lesson["e"]], sch=schema)
-            if not verdict["learn"]:
-                raise NativeStoreError("structured no-op journal records are not implemented", 501)
             rows = {r["id"]: r for r in self.listing()}
+            if not verdict["learn"]:
+                # Exact normalized duplicates use the reviewed journal's same-as closure, including erase.
+                if verdict["verdict"] == intake.ALREADY_KNOWN and any(
+                        rows[l["id"]]["state"] == "current" and lnorm(l["text"]) == lnorm(text) for l in previous):
+                    return self._add_attribute(text, told, lesson["e"], "schema:" + lesson["a"])
+                raise NativeStoreError("this structured no-op needs the remaining compatibility adapter", 501)
             current = [l for l in previous if rows[l["id"]]["state"] == "current"]
             retired = nm.NoteStore.no_longer_current(schema, current, lesson)
             if len(retired) > 1:
@@ -181,7 +209,7 @@ class IntakeStore(ZStore):
             if retired:
                 result = self.change(current[retired[0]]["id"], text, told, subject=lesson["e"])
             else:
-                result = self.write(text, told, subject=lesson["e"])
+                result = self._add_attribute(text, told, lesson["e"], "schema:" + lesson["a"])
             self._lessons[result["note"]["id"]] = dict(lesson, id=result["note"]["id"])
             return result
 

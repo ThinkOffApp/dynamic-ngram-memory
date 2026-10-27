@@ -170,6 +170,79 @@ pub export fn np_list(h: *Handle) ?[*:0]const u8 {
     };
 }
 
+// Attribute identity is durable in the reviewed journal. The adapter prefixes structured slots with "schema:";
+// raw lesson text remains unmodified and can be parsed on reopen, without a non-atomic metadata sidecar.
+pub export fn np_add_attribute(h: *Handle, attribute: [*]const u8, attribute_len: usize, subject: [*]const u8, subject_len: usize, bytes: [*]const u8, len: usize, told: i64) ?[*:0]const u8 {
+    const temp = h.reset();
+    if (attribute_len == 0 or attribute_len > 200 or subject_len == 0 or subject_len > 200 or len == 0 or len > 16 << 10) {
+        fail(error.InvalidOperation);
+        return null;
+    }
+    if (!std.unicode.utf8ValidateSlice(attribute[0..attribute_len]) or !std.unicode.utf8ValidateSlice(subject[0..subject_len]) or !std.unicode.utf8ValidateSlice(bytes[0..len])) {
+        fail(error.InvalidOperation);
+        return null;
+    }
+    const source = std.fmt.allocPrint(temp, "w{d}", .{h.store.?.log.next_source}) catch |e| {
+        fail(e);
+        return null;
+    };
+    var prepared = h.store.?.prepare(temp, .{
+        .op = .add,
+        .source = source,
+        .subject = subject[0..subject_len],
+        .attribute = attribute[0..attribute_len],
+        .text = bytes[0..len],
+        .told = told,
+    }) catch |e| {
+        fail(e);
+        return null;
+    };
+    defer prepared.deinit();
+    const out = prepared.out;
+    const shown = if (out.note != 0) out.note else if (out.same_as.len > 0) out.same_as[0] else null;
+    const reply: ops.Written = .{
+        .verdict = out.verdict,
+        .source = source,
+        .told = told,
+        .note = if (shown) |id| ops.view(h.store.?.model, temp, h.store.?.model.placeOf(id).?) catch |e| {
+            fail(e);
+            return null;
+        } else null,
+        .retired = out.retired,
+        .same_as = out.same_as,
+    };
+    const result = output(temp, reply) catch |e| {
+        fail(e);
+        return null;
+    };
+    prepared.commit(temp) catch |e| {
+        fail(e);
+        return null;
+    };
+    return result;
+}
+
+pub export fn np_records(h: *Handle) ?[*:0]const u8 {
+    const temp = h.reset();
+    const Record = struct { source: []const u8, text: []const u8, subject: []const u8, attribute: []const u8, told: i64 };
+    const entries = h.store.?.log.items.items;
+    const rows = temp.alloc(Record, entries.len) catch |e| {
+        fail(e);
+        return null;
+    };
+    for (entries, rows) |entry, *row| row.* = .{
+        .source = entry.r.source,
+        .text = entry.r.text,
+        .subject = entry.r.subject,
+        .attribute = entry.r.attribute,
+        .told = entry.r.told,
+    };
+    return output(temp, rows) catch |e| {
+        fail(e);
+        return null;
+    };
+}
+
 pub export fn np_erase(h: *Handle, id: u32) ?[*:0]const u8 {
     const temp = h.reset();
     var prepared = erase.prepare(h.store.?, temp, id) catch |e| {
