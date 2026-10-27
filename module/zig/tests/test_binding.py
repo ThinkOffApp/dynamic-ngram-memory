@@ -45,6 +45,22 @@ class Binding(unittest.TestCase):
         self.assertIn("Brigitta", alice.lookup(question, 1000)["block"])
         self.assertEqual(bob.lookup(question, 1000)["block"], "")
 
+    def test_journal_cannot_be_opened_by_another_handle_or_owner(self):
+        # HTTP opt-in must not weaken the existing one-owner/one-process journal contract.
+        path = pathlib.Path(self.tmp.name) / "shared.journal"
+        snapshot = dict(self.snapshot, owner="alice")
+        encode = lambda text: list(text.encode())
+        with ZStore(snapshot, path, encode) as alice:
+            alice.write("My aunt Brigitta grows tomatoes.", 739900000000)
+            with self.assertRaises(NativeStoreError):
+                ZStore(snapshot, path, encode)
+        before = path.read_bytes()
+        with self.assertRaises(NativeStoreError):
+            ZStore(dict(self.snapshot, owner="bob"), path, encode)
+        self.assertEqual(path.read_bytes(), before)
+        with ZStore(snapshot, path, encode) as reopened:
+            self.assertEqual(len(reopened.listing()), 1)
+
     def test_tokenizer_exception_is_closed_without_exposing_its_text(self):
         def failing(_):
             raise ValueError("private-note-sentinel")
