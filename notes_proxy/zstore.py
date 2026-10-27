@@ -209,7 +209,7 @@ class IntakeStore(ZStore):
             parsed = None if subject is not None else intake.parse(text)
             if parsed is None:
                 return self.write(text, told, subject)
-            if parsed["op"] not in ("ASSERT", "RETRACT", "DATED"):
+            if parsed["op"] not in ("ASSERT", "RETRACT", "DATED", "CHANGE"):
                 raise NativeStoreError("this structured operation needs the remaining compatibility adapter", 501)
             lesson = dict(parsed, told=told, id=-1)
             previous = [l for l in self._lessons.values() if (l["e"], l["a"]) == (lesson["e"], lesson["a"])]

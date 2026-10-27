@@ -17,6 +17,44 @@ import notes_export
 
 
 class IntakeCompatibility(unittest.TestCase):
+    def test_unimplemented_multi_target_change_refuses_before_any_mutation(self):
+        tok = nm.load_tokenizer(os.environ["NOTES_PROXY_TEST_TOKENIZER"])
+        with tempfile.TemporaryDirectory(prefix="notes-set-change-") as root:
+            ref = Notes(pathlib.Path(root) / "reference.jsonl", "alice", tok)
+            self.addCleanup(ref.close)
+            ref.store.owner("alice", create=True)
+            snapshot, vocab = notes_export.snapshot(ref.store, "alice")
+            path = pathlib.Path(root) / "native.journal"
+            with IntakeStore(snapshot, path, vocab.ids) as native:
+                for text in ("I like apples.", "I like cheese."):
+                    expected = ref.write_text(text)
+                    result = native.write_text(text, expected["told"])
+                    self.assertEqual(result["verdict"], expected["verdict"])
+                before_disk, before_notes = path.read_bytes(), native.listing()
+                with self.assertRaises(NativeStoreError) as error:
+                    native.write_text("I only like bananas now.", expected["told"] + 100)
+                self.assertEqual(error.exception.status, 501)
+                self.assertEqual(path.read_bytes(), before_disk)
+                self.assertEqual(native.listing(), before_notes)
+            with IntakeStore(snapshot, path, vocab.ids) as reopened:
+                self.assertEqual([r["text"] for r in reopened.listing() if r["state"] == "current"],
+                                 ["I like apples.", "I like cheese."])
+
+    def test_single_target_change_wording_matches_python(self):
+        tok = nm.load_tokenizer(os.environ["NOTES_PROXY_TEST_TOKENIZER"])
+        with tempfile.TemporaryDirectory(prefix="notes-single-change-") as root:
+            ref = Notes(pathlib.Path(root) / "reference", "alice", tok)
+            self.addCleanup(ref.close)
+            ref.store.owner("alice", create=True)
+            snapshot, vocab = notes_export.snapshot(ref.store, "alice")
+            with IntakeStore(snapshot, pathlib.Path(root) / "native", vocab.ids) as native:
+                for text in ("I like apples.", "I only like bananas now."):
+                    expected = ref.write_text(text)
+                    result = native.write_text(text, expected["told"])
+                    self.assertEqual(result["verdict"], expected["verdict"])
+                self.assertEqual(native.lookup("What food do I like?", 512)["block"],
+                                 ref.lookup("What food do I like?", cap=512)["block"])
+
     def test_dated_change_keeps_current_and_past_block_parity(self):
         spec = os.environ.get("NOTES_PROXY_TEST_TOKENIZER")
         self.assertTrue(spec and spec != "fake")
