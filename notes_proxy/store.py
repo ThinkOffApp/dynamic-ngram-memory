@@ -30,6 +30,7 @@ import glob
 import json
 import os
 import secrets
+import stat
 import sys
 import threading
 
@@ -183,7 +184,7 @@ class Journal:
         d = os.path.dirname(self.path)
         if not os.path.isdir(d):
             raise StoreError(f"no folder for the store at {d}", 500)
-        self.lock_fd = os.open(self.path + ".lock", os.O_RDWR | os.O_CREAT, 0o600)
+        self.lock_fd = self._open_private(self.path + ".lock", os.O_RDWR | os.O_CREAT)
         try:
             fcntl.flock(self.lock_fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except OSError:
@@ -195,21 +196,41 @@ class Journal:
         self.fd = None
         self.poisoned = False
 
+    @staticmethod
+    def _open_private(path, flags):
+        """Check the opened inode, never repair permissions on an existing file."""
+        try:
+            fd = os.open(path, flags | os.O_NOFOLLOW | os.O_NONBLOCK, 0o600)
+        except FileNotFoundError:
+            raise
+        except OSError as e:
+            if e.errno == errno.ELOOP:
+                raise StoreError(f"unsafe notes file {path}: symbolic links are refused", 500) from e
+            raise  # preserve the caller's existing I/O-unavailable (503) handling
+        try:
+            info = os.fstat(fd)
+            if (not stat.S_ISREG(info.st_mode) or info.st_uid != os.geteuid()
+                    or info.st_mode & 0o077):
+                raise StoreError(f"unsafe notes file {path}: require a regular file owned by this user "
+                                 "with no group or other permissions", 500)
+            return fd
+        except BaseException:
+            os.close(fd)
+            raise
+
     def read(self):
         """(header or None, [lessons]). A last line without its newline (a crash mid-write) is cut."""
-        if not os.path.exists(self.path):
+        try:
+            fd = self._open_private(self.path, os.O_RDWR)
+        except FileNotFoundError:
             return None, []
-        with open(self.path, "rb") as f:
+        with os.fdopen(fd, "r+b") as f:
             data = f.read()
-        if data and not data.endswith(b"\n"):
-            keep = data.rfind(b"\n") + 1
-            fd = os.open(self.path, os.O_WRONLY)
-            try:
-                os.ftruncate(fd, keep)
-                _sync(fd)
-            finally:
-                os.close(fd)
-            data = data[:keep]
+            if data and not data.endswith(b"\n"):
+                keep = data.rfind(b"\n") + 1
+                os.ftruncate(f.fileno(), keep)
+                _sync(f.fileno())
+                data = data[:keep]
         lines = [x for x in data.split(b"\n") if x]
         if not lines:
             return None, []
@@ -225,7 +246,7 @@ class Journal:
         return header, [r["lesson"] for r in recs]
 
     def open_append(self):
-        self.fd = os.open(self.path, os.O_WRONLY | os.O_APPEND)
+        self.fd = self._open_private(self.path, os.O_WRONLY | os.O_APPEND)
 
     def append(self, lesson):
         """The write on disk, synced. On failure it is cut back to the last whole write; if even that fails, the

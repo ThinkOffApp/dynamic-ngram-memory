@@ -8,6 +8,27 @@ from notes_proxy.tests import helpers as H
 
 
 class StoreAdmission(unittest.TestCase):
+    def test_unsafe_lock_is_refused_and_not_chmodded(self):
+        with tempfile.TemporaryDirectory(prefix="notes-admission-") as root:
+            path = os.path.join(root, "owner.jsonl")
+            lock = path + ".lock"
+            with open(lock, "wb") as f:
+                f.write(b"sentinel")
+            os.chmod(lock, 0o644)
+            with self.assertRaises(StoreError):
+                Notes(path, "owner", H.tokenizer())
+            self.assertFalse(os.path.exists(path))
+            self.assertEqual(os.stat(lock).st_mode & 0o777, 0o644)
+            with open(lock, "rb") as f:
+                self.assertEqual(f.read(), b"sentinel")
+
+    def test_fifo_journal_is_refused_without_waiting_for_writer(self):
+        with tempfile.TemporaryDirectory(prefix="notes-admission-") as root:
+            path = os.path.join(root, "owner.jsonl")
+            os.mkfifo(path, 0o600)
+            with self.assertRaises(StoreError):
+                Notes(path, "owner", H.tokenizer())
+
     def test_world_readable_journal_is_refused_without_changing_it(self):
         with tempfile.TemporaryDirectory(prefix="notes-admission-") as root:
             path = os.path.join(root, "owner.jsonl")

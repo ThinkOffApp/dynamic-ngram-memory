@@ -214,6 +214,8 @@ class ManyUsers(unittest.TestCase):
 
     def fill_alice(self, team=None):
         shutil.copyfile(self.alice_full, (team or self.team).journal("alice"))
+        # copyfile creates a new file with the process umask, not the journal's private mode.
+        os.chmod((team or self.team).journal("alice"), 0o600)
 
     def blocks(self, p, who, questions):
         """The block the upstream received for each question asked with this user's key ("" when none)."""
