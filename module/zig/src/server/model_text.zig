@@ -1,6 +1,6 @@
 //! Standalone tokenizer seam: the caller supplies real token ids, never an engine or fallback tokenizer.
 const std = @import("std");
-pub const Error = error{ OutOfMemory, Tokenizer };
+pub const Error = error{ OutOfMemory, Template };
 pub const Text = struct {
     ctx: *anyopaque,
     encode_fn: *const fn (*anyopaque, std.mem.Allocator, []const u8, bool) Error![]u32,

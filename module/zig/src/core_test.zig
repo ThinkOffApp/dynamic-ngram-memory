@@ -4,4 +4,28 @@ test "standalone core declarations" {
     std.testing.refAllDecls(@import("server/notes/model.zig"));
     std.testing.refAllDecls(@import("server/notes/index.zig"));
     std.testing.refAllDecls(@import("server/notes/journal.zig"));
+    std.testing.refAllDecls(@import("server/notes/storage.zig").Storage);
+    std.testing.refAllDecls(@import("server/notes/operations.zig"));
+}
+
+// This byte codec is test-only and matches the explicitly byte-tokenized fixture.
+fn fixtureEncode(_: *anyopaque, a: std.mem.Allocator, bytes: []const u8, _: bool) @import("server/model_text.zig").Error![]u32 {
+    const ids = try a.alloc(u32, bytes.len);
+    for (bytes, ids) |byte, *id| id.* = byte;
+    return ids;
+}
+
+test "standalone storage loads and releases byte fixture without a host engine" {
+    const Storage = @import("server/notes/storage.zig").Storage;
+    var context: u8 = 0;
+    const text: @import("server/model_text.zig").Text = .{
+        .ctx = &context,
+        .encode_fn = fixtureEncode,
+        .vocabulary_size = 256,
+    };
+    var problem: []const u8 = "";
+    const store = try Storage.load(std.testing.allocator, @embedFile("server/notes/testdata/tb_empty_bytes_snapshot.json"), text, null, &problem);
+    defer store.deinit();
+    try std.testing.expectEqual(@as(usize, 0), store.model.notes.items.len);
+    try std.testing.expect(store.journal == null); // fixture-only mode is not a writable store
 }

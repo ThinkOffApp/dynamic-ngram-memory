@@ -23,7 +23,7 @@ def main():
     selected = sorted(p for p in all_paths if p in previous or p.startswith("zig/src/server/notes/")
                       or p in ("zig/src/server/notes_records.zig", "zig/src/server/notes_erase_places.zig",
                                "zig/src/server/json.zig", "zig/src/server/json_parse.zig",
-                               "zig/src/server/json_write.zig"))
+                               "zig/src/server/json_write.zig", "zig/src/server/clock.zig"))
     if not selected or not all(p.startswith("zig/") and ".." not in pathlib.PurePosixPath(p).parts
                                for p in selected):
         raise ValueError("invalid export paths")
