@@ -54,6 +54,20 @@ class Binding(unittest.TestCase):
         self.assertNotIn("private-note-sentinel", str(error.exception))
         self.assertEqual(store.listing(), [])
 
+    def test_subject_change_takeback_and_error_status_survive_native_boundary(self):
+        store = self.open()
+        first = store.write("Brigitta grows tomatoes.", 739900000000, subject="Brigitta")["note"]
+        self.assertEqual(first["subject"], "Brigitta")
+        changed = store.change(first["id"], "Brigitta grows potatoes.", 739900000100)["note"]
+        self.assertEqual(changed["subject"], "Brigitta")
+        store.take_back(changed["id"], 739900000200)
+        with self.assertRaises(NativeStoreError) as error:
+            store.change(first["id"], "Brigitta grows carrots.", 739900000300)
+        self.assertEqual(error.exception.status, 409)
+        with self.assertRaises(NativeStoreError) as error:
+            store.erase(9999)
+        self.assertEqual(error.exception.status, 404)
+
 
 if __name__ == "__main__":
     unittest.main()

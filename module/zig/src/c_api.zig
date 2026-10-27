@@ -8,6 +8,7 @@ const erase = @import("standalone_erase.zig");
 const a = std.heap.c_allocator;
 pub const Encode = *const fn (?*anyopaque, [*]const u8, usize, ?[*]u32, usize) callconv(.c) isize;
 threadlocal var error_text: [256:0]u8 = @splat(0);
+threadlocal var error_status: u16 = 500;
 
 const Handle = struct {
     store: ?*Storage = null,
@@ -19,11 +20,20 @@ const Handle = struct {
     fn reset(h: *Handle) std.mem.Allocator {
         _ = h.arena.reset(.free_all);
         error_text[0] = 0;
+        error_status = 500;
         return h.arena.allocator();
     }
 };
 
 fn fail(e: anyerror) void {
+    error_status = switch (e) {
+        error.NotesFull, error.JournalFull, error.TooManyNotes, error.JournalTooLarge => 507,
+        error.JournalPoisoned, error.ReadOnly, error.MissingRun => 503,
+        error.InvalidTextSize, error.InvalidLookup, error.Template, error.Tokenizer, error.InvalidOperation => 400,
+        error.NoNote => 404,
+        error.SnapshotNote => 409,
+        else => 500,
+    };
     const name = @errorName(e);
     const n = @min(name.len, error_text.len - 1);
     @memcpy(error_text[0..n], name[0..n]);
@@ -45,8 +55,13 @@ pub export fn np_last_error() [*:0]const u8 {
     return &error_text;
 }
 
+pub export fn np_last_status() u16 {
+    return error_status;
+}
+
 pub export fn np_open(snapshot: [*]const u8, snapshot_len: usize, path: [*]const u8, path_len: usize, vocabulary: u32, callback: Encode, context: ?*anyopaque) ?*Handle {
     error_text[0] = 0;
+    error_status = 500;
     const h = a.create(Handle) catch |e| {
         fail(e);
         return null;
@@ -86,14 +101,43 @@ fn output(allocator: std.mem.Allocator, value: anytype) ![*:0]const u8 {
 }
 
 pub export fn np_write(h: *Handle, bytes: [*]const u8, len: usize, told: i64) ?[*:0]const u8 {
+    return np_operate(h, 0, 0, null, 0, bytes, len, told);
+}
+
+pub export fn np_operate(h: *Handle, operation: u8, target: u32, subject: ?[*]const u8, subject_len: usize, bytes: [*]const u8, len: usize, told: i64) ?[*:0]const u8 {
     const temp = h.reset();
-    if (len == 0 or len > 16 << 10) {
+    if (len == 0 or len > 16 << 10 or !std.unicode.utf8ValidateSlice(bytes[0..len])) {
         fail(error.InvalidTextSize);
         return null;
     }
+    const op: @import("server/notes/write.zig").Op = switch (operation) {
+        0 => .add,
+        1 => .change,
+        2 => .take_back,
+        else => {
+            fail(error.InvalidOperation);
+            return null;
+        },
+    };
+    if (subject_len > 200 or (subject == null and subject_len != 0)) {
+        fail(error.InvalidOperation);
+        return null;
+    }
+    const sub: ?[]const u8 = if (subject) |p| p[0..subject_len] else null;
+    if (sub) |value| {
+        if (value.len == 0 or !std.unicode.utf8ValidateSlice(value) or value[0] == ' ' or value[value.len - 1] == ' ') {
+            fail(error.InvalidOperation);
+            return null;
+        }
+        for (value) |byte| if (byte < 0x20 or byte == 0x7f) {
+            fail(error.InvalidOperation);
+            return null;
+        };
+    }
     var refusal: ops.Refusal = .{};
-    var prepared = ops.prepare(h.store.?, temp, .{ .op = .add, .text = bytes[0..len] }, told, &refusal) catch |e| {
+    var prepared = ops.prepare(h.store.?, temp, .{ .op = op, .target = target, .subject = sub, .text = bytes[0..len] }, told, &refusal) catch |e| {
         fail(e);
+        if (e == error.Refused) error_status = refusal.status;
         return null;
     };
     defer prepared.deinit();
@@ -103,6 +147,7 @@ pub export fn np_write(h: *Handle, bytes: [*]const u8, len: usize, told: i64) ?[
     };
     prepared.commit(temp, &refusal) catch |e| {
         fail(e);
+        if (e == error.Refused) error_status = refusal.status;
         return null;
     };
     return result;

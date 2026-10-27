@@ -15,7 +15,9 @@ Encode = C.CFUNCTYPE(C.c_ssize_t, C.c_void_p, C.c_void_p, C.c_size_t,
 
 
 class NativeStoreError(RuntimeError):
-    pass
+    def __init__(self, message, status=500):
+        super().__init__(message)
+        self.status = status
 
 
 class ZStore:
@@ -36,8 +38,13 @@ class ZStore:
         lib.np_close.restype = None
         lib.np_last_error.argtypes = []
         lib.np_last_error.restype = C.c_char_p
+        lib.np_last_status.argtypes = []
+        lib.np_last_status.restype = C.c_uint16
         lib.np_write.argtypes = [C.c_void_p, C.c_char_p, C.c_size_t, C.c_int64]
         lib.np_write.restype = C.c_char_p
+        lib.np_operate.argtypes = [C.c_void_p, C.c_uint8, C.c_uint32, C.c_char_p, C.c_size_t,
+                                   C.c_char_p, C.c_size_t, C.c_int64]
+        lib.np_operate.restype = C.c_char_p
         lib.np_list.argtypes = [C.c_void_p]
         lib.np_list.restype = C.c_char_p
         lib.np_erase.argtypes = [C.c_void_p, C.c_uint32]
@@ -77,7 +84,8 @@ class ZStore:
             self._raise()
 
     def _raise(self):
-        raise NativeStoreError((self._lib.np_last_error() or b"native store failure").decode("ascii", "replace"))
+        raise NativeStoreError((self._lib.np_last_error() or b"native store failure").decode("ascii", "replace"),
+                               self._lib.np_last_status())
 
     def _call(self, function, *args):
         with self._lock:
@@ -88,9 +96,24 @@ class ZStore:
                 self._raise()
             return json.loads(result)  # decode under the lock, before the next native arena reset
 
-    def write(self, text, told):
+    def write(self, text, told, subject=None):
+        return self._operate(0, 0, text, told, subject)
+
+    def change(self, target, text, told, subject=None):
+        return self._operate(1, target, text, told, subject)
+
+    def take_back(self, target, told, text="I take that back."):
+        return self._operate(2, target, text, told, None)
+
+    def _operate(self, operation, target, text, told, subject):
+        if isinstance(target, bool) or not isinstance(target, int) or not 0 <= target < (1 << 32):
+            raise ValueError("invalid target id")
+        if isinstance(told, bool) or not isinstance(told, int) or not -(1 << 63) <= told < (1 << 63):
+            raise ValueError("invalid told timestamp")
         raw = text.encode("utf-8")
-        return self._call(self._lib.np_write, raw, len(raw), told)
+        sub = None if subject is None else subject.encode("utf-8")
+        return self._call(self._lib.np_operate, operation, target, sub, len(sub) if sub is not None else 0,
+                          raw, len(raw), told)
 
     def listing(self):
         return self._call(self._lib.np_list)
