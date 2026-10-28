@@ -7,6 +7,7 @@ import sys
 import tempfile
 import threading
 import unittest
+from unittest import mock
 import urllib.request
 
 ROOT = pathlib.Path(__file__).resolve().parents[3]
@@ -17,6 +18,17 @@ from notes_proxy.store import Notes, nm, StoreError
 
 
 class NativeHTTP(unittest.TestCase):
+    def test_unqualified_native_supervised_combination_refuses_before_child_start(self):
+        with tempfile.TemporaryDirectory(prefix="native-no-child-") as root:
+            path = pathlib.Path(root) / "native.journal"
+            args = parser().parse_args(["--tensorfold", "example/model", "--owner", "alice", "--store", str(path),
+                                        "--store-engine", "zig", "--port", "0"])
+            with mock.patch("notes_proxy.proxy.tfchild.TensorFoldChild") as child:
+                with self.assertRaises(SystemExit):
+                    build(args, log=lambda _: None)
+                child.assert_not_called()
+            self.assertFalse(path.exists())
+
     def test_custom_schema_is_reused_on_reopen_and_bound_to_journal_identity(self):
         tok = nm.load_tokenizer(os.environ["NOTES_PROXY_TEST_TOKENIZER"])
         schema = copy.deepcopy(nm.L.SCHEMA)
