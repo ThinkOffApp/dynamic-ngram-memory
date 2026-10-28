@@ -57,3 +57,18 @@ preparing one record. No loop of independently committed native operations.
 
 The first API contract tests intentionally fail until this extension exists;
 they are not passing-feature evidence or a production qualification.
+
+## Native record-type foundation
+
+`src/intake_record_v4.zig` now defines distinct learned (explicit retirement
+source list) and no-op (no note identity) effects, raw text and dependency
+sources. Its read-only validator rejects malformed/noncanonical sources,
+self/forward references, duplicate or missing references, cross-owner access,
+non-current retirement targets and retirement of a different subject/attribute.
+Hash maps avoid quadratic reference-list scans. This is local adapter code,
+not a modification to the pinned export.
+
+Three native unit tests cover these shapes and rejection paths. The module is
+included only by the core test harness: there is still no v4 codec, journal
+replay/apply/erase integration, or `commit_intake` API. The two Python gates
+remain red; this foundation does not make the native HTTP feature complete.
