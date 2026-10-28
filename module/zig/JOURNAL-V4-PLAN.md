@@ -72,3 +72,12 @@ Three native unit tests cover these shapes and rejection paths. The module is
 included only by the core test harness: there is still no v4 codec, journal
 replay/apply/erase integration, or `commit_intake` API. The two Python gates
 remain red; this foundation does not make the native HTTP feature complete.
+
+`src/intake_codec_v4.zig` adds the explicit version-tagged JSON-line codec:
+learned records carry `id` and `retire`, while no-op records carry neither.
+Both preserve exact raw text and explicit dependencies. Two additional native
+tests round-trip both forms (including quotes, newline and Unicode), reject
+malformed shapes and confirm the v3 record decoder rejects them. Core tests:
+31/31 passing. This codec is still test-only: no disk writer, header upgrade,
+commit-marker replay or atomic apply/erase path is connected. In particular,
+record-decoder rejection is not yet an on-disk old-reader refusal test.

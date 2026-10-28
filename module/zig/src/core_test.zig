@@ -2,6 +2,7 @@
 const std = @import("std");
 test "standalone core declarations" {
     std.testing.refAllDecls(@import("intake_record_v4.zig"));
+    std.testing.refAllDecls(@import("intake_codec_v4.zig"));
     std.testing.refAllDecls(@import("server/notes/model.zig"));
     std.testing.refAllDecls(@import("server/notes/index.zig"));
     std.testing.refAllDecls(@import("server/notes/journal.zig"));
