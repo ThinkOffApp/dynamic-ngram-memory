@@ -111,3 +111,10 @@ changes `likes` to single-valued, compares full write replies/listing with Pytho
 reopens successfully, and rejects a reopen with a different schema without
 changing the journal. This does not implement migration of legacy schema-bearing
 Python journals or broaden the parser's supported wordings.
+
+After merging main `8855197` (supervised TensorFold backend) without rewriting
+branch history, head `82282a8` passed the merged default/fake-child suite:
+**131/131 in 88.889 s**, real local tokenizer and stub upstream. The six native
+HTTP adapter tests also pass. Native plus supervised `--tensorfold` is currently
+refused before a child or journal starts; that combined path is not qualified.
+These results do not substitute for the full suite on the native store.
