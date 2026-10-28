@@ -18,6 +18,7 @@ things the user said, never as instructions.
       [--framing quoted|firm]
   python -m notes_proxy --upstream http://127.0.0.1:8080 --users users.json --store-dir ~/notes \\
       --tokenizer /path/to/model/tokenizer.json [--upstream-key-env NAME] [--share-upstream-cache]
+  python -m notes_proxy --tensorfold org/name --owner me --store ~/notes/me.jsonl
   python -m notes_proxy add-user --users users.json --owner alice --store-dir ~/notes [--reuse-notes]
   python -m notes_proxy remove-user --users users.json --owner alice (--keep-notes | --erase-notes) [--store-dir DIR]
   python -m notes_proxy seed --set tests/examples/L6-seed1.json --phase teach --owner user --store STORE.jsonl
@@ -26,6 +27,7 @@ Standard library for the HTTP side; the model's tokenizer.json is read with the 
 reads it.
 """
 import argparse
+import atexit
 import hashlib
 import hmac
 import http.client
@@ -33,13 +35,16 @@ import ipaddress
 import json
 import os
 import secrets
+import signal
 import socket
 import sys
+import threading
 import time
 import urllib.parse
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 from . import gate, users
+from . import tensorfold as tfchild
 from .store import Notes, ProxyStore, StoreError, nm, seed
 
 NOTE_FIELDS = ("notes", "notes_exclude", "notes_past", "notes_cap", "notes_echo", "notes_write", "notes_language")
@@ -59,10 +64,11 @@ HEADERS_MANY = ("content-type", "accept", "user-agent")                     # th
 
 
 class Refused(Exception):
-    def __init__(self, message, status=400, log=""):
+    def __init__(self, message, status=400, log="", headers=None):
         super().__init__(message)
         self.status = status
         self.log = log                 # the cause, for the operator's log line only
+        self.headers = headers or {}
 
 
 def holds(v, key):
@@ -210,7 +216,7 @@ def splice(body, field):
 
 class Config:
     def __init__(self, upstream, owner, write=False, join_system=False, timeout=600.0, allow_origins=(),
-                 local_only=True, log=None, upstream_key=None, isolate_cache=False):
+                 local_only=True, log=None, upstream_key=None, isolate_cache=False, engine=None):
         u = urllib.parse.urlsplit(upstream)
         if u.scheme not in ("http", "https") or not u.hostname:
             raise ValueError("--upstream is an http:// or https:// base URL, such as http://127.0.0.1:8080")
@@ -225,9 +231,13 @@ class Config:
         self.local_only = local_only
         self.upstream_key = upstream_key   # --upstream-key-env's value: what the upstream gets as Authorization
         self.isolate_cache = isolate_cache  # many users without --share-upstream-cache
+        self.engine = engine               # TensorFold child started with --tensorfold, or None
         self.log = log or (lambda line: print(line, file=sys.stderr, flush=True))
 
     def connect(self):
+        if self.engine is not None:
+            host, port = self.engine.endpoint()
+            return http.client.HTTPConnection(host, port, timeout=self.timeout)
         cls = http.client.HTTPSConnection if self.scheme == "https" else http.client.HTTPConnection
         return cls(self.host, self.port, timeout=self.timeout)
 
@@ -347,14 +357,19 @@ class Handler(BaseHTTPRequestHandler):
                 continue
             if self.many and lk not in HEADERS_MANY:
                 continue                      # the user's key, a cookie, another key or a session id: none goes on
-            if lk == "authorization" and self.cfg.upstream_key is not None:
-                continue                      # a key the upstream key replaces
+            if lk == "authorization" and (self.cfg.upstream_key is not None or self.cfg.engine is not None):
+                continue                      # a key the upstream key or the child's key replaces
             if key and key in v:
                 continue                      # the user's key, in whatever other header the client also put it
             out[k] = v                        # with one owner and no upstream key, Authorization goes on as sent
         if self.cfg.upstream_key is not None:
             out["Authorization"] = f"Bearer {self.cfg.upstream_key}"
-        out["Host"] = self.cfg.host if self.cfg.port in (80, 443) else f"{self.cfg.host}:{self.cfg.port}"
+        if self.cfg.engine is not None:
+            out.update(self.cfg.engine.auth_headers())   # the child's key; the client never needs it
+            host, port = self.cfg.engine.endpoint()
+            out["Host"] = host if port in (80, 443) else f"{host}:{port}"
+        else:
+            out["Host"] = self.cfg.host if self.cfg.port in (80, 443) else f"{self.cfg.host}:{self.cfg.port}"
         out["Accept-Encoding"] = "identity"
         if length is not None:
             out["Content-Length"] = str(length)
@@ -396,6 +411,12 @@ class Handler(BaseHTTPRequestHandler):
                 self.send_header("Content-Length", "0")
                 self.end_headers()
                 return self.logline(204, t0)
+            if path == "/health" and self.command in ("GET", "HEAD") and self.cfg.engine is not None:
+                h = self.cfg.engine.health()
+                status = 200 if h.get("status") == "ok" else 503
+                extra = {"Retry-After": str(self.cfg.engine.retry_after())} if status == 503 else None
+                self.send_json(status, h, extra)
+                return self.logline(status, t0)
             self.owner = self.server.who(self.headers)     # with many users: the key's owner, or a 401 here
             if self.many:
                 self.key = bearer(self.headers.get("Authorization"))
@@ -407,9 +428,17 @@ class Handler(BaseHTTPRequestHandler):
             if path == "/v1/chat/completions" and self.command == "POST":
                 return self.chat(t0)
             return self.passthrough(t0)
+        except tfchild.TensorFoldError as e:
+            self.close_connection = True
+            extra = {"Retry-After": str(self.cfg.engine.retry_after())} if self.cfg.engine is not None else None
+            self.send_error_json(503, "the TensorFold engine is not ready", extra)
+            self.logline(503, t0, f" ({e})")
         except Refused as e:
             self.close_connection = True      # a refusal may leave a body unread: never read it as the next request
-            self.send_error_json(e.status, str(e), {"WWW-Authenticate": "Bearer"} if e.status == 401 else None)
+            extra = dict(e.headers)
+            if e.status == 401:
+                extra.setdefault("WWW-Authenticate", "Bearer")
+            self.send_error_json(e.status, str(e), extra or None)
             self.logline(e.status, t0, e.log)
         except (BrokenPipeError, ConnectionResetError):
             self.close_connection = True
@@ -429,6 +458,13 @@ class Handler(BaseHTTPRequestHandler):
         q = urllib.parse.parse_qs(urllib.parse.urlsplit(self.path).query)
         flag = lambda name: (q.get(name) or ["0"])[-1].lower() in ("1", "true")
         m = self.command
+        if rest == "erase-status":
+            if m not in ("GET", "HEAD"):
+                raise Refused("use GET on /v1/notes/erase-status", 405)
+            if self.cfg.engine is None:
+                raise Refused("erase-status is for --tensorfold", 404)
+            self.send_json(200, self.cfg.engine.erase_status())
+            return self.logline(200, t0)
         if m in ("GET", "HEAD"):
             if nid is not None:
                 v = self.notes.get(nid)
@@ -448,10 +484,17 @@ class Handler(BaseHTTPRequestHandler):
                 raise Refused("DELETE takes a note: /v1/notes/ID", 405)
             if v:
                 raise Refused("an erase takes no body")
+            held = self.engine_slot()
             try:
-                done = self.notes.erase(nid)
-            except StoreError as e:
-                raise Refused(str(e), e.status)
+                try:
+                    done = self.notes.erase(nid)
+                except StoreError as e:
+                    raise Refused(str(e), e.status)
+            finally:
+                if held is not None:
+                    held.end()
+            if self.cfg.engine is not None and done.get("removed"):
+                done = self.cfg.engine.after_erase(done)
             status = 500 if "error" in done else 200
             self.send_json(status, done)
             return self.logline(status, t0, f" erased [{nid}], removed {len(done['removed'])} writes")
@@ -467,15 +510,33 @@ class Handler(BaseHTTPRequestHandler):
             raise Refused("text must be a string")
         if "subject" in v and not isinstance(v["subject"], str):
             raise Refused("subject must be a string")
+        held = self.engine_slot()
         try:
-            done = self.notes.write_text(v["text"], subject=v.get("subject"))
-        except StoreError as e:
-            raise Refused(str(e), e.status)
+            try:
+                done = self.notes.write_text(v["text"], subject=v.get("subject"))
+            except StoreError as e:
+                raise Refused(str(e), e.status)
+        finally:
+            if held is not None:
+                held.end()
         status = 201 if done["written"] else 200
         self.send_json(status, done)
         self.logline(status, t0, f" write {done['verdict']} [{done['id']}]")
 
     # ------------------------------------------------------------------------------------------ chat
+    def engine_slot(self):
+        """Hold an inflight slot so a restart cannot stop the child while this request tokenizes. None with no engine.
+        Raises Refused 503 when the child is down, draining or restarting: the journal is not touched."""
+        engine = self.cfg.engine
+        if engine is None:
+            return None
+        try:
+            engine.begin()
+        except tfchild.TensorFoldError:
+            raise Refused("the TensorFold engine is not ready", 503,
+                          headers={"Retry-After": str(engine.retry_after())})
+        return engine
+
     def auto_write(self, ask, body):
         """The chat's own write, the server's rule: only the last message, only when it is the user's, only when it
         tells rather than asks; never the model's answers, system messages or earlier messages."""
@@ -501,52 +562,62 @@ class Handler(BaseHTTPRequestHandler):
         _raw, body = self.json_body(CHAT_BODY_LIMIT)
         if not isinstance(body, dict):
             raise Refused("the request body must be a JSON object")
-        ask = asked(body)
-        fwd = self.isolated({k: v for k, v in body.items() if k not in NOTE_FIELDS})
-        used = None
-        extra = ""
-        if ask is not None:
-            msgs = body.get("messages")
-            if not isinstance(msgs, list) or not msgs:
-                raise Refused("messages must be a non-empty list")
-            question = last_user(msgs)
-            res = self.notes.lookup(question, cap=ask["cap"], past=ask["past"], exclude=ask["exclude"])
-            if res["block"]:
-                fwd["messages"] = with_block(msgs, res["block"], self.cfg.join_system)
-            total_us = (time.perf_counter() - t0) * 1e6
-            wrote, write_us = self.auto_write(ask, body)
-            used = {"ids": res["note_ids"], "numbers": res["ids"], "past": res["past"],
-                    "past_from": "request" if ask["past"] is not None else "question", "language": "en",
-                    "cap": res["cap"], "tokens": res["tokens"],
-                    "candidates": res["candidates"], "notes_in_store": self.notes.count(),
-                    "lookup_us": res["lookup_us"], "total_us": round(total_us, 1),
-                    "block_sha256": hashlib.sha256(res["block"].encode()).hexdigest() if res["block"] else None}
-            if ask["echo"]:
-                used["block"] = res["block"]
-            used["write"] = wrote
-            used["write_us"] = round(write_us, 1)
-            w = used["write"]
-            extra = (f" notes [{','.join(map(str, used['ids']))}] {used['tokens']} tokens of {used['cap']}, past "
-                     f"{'yes' if used['past'] else 'no'}, {used['candidates']} candidates, lookup {used['lookup_us']}"
-                     f" us; write " + (f"{w['verdict']} [{w['id']}]" if "verdict" in w else
-                                       f"failed" if "failed" in w else f"skipped ({w['skipped']})"))
-            if self.many:
-                for k in TIMES:          # the operator's log keeps them
-                    del used[k]
-        data = json.dumps(fwd, ensure_ascii=False).encode()
-        stream = fwd.get("stream") is True
-        self.relay("POST", data, used, stream, t0, extra)
+        held = self.engine_slot()
+        try:
+            ask = asked(body)
+            fwd = self.isolated({k: v for k, v in body.items() if k not in NOTE_FIELDS})
+            used = None
+            extra = ""
+            if ask is not None:
+                msgs = body.get("messages")
+                if not isinstance(msgs, list) or not msgs:
+                    raise Refused("messages must be a non-empty list")
+                question = last_user(msgs)
+                res = self.notes.lookup(question, cap=ask["cap"], past=ask["past"], exclude=ask["exclude"])
+                if res["block"]:
+                    fwd["messages"] = with_block(msgs, res["block"], self.cfg.join_system)
+                total_us = (time.perf_counter() - t0) * 1e6
+                wrote, write_us = self.auto_write(ask, body)
+                used = {"ids": res["note_ids"], "numbers": res["ids"], "past": res["past"],
+                        "past_from": "request" if ask["past"] is not None else "question", "language": "en",
+                        "cap": res["cap"], "tokens": res["tokens"],
+                        "candidates": res["candidates"], "notes_in_store": self.notes.count(),
+                        "lookup_us": res["lookup_us"], "total_us": round(total_us, 1),
+                        "block_sha256": hashlib.sha256(res["block"].encode()).hexdigest() if res["block"] else None}
+                if ask["echo"]:
+                    used["block"] = res["block"]
+                used["write"] = wrote
+                used["write_us"] = round(write_us, 1)
+                w = used["write"]
+                extra = (f" notes [{','.join(map(str, used['ids']))}] {used['tokens']} tokens of {used['cap']}, past "
+                         f"{'yes' if used['past'] else 'no'}, {used['candidates']} candidates, lookup {used['lookup_us']}"
+                         f" us; write " + (f"{w['verdict']} [{w['id']}]" if "verdict" in w else
+                                           f"failed" if "failed" in w else f"skipped ({w['skipped']})"))
+                if self.many:
+                    for k in TIMES:          # the operator's log keeps them
+                        del used[k]
+            if self.cfg.engine is not None:
+                fwd["store"] = False
+            data = json.dumps(fwd, ensure_ascii=False).encode()
+            stream = fwd.get("stream") is True
+            self.relay("POST", data, used, stream, t0, extra)
+        finally:
+            if held is not None:
+                held.end()
 
     # ------------------------------------------------------------------------------------------ upstream
     def passthrough(self, t0):
         route = self.path.partition("?")[0]
-        if self.many and self.command not in PASS_MANY.get(route, ()):
+        path = urllib.parse.urlsplit(self.path).path.rstrip("/")
+        engine_responses = (self.cfg.engine is not None and self.command == "POST"
+                            and path.endswith("/responses"))
+        if self.many and self.command not in PASS_MANY.get(route, ()) and not engine_responses:
             raise Refused("with many users this proxy passes on only GET /v1/models, POST /v1/completions and POST "
                           "/v1/embeddings, and gives notes to POST /v1/chat/completions", 404)
         body = None
         if self.command in ("POST", "PUT", "PATCH", "DELETE") or self.headers.get("Content-Length"):
             body = self.read_body(CHAT_BODY_LIMIT)
-        if self.many and route in ("/v1/completions", "/v1/embeddings"):
+        if self.many and (route in ("/v1/completions", "/v1/embeddings") or engine_responses):
             try:
                 v = json.loads(body) if body else None
             except ValueError:
@@ -556,46 +627,62 @@ class Handler(BaseHTTPRequestHandler):
             if self.key and holds(v, self.key):
                 raise Refused(KEY_IN_BODY)
             body = json.dumps(self.isolated(v), ensure_ascii=False).encode()
+        if engine_responses and body:
+            body = tfchild.inject_store_false(body)
         self.relay(self.command, body, None, False, t0, "")
 
     def relay(self, method, body, used, stream, t0, extra):
-        conn = self.cfg.connect()
-        target = self.cfg.target(self.path)
+        engine = self.cfg.engine
+        held = False
+        if engine is not None:
+            try:
+                engine.begin()
+                held = True
+            except tfchild.TensorFoldError:
+                raise Refused("the TensorFold engine is not ready", 503,
+                              headers={"Retry-After": str(engine.retry_after())})
         try:
-            conn.request(method, target, body=body, headers=self.forward_headers(None if body is None else len(body)))
-            r = conn.getresponse()
-        except (OSError, http.client.HTTPException) as e:
-            conn.close()
-            raise Refused(f"the upstream server at {self.cfg.host}:{self.cfg.port} could not be reached "
-                          f"({type(e).__name__})", 502)
-        try:
-            ctype = (r.getheader("Content-Type") or "").lower()
-            headers = [(k, v) for k, v in r.getheaders()
-                       if k.lower() not in HOP_BY_HOP and k.lower() not in ("content-length", "server", "date")]
-            notes_hdr = {}
-            if used is not None:
-                notes_hdr = {"X-Notes-Ids": ",".join(map(str, used["ids"])), "X-Notes-Tokens": str(used["tokens"]),
-                             "X-Notes-Past": "true" if used["past"] else "false"}
-            sse, js = "text/event-stream" in ctype, "json" in ctype
-            if sse and (used is not None and stream or self.many):
-                return self.relay_sse(r, headers, notes_hdr, used, t0, extra)
-            if method != "HEAD" and (used is not None or self.many and js):
-                data = r.read()
-                if self.many and js:
-                    data = scrubbed(data)
-                if used is not None and 200 <= r.status < 300 and js:
-                    data = splice(data, used) or data
-                self.send_response(r.status, r.reason)
-                for k, v in headers + list(notes_hdr.items()) + list(self._cors().items()):
-                    self.send_header(k, v)
-                self.send_header("Content-Length", str(len(data)))
-                self.end_headers()
-                self.wfile.write(data)
-                self.wfile.flush()
-                return self.logline(r.status, t0, extra)
-            return self.relay_raw(r, headers, method, t0, extra)
+            conn = self.cfg.connect()
+            target = self.cfg.target(self.path)
+            try:
+                conn.request(method, target, body=body,
+                             headers=self.forward_headers(None if body is None else len(body)))
+                r = conn.getresponse()
+            except (OSError, http.client.HTTPException) as e:
+                conn.close()
+                raise Refused(f"the upstream server at {self.cfg.host}:{self.cfg.port} could not be reached "
+                              f"({type(e).__name__})", 502)
+            try:
+                ctype = (r.getheader("Content-Type") or "").lower()
+                headers = [(k, v) for k, v in r.getheaders()
+                           if k.lower() not in HOP_BY_HOP and k.lower() not in ("content-length", "server", "date")]
+                notes_hdr = {}
+                if used is not None:
+                    notes_hdr = {"X-Notes-Ids": ",".join(map(str, used["ids"])), "X-Notes-Tokens": str(used["tokens"]),
+                                 "X-Notes-Past": "true" if used["past"] else "false"}
+                sse, js = "text/event-stream" in ctype, "json" in ctype
+                if sse and (used is not None and stream or self.many):
+                    return self.relay_sse(r, headers, notes_hdr, used, t0, extra)
+                if method != "HEAD" and (used is not None or self.many and js):
+                    data = r.read()
+                    if self.many and js:
+                        data = scrubbed(data)
+                    if used is not None and 200 <= r.status < 300 and js:
+                        data = splice(data, used) or data
+                    self.send_response(r.status, r.reason)
+                    for k, v in headers + list(notes_hdr.items()) + list(self._cors().items()):
+                        self.send_header(k, v)
+                    self.send_header("Content-Length", str(len(data)))
+                    self.end_headers()
+                    self.wfile.write(data)
+                    self.wfile.flush()
+                    return self.logline(r.status, t0, extra)
+                return self.relay_raw(r, headers, method, t0, extra)
+            finally:
+                conn.close()
         finally:
-            conn.close()
+            if held:
+                engine.end()
 
     def relay_raw(self, r, headers, method, t0, extra):
         """Any other reply, passed on as it comes: with its Content-Length when it has one, else chunked."""
@@ -748,6 +835,15 @@ def usage_error(args):
         return "the following arguments are required: " + ", ".join(missing)
     if not many and args.share_upstream_cache:
         return "--share-upstream-cache is for many users (--users and --store-dir)"
+    tf, up = getattr(args, "tensorfold", None), getattr(args, "upstream", None)
+    if bool(tf) == bool(up):
+        return "give --upstream URL, or --tensorfold MODEL, not both"
+    if tf and getattr(args, "tokenizer", None):
+        return "--tokenizer is for --upstream; with --tensorfold the child tokenizes"
+    if not tf and not getattr(args, "tokenizer", None):
+        return "the following arguments are required: --tokenizer"
+    if tf and many and not args.share_upstream_cache:
+        return "--tensorfold with many users shares TensorFold's prompt cache: pass --share-upstream-cache to allow it, or run one proxy per owner"
     return None
 
 
@@ -757,7 +853,7 @@ def build(args, log=None):
     many = args.users is not None or args.store_dir is not None
     err = usage_error(args)
     if err:
-        if err.startswith("the following arguments"):
+        if err.startswith("the following arguments") and "--store" in err:
             err = "give --owner NAME and --store FILE for one owner, or --users FILE and --store-dir DIR for many users"
         raise SystemExit(f"notes-proxy: {err}")
     if not is_loopback(args.host) and not args.allow_remote:
@@ -778,23 +874,39 @@ def build(args, log=None):
     if not isinstance(config, dict):
         raise SystemExit("--notes-config is a JSON object of notes.py settings")
     config["cap"] = args.cap
-    tok = nm.load_tokenizer(args.tokenizer)
-    head = {"abstain_line": args.abstain_line, "framing": args.framing}
-    ProxyStore(tok, config=config, **head)          # the settings are checked now, before any store is opened
-    if many:
-        who = users.Users(args.users)
-        users.make_room(len(who))                   # every user's open files fit
-        notes = users.Owners(args.store_dir, tok, config=config, **head)
-    else:
-        who = None
-        notes = Notes(args.store, args.owner, tok, config=config, **head)
-    cfg = Config(args.upstream, args.owner, write=args.write, join_system=args.join_system, timeout=args.timeout,
-                 allow_origins=args.allow_origin or (), local_only=not args.allow_remote, log=log,
-                 upstream_key=upstream_key, isolate_cache=many and not args.share_upstream_cache)
+    engine = notes = None
     try:
+        if args.tensorfold:
+            try:
+                engine = tfchild.TensorFoldChild(args.tensorfold, extra=args.tensorfold_arg or (),
+                                                 binary=args.tensorfold_bin, log=log,
+                                                 quiet=args.tensorfold_quiet,
+                                                 restart_max=args.tensorfold_restart_max,
+                                                 timeout=args.timeout)
+            except tfchild.TensorFoldError as e:
+                raise SystemExit(f"notes-proxy: {e}")
+            tok = tfchild.ChildTokenizer(engine)
+            args.upstream = engine.url
+        else:
+            tok = nm.load_tokenizer(args.tokenizer)
+        head = {"abstain_line": args.abstain_line, "framing": args.framing}
+        ProxyStore(tok, config=config, **head)          # the settings are checked now, before any store is opened
+        if many:
+            who = users.Users(args.users)
+            users.make_room(len(who))                   # every user's open files fit
+            notes = users.Owners(args.store_dir, tok, config=config, **head)
+        else:
+            who = None
+            notes = Notes(args.store, args.owner, tok, config=config, **head)
+        cfg = Config(args.upstream, args.owner, write=args.write, join_system=args.join_system, timeout=args.timeout,
+                     allow_origins=args.allow_origin or (), local_only=not args.allow_remote, log=log,
+                     upstream_key=upstream_key, isolate_cache=many and not args.share_upstream_cache, engine=engine)
         return Proxy((args.host, args.port), cfg, notes, who), notes
     except BaseException:
-        notes.close()
+        if notes is not None:
+            notes.close()
+        if engine is not None:
+            engine.close()
         raise
 
 
@@ -802,7 +914,18 @@ def parser():
     p = argparse.ArgumentParser(prog="python -m notes_proxy", description="TensorFold Notes in front of any "
                                 "OpenAI-compatible server. One owner (--owner, --store), or many users (--users, "
                                 "--store-dir), each named by their key.")
-    p.add_argument("--upstream", required=True, help="the inference server's base URL, e.g. http://127.0.0.1:8080")
+    p.add_argument("--upstream", default=None, help="the inference server's base URL, e.g. http://127.0.0.1:8080")
+    p.add_argument("--tensorfold", default=None, metavar="MODEL",
+                   help="start TensorFold on this model (local dir or org/name) and use it as the upstream")
+    p.add_argument("--tensorfold-bin", default="tensorfold", help="TensorFold executable (default: tensorfold on PATH)")
+    p.add_argument("--tensorfold-arg", action="append", default=None,
+                   help="one extra TensorFold serve flag from the allowlist (repeatable). Use equals so argparse "
+                        "does not eat the flag: --tensorfold-arg=--no-drafts")
+    p.add_argument("--tensorfold-quiet", type=float, default=tfchild.QUIET, metavar="S",
+                   help="seconds of idle after the last erase before one TensorFold restart (default 10)")
+    p.add_argument("--tensorfold-restart-max", type=float, default=tfchild.RESTART_MAX, metavar="S",
+                   help="if traffic is still in flight this many seconds after the first pending erase, refuse new "
+                        "requests so the restart can run (default 60)")
     p.add_argument("--owner", help="one owner: whose notes this proxy serves")
     p.add_argument("--store", help="one owner: the notes journal file (made if missing)")
     p.add_argument("--users", help="many users: the users file (see add-user). Each request's key names its owner")
@@ -813,9 +936,9 @@ def parser():
     p.add_argument("--share-upstream-cache", action="store_true",
                    help="many users: let the upstream reuse one user's cached prompt for another. Faster, but a user "
                         "can then test guesses about another user's notes (off: every request asks for no reuse)")
-    p.add_argument("--tokenizer", required=True,
+    p.add_argument("--tokenizer", default=None,
                    help="the upstream model's tokenizer.json (or its folder): the 512-token cap is counted with it; "
-                        "\"fake\" only for tests")
+                        "\"fake\" only for tests. Not needed with --tensorfold (the child tokenizes)")
     p.add_argument("--cap", type=int, default=512, help="the block's token cap, framing included (default 512)")
     p.add_argument("--abstain-line", default=None, help="a line of text joined to the block's first line (off)")
     p.add_argument("--framing", choices=("quoted", "firm"), default="quoted",
@@ -922,13 +1045,26 @@ def main(argv=None):
     print(f"notes-proxy: {who}, tokenizer {tok.describe()}, cap {args.cap}, writes from chat "
           f"{'on' if args.write else 'off'}{key}; listening on http://{h}:{pt}, forwarding to "
           f"{srv.cfg.scheme}://{srv.cfg.host}:{srv.cfg.port}{srv.cfg.base}", file=sys.stderr, flush=True)
+
+    def _shutdown(_signum=None, _frame=None):
+        # serve_forever's shutdown() must run on another thread than this one
+        threading.Thread(target=srv.shutdown, daemon=True).start()
+
+    for sg in (signal.SIGTERM, signal.SIGHUP):
+        try:
+            signal.signal(sg, _shutdown)
+        except (ValueError, OSError):
+            pass
+    atexit.register(lambda: srv.cfg.engine.close() if srv.cfg.engine is not None else None)
     try:
         srv.serve_forever()
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, InterruptedError):
         pass
     finally:
         srv.server_close()
         notes.close()
+        if srv.cfg.engine is not None:
+            srv.cfg.engine.close()
 
 
 if __name__ == "__main__":
