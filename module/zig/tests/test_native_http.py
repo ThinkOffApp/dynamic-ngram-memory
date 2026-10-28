@@ -18,6 +18,24 @@ from notes_proxy.store import Notes, nm, StoreError
 
 
 class NativeHTTP(unittest.TestCase):
+    def test_legacy_python_journal_is_refused_without_conversion_or_truncation(self):
+        tok = nm.load_tokenizer(os.environ["NOTES_PROXY_TEST_TOKENIZER"])
+        with tempfile.TemporaryDirectory(prefix="native-legacy-refusal-") as root:
+            path = pathlib.Path(root) / "existing.jsonl"
+            ref = Notes(path, "alice", tok)
+            ref.write_text("I live in Helsinki.")
+            expected = ref.listing(history=True)
+            ref.close()
+            before = path.read_bytes()
+            with self.assertRaises(StoreError):
+                NativeNotes(path, "alice", tok)
+            self.assertEqual(path.read_bytes(), before)
+            reopened = Notes(path, "alice", tok)
+            try:
+                self.assertEqual(reopened.listing(history=True), expected)
+            finally:
+                reopened.close()
+
     def test_unqualified_native_supervised_combination_refuses_before_child_start(self):
         with tempfile.TemporaryDirectory(prefix="native-no-child-") as root:
             path = pathlib.Path(root) / "native.journal"
