@@ -4,6 +4,13 @@ Keep SOURCE.json and its exported files pristine. The adapter extension must
 have a reproducible derivation/patch manifest recording original and derived
 hashes; do not silently change what the upstream receipts qualified.
 
+`python3 tools/derive_notes_adapter.py` now materializes the separate, ignored
+`src/adapter` namespace and records all 54 original/glue hashes; `--verify`
+detects generated-source tampering. It validates every SOURCE.json hash before
+writing and refuses unmanaged output directories. At this stage semantic patches
+are empty and the production ABI still imports the existing core. This is
+provenance infrastructure, not journal-v4 implementation.
+
 The current default stays Python. v4 is not a sidecar and must not be emitted by
 the opt-in until its reader, replay, rollback and erase closure are tested.
 An old v3 reader must reject the v4 header before truncating or rewriting it.
