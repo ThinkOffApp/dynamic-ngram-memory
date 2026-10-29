@@ -38,6 +38,10 @@ ALLOWED_FLAGS = {
     "--no-update-check": "flag",
     "--parallel": "value",
     "--kv-dtype": "value",
+    # Living Weights: the operator may start the child as a pocket. The child's own key (TENSORFOLD_API_KEY, which
+    # --slide demands as its start key) is always set, and no client reaches /v1/slide/learn through the proxy.
+    "--slide": "flag",
+    "--slide-graph": "value",
 }
 
 # flags that would bind the child on the LAN, follow a remote master, or take extra network
