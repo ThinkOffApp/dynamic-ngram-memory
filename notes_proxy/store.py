@@ -196,7 +196,9 @@ class Journal:
         self.poisoned = False
 
     def read(self):
-        """(header or None, [lessons]). A last line without its newline (a crash mid-write) is cut."""
+        """(header, [records]). A record is a write (`{"lesson": ...}`) or a weights marker (`{"weights": {"id":
+        note id, "in_weights": true|false}}`), which says what the pocket knew at that point in the journal's life. A
+        last line without its newline (a crash mid-write) is cut."""
         if not os.path.exists(self.path):
             return None, []
         with open(self.path, "rb") as f:
@@ -220,19 +222,24 @@ class Journal:
             raise StoreError(f"the store {self.path} is not a notes-proxy journal: {e}", 500)
         if not isinstance(header, dict) or header.get("format") != JOURNAL_FORMAT:
             raise StoreError(f"the store {self.path} is not a {JOURNAL_FORMAT} journal", 500)
-        if not all(isinstance(r, dict) and isinstance(r.get("lesson"), dict) for r in recs):
-            raise StoreError(f"the store {self.path} has a line that is not a write", 500)
-        return header, [r["lesson"] for r in recs]
+        for r in recs:
+            w = r.get("weights") if isinstance(r, dict) else None
+            if isinstance(r, dict) and isinstance(r.get("lesson"), dict):
+                continue
+            if isinstance(w, dict) and isinstance(w.get("id"), str) and isinstance(w.get("in_weights"), bool):
+                continue
+            raise StoreError(f"the store {self.path} has a line that is not a write or a weights marker", 500)
+        return header, recs
 
     def open_append(self):
         self.fd = os.open(self.path, os.O_WRONLY | os.O_APPEND)
 
-    def append(self, lesson):
-        """The write on disk, synced. On failure it is cut back to the last whole write; if even that fails, the
+    def append(self, rec):
+        """The record on disk, synced. On failure it is cut back to the last whole write; if even that fails, the
         journal is poisoned and every later write refused until a restart."""
         if self.poisoned:
             raise StoreError("the notes journal needs recovery: restart the proxy", 503)
-        line = (json.dumps({"lesson": lesson}, ensure_ascii=False, separators=(",", ":")) + "\n").encode()
+        line = (json.dumps(rec, ensure_ascii=False, separators=(",", ":")) + "\n").encode()
         size = os.fstat(self.fd).st_size
         try:
             view = memoryview(line)
@@ -252,16 +259,17 @@ class Journal:
             self.poisoned = True
             raise StoreError("the write could not be stored nor rolled back; restart the proxy", 500)
 
-    def rewrite(self, header, lessons):
+    def rewrite(self, header, recs):
         """The journal anew (an erase, or a new store): a new file beside it, synced, renamed over it, then the
-        folder synced. A failure before the rename changes nothing; any failure after it is Uncertain."""
+        folder synced. `recs` are whole records (writes and weights markers, in order). A failure before the rename
+        changes nothing; any failure after it is Uncertain."""
         if self.poisoned:
             raise StoreError("the notes journal needs recovery: restart the proxy", 503)
         tmp = f"{self.path}.tmp.{os.getpid()}.{secrets.token_hex(8)}"
         fd = os.open(tmp, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o600)
         try:
             out = [json.dumps(header, ensure_ascii=False, separators=(",", ":"))]
-            out += [json.dumps({"lesson": l}, ensure_ascii=False, separators=(",", ":")) for l in lessons]
+            out += [json.dumps(r, ensure_ascii=False, separators=(",", ":")) for r in recs]
             data = memoryview(("\n".join(out) + "\n").encode())
             while data:
                 data = data[os.write(fd, data):]
@@ -305,7 +313,11 @@ def _wnum(source):
 
 
 class Notes:
-    """One owner's notes, the store and its journal: what the proxy looks up, writes, lists and erases."""
+    """One owner's notes, the store and its journal: what the proxy looks up, writes, lists and erases.
+
+    Alongside the writes the journal holds weights markers (`{"weights": {"id": ..., "in_weights": ...}}`): what the
+    Living Weights pocket knew about each note, in the journal's own order. `in_weights` is replayed at open, so a
+    restart keeps excluding taught notes. The markers are per owner (per journal), never across owners."""
 
     def __init__(self, path, owner, tokenizer, config=None, abstain_line=None, schema=None, framing="quoted"):
         if not isinstance(owner, str) or not owner:
@@ -313,7 +325,7 @@ class Notes:
         self.owner = owner
         self.journal = Journal(path)
         try:
-            header, lessons = self.journal.read()
+            header, recs = self.journal.read()
             if header is None:
                 header = {"format": JOURNAL_FORMAT, "owner": owner, "schema": schema, "next_source": 1}
                 self.journal.rewrite(header, [])
@@ -324,16 +336,27 @@ class Notes:
             self.store = ProxyStore(tokenizer, schema=header.get("schema"), config=config, abstain_line=abstain_line,
                                     framing=framing)
             seen = set()
-            for l in lessons:
+            self.in_weights = set()          # note ids the pocket was known to hold, from the markers
+            for r in recs:
+                if "weights" in r:
+                    w = r["weights"]
+                    if w["in_weights"]:
+                        self.in_weights.add(w["id"])
+                    else:
+                        self.in_weights.discard(w["id"])
+                    continue
+                l = r["lesson"]
                 nid = note_id(l.get("id"))
                 if not nid or nid.isdigit() or nid in seen:
                     raise StoreError(f"the store {self.journal.path} has a write whose id is missing, a bare number "
                                      f"or another write's ({l.get('id')!r}): a note's id must name one note", 500)
                 seen.add(nid)
                 self.store.write(owner, l)
-            self.next_source = max([header.get("next_source", 1)] + [_wnum(l.get("id")) + 1 for l in lessons])
+            self.next_source = max([header.get("next_source", 1)] +
+                                   [_wnum(r["lesson"].get("id")) + 1 for r in recs if "lesson" in r])
             if self.journal.fd is None:
                 self.journal.open_append()
+            self.records = recs            # every record in the journal, in order (writes and weights markers)
         except BaseException:
             self.journal.close()
             raise
@@ -343,10 +366,13 @@ class Notes:
         self.journal.close()
 
     # ------------------------------------------------------------------------------------------ reading
-    def lookup(self, question, cap=None, past=None, exclude=()):
+    def lookup(self, question, cap=None, past=None, exclude=(), auto_exclude=True):
         """The reference lookup, unchanged: NoteStore.retrieve for this proxy's owner. `exclude` takes note ids
         (note_id); the reply's "ids" are the notes' numbers in the block, as retrieve() gives them, and "note_ids"
-        their ids, in the same order."""
+        their ids, in the same order. With `auto_exclude` (the proxy's chat default), the notes the pocket is known
+        to hold are left out too: a taught fact answers from the weights, and its note would only take cap room."""
+        if auto_exclude and self.in_weights:
+            exclude = tuple(sorted(set(exclude) | self.in_weights))
         res = self.store.retrieve(self.owner, question, cap=cap, past=past, exclude=exclude)
         res.setdefault("note_ids", [])           # an owner with no notes yet: retrieve() looks nothing up
         return res
@@ -372,6 +398,7 @@ class Notes:
         return {"id": note_id(n["source"]), "number": i, "version": n["version"], "state": n["state"],
                 "kind": "take_back" if n["kind"] == nm.TOMBSTONE else "fact", "subject": n["entity"],
                 "text": n["text"], "line": self.store.line(O, i), "source": n["source"], "told": n["told"],
+                "in_weights": note_id(n["source"]) in self.in_weights,
                 "superseded_by": ref(n["superseded_by"]), "tombstoned_by": ref(n["tombstoned_by"])}
 
     def listing(self, history=False):
@@ -391,6 +418,45 @@ class Notes:
             return None if i is None else self._view(O, i)
 
     # ------------------------------------------------------------------------------------------ writes
+    def mark_weights(self, nid, in_weights, reason=None):
+        """Record what the Living Weights pocket holds for one note: `in_weights` true after a lesson taught its
+        sentence and the pocket answered it alone, false when it must not be trusted any more (the note changed, was
+        taken back, or its fact came out of the weights). The marker is appended to the journal before it is seen, the
+        same rule the writes keep. A marker for a note this journal never wrote is refused: an id names one owner's
+        note and never another's."""
+        if not isinstance(nid, str) or not isinstance(in_weights, bool):
+            raise StoreError("the marker needs the note's id and true or false", 500)
+        with self.lock:
+            O = self.store.owner(self.owner)
+            if O is None or self._number(O, nid) is None:
+                raise StoreError("no note has this id: it was never written, or it was erased", 404)
+            if bool(in_weights) == (nid in self.in_weights):
+                return {"id": nid, "in_weights": in_weights, "changed": False}
+            rec = {"weights": {"id": nid, "in_weights": in_weights}}
+            if reason:
+                rec["weights"]["reason"] = str(reason)[:200]
+            size = self.journal.append(rec)
+            self.records.append(rec)
+            (self.in_weights.add if in_weights else self.in_weights.discard)(nid)
+        return {"id": nid, "in_weights": in_weights, "changed": True}
+
+    def _demote(self, O, entry):
+        """The write's own fallout: a note the pocket holds that this write superseded or took back stops being
+        trusted at once, so its fact no longer rides the prompt as "earned". The stale fact leaves the pocket later
+        (the promoter's delete); nothing here zeroes weights in place."""
+        gone = {x for x in self._ids(O, list(entry.get("superseded") or []) + list(entry.get("tombstoned") or []))
+                if x is not None}
+        stale = sorted(gone & self.in_weights)
+        for nid in stale:
+            rec = {"weights": {"id": nid, "in_weights": False, "reason": "superseded or taken back"}}
+            self.journal.append(rec)
+            self.records.append(rec)
+            self.in_weights.discard(nid)
+        return stale
+
+    def in_weights_ids(self):
+        return sorted(self.in_weights)
+
     def write_text(self, text, subject=None, today=None):
         """One sentence the user said, through the intake. The rule book's lesson when intake.parse reads it (and no
         subject is named); otherwise a free-text note of `subject` (default "me"). On disk before it is seen."""
@@ -420,12 +486,14 @@ class Notes:
             if lesson is None:
                 lesson = {"op": "ASSERT", "e": subject or "me", "a": f"note:{src}", "text": text, FREE: "add"}
             lesson.update(id=src, told=told)
-            size = self.journal.append(lesson)
+            size = self.journal.append({"lesson": lesson})
+            self.records.append({"lesson": lesson})
             self.next_source += 1
             try:
                 entry = self.store.write(self.owner, lesson)
             except Exception as e:
                 self.journal.cut(size)
+                self.records.pop()
                 if any(x["source"] == src for x in O.log):
                     self.store.delete(self.owner, src)
                 self.store.same_of.pop(src, None)
@@ -437,11 +505,13 @@ class Notes:
                                            {by_src[s] for s in self.store.same_of.get(src, []) if s in by_src}))
                 note = self._view(O, entry["note"]) if entry["note"] else None
                 superseded, tombstoned = self._ids(O, entry["superseded"]), self._ids(O, entry["tombstoned"])
+                demoted = self._demote(O, entry)   # a superseded note the pocket held rides the prompt again
         return {"id": note["id"] if note else None, "number": entry["note"],
                 "version": note["version"] if note else None,
                 "state": note["state"] if note else None, "verdict": entry["verdict"],
                 "written": entry["note"] is not None, "source": src, "told": told,
-                "superseded": superseded, "tombstoned": tombstoned, "same_as": same, "note": note}
+                "superseded": superseded, "tombstoned": tombstoned, "same_as": same, "note": note,
+                "demoted": demoted}
 
     def erase(self, nid):
         """Erase the note with id `nid` (note_id): its own write, the writes kept out as the same as it, and the
@@ -465,13 +535,22 @@ class Notes:
                     if same or takes:
                         out.append(e["source"])
                 before = {n["source"]: k for k, n in O.notes.items()}
-                keep = [e["lesson"] for e in O.log if e["source"] not in out]
+                keep_src = {e["source"]: e["lesson"] for e in O.log if e["source"] not in out}
+                erased_ids = {note_id(s) for s in out}
+            keep = [r for r in self.records
+                    if ("lesson" in r and r["lesson"].get("id") in keep_src) or
+                       ("weights" in r and r["weights"]["id"] not in erased_ids)]
+            # O.log's rebuild order is the journal order itself; append any lesson the journal holds that the store
+            # kept and rewrite could miss (it cannot happen today; the filter is by id, so order is the journal's).
             self.header = dict(self.header, next_source=self.next_source)
             uncertain = None
             try:
                 self.journal.rewrite(self.header, keep)
             except Uncertain as u:
                 uncertain = str(u)
+            self.records = keep
+            for s in out:
+                self.in_weights.discard(note_id(s))
             for s in reversed(out):      # what depends on the note first, the note last: no lookup in between
                 self.store.delete(self.owner, s)   # sees a same-as write come up as a note of its own
             clear = getattr(getattr(getattr(self.store.tok, "tok", None), "model", None), "_clear_cache", None)
@@ -511,7 +590,7 @@ def seed(path, owner, set_path, phase):
             ns.write(owner, l)                 # the intake runs as it will at every start
         j.rewrite({"format": JOURNAL_FORMAT, "owner": owner, "schema": S["schema"],
                    "next_source": 1, "seeded_from": {"set": S["id"], "phase": phase}},
-                  [e["lesson"] for e in ns.owner(owner).log])
+                  [{"lesson": e["lesson"]} for e in ns.owner(owner).log])
     finally:
         j.close()
     return len(lessons)

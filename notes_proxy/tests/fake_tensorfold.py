@@ -52,6 +52,14 @@ class H(BaseHTTPRequestHandler):
         path = self.path.split("?", 1)[0].rstrip("/") or "/"
         if path in ("/health", "/"):
             return self._send(200, {"status": "ok", "model": "fake-tf", "pid": self.server.pid})
+        if path == "/v1/slide/graph":
+            if not self._auth_ok():
+                return self._send(401, {"error": {"message": "unauthorized"}})
+            graph = os.path.join(self.server.model, "slide_graph.json")
+            if os.path.isfile(graph):
+                with open(graph, "rb") as f:
+                    return self._send(200, json.loads(f.read()))
+            return self._send(200, {"next": 1, "facts": [], "model": {}})
         return self._send(404, {"error": {"message": path}})
 
     def do_POST(self):
