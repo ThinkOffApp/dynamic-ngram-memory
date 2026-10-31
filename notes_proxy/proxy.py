@@ -47,7 +47,8 @@ from . import gate, users
 from . import tensorfold as tfchild
 from .store import Notes, ProxyStore, StoreError, nm, seed
 
-NOTE_FIELDS = ("notes", "notes_exclude", "notes_past", "notes_cap", "notes_echo", "notes_write", "notes_language")
+NOTE_FIELDS = ("notes", "notes_exclude", "notes_past", "notes_cap", "notes_echo", "notes_write", "notes_language",
+               "notes_in_weights")
 HOP_BY_HOP = {"connection", "keep-alive", "proxy-authenticate", "proxy-authorization", "proxy-connection", "te",
               "trailer", "trailers", "transfer-encoding", "upgrade"}
 CHAT_BODY_LIMIT = 64 * 1024 * 1024
@@ -138,7 +139,7 @@ def asked(body):
     Returns None when the request asks for no notes."""
     on = _bool(body, "notes")
     ask = {"exclude": (), "past": _bool(body, "notes_past"), "write": _bool(body, "notes_write"),
-           "echo": bool(_bool(body, "notes_echo")), "cap": None}
+           "echo": bool(_bool(body, "notes_echo")), "cap": None, "in_weights": _bool(body, "notes_in_weights")}
     listed = "notes_exclude" in body
     if listed:
         x = body["notes_exclude"]
@@ -161,6 +162,8 @@ def asked(body):
             raise Refused("notes_past, notes_cap and notes_echo need notes on")
         if ask["write"] is not None:
             raise Refused("notes_write needs notes on")
+        if ask["in_weights"] is not None:
+            raise Refused("notes_in_weights needs notes on")
         return None
     return ask
 
@@ -425,6 +428,17 @@ class Handler(BaseHTTPRequestHandler):
                                   "the URL goes on to the upstream")
             if path == "/v1/notes" or path.startswith("/v1/notes/"):
                 return self.notes_api(path, t0)
+            if path.rstrip("/") == "/v1/slide/graph" and self.command in ("GET", "HEAD"):
+                if self.cfg.engine is None:
+                    raise Refused("/v1/slide/graph is for --tensorfold", 404)
+                if self.many:
+                    # the child's pocket is one pocket for all users, and its graph is the whole pocket: every
+                    # taught sentence and every question it holds would go to whoever asks. Filtering the fields
+                    # would not help — the texts themselves are the leak.
+                    raise Refused("/v1/slide/graph is refused with many users: the child's Living Weights pocket "
+                                  "is shared, so its whole graph — every taught sentence and question — would go "
+                                  "to every user. Run one proxy per owner", 404)
+                return self.slide_graph(t0)
             if path == "/v1/chat/completions" and self.command == "POST":
                 return self.chat(t0)
             return self.passthrough(t0)
@@ -448,9 +462,10 @@ class Handler(BaseHTTPRequestHandler):
     # ------------------------------------------------------------------------------------------ /v1/notes
     def notes_api(self, path, t0):
         rest = path[len("/v1/notes"):].strip("/")
+        weights_for = urllib.parse.unquote(rest[:-len("/weights")]) if rest.endswith("/weights") else None
         nid = None
         if rest:
-            nid = urllib.parse.unquote(rest)
+            nid = urllib.parse.unquote(rest[:-len("/weights")] if weights_for is not None else rest)
             if nid.isascii() and nid.isdigit():
                 raise Refused("a note id is the id GET /v1/notes lists, such as w12, and it never changes; a number "
                               "is a note's place in the block, which moves when a note is erased, so it names no "
@@ -466,6 +481,9 @@ class Handler(BaseHTTPRequestHandler):
             self.send_json(200, self.cfg.engine.erase_status())
             return self.logline(200, t0)
         if m in ("GET", "HEAD"):
+            if weights_for is not None:
+                raise Refused("use POST on /v1/notes/ID/weights; GET /v1/notes/ID lists the note, its in_weights "
+                              "among its fields", 405)
             if nid is not None:
                 v = self.notes.get(nid)
                 if v is None:
@@ -479,6 +497,24 @@ class Handler(BaseHTTPRequestHandler):
         if v is not None and not isinstance(v, dict):
             raise Refused("the request body must be a JSON object")
         v = v or {}
+        if weights_for is not None:
+            if self.cfg.engine is None:
+                raise Refused("weights markers are for --tensorfold", 404)
+            if m != "POST":
+                raise Refused("use POST on /v1/notes/ID/weights", 405)
+            if set(v) - {"in_weights", "reason"} or not isinstance(v.get("in_weights"), bool):
+                raise Refused("the fields are in_weights (true or false) and an optional reason")
+            if v["in_weights"]:
+                # a mark says the pocket holds this note's sentence, and a marked note silently leaves every block.
+                # Trust the mark only when the pocket's own graph shows a learned fact with that exact text: a
+                # client must not retire a note from the prompt by claiming a lesson that was never taught.
+                self.confirm_taught(weights_for)
+            try:
+                done = self.notes.mark_weights(weights_for, v["in_weights"], reason=v.get("reason"))
+            except StoreError as e:
+                raise Refused(str(e), e.status)
+            self.send_json(200, done)
+            return self.logline(200, t0, f" weights {'taught' if v['in_weights'] else 'open'} [{weights_for}]")
         if m == "DELETE":
             if nid is None:
                 raise Refused("DELETE takes a note: /v1/notes/ID", 405)
@@ -523,6 +559,57 @@ class Handler(BaseHTTPRequestHandler):
         self.send_json(status, done)
         self.logline(status, t0, f" write {done['verdict']} [{done['id']}]")
 
+    # ------------------------------------------------------------------------------------------ /v1/slide
+    def pocket_facts(self):
+        """The child's Living Weights facts, as they are. TensorFoldError when the child is not answering."""
+        st, body = self.cfg.engine.request("GET", "/v1/slide/graph")
+        if st != 200 or not isinstance(body, dict) or not isinstance(body.get("facts"), list):
+            raise Refused("the pocket's graph is not answering", 503)
+        return [f for f in body["facts"] if isinstance(f, dict)]
+
+    def confirm_taught(self, nid):
+        """Refuse unless the child's own graph shows a learned fact whose text is exactly this owner's current
+        note's text: the only mark this route accepts is one the pocket has already earned."""
+        note = self.notes.get(nid)
+        if note is None:
+            raise Refused("no note has this id: it was never written, or it was erased", 404)
+        held = self.engine_slot()
+        try:
+            facts = self.pocket_facts()
+        finally:
+            if held is not None:
+                held.end()
+        if not any(f.get("state") == "learned" and f.get("text") == note["text"] for f in facts):
+            raise Refused("in_weights true is refused: the pocket's graph holds no learned fact with this note's "
+                          "text, so nothing was taught. Teach it first (the promoter, direct to the pocket), then "
+                          "mark it", 409)
+
+    def slide_graph(self, t0):
+        """GET /v1/slide/graph, read-only, only with --tensorfold. The child's reply passes through with two fields
+        added to each fact: `note`, the id of this owner's current note whose text is exactly the taught sentence
+        (teach always sends the note's own text, so an exact match is the mapping), and `in_weights`, whether the
+        journal marks that note taught. Another owner's notes are never named here. Never /v1/slide/learn: no client
+        teaches through the proxy."""
+        held = self.engine_slot()
+        try:
+            st, body = self.cfg.engine.request("GET", "/v1/slide/graph")
+        finally:
+            if held is not None:
+                held.end()
+        if isinstance(body, dict) and isinstance(body.get("facts"), list):
+            by_text = {n["text"]: n["id"] for n in self.notes.listing(history=False)}
+            taught = set(self.notes.in_weights_ids())
+            for f in body["facts"]:
+                if not isinstance(f, dict):
+                    continue
+                nid = by_text.get(f.get("text"))
+                f["note"] = nid
+                if nid is not None:
+                    # explicit false for an untaught owner: the promoter reads it either way
+                    f["in_weights"] = nid in taught
+        self.send_json(st, body)
+        return self.logline(st, t0)
+
     # ------------------------------------------------------------------------------------------ chat
     def engine_slot(self):
         """Hold an inflight slot so a restart cannot stop the child while this request tokenizes. None with no engine.
@@ -555,8 +642,8 @@ class Handler(BaseHTTPRequestHandler):
             done = self.notes.write_text(t)
         except StoreError as e:
             return {"failed": str(e)}, (time.perf_counter() - t0) * 1e6
-        return {"verdict": done["verdict"], "id": done["id"], "source": done["source"]}, \
-            (time.perf_counter() - t0) * 1e6
+        return {"verdict": done["verdict"], "id": done["id"], "source": done["source"],
+                "demoted": done["demoted"]}, (time.perf_counter() - t0) * 1e6
 
     def chat(self, t0):
         _raw, body = self.json_body(CHAT_BODY_LIMIT)
@@ -573,7 +660,8 @@ class Handler(BaseHTTPRequestHandler):
                 if not isinstance(msgs, list) or not msgs:
                     raise Refused("messages must be a non-empty list")
                 question = last_user(msgs)
-                res = self.notes.lookup(question, cap=ask["cap"], past=ask["past"], exclude=ask["exclude"])
+                res = self.notes.lookup(question, cap=ask["cap"], past=ask["past"], exclude=ask["exclude"],
+                                        auto_exclude=ask["in_weights"] is not True)
                 if res["block"]:
                     fwd["messages"] = with_block(msgs, res["block"], self.cfg.join_system)
                 total_us = (time.perf_counter() - t0) * 1e6
@@ -609,6 +697,12 @@ class Handler(BaseHTTPRequestHandler):
     def passthrough(self, t0):
         route = self.path.partition("?")[0]
         path = urllib.parse.urlsplit(self.path).path.rstrip("/")
+        if self.cfg.engine is not None and path.startswith("/v1/slide"):
+            # the child's key rides on every relayed request, so a passed-on /v1/slide/learn or fact delete would let
+            # any client teach or erase in the weights. Only the proxy's own GET /v1/slide/graph (annotated, read-only)
+            # answers, above. This is the README's rule made real for one owner as well as many.
+            raise Refused("this proxy passes on no /v1/slide route but its own GET /v1/slide/graph: no client may "
+                          "teach or delete in the weights through the proxy", 404)
         engine_responses = (self.cfg.engine is not None and self.command == "POST"
                             and path.endswith("/responses"))
         if self.many and self.command not in PASS_MANY.get(route, ()) and not engine_responses:
@@ -844,6 +938,10 @@ def usage_error(args):
         return "the following arguments are required: --tokenizer"
     if tf and many and not args.share_upstream_cache:
         return "--tensorfold with many users shares TensorFold's prompt cache: pass --share-upstream-cache to allow it, or run one proxy per owner"
+    if tf and many and any(t.split("=", 1)[0].startswith("--slide") for t in (args.tensorfold_arg or ())):
+        return "--slide with many users shares TensorFold's Living Weights pocket: a fact taught for one user rides " \
+               "in every user's answers, and separate notes do not make separate weights. There is no flag to allow " \
+               "it until TensorFold keeps a pocket per user: run one proxy per owner"
     return None
 
 
