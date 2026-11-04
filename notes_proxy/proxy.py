@@ -40,6 +40,7 @@ import socket
 import sys
 import threading
 import time
+import re
 import urllib.parse
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
@@ -50,6 +51,8 @@ from .store import Notes, ProxyStore, StoreError, nm, seed
 NOTE_FIELDS = ("notes", "notes_exclude", "notes_past", "notes_cap", "notes_echo", "notes_write", "notes_language",
                "notes_in_weights", "notes_query")
 QUERY_LIMIT = 4096   # characters of notes_query
+QUERY_HEADER = "X-Notes-Query"   # notes_query for a client that sets headers but not body fields, percent-encoded
+UNEXPANDED = re.compile(r"^\$\{[^}]*\}$")   # a config reference the client never filled in: as if absent
 HOP_BY_HOP = {"connection", "keep-alive", "proxy-authenticate", "proxy-authorization", "proxy-connection", "te",
               "trailer", "trailers", "transfer-encoding", "upgrade"}
 CHAT_BODY_LIMIT = 64 * 1024 * 1024
@@ -373,6 +376,8 @@ class Handler(BaseHTTPRequestHandler):
                 continue
             if self.many and lk not in HEADERS_MANY:
                 continue                      # the user's key, a cookie, another key or a session id: none goes on
+            if lk == QUERY_HEADER.lower():
+                continue                      # the proxy's own field, as notes_query is in the body
             if lk == "authorization" and (self.cfg.upstream_key is not None or self.cfg.engine is not None):
                 continue                      # a key the upstream key or the child's key replaces
             if key and key in v:
@@ -662,6 +667,10 @@ class Handler(BaseHTTPRequestHandler):
         _raw, body = self.json_body(CHAT_BODY_LIMIT)
         if not isinstance(body, dict):
             raise Refused("the request body must be a JSON object")
+        hq = self.headers.get(QUERY_HEADER)
+        if hq is not None and "notes_query" not in body and not UNEXPANDED.match(hq.strip()):
+            # a header is one line, so the client percent-encodes the query; the body field wins when both are sent
+            body["notes_query"] = urllib.parse.unquote(hq)
         held = self.engine_slot()
         try:
             ask = asked(body)

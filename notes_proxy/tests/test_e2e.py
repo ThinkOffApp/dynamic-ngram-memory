@@ -5,6 +5,7 @@ import os
 import time
 import unittest
 import unittest.mock
+import urllib.parse
 
 from notes_proxy import proxy
 from notes_proxy.store import nm, note_id
@@ -384,6 +385,15 @@ class E2E(unittest.TestCase):
                          "last user message")
         self.assertEqual(post([u("x")], notes_query=5)[0], 400)
         self.assertEqual(post([u("x")], notes=False, notes_query="x")[0], 400)
+        # the same as a header, percent-encoded, for a client that can set headers but not body fields
+        hp = lambda q, h: p.json("POST", "/v1/chat/completions", {"model": "m", "messages": [u(wrap(q))]},
+                                 headers={"X-Notes-Query": h})[1]["notes"]
+        h = hp("What car does Valpuri drive?", urllib.parse.quote("What car does Valpuri drive?"))
+        self.assertEqual(h["question_from"], "request")
+        self.assertIn(car["id"], h["ids"])
+        self.assertFalse(h["past"])
+        self.assertNotIn("x-notes-query", {k.lower() for k in self.stub.requests[-1]["headers"]})   # not forwarded
+        self.assertEqual(hp("What car does Valpuri drive?", "${NOTES_QUERY}")["question_from"], "last user message")
 
     def test_write_mode_off_by_default(self):
         p = self.proxy(self.tmp.file("e2e-nowrite.jsonl"))
