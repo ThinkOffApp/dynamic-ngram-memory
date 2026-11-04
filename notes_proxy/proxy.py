@@ -48,7 +48,8 @@ from . import tensorfold as tfchild
 from .store import Notes, ProxyStore, StoreError, nm, seed
 
 NOTE_FIELDS = ("notes", "notes_exclude", "notes_past", "notes_cap", "notes_echo", "notes_write", "notes_language",
-               "notes_in_weights")
+               "notes_in_weights", "notes_query")
+QUERY_LIMIT = 4096   # characters of notes_query
 HOP_BY_HOP = {"connection", "keep-alive", "proxy-authenticate", "proxy-authorization", "proxy-connection", "te",
               "trailer", "trailers", "transfer-encoding", "upgrade"}
 CHAT_BODY_LIMIT = 64 * 1024 * 1024
@@ -139,7 +140,17 @@ def asked(body):
     Returns None when the request asks for no notes."""
     on = _bool(body, "notes")
     ask = {"exclude": (), "past": _bool(body, "notes_past"), "write": _bool(body, "notes_write"),
-           "echo": bool(_bool(body, "notes_echo")), "cap": None, "in_weights": _bool(body, "notes_in_weights")}
+           "echo": bool(_bool(body, "notes_echo")), "cap": None, "in_weights": _bool(body, "notes_in_weights"),
+           "query": None}
+    if "notes_query" in body:
+        # The question to look up and the sentence to write, when the last user message is not one: a room agent's
+        # last message is a wrapper of many lines, so its words match every note and it is never written. Blank
+        # means "not given", so a client that always sends the field falls back to the last user message.
+        q = body["notes_query"]
+        if not isinstance(q, str) or len(q) > QUERY_LIMIT:
+            raise Refused(f"notes_query must be a string of at most {QUERY_LIMIT} characters: the question the notes "
+                          "are looked up with, in place of the last user message")
+        ask["query"] = q.strip() or None
     listed = "notes_exclude" in body
     if listed:
         x = body["notes_exclude"]
@@ -164,6 +175,8 @@ def asked(body):
             raise Refused("notes_write needs notes on")
         if ask["in_weights"] is not None:
             raise Refused("notes_in_weights needs notes on")
+        if ask["query"] is not None:
+            raise Refused("notes_query needs notes on")
         return None
     return ask
 
@@ -634,7 +647,7 @@ class Handler(BaseHTTPRequestHandler):
         msgs = body.get("messages") or []
         if not msgs or not isinstance(msgs[-1], dict) or msgs[-1].get("role") != "user":
             return {"skipped": "the last message is not the user's: only the user's own words are written"}, 0.0
-        t, why = gate.statement(last_user(msgs))
+        t, why = gate.statement(ask["query"] if ask["query"] is not None else last_user(msgs))
         if why:
             return {"skipped": why}, 0.0
         t0 = time.perf_counter()
@@ -659,7 +672,7 @@ class Handler(BaseHTTPRequestHandler):
                 msgs = body.get("messages")
                 if not isinstance(msgs, list) or not msgs:
                     raise Refused("messages must be a non-empty list")
-                question = last_user(msgs)
+                question = ask["query"] if ask["query"] is not None else last_user(msgs)
                 res = self.notes.lookup(question, cap=ask["cap"], past=ask["past"], exclude=ask["exclude"],
                                         auto_exclude=ask["in_weights"] is not True)
                 if res["block"]:
@@ -668,6 +681,7 @@ class Handler(BaseHTTPRequestHandler):
                 wrote, write_us = self.auto_write(ask, body)
                 used = {"ids": res["note_ids"], "numbers": res["ids"], "past": res["past"],
                         "past_from": "request" if ask["past"] is not None else "question", "language": "en",
+                        "question_from": "request" if ask["query"] is not None else "last user message",
                         "cap": res["cap"], "tokens": res["tokens"],
                         "candidates": res["candidates"], "notes_in_store": self.notes.count(),
                         "lookup_us": res["lookup_us"], "total_us": round(total_us, 1),
@@ -679,7 +693,8 @@ class Handler(BaseHTTPRequestHandler):
                 w = used["write"]
                 extra = (f" notes [{','.join(map(str, used['ids']))}] {used['tokens']} tokens of {used['cap']}, past "
                          f"{'yes' if used['past'] else 'no'}, {used['candidates']} candidates, lookup {used['lookup_us']}"
-                         f" us; write " + (f"{w['verdict']} [{w['id']}]" if "verdict" in w else
+                         f" us{', question from the request' if ask['query'] is not None else ''}; write "
+                         + (f"{w['verdict']} [{w['id']}]" if "verdict" in w else
                                            f"failed" if "failed" in w else f"skipped ({w['skipped']})"))
                 if self.many:
                     for k in TIMES:          # the operator's log keeps them
