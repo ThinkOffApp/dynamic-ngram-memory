@@ -18,7 +18,7 @@ The test suite is in [../tests/](../tests/): the rule book in Python and in Lean
 
 We ran the moved self-checks again in their new place on 19 October 2026 (MEASURED; the full list is at the end of the Status section of [../tests/README.md](../tests/README.md)). The Python rule book now passes **104 of 104** checks, two more than the paper's 102. Lean 4.35.0 proves all 93 theorems and passes all 5,910 checks of the 18 example sets.
 
-## The note store, measured offline (paper Sections 4.6 and 4.7, and Table 1)
+## The note store, measured offline (paper Sections 4.2 and 4.7, and Table 1)
 
 These are measurements of the Python prototype of the note store, with Nemotron 3.5 Lightning's own tokenizer and no model, on an Apple M5 Max MacBook Pro.
 
@@ -202,38 +202,28 @@ The "don't know" answers after a take-back, thinking off, from each `teach.notes
 
 **Repeating three lessons on 1.0.9 (paper Sections 2 and 9).** LESSON-TIME.md: "On the same three facts the GPU trainer parts match within 1 s (output fitting 47.2 against 46.4 s, 29.2 against 29.2, 37.0 against 36.7; MEASURED); the CPU fit differs by up to 1.6 s." So the paper's "each part of a lesson took the same time ... to within 1 s" holds for the GPU parts; the CPU fit differed by up to 1.6 s.
 
+## Records added on 23 October 2026
+
+These records back numbers that this list named as missing on 19 October. They are in [receipts/paper-records-2026-10-23/](receipts/paper-records-2026-10-23/), or in our public TensorFold fork at a fixed commit.
+
+- **Note store cost (Table 1, Sections 4.2 and 7.5).** [NOTES-COST.md](receipts/paper-records-2026-10-23/NOTES-COST.md), measured on the M5 Max on 18 October 2026. It has 434 bytes per note at 1,000,000 notes. A write takes 8.9 ms at 1,000 notes and 71.1 ms at 1,000,000 (median). The index merges every 1,025 writes, and the merging write takes 2.5 s (median) at 1,000,000. One lookup in process, on one thread, takes 0.025, 0.094, 0.50 and 2.96 ms (median) at 1,000, 10,000, 100,000 and 1,000,000 notes.
+- **German and Finnish lookup (Section 7.7).** [STEM-LOOKUP.md](receipts/paper-records-2026-10-23/STEM-LOOKUP.md).
+- **The exact undo on a GPU (Section 5.5).** [exact-undo-gpu/](receipts/paper-records-2026-10-23/exact-undo-gpu/), run on the GB10 on 19 October 2026. With the exact undo, all four weight files have the same hash after a refused night and 24 of 24 replies are the same. With zeroing, three of the four weight files change and 0 of 24 replies stay the same.
+- **The same blocks as the Python version, byte for byte, on 1,568 questions (Section 4.2).** [NOTES-IN-ENGINE.md](https://github.com/ThinkOffApp/TensorFold/blob/2c9e759964fd2af1b47d79fde04b77ee564f2e54/NOTES-IN-ENGINE.md), line 12.
+- **The value hop (Section 4.3): 468 against 418 tokens, 19 of 56 blocks differ, 8 of 56 replies pause.** [NOTES-DECODE.md](https://github.com/ThinkOffApp/TensorFold/blob/2c9e759964fd2af1b47d79fde04b77ee564f2e54/NOTES-DECODE.md), lines 28, 31 and 170.
+- **Unrelated prompts after promotion (Sections 2 and 9): 32 of 32 on Metal, 28 of 32 on CUDA.** [PROMOTION-IN-SERVER.md](https://github.com/ThinkOffApp/TensorFold/blob/7824f05dc3a2f5266b029637801d3c0f61466999/PROMOTION-IN-SERVER.md) on branch `promotion-alone-check`, lines 276 and 283. On Metal the 32 replies are the same before and after promotion. On CUDA, 28 of 32 replies equal the untaught model's, and the other 4 part after 76 to 166 characters with the same answer.
+
+In NOTES-COST.md and STEM-LOOKUP.md we replaced one mention each of the test suite's old working name. Nothing else in them is changed.
+
 ## Not yet backed by a file here
 
-The paper states the numbers below, but no file in this repository holds them yet. "Candidate" names where the number appears elsewhere, found by searching our files on 19 October 2026. A candidate is where to look, not a check that it backs the number.
+The paper states the numbers below, but no file here holds them yet. Checked against the draft of 23 October 2026.
 
-**Table 1, our rows.**
-
-- TensorFold Notes in the engine: "about 434 bytes per note at 1,000,000 notes" and "8.2 times the note text". Candidate for 434 bytes: the cost report `NOTES-COST.md` on a branch of the test suite's working repository (not public), which measured 433.7 bytes per note on the build this repository pins. We found no file with "8.2 times".
-- "3.9 to 4.8 ms median per write in the engine's write benchmark, plus an index merge of about 3.5 s every ~1,000 writes at 1,000,000 notes". The same `NOTES-COST.md` says these come from a benchmark run on 17 October whose raw files are only on a local drive, made with a binary that merges on a separate thread. It reports that on the build this repository pins, a write over HTTP takes 8.9 ms at 1,000 notes and 71.1 ms at 1,000,000 (median), and the merging write 1.9 to 7.6 s at 1,000,000.
-- "a fact is a median 7 tokens": no source found.
-- "lookup 0.03 ms at 1,000 notes to 5 ms at 1,000,000 notes in the engine" (also Sections 4.2 and 7.5: 0.032 ms, 0.72 ms at 100,000, 4.96 ms): `NOTES-COST.md` names the same local benchmark as their source. On the pinned build it measured 0.025 ms and 2.96 ms in process, one thread. We found no source for 0.72 ms.
-- Everything in the prompt: "207 tokens for 29 facts, 436 for 64": no source found. The run files give the L6 prompt with all 29 lessons as 372 to 384 tokens a question (median 375, our count of `usage.prompt_tokens` in `gb10-a-cap/L6-seed1/phases/teach.in_context/answers.jsonl`), and there is no every-lesson-in-prompt run of L7. ("L6: 43 of 56 right" is the re-judged count under [The raw run files](#the-raw-run-files-paper-sections-73-to-77).)
-
-**Section 3.** Box 1's values for the neuron of "I like blue." (z = +1.54, a = 2.36; z = -1.22 for "Tell me a joke."): no source found. (Section 3.4's "13.8% of decode speed" follows from the decode speeds under [The raw run files](#the-raw-run-files-paper-sections-73-to-77).)
-
-**Section 4.2.** On 1,568 test questions, the server built the same notes blocks as the Python version, byte for byte: candidate `NOTES-IN-ENGINE.md` in our public TensorFold fork at the pinned commit, linked from [provenance.md](provenance.md).
-
-**Section 4.3 and Figure 6.** "468 tokens median ... against 418 without the hop", "19 of 56 blocks ... differ" and "8 of 56" replies paused: candidate `NOTES-DECODE.md` in the same public fork. The Figure 6 counts (23, 28 and 32 of 45; 29, 29 and 28 of 56; 26, 29 and 29 at 1,000 notes; 3, 5 and 5 of 16), the 28 hand-built two-step questions (1 to 27, 0 to 28), "about 0.2 to 0.3 s per added note" and the twenty unrelated questions: no source found. `NOTES-COST.md` says the Figure 6 runs used stores on a local drive.
-
-**Section 7.4.** "Of the 16 two-step questions, only 1 had both of its facts answered right when asked directly at the same point": the file says something else. The two-step section of the pocket's teach report (`gb10-a-L6-seed1b/phases/teach/report.txt`, thinking off) counts 10 chains of two steps, with "given steps right 1/2 (50%)": 2 chains had both steps answered right, and the model answered 1 of those 2 right as a chain (0 of 2 with thinking on). The rest of Sections 7.3, 7.4, 7.6 and 7.7 that this list named is backed under [The raw run files](#the-raw-run-files-paper-sections-73-to-77), several L6 numbers only by the re-judged verdicts.
-
-**Section 7.5.** The RTX PRO 6000 check within 0.3% (philip-pentatonic, TensorFold issue #678) is his measurement with 1.0.10, not ours, and no file here holds it. [runs/perf/CUDA-POCKET.md](runs/perf/CUDA-POCKET.md) quotes only his earlier finding on 1.0.7 ("about 31% slower (290 to 199 tok/s)"). The other Section 7.5 numbers this list named are backed above.
-
-**Section 7.7, after the measurements.** Names and "I", "my", "me" raising right answers from 28 to 34 of 56; the new block's 62 of 86 against 43; German 11 to 24 of 45 and Finnish 16 to 20: no file here. These three were measured on the M5 Max with a 1,000,000-note store, not on the GB10, so the run files in [runs/](runs/) do not hold them. On 20 October 2026 we searched those run files, every branch of the test suite's working repository, and the Mac's working folders. According to the logs of the sessions that ran them, their result files are on a local external drive that was not attached when we searched:
-
-- names and the first person: `fig6-live/SUBJECTS-A28BD92D.md`, with the runs in `fig6-live/subjects/` and `fig6-live/subjects-e908/`;
-- the new notes block: `fig6-live/DONTKNOW.md`, with the grades in `fig6-live/dontknow/grade/` (current block), `grade3/` (parser limited to the store), `grade2/` (parser tuned on the test) and `grade-heldout/` (the 45 held-out wordings);
-- German and Finnish: `fig6-live/multilingual/stem-results/full-{en,fi,de}.json`, written up in `fig6-live/multilingual/STEM-LOOKUP.md`.
-
-A later working note (not public) re-tabulates the third from those JSON files: at 1,000,000 notes, the questions whose needed notes all reach the model are 23, 16 and 11 of 45 in English, Finnish and German before the change, and 26, 20 and 24 after it. These are candidates, not checks.
-
-**Section 7.8.** The brother's amber eyes spreading to other answers, the earlier shorter runs, and the learner bug and its first fix: no source file here.
-
-**Appendix B.** "Raw run files (every answer, its grade, and the server and run logs)": the GB10 run files are in [runs/](runs/), and the two later receipts in [receipts/](receipts/). The Mac's run records are not here.
-
-**Sections 2 and 9.** "32 of 32 unrelated prompts on Metal and 28 of 32 on CUDA gave exactly the same answers" after promotion: no source here. (The repeat of three lessons on 1.0.9 is backed above, with a difference in the CPU fit.)
+- **Table 1:** "8.2 times the note text" and "a fact is a median 7 tokens": no source found.
+- **Table 1:** "207 tokens for 29 facts, 436 for 64": no source found. The run files give the L6 prompt with all 29 lessons as 372 to 384 tokens a question (median 375, `gb10-a-cap/L6-seed1/phases/teach.in_context/answers.jsonl`). There is no L7 run with every lesson in the prompt.
+- **Section 3, Box 1:** the values for the neuron of "I like blue." (z = +1.54, a = 2.36; z = -1.22 for "Tell me a joke."): no source found.
+- **Figure 6:** the counts (23, 28 and 32 of 45; 29, 29 and 28 of 56) come from runs whose files are on a local drive. The figure's plot script holds the same numbers. The 28 hand-built two-step questions and "3, 5 and 5 of 16": no source found.
+- **Section 7.4:** "Of the 16 two-step questions, only 1 had both of its facts answered right when asked directly". The file says something else. The two-step part of the pocket's teach report (`gb10-a-L6-seed1b/phases/teach/report.txt`, thinking off) counts 10 chains of two steps. 2 of them had both steps right, and the model answered 1 of those 2 right as a chain.
+- **Section 7.5:** "With 40 facts taught, a 4,096-token prompt is 2.0% slower". [runs/perf/CUDA-POCKET.md](runs/perf/CUDA-POCKET.md) gives the 2.0% for the pocket of test set L7, which has 64 lessons. The RTX PRO 6000 check within 0.3% is philip-pentatonic's own measurement, in [TensorFold issue #678](https://github.com/ashhart/TensorFold/issues/678), not ours.
+- **Section 7.7:** names and "I", "my", "me" raising right answers from 28 to 34 of 56, and the new block's 62 of 86 against 43. These were measured on the M5 Max with a 1,000,000-note store. Their files are on the same local drive as Figure 6.
+- **Section 7.8:** the brother's amber eyes spreading to other answers, and the learner bug and its first fix: no file here or on a public branch.

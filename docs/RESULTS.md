@@ -12,7 +12,7 @@ Each finding says where its numbers come from and how sure we are.
 - **READ**: something we read in TensorFold's source, its guide or release notes, or a comment in its issues.
 - **INFERRED**: our own reading of what the numbers mean. Not checked by a run.
 
-The run records are the answer files, judge reports and summaries the runner writes (`zengine/lwrun.py`). They are kept by the authors and are not in this repository, because they hold machine paths.
+The run records are the answer files, judge reports and summaries the runner writes (`zengine/lwrun.py`). The GB10 run records are in [runs/](runs/). The Mac's run records are not here yet.
 
 These are a few runs on two machines. They are not rates. One run of one lesson tells you what happened once.
 
