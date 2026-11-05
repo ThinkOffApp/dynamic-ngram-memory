@@ -732,7 +732,7 @@ class Handler(BaseHTTPRequestHandler):
     def team_notes(self, block, question, ask):
         """(the block with the team's notes after it, what the reply says about them). A team lookup that fails costs
         this request its team notes only: the request goes on with the owner's own block."""
-        if self.cfg.team is None:
+        if self.cfg.team is None or not question.strip():
             return block, None
         try:
             found = self.cfg.team.lookup(question, past=ask["past"])

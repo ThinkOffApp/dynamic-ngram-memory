@@ -14,6 +14,7 @@ import threading
 import urllib.parse
 
 REPLY_LIMIT = 1024 * 1024              # bytes of a lookup's reply: a block is a few hundred tokens
+QUESTION_LIMIT = 4000                  # characters sent: a team proxy refuses a question past 4096
 
 
 class TeamError(Exception):
@@ -51,7 +52,9 @@ class Team:
         """The team proxy's reply for this question, or TeamError. `timeout` bounds the whole exchange, not each read
         of it, so a team proxy that sends a byte at a time cannot hold the request: the lookup runs on its own thread,
         and a late one has its socket shut, which ends the thread, so none pile up."""
-        body = {"question": question, "cap": self.cap}
+        # An agent's last message can be a long wrapper with the newest text at its end, and a question the team proxy
+        # refuses would cost every such request its team notes.
+        body = {"question": question[-QUESTION_LIMIT:], "cap": self.cap}
         if past is not None:
             body["past"] = past
         box = {}

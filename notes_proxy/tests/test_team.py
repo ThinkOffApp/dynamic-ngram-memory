@@ -273,6 +273,16 @@ class AgentProxy(TeamCase):
         a.json("POST", "/v1/chat/completions", ask(QUESTION))
         self.assertIn(FACT, sent(self.model)[0]["content"])
 
+    def test_a_long_message_still_gets_team_notes_from_its_end(self):
+        a = self.agent()
+        wrapper = "Earlier room lines about nothing in particular.\n" * 400 + QUESTION
+        self.assertGreater(len(wrapper), 4096)
+        st, v = a.json("POST", "/v1/chat/completions", ask(wrapper))
+        self.assertEqual(st, 200)
+        self.assertNotIn("failed", v["notes"]["team"])
+        self.assertTrue(v["notes"]["team"]["ids"])
+        self.assertIn(FACT, sent(self.model)[0]["content"])
+
     def test_notes_off_asks_nobody(self):
         a = self.agent()
         a.json("POST", "/v1/chat/completions", ask(QUESTION, notes=False))
