@@ -253,6 +253,75 @@ These need the engine itself, which a proxy in front of it cannot reach:
 - **Free text is not read for meaning.** A sentence outside the rule book's wordings never replaces an earlier note: "My car is blue." and later "My car is red." both stay current. Erase the old one.
 - **The journal has no commit marks.** A write whose line reached the disk just before a crash, but was never answered, comes back at the next start.
 
+## A team's shared store
+
+A team of agents can share one store, whichever models they run and wherever they run. Run one proxy with `--users` and
+`--store-dir`, and give each member a key that opens the same store:
+
+```sh
+python -m notes_proxy add-user --users users.json --owner hermes --store-dir ~/notes --shares team
+python -m notes_proxy add-user --users users.json --owner deep --store-dir ~/notes --shares team
+python -m notes_proxy add-user --users users.json --owner cloud --store-dir ~/notes --shares team --read-only
+```
+
+Every member reads the same notes, and each write records the member whose key made it, shown as `by` when the note is
+listed. A write may also say where the note came from, in the optional `cite` field, such as a chat message's id. An
+erase removes both with the note. Removing a member with `--erase-notes` is refused, because the store is not theirs:
+use `--keep-notes`.
+
+A `--read-only` key can list notes and look them up, and nothing else. It cannot write or erase, and it cannot reach the
+upstream model, so it is the key to give anything outside your own machines.
+
+**Asking without a chat.** `POST /v1/notes/lookup` returns the notes a question would get, using the chat route's own
+lookup, and never calls the upstream. It is for clients that do not send their requests through a proxy, such as a
+hosted model.
+
+```sh
+curl -s http://team-host:8095/v1/notes/lookup -H "Authorization: Bearer $KEY" \
+  -H 'Content-Type: application/json' -d '{"question": "Which port does the Bosgame serve on?"}'
+```
+
+The fields are `question`, and optionally `cap`, `past` and `exclude`, as `notes_cap`, `notes_past` and `notes_exclude` on
+the chat route. The reply holds `block`, ready to put in a prompt, and `notes`, each with its `id`, `text`, `subject`, `by`
+and `cite`.
+
+**Adding team notes to an agent's own proxy.** An agent's proxy keeps its private store and its own model, and can also
+ask the team proxy for each question:
+
+```sh
+python -m notes_proxy --upstream http://127.0.0.1:8080 --owner deep --store ~/deep.jsonl --tokenizer tokenizer.json \
+  --team-url http://team-host:8095 --team-key-file ~/.config/notes-team/deep.key
+```
+
+The team's notes go after the owner's own, up to `--team-cap` tokens (default 256), and the reply's `notes.team` names
+them. The team proxy is asked with the same question the owner's lookup uses, so `notes_query` applies to both. If the
+team proxy is down, refuses or takes longer than `--team-timeout` seconds (default 2), the request goes on with the
+owner's notes alone, and `notes.team.failed` says why. The key file must be readable by this account only.
+
+**Filling the store from a chat.** `prefill` turns a transcript into notes in two steps, with a person between them.
+`extract` has a model read the transcript from oldest to newest and writes candidates to a file, each one sentence with
+the message it came from. It touches no store. Text that looks like a key is removed before the model sees it, and a
+candidate that still holds one is dropped. Open the file, set `"approved": true` on the facts worth keeping, and run
+`apply`, which writes only those.
+
+```sh
+python -m notes_proxy prefill extract --transcript room.jsonl --since 2026-11-01 \
+  --model-url http://127.0.0.1:8091 --model NAME --out candidates.jsonl
+python -m notes_proxy prefill apply --candidates candidates.jsonl --url http://team-host:8095 \
+  --key-file team.key --cite-prefix room:my-room/
+```
+
+A transcript holds things that stopped being true, and a free-text note does not replace an older one by itself. So each
+candidate's `newer_same_subject` counts the later candidates on its subject, and the reader keeps the one true today. The
+candidates are a model's reading of a chat, so read them: they include wrong facts as well as right ones.
+
+**Keeping the prompt cache.** By default the block goes at the very start of the prompt. A block that changes with the
+question then changes the first tokens, so a server with a prompt cache has to read the whole prompt again.
+`--block-at last-user` puts the block at the start of the last user message instead, so only the end of the prompt
+changes. Agents with long system prompts should use it. On a 12,000-token prompt with a different block for each
+question, Nemotron 3.5 Lightning on an M5 Max reused 0 tokens with the default and 11,967 with `--block-at last-user`,
+and each request took 0.09 seconds instead of 2.5.
+
 ## Tests
 
 From the repository's top folder:

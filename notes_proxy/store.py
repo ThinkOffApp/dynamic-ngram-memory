@@ -337,6 +337,7 @@ class Notes:
                                     framing=framing)
             seen = set()
             self.in_weights = set()          # note ids the pocket was known to hold, from the markers
+            self.credits = {}                # a write's id -> who made it and where it came from, from the journal
             for r in recs:
                 if "weights" in r:
                     w = r["weights"]
@@ -351,6 +352,8 @@ class Notes:
                     raise StoreError(f"the store {self.journal.path} has a write whose id is missing, a bare number "
                                      f"or another write's ({l.get('id')!r}): a note's id must name one note", 500)
                 seen.add(nid)
+                if "by" in r or "cite" in r:
+                    self.credits[l.get("id")] = {k: r[k] for k in ("by", "cite") if k in r}
                 self.store.write(owner, l)
             self.next_source = max([header.get("next_source", 1)] +
                                    [_wnum(r["lesson"].get("id")) + 1 for r in recs if "lesson" in r])
@@ -399,6 +402,8 @@ class Notes:
                 "kind": "take_back" if n["kind"] == nm.TOMBSTONE else "fact", "subject": n["entity"],
                 "text": n["text"], "line": self.store.line(O, i), "source": n["source"], "told": n["told"],
                 "in_weights": note_id(n["source"]) in self.in_weights,
+                "by": self.credits.get(n["source"], {}).get("by"),
+                "cite": self.credits.get(n["source"], {}).get("cite"),
                 "superseded_by": ref(n["superseded_by"]), "tombstoned_by": ref(n["tombstoned_by"])}
 
     def listing(self, history=False):
@@ -457,9 +462,11 @@ class Notes:
     def in_weights_ids(self):
         return sorted(self.in_weights)
 
-    def write_text(self, text, subject=None, today=None):
+    def write_text(self, text, subject=None, today=None, by=None, cite=None):
         """One sentence the user said, through the intake. The rule book's lesson when intake.parse reads it (and no
-        subject is named); otherwise a free-text note of `subject` (default "me"). On disk before it is seen."""
+        subject is named); otherwise a free-text note of `subject` (default "me"). On disk before it is seen. `by` is
+        who wrote it, on a store several people share, and `cite` where it came from, such as a room message: both
+        sit beside the lesson in its journal record, so an erase takes them with it."""
         if not isinstance(text, str) or not text.strip():
             raise StoreError("text must not be empty")
         if len(text.encode("utf-8", "surrogatepass")) > TEXT_LIMIT:
@@ -474,6 +481,10 @@ class Notes:
                     or subject != subject.strip(" "):
                 raise StoreError("subject must be 1 to 200 bytes of text with no control characters and no space at "
                                  "either end")
+        if cite is not None:
+            size = len(cite.encode("utf-8", "surrogatepass")) if isinstance(cite, str) else 0
+            if not 1 <= size <= SUBJECT_LIMIT or any(ord(c) < 0x20 or ord(c) == 0x7F for c in cite):
+                raise StoreError("cite must be 1 to 200 bytes of text with no control characters")
         with self.lock:
             O = self.store.owner(self.owner, create=True)
             src = f"w{self.next_source}"
@@ -486,14 +497,19 @@ class Notes:
             if lesson is None:
                 lesson = {"op": "ASSERT", "e": subject or "me", "a": f"note:{src}", "text": text, FREE: "add"}
             lesson.update(id=src, told=told)
-            size = self.journal.append({"lesson": lesson})
-            self.records.append({"lesson": lesson})
+            credit = {k: v for k, v in (("by", by), ("cite", cite)) if v is not None}
+            rec = dict({"lesson": lesson}, **credit)
+            size = self.journal.append(rec)
+            self.records.append(rec)
             self.next_source += 1
+            if credit:
+                self.credits[src] = credit
             try:
                 entry = self.store.write(self.owner, lesson)
             except Exception as e:
                 self.journal.cut(size)
                 self.records.pop()
+                self.credits.pop(src, None)
                 if any(x["source"] == src for x in O.log):
                     self.store.delete(self.owner, src)
                 self.store.same_of.pop(src, None)
@@ -551,6 +567,7 @@ class Notes:
             self.records = keep
             for s in out:
                 self.in_weights.discard(note_id(s))
+                self.credits.pop(s, None)
             for s in reversed(out):      # what depends on the note first, the note last: no lookup in between
                 self.store.delete(self.owner, s)   # sees a same-as write come up as a note of its own
             clear = getattr(getattr(getattr(self.store.tok, "tok", None), "model", None), "_clear_cache", None)
