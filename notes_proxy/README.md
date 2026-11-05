@@ -264,8 +264,8 @@ python -m notes_proxy add-user --users users.json --owner deep --store-dir ~/not
 python -m notes_proxy add-user --users users.json --owner cloud --store-dir ~/notes --shares team --read-only
 ```
 
-Every member reads the same notes, and each write records the member whose key made it, shown as `by` when the note is
-listed. A write may also say where the note came from, in the optional `cite` field, such as a chat message's id. An
+Every member reads the same notes, and each new write records the member whose key made it, shown as `by` when the note
+is listed. Notes written before a store had per-member keys have no `by`. A write may also say where the note came from, in the optional `cite` field, such as a chat message's id. An
 erase removes both with the note. Removing a member with `--erase-notes` is refused, because the store is not theirs:
 use `--keep-notes`.
 
@@ -282,7 +282,8 @@ curl -s http://team-host:8095/v1/notes/lookup -H "Authorization: Bearer $KEY" \
 ```
 
 The fields are `question`, and optionally `cap`, `past` and `exclude`, as `notes_cap`, `notes_past` and `notes_exclude` on
-the chat route. The reply holds `block`, ready to put in a prompt, and `notes`, each with its `id`, `text`, `subject`, `by`
+the chat route. `cap` is a token budget, not a number of notes, and a cap too small for the framing gives a 200 with an
+empty block. The reply holds `block`, ready to put in a prompt, and `notes`, each with its `id`, `text`, `subject`, `by`
 and `cite`.
 
 **Adding team notes to an agent's own proxy.** An agent's proxy keeps its private store and its own model, and can also
