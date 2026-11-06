@@ -2,6 +2,14 @@
 
 ![TensorFold Memory: three notes about my sister Anna answer "What does my sister drive, and where?", with the Memory Benchmark results](docs/images/tensorfold-memory.jpg)
 
+## Download Notes Proxy
+
+**[Download Notes Proxy 0.1.0 (.zip)](https://github.com/ThinkOffApp/dynamic-ngram-memory/archive/refs/tags/notes-proxy-v0.1.0.zip)**: exact learning memory for agent teams, for your inference engine. TensorFold recommended! Unzip it, then follow [Run it](notes_proxy/README.md#run-it).
+
+**Thank you to [Ash](https://github.com/ashhart) and the [TensorFold](https://github.com/ashhart/TensorFold) developers.** Ash built TensorFold and Living Weights, the neuronal layer of TensorFold Memory. Notes were made for TensorFold, and this proxy brings them to other inference engines too.
+
+## About
+
 Explicit, editable memory for language models: retrieve relevant notes using token n-grams, place a bounded block in the prompt, and keep a journal of changes and take-backs.
 
 The paper *Fast to Write, Slow to Learn* ([doi.org/10.5281/zenodo.23604600](https://doi.org/10.5281/zenodo.23604600)) calls the method dynamic n-gram memory, and calls its integration in the TensorFold engine TensorFold Notes.

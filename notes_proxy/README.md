@@ -2,6 +2,10 @@
 
 **TensorFold Notes for any OpenAI-compatible inference server.**
 
+**[Download Notes Proxy 0.1.0 (.zip)](https://github.com/ThinkOffApp/dynamic-ngram-memory/archive/refs/tags/notes-proxy-v0.1.0.zip)**: unzip it, then follow [Run it](#run-it) from the unzipped folder. TensorFold recommended!
+
+**Thank you to [Ash](https://github.com/ashhart) and the [TensorFold](https://github.com/ashhart/TensorFold) developers.** Ash built TensorFold and Living Weights, the neuronal layer of TensorFold Memory. Notes were made for TensorFold, and this proxy brings them to other inference engines too.
+
 The Notes Proxy is a small server that sits between your chat client and the server that runs the model: llama.cpp's `llama-server`, vLLM, Ollama, LM Studio, SGLang or TensorFold itself. When a chat request passes through it, the proxy looks up what this user has told it before (their notes), puts the notes that fit the question into the request as the first system message, and forwards the request. The model then answers with the notes in front of it. Nothing about the model or its server changes.
 
 The lookup is not a copy. The proxy calls the test suite's own note memory, [`tests/zengine/notes.py`](../tests/zengine/notes.py): the same n-gram matching, scoring, hop, 512-token cap and framing that the paper measures and that the TensorFold server's lookup was checked against. For every question the proxy sends exactly the block `NoteStore.retrieve()` returns, byte for byte (tested below), unless you change its first line with `--framing` or `--abstain-line`.
