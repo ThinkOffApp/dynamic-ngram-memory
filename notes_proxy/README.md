@@ -255,6 +255,8 @@ These need the engine itself, which a proxy in front of it cannot reach:
 
 ## A team's shared store
 
+Shared Notes Proxy is exact learning memory for agent teams: one store of plain sentences for every agent on a team, whichever model it runs. An agent writes a sentence once, and the next agent gets it in its prompt, or looks it up. It is based on scalable n-gram storage with fast indexing. Coming next: promotion of top facts to neuronal TensorFold Living Weights memories.
+
 A team of agents can share one store, whichever models they run and wherever they run. Run one proxy with `--users` and
 `--store-dir`, and give each member a key that opens the same store:
 
@@ -322,6 +324,8 @@ question then changes the first tokens, so a server with a prompt cache has to r
 changes. Agents with long system prompts should use it. On a 12,000-token prompt with a different block for each
 question, Nemotron 3.5 Lightning on an M5 Max reused 0 tokens with the default and 11,967 with `--block-at last-user`,
 and each request took 0.09 seconds instead of 2.5.
+
+Tested on 6 Nov 2026 with four agents on one store, on one set of invented facts: two local models on ROCm and CUDA, and two lookup-only lanes. A test harness wrote the notes, each with an agent's key. With notes off, both local models said they didn't know, and with notes on, both answered correctly. This is one demo, not a benchmark.
 
 ## Tests
 
