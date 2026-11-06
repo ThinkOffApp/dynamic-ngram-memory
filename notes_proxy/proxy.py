@@ -40,15 +40,19 @@ import socket
 import sys
 import threading
 import time
+import re
 import urllib.parse
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
-from . import gate, users
+from . import gate, prefill, team, users
 from . import tensorfold as tfchild
 from .store import Notes, ProxyStore, StoreError, nm, seed
 
 NOTE_FIELDS = ("notes", "notes_exclude", "notes_past", "notes_cap", "notes_echo", "notes_write", "notes_language",
-               "notes_in_weights")
+               "notes_in_weights", "notes_query")
+QUERY_LIMIT = 4096   # characters of notes_query
+QUERY_HEADER = "X-Notes-Query"   # notes_query for a client that sets headers but not body fields, percent-encoded
+UNEXPANDED = re.compile(r"^\$\{[^}]*\}$")   # a config reference the client never filled in: as if absent
 HOP_BY_HOP = {"connection", "keep-alive", "proxy-authenticate", "proxy-authorization", "proxy-connection", "te",
               "trailer", "trailers", "transfer-encoding", "upgrade"}
 CHAT_BODY_LIMIT = 64 * 1024 * 1024
@@ -139,7 +143,17 @@ def asked(body):
     Returns None when the request asks for no notes."""
     on = _bool(body, "notes")
     ask = {"exclude": (), "past": _bool(body, "notes_past"), "write": _bool(body, "notes_write"),
-           "echo": bool(_bool(body, "notes_echo")), "cap": None, "in_weights": _bool(body, "notes_in_weights")}
+           "echo": bool(_bool(body, "notes_echo")), "cap": None, "in_weights": _bool(body, "notes_in_weights"),
+           "query": None}
+    if "notes_query" in body:
+        # The question to look up and the sentence to write, when the last user message is not one: a room agent's
+        # last message is a wrapper of many lines, so its words match every note and it is never written. Blank
+        # means "not given", so a client that always sends the field falls back to the last user message.
+        q = body["notes_query"]
+        if not isinstance(q, str) or len(q) > QUERY_LIMIT:
+            raise Refused(f"notes_query must be a string of at most {QUERY_LIMIT} characters: the question the notes "
+                          "are looked up with, in place of the last user message")
+        ask["query"] = q.strip() or None
     listed = "notes_exclude" in body
     if listed:
         x = body["notes_exclude"]
@@ -164,6 +178,8 @@ def asked(body):
             raise Refused("notes_write needs notes on")
         if ask["in_weights"] is not None:
             raise Refused("notes_in_weights needs notes on")
+        if ask["query"] is not None:
+            raise Refused("notes_query needs notes on")
         return None
     return ask
 
@@ -186,10 +202,25 @@ def last_user(messages):
     return ""
 
 
-def with_block(messages, block, join=False):
+def with_block(messages, block, join=False, at="start"):
     """The client's messages with the block first, as {"role": "system", "content": block}. With `join`, the client's
     leading system or developer messages are joined after it with a blank line into that one system message, as the
-    TensorFold server's normalize joins them (for an upstream whose chat template takes one system message only)."""
+    TensorFold server's normalize joins them (for an upstream whose chat template takes one system message only).
+
+    With `at` "last-user" the block opens the last user message instead. A block that changes with the question then
+    changes only the end of the prompt, so the server's prompt cache still holds everything before it: an agent's long
+    system prompt and history are not read again on every turn. A request with no user message falls back to the start."""
+    if at == "last-user":
+        for k in range(len(messages) - 1, -1, -1):
+            m = messages[k]
+            if isinstance(m, dict) and m.get("role") == "user":
+                c = m.get("content")
+                if isinstance(c, str):
+                    return list(messages[:k]) + [dict(m, content=f"{block}\n\n{c}")] + list(messages[k + 1:])
+                if isinstance(c, list):
+                    part = {"type": "text", "text": f"{block}\n\n"}
+                    return list(messages[:k]) + [dict(m, content=[part] + c)] + list(messages[k + 1:])
+                break
     first = {"role": "system", "content": block}
     if not join:
         return [first] + list(messages)
@@ -219,7 +250,8 @@ def splice(body, field):
 
 class Config:
     def __init__(self, upstream, owner, write=False, join_system=False, timeout=600.0, allow_origins=(),
-                 local_only=True, log=None, upstream_key=None, isolate_cache=False, engine=None):
+                 local_only=True, log=None, upstream_key=None, isolate_cache=False, engine=None, block_at="start",
+                 team=None):
         u = urllib.parse.urlsplit(upstream)
         if u.scheme not in ("http", "https") or not u.hostname:
             raise ValueError("--upstream is an http:// or https:// base URL, such as http://127.0.0.1:8080")
@@ -235,6 +267,8 @@ class Config:
         self.upstream_key = upstream_key   # --upstream-key-env's value: what the upstream gets as Authorization
         self.isolate_cache = isolate_cache  # many users without --share-upstream-cache
         self.engine = engine               # TensorFold child started with --tensorfold, or None
+        self.block_at = block_at           # where the block goes: the start of the prompt, or the last user message
+        self.team = team                   # a team.Team to ask for each question's team notes, or None
         self.log = log or (lambda line: print(line, file=sys.stderr, flush=True))
 
     def connect(self):
@@ -294,7 +328,10 @@ class Handler(BaseHTTPRequestHandler):
 
     def send_error_json(self, status, message, extra=None):
         kind = "invalid_request_error" if 400 <= status < 500 else "server_error"
-        self.send_json(status, {"error": {"message": message, "type": kind, "code": status}}, extra)
+        try:
+            self.send_json(status, {"error": {"message": message, "type": kind, "code": status}}, extra)
+        except (BrokenPipeError, ConnectionResetError):
+            self.close_connection = True      # the client left first: this runs inside an except, so nothing else would
 
     def isolated(self, body):
         """With many users, a request body for the upstream that names no other user's state there. A field that
@@ -313,7 +350,7 @@ class Handler(BaseHTTPRequestHandler):
             if k == "notes" or k.startswith("notes_"):
                 raise Refused(f"{k} is refused: with many users no notes field goes on to the upstream. Only "
                               f"/v1/chat/completions takes notes fields, and only the proxy's own")
-        mine = self.server.salt(self.owner)
+        mine = self.server.salt(self.agent)     # the key's user: sharing notes shares no identity or cache upstream
         out = {k: mine if k in MINE_MANY else v for k, v in body.items() if k not in DROP_MANY}
         if self.cfg.isolate_cache:
             out.update(cache_prompt=False, cache_salt=mine)
@@ -360,6 +397,8 @@ class Handler(BaseHTTPRequestHandler):
                 continue
             if self.many and lk not in HEADERS_MANY:
                 continue                      # the user's key, a cookie, another key or a session id: none goes on
+            if lk == QUERY_HEADER.lower():
+                continue                      # the proxy's own field, as notes_query is in the body
             if lk == "authorization" and (self.cfg.upstream_key is not None or self.cfg.engine is not None):
                 continue                      # a key the upstream key or the child's key replaces
             if key and key in v:
@@ -379,7 +418,7 @@ class Handler(BaseHTTPRequestHandler):
         return out
 
     def logline(self, status, t0, extra=""):
-        who = f"[{self.owner}] " if self.many and self.owner else ""
+        who = f"[{self.agent}] " if self.many and self.agent else ""
         path = urllib.parse.urlsplit(self.path).path
         if self.key and self.key in urllib.parse.unquote(path):
             path = "(a path that holds the key)"
@@ -390,7 +429,8 @@ class Handler(BaseHTTPRequestHandler):
     def handle_one(self):
         t0 = time.perf_counter()
         path = urllib.parse.urlsplit(self.path).path
-        self.owner = self._notes = self.key = None   # a kept-alive connection names its owner anew at every request
+        self.owner = self.agent = self._notes = self.key = None   # a kept-alive connection names its owner anew at
+        self.role = "write"                                       # every request
         try:
             if self.cfg.local_only and not loopback_host(self.headers.get("Host")):
                 # a page whose own name was pointed at 127.0.0.1 (DNS rebinding) is same-origin and sends no Origin;
@@ -420,7 +460,8 @@ class Handler(BaseHTTPRequestHandler):
                 extra = {"Retry-After": str(self.cfg.engine.retry_after())} if status == 503 else None
                 self.send_json(status, h, extra)
                 return self.logline(status, t0)
-            self.owner = self.server.who(self.headers)     # with many users: the key's owner, or a 401 here
+            self.agent = self.server.who(self.headers)     # with many users: the key's user, or a 401 here
+            self.owner, self.role = self.server.access(self.agent)   # whose notes the key opens, and what it may do
             if self.many:
                 self.key = bearer(self.headers.get("Authorization"))
                 if self.key in urllib.parse.unquote(self.path):
@@ -428,6 +469,9 @@ class Handler(BaseHTTPRequestHandler):
                                   "the URL goes on to the upstream")
             if path == "/v1/notes" or path.startswith("/v1/notes/"):
                 return self.notes_api(path, t0)
+            if self.role == "read":
+                # a key that reads notes never reaches the upstream: it may be held outside, and the model is not its
+                raise Refused("this key only reads notes: GET /v1/notes and POST /v1/notes/lookup", 403)
             if path.rstrip("/") == "/v1/slide/graph" and self.command in ("GET", "HEAD"):
                 if self.cfg.engine is None:
                     raise Refused("/v1/slide/graph is for --tensorfold", 404)
@@ -478,8 +522,14 @@ class Handler(BaseHTTPRequestHandler):
                 raise Refused("use GET on /v1/notes/erase-status", 405)
             if self.cfg.engine is None:
                 raise Refused("erase-status is for --tensorfold", 404)
+            if self.role == "read":
+                raise Refused("this key only reads notes: GET /v1/notes and POST /v1/notes/lookup", 403)
             self.send_json(200, self.cfg.engine.erase_status())
             return self.logline(200, t0)
+        if rest == "lookup":
+            if m != "POST":
+                raise Refused("use POST on /v1/notes/lookup, with the question in the body", 405)
+            return self.notes_lookup(t0)
         if m in ("GET", "HEAD"):
             if weights_for is not None:
                 raise Refused("use POST on /v1/notes/ID/weights; GET /v1/notes/ID lists the note, its in_weights "
@@ -493,6 +543,8 @@ class Handler(BaseHTTPRequestHandler):
                 self.send_json(200, {"object": "list", "owner": self.owner,
                                      "data": self.notes.listing(flag("history")), "history": flag("history")})
             return self.logline(200, t0)
+        if self.role == "read":
+            raise Refused("this key only reads notes: GET /v1/notes and POST /v1/notes/lookup", 403)
         _raw, v = self.json_body(NOTES_BODY_LIMIT)
         if v is not None and not isinstance(v, dict):
             raise Refused("the request body must be a JSON object")
@@ -538,18 +590,21 @@ class Handler(BaseHTTPRequestHandler):
             raise Refused("use GET or POST on /v1/notes, and GET or DELETE (erase) on /v1/notes/ID; this proxy does "
                           "not change or take back a note in place", 405)
         for k in v:
-            if k not in ("text", "subject"):
-                raise Refused(f"unknown field {k}; the fields here are text and subject")
+            if k not in ("text", "subject", "cite"):
+                raise Refused(f"unknown field {k}; the fields here are text, subject and cite")
         if "text" not in v:
             raise Refused("text is required: the note's sentence, as the user said it")
         if not isinstance(v["text"], str):
             raise Refused("text must be a string")
         if "subject" in v and not isinstance(v["subject"], str):
             raise Refused("subject must be a string")
+        if "cite" in v and not isinstance(v["cite"], str):
+            raise Refused("cite must be a string: where the note came from, such as a room message's id")
         held = self.engine_slot()
         try:
             try:
-                done = self.notes.write_text(v["text"], subject=v.get("subject"))
+                done = self.notes.write_text(v["text"], subject=v.get("subject"), cite=v.get("cite"),
+                                             by=self.agent if self.many else None)
             except StoreError as e:
                 raise Refused(str(e), e.status)
         finally:
@@ -558,6 +613,38 @@ class Handler(BaseHTTPRequestHandler):
         status = 201 if done["written"] else 200
         self.send_json(status, done)
         self.logline(status, t0, f" write {done['verdict']} [{done['id']}]")
+
+    def notes_lookup(self, t0):
+        """POST /v1/notes/lookup: the notes a question gets, without a chat and without the upstream. It is the chat
+        route's own lookup, for a client that does not send its requests through this proxy, such as a hosted model or
+        another proxy. Fields: question, and optionally cap, past and exclude, as notes_cap, notes_past and
+        notes_exclude on the chat route. It writes nothing, so a read-only key may use it."""
+        _raw, v = self.json_body(NOTES_BODY_LIMIT)
+        if not isinstance(v, dict):
+            raise Refused("the request body must be a JSON object")
+        for k in v:
+            if k not in ("question", "cap", "past", "exclude"):
+                raise Refused(f"unknown field {k}; the fields here are question, cap, past and exclude")
+        q = v.get("question")
+        if not isinstance(q, str) or not q.strip() or len(q) > QUERY_LIMIT:
+            raise Refused(f"question is required: a string of at most {QUERY_LIMIT} characters")
+        cap = v.get("cap")
+        if cap is not None and (not isinstance(cap, int) or isinstance(cap, bool) or not 1 <= cap < 2 ** 32):
+            raise Refused("cap must be a whole number of tokens, 1 or more")
+        past = _bool(v, "past")
+        x = v.get("exclude", [])
+        if not isinstance(x, list) or not all(isinstance(i, str) and 0 < len(i) <= 256 for i in x):
+            raise Refused("exclude must be a list of note ids, such as [\"w12\"], as GET /v1/notes lists them")
+        res = self.notes.lookup(q.strip(), cap=cap, past=past, exclude=tuple(x))
+        found = [self.notes.get(i) for i in res["note_ids"]]
+        self.send_json(200, {"object": "notes.lookup", "owner": self.owner, "block": res["block"],
+                             "ids": res["note_ids"], "tokens": res["tokens"], "cap": res["cap"],
+                             "past": res["past"], "candidates": res["candidates"],
+                             "notes_in_store": self.notes.count(),
+                             "notes": [{k: n[k] for k in ("id", "text", "subject", "by", "cite")}
+                                       for n in found if n is not None]})
+        self.logline(200, t0, f" lookup [{','.join(map(str, res['note_ids']))}] {res['tokens']} tokens of "
+                              f"{res['cap']}, {res['candidates']} candidates")
 
     # ------------------------------------------------------------------------------------------ /v1/slide
     def pocket_facts(self):
@@ -634,21 +721,37 @@ class Handler(BaseHTTPRequestHandler):
         msgs = body.get("messages") or []
         if not msgs or not isinstance(msgs[-1], dict) or msgs[-1].get("role") != "user":
             return {"skipped": "the last message is not the user's: only the user's own words are written"}, 0.0
-        t, why = gate.statement(last_user(msgs))
+        t, why = gate.statement(ask["query"] if ask["query"] is not None else last_user(msgs))
         if why:
             return {"skipped": why}, 0.0
         t0 = time.perf_counter()
         try:
-            done = self.notes.write_text(t)
+            done = self.notes.write_text(t, by=self.agent if self.many else None)
         except StoreError as e:
             return {"failed": str(e)}, (time.perf_counter() - t0) * 1e6
         return {"verdict": done["verdict"], "id": done["id"], "source": done["source"],
                 "demoted": done["demoted"]}, (time.perf_counter() - t0) * 1e6
 
+    def team_notes(self, block, question, ask):
+        """(the block with the team's notes after it, what the reply says about them). A team lookup that fails costs
+        this request its team notes only: the request goes on with the owner's own block."""
+        if self.cfg.team is None or not question.strip():
+            return block, None
+        try:
+            found = self.cfg.team.lookup(question, past=ask["past"])
+        except team.TeamError as e:
+            return block, {"failed": str(e)}
+        shared = {"ids": found["ids"], "tokens": found.get("tokens", 0)}
+        return "\n\n".join(b for b in (block, found["block"]) if b), shared
+
     def chat(self, t0):
         _raw, body = self.json_body(CHAT_BODY_LIMIT)
         if not isinstance(body, dict):
             raise Refused("the request body must be a JSON object")
+        hq = self.headers.get(QUERY_HEADER)
+        if hq is not None and "notes_query" not in body and not UNEXPANDED.match(hq.strip()):
+            # a header is one line, so the client percent-encodes the query; the body field wins when both are sent
+            body["notes_query"] = urllib.parse.unquote(hq)
         held = self.engine_slot()
         try:
             ask = asked(body)
@@ -659,28 +762,36 @@ class Handler(BaseHTTPRequestHandler):
                 msgs = body.get("messages")
                 if not isinstance(msgs, list) or not msgs:
                     raise Refused("messages must be a non-empty list")
-                question = last_user(msgs)
+                question = ask["query"] if ask["query"] is not None else last_user(msgs)
                 res = self.notes.lookup(question, cap=ask["cap"], past=ask["past"], exclude=ask["exclude"],
                                         auto_exclude=ask["in_weights"] is not True)
-                if res["block"]:
-                    fwd["messages"] = with_block(msgs, res["block"], self.cfg.join_system)
+                joint, shared = self.team_notes(res["block"], question, ask)
+                if joint:
+                    fwd["messages"] = with_block(msgs, joint, self.cfg.join_system, self.cfg.block_at)
                 total_us = (time.perf_counter() - t0) * 1e6
                 wrote, write_us = self.auto_write(ask, body)
                 used = {"ids": res["note_ids"], "numbers": res["ids"], "past": res["past"],
                         "past_from": "request" if ask["past"] is not None else "question", "language": "en",
+                        "question_from": "request" if ask["query"] is not None else "last user message",
                         "cap": res["cap"], "tokens": res["tokens"],
                         "candidates": res["candidates"], "notes_in_store": self.notes.count(),
                         "lookup_us": res["lookup_us"], "total_us": round(total_us, 1),
-                        "block_sha256": hashlib.sha256(res["block"].encode()).hexdigest() if res["block"] else None}
+                        "block_sha256": hashlib.sha256(joint.encode()).hexdigest() if joint else None}
                 if ask["echo"]:
-                    used["block"] = res["block"]
+                    used["block"] = joint
+                if shared is not None:
+                    used["team"] = shared
                 used["write"] = wrote
                 used["write_us"] = round(write_us, 1)
                 w = used["write"]
                 extra = (f" notes [{','.join(map(str, used['ids']))}] {used['tokens']} tokens of {used['cap']}, past "
                          f"{'yes' if used['past'] else 'no'}, {used['candidates']} candidates, lookup {used['lookup_us']}"
-                         f" us; write " + (f"{w['verdict']} [{w['id']}]" if "verdict" in w else
+                         f" us{', question from the request' if ask['query'] is not None else ''}; write "
+                         + (f"{w['verdict']} [{w['id']}]" if "verdict" in w else
                                            f"failed" if "failed" in w else f"skipped ({w['skipped']})"))
+                if shared is not None:
+                    extra += (f"; team failed ({shared['failed']})" if "failed" in shared else
+                              f"; team [{','.join(map(str, shared['ids']))}] {shared['tokens']} tokens")
                 if self.many:
                     for k in TIMES:          # the operator's log keeps them
                         del used[k]
@@ -875,6 +986,10 @@ class Proxy(ThreadingHTTPServer):
             raise Refused("the key is missing or unknown: send your own as Authorization: Bearer KEY", 401)
         return owner
 
+    def access(self, name):
+        """(the owner whose notes this user's key opens, the key's role). One owner's proxy has no keys to limit."""
+        return (name, "write") if self.users is None else self.users.access(name)
+
     def notes_of(self, owner):
         """The owner's Notes. With many users a store that cannot be opened is a short reply to its owner, and its
         cause goes to the operator's log only (it names the server's folders)."""
@@ -936,6 +1051,8 @@ def usage_error(args):
         return "--tokenizer is for --upstream; with --tensorfold the child tokenizes"
     if not tf and not getattr(args, "tokenizer", None):
         return "the following arguments are required: --tokenizer"
+    if bool(getattr(args, "team_url", None)) != bool(getattr(args, "team_key_file", None)):
+        return "--team-url and --team-key-file go together"
     if tf and many and not args.share_upstream_cache:
         return "--tensorfold with many users shares TensorFold's prompt cache: pass --share-upstream-cache to allow it, or run one proxy per owner"
     if tf and many and any(t.split("=", 1)[0].startswith("--slide") for t in (args.tensorfold_arg or ())):
@@ -972,6 +1089,13 @@ def build(args, log=None):
     if not isinstance(config, dict):
         raise SystemExit("--notes-config is a JSON object of notes.py settings")
     config["cap"] = args.cap
+    shared = None
+    if args.team_url:
+        try:
+            shared = team.Team(args.team_url, team.read_key(args.team_key_file), cap=args.team_cap,
+                               timeout=args.team_timeout)
+        except team.TeamError as e:
+            raise SystemExit(f"notes-proxy: {e}")
     engine = notes = None
     try:
         if args.tensorfold:
@@ -998,7 +1122,8 @@ def build(args, log=None):
             notes = Notes(args.store, args.owner, tok, config=config, **head)
         cfg = Config(args.upstream, args.owner, write=args.write, join_system=args.join_system, timeout=args.timeout,
                      allow_origins=args.allow_origin or (), local_only=not args.allow_remote, log=log,
-                     upstream_key=upstream_key, isolate_cache=many and not args.share_upstream_cache, engine=engine)
+                     upstream_key=upstream_key, isolate_cache=many and not args.share_upstream_cache, engine=engine,
+                     block_at=args.block_at, team=shared)
         return Proxy((args.host, args.port), cfg, notes, who), notes
     except BaseException:
         if notes is not None:
@@ -1042,6 +1167,16 @@ def parser():
     p.add_argument("--framing", choices=("quoted", "firm"), default="quoted",
                    help="the block's first paragraph: quoted, notes.py's own (the default), or firm, which also says a "
                         "note is right when it disagrees with what the model remembers")
+    p.add_argument("--block-at", choices=("start", "last-user"), default="start",
+                   help="where the block goes: the start of the prompt (the default), or the start of the last user "
+                        "message, which keeps the server's prompt cache for everything before it")
+    p.add_argument("--team-url", default=None, metavar="URL",
+                   help="a team proxy to ask for each question's notes, added after the owner's own (off)")
+    p.add_argument("--team-key-file", default=None, metavar="FILE",
+                   help="the file holding this proxy's key for --team-url, readable by this account only")
+    p.add_argument("--team-cap", type=int, default=256, help="the team notes' token cap (default 256)")
+    p.add_argument("--team-timeout", type=float, default=2.0, metavar="S",
+                   help="seconds to wait for the team proxy before going on without its notes (default 2)")
     p.add_argument("--write", action="store_true", help="write notes from the user's own chat statements (off)")
     p.add_argument("--join-system", action="store_true",
                    help="join the block and the client's leading system messages into one system message")
@@ -1075,9 +1210,14 @@ def add_user_main(argv):
                    help="the folder the proxy keeps the notes in: a name whose notes are still there is refused")
     p.add_argument("--reuse-notes", action="store_true",
                    help="give the new key the notes kept under this name (the same person, with a new key)")
+    p.add_argument("--shares", metavar="STORE", help="the key opens this store, shared with its other users, rather "
+                                                     "than one of the user's own")
+    p.add_argument("--read-only", action="store_true",
+                   help="the key can list notes and look them up, and nothing else: no writes, no erases, no upstream")
     a = p.parse_args(argv)
     try:
-        key = users.add_user(a.users, a.owner, store_dir=a.store_dir, reuse_notes=a.reuse_notes)
+        key = users.add_user(a.users, a.owner, store_dir=a.store_dir, reuse_notes=a.reuse_notes, shares=a.shares,
+                             role="read" if a.read_only else "write")
     except users.UsersError as e:
         raise SystemExit(f"notes-proxy: {e}")
     print(f"notes-proxy: added {a.owner} to {a.users}. Their key is on the next line. It is shown only this once: the "
@@ -1124,6 +1264,8 @@ def main(argv=None):
         return add_user_main(argv[1:])
     if argv[:1] == ["remove-user"]:
         return remove_user_main(argv[1:])
+    if argv[:1] == ["prefill"]:
+        return prefill.main(argv[1:])
     p = parser()
     args = p.parse_args(argv)
     err = usage_error(args)

@@ -8,6 +8,13 @@ once, at start, and refuses one that another account could change.
   python -m notes_proxy add-user --users users.json --owner alice --store-dir ~/notes [--reuse-notes]
   python -m notes_proxy remove-user --users users.json --owner alice --keep-notes [--store-dir ~/notes]
   python -m notes_proxy remove-user --users users.json --owner alice --erase-notes --store-dir ~/notes
+
+A team shares one store: every member has a key of their own, and `--shares team` makes that key open team.jsonl
+instead of a store of the member's. Each write records the member whose key made it. `--read-only` makes a key that can
+list notes and look them up, and can do nothing else: no writes, no erases and no use of the upstream model.
+
+  python -m notes_proxy add-user --users users.json --owner hermes --store-dir ~/notes --shares team
+  python -m notes_proxy add-user --users users.json --owner cloud --store-dir ~/notes --shares team --read-only
 """
 import contextlib
 import datetime
@@ -30,6 +37,7 @@ SHA256 = re.compile(r"[0-9a-f]{64}")
 DIR_LOCK = ".notes-proxy.lock"     # held by the proxy that serves a store folder (no owner name starts with a dot)
 FILES_PER_OWNER = 2                # an opened owner holds their journal's lock file and its append fd until the stop
 FILES_SPARE = 64                   # the proxy's own files and sockets
+ROLES = ("write", "read")          # what a key may do: everything its store allows, or list and look up only
 
 
 class UsersError(Exception):
@@ -92,6 +100,9 @@ def _read(path, private=False):
         if h in seen:
             raise UsersError(f"two users in {path} have the same key")
         seen.add(h)
+        check_name(u.get("store", name))
+        if u.get("role", "write") not in ROLES:
+            raise UsersError(f"the user {name} in {path} has an unknown role: a role is write or read")
     return data
 
 
@@ -131,11 +142,17 @@ def _write(path, data):
         raise UsersError(f"the users file {path} was written, but its folder could not be synced ({e.strerror})")
 
 
-def add_user(path, owner, store_dir=None, reuse_notes=False):
+def add_user(path, owner, store_dir=None, reuse_notes=False, shares=None, role="write"):
     """A new user with a new key. Returns the key, which is kept nowhere: show it once. With `store_dir`, a name whose
     journal is still in that folder (an earlier user's, kept by remove_user) is refused unless `reuse_notes` says it
-    is the same person, so a new person never reads someone else's notes by accident."""
+    is the same person, so a new person never reads someone else's notes by accident. With `shares`, the key opens
+    that store rather than one of the user's own, so the check does not apply: joining a team is the point. `role`
+    "read" makes a key that can only list notes and look them up."""
     check_name(owner)
+    if shares is not None:
+        check_name(shares)
+    if role not in ROLES:
+        raise UsersError("a role is write or read")
     path = os.path.abspath(path)
     with _locked(path):
         data = _read(path) if os.path.exists(path) else {"format": USERS_FORMAT, "users": {}}
@@ -147,12 +164,16 @@ def add_user(path, owner, store_dir=None, reuse_notes=False):
                 raise UsersError(f"no store folder at {d}: make it first (mkdir -p {d}), or name the folder the proxy "
                                  f"serves")
             j = journal_path(d, owner)
-            if os.path.lexists(j) and not reuse_notes:
+            if shares in (None, owner) and os.path.lexists(j) and not reuse_notes:
                 raise UsersError(f"{j} already holds notes of an earlier user named {owner}, and a new {owner} would "
                                  f"read them. If this is the same person, add them with --reuse-notes. If not, "
                                  f"choose another name, or delete that file and {owner}.jsonl.lock first")
         key = secrets.token_urlsafe(32)
         data["users"][owner] = {"sha256": digest(key), "added": datetime.date.today().isoformat()}
+        if shares not in (None, owner):
+            data["users"][owner]["store"] = shares
+        if role != "write":
+            data["users"][owner]["role"] = role
         _write(path, data)
     return key
 
@@ -233,13 +254,19 @@ class Users:
 
     def __init__(self, path):
         self.path = os.path.abspath(path)
-        self.hashes = [(n, u["sha256"].encode()) for n, u in _read(self.path, private=True)["users"].items()]
+        data = _read(self.path, private=True)["users"]
+        self.hashes = [(n, u["sha256"].encode()) for n, u in data.items()]
+        self.rights = {n: (u.get("store", n), u.get("role", "write")) for n, u in data.items()}
 
     def __len__(self):
         return len(self.hashes)
 
     def names(self):
         return sorted(n for n, _ in self.hashes)
+
+    def access(self, name):
+        """(the store this user's key opens, its role)."""
+        return self.rights[name]
 
     def who(self, key):
         """The owner whose key this is, or None. The key's hash is compared with every user's, each in constant time,

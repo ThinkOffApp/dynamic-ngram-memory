@@ -5,6 +5,7 @@ import os
 import time
 import unittest
 import unittest.mock
+import urllib.parse
 
 from notes_proxy import proxy
 from notes_proxy.store import nm, note_id
@@ -346,6 +347,53 @@ class E2E(unittest.TestCase):
         self.assertEqual(w3["verdict"], "REPLACES")
         cur = [x["text"] for x in p.json("GET", "/v1/notes")[1]["data"]]
         self.assertNotIn("My favourite colour is teal.", cur)
+
+    def test_notes_query_takes_the_question_from_the_request(self):
+        """A room agent's last user message is a long wrapper: its words match every note, it reads as a question
+        about the past and it is never written. notes_query carries the bare message for the lookup and the write."""
+        p = self.proxy(self.tmp.file("e2e-query.jsonl"), extra=["--write"])
+        u = lambda t: {"role": "user", "content": t}
+        post = lambda msgs, **kw: p.json("POST", "/v1/chat/completions", dict({"model": "m", "messages": msgs}, **kw))
+        wrap = lambda q: ("room-poller: these messages arrived in the room since your last turn, before you replied.\n"
+                          "claudeMB: the rack was hot earlier and the mail server was moved yesterday.\n"
+                          f"petrus: {q}\nReply only if it is for you.")
+        # the wrapper alone: never written
+        self.assertIn("skipped", post([u(wrap("My sister Valpuri drives a red Volvo."))])[1]["notes"]["write"])
+        # the same wrapper with the bare message as the query: written
+        car = post([u(wrap("My sister Valpuri drives a red Volvo."))],
+                   notes_query="My sister Valpuri drives a red Volvo.")[1]["notes"]["write"]
+        self.assertEqual(car["verdict"], "NEW")
+        teal = post([u(wrap("My favourite colour is teal."))],
+                    notes_query="My favourite colour is teal.")[1]["notes"]["write"]
+        self.assertEqual(teal["verdict"], "NEW")
+        # each question through the same wrapper finds its note, read as a question about now. (Two notes both fit
+        # the cap, so both come back either way: the lookup ranks within the cap rather than filtering a small store.)
+        a = post([u(wrap("What car does Valpuri drive?"))], notes_query="What car does Valpuri drive?")[1]["notes"]
+        b = post([u(wrap("What colour do I like?"))], notes_query="What colour do I like?")[1]["notes"]
+        self.assertEqual((a["question_from"], b["question_from"]), ("request", "request"))
+        self.assertIn(car["id"], a["ids"])
+        self.assertIn(teal["id"], b["ids"])
+        self.assertFalse(a["past"])
+        self.assertFalse(b["past"])
+        self.assertNotIn("notes_query", self.stub.last_body())               # never reaches the upstream
+        # control: without the field the wrapper is the question, and its "earlier"/"yesterday" read as the past
+        c = post([u(wrap("What car does Valpuri drive?"))])[1]["notes"]
+        self.assertEqual(c["question_from"], "last user message")
+        self.assertTrue(c["past"])
+        # blank falls back to the last user message; a wrong type or "notes": false with a query is a 400
+        self.assertEqual(post([u("What car does Valpuri drive?")], notes_query="  ")[1]["notes"]["question_from"],
+                         "last user message")
+        self.assertEqual(post([u("x")], notes_query=5)[0], 400)
+        self.assertEqual(post([u("x")], notes=False, notes_query="x")[0], 400)
+        # the same as a header, percent-encoded, for a client that can set headers but not body fields
+        hp = lambda q, h: p.json("POST", "/v1/chat/completions", {"model": "m", "messages": [u(wrap(q))]},
+                                 headers={"X-Notes-Query": h})[1]["notes"]
+        h = hp("What car does Valpuri drive?", urllib.parse.quote("What car does Valpuri drive?"))
+        self.assertEqual(h["question_from"], "request")
+        self.assertIn(car["id"], h["ids"])
+        self.assertFalse(h["past"])
+        self.assertNotIn("x-notes-query", {k.lower() for k in self.stub.requests[-1]["headers"]})   # not forwarded
+        self.assertEqual(hp("What car does Valpuri drive?", "${NOTES_QUERY}")["question_from"], "last user message")
 
     def test_write_mode_off_by_default(self):
         p = self.proxy(self.tmp.file("e2e-nowrite.jsonl"))
