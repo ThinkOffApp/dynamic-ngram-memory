@@ -328,7 +328,10 @@ class Handler(BaseHTTPRequestHandler):
 
     def send_error_json(self, status, message, extra=None):
         kind = "invalid_request_error" if 400 <= status < 500 else "server_error"
-        self.send_json(status, {"error": {"message": message, "type": kind, "code": status}}, extra)
+        try:
+            self.send_json(status, {"error": {"message": message, "type": kind, "code": status}}, extra)
+        except (BrokenPipeError, ConnectionResetError):
+            self.close_connection = True      # the client left first: this runs inside an except, so nothing else would
 
     def isolated(self, body):
         """With many users, a request body for the upstream that names no other user's state there. A field that

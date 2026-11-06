@@ -29,6 +29,16 @@ def sent(stub):
     return stub.last_body()["messages"]
 
 
+def logged(p, text, timeout=5.0):
+    """Whether the proxy logged `text`. It logs a request after the reply has gone, so a test waits for the line."""
+    end = time.time() + timeout
+    while time.time() < end:
+        if any(text in x for x in p.logs):
+            return True
+        time.sleep(0.01)
+    return False
+
+
 class TeamCase(unittest.TestCase):
     def setUp(self):
         self.tmp = H.TempDir()
@@ -72,6 +82,36 @@ class SharedStore(TeamCase):
         self.assertIsNone(v["data"][0]["cite"])
         self.assertFalse(os.path.exists(os.path.join(self.stores, "hermes.jsonl")))
         print(f"[test_team] 3 keys, 1 store: 2 notes, each naming the key that wrote it")
+
+    def test_members_writing_at_once_lose_nothing_and_keep_their_names(self):
+        who, each = ("hermes", "deep", "nemotron"), 25
+        self.keys["nemotron"] = users.add_user(self.users, "nemotron", store_dir=self.stores, shares="team")
+        self.serve()
+        start, errors = threading.Barrier(len(who)), []
+
+        def work(name):
+            start.wait()
+            for i in range(each):
+                st = self.write(name, f"The {name} agent keeps shelf record {i} in the rack log.")[0]
+                found = self.p.json("POST", "/v1/notes/lookup", {"question": QUESTION}, auth(self.keys[name]))[0]
+                if (st, found) != (201, 200):
+                    errors.append((name, i, st, found))
+
+        threads = [threading.Thread(target=work, args=(name,)) for name in who]
+        for t in threads:
+            t.start()
+        for t in threads:
+            t.join()
+        self.assertEqual(errors, [])
+        want = {(f"The {name} agent keeps shelf record {i} in the rack log.", name) for name in who for i in range(each)}
+        for restart in (False, True):
+            if restart:
+                self.p.stop()
+                self.serve()
+            data = self.p.json("GET", "/v1/notes", headers=auth(self.keys["cloud"]))[1]["data"]
+            self.assertEqual({(n["text"], n["by"]) for n in data}, want)
+            self.assertEqual(len({n["id"] for n in data}), len(want))
+        print(f"[test_team] {len(who)} keys writing at once: {len(want)} notes, none lost, each with its author")
 
     def test_credits_survive_a_restart_and_leave_with_an_erase(self):
         self.serve()
@@ -265,7 +305,7 @@ class AgentProxy(TeamCase):
         self.assertLess(block.index("Builds never run"), block.index(FACT))
         self.assertTrue(v["notes"]["team"]["ids"])
         self.assertGreater(v["notes"]["team"]["tokens"], 0)
-        self.assertTrue(any("; team [" in x for x in a.logs))
+        self.assertTrue(logged(a, "; team ["))
         self.assertEqual(len(self.stub.requests), 0)       # the team proxy's own upstream played no part
 
     def test_only_team_notes(self):
@@ -391,6 +431,19 @@ class AgentProxy(TeamCase):
         args = proxy.parser().parse_args(["--upstream", self.model.url, "--owner", "o", "--store", "s", "--tokenizer",
                                           H.tokenizer_spec(), "--team-url", "http://x:1"])
         self.assertIn("--team-key-file", proxy.usage_error(args))
+
+
+class ErrorReply(unittest.TestCase):
+    def test_a_client_that_left_before_its_error_reply_costs_no_traceback(self):
+        h = proxy.Handler.__new__(proxy.Handler)
+        h.close_connection = False
+
+        def gone(*a):
+            raise BrokenPipeError(32, "Broken pipe")
+
+        h.send_json = gone
+        h.send_error_json(401, "no key")
+        self.assertTrue(h.close_connection)
 
 
 class BlockPlace(unittest.TestCase):
